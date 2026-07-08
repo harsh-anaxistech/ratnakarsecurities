@@ -10,11 +10,11 @@
   /* Brand Colors */
   --color-primary: #ea2830;
   --color-primary-dark: #c41f26;
-  --color-primary-light: #ff4d54;
+  --color-primary-light: #ea28301f;
 
   --color-secondary: #00aeee;
   --color-secondary-dark: #0090c8;
-  --color-secondary-light: #33c2f5;
+  --color-secondary-light: #00aeed1f;
 
   /* Dark Brand Colors */
   --color-light-blue: #012e54;
@@ -43,11 +43,11 @@
 :root {
   --primary: #ea2830;
   --primary-dark: #c41f26;
-  --primary-light: #ff4d54;
+  --primary-light: #ea28301f;
 
   --secondary: #00aeee;
   --secondary-dark: #0090c8;
-  --secondary-light: #33c2f5;
+  --secondary-light: #00aeed1f;
 
   /* Dark Brand Colors */
   --light-blue: #012e54;

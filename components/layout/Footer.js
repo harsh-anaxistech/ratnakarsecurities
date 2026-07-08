@@ -7,7 +7,7 @@ import Container from "@/components/common/Container";
 
 const TAB_CONTENT = {
   "ATTENTION INVESTORS": (
-    <ul className="list-disc pl-5 space-y-2 text-sm text-muted ">
+    <ul className="list-disc pl-5 space-y-2 text-base text-muted ">
       <li>
         Stock Brokers can accept securities as margin from clients only by way
         of pledge in the depository system w.e.f. September 1, 2020.
@@ -35,7 +35,7 @@ const TAB_CONTENT = {
     </ul>
   ),
   KYC: (
-    <p className="text-muted text-sm ">
+    <p className="text-muted text-base ">
       "KYC is one time exercise while dealing in securities markets - once KYC
       is done through a SEBI registered intermediary (Broker, DP, Mutual Fund
       etc.), you need not undergo the same process again when you approach
@@ -43,7 +43,7 @@ const TAB_CONTENT = {
     </p>
   ),
   IPO: (
-    <p className="text-muted text-sm ">
+    <p className="text-muted text-base ">
       "No need to issue cheques by investors while subscribing to IPO. Just
       write the bank account number and sign in the application form to
       authorise your bank to make payment in case of allotment. No worries for
@@ -51,7 +51,7 @@ const TAB_CONTENT = {
     </p>
   ),
   "IBT TRADING": (
-    <p className="text-muted text-sm ">
+    <p className="text-muted text-base ">
       "The Stock Exchange, Mumbai is not in any manner answerable, responsible
       or liable to any person or persons for any acts of omission or commission,
       errors, mistakes and/or violation, actual or perceived, by us or our
@@ -63,7 +63,7 @@ const TAB_CONTENT = {
     </p>
   ),
   "KYC & KRA STATUS AWARENESS": (
-    <p className="text-muted text-sm ">
+    <p className="text-muted text-base ">
       "Kindly monitor your KYC & KRA status on an ongoing basis. Ensure your
       registered details match across all regulatory platforms to maintain
       seamless operational capability across your trading and demat accounts."
@@ -83,11 +83,11 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-muted text-sm text-muted border-t border-gray-100">
+    <footer className="w-full bg-muted text-base text-muted border-t border-gray-100">
       {/* 1. Top Informational Header */}
       <div className="w-full bg-white py-3 ">
         <Container>
-          <div className="flex flex-wrap items-center justify-between gap-4 text-sm">
+          <div className="flex flex-wrap items-center justify-between gap-4 text-base">
             <Link
               href="/faqs"
               className="group flex items-center gap-3 transition-colors duration-300"
@@ -139,7 +139,7 @@ export default function Footer() {
       <div className=" bg-light-blue pt-8 pb-12">
         <Container>
           <div className=" mb-6">
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-4 text-sm select-none">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-4 text-base select-none">
               {tabs.map((tab, idx) => (
                 <div key={tab} className="flex items-center gap-x-2">
                   <button
@@ -163,8 +163,8 @@ export default function Footer() {
             <div>{TAB_CONTENT[activeTab]}</div>
           </div>
 
-          <div className="border-b border-gray-200 pb-6 mb-8 text-sm  text-muted">
-            <h3 className="text-secondary text-sm uppercase mb-2 ">
+          <div className="border-b border-gray-200 pb-6 mb-8 text-base  text-muted">
+            <h3 className="text-secondary text-base uppercase mb-2 ">
               Investor Charter
             </h3>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-muted">
@@ -247,9 +247,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-base">
             <div>
-              <h4 className="text-secondary  text-sm tracking-wider uppercase mb-4">
+              <h4 className="text-secondary  text-base tracking-wider uppercase mb-4">
                 Products
               </h4>
               <ul className="space-y-2 text-muted">
@@ -275,7 +275,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-secondary  text-sm tracking-wider uppercase mb-4">
+              <h4 className="text-secondary  text-base tracking-wider uppercase mb-4">
                 About Us
               </h4>
               <ul className="space-y-2 text-muted">
@@ -293,7 +293,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-secondary  text-sm tracking-wider uppercase mb-4">
+              <h4 className="text-secondary  text-base tracking-wider uppercase mb-4">
                 Usefull Links
               </h4>
               <ul className="space-y-2 text-muted">
@@ -321,7 +321,7 @@ export default function Footer() {
 
             <div className="text-muted space-y-4">
               <div>
-                <h4 className="text-secondary  text-sm uppercase mb-1">
+                <h4 className="text-secondary  text-base uppercase mb-1">
                   Cameo Corporate Services Limited
                 </h4>
                 <p>#1, Subramanian Building,</p>
@@ -329,7 +329,7 @@ export default function Footer() {
                 <p>Contact No : 044-40020731</p>
               </div>
 
-              <div className="flex flex-wrap gap-x-2 gap-y-1 text-sm text-muted">
+              <div className="flex flex-wrap gap-x-2 gap-y-1 text-base text-muted">
                 <Link
                   href="/privacy"
                   className="hover:underline hover:text-secondary"
@@ -407,7 +407,7 @@ export default function Footer() {
                   </span>{" "}
                   investorgrievance@ratnakarsecurities.com
                 </p>
-                <p className="text-gray-500">
+                <p className="text-muted">
                   Online Dispute Resolution Portal - SMART ODR
                 </p>
               </div>
@@ -446,7 +446,7 @@ export default function Footer() {
         </Container>
       </div>
 
-      <div className="w-full bg-dark-navy py-4  text-sm text-muted">
+      <div className="w-full bg-dark-navy py-4  text-base text-muted">
         <Container>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
             <p>© 2026 Ratnakar Securities Limited. All rights reserved.</p>

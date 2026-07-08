@@ -40,8 +40,8 @@ export default function Button({
   };
 
   const sizes = {
-    sm: "text-sm px-4 py-2 h-9",
-    md: "text-sm px-6 py-2.5 h-11",
+    sm: "text-base px-4 py-2 h-9",
+    md: "text-base px-6 py-2.5 h-11",
     lg: "text-base px-8 py-3 h-13",
   };
 

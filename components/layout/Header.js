@@ -204,7 +204,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "flex h-20 items-center text-sm px-6 uppercase transition-all",
+                        "flex h-20 items-center text-base px-6 uppercase transition-all",
                         isActive
                           ? "bg-primary text-white"
                           : "text-foreground hover:bg-primary hover:text-white",
@@ -221,7 +221,7 @@ export default function Header() {
                               <Link
                                 key={link.href}
                                 href={link.href}
-                                className="block text-sm uppercase text-md transition hover:translate-x-1"
+                                className="block text-base uppercase text-md transition hover:translate-x-1"
                               >
                                 {link.label}
                               </Link>
@@ -237,7 +237,7 @@ export default function Header() {
                           <Link
                             key={link.href}
                             href={link.href}
-                            className="block text-sm px-5 py-2 uppercase text-md transition hover:translate-x-1 text-white"
+                            className="block text-base px-5 py-2 uppercase text-md transition hover:translate-x-1 text-white"
                           >
                             {link.label}
                           </Link>
@@ -277,7 +277,7 @@ export default function Header() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-5 py-2 uppercase text-sm transition hover:translate-x-1 text-white"
+                      className="block px-5 py-2 uppercase text-base transition hover:translate-x-1 text-white"
                     >
                       {link.label}
                     </Link>
