@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+/* =====================================================
+   Tailwind v4 Theme – Brand Color tokens
+   ===================================================== */
+@theme {
+  /* Fonts */
+  --font-sans: var(--font-Poppins), system-ui, -apple-system, sans-serif;
+
+  /* Brand Colors */
+  --color-primary: #ea2830;
+  --color-primary-dark: #c41f26;
+  --color-primary-light: #ff4d54;
+
+  --color-secondary: #00aeee;
+  --color-secondary-dark: #0090c8;
+  --color-secondary-light: #33c2f5;
+
+  /* Dark Brand Colors */
+  --color-light-blue: #012e54;
+  --color-dark-blue: #012441;
+  --color-dark-navy: #011628;
+
+  /* UI Neutrals */
+  --color-background: #ffffff;
+  --color-foreground: #111827;
+  --color-muted: #f3f4f6;
+  --color-muted-foreground: #6b7280;
+  --color-border: #e5e7eb;
+  --color-card: #ffffff;
+  --color-card-foreground: #111827;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #0ea5e9;
+}
+
+/* =====================================================
+   CSS Custom Properties
+   ===================================================== */
+:root {
+  --primary: #ea2830;
+  --primary-dark: #c41f26;
+  --primary-light: #ff4d54;
+
+  --secondary: #00aeee;
+  --secondary-dark: #0090c8;
+  --secondary-light: #33c2f5;
+
+  /* Dark Brand Colors */
+  --light-blue: #012e54;
+  --dark-blue: #012441;
+  --dark-navy: #011628;
+
+  --background: #ffffff;
+  --foreground: #111827;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
+
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #0ea5e9;
+
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* =====================================================
+   Base Styles
+   ===================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #111827;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =====================================================
+   Skeleton Shimmer Animation
+   ===================================================== */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e9ecef 50%, #f3f4f6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* =====================================================
+   Fade-in & slide animations
+   ===================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+/* =====================================================
+   Scrollbar
+   ===================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+::-webkit-scrollbar-thumb {
+  background: #ea2830;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c41f26;
+}
+
+/* =====================================================
+   Focus styles
+   ===================================================== */
+:focus-visible {
+  outline: 2px solid #ea2830;
+  outline-offset: 2px;
+  border-radius: 0.375rem;
+}
+
+/* =====================================================
+   Selection
+   ===================================================== */
+::selection {
+  background: #ea2830;
+  color: #ffffff;
+}
