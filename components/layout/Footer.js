@@ -249,7 +249,7 @@ export default function Footer() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-base">
             <div>
-              <h4 className="text-secondary  text-base tracking-wider uppercase mb-4">
+              <h4 className="text-secondary  text-base  uppercase mb-4">
                 Products
               </h4>
               <ul className="space-y-2 text-muted">
@@ -275,7 +275,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-secondary  text-base tracking-wider uppercase mb-4">
+              <h4 className="text-secondary  text-base  uppercase mb-4">
                 About Us
               </h4>
               <ul className="space-y-2 text-muted">
@@ -293,7 +293,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-secondary  text-base tracking-wider uppercase mb-4">
+              <h4 className="text-secondary  text-base  uppercase mb-4">
                 Usefull Links
               </h4>
               <ul className="space-y-2 text-muted">

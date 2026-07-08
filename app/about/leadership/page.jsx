@@ -1,5 +1,13 @@
 import React from "react";
 import Container from "@/components/common/Container";
+import { generatePageMetadata } from "@/constants/metadata";
+
+export const metadata = generatePageMetadata({
+  title: "Leadership :: Ratnakar Securities Limited.",
+  description:
+    "Invest with confidence. Ratnakar Securities offers equity trading, derivatives, mutual funds, IPO, bonds, and portfolio management. SEBI-registered since 1995.",
+  path: "/",
+});
 
 export default function AboutOverview() {
   const services = [
@@ -45,12 +53,12 @@ export default function AboutOverview() {
           {/* Banner Hero Section */}
           <div className="relative h-64 md:h-80 w-full rounded-sm overflow-hidden  flex items-center p-8 md:p-12 ">
             <div className="absolute inset-0  to-transparent z-10" />
-          <div
-            className="absolute inset-0 bg-cover"
-            style={{
-              backgroundImage: "url('/images/about/LEADER-Ratnakarsec.jpg')",
-            }}
-          />
+            <div
+              className="absolute inset-0 bg-cover"
+              style={{
+                backgroundImage: "url('/images/about/LEADER-Ratnakarsec.jpg')",
+              }}
+            />
 
             <div className="relative z-20  border-l-4 border-primary pl-4">
               <h1 className="text-white text-2xl md:text-4xl font-medium ">
@@ -63,7 +71,7 @@ export default function AboutOverview() {
 
           {/* Overview Introduction */}
           <div className="space-y-4">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground uppercase">
+            <h2 className="text-2xl md:text-3xl font-bold  text-foreground ">
               Leadership
             </h2>
           </div>
@@ -112,7 +120,12 @@ export default function AboutOverview() {
 
         {/* Sidebar - Services We Offer */}
         <div className="lg:col-span-1">
-          <div className="bg-foreground text-white rounded-sm p-6  sticky top-6">
+          <div
+            className="bg-cover text-white rounded-sm p-6  sticky top-6"
+            style={{
+              backgroundImage: "url('/images/about/AboutPsBg.jpg')",
+            }}
+          >
             <div className="mb-6">
               <p className="text-muted  text-base   mb-1">Services</p>
               <h3 className="text-white text-3xl md:text-4xl font-medium border-b border-border pb-3">
@@ -126,7 +139,7 @@ export default function AboutOverview() {
                     href="#"
                     className="flex items-center gap-3 py-1.5 text-muted font-medium text-sm hover:text-secondary transition-colors"
                   >
-                    <span className="text-primary text-xs transition-transform group-hover:translate-x-1">
+                    <span className="text-secondary text-xs transition-transform group-hover:translate-x-1">
                       ▶
                     </span>
                     {service}

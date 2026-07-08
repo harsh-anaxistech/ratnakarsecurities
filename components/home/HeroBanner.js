@@ -33,7 +33,7 @@ export default function HeroBanner() {
       />
       <Container className="relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1] ">
             Boost Your Income Today{" "}
             <span
               className="relative"
