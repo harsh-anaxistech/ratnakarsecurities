@@ -1,5 +1,6 @@
 import HeroBanner from "@/components/home/HeroBanner";
 import Features from "@/components/home/Features";
+import Calculator from "@/components/home/Calculator";
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
@@ -14,6 +15,7 @@ export default function HomePage() {
     <div>
       <HeroBanner />
       <Features />
+      <Calculator />
     </div>
   );
 }

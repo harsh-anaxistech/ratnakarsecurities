@@ -5,13 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import {
-  Menu,
-  X,
   BarChart3,
   Smartphone,
   Download,
   HelpCircle,
   Handshake,
+  ChevronDown,
+  ExternalLink,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Container from "@/components/common/Container";
@@ -36,7 +36,8 @@ const NAV_LINKS = [
         { label: "Bonds", href: "/products/bonds" },
         {
           label: "Narnolia Investment Advisory Portfolios",
-          href: "/products/narnolia-investment-advisory-portfolios",
+          href: "https://ratnakarsecurities.narnolia.in/",
+          external: true,
         },
       ],
     ],
@@ -119,9 +120,33 @@ const LOGIN_LINKS = [
   { label: "Narnolia Investment Advisory Portfolio", href: "/login/advisory" },
 ];
 
+function NavLink({ link, className, children, onClick }) {
+  if (link.external) {
+    return (
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        onClick={onClick}
+      >
+        {children}
+        <ExternalLink className="inline-block ml-1.5 h-3.5 w-3.5 opacity-60" />
+      </a>
+    );
+  }
+  return (
+    <Link href={link.href} className={className} onClick={onClick}>
+      {children}
+    </Link>
+  );
+}
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openAccordion, setOpenAccordion] = useState(null);
+  const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -132,6 +157,8 @@ export default function Header() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setOpenAccordion(null);
+    setMobileLoginOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -149,19 +176,28 @@ export default function Header() {
     { icon: Handshake, href: "#", label: "Partner" },
   ];
 
+  const hasSubmenu = (item) => item.columns || item.dropdown;
+
+  const getSubLinks = (item) => {
+    if (item.dropdown) return item.dropdown;
+    if (item.columns) return item.columns.flat();
+    return [];
+  };
+
   return (
     <>
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled
-            ? "border-b border-gray-200 bg-white shadow-md  backdrop-blur-md"
+            ? "border-b border-gray-200 bg-white shadow-md backdrop-blur-md"
             : "border-b border-gray-200 bg-white",
         )}
       >
+        {/* Top bar: Desktop only */}
         <div
           className={cn(
-            "w-full border-b border-gray-100 bg-muted transition-all duration-300 ease-in-out",
+            "w-full border-b border-gray-100 bg-muted transition-all duration-300 ease-in-out hidden lg:block",
             scrolled ? "h-0 opacity-0 pointer-events-none" : "h-12 opacity-100",
           )}
         >
@@ -201,6 +237,7 @@ export default function Header() {
               />
             </Link>
 
+            {/* Desktop Navigation */}
             <nav className="hidden h-full lg:flex items-center">
               {NAV_LINKS.map((item) => {
                 const isActive =
@@ -213,7 +250,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       className={cn(
-                        "flex h-20 items-center text-base px-6 uppercase transition-all",
+                        "flex h-20 items-center text-base px-6 uppercase transition-all ",
                         isActive
                           ? "bg-primary text-white"
                           : "text-foreground hover:bg-primary hover:text-white",
@@ -227,13 +264,13 @@ export default function Header() {
                         {item.columns.map((column, i) => (
                           <div key={i} className="space-y-3">
                             {column.map((link) => (
-                              <Link
+                              <NavLink
                                 key={link.href}
-                                href={link.href}
-                                className="block text-base uppercase text-md transition hover:translate-x-1"
+                                link={link}
+                                className="block text-base uppercase transition hover:translate-x-1 "
                               >
                                 {link.label}
-                              </Link>
+                              </NavLink>
                             ))}
                           </div>
                         ))}
@@ -243,13 +280,13 @@ export default function Header() {
                     {item.dropdown && (
                       <div className="absolute left-0 top-full z-50 hidden w-64 bg-primary group-hover:block">
                         {item.dropdown.map((link) => (
-                          <Link
+                          <NavLink
                             key={link.href}
-                            href={link.href}
-                            className="block text-base px-5 py-2 uppercase text-md transition hover:translate-x-1 text-white"
+                            link={link}
+                            className="block text-base px-5 py-2 uppercase transition hover:translate-x-1 text-white "
                           >
                             {link.label}
-                          </Link>
+                          </NavLink>
                         ))}
                       </div>
                     )}
@@ -258,13 +295,14 @@ export default function Header() {
               })}
             </nav>
 
+            {/* Desktop Action Buttons */}
             <div className="hidden h-full items-center gap-3 lg:flex">
               <Button
                 as="a"
                 variant="outlined"
                 color="secondary"
                 href="/contact"
-                className="uppercase"
+                className="uppercase "
               >
                 Re-KYC
               </Button>
@@ -273,14 +311,14 @@ export default function Header() {
                 variant="contained"
                 color="secondary"
                 href="/contact"
-                className="uppercase"
+                className="uppercase "
               >
                 Open Account
               </Button>
 
               {/* Login Dropdown */}
               <div className="group relative flex h-full items-center">
-                <Button variant="contained" color="primary" className="uppercase">
+                <Button variant="contained" color="primary" className="uppercase ">
                   Login
                 </Button>
                 <div className="absolute right-0 top-full z-50 hidden min-w-[320px] bg-primary text-white group-hover:block">
@@ -288,7 +326,7 @@ export default function Header() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="block px-5 py-2 uppercase text-base transition hover:translate-x-1 text-white"
+                      className="block px-5 py-2 uppercase text-base transition hover:translate-x-1 text-white "
                     >
                       {link.label}
                     </Link>
@@ -297,18 +335,33 @@ export default function Header() {
               </div>
             </div>
 
+            {/* Hamburger Menu Trigger */}
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
-              className="rounded-xl p-2 text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
+              className="relative w-10 h-10 flex items-center justify-center rounded-sm text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
             >
-              {mobileOpen ? (
-                <X className="h-5 w-5" aria-hidden="true" />
-              ) : (
-                <Menu className="h-5 w-5" aria-hidden="true" />
-              )}
+              <span className="sr-only">{mobileOpen ? "Close" : "Menu"}</span>
+              <span
+                className={cn(
+                  "absolute h-0.5 w-6 bg-current rounded-full transition-all duration-300 ease-in-out",
+                  mobileOpen ? "rotate-45 translate-y-0" : "-translate-y-2",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute h-0.5 w-6 bg-current rounded-full transition-all duration-300 ease-in-out",
+                  mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute h-0.5 w-6 bg-current rounded-full transition-all duration-300 ease-in-out",
+                  mobileOpen ? "-rotate-45 translate-y-0" : "translate-y-2",
+                )}
+              />
             </button>
           </div>
         </Container>
@@ -317,11 +370,12 @@ export default function Header() {
       <div
         className={cn(
           "transition-all duration-300",
-          scrolled ? "h-16 lg:h-20" : "h-28 lg:h-32",
+          scrolled ? "h-16 lg:h-20" : "h-16 lg:h-32",
         )}
         aria-hidden="true"
       />
 
+      {/* Mobile Drawer */}
       <div
         id="mobile-menu"
         className={cn(
@@ -338,50 +392,200 @@ export default function Header() {
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
-
         <div
           className={cn(
-            "absolute inset-x-0 top-16 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-border bg-white shadow-2xl transition-all duration-300 origin-top",
-            mobileOpen ? "scale-y-100 opacity-100" : "scale-y-95 opacity-0",
+            "absolute right-0 top-0 h-full w-full bg-white transition-transform duration-300 ease-in-out flex flex-col",
+            mobileOpen ? "translate-x-0" : "translate-x-full",
           )}
         >
-          <Container className="py-4">
-            <nav
-              className="mb-4 flex flex-col gap-1"
-              aria-label="Mobile navigation"
+          {/* Mobile Drawer Header */}
+          <div className="flex items-center justify-between px-5 py-2 border-b border-gray-100">
+            <Link href="/" onClick={() => setMobileOpen(false)}>
+              <Image
+                src="/images/logo/RSL_logo.png"
+                alt="Ratnakar Securities"
+                width={160}
+                height={45}
+                className="object-contain"
+              />
+            </Link>
+            <button
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close menu"
+              className="relative w-9 h-9 flex items-center justify-center rounded-sm text-foreground hover:bg-muted transition-colors"
             >
-              {NAV_LINKS.map((link) => {
+              <span className="absolute h-0.5 w-5 bg-current rounded-full rotate-45" />
+              <span className="absolute h-0.5 w-5 bg-current rounded-full -rotate-45" />
+            </button>
+          </div>
+
+          {/* Mobile Navigation Links */}
+          <nav
+            className="flex-1 overflow-y-auto px-5 py-4 pb-20"
+            aria-label="Mobile navigation"
+          >
+            <div className="flex flex-col gap-1.5">
+              {NAV_LINKS.map((item) => {
                 const isActive =
-                  link.href === "/"
+                  item.href === "/"
                     ? pathname === "/"
-                    : pathname.startsWith(link.href);
+                    : pathname.startsWith(item.href);
+                const isOpen = openAccordion === item.label;
+                const subLinks = getSubLinks(item);
 
                 return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    aria-current={isActive ? "page" : undefined}
-                    className={cn(
-                      "rounded-xl px-4 py-3 text-base font-semibold transition-colors",
-                      isActive
-                        ? "bg-primary/5 text-primary"
-                        : "text-foreground hover:bg-muted",
+                  <div key={item.label}>
+                    {hasSubmenu(item) ? (
+                      <>
+                        <button
+                          onClick={() => {
+                            setOpenAccordion(isOpen ? null : item.label);
+                            setMobileLoginOpen(false); // Close login if main nav opens
+                          }}
+                          className={cn(
+                            "flex w-full items-center justify-between py-3 px-3 text-base transition-colors rounded-md",
+                            isActive ? "text-primary " : "text-foreground hover:bg-muted",
+                          )}
+                        >
+                          <span>{item.label}</span>
+                          <ChevronDown
+                            className={cn(
+                              "h-4 w-4 transition-transform duration-200",
+                              isOpen && "rotate-180",
+                            )}
+                          />
+                        </button>
+                        <div
+                          className={cn(
+                            "overflow-hidden transition-all duration-300 ease-in-out",
+                            isOpen ? "max-h-[600px] pt-1 pb-2" : "max-h-0",
+                          )}
+                        >
+                          <div className="flex flex-col gap-1 pl-3">
+                            {subLinks.map((link) => {
+                              const isSubLinkActive = pathname === link.href;
+                              return (
+                                <NavLink
+                                  key={link.href}
+                                  link={link}
+                                  className={cn(
+                                    "block py-2.5 px-4 text-base rounded-md transition-colors",
+                                    isSubLinkActive
+                                      ? "text-primary"
+                                      : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                                  )}
+                                  onClick={() => setMobileOpen(false)}
+                                >
+                                  {link.label}
+                                </NavLink>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        aria-current={isActive ? "page" : undefined}
+                        className={cn(
+                          "block py-3 px-3 text-base transition-colors rounded-md",
+                          isActive ? "text-primary" : "text-foreground hover:bg-muted",
+                        )}
+                      >
+                        {item.label}
+                      </Link>
                     )}
-                  >
-                    {link.label}
-                  </Link>
+                  </div>
                 );
               })}
-            </nav>
 
-            <div className="flex flex-col gap-3 border-t border-border pt-4">
-              <Link href="/contact" className="block">
-                <Button fullWidth size="md">
+              {/* Action Buttons: Positioned right under Contact Us inside the link list */}
+              {/* Mobile Login Accordion */}
+              <div>
+                <Button
+                  onClick={() => {
+                    setMobileLoginOpen((prev) => !prev);
+                    setOpenAccordion(null); // Close main nav accordion if login opens
+                  }}
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                  size="md"
+                >
+                  <span>LOGIN</span>
+                  <ChevronDown
+                    className={cn(
+                      "h-4 w-4 transition-transform duration-200",
+                      mobileLoginOpen && "rotate-180",
+                    )}
+                  />
+                </Button>
+                <div
+                  className={cn(
+                    "overflow-hidden transition-all duration-300 ease-in-out",
+                    mobileLoginOpen ? "max-h-[300px] pt-1 pb-2" : "max-h-0",
+                  )}
+                >
+                  <div className="flex flex-col gap-1 pl-3  mt-1">
+                    {LOGIN_LINKS.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-2.5 px-4 text-base text-muted-foreground hover:bg-muted hover:text-foreground rounded-md transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className=" flex flex-col gap-2">
+                <Button
+                  as="a"
+                  href="/contact"
+                  variant="contained"
+                  color="secondary"
+                  fullWidth
+                  size="md"
+                  className="text-base"
+                >
                   Open Account
                 </Button>
-              </Link>
+                <Button
+                  as="a"
+                  href="/contact"
+                  variant="outlined"
+                  color="secondary"
+                  fullWidth
+                  size="md"
+                  className="text-base"
+                >
+                  Re-KYC
+                </Button>
+
+
+              </div>
             </div>
-          </Container>
+          </nav>
+
+          {/* Topbar Icons Footer: Positioned at the very bottom of the drawer */}
+          <div className="border-t border-border px-5 py-4 bg-gray-50 flex items-center justify-center gap-4">
+            {topBarIcons.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <Link
+                  key={index}
+                  href={item.href}
+                  aria-label={item.label}
+                  className="flex h-10 w-10 items-center justify-center bg-foreground text-background transition-colors hover:bg-primary hover:text-white rounded-full shadow-sm"
+                >
+                  <IconComponent className="h-5 w-5" />
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>
