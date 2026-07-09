@@ -51,52 +51,52 @@ const NAV_LINKS = [
       { label: "Announcements", href: "/research/announcements" },
     ],
   },
-{
-  label: "Investors",
-  href: "/investors",
-  columns: [
-    [
-      {
-        label: "Board of Directors",
-        href: "/investors/board-of-directors",
-      },
-      {
-        label: "Disclosure of Contact Details of Key Managerial Personnel",
-        href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel",
-      },
-      {
-        label: "Statutory and Registration Certificate Documents",
-        href: "/investors/statutory-and-registration-certificate-documents",
-      },
-      {
-        label: "Policies",
-        href: "/investors/policies",
-      },
-      {
-        label: "Financial Information and Annual Report",
-        href: "/investors/financial-information-and-annual-report",
-      },
+  {
+    label: "Investors",
+    href: "/investors",
+    columns: [
+      [
+        {
+          label: "Board of Directors",
+          href: "/investors/board-of-directors",
+        },
+        {
+          label: "Disclosure of Contact Details of Key Managerial Personnel",
+          href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel",
+        },
+        {
+          label: "Statutory and Registration Certificate Documents",
+          href: "/investors/statutory-and-registration-certificate-documents",
+        },
+        {
+          label: "Policies",
+          href: "/investors/policies",
+        },
+        {
+          label: "Financial Information and Annual Report",
+          href: "/investors/financial-information-and-annual-report",
+        },
+      ],
+      [
+        {
+          label: "Shareholding Pattern",
+          href: "/investors/shareholding-pattern",
+        },
+        {
+          label: "Newspaper Publication",
+          href: "/investors/newspaper-publication",
+        },
+        {
+          label: "Annual Return",
+          href: "/investors/annual-return",
+        },
+        {
+          label: "Disclosures of Material Events or Information",
+          href: "/investors/disclosures-of-material-events-or-information",
+        },
+      ],
     ],
-    [
-      {
-        label: "Shareholding Pattern",
-        href: "/investors/shareholding-pattern",
-      },
-      {
-        label: "Newspaper Publication",
-        href: "/investors/newspaper-publication",
-      },
-      {
-        label: "Annual Return",
-        href: "/investors/annual-return",
-      },
-      {
-        label: "Disclosures of Material Events or Information",
-        href: "/investors/disclosures-of-material-events-or-information",
-      },
-    ],
-  ],
-},
+  },
   {
     label: "About Us",
     href: "/about",
@@ -261,7 +261,8 @@ export default function Header() {
             <div className="hidden h-full items-center gap-3 lg:flex">
               <Button
                 as="a"
-                variant="outline"
+                variant="outlined"
+                color="secondary"
                 href="/contact"
                 className="uppercase"
               >
@@ -269,7 +270,8 @@ export default function Header() {
               </Button>
               <Button
                 as="a"
-                variant="secondary"
+                variant="contained"
+                color="secondary"
                 href="/contact"
                 className="uppercase"
               >
@@ -278,7 +280,7 @@ export default function Header() {
 
               {/* Login Dropdown */}
               <div className="group relative flex h-full items-center">
-                <Button variant="primary" className="uppercase">
+                <Button variant="contained" color="primary" className="uppercase">
                   Login
                 </Button>
                 <div className="absolute right-0 top-full z-50 hidden min-w-[320px] bg-primary text-white group-hover:block">

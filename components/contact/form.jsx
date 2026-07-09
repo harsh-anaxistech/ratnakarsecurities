@@ -198,8 +198,13 @@ export default function ContactUsPage() {
             </div>
 
             <div className="pt-4">
-              <Button as="button" type="submit" variant="secondary">
-                SEND MESSAGE
+              <Button
+                as="button"
+                type="submit"
+                variant="contained"
+                color="secondary"
+              >
+                Send Message
               </Button>
             </div>
           </form>

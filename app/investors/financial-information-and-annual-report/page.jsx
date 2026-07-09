@@ -5,7 +5,8 @@ import { Download } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Financial Information and Annual Report :: Ratnakar Securities Limited.",
+  title:
+    "Financial Information and Annual Report :: Ratnakar Securities Limited.",
   description:
     "Invest with confidence. Ratnakar Securities offers equity trading, derivatives, mutual funds, IPO, bonds, and portfolio management.",
   path: "/investors/financial-information-and-annual-report",
@@ -97,7 +98,8 @@ export default function FinancialInformationPage() {
                       <Button
                         as="a"
                         href="/contact"
-                        variant="primary"
+                        variant="contained"
+                        color="primary"
                         className="w-full "
                         leftIcon={<Download size={18} />}
                       >

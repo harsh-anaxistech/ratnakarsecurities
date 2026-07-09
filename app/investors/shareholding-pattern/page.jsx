@@ -70,7 +70,8 @@ export default function ShareholdingPatternPage() {
                       <Button
                         as="a"
                         href="/contact"
-                        variant="primary"
+                        variant="contained"
+                        color="primary"
                         className="w-full "
                         leftIcon={<Download size={18} />}
                       >

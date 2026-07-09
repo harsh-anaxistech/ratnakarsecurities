@@ -56,13 +56,14 @@ export default function HeroBanner() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link href="/contact">
-              <Button size="lg" className="text-base">
+              <Button variant="contained" color="primary" size="lg" className="text-base">
                 Download Now
               </Button>
             </Link>
             <Link href="/about">
               <Button
-                variant="outline"
+                variant="outlined"
+                color="secondary"
                 size="lg"
                 className="border-white/30 text-white hover:bg-white hover:text-foreground text-base"
               >
