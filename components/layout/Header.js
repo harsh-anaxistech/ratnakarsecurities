@@ -51,43 +51,52 @@ const NAV_LINKS = [
       { label: "Announcements", href: "/research/announcements" },
     ],
   },
-  {
-    label: "Investors",
-    href: "/investors",
-    columns: [
-      [
-        { label: "Board of Directors", href: "/investors/board-of-directors" },
-        {
-          label: "Disclosure of Contact Details of Key Managerial Personnel",
-          href: "/investors/key-managerial-personnel",
-        },
-        {
-          label: "Statutory and Registration Certificate Documents",
-          href: "/investors/statutory-documents",
-        },
-        { label: "Policies", href: "/investors/policies" },
-        {
-          label: "Financial Information and Annual Report",
-          href: "/investors/financial-information",
-        },
-      ],
-      [
-        {
-          label: "Shareholding Pattern",
-          href: "/investors/shareholding-pattern",
-        },
-        {
-          label: "Newspaper Publication",
-          href: "/investors/newspaper-publication",
-        },
-        { label: "Annual Return", href: "/investors/annual-return" },
-        {
-          label: "Disclosures of Material Events or Information",
-          href: "/investors/material-events",
-        },
-      ],
+{
+  label: "Investors",
+  href: "/investors",
+  columns: [
+    [
+      {
+        label: "Board of Directors",
+        href: "/investors/board-of-directors",
+      },
+      {
+        label: "Disclosure of Contact Details of Key Managerial Personnel",
+        href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel",
+      },
+      {
+        label: "Statutory and Registration Certificate Documents",
+        href: "/investors/statutory-and-registration-certificate-documents",
+      },
+      {
+        label: "Policies",
+        href: "/investors/policies",
+      },
+      {
+        label: "Financial Information and Annual Report",
+        href: "/investors/financial-information-and-annual-report",
+      },
     ],
-  },
+    [
+      {
+        label: "Shareholding Pattern",
+        href: "/investors/shareholding-pattern",
+      },
+      {
+        label: "Newspaper Publication",
+        href: "/investors/newspaper-publication",
+      },
+      {
+        label: "Annual Return",
+        href: "/investors/annual-return",
+      },
+      {
+        label: "Disclosures of Material Events or Information",
+        href: "/investors/disclosures-of-material-events-or-information",
+      },
+    ],
+  ],
+},
   {
     label: "About Us",
     href: "/about",
@@ -146,8 +155,8 @@ export default function Header() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled
-            ? "border-b border-border bg-white shadow-md backdrop-blur-md"
-            : "border-b border-white/20 bg-white",
+            ? "border-b border-gray-200 bg-white shadow-md  backdrop-blur-md"
+            : "border-b border-gray-200 bg-white",
         )}
       >
         <div

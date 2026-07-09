@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "@/components/common/Container";
-import { Check, Building2 } from "lucide-react";
+import { BadgeCheck, Building2 } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
@@ -100,12 +100,12 @@ export default function AboutOverview() {
                 className="bg-muted border border-border rounded-sm p-6 flex gap-4 "
               >
                 <div>
-                  <div className="w-6 h-6 rounded-full border-2 border-secondary flex items-center justify-center text-secondary">
-                    <Check className="h-3.5 w-3.5 " />
+                  <div className="  flex items-center justify-center text-secondary">
+                    <BadgeCheck className="h-8 w-8 " />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-primary  text-lg">{item.title}</h4>
+                  <h4 className="text-primary font-medium text-lg">{item.title}</h4>
                   <p className="text-muted-foreground text-base">
                     {item.description}
                   </p>

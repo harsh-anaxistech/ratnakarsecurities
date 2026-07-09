@@ -27,7 +27,7 @@ export default function AboutOverview() {
     {
       name: "Shri. Ajay Shah",
       designation: "Founder, Chairman and Managing Director",
-      image: "/images/leadership/ajay-shah.jpg", // Add image in public/images/leadership
+      image: "/images/leadership/ajay-shah.jpg",
       content: [
         "A recognized leader in financial services and capital markets, Shri Ajay Shah represents the third generation of a very reputed business family in Ahmedabad. He founded Ratnakar Securities in 1994 and bootstrapped it into an investment advisory powerhouse.",
         "A Science Graduate of the 80s, Mr. Shah possesses over 32 years of experience in banking and capital markets. He has represented various industry bodies and also served as President of the Ahmedabad Stock Exchange for two consecutive years.",
@@ -48,9 +48,7 @@ export default function AboutOverview() {
   return (
     <Container>
       <div className="py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Main Content Area */}
         <div className="lg:col-span-3 space-y-8 text-foreground">
-          {/* Banner Hero Section */}
           <div className="relative h-64 md:h-80 w-full rounded-sm overflow-hidden  flex items-center p-8 md:p-12 ">
             <div className="absolute inset-0  to-transparent z-10" />
             <div
@@ -69,7 +67,6 @@ export default function AboutOverview() {
             </div>
           </div>
 
-          {/* Overview Introduction */}
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-bold  text-foreground ">
               Leadership
@@ -83,7 +80,6 @@ export default function AboutOverview() {
                 className="bg-muted border border-border rounded-sm overflow-hidden"
               >
                 <div className="grid md:grid-cols-[260px_1fr]">
-                  {/* Image */}
                   <div className="h-72 md:h-full bg-border">
                     <img
                       src={leader.image}
@@ -92,14 +88,13 @@ export default function AboutOverview() {
                     />
                   </div>
 
-                  {/* Content */}
                   <div className="p-8">
                     <div className="mb-2">
-                      <h3 className="text-2xl font-medium text-secondary">
+                      <h3 className="text-2xl font-semibold text-secondary">
                         {leader.name}
                       </h3>
 
-                      <p className="text-primary text-lg  mt-1">
+                      <p className="text-primary text-md md:text-lg  mt-1">
                         {leader.designation}
                       </p>
                     </div>
@@ -118,7 +113,6 @@ export default function AboutOverview() {
           </div>
         </div>
 
-        {/* Sidebar - Services We Offer */}
         <div className="lg:col-span-1">
           <div
             className="bg-cover text-white rounded-sm p-6  sticky top-6"
