@@ -23,21 +23,22 @@ const NAV_LINKS = [
     href: "/products",
     columns: [
       [
-        { label: "Overview", href: "/products" },
-        { label: "Equity", href: "/products/equity" },
-        { label: "Derivatives", href: "/products/derivatives" },
-        { label: "Mutual Funds", href: "/products/mutual-funds" },
-        { label: "Commodities", href: "/products/commodities" },
+        { label: "Overview", href: "/products", icon: "/images/icon/menu/overview 1.svg" },
+        { label: "Equity", href: "/products/equity", icon: "/images/icon/menu/Equity 1.svg" },
+        { label: "Derivatives", href: "/products/derivatives", icon: "/images/icon/menu/derivatives 1.svg" },
+        { label: "Mutual Funds", href: "/products/mutual-funds", icon: "/images/icon/menu/mutual funds 1.svg" },
+        { label: "Commodities", href: "/products/commodities", icon: "/images/icon/menu/commodities 1.svg" },
       ],
       [
-        { label: "Wealth Management", href: "/products/wealth-management" },
-        { label: "NRIs", href: "/products/nri" },
-        { label: "SLBS", href: "/products/slbs" },
-        { label: "Bonds", href: "/products/bonds" },
+        { label: "Wealth Management", href: "/products/wealth-management", icon: "/images/icon/menu/wealth managment 1.svg" },
+        { label: "NRIs", href: "/products/nri", icon: "/images/icon/menu/NRIs 1.svg" },
+        { label: "SLBS", href: "/products/slbs", icon: "/images/icon/menu/SLBS 1.svg" },
+        { label: "Bonds", href: "/products/bonds", icon: "/images/icon/menu/Bonds 1.svg" },
         {
           label: "Narnolia Investment Advisory Portfolios",
           href: "https://ratnakarsecurities.narnolia.in/",
           external: true,
+          icon: "/images/icon/menu/invesment 1.svg",
         },
       ],
     ],
@@ -46,10 +47,10 @@ const NAV_LINKS = [
     label: "Research",
     href: "/research",
     dropdown: [
-      { label: "Company", href: "/research/company" },
-      { label: "IPOs", href: "/research/ipos" },
-      { label: "News", href: "/research/news" },
-      { label: "Announcements", href: "/research/announcements" },
+      { label: "Company", href: "/research/company", icon: "/images/icon/menu/company 1.svg" },
+      { label: "IPOs", href: "/research/ipos", icon: "/images/icon/menu/IPOs 1.svg" },
+      { label: "News", href: "/research/news", icon: "/images/icon/menu/news 1.svg" },
+      { label: "Announcements", href: "/research/announcements", icon: "/images/icon/menu/announcement 1.svg" },
     ],
   },
   {
@@ -60,40 +61,49 @@ const NAV_LINKS = [
         {
           label: "Board of Directors",
           href: "/investors/board-of-directors",
+          icon: "/images/icon/menu/board of directors 1.svg",
         },
         {
           label: "Disclosure of Contact Details of Key Managerial Personnel",
           href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel",
+          icon: "/images/icon/menu/discloser of contact details 1.svg",
         },
         {
           label: "Statutory and Registration Certificate Documents",
           href: "/investors/statutory-and-registration-certificate-documents",
+          icon: "/images/icon/menu/statutory 1.svg",
         },
         {
           label: "Policies",
           href: "/investors/policies",
+          icon: "/images/icon/menu/policies 1.svg",
         },
         {
           label: "Financial Information and Annual Report",
           href: "/investors/financial-information-and-annual-report",
+          icon: "/images/icon/menu/financial info 1.svg",
         },
       ],
       [
         {
           label: "Shareholding Pattern",
           href: "/investors/shareholding-pattern",
+          icon: "/images/icon/menu/stakeholder 1.svg",
         },
         {
           label: "Newspaper Publication",
           href: "/investors/newspaper-publication",
+          icon: "/images/icon/menu/newspaper publication 1.svg",
         },
         {
           label: "Annual Return",
           href: "/investors/annual-return",
+          icon: "/images/icon/menu/annual return 1.svg",
         },
         {
           label: "Disclosures of Material Events or Information",
           href: "/investors/disclosures-of-material-events-or-information",
+          icon: "/images/icon/menu/discloser of material events 1.svg",
         },
       ],
     ],
@@ -102,9 +112,9 @@ const NAV_LINKS = [
     label: "About Us",
     href: "/about",
     dropdown: [
-      { label: "Overview", href: "/about" },
-      { label: "Leadership", href: "/about/leadership" },
-      { label: "Milestone", href: "/about/milestone" },
+      { label: "Overview", href: "/about", icon: "/images/icon/menu/overview 1.svg" },
+      { label: "Leadership", href: "/about/leadership", icon: "/images/icon/menu/leadership 1.svg" },
+      { label: "Milestone", href: "/about/milestone", icon: "/images/icon/menu/milestone 1.svg" },
     ],
   },
   {
@@ -119,6 +129,46 @@ const LOGIN_LINKS = [
   { label: "Mutual Fund Portfolio", href: "/login/mutual-fund" },
   { label: "Narnolia Investment Advisory Portfolio", href: "/login/advisory" },
 ];
+
+function DropdownLink({ link, children, className }) {
+  const content = (
+    <div className="flex items-center gap-3">
+      {link.icon && (
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center ">
+          <Image
+            src={link.icon}
+            alt=""
+            width={30}
+            height={30}
+            className="object-contain"
+          />
+        </div>
+      )}
+      <span>{children}</span>
+      {link.external && (
+        <ExternalLink className="h-3.5 w-3.5 opacity-50 shrink-0" />
+      )}
+    </div>
+  );
+
+  if (link.external) {
+    return (
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {content}
+      </a>
+    );
+  }
+  return (
+    <Link href={link.href} className={className}>
+      {content}
+    </Link>
+  );
+}
 
 function NavLink({ link, className, children, onClick }) {
   if (link.external) {
@@ -260,17 +310,17 @@ export default function Header() {
                     </Link>
 
                     {item.columns && (
-                      <div className="absolute left-0 top-full z-50 hidden min-w-lg grid-cols-2 gap-10 bg-primary p-8 text-white group-hover:grid">
+                      <div className="absolute left-0 top-full z-50 hidden min-w-xl grid-cols-2 gap-6 bg-muted border border-border rounded-sm shadow-xl p-6 group-hover:grid">
                         {item.columns.map((column, i) => (
-                          <div key={i} className="space-y-3">
+                          <div key={i} className="space-y-1">
                             {column.map((link) => (
-                              <NavLink
+                              <DropdownLink
                                 key={link.href}
                                 link={link}
-                                className="block text-base uppercase transition hover:translate-x-1 "
+                                className="block rounded-md px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-white hover:text-primary"
                               >
                                 {link.label}
-                              </NavLink>
+                              </DropdownLink>
                             ))}
                           </div>
                         ))}
@@ -278,16 +328,18 @@ export default function Header() {
                     )}
 
                     {item.dropdown && (
-                      <div className="absolute left-0 top-full z-50 hidden w-64 bg-primary group-hover:block">
-                        {item.dropdown.map((link) => (
-                          <NavLink
-                            key={link.href}
-                            link={link}
-                            className="block text-base px-5 py-2 uppercase transition hover:translate-x-1 text-white "
-                          >
-                            {link.label}
-                          </NavLink>
-                        ))}
+                      <div className="absolute left-0 top-full z-50 hidden w-72 bg-muted border border-border rounded-sm shadow-xl p-3 group-hover:block">
+                        <div className="space-y-1">
+                          {item.dropdown.map((link) => (
+                            <DropdownLink
+                              key={link.href}
+                              link={link}
+                              className="block rounded-md px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-white hover:text-primary"
+                            >
+                              {link.label}
+                            </DropdownLink>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>

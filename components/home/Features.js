@@ -86,7 +86,7 @@ export default function InvestmentServices() {
             <Link
               key={service.title}
               href={service.href}
-              className="group block h-[270px]"
+              className="group block h-[180px]"
             >
               <div
                 className="relative h-full w-full duration-700"
@@ -98,23 +98,23 @@ export default function InvestmentServices() {
                 <div className="absolute inset-0 group-hover:[transform:rotateY(180deg)] [transform-style:preserve-3d] transition-transform duration-700">
 
                   {/* FRONT */}
-                  <div className="absolute inset-0 rounded-xl shadow bg-muted [backface-visibility:hidden]">
-                    <div className="flex h-full flex-col items-center justify-between p-8">
+                  <div className="absolute inset-0 rounded-xl border border-border bg-muted [backface-visibility:hidden]">
+                    <div className="flex h-full flex-col items-center justify-between p-6">
                       {/* Icon */}
-                      <div className="flex h-28 w-28 items-center justify-center rounded-full bg-white transition-all duration-300 group-hover:scale-110">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white transition-all duration-300 group-hover:scale-110">
                         <Image
                           src={`/images/icon/home/${service.iconName}.svg`}
                           alt={service.title}
-                          width={70}
-                          height={70}
+                          width={40}
+                          height={40}
                           className="object-contain"
                         />
                       </div>
 
                       {/* Title */}
                       <div className="flex justify-center w-full">
-                        <div className="w-64 rounded-full bg-white px-4 py-3 ">
-                          <h3 className="text-center text-lg font-medium text-secondary">
+                        <div className="">
+                          <h3 className="text-center text-lg font-medium text-foreground">
                             {service.title}
                           </h3>
                         </div>
@@ -124,7 +124,7 @@ export default function InvestmentServices() {
                   {/* BACK */}
                   <div className="absolute inset-0 rounded-lg bg-primary p-7 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
                     <div className="flex h-full flex-col items-center justify-center">
-                      <p className="text-center text-base leading-6 text-white/90 line-clamp-6">
+                      <p className="text-center text-base leading-6 text-muted line-clamp-6">
                         {service.description}
                       </p>
 
