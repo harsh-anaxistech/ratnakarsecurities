@@ -239,7 +239,7 @@ export default function Header() {
         {/* Top bar: Desktop only */}
         <div
           className={cn(
-            "w-full border-b border-gray-100 bg-muted transition-all duration-300 ease-in-out hidden lg:block",
+            "w-full border-b border-gray-100 bg-primary transition-all duration-300 ease-in-out hidden lg:block",
             scrolled ? "h-0 opacity-0 pointer-events-none" : "h-12 opacity-100",
           )}
         >
@@ -252,7 +252,7 @@ export default function Header() {
                     key={index}
                     href={item.href}
                     aria-label={item.label}
-                    className="flex h-8 w-8 items-center justify-center bg-foreground text-background transition-colors hover:bg-primary hover:text-white rounded-full"
+                    className="flex h-8 w-8 items-center justify-center bg-white text-foreground transition-colors hover:bg-foreground hover:text-white rounded-full"
                   >
                     <IconComponent className="h-4 w-4" />
                   </Link>
@@ -302,7 +302,7 @@ export default function Header() {
                     </Link>
 
                     {item.columns && (
-                      <div className="absolute left-0 top-[calc(100%-4px)] mt-1 z-50 min-w-xl grid grid-cols-2 gap-6 bg-white border border-border rounded-sm shadow p-6 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
+                      <div className="absolute left-0 top-[calc(100%-4px)] mt-1 z-50 min-w-xl grid grid-cols-2 gap-6 bg-muted rounded-lg  p-6 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
                         {item.columns.map((column, i) => (
                           <div key={i} className="space-y-1">
                             {column.map((link) => (
@@ -320,7 +320,7 @@ export default function Header() {
                     )}
 
                     {item.dropdown && (
-                      <div className="absolute left-0 top-[calc(100%-4px)] mt-1 z-50 w-72 bg-white border border-border rounded-sm shadow p-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
+                      <div className="absolute left-0 top-[calc(100%-4px)] mt-1 z-50 w-72 bg-muted rounded-lg  p-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
                         <div className="space-y-1">
                           {item.dropdown.map((link) => (
                             <DropdownLink
@@ -357,7 +357,7 @@ export default function Header() {
                 href="/contact"
                 className="uppercase text-base rounded-sm"
               >
-                Open Account
+                Open Demat Account
               </Button>
 
               {/* Login Dropdown */}
@@ -365,7 +365,7 @@ export default function Header() {
                 <Button variant="contained" color="primary" className="uppercase text-base rounded-sm">
                   Login
                 </Button>
-                <div className="absolute right-0 top-[calc(100%-4px)] mt-1 z-50 min-w-[320px] bg-white border border-border text-foreground rounded-sm shadow py-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
+                <div className="absolute right-0 top-[calc(100%-4px)] mt-1 z-50 min-w-[320px] bg-muted   text-foreground rounded-lg  py-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
                   <div className="space-y-1">
                     {LOGIN_LINKS.map((link) => (
                       <Link

@@ -3,25 +3,25 @@ import Container from "@/components/common/Container";
 
 const FEATURES = [
   {
-    title: "25+ Years of Trust",
+    title: "20+ Years of Industry Experience",
     description:
       "Decades of unwavering financial partnership built on a legacy of trust and expertise.",
     icon: "/images/icon/whychoose/trust.svg",
   },
   {
-    title: "Secure Trading Platform",
+    title: "Research-Driven Investment Advice",
     description:
       "Robust, advanced, and secure technology for a seamless trading experience.",
     icon: "/images/icon/whychoose/secure.svg",
   },
   {
-    title: "SEBI Registered & Compliant",
+    title: "Secure & Technology-Driven Trading",
     description:
       "Fully compliant with all market regulations, ensuring your investments are secure.",
     icon: "/images/icon/whychoose/registered.svg",
   },
   {
-    title: "Dedicated Relationship Managers",
+    title: "Member of NSE, BSE, MCX & CDSL",
     description:
       "Personalized guidance and support from a dedicated advisor for your financial journey.",
     icon: "/images/icon/whychoose/dedicated.svg",
@@ -30,70 +30,69 @@ const FEATURES = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-10 bg-white">
+    <section className=" bg-white overflow-hidden">
+      {/* Header Section */}
+      <div className="flex flex-col items-center text-center px-4 mb-12">
+              <h2 className="text-3xl font-semibold leading-tight text-foreground md:text-4xl">
+          Reasons Why People Choose
+          <br />
+          Ratnakar Securities
+        </h2>
+        <p className="mt-4 max-w-3xl text-muted-foreground text-base mx-auto">
+          Ratnakar Securities is committed to offering our clients exceptional
+          financial services. Here are a few key reasons why you should choose us as
+          your trusted financial partner.
+        </p>
+      </div>
 
-
-<div className="flex flex-col items-center text-center">
-  <h2 className="mt-3 text-4xl font-bold leading-tight text-foreground">
-    Reasons Why People Choose
-    <br />
-    Ratnakar Securities
-  </h2>
-
-  <p className="mt-5 max-w-3xl text-muted-foreground text-base mx-auto">
-    Ratnakar Securities is committed to offering our clients exceptional
-    financial services. Here are a few key reasons why you should choose us as
-    your trusted financial partner.
-  </p>
-</div>
-      <Container>
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
-            
-          {/* Left Content */}
-          <div>
-
-            <div className="mt-10 space-y-5">
-              {FEATURES.map((item) => (
-                <div
-                  key={item.title}
-                  className="group flex items-start gap-5 rounded-lg border border-gray-200 bg-white p-5  transition-all duration-300 "
-                >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-muted transition-all duration-300 group-hover:bg-primary">
-                    <Image
-                      src={item.icon}
-                      alt={item.title}
-                      width={34}
-                      height={34}
-                      className="transition duration-300 group-hover:brightness-0 group-hover:invert"
-                    />
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-medium text-foreground">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-2 text-sm  text-muted-foreground">
-                      {item.description}
-                    </p>
-                  </div>
+      {/* Main Content Grid */}
+      <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center max-w-[1920px] mx-auto">
+        
+        {/* Left Content Column */}
+        <div className="px-4 md:px-10 order-2 lg:order-1">
+          <div className="space-y-5">
+            {FEATURES.map((item) => (
+              <div
+                key={item.title}
+                className="group flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-5 rounded-lg bg-muted p-5 transition-all duration-300 hover:border-primary/30"
+              >
+                {/* Icon Container */}
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary transition-all duration-300 group-hover:bg-primary">
+                  <Image
+                    src={item.icon}
+                    alt={item.title}
+                    width={34}
+                    height={34}
+                    className="transition duration-300 brightness-0 invert"
+                  />
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Right Image */}
-            <div className="overflow-hidden rounded-lg ">
-              <Image
-                src="/images/hero/whychooseus.png"
-                alt="Why Choose Ratnakar Securities"
-                width={700}
-                height={750}
-                className="h-full w-full object-cover"
-              />
-            </div>
+                {/* Text Content Container */}
+                <div className="flex flex-col items-center sm:items-start">
+                  <h3 className="text-xl font-medium text-foreground transition-colors duration-300 group-hover:text-primary">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-base text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-      </Container>
+        </div>
+
+        {/* Right Image Column */}
+<div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-full order-1 lg:order-2 lg:rounded-l-2xl overflow-hidden group/image isolation-delegate">
+  <Image
+    src="/images/hero/whychooseus.png"
+    alt="Why Choose Ratnakar Securities"
+    width={850}
+    height={750}
+    className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover/image:scale-105"
+  />
+</div>
+
+      </div>
     </section>
   );
 }

@@ -2,7 +2,10 @@ import HeroBanner from "@/components/home/HeroBanner";
 import Features from "@/components/home/Features";
 import Calculator from "@/components/home/Calculator";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
+import StarBar from "@/components/home/StarBar";  
 import Steps from "@/components/home/Steps";
+import DownloadApp from "@/components/home/DownloadApp";
+import Faq from "@/components/home/Faq";
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
@@ -16,10 +19,15 @@ export default function HomePage() {
   return (
     <div>
       <HeroBanner />
-      <WhyChooseUs/>
-      <Features />
-      <Steps/>
-      <Calculator />
+      <StarBar/>
+            <Features />
+      <Steps />
+
+      <WhyChooseUs />
+      {/* <Calculator /> */}
+      {/* <Faq/> */}
+            <DownloadApp />
+
     </div>
   );
 }

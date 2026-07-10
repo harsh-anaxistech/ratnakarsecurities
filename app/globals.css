@@ -24,7 +24,7 @@
   /* UI Neutrals */
   --color-background: #ffffff;
   --color-foreground: #111827;
-  --color-muted: #f8f9fa;
+  --color-muted: #f4f5f7;
   --color-muted-foreground: #6b7280;
   --color-border: #e5e7eb;
   --color-card: #ffffff;
@@ -35,6 +35,13 @@
   --color-warning: #d97706;
   --color-danger: #dc2626;
   --color-info: #0ea5e9;
+
+
+  /* --shadow-card: 4px 4px 12px 0 rgb(30 51 72 / 15%),
+                 0 16px 48px 0 rgb(112 144 176 / 30%); */
+
+  --shadow-card: 4px 4px 12px 0 rgb(30 51 72 / 15%),
+                 0 16px 48px 0 rgb(112 144 176 / 30%);                 
 }
 
 /* =====================================================
@@ -56,7 +63,7 @@
 
   --background: #ffffff;
   --foreground: #111827;
-  --muted: #f8f9fa;
+  --muted: #f4f5f7;
   --muted-foreground: #6b7280;
   --border: #e5e7eb;
   --card: #ffffff;

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, Mail, HelpCircle, ArrowDownToLine } from "lucide-react";
 import Container from "@/components/common/Container";
+import Image from "next/image";
 
 const TAB_CONTENT = {
   "ATTENTION INVESTORS": (
@@ -84,58 +84,6 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-muted text-base text-muted border-t border-gray-100">
-      {/* 1. Top Informational Header */}
-      <div className="w-full bg-white py-3 ">
-        <Container>
-          <div className="flex flex-wrap items-center justify-between gap-4 text-base">
-            <Link
-              href="/faqs"
-              className="group flex items-center gap-3 transition-colors duration-300"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-colors duration-300 group-hover:bg-primary">
-                <HelpCircle className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-muted-foreground transition-colors duration-300 group-hover:text-primary">
-                FAQs
-              </span>
-            </Link>
-
-            <a
-              href="tel:07949005200"
-              className="group flex items-center gap-3 transition-colors duration-300"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-colors duration-300 group-hover:bg-primary">
-                <Phone className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-muted-foreground transition-colors duration-300 group-hover:text-primary">
-                079-49005200 / 01 / 02
-              </span>
-            </a>
-
-            <a
-              href="mailto:info@ratnakarsecurities.com"
-              className="group flex items-center gap-3 transition-colors duration-300"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-colors duration-300 group-hover:bg-primary">
-                <Mail className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-muted-foreground transition-colors duration-300 group-hover:text-primary">
-                info@ratnakarsecurities.com
-              </span>
-            </a>
-
-            <button className="group cursor-pointer flex items-center gap-3 transition-colors duration-300">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-colors duration-300 group-hover:bg-primary">
-                <ArrowDownToLine className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-muted-foreground transition-colors duration-300 group-hover:text-primary">
-                Download Mobile App
-              </span>
-            </button>
-          </div>
-        </Container>
-      </div>
-
       <div className=" bg-light-blue pt-8 pb-12">
         <Container>
           <div className=" mb-6">
@@ -163,7 +111,7 @@ export default function Footer() {
             <div>{TAB_CONTENT[activeTab]}</div>
           </div>
 
-          <div className="border-b border-gray-200 pb-6 mb-8 text-base  text-muted">
+          <div className=" text-base  text-muted">
             <h3 className="text-secondary text-base uppercase mb-2 ">
               Investor Charter
             </h3>
@@ -247,203 +195,210 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-base">
-            <div>
-              <h4 className="text-secondary  text-base  uppercase mb-4">
-                Products
-              </h4>
-              <ul className="space-y-2 text-muted">
-                {[
-                  "Equity",
-                  "Derivatives",
-                  "Mutual Fund",
-                  "Commodities",
-                  "Real Estate",
-                  "NRIs",
-                  "Narnolia Investment Advisory Portfolios",
-                ].map((item) => (
-                  <li key={item}>
-                    <Link
-                      href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="hover:text-secondary transition-colors"
-                    >
-                      • {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-secondary  text-base  uppercase mb-4">
-                About Us
-              </h4>
-              <ul className="space-y-2 text-muted">
-                {["Overview", "Leadership", "Milestone"].map((item) => (
-                  <li key={item}>
-                    <Link
-                      href={`/${item.toLowerCase()}`}
-                      className="hover:text-secondary transition-colors"
-                    >
-                      • {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-secondary  text-base  uppercase mb-4">
-                Usefull Links
-              </h4>
-              <ul className="space-y-2 text-muted">
-                {[
-                  { label: "Broker Norms (NSE)", href: "/broker-norms-nse" },
-                  { label: "Broker Norms (BSE)", href: "/broker-norms-bse" },
-                  { label: "NSE", href: "/nse-link" },
-                  { label: "BSE", href: "/bse-link" },
-                  { label: "SEBI", href: "/sebi" },
-                  { label: "NSDL", href: "/nsdl-link" },
-                  { label: "MCX", href: "/mcx" },
-                  { label: "SCORES", href: "/scores" },
-                ].map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="hover:text-secondary transition-colors"
-                    >
-                      • {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="text-muted space-y-4">
-              <div>
-                <h4 className="text-secondary  text-base uppercase mb-1">
-                  Cameo Corporate Services Limited
-                </h4>
-                <p>#1, Subramanian Building,</p>
-                <p>Club House Road, Chennai-600002.</p>
-                <p>Contact No : 044-40020731</p>
-              </div>
-
-              <div className="flex flex-wrap gap-x-2 gap-y-1 text-base text-muted">
-                <Link
-                  href="/privacy"
-                  className="hover:underline hover:text-secondary"
-                >
-                  Privacy Policy
-                </Link>
-                <span>|</span>
-                <Link
-                  href="/disclaimer"
-                  className="hover:underline hover:text-secondary"
-                >
-                  Disclaimer
-                </Link>
-                <span>|</span>
-                <Link
-                  href="/terms"
-                  className="hover:underline hover:text-secondary"
-                >
-                  Terms of Conditions
-                </Link>
-                <span>|</span>
-                <Link
-                  href="/complaint"
-                  className="hover:underline hover:text-secondary"
-                >
-                  Investor Complaint
-                </Link>
-                <span>|</span>
-                <Link
-                  href="/refund"
-                  className="hover:underline hover:text-secondary"
-                >
-                  Refund & Cancellation
-                </Link>
-                <span>|</span>
-                <Link
-                  href="/segregation"
-                  className="hover:underline hover:text-secondary"
-                >
-                  Segergation Monitoring Collateral
-                </Link>
-                <span>|</span>
-                <Link
-                  href="/evoting"
-                  className="hover:underline hover:text-secondary"
-                >
-                  NSDL E Voting
-                </Link>
-                <span>|</span>
-                <Link
-                  href="/ideas"
-                  className="hover:underline hover:text-secondary"
-                >
-                  NSDL IDEAS Services
-                </Link>
-              </div>
-
-              <div className="space-y-2 pt-2 border-t border-gray-200">
-                <p>
-                  <span className="text-secondary ">
-                    Ratnakar Securities Pvt. Ltd.:
-                  </span>{" "}
-                  SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI
-                  Registration No. of NSDL : IN-DP-NSDL-66-98
-                </p>
-                <p>
-                  <span className="text-secondary ">
-                    Ratnakar Commodities Pvt. Ltd :
-                  </span>{" "}
-                  SEBI Registration No. of MCX : INZ000024138
-                </p>
-                <p>
-                  <span className="text-secondary ">
-                    Investor Grievance ID:
-                  </span>{" "}
-                  investorgrievance@ratnakarsecurities.com
-                </p>
-                <p className="text-muted">
-                  Online Dispute Resolution Portal - SMART ODR
-                </p>
-              </div>
-
-              <div className="space-y-1 pt-1 text-muted">
-                <p>
-                  To File A Complaint on SCORES{" "}
-                  <Link
-                    href="/scores-complaint"
-                    className="text-secondary hover:underline "
-                  >
-                    Click Here
-                  </Link>
-                </p>
-                <p>
-                  For Nomination, Please{" "}
-                  <Link
-                    href="/nomination"
-                    className="text-secondary hover:underline "
-                  >
-                    Click Here
-                  </Link>
-                </p>
-                <p>
-                  To Close Account, Please{" "}
-                  <Link
-                    href="/close-account"
-                    className="text-secondary hover:underline "
-                  >
-                    Click Here
-                  </Link>
-                </p>
-              </div>
-            </div>
-          </div>
+ 
         </Container>
+          </div>
+
+      <div className=" bg-dark-blue pt-8 pb-12">
+<Container>
+  {/* Main 5-Column Grid */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 text-base">
+    
+    {/* Column 1: Logo & Address */}
+    <div className="text-muted space-y-4">
+      <div className="mb-4">
+        {/* Replace with your actual Logo component or <img> */}
+            <Link
+              href="/"
+              className="group bg-white p-3 rounded-lg flex items-center gap-2.5 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              aria-label="Ratnakar Securities – Home"
+            >
+              <Image
+                src="/images/logo/RSL_logo.png"
+                alt="Ratnakar Securities"
+                width={220}
+                height={60}
+                priority
+                className="object-contain"
+              />
+            </Link>      </div>
+      <div>
+        {/* <h4 className="text-secondary text-base uppercase mb-1 font-semibold">
+          Cameo Corporate Services Limited
+        </h4> */}
+        <p>#1, Subramanian Building,</p>
+        <p>Club House Road, Chennai-600002.</p>
+        <p>Contact No : 044-40020731</p>
+      </div>
+    </div>
+
+    {/* Column 2: Products */}
+    <div>
+      <h4 className="text-secondary text-base uppercase mb-4 font-semibold">
+        Products
+      </h4>
+      <ul className="space-y-2 text-muted">
+        {[
+          "Equity",
+          "Derivatives",
+          "Mutual Fund",
+          "Commodities",
+          "Real Estate",
+          "NRIs",
+          "Narnolia Investment Advisory Portfolios",
+        ].map((item) => (
+          <li key={item}>
+            <Link
+              href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+              className="hover:text-secondary transition-colors"
+            >
+              • {item}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Column 3: About Us */}
+    <div>
+      <h4 className="text-secondary text-base uppercase mb-4 font-semibold">
+        About Us
+      </h4>
+      <ul className="space-y-2 text-muted">
+        {["Overview", "Leadership", "Milestone"].map((item) => (
+          <li key={item}>
+            <Link
+              href={`/${item.toLowerCase()}`}
+              className="hover:text-secondary transition-colors"
+            >
+              • {item}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Column 4: Useful Links */}
+    <div>
+      <h4 className="text-secondary text-base uppercase mb-4 font-semibold">
+        Useful Links
+      </h4>
+      <ul className="space-y-2 text-muted">
+        {[
+          { label: "Broker Norms (NSE)", href: "/broker-norms-nse" },
+          { label: "Broker Norms (BSE)", href: "/broker-norms-bse" },
+          { label: "NSE", href: "/nse-link" },
+          { label: "BSE", href: "/bse-link" },
+          { label: "SEBI", href: "/sebi" },
+          { label: "NSDL", href: "/nsdl-link" },
+          { label: "MCX", href: "/mcx" },
+          { label: "SCORES", href: "/scores" },
+        ].map((link) => (
+          <li key={link.label}>
+            <Link
+              href={link.href}
+              className="hover:text-secondary transition-colors"
+            >
+              • {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Column 5: Legal Registrations & Actions */}
+    <div className="text-muted space-y-4 text-sm md:text-base">
+      <div className="space-y-2">
+        <p>
+          <span className="text-secondary font-semibold">
+            Ratnakar Securities Pvt. Ltd.:
+          </span>{" "}
+          SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-98
+        </p>
+        <p>
+          <span className="text-secondary font-semibold">
+            Ratnakar Commodities Pvt. Ltd :
+          </span>{" "}
+          SEBI Registration No. of MCX : INZ000024138
+        </p>
+        <p>
+          <span className="text-secondary font-semibold">
+            Investor Grievance ID:
+          </span>{" "}
+          investorgrievance@ratnakarsecurities.com
+        </p>
+        <p className="text-muted">
+          Online Dispute Resolution Portal - SMART ODR
+        </p>
+      </div>
+
+      <div className="space-y-1 pt-2 border-t border-gray-200">
+        <p>
+          To File A Complaint on SCORES{" "}
+          <Link
+            href="/scores-complaint"
+            className="text-secondary hover:underline"
+          >
+            Click Here
+          </Link>
+        </p>
+        <p>
+          For Nomination, Please{" "}
+          <Link
+            href="/nomination"
+            className="text-secondary hover:underline"
+          >
+            Click Here
+          </Link>
+        </p>
+        <p>
+          To Close Account, Please{" "}
+          <Link
+            href="/close-account"
+            className="text-secondary hover:underline"
+          >
+            Click Here
+          </Link>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* Bottom Row: Horizontal Links Policy Strip */}
+  <div className="mt-8 pt-4 border-t border-gray-200 flex flex-wrap justify-center md:justify-start gap-x-2 gap-y-1 text-sm md:text-base text-muted">
+    <Link href="/privacy" className="hover:underline hover:text-secondary">
+      Privacy Policy
+    </Link>
+    <span>|</span>
+    <Link href="/disclaimer" className="hover:underline hover:text-secondary">
+      Disclaimer
+    </Link>
+    <span>|</span>
+    <Link href="/terms" className="hover:underline hover:text-secondary">
+      Terms of Conditions
+    </Link>
+    <span>|</span>
+    <Link href="/complaint" className="hover:underline hover:text-secondary">
+      Investor Complaint
+    </Link>
+    <span>|</span>
+    <Link href="/refund" className="hover:underline hover:text-secondary">
+      Refund & Cancellation
+    </Link>
+    <span>|</span>
+    <Link href="/segregation" className="hover:underline hover:text-secondary">
+      Segergation Monitoring Collateral
+    </Link>
+    <span>|</span>
+    <Link href="/evoting" className="hover:underline hover:text-secondary">
+      NSDL E Voting
+    </Link>
+    <span>|</span>
+    <Link href="/ideas" className="hover:underline hover:text-secondary">
+      NSDL IDEAS Services
+    </Link>
+  </div>
+</Container>
       </div>
 
       <div className="w-full bg-dark-navy py-4  text-base text-muted">
