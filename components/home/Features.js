@@ -70,12 +70,21 @@ const SERVICES_DATA = [
 
 export default function InvestmentServices() {
   return (
-    <section className="py-16">
+    <section className="pb-10">
       <Container>
-        <div className="mb-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+        <div className="mb-10 text-center">
+
+          <div className="flex flex-col items-center text-center">
+  <h2 className="mt-3 text-4xl font-bold leading-tight text-foreground">
             Key Offerings
-          </h2>
+  </h2>
+
+<p className="mt-5 max-w-3xl text-base text-muted-foreground">
+  Our comprehensive suite of financial products and services empowers investors
+  with the right opportunities, expert insights, and seamless execution to
+  achieve their investment objectives.
+</p>
+</div>
         </div>
 
         <div
@@ -98,7 +107,7 @@ export default function InvestmentServices() {
                 <div className="absolute inset-0 group-hover:[transform:rotateY(180deg)] [transform-style:preserve-3d] transition-transform duration-700">
 
                   {/* FRONT */}
-                  <div className="absolute inset-0 rounded-xl border border-border bg-muted [backface-visibility:hidden]">
+                  <div className="absolute inset-0 rounded-lg   bg-muted [backface-visibility:hidden]">
                     <div className="flex h-full flex-col items-center justify-between p-6">
                       {/* Icon */}
                       <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white transition-all duration-300 group-hover:scale-110">
@@ -122,7 +131,7 @@ export default function InvestmentServices() {
                     </div>
                   </div>
                   {/* BACK */}
-                  <div className="absolute inset-0 rounded-lg bg-primary p-7 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                  <div className="absolute inset-0 rounded-lg bg-secondary p-7 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
                     <div className="flex h-full flex-col items-center justify-center">
                       <p className="text-center text-base leading-6 text-muted line-clamp-6">
                         {service.description}
