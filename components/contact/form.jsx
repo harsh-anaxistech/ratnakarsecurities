@@ -31,7 +31,7 @@ export default function ContactUsPage() {
         <div className="w-full lg:w-[38%] rounded-md bg-secondary text-white p-8 md:p-12 flex flex-col space-y-8 relative overflow-hidden">
           <div className="z-10 space-y-4">
             <h2 className="text-2xl md:text-3xl font-bold">Contact Us</h2>
-            <p className="text-muted text-sm md:text-base  ">
+            <p className="text-white/70 text-sm md:text-base  ">
               We'll create high-quality linkable content and build at least 40
               high-authority.
             </p>
@@ -39,14 +39,14 @@ export default function ContactUsPage() {
 
           <div className="z-10 space-y-8 my-10 lg:my-0">
             <div className="flex items-center gap-4">
-              <Phone className="w-5 h-5 text-muted shrink-0" />
+              <Phone className="w-5 h-5 text-white/70 shrink-0" />
               <div className="flex flex-col text-sm md:text-base  ">
                 <span>079 - 49005200</span>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <Mail className="w-5 h-5 text-muted shrink-0" />
+              <Mail className="w-5 h-5 text-white/70 shrink-0" />
               <a
                 href="mailto:info@ratnakarsecurities.com"
                 className="text-white hover:underline break-all transition-all text-sm md:text-base "
@@ -57,9 +57,9 @@ export default function ContactUsPage() {
 
             <div className="flex items-start gap-4">
               <div className="w-5 h-5 shrink-0 flex items-center justify-center text-lg mt-0.5">
-                <MapPinned className="w-5 h-5 text-muted shrink-0" />
+                <MapPinned className="w-5 h-5 text-white/70 shrink-0" />
               </div>
-              <p className="text-muted text-sm md:text-base leading-relaxed ">
+              <p className="text-white/70 text-sm md:text-base leading-relaxed ">
                 304, Sankalp Square - 2, Near Jalaram Mandir Crossing,
                 Ellisbridge, Ahmedabad - 380006
               </p>

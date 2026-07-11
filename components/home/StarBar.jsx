@@ -1,71 +1,59 @@
-import {
-  Users,
-  BadgeCheck,
-  Trophy,
-  BriefcaseBusiness,
-  Handshake,
-} from "lucide-react";
+"use client";
+import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  {
-    icon: Users,
-    title: "1 Platform",
-    subtitle: "For All Investments",
-  },
-  {
-    icon: Handshake,
-    title: "Trusted By 10L+",
-    subtitle: "Customers",
-  },
-  {
-    icon: BriefcaseBusiness,
-    title: "Industry Leaders",
-    subtitle: "Since 20+ Years",
-  },
-  {
-    icon: Trophy,
-    title: "Award-Winning",
-    subtitle: "Research",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Dedicated",
-    subtitle: "Personal Advisors",
-  },
+  { num: 25, suffix: "", label: "Years of Market Expertise" },
+  { num: 25000, suffix: "+", label: "Investors Served" },
+  { num: 30, suffix: "+", label: "Cities Across India" },
+  { num: 200, suffix: "+", label: "Outlets & Dedicated Staff" },
 ];
+
+function CountUp({ target, suffix }) {
+  const [val, setVal] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || started.current) return;
+        started.current = true;
+        const dur = 1400;
+        const t0 = performance.now();
+        const tick = (t) => {
+          const p = Math.min((t - t0) / dur, 1);
+          setVal(Math.round(target * (1 - Math.pow(1 - p, 3))));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return (
+    <span ref={ref}>
+      {val.toLocaleString("en-IN")}
+      {suffix}
+    </span>
+  );
+}
 
 export default function StatsBar() {
   return (
-    <section className="bg-white py-5 ">
-      <div className="mx-auto  px-4">
-        <div className="grid grid-cols-2 gap-y-6 py-6 md:grid-cols-3 lg:grid-cols-5">
-          {stats.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={index}
-                className="flex items-center justify-center gap-4 px-4 lg:border-r-2 last:border-r-0 border-secondary"
-              >
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary-light">
-                  <Icon
-                    className="h-8 w-8 text-secondary"
-                    strokeWidth={2}
-                  />
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-medium leading-none text-foreground">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-1 text-base text-muted-foreground">
-                    {item.subtitle}
-                  </p>
-                </div>
+    <section className="bg-white py-16 border-b border-border">
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((s) => (
+            <div key={s.label} className="border-l-4 border-primary pl-5">
+              <div className="text-4xl font-black text-primary tracking-tight">
+                <CountUp target={s.num} suffix={s.suffix} />
               </div>
-            );
-          })}
+              <div className="mt-1 text-sm font-semibold text-muted-foreground">{s.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

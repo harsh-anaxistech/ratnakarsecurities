@@ -1,11 +1,12 @@
 import HeroBanner from "@/components/home/HeroBanner";
+import Ticker from "@/components/home/Ticker";
+import Testimonials from "@/components/home/Testimonials";
+import StarBar from "@/components/home/StarBar";
 import Features from "@/components/home/Features";
-import Calculator from "@/components/home/Calculator";
-import WhyChooseUs from "@/components/home/WhyChooseUs";
-import StarBar from "@/components/home/StarBar";  
 import Steps from "@/components/home/Steps";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+
 import DownloadApp from "@/components/home/DownloadApp";
-import Faq from "@/components/home/Faq";
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
@@ -19,15 +20,14 @@ export default function HomePage() {
   return (
     <div>
       <HeroBanner />
-      <StarBar/>
-            <Features />
+      <Ticker />
+      <StarBar />
+      <Features />
       <Steps />
-
       <WhyChooseUs />
-      {/* <Calculator /> */}
-      {/* <Faq/> */}
-            <DownloadApp />
+      <Testimonials />
 
+      <DownloadApp />
     </div>
   );
 }

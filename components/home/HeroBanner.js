@@ -1,81 +1,4 @@
-// import Image from "next/image";
-// import Link from "next/link";
-// import Container from "@/components/common/Container";
-// import Button from "@/components/common/Button";
-// import { TrendingUp, ShieldCheck, BadgeCheck } from "lucide-react";
-
-// export default function HeroBanner() {
-//   return (
-//     <section
-//       className="relative overflow-hidden py-16"
-//       aria-label="Hero banner"
-//     >
-//       <Container className="relative z-10">
-//         <div className="grid items-center gap-12 lg:grid-cols-2">
-//           {/* Left Content */}
-//           <div className="text-center lg:text-left">
-//             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-foreground mb-6 leading-[1.1]">
-//               Boost Your Income Today{" "}
-//               <span
-//                 className="relative"
-//                 style={{
-//                   background:
-//                     "linear-gradient(90deg, var(--primary), var(--secondary))",
-//                   WebkitBackgroundClip: "text",
-//                   WebkitTextFillColor: "transparent",
-//                   backgroundClip: "text",
-//                 }}
-//               >
-//                 Online Trading
-//               </span>
-//             </h1>
-
-//             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mb-10 leading-relaxed lg:mx-0 mx-auto">
-//               Start investing in equities, derivatives, mutual funds, currency,
-//               and more through our Trading Account.
-//             </p>
-
-//             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-//               <Link href="/contact">
-//                 <Button
-//                   variant="contained"
-//                   color="primary"
-//                   size="lg"
-//                   className="text-base"
-//                 >
-//                   Download Now
-//                 </Button>
-//               </Link>
-
-//               <Link href="/about">
-//                 <Button
-//                   variant="contained"
-//                   color="secondary"
-//                   size="lg"
-//                 >
-//                   Invest Now
-//                 </Button>
-//               </Link>
-//             </div>
-//           </div>
-
-//           {/* Right Image */}
-//           <div className="relative flex justify-center lg:justify-end">
-//             <Image
-//               src="/images/hero/hero.png"
-//               alt="Trading Illustration"
-//               width={650}
-//               height={650}
-//               priority
-//               className="w-full max-w-[620px] animate-[float_5s_ease-in-out_infinite]"
-//             />
-//           </div>
-//         </div>
-//       </Container>
-//     </section>
-//   );
-// }
-
+"use client";
 import Link from "next/link";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
@@ -83,62 +6,97 @@ import Button from "@/components/common/Button";
 export default function HeroBanner() {
   return (
     <section
-      className="relative min-h-screen overflow-hidden flex items-center justify-center"
+      className="relative overflow-hidden flex items-center"
+      style={{
+        background:
+          "radial-gradient(1200px 600px at 85% -10%, #1a6eb5 0%, #012e54 45%, #011628 100%)",
+        padding: "96px 0 110px",
+        color: "#fff",
+      }}
       aria-label="Hero banner"
     >
-      {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src="/bg-video.mp4" type="video/mp4" />
-      </video>
+      {/* Decorative grid */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{ backgroundImage: "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)", backgroundSize: "60px 60px" }}
+      />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/30" />
-
-      {/* Content */}
       <Container className="relative z-10">
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="max-w-4xl text-center">
-            <h1 className="mb-6 text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl">
-              Boost Your Income Today{" "}
-                Online Trading
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left — Text */}
+          <div>
+            <div className="inline-block text-secondary text-xs font-bold tracking-widest uppercase mb-4 border border-secondary/40 rounded-full px-4 py-1.5">
+              Full-Service Broking · Since 2001 · Ahmedabad
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              25 years of making{" "}
+              <span className="text-secondary">money grow.</span>
+              <br />
+              <em className="not-italic text-white/80">Rest assured.</em>
             </h1>
-
-            <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white sm:text-xl">
-              Start investing in equities, derivatives, mutual funds,
-              currency, and more through our Trading Account.
+            <p className="mt-6 mb-8 text-lg leading-relaxed max-w-xl" style={{ color: "#c8dff0" }}>
+              Equity, mutual funds, commodities and wealth management — guided by
+              dedicated relationship managers and research you can actually act on.
+              One relationship, every investment need.
             </p>
-
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="flex flex-wrap gap-4">
               <Link href="/contact">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="lg"
-                  className="text-base"
-                >
-                  Download Now
+                <Button variant="contained" color="primary" size="lg" className="text-base font-bold">
+                  Open an Account — Free
                 </Button>
               </Link>
+              <Link href="/products">
+                <Button variant="outlined" color="secondary" size="lg" className="text-base">
+                  Explore Our Services
+                </Button>
+              </Link>
+            </div>
 
-              <Link href="/about">
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  size="lg"
-                >
-                  Invest Now
-                </Button>
-              </Link>
+            {/* Trust chips */}
+            <div className="flex flex-wrap gap-2 mt-8">
+              {["SEBI Registered", "Member: NSE · BSE · NSDL", "MCX · NCDEX", "25,000+ Investors Trust Us"].map((chip) => (
+                <span key={chip} className="text-xs font-semibold px-3 py-1.5 rounded-full border text-secondary" style={{ borderColor: "rgba(0,174,238,0.4)" }}>
+                  {chip}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — SVG Chart */}
+          <div className="hidden lg:block">
+            <div className="rounded-2xl p-6 border" style={{ background: "rgba(255,255,255,0.05)", borderColor: "rgba(0,174,238,0.25)", backdropFilter: "blur(4px)" }}>
+              <svg viewBox="0 0 420 240" role="img" aria-label="Illustration of long-term portfolio growth" className="w-full h-auto">
+                <defs>
+                  <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#00aeee" stopOpacity="0.35" />
+                    <stop offset="100%" stopColor="#00aeee" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <g stroke="rgba(0,174,238,0.15)" strokeWidth="1">
+                  <line x1="0" y1="60" x2="420" y2="60" />
+                  <line x1="0" y1="120" x2="420" y2="120" />
+                  <line x1="0" y1="180" x2="420" y2="180" />
+                </g>
+                <path d="M0,210 C50,205 70,185 100,180 C140,173 150,150 190,142 C230,134 240,110 280,96 C320,82 340,60 420,30 L420,240 L0,240 Z" fill="url(#fade)" />
+                <path
+                  d="M0,210 C50,205 70,185 100,180 C140,173 150,150 190,142 C230,134 240,110 280,96 C320,82 340,60 420,30"
+                  fill="none" stroke="#00aeee" strokeWidth="3.5" strokeLinecap="round"
+                  className="draw"
+                  style={{ strokeDasharray: 1200, strokeDashoffset: 1200, animation: "draw 2.2s ease-out 0.3s forwards" }}
+                />
+                <circle cx="420" cy="30" r="6" fill="#ea2830" />
+              </svg>
+              <div className="flex justify-between mt-3 text-xs" style={{ color: "#9fc8e0" }}>
+                <span>Your portfolio, 2001 → 2026</span>
+                <span className="font-bold text-secondary">Disciplined investing wins</span>
+              </div>
             </div>
           </div>
         </div>
       </Container>
+
+      <style jsx>{`
+        @keyframes draw { to { stroke-dashoffset: 0; } }
+      `}</style>
     </section>
   );
 }

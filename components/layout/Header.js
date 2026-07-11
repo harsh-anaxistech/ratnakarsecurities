@@ -4,14 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import {
-  BarChart3,
-  Smartphone,
-  Download,
-  HelpCircle,
-  Handshake,
-  ChevronDown,
-} from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
@@ -34,12 +27,7 @@ const NAV_LINKS = [
         { label: "NRIs", href: "/products/nri", icon: "nri" },
         { label: "SLBS", href: "/products/slbs", icon: "slbs" },
         { label: "Bonds", href: "/products/bonds", icon: "bonds" },
-        {
-          label: "Narnolia Investment Advisory Portfolios",
-          href: "https://ratnakarsecurities.narnolia.in/",
-          external: true,
-          icon: "investment-advisory",
-        },
+        { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", external: true, icon: "investment-advisory" },
       ],
     ],
   },
@@ -58,53 +46,17 @@ const NAV_LINKS = [
     href: "/investors",
     columns: [
       [
-        {
-          label: "Board of Directors",
-          href: "/investors/board-of-directors",
-          icon: "board-of-directors",
-        },
-        {
-          label: "Disclosure of Contact Details of Key Managerial Personnel",
-          href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel",
-          icon: "contact-details",
-        },
-        {
-          label: "Statutory and Registration Certificate Documents",
-          href: "/investors/statutory-and-registration-certificate-documents",
-          icon: "statutory",
-        },
-        {
-          label: "Policies",
-          href: "/investors/policies",
-          icon: "policies",
-        },
-        {
-          label: "Financial Information and Annual Report",
-          href: "/investors/financial-information-and-annual-report",
-          icon: "financial-info",
-        },
+        { label: "Board of Directors", href: "/investors/board-of-directors", icon: "board-of-directors" },
+        { label: "Disclosure of Contact Details", href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel", icon: "contact-details" },
+        { label: "Statutory Documents", href: "/investors/statutory-and-registration-certificate-documents", icon: "statutory" },
+        { label: "Policies", href: "/investors/policies", icon: "policies" },
+        { label: "Financial Information", href: "/investors/financial-information-and-annual-report", icon: "financial-info" },
       ],
       [
-        {
-          label: "Shareholding Pattern",
-          href: "/investors/shareholding-pattern",
-          icon: "shareholding-pattern",
-        },
-        {
-          label: "Newspaper Publication",
-          href: "/investors/newspaper-publication",
-          icon: "newspaper-publication",
-        },
-        {
-          label: "Annual Return",
-          href: "/investors/annual-return",
-          icon: "annual-return",
-        },
-        {
-          label: "Disclosures of Material Events or Information",
-          href: "/investors/disclosures-of-material-events-or-information",
-          icon: "material-events",
-        },
+        { label: "Shareholding Pattern", href: "/investors/shareholding-pattern", icon: "shareholding-pattern" },
+        { label: "Newspaper Publication", href: "/investors/newspaper-publication", icon: "newspaper-publication" },
+        { label: "Annual Return", href: "/investors/annual-return", icon: "annual-return" },
+        { label: "Material Events", href: "/investors/disclosures-of-material-events-or-information", icon: "material-events" },
       ],
     ],
   },
@@ -117,10 +69,7 @@ const NAV_LINKS = [
       { label: "Milestone", href: "/about/milestone", icon: "milestone" },
     ],
   },
-  {
-    label: "Contact Us",
-    href: "/contact",
-  },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const LOGIN_LINKS = [
@@ -132,56 +81,23 @@ const LOGIN_LINKS = [
 
 function DropdownLink({ link, children, className }) {
   const iconSvg = link.icon ? MenuIcons[link.icon] : null;
-
   const content = (
-    <div className="flex items-center gap-3 text-base">
-      {iconSvg && (
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center text-secondary">
-          {iconSvg}
-        </span>
-      )}
+    <div className="flex items-center gap-3 text-sm">
+      {iconSvg && <span className="flex h-7 w-7 shrink-0 items-center justify-center text-secondary">{iconSvg}</span>}
       <span>{children}</span>
     </div>
   );
-
   if (link.external) {
-    return (
-      <a
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
-        {content}
-      </a>
-    );
+    return <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>{content}</a>;
   }
-  return (
-    <Link href={link.href} className={className}>
-      {content}
-    </Link>
-  );
+  return <Link href={link.href} className={className}>{content}</Link>;
 }
 
-function NavLink({ link, className, children, onClick }) {
+function NavLink({ link, children, className, onClick }) {
   if (link.external) {
-    return (
-      <a
-        href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-        onClick={onClick}
-      >
-        {children}
-      </a>
-    );
+    return <a href={link.href} target="_blank" rel="noopener noreferrer" className={className} onClick={onClick}>{children}</a>;
   }
-  return (
-    <Link href={link.href} className={className} onClick={onClick}>
-      {children}
-    </Link>
-  );
+  return <Link href={link.href} className={className} onClick={onClick}>{children}</Link>;
 }
 
 export default function Header() {
@@ -205,21 +121,10 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  const topBarIcons = [
-    { icon: BarChart3, href: "#", label: "Markets" },
-    { icon: Smartphone, href: "#", label: "Mobile App" },
-    { icon: Download, href: "#", label: "Downloads" },
-    { icon: HelpCircle, href: "#", label: "Support" },
-    { icon: Handshake, href: "#", label: "Partner" },
-  ];
-
   const hasSubmenu = (item) => item.columns || item.dropdown;
-
   const getSubLinks = (item) => {
     if (item.dropdown) return item.dropdown;
     if (item.columns) return item.columns.flat();
@@ -231,314 +136,157 @@ export default function Header() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-          scrolled
-            ? "border-b border-gray-200 bg-white shadow-md backdrop-blur-md"
-            : "border-b border-gray-200 bg-white",
+          scrolled ? "shadow-md" : ""
         )}
       >
-        {/* Top bar: Desktop only */}
-        <div
-          className={cn(
-            "w-full border-b border-gray-100 bg-primary transition-all duration-300 ease-in-out hidden lg:block",
-            scrolled ? "h-0 opacity-0 pointer-events-none" : "h-12 opacity-100",
-          )}
-        >
-          <Container className="flex h-full items-center justify-end">
-            <div className="flex items-center gap-2">
-              {topBarIcons.map((item, index) => {
-                const IconComponent = item.icon;
-                return (
-                  <Link
-                    key={index}
-                    href={item.href}
-                    aria-label={item.label}
-                    className="flex h-8 w-8 items-center justify-center bg-white text-foreground transition-colors hover:bg-foreground hover:text-white rounded-full"
-                  >
-                    <IconComponent className="h-4 w-4" />
-                  </Link>
-                );
-              })}
-            </div>
-          </Container>
-        </div>
 
-        <Container>
-          <div className="flex h-16 items-center justify-between lg:h-20">
-            <Link
-              href="/"
-              className="group flex items-center gap-2.5 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-              aria-label="Ratnakar Securities – Home"
-            >
-              <Image
-                src="/images/logo/RSL_logo.png"
-                alt="Ratnakar Securities"
-                width={220}
-                height={60}
-                priority
-                className="object-contain"
-              />
-            </Link>
+        {/* ── MAIN NAV ── */}
 
-            {/* Desktop Navigation */}
-            <nav className="hidden h-full lg:flex items-center">
-              {NAV_LINKS.map((item) => {
-                const isActive =
-                  item.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href);
+        <div className="bg-white border-b border-gray-200">
+          <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+            <div className="flex h-16 items-center justify-between lg:h-[72px]">
 
-                return (
-                  <div key={item.label} className="group relative h-full">
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "flex h-20 items-center text-base px-6 uppercase transition-colors duration-200",
-                        isActive
-                          ? "text-primary font-medium"
-                          : "text-foreground hover:text-primary",
+              {/* Logo */}
+              <Link href="/" aria-label="Ratnakar Securities – Home" className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
+                <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={200} height={55} priority className="object-contain" />
+              </Link>
+
+              {/* Desktop Nav */}
+              <nav className="hidden lg:flex h-full items-center">
+                {NAV_LINKS.map((item) => {
+                  const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+                  return (
+                    <div key={item.label} className="group relative h-full flex items-center">
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "flex h-full items-center gap-1 px-4 text-sm font-semibold transition-colors border-b-2",
+                          isActive
+                            ? "text-primary border-primary"
+                            : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
+                        )}
+                      >
+                        {item.label}
+                        {hasSubmenu(item) && <ChevronDown className="h-3.5 w-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200" />}
+                      </Link>
+
+                      {/* Multi-column dropdown */}
+                      {item.columns && (
+                        <div className="absolute left-0 top-full mt-0 z-50 min-w-max grid grid-cols-2 gap-6 bg-white shadow-xl border border-border rounded-b-lg rounded-tr-lg p-5 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
+                          {item.columns.map((column, i) => (
+                            <div key={i} className="space-y-0.5">
+                              {column.map((link) => (
+                                <DropdownLink key={link.href} link={link} className="block rounded px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                                  {link.label}
+                                </DropdownLink>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
                       )}
-                    >
-                      {item.label}
-                    </Link>
 
-                    {item.columns && (
-                      <div className="absolute left-0 top-[calc(100%-4px)] mt-1 z-50 min-w-xl grid grid-cols-2 gap-6 bg-muted rounded-lg  p-6 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
-                        {item.columns.map((column, i) => (
-                          <div key={i} className="space-y-1">
-                            {column.map((link) => (
-                              <DropdownLink
-                                key={link.href}
-                                link={link}
-                                className="block rounded-sm px-3 py-2.5 text-base text-foreground transition-colors hover:text-primary"
-                              >
-                                {link.label}
-                              </DropdownLink>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {item.dropdown && (
-                      <div className="absolute left-0 top-[calc(100%-4px)] mt-1 z-50 w-72 bg-muted rounded-lg  p-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
-                        <div className="space-y-1">
+                      {/* Single dropdown */}
+                      {item.dropdown && (
+                        <div className="absolute left-0 top-full mt-0 z-50 w-64 bg-white shadow-xl border border-border rounded-b-lg rounded-tr-lg p-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
                           {item.dropdown.map((link) => (
-                            <DropdownLink
-                              key={link.href}
-                              link={link}
-                              className="block rounded-sm px-3 py-2.5 text-base text-foreground transition-colors hover:text-primary"
-                            >
+                            <DropdownLink key={link.href} link={link} className="block rounded px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
                               {link.label}
                             </DropdownLink>
                           ))}
                         </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </nav>
+                      )}
+                    </div>
+                  );
+                })}
+              </nav>
 
-            {/* Desktop Action Buttons */}
-            <div className="hidden h-full items-center gap-3 lg:flex">
-              <Button
-                as="a"
-                variant="outlined"
-                color="secondary"
-                href="/contact"
-                className="uppercase text-base rounded-sm"
-              >
-                Re-KYC
-              </Button>
-              <Button
-                as="a"
-                variant="contained"
-                color="secondary"
-                href="/contact"
-                className="uppercase text-base rounded-sm"
-              >
-                Open Demat Account
-              </Button>
+              {/* Desktop Actions */}
+              <div className="hidden lg:flex items-center gap-2">
+                <Link href="/contact">
+                  <Button variant="contained" color="primary" className="text-sm font-bold rounded-lg px-5">
+                    Open an Account
+                  </Button>
+                </Link>
 
-              {/* Login Dropdown */}
-              <div className="group relative flex h-full items-center">
-                <Button variant="contained" color="primary" className="uppercase text-base rounded-sm">
-                  Login
-                </Button>
-                <div className="absolute right-0 top-[calc(100%-4px)] mt-1 z-50 min-w-[320px] bg-muted   text-foreground rounded-lg  py-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out">
-                  <div className="space-y-1">
+                {/* Login dropdown */}
+                <div className="group relative">
+                  <Button variant="outlined" color="secondary" className="text-sm font-bold rounded-lg px-5">
+                    Login <ChevronDown className="h-3.5 w-3.5 ml-1 group-hover:rotate-180 transition-transform duration-200 inline" />
+                  </Button>
+                  <div className="absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-lg py-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
                     {LOGIN_LINKS.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="block px-5 py-2.5 uppercase text-base transition hover:text-primary"
-                      >
+                      <Link key={link.href} href={link.href} className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
                         {link.label}
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Hamburger Menu Trigger */}
-            <button
-              onClick={() => setMobileOpen((prev) => !prev)}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-menu"
-              className="relative w-10 h-10 flex items-center justify-center rounded-sm text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary lg:hidden"
-            >
-              <span className="sr-only">{mobileOpen ? "Close" : "Menu"}</span>
-              <span
-                className={cn(
-                  "absolute h-0.5 w-6 bg-current rounded-full transition-all duration-300 ease-in-out",
-                  mobileOpen ? "rotate-45 translate-y-0" : "-translate-y-2",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute h-0.5 w-6 bg-current rounded-full transition-all duration-300 ease-in-out",
-                  mobileOpen ? "opacity-0 scale-x-0" : "opacity-100 scale-x-100",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute h-0.5 w-6 bg-current rounded-full transition-all duration-300 ease-in-out",
-                  mobileOpen ? "-rotate-45 translate-y-0" : "translate-y-2",
-                )}
-              />
-            </button>
+              {/* Hamburger */}
+              <button
+                onClick={() => setMobileOpen((p) => !p)}
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
+                className="relative w-10 h-10 flex items-center justify-center rounded text-foreground hover:bg-muted transition-colors lg:hidden"
+              >
+                <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "rotate-45" : "-translate-y-2")} />
+                <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "opacity-0 scale-x-0" : "")} />
+                <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "-rotate-45" : "translate-y-2")} />
+              </button>
+            </div>
           </div>
-        </Container>
+        </div>
       </header>
 
-      <div
-        className={cn(
-          "transition-all duration-300",
-          scrolled ? "h-16 lg:h-20" : "h-16 lg:h-32",
-        )}
-        aria-hidden="true"
-      />
+      {/* Spacer */}
+      <div className={cn("transition-all duration-300", scrolled ? "h-16 lg:h-[72px]" : "h-16 lg:[109px]")} aria-hidden="true" />
 
       {/* Mobile Drawer */}
-      <div
-        id="mobile-menu"
-        className={cn(
-          "fixed inset-0 z-40 transition-all duration-300 lg:hidden",
-          mobileOpen ? "pointer-events-auto" : "pointer-events-none",
-        )}
-        aria-hidden={!mobileOpen}
-      >
-        <div
-          className={cn(
-            "absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300",
-            mobileOpen ? "opacity-100" : "opacity-0",
-          )}
-          onClick={() => setMobileOpen(false)}
-          aria-hidden="true"
-        />
-        <div
-          className={cn(
-            "absolute right-0 top-0 h-full w-full bg-white transition-transform duration-300 ease-in-out flex flex-col",
-            mobileOpen ? "translate-x-0" : "translate-x-full",
-          )}
-        >
-          {/* Mobile Drawer Header */}
-          <div className="flex items-center justify-between px-5 py-2 border-b border-gray-100">
+      <div id="mobile-menu" className={cn("fixed inset-0 z-40 transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto" : "pointer-events-none")} aria-hidden={!mobileOpen}>
+        <div className={cn("absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300", mobileOpen ? "opacity-100" : "opacity-0")} onClick={() => setMobileOpen(false)} />
+        <div className={cn("absolute right-0 top-0 h-full w-full bg-white transition-transform duration-300 ease-in-out flex flex-col", mobileOpen ? "translate-x-0" : "translate-x-full")}>
+          {/* Drawer Header */}
+          <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100" style={{ background: "#011628" }}>
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Image
-                src="/images/logo/RSL_logo.png"
-                alt="Ratnakar Securities"
-                width={160}
-                height={45}
-                className="object-contain"
-              />
+              <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={150} height={40} className="object-contain brightness-0 invert" />
             </Link>
-            <button
-              onClick={() => setMobileOpen(false)}
-              aria-label="Close menu"
-              className="relative w-9 h-9 flex items-center justify-center rounded-sm text-foreground hover:bg-muted transition-colors"
-            >
-              <span className="absolute h-0.5 w-5 bg-current rounded-full rotate-45" />
-              <span className="absolute h-0.5 w-5 bg-current rounded-full -rotate-45" />
+            <button onClick={() => setMobileOpen(false)} aria-label="Close menu" className="w-9 h-9 flex items-center justify-center text-white/70 hover:text-white">
+              <span className="absolute h-0.5 w-5 bg-current rotate-45 rounded" />
+              <span className="absolute h-0.5 w-5 bg-current -rotate-45 rounded" />
             </button>
           </div>
 
-          {/* Mobile Navigation Links */}
-          <nav
-            className="flex-1 overflow-y-auto px-5 py-4 pb-20"
-            aria-label="Mobile navigation"
-          >
-            <div className="flex flex-col gap-1.5">
+          {/* Nav links */}
+          <nav className="flex-1 overflow-y-auto px-4 py-4" aria-label="Mobile navigation">
+            <div className="flex flex-col gap-1">
               {NAV_LINKS.map((item) => {
-                const isActive =
-                  item.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(item.href);
+                const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                 const isOpen = openAccordion === item.label;
                 const subLinks = getSubLinks(item);
-
                 return (
                   <div key={item.label}>
                     {hasSubmenu(item) ? (
                       <>
                         <button
-                          onClick={() => {
-                            setOpenAccordion(isOpen ? null : item.label);
-                            setMobileLoginOpen(false);
-                          }}
-                          className={cn(
-                            "flex w-full items-center justify-between py-3 px-3 text-base transition-colors rounded-sm",
-                            isActive ? "text-primary" : "text-foreground hover:bg-muted",
-                          )}
+                          onClick={() => { setOpenAccordion(isOpen ? null : item.label); setMobileLoginOpen(false); }}
+                          className={cn("flex w-full items-center justify-between py-3 px-3 text-sm font-semibold rounded transition-colors", isActive ? "text-primary" : "text-foreground hover:bg-muted")}
                         >
                           <span>{item.label}</span>
-                          <ChevronDown
-                            className={cn(
-                              "h-4 w-4 transition-transform duration-200",
-                              isOpen && "rotate-180",
-                            )}
-                          />
+                          <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isOpen && "rotate-180")} />
                         </button>
-                        <div
-                          className={cn(
-                            "overflow-hidden transition-all duration-300 ease-in-out",
-                            isOpen ? "max-h-[600px] pt-1 pb-2" : "max-h-0",
-                          )}
-                        >
-                          <div className="flex flex-col gap-1 pl-3">
-                            {subLinks.map((link) => {
-                              const isSubLinkActive = pathname === link.href;
-                              return (
-                                <NavLink
-                                  key={link.href}
-                                  link={link}
-                                  className={cn(
-                                    "block py-2.5 px-4 text-base rounded-sm transition-colors",
-                                    isSubLinkActive
-                                      ? "text-primary"
-                                      : "text-muted-foreground hover:bg-muted hover:text-foreground",
-                                  )}
-                                  onClick={() => setMobileOpen(false)}
-                                >
-                                  {link.label}
-                                </NavLink>
-                              );
-                            })}
+                        <div className={cn("overflow-hidden transition-all duration-300", isOpen ? "max-h-[600px] pb-2" : "max-h-0")}>
+                          <div className="flex flex-col gap-0.5 pl-3 pt-1">
+                            {subLinks.map((link) => (
+                              <NavLink key={link.href} link={link} className={cn("block py-2 px-3 text-sm rounded transition-colors", pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted")} onClick={() => setMobileOpen(false)}>
+                                {link.label}
+                              </NavLink>
+                            ))}
                           </div>
                         </div>
                       </>
                     ) : (
-                      <Link
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        aria-current={isActive ? "page" : undefined}
-                        className={cn(
-                          "block py-3 px-3 text-base transition-colors rounded-sm",
-                          isActive ? "text-primary" : "text-foreground hover:bg-muted",
-                        )}
-                      >
+                      <Link href={item.href} onClick={() => setMobileOpen(false)} className={cn("block py-3 px-3 text-sm font-semibold rounded transition-colors", isActive ? "text-primary" : "text-foreground hover:bg-muted")}>
                         {item.label}
                       </Link>
                     )}
@@ -546,90 +294,34 @@ export default function Header() {
                 );
               })}
 
-              {/* Mobile Login Accordion */}
-              <div>
-                <Button
-                  onClick={() => {
-                    setMobileLoginOpen((prev) => !prev);
-                    setOpenAccordion(null);
-                  }}
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                  size="md"
-                  className="rounded-sm"
+              {/* Login */}
+              <div className="mt-2">
+                <button
+                  onClick={() => { setMobileLoginOpen((p) => !p); setOpenAccordion(null); }}
+                  className="flex w-full items-center justify-between py-3 px-3 text-sm font-semibold rounded transition-colors text-foreground hover:bg-muted"
                 >
-                  <span className="text-base">LOGIN</span>
-                  <ChevronDown
-                    className={cn(
-                      "h-4 w-4 transition-transform duration-200",
-                      mobileLoginOpen && "rotate-180",
-                    )}
-                  />
-                </Button>
-                <div
-                  className={cn(
-                    "overflow-hidden transition-all duration-300 ease-in-out",
-                    mobileLoginOpen ? "max-h-[300px] pt-1 pb-2" : "max-h-0",
-                  )}
-                >
-                  <div className="flex flex-col gap-1 pl-3 mt-1">
+                  <span>Login</span>
+                  <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", mobileLoginOpen && "rotate-180")} />
+                </button>
+                <div className={cn("overflow-hidden transition-all duration-300", mobileLoginOpen ? "max-h-[300px] pb-2" : "max-h-0")}>
+                  <div className="flex flex-col gap-0.5 pl-3 pt-1">
                     {LOGIN_LINKS.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-2.5 px-4 text-base text-muted-foreground hover:bg-muted hover:text-foreground rounded-sm transition-colors"
-                      >
+                      <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors">
                         {link.label}
                       </Link>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <Button
-                  as="a"
-                  href="/contact"
-                  variant="contained"
-                  color="secondary"
-                  fullWidth
-                  size="md"
-                  className="text-base rounded-sm"
-                >
-                  Open Account
-                </Button>
-                <Button
-                  as="a"
-                  href="/contact"
-                  variant="outlined"
-                  color="secondary"
-                  fullWidth
-                  size="md"
-                  className="text-base rounded-sm"
-                >
-                  Re-KYC
-                </Button>
+
+              {/* CTA */}
+              <div className="mt-4">
+                <Link href="/contact" onClick={() => setMobileOpen(false)}>
+                  <Button variant="contained" color="primary" className="w-full text-sm rounded-lg">Open an Account</Button>
+                </Link>
               </div>
             </div>
           </nav>
-
-          {/* Topbar Icons Footer: Positioned at the very bottom of the drawer */}
-          <div className="border-t border-border px-5 py-4 bg-gray-50 flex items-center justify-center gap-4">
-            {topBarIcons.map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <Link
-                  key={index}
-                  href={item.href}
-                  aria-label={item.label}
-                  className="flex h-10 w-10 items-center justify-center bg-foreground text-background transition-colors hover:bg-primary hover:text-white rounded-full shadow-sm"
-                >
-                  <IconComponent className="h-5 w-5" />
-                </Link>
-              );
-            })}
-          </div>
         </div>
       </div>
     </>

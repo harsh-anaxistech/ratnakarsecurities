@@ -147,7 +147,7 @@ export default function AboutOverview() {
           >
             {" "}
             <div className="mb-6">
-              <p className="text-muted  text-base   mb-1">Services</p>
+              <p className="text-white/70  text-base   mb-1">Services</p>
               <h3 className="text-white text-3xl md:text-4xl font-medium border-b border-border pb-3">
                 We Offer
               </h3>
@@ -157,7 +157,7 @@ export default function AboutOverview() {
                 <li key={index} className="group">
                   <a
                     href="#"
-                    className="flex items-center gap-3 py-1.5 text-muted font-medium text-sm hover:text-secondary transition-colors"
+                    className="flex items-center gap-3 py-1.5 text-white font-medium text-sm hover:text-secondary transition-colors"
                   >
                     <span className="text-secondary text-xs transition-transform group-hover:translate-x-1">
                       ▶

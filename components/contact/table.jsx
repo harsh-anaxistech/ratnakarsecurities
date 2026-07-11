@@ -4,7 +4,7 @@ import Container from "@/components/common/Container";
 export default function ContactDetailsSections() {
   return (
     <Container>
-      <div className="w-full space-y-10 pb-10 ">
+      <div className="w-full space-y-16 py-16">
         {/* --- ESCALATION MATRIX SECTION --- */}
         <div className="space-y-10">
           <h2 className="text-2xl md:text-3xl font-bold text-center  ">
@@ -22,7 +22,7 @@ export default function ContactDetailsSections() {
                   <th className="p-4">Working Hours</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 text-base  text-muted-foreground">
+              <tbody className="divide-y divide-gray-200 text-base text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
                 <tr>
                   <td className="p-4 border-r border-border  ">
                     Customer care
@@ -197,7 +197,7 @@ export default function ContactDetailsSections() {
                   <th className="p-4">Email id</th>
                 </tr>
               </thead>
-              <tbody className="text-base  text-muted-foreground">
+              <tbody className="text-base text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
                 <tr>
                   <td className="p-4 border-r border-border  ">
                     Ratnakar Securities Pvt. Ltd.
@@ -247,7 +247,7 @@ export default function ContactDetailsSections() {
                   <th className="p-4">Email id</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 text-base  text-muted-foreground">
+              <tbody className="divide-y divide-gray-200 text-base text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
                 {[
                   {
                     id: 1,

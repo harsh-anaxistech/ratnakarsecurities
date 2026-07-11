@@ -34,7 +34,7 @@ const products = [
 
 export default function ProductsPage() {
   return (
-    <section className="py-10">
+    <section className="py-16">
       <Container>
         <h2 className="mb-10 text-2xl font-bold text-foreground md:text-3xl">
           Products Overview
@@ -48,7 +48,7 @@ export default function ProductsPage() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
                 {section.documents.map((doc, index) => (
                   <div key={index} className="flex h-full flex-col">
-                    <div className="group flex-1 rounded-sm border bg-muted border-border p-6 ">
+                    <div className="group flex-1 rounded-sm border bg-muted border-border p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                       <div className="flex h-full items-start gap-4">
                         <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border border-border bg-background ">
                           <Image
@@ -60,7 +60,7 @@ export default function ProductsPage() {
                           />
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-base font-mediumtext-foreground ">
+                          <h4 className="text-base font-medium text-foreground group-hover:text-primary transition-colors">
                             {doc.title}
                           </h4>
                         </div>

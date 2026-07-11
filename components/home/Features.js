@@ -1,119 +1,113 @@
-import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/common/Container";
-import Button from "../common/Button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, TrendingUp, BarChart2, PiggyBank, Wheat, Briefcase, Rocket, Globe, Lock, RefreshCw } from "lucide-react";
 
-const SERVICES_DATA = [
+const SERVICES = [
   {
-    title: "EQUITIES",
-    iconName: "Equity-icon",
+    Icon: TrendingUp,
+    title: "Equity",
+    desc: "Invest in India's growth story with research-backed stock ideas across NSE and BSE. Buy right, hold tight.",
     href: "/equity",
   },
   {
-    title: "DERIVATIVES",
-    iconName: "Derivatives-icon",
+    Icon: BarChart2,
+    title: "Derivatives",
+    desc: "Hedge your positions and manage risk with futures & options strategies guided by our advisory desk.",
     href: "/derivatives",
   },
   {
-    title: "MUTUAL FUND",
-    iconName: "mutualFund-icon",
+    Icon: PiggyBank,
+    title: "Mutual Funds & SIPs",
+    desc: "Goal-based fund selection with easy SIP setup — build wealth systematically, one month at a time.",
     href: "/mutual-fund",
   },
   {
-    title: "COMMODITIES",
-    iconName: "commodity-icon",
+    Icon: Wheat,
+    title: "Commodities",
+    desc: "Trade gold, silver and agri commodities on MCX & NCDEX through Ratnakar Commodities Pvt. Ltd.",
     href: "/commodities",
   },
   {
-    title: "NRIS",
-    iconName: "NRI",
-    href: "/nris",
-  },
-  {
-    title: "WEALTH MANAGEMENT",
-    iconName: "PFM",
+    Icon: Briefcase,
+    title: "Wealth Management",
+    desc: "Structured portfolios and a dedicated relationship manager for HNIs — protecting and growing family wealth.",
     href: "/real-estate",
   },
   {
-    title: "SLBS",
-    iconName: "SLBS-icon",
-    href: "/slbs",
+    Icon: Rocket,
+    title: "IPOs",
+    desc: "3-click IPO investing with ₹0 fee via UPI. 2-minute registration, allotment tracking included.",
+    href: "/products",
   },
   {
-    title: "HNIS",
-    iconName: "HNIS",
-    href: "/hnis",
+    Icon: Globe,
+    title: "NRI Desk",
+    desc: "A specialized cell for NRIs — compliant, research-backed investing in Indian markets from anywhere.",
+    href: "/nris",
+  },
+  {
+    Icon: Lock,
+    title: "Bonds & Fixed Income",
+    desc: "Secure, steady returns through our deep understanding of India's debt markets.",
+    href: "/products",
+  },
+  {
+    Icon: RefreshCw,
+    title: "SLBS",
+    desc: "Lend the stocks you own, borrow the ones you don't — unlock liquidity from your existing portfolio.",
+    href: "/slbs",
   },
 ];
 
 export default function InvestmentServices() {
   return (
-    <section className="pb-16">
+    <section className="py-20" style={{ background: "#f7f9fc" }}>
       <Container>
-        <div className="mb-14 text-center">
-          <div className="flex flex-col items-center text-center">
-            <h2 className="text-3xl mt-3 font-semibold leading-tight text-foreground md:text-4xl">
-              Investment opportunities
-            </h2>
-            <p className="mt-5 max-w-3xl text-base text-muted-foreground">
-              Our comprehensive suite of financial products and services empowers investors
-              with the right opportunities, expert insights, and seamless execution to
-              achieve their investment objectives.
-            </p>
-          </div>
+        {/* Header */}
+        <div className="mb-12 text-center">
+          <div className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Services We Offer</div>
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-dark-navy leading-tight">
+            Every investment need.<br />One trusted roof.
+          </h2>
+          <p className="mt-4 max-w-xl text-muted-foreground mx-auto">
+            From your first SIP to a full family portfolio — products and advice matched to your goals,
+            risk profile and life stage.
+          </p>
         </div>
 
-        {/* Centered with mx-auto */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {SERVICES_DATA.map((service) => (
-            <Link
-              key={service.title}
-              href={service.href}
-              className="group block h-[140px] rounded-lg bg-white  shadow-card"
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {SERVICES.map(({ Icon, title, desc, href }) => (
+            <div
+              key={title}
+              className="group bg-white border border-border rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/20 relative overflow-hidden"
             >
-              <div className="flex h-full flex-col items-center justify-center gap-4 p-6">
-                {/* Icon */}
-                <div className="flex h-16 w-16 items-center justify-center rounded-full ">
-                  <Image
-                    src={`/images/icon/home/${service.iconName}.svg`}
-                    alt={service.title}
-                    width={40}
-                    height={40}
-                    className="object-contain"
-                  />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-center text-md font-medium text-secondary ">
-                  {service.title}
-                </h3>
+              {/* Icon */}
+              <div
+                className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                style={{ background: "linear-gradient(135deg, #ea2830, #c41f26)" }}
+              >
+                <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
               </div>
-            </Link>
+
+              <h3 className="text-base font-bold text-dark-navy mb-2 group-hover:text-primary transition-colors duration-300">
+                {title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+
+              <Link
+                href={href}
+                className="inline-flex items-center gap-1 mt-4 text-sm font-bold text-primary hover:text-primary-dark transition-colors"
+              >
+                Learn more <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+
+              {/* Subtle accent line on hover */}
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-500" />
+            </div>
           ))}
         </div>
-
       </Container>
-      <div className="flex mt-10 justify-center">
-        <Link
-          href="/contact"
-        >
-          <Button variant="contained" color="secondary" rightIcon={<ArrowRight />} size="lg">
-            Get Started
-          </Button>
-        </Link>
-        {/* <Link
-                href="#"
-                className="transition duration-300 hover:-translate-y-1"
-              >
-                <Image
-                  src="/images/mobile/googleplay.svg"
-                  alt="Google Play"
-                  width={180}
-                  height={54}
-                />
-              </Link> */}
-      </div>
     </section>
   );
 }
