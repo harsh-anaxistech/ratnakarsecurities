@@ -12,7 +12,7 @@ export default function FloatingMobileTrading() {
         onClick={() => setIsOpen(true)}
         className="fixed bottom-8 right-8 z-[999] cursor-pointer group"
       >
-        <div className="flex items-center bg-[#ea2830] text-white p-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110">
+        <div className="flex items-center  text-white p-4 rounded-full transition-all duration-300 hover:scale-110">
           <Smartphone className="w-6 h-6" />
         </div>
       </div>
