@@ -35,25 +35,26 @@ export default function HeroBanner() {
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-[#00aeee]/10 rounded-full blur-[140px] animate-pulse duration-[6000ms]" />
       </div>
 
-      {/* ── SLIDE 2 BACKGROUND OVERLAY LAYER (Left Dark & Right Image) ── */}
+      {/* ── SLIDE 2 BACKGROUND OVERLAY LAYER (60% Left Dark & 40% Right Image) ── */}
       <div 
         className={cn(
           "absolute inset-0 transition-all duration-1000 ease-in-out z-0 flex justify-end pointer-events-none",
           currentSlide === 1 ? "opacity-100 scale-100 visible" : "opacity-0 scale-105 invisible"
         )}
       >
-        {/* જમણી બાજુ રાખેલી તમારી મેઇન ઇમેજ */}
-        <div className="relative w-full lg:w-1/2 h-full">
+        {/* 📸 જમણી બાજુ રાખેલી તમારી મેઇન ઇમેજ (હવે 40% વિડ્થ જેથી ડાબી બાજુ 60% સ્પેસ મળે) */}
+        <div className="relative w-full lg:w-[40%] h-full">
           <Image
-            src="/images/hero/2150970201.jpg" // તમારો માંગેલો પાથ અહિયાં સેટ કર્યો છે
+            src="/images/hero/2150970201.jpg" 
             alt="Hero Investment Background"
             fill
             className="object-cover object-right"
             priority
           />
         </div>
-        {/* ડાર્ક ગ્રેડિયન્ટ ઓવરલે: ડાબી બાજુ ડાર્ક રાખશે અને જમણી બાજુ ઇમેજ દેખાવા દેશે */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#011628] via-[#011628]/95 to-[#011628]/40 lg:via-[#011628]/85 lg:to-transparent" />
+        
+        {/* 🎨 ડાર્ક ગ્રેડિયન્ટ ઓવરલે: via-[60%] નો ઉપયોગ કરીને ડાબો ભાગ 60% ડાર્ક રાખ્યો છે */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#011628] via-[#011628] via-[60%] to-transparent" />
       </div>
 
       <Container className="relative z-10 w-full">
@@ -135,13 +136,13 @@ export default function HeroBanner() {
           </div>
         </div>
 
-        {/* ── SLIDE 2: TRUST & PERFORMANCE (Right Content Removed) ── */}
+        {/* ── SLIDE 2: TRUST & PERFORMANCE (60% Left Content Layout) ── */}
         <div className={cn(
           "grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center transition-all duration-700 ease-in-out",
           currentSlide === 1 ? "opacity-100 translate-x-0 relative" : "opacity-0 absolute pointer-events-none translate-x-10 invisible"
         )}>
-          {/* Left Side Content - Takes 8 columns on large screens */}
-          <div className="lg:col-span-8 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+          {/* Left Side Content - ડાર્ક ભાગ સાથે પ્રોપર સેટ કરવા માટે 7 કોલમ (60%) આપ્યા છે */}
+          <div className="lg:col-span-7 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
             
             <div className="inline-flex items-center gap-2 bg-[#00aeee]/10 border border-[#00aeee]/20 rounded-full px-4 py-1.5 shadow-sm mx-auto lg:mx-0">
               <ShieldCheck className="w-4 h-4 text-[#00aeee] shrink-0" />
@@ -203,8 +204,8 @@ export default function HeroBanner() {
             </div>
           </div>
 
-          {/* Right side is intentionally empty in grid to let background image shine through */}
-          <div className="hidden lg:block lg:col-span-4" />
+          {/* Right side is intentionally empty in grid to let background image shine through (40% space) */}
+          <div className="hidden lg:block lg:col-span-5" />
         </div>
 
         {/* ── SLIDER DOTS INDICATORS ── */}

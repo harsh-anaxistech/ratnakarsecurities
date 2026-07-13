@@ -33,7 +33,7 @@ export default function DownloadApp() {
 
           {/* રાઈટ સાઇડ: બટન્સ */}
           <div className="flex flex-col gap-4 w-full md:w-auto">
-            <a href="https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress" className="flex items-center gap-4 bg-black text-white px-6 py-4 rounded-2xl hover:bg-gray-800 transition-all border border-gray-700">
+            <a href="https://apps.apple.com/in/app/ratnakar-tradeexpress/id1281205603" className="flex items-center gap-4 bg-black text-white px-6 py-4 rounded-2xl hover:bg-gray-800 transition-all border border-gray-700">
               <FaApple className="w-10 h-10" />
               <div className="text-left">
                 <p className="text-[10px] uppercase font-bold text-gray-400">Download on the</p>
