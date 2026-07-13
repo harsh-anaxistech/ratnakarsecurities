@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
           <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-5">
             <div 
               style={{ color: "#00aeee" }} 
-              className="text-xs font-black tracking-widest uppercase"
+              className="text-[14px] font-black tracking-widest uppercase"
             >
               Why Choose Ratnakar Securities
             </div>
@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
                     <h3 className="text-base font-bold text-white group-hover:text-[#00aeee] transition-colors duration-300">
                       {r.title}
                     </h3>
-                    <p className="text-sm text-slate-400 leading-relaxed font-medium">
+                    <p className="text-[14px] text-slate-400 leading-relaxed font-medium">
                       {r.desc}
                     </p>
                   </div>

@@ -73,7 +73,7 @@ export default function Testimonials() {
         {/* Header Section — સેન્ટર અંડરલાઈન ઇફેક્ટ */}
         <div className="text-center mb-10">
           <div
-            className="text-xs font-black tracking-widest uppercase mb-3"
+            className="text-[14px] font-black tracking-widest uppercase mb-3"
             style={{ color: "#ea2830" }}
           >
             Words of Trust
@@ -114,7 +114,7 @@ export default function Testimonials() {
 
                     <StarRating count={t.stars} />
 
-                    <p className="text-[15px] leading-relaxed text-slate-700 font-medium italic mb-6">
+                    <p className="text-[16px] leading-relaxed text-slate-700 font-medium italic mb-6">
                       "{t.quote}"
                     </p>
                   </div>

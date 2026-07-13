@@ -34,7 +34,7 @@ export default function InvestmentServices() {
         
         {/* Header */}
         <div className="mb-12 text-center">
-          <div style={{ color: "#ea2830" }} className="text-xs font-black tracking-widest uppercase mb-3">
+          <div style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3">
             Investment Opportunities
           </div>
           <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -62,7 +62,7 @@ export default function InvestmentServices() {
                   {title}
                 </h3>
                 
-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                <p className="text-[16px] text-slate-600 leading-relaxed font-medium">
                   {desc}
                 </p>
               </div>

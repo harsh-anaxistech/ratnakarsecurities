@@ -10,67 +10,129 @@ import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import MenuIcons from "@/components/layout/MenuIcons";
 
+// const NAV_LINKS = [
+//   {
+//     label: "Products",
+//     href: "/products",
+//     columns: [
+//       [
+//         { label: "Overview", href: "/products", icon: "overview" },
+//         { label: "Equity", href: "/products/equity", icon: "equity" },
+//         { label: "Derivatives", href: "/products/derivatives", icon: "derivatives" },
+//         { label: "Mutual Funds", href: "/products/mutual-funds", icon: "mutual-funds" },
+//         { label: "Commodities", href: "/products/commodities", icon: "commodities" },
+//       ],
+//       [
+//         { label: "Wealth Management", href: "/products/wealth-management", icon: "wealth-management" },
+//         { label: "NRIs", href: "/products/nri", icon: "nri" },
+//         { label: "SLBS", href: "/products/slbs", icon: "slbs" },
+//         { label: "Bonds", href: "/products/bonds", icon: "bonds" },
+//         { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", external: true, icon: "investment-advisory" },
+//       ],
+//     ],
+//   },
+//   {
+//     label: "Research",
+//     href: "/research",
+//     dropdown: [
+//       { label: "Company", href: "/research/company", icon: "company" },
+//       { label: "IPOs", href: "/research/ipos", icon: "ipos" },
+//       { label: "News", href: "/research/news", icon: "news" },
+//       { label: "Announcements", href: "/research/announcements", icon: "announcements" },
+//     ],
+//   },
+//   {
+//     label: "Investors",
+//     href: "/investors",
+//     columns: [
+//       [
+//         { label: "Board of Directors", href: "/investors/board-of-directors", icon: "board-of-directors" },
+//         { label: "Disclosure of Contact Details", href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel", icon: "contact-details" },
+//         { label: "Statutory Documents", href: "/investors/statutory-and-registration-certificate-documents", icon: "statutory" },
+//         { label: "Policies", href: "/investors/policies", icon: "policies" },
+//         { label: "Financial Information", href: "/investors/financial-information-and-annual-report", icon: "financial-info" },
+//       ],
+//       [
+//         { label: "Shareholding Pattern", href: "/investors/shareholding-pattern", icon: "shareholding-pattern" },
+//         { label: "Newspaper Publication", href: "/investors/newspaper-publication", icon: "newspaper-publication" },
+//         { label: "Annual Return", href: "/investors/annual-return", icon: "annual-return" },
+//         { label: "Material Events", href: "/investors/disclosures-of-material-events-or-information", icon: "material-events" },
+//       ],
+//     ],
+//   },
+//   {
+//     label: "About Us",
+//     href: "/about",
+//     dropdown: [
+//       { label: "Overview", href: "/about", icon: "overview" },
+//       { label: "Leadership", href: "/about/leadership", icon: "leadership" },
+//       { label: "Milestone", href: "/about/milestone", icon: "milestone" },
+//     ],
+//   },
+//   { label: "Contact Us", href: "/contact" },
+// ];
 const NAV_LINKS = [
   {
     label: "Products",
-    href: "/products",
+    href: "#",
     columns: [
       [
-        { label: "Overview", href: "/products", icon: "overview" },
-        { label: "Equity", href: "/products/equity", icon: "equity" },
-        { label: "Derivatives", href: "/products/derivatives", icon: "derivatives" },
-        { label: "Mutual Funds", href: "/products/mutual-funds", icon: "mutual-funds" },
-        { label: "Commodities", href: "/products/commodities", icon: "commodities" },
+        { label: "Overview", href: "#", icon: "overview" },
+        { label: "Equity", href: "#", icon: "equity" },
+        { label: "Derivatives", href: "#", icon: "derivatives" },
+        { label: "Mutual Funds", href: "#", icon: "mutual-funds" },
+        { label: "Commodities", href: "#", icon: "commodities" },
       ],
       [
-        { label: "Wealth Management", href: "/products/wealth-management", icon: "wealth-management" },
-        { label: "NRIs", href: "/products/nri", icon: "nri" },
-        { label: "SLBS", href: "/products/slbs", icon: "slbs" },
-        { label: "Bonds", href: "/products/bonds", icon: "bonds" },
-        { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", external: true, icon: "investment-advisory" },
+        { label: "Wealth Management", href: "#", icon: "wealth-management" },
+        { label: "NRIs", href: "#", icon: "nri" },
+        { label: "SLBS", href: "#", icon: "slbs" },
+        { label: "Bonds", href: "#", icon: "bonds" },
+        { label: "Narnolia Investment Advisory Portfolios", href: "#", external: true, icon: "investment-advisory" },
       ],
     ],
   },
   {
     label: "Research",
-    href: "/research",
+    href: "#",
     dropdown: [
-      { label: "Company", href: "/research/company", icon: "company" },
-      { label: "IPOs", href: "/research/ipos", icon: "ipos" },
-      { label: "News", href: "/research/news", icon: "news" },
-      { label: "Announcements", href: "/research/announcements", icon: "announcements" },
+      { label: "Company", href: "#", icon: "company" },
+      { label: "IPOs", href: "#", icon: "ipos" },
+      { label: "News", href: "#", icon: "news" },
+      { label: "Announcements", href: "#", icon: "announcements" },
     ],
   },
   {
     label: "Investors",
-    href: "/investors",
+    href: "#",
     columns: [
       [
-        { label: "Board of Directors", href: "/investors/board-of-directors", icon: "board-of-directors" },
-        { label: "Disclosure of Contact Details", href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel", icon: "contact-details" },
-        { label: "Statutory Documents", href: "/investors/statutory-and-registration-certificate-documents", icon: "statutory" },
-        { label: "Policies", href: "/investors/policies", icon: "policies" },
-        { label: "Financial Information", href: "/investors/financial-information-and-annual-report", icon: "financial-info" },
+        { label: "Board of Directors", href: "#", icon: "board-of-directors" },
+        { label: "Disclosure of Contact Details", href: "#", icon: "contact-details" },
+        { label: "Statutory Documents", href: "#", icon: "statutory" },
+        { label: "Policies", href: "#", icon: "policies" },
+        { label: "Financial Information", href: "#", icon: "financial-info" },
       ],
       [
-        { label: "Shareholding Pattern", href: "/investors/shareholding-pattern", icon: "shareholding-pattern" },
-        { label: "Newspaper Publication", href: "/investors/newspaper-publication", icon: "newspaper-publication" },
-        { label: "Annual Return", href: "/investors/annual-return", icon: "annual-return" },
-        { label: "Material Events", href: "/investors/disclosures-of-material-events-or-information", icon: "material-events" },
+        { label: "Shareholding Pattern", href: "#", icon: "shareholding-pattern" },
+        { label: "Newspaper Publication", href: "#", icon: "newspaper-publication" },
+        { label: "Annual Return", href: "#", icon: "annual-return" },
+        { label: "Material Events", href: "#", icon: "material-events" },
       ],
     ],
   },
   {
     label: "About Us",
-    href: "/about",
+    href: "#",
     dropdown: [
-      { label: "Overview", href: "/about", icon: "overview" },
-      { label: "Leadership", href: "/about/leadership", icon: "leadership" },
-      { label: "Milestone", href: "/about/milestone", icon: "milestone" },
+      { label: "Overview", href: "#", icon: "overview" },
+      { label: "Leadership", href: "#", icon: "leadership" },
+      { label: "Milestone", href: "#", icon: "milestone" },
     ],
   },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Contact Us", href: "#" },
 ];
+
 
 const LOGIN_LINKS = [
   { label: "Online Trading", href: "/login/online-trading" },
@@ -160,7 +222,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "flex h-full items-center gap-1 px-4 text-[15px] font-bold transition-colors border-b-2",
+                          "flex h-full items-center gap-1 px-4 text-[17px] font-bold transition-colors border-b-2",
                           isActive
                             ? "text-primary border-primary"
                             : "text-gray-700 border-transparent hover:text-primary hover:border-primary"

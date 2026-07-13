@@ -44,7 +44,7 @@ export default function InvestmentSteps() {
       <Container>
         {/* Header */}
         <div className="mb-16 text-center relative z-10">
-          <div style={{ color: "#ea2830" }} className="text-xs font-black tracking-widest uppercase mb-3">
+          <div style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3">
             Your Investment Journey
           </div>
           <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 leading-tight">
@@ -76,7 +76,7 @@ export default function InvestmentSteps() {
                 </h3>
                 
                 {/* ડિસ્ક્રિપ્શન */}
-                <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-[240px]">
+                <p className="text-[16px] text-slate-500 leading-relaxed font-medium max-w-[240px]">
                   {step.desc}
                 </p>
               </div>
