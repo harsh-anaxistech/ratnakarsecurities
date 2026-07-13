@@ -1,40 +1,21 @@
 "use client";
+import React from "react";
+import { Smartphone } from "lucide-react";
 
-import { useEffect, useState } from "react";
-import { ArrowUp } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-// ScrollToTop – fixed button that appears after scrolling 300px
-
-export default function ScrollToTop() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 300);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
+export default function FloatingMobileTrading() {
   return (
-    <button
-      onClick={scrollToTop}
-      aria-label="Scroll to top"
-      className={cn(
-        "fixed cursor-pointer bottom-6 right-6 z-50 w-12 h-12 rounded-full shadow-lg",
-        "flex items-center justify-center",
-        "bg-primary text-white",
-        "transition-all duration-300",
-        "hover:bg-primary-dark hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-        visible
-          ? "translate-y-0 opacity-100 pointer-events-auto"
-          : "translate-y-16 opacity-0 pointer-events-none",
-      )}
-    >
-      <ArrowUp className="w-5 h-5" aria-hidden="true" />
-    </button>
+    <div className="fixed bottom-8 right-8 z-50 group">
+      {/* બ્રાન્ડ રેડ કલર બેકગ્રાઉન્ડ */}
+      <div className="flex items-center bg-[#ea2830] text-white p-4 rounded-2xl shadow-lg cursor-pointer transition-all duration-300 overflow-hidden hover:pr-6 hover:shadow-xl hover:shadow-[#ea2830]/20">
+        
+        {/* વ્હાઇટ આઈકોન */}
+        <Smartphone className="w-6 h-6 flex-shrink-0 text-white" />
+        
+        {/* ટેક્સ્ટ - જે Hover પર ડાબી બાજુથી બહાર આવશે */}
+        <span className="max-w-0 opacity-0 group-hover:max-w-[200px] group-hover:opacity-100 transition-all duration-300 whitespace-nowrap overflow-hidden font-bold ml-0 group-hover:ml-3">
+          Start Mobile Trading
+        </span>
+      </div>
+    </div>
   );
 }

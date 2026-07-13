@@ -2,10 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { num: 25, suffix: "", label: "Years of Market Expertise" },
-  { num: 25000, suffix: "+", label: "Investors Served" },
-  { num: 30, suffix: "+", label: "Cities Across India" },
-  { num: 200, suffix: "+", label: "Outlets & Dedicated Staff" },
+  { id: 1, num: 25, suffix: "", label: "Years of Market Expertise" },
+  { id: 2, num: 25000, suffix: "+", label: "Investors Served" },
+  { id: 3, num: 30, suffix: "+", label: "Cities Across India" },
+  { id: 4, num: 200, suffix: "+", label: "Outlets & Dedicated Staff" },
 ];
 
 function CountUp({ target, suffix }) {
@@ -27,7 +27,7 @@ function CountUp({ target, suffix }) {
         };
         requestAnimationFrame(tick);
       },
-      { threshold: 0.5 }
+      { threshold: 0.2 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -42,19 +42,53 @@ function CountUp({ target, suffix }) {
 }
 
 export default function StatsBar() {
+  const totalItems = stats.length;
+
   return (
-    <section className="bg-white py-16 border-b border-border">
-      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.label} className="border-l-4 border-primary pl-5">
-              <div className="text-4xl font-black text-primary tracking-tight">
-                <CountUp target={s.num} suffix={s.suffix} />
+    <section className="py-8 md:py-12 bg-white w-full border-t border-b border-gray-100">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-6">
+        
+        {/* મોબાઈલમાં 2 કોલમ ગ્રીડ (grid-cols-2) અને ડેસ્કટોપ પર ફ્લેક્સ રો */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:flex md:flex-wrap md:justify-between md:items-center md:gap-10">
+          {stats.map((s, index) => {
+            const isLast = index === totalItems - 1;
+            const isOddTotal = totalItems % 2 !== 0;
+            
+            // જો કુલ ડેટા એકી સંખ્યામાં હોય તો છેલ્લું સેન્ટર થશે
+            const isCenteredMobile = isLast && isOddTotal;
+            // બીજું અને ચોથું બોક્સ રાઈટ સાઈડ જશે
+            const isRightMobile = !isCenteredMobile && index % 2 !== 0;
+
+            return (
+              <div
+                key={s.id}
+                className={`flex items-center gap-3 md:gap-4 md:flex-1 md:min-w-[220px] w-full
+                  ${isCenteredMobile ? "col-span-2 justify-center text-center flex-row" : ""}
+                  ${isRightMobile ? "justify-start flex-row-reverse text-right" : "justify-start flex-row text-left"}
+                  md:justify-start md:text-left md:flex-row`}
+              >
+                
+                {/* લાલ ઉભી લાઇન (મોબાઈલમાં રાઈટ વાળામાં જમણી બાજુ આવી જશે) */}
+                <div className="w-[3px] h-10 md:h-14 bg-[#ea2830] rounded-full flex-shrink-0" />
+                
+                {/* ટેક્સ્ટ કન્ટેનર */}
+                <div className={`flex flex-col justify-center
+                  ${isRightMobile ? "items-end" : isCenteredMobile ? "items-center" : "items-start"} 
+                  md:items-start`}
+                >
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#ea2830] tracking-tight">
+                    <CountUp target={s.num} suffix={s.suffix} />
+                  </h3>
+                  <p className="text-xs sm:text-sm md:text-lg font-bold text-slate-600 mt-0.5 md:mt-1 tracking-tight leading-tight md:whitespace-nowrap">
+                    {s.label}
+                  </p>
+                </div>
+
               </div>
-              <div className="mt-1 text-sm font-semibold text-muted-foreground">{s.label}</div>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

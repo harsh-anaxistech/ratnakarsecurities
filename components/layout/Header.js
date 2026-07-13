@@ -160,7 +160,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "flex h-full items-center gap-1 px-4 text-sm font-semibold transition-colors border-b-2",
+                          "flex h-full items-center gap-1 px-4 text-[15px] font-bold transition-colors border-b-2",
                           isActive
                             ? "text-primary border-primary"
                             : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
@@ -203,8 +203,8 @@ export default function Header() {
               {/* Desktop Actions */}
               <div className="hidden lg:flex items-center gap-2">
                 <Link href="/contact">
-                  <Button variant="contained" color="primary" className="text-sm font-bold rounded-lg px-5">
-                    Open an Account
+                  <Button className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
+                   Open a Demat Account
                   </Button>
                 </Link>
 
@@ -317,7 +317,7 @@ export default function Header() {
               {/* CTA */}
               <div className="mt-4">
                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                  <Button variant="contained" color="primary" className="w-full text-sm rounded-lg">Open an Account</Button>
+                  <Button className="w-full bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5">Open an Account</Button>
                 </Link>
               </div>
             </div>

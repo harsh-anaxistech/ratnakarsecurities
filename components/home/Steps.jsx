@@ -1,86 +1,87 @@
+"use client";
+import React from "react";
 import Container from "@/components/common/Container";
+import { UserPlus, Handshake, PieChart, LineChart } from "lucide-react";
 
 const steps = [
   {
-    num: 1,
+    Icon: UserPlus,
     title: "Open Your Account",
     desc: "Paperless KYC in minutes. Demat + trading account with NSDL, at zero opening cost.",
+    iconColor: "text-[#00aeee]",
+    badgeColor: "bg-[#ea2830]",
+    bgColor: "bg-[#00aeee]/10"
   },
   {
-    num: 2,
+    Icon: Handshake,
     title: "Meet Your Advisor",
     desc: "A dedicated relationship manager understands your goals, income and risk appetite.",
+    iconColor: "text-[#ea2830]",
+    badgeColor: "bg-[#00aeee]",
+    bgColor: "bg-[#ea2830]/10"
   },
   {
-    num: 3,
+    Icon: PieChart,
     title: "Build Your Portfolio",
     desc: "Invest across equity, funds, commodities and bonds — matched to your plan, not the market noise.",
+    iconColor: "text-[#00aeee]",
+    badgeColor: "bg-[#ea2830]",
+    bgColor: "bg-[#00aeee]/10"
   },
   {
-    num: 4,
+    Icon: LineChart,
     title: "Track & Grow",
     desc: "Monitor everything on our app, review quarterly with your RM, and stay the course. Rest assured.",
+    iconColor: "text-[#ea2830]",
+    badgeColor: "bg-[#00aeee]",
+    bgColor: "bg-[#ea2830]/10"
   },
 ];
 
 export default function InvestmentSteps() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 bg-white relative overflow-hidden">
       <Container>
         {/* Header */}
-        <div className="mb-14 text-center">
-          <div className="text-xs font-bold tracking-widest uppercase text-primary mb-3">Your Investment Journey</div>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-dark-navy leading-tight">
-            From first step to first crore —<br />we walk with you.
+        <div className="mb-16 text-center relative z-10">
+          <div style={{ color: "#ea2830" }} className="text-xs font-black tracking-widest uppercase mb-3">
+            Your Investment Journey
+          </div>
+          <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 leading-tight">
+            From first step to first crore 
+            <span className="relative inline-block mt-1">
+              we walk with you.
+            </span>
           </h2>
         </div>
 
-        {/* Desktop: horizontal steps */}
-        <div className="hidden lg:block relative">
-          {/* Connector line */}
-          <div
-            className="absolute top-[26px] h-[2px]"
-            style={{
-              left: "calc(100% / 8)",
-              right: "calc(100% / 8)",
-              background: "linear-gradient(90deg, #ea2830, #00aeee)",
-            }}
-          />
-          <div className="grid grid-cols-4 gap-4 relative">
-            {steps.map((step) => (
-              <div key={step.num} className="text-center px-4 group">
-                <div
-                  className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center font-black text-xl text-white relative z-10 border-4 border-white transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-lg"
-                  style={{ background: "#ea2830", boxShadow: "0 0 0 2px #ea2830" }}
-                >
-                  {step.num}
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          {steps.map((step, idx) => {
+            const IconComponent = step.Icon;
+            return (
+              <div key={idx} className="text-center px-4 group flex flex-col items-center">
+                
+                {/* આઈકોન બોક્સ સાઈઝ નાની કરી (w-16 h-16) */}
+                <div className={`w-16 h-16 rounded-full mb-6 flex items-center justify-center relative border border-slate-100 shadow-sm transition-all duration-500 group-hover:scale-110 ${step.bgColor}`}>
+                  <IconComponent className={`w-7 h-7 ${step.iconColor} transition-transform duration-500 group-hover:scale-110`} strokeWidth={1.8} />
+                  
+                  {/* નાનો ડોટ */}
+                  <span className={`absolute top-0 right-0 w-3 h-3 rounded-full ${step.badgeColor} border-2 border-white shadow-sm`} />
                 </div>
-                <h3 className="text-base font-bold text-dark-navy mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Mobile: vertical steps */}
-        <div className="lg:hidden relative">
-          <div className="absolute left-7 top-8 bottom-8 w-[2px] bg-gradient-to-b from-primary to-secondary" />
-          <div className="space-y-10">
-            {steps.map((step) => (
-              <div key={step.num} className="flex gap-5 relative group">
-                <div
-                  className="relative z-10 w-14 h-14 rounded-full flex items-center justify-center font-black text-lg text-white shrink-0 border-4 border-white transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: "#ea2830", boxShadow: "0 0 0 2px #ea2830" }}
-                >
-                  {step.num}
-                </div>
-                <div className="pt-2">
-                  <h3 className="text-base font-bold text-dark-navy group-hover:text-primary transition-colors">{step.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-                </div>
+                {/* હેડિંગ */}
+                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#00aeee] transition-colors duration-300">
+                  {step.title}
+                </h3>
+                
+                {/* ડિસ્ક્રિપ્શન */}
+                <p className="text-sm text-slate-500 leading-relaxed font-medium max-w-[240px]">
+                  {step.desc}
+                </p>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </Container>
     </section>
