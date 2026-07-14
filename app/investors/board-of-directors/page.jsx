@@ -1,4 +1,5 @@
 import Container from "@/components/common/Container";
+import Link from "next/link";
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
@@ -45,27 +46,51 @@ export default function BoardOfDirectorsPage() {
   return (
     <Container>
       <div className="py-10 space-y-10">
-        <h2 className="text-2xl md:text-3xl font-bold  text-foreground">
-          Board of Directors
-        </h2>
-        {directors.map((member, index) => (
-          <div
-            key={index}
-            className="bg-muted border border-border rounded-sm p-8 md:p-10"
-          >
-            <h2 className="text-2xl font-semibold text-secondary">
-              {member.name}
-            </h2>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <h1 className="text-2xl md:text-3xl font-bold text-light-blue">
+            Board of Directors
+          </h1>
+          <nav aria-label="Breadcrumbs">
+            <ol className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
+              <li>
+                <Link href="/" className="hover:text-primary transition-colors duration-200">
+                  Home
+                </Link>
+              </li>
+              <span className="text-muted-foreground/60" aria-hidden="true">•</span>
+              <li>
+                <Link href="/investors" className="hover:text-primary transition-colors duration-200">
+                  Investors
+                </Link>
+              </li>
+              <span className="text-muted-foreground/60" aria-hidden="true">•</span>
+              <li className="font-semibold text-primary" aria-current="page">
+                Board of Directors
+              </li>
+            </ol>
+          </nav>
+        </div>
 
-            <p className="text-primary text-md md:text-lg mt-2 mb-1">
-              {member.designation}
-            </p>
+        <div className="space-y-6">
+          {directors.map((member, index) => (
+            <div
+              key={index}
+              className="bg-[#f8fafc] border border-border rounded-sm p-8 md:p-10 hover:shadow-md hover:border-secondary/30 transition-all duration-300 text-center md:text-left"
+            >
+              <h2 className="text-2xl font-semibold text-secondary">
+                {member.name}
+              </h2>
 
-            <p className="text-muted-foreground leading-8 text-base">
-              {member.description}
-            </p>
-          </div>
-        ))}
+              <p className="text-primary text-md md:text-lg mt-2 mb-1">
+                {member.designation}
+              </p>
+
+              <p className="text-muted-foreground leading-8 text-base mt-4">
+                {member.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </Container>
   );

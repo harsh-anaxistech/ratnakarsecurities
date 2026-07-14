@@ -9,7 +9,7 @@ export const metadata = generatePageMetadata({
   path: "/",
 });
 
-export default function HomePage() {
+export default function ContactPage() {
   return (
     <div>
       <Form />

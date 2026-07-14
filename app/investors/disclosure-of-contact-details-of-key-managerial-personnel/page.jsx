@@ -8,17 +8,48 @@ export const metadata = generatePageMetadata({
   path: "/investors/disclosure-of-contact-details-of-key-managerial-personnel",
 });
 
+const personnel = [
+  {
+    id: 1,
+    name: "Ajay Jayantilal Shah",
+    designation: "Chairman and Managing Director",
+    phone: "079 4900 5200",
+    email: "ajay@ratnakarsecurities.com",
+  },
+  {
+    id: 2,
+    name: "Kushal Ajay Shah",
+    designation: "Whole Time Director",
+    phone: "079 4900 5200",
+    email: "kushal@ratnakarsecurities.com",
+  },
+  {
+    id: 3,
+    name: "Ajay Nagindas Gandhi",
+    designation: "Chief Financial Officer",
+    phone: "079 4900 5200",
+    email: "gandhi@ratnakarsecurities.com",
+  },
+  {
+    id: 4,
+    name: "Aditya Pancholi",
+    designation: "Company Secretary",
+    phone: "079 4900 5200",
+    email: "cs@ratnakarsecurities.com",
+  },
+];
+
 export default function KeyManagerialPersonnelPage() {
   return (
     <Container>
       <div className="space-y-10 py-10">
-        <h2 className="text-2xl md:text-3xl font-bold  text-foreground ">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
           Key Managerial Personnel
         </h2>
-        <div className="overflow-x-auto border border-border rounded-sm  bg-white">
+        <div className="overflow-x-auto border border-border rounded-sm bg-white">
           <table className="w-full min-w-[800px] border-collapse text-left text-base">
             <thead>
-              <tr className="bg-muted border-b border-border text-foreground ">
+              <tr className="bg-muted border-b border-border text-foreground">
                 <th className="p-4 w-16 border-r border-border text-center">
                   Sr. No.
                 </th>
@@ -26,51 +57,26 @@ export default function KeyManagerialPersonnelPage() {
                   Name of the Individual
                 </th>
                 <th className="p-4 border-r border-border">Designation</th>
-                <th className="p-4 border-r border-border">Mobile Number</th>
+                <th className="p-4 border-r border-border">Contact No.</th>
                 <th className="p-4">Email id</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 text-base  text-muted-foreground">
-              {[
-                {
-                  id: 1,
-                  name: "AJAY JAYANTILAL SHAH",
-                  role: "DIRECTORS",
-                  phone: "98980 18951",
-                  email: "ajay@ratnakarsecurities.com",
-                },
-                {
-                  id: 2,
-                  name: "MAYURI AJAY SHAH",
-                  role: "DIRECTORS",
-                  phone: "98980 18951",
-                  email: "kushal@ratnakarsecurities.com",
-                },
-                {
-                  id: 3,
-                  name: "KUSHAL AJAY SHAH",
-                  role: "COMPLIANCE OFFICER",
-                  phone: "98980 04988",
-                  email: "compliance@ratnakarsecurities.com",
-                },
-                {
-                  id: 4,
-                  name: "AJAY NAGINDAS GANDHI",
-                  role: "CFO",
-                  phone: "94281 23400",
-                  email: "gandhi@ratnakarsecurities.com",
-                },
-              ].map((row) => (
-                <tr key={row.id}>
-                  <td className="p-4 border-r border-border text-center ">
+            <tbody className="divide-y divide-gray-200 text-base text-muted-foreground">
+              {personnel.map((row) => (
+                <tr key={row.id} className="hover:bg-muted/30 transition-colors">
+                  <td className="p-4 border-r border-border text-center">
                     {row.id}
                   </td>
-                  <td className="p-4 border-r border-border  ">{row.name}</td>
-                  <td className="p-4 border-r border-border text-base   text-muted-foreground">
-                    {row.role}
+                  <td className="p-4 border-r border-border text-secondary font-medium">
+                    {row.name}
+                  </td>
+                  <td className="p-4 border-r border-border">
+                    {row.designation}
                   </td>
                   <td className="p-4 border-r border-border text-secondary whitespace-nowrap">
-                    {row.phone}
+                    <a href={`tel:${row.phone.replace(/\s/g, "")}`} className="hover:underline">
+                      {row.phone}
+                    </a>
                   </td>
                   <td className="p-4">
                     <a

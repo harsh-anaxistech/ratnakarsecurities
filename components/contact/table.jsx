@@ -158,15 +158,31 @@ export default function ContactDetailsSections() {
               </a>{" "}
               or Exchange/Depository at
             </p>
-            <div className="flex flex-wrap gap-2">
-              {["NSE", "BSE", "NSDL"].map((badge) => (
-                <span
-                  key={badge}
-                  className="px-3 py-1 bg-secondary text-white  text-base rounded-sm  "
-                >
-                  {badge}
-                </span>
-              ))}
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://investorhelpline.nseindia.com/NICEPLUS/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-1.5 bg-secondary text-white text-base rounded-sm hover:bg-secondary-dark transition-colors font-semibold select-none shadow-sm"
+              >
+                NSE
+              </a>
+              <a
+                href="https://bsecrs.bseindia.com/ecomplaint/frmInvestorHome.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-1.5 bg-secondary text-white text-base rounded-sm hover:bg-secondary-dark transition-colors font-semibold select-none shadow-sm"
+              >
+                BSE
+              </a>
+              <a
+                href="https://www.epass.nsdl.com/complaints/websx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-1.5 bg-secondary text-white text-base rounded-sm hover:bg-secondary-dark transition-colors font-semibold select-none shadow-sm"
+              >
+                NSDL
+              </a>
             </div>
             <p className="text-base  text-muted-foreground ">
               Please quote your Service Ticket / Complaint Ref No. while raising
@@ -253,21 +269,21 @@ export default function ContactDetailsSections() {
                     id: 1,
                     name: "AJAY JAYANTILAL SHAH",
                     role: "DIRECTORS",
-                    phone: "98980 18951",
+                    phone: "98980 18851",
                     email: "ajay@ratnakarsecurities.com",
                   },
                   {
                     id: 2,
-                    name: "MAYURI AJAY SHAH",
+                    name: "MAYUR AJAY SHAH",
                     role: "DIRECTORS",
-                    phone: "98980 18951",
+                    phone: "98980 18051",
                     email: "kushal@ratnakarsecurities.com",
                   },
                   {
                     id: 3,
                     name: "KUSHAL AJAY SHAH",
                     role: "COMPLIANCE OFFICER",
-                    phone: "98980 04988",
+                    phone: "98980 04688",
                     email: "compliance@ratnakarsecurities.com",
                   },
                   {
@@ -318,10 +334,10 @@ export default function ContactDetailsSections() {
               <p className="text-secondary pt-1 ">044-40020731</p>
               <p>
                 <a
-                  href="mailto:rani@cameoindia.com"
+                  href="mailto:rta@cameoindia.com"
                   className="text-secondary hover:underline"
                 >
-                  rani@cameoindia.com
+                  rta@cameoindia.com
                 </a>
               </p>
             </div>
