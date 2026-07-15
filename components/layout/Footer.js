@@ -122,7 +122,7 @@ export default function Footer() {
       </div>
 
       {/* Regulatory & Bottom bar */}
-      <div className="py-8 border-b border-[#00aeee]/15 text-sm text-[#9fc8e0]">
+      <div className="py-8 border-b border-[#00aeee]/15 text-base text-[#9fc8e0]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-2">
           <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-88</p>
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
@@ -136,7 +136,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="py-5 text-xs text-[#7a9bb5]">
+      <div className="py-5 text-sm text-[#7a9bb5]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
           <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
           <div className="flex flex-wrap gap-4 justify-center sm:justify-end">
@@ -145,9 +145,7 @@ export default function Footer() {
             <Link href="/terms-of-conditions">Terms of Conditions</Link>
             <Link href="/investor-complaint">Investor Complaint</Link>
             <Link href="https://www.ratnakarsecurities.com/static/refund-cancellation.aspx" target="_blank">Refund & Cancellation</Link>
-            <Link href="https://www.ratnakarsecurities.com/files/Segregation_and_Monitoring_of_Collateral_at_Client_Level.pdf" target="_blank">Segregation Monitoring Collateral</Link>
-            <Link href="https://www.evoting.nsdl.com/" target="_blank">NSDL E Voting</Link>
-            <Link href="https://eservices.nsdl.com/" target="_blank">NSDL IDEAS Services</Link>
+
             <span>Developed by <a href="#" className="text-secondary">Anaxistech</a></span>
           </div>
         </div>
