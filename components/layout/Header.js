@@ -255,7 +255,7 @@ export default function Header() {
         {/* ── MAIN NAV ── */}
 
         <div className="bg-white border-b border-gray-200">
-          <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between lg:h-[72px]">
 
               {/* Logo */}

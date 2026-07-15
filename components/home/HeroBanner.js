@@ -94,7 +94,7 @@ export default function HeroBanner() {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 w-full max-w-xl mx-auto lg:mx-0">
               <a 
-                href="http://trading.ratnakarsecurities.com/AERO/" 
+                href="https://smartkyc.co.in/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold py-3.5 px-5 rounded-xl shadow-lg shadow-sky-900/20 transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto"
@@ -102,14 +102,9 @@ export default function HeroBanner() {
                 <span>Invest Now</span>
               </a>
 
-              <a 
-                href="http://dnld.mobile.nowonline.in/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-bold py-3.5 px-5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto"
-              >
+              <Link href="/products" className="flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/15 text-white border border-white/20 text-sm font-bold py-3.5 px-5 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto">
                 <span>Explore Our Products</span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -196,7 +191,7 @@ export default function HeroBanner() {
               </Link>
 
               <Link 
-                href="#" 
+                href="/products" 
                 className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/10 text-sm font-bold py-3.5 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto"
               >
                 <span>Explore Our Services</span>

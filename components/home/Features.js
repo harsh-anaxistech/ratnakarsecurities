@@ -16,15 +16,15 @@ import {
 } from "lucide-react";
 
 const SERVICES = [
-  { Icon: TrendingUp, title: "Equities", desc: "A captivating avenue for returns. Remember: buy right, hold tight.", href: "/equity" },
-  { Icon: BarChart2, title: "Derivatives", desc: "Leverage your position and hedge risks against unfavorable market movements.", href: "/derivatives" },
-  { Icon: PiggyBank, title: "Mutual Funds", desc: "A pool of small investments working together to achieve common financial goals.", href: "/mutual-fund" },
-  { Icon: Wheat, title: "Commodities", desc: "Lucrative market trading providing effective risk management and hedging tools.", href: "/commodities" },
-  { Icon: Globe, title: "NRIs", desc: "Comprehensive investment options for foreign nationals, backed by extensive research.", href: "/nris" },
-  { Icon: Briefcase, title: "Wealth Management", desc: "Managing and growing your wealth through every stage of your life.", href: "/real-estate" },
-  { Icon: RefreshCw, title: "SLBs", desc: "Lend your stocks or borrow to increase liquidity and benefit from downturns.", href: "/slbs" },
-  { Icon: Users, title: "HNIs", desc: "Tailormade investment solutions with a dedicated Relationship Manager for guidance.", href: "/products" },
-  { Icon: Lock, title: "Bonds", desc: "Secure mode of investment backed by our deep understanding of debt markets.", href: "/products" },
+  { id: "service-equity", Icon: TrendingUp, title: "Equities", desc: "A captivating avenue for returns. Remember: buy right, hold tight.", href: "/products?tab=Equity" },
+  { id: "service-derivatives", Icon: BarChart2, title: "Derivatives", desc: "Leverage your position and hedge risks against unfavorable market movements.", href: "/products?tab=Derivatives" },
+  { id: "service-mutual-funds", Icon: PiggyBank, title: "Mutual Funds", desc: "A pool of small investments working together to achieve common financial goals.", href: "/products?tab=Mutual" },
+  { id: "service-commodities", Icon: Wheat, title: "Commodities", desc: "Lucrative market trading providing effective risk management and hedging tools.", href: "/products?tab=Commodities" },
+  { id: "service-nris", Icon: Globe, title: "NRIs", desc: "Comprehensive investment options for foreign nationals, backed by extensive research.", href: "/products?tab=NRIs" },
+  { id: "service-wealth", Icon: Briefcase, title: "Wealth Management", desc: "Managing and growing your wealth through every stage of your life.", href: "/products?tab=Wealth" },
+  { id: "service-slbs", Icon: RefreshCw, title: "SLBs", desc: "Lend your stocks or borrow to increase liquidity and benefit from downturns.", href: "/products?tab=SLBS" },
+  { id: "service-hnis", Icon: Users, title: "HNIs", desc: "Tailormade investment solutions with a dedicated Relationship Manager for guidance.", href: "/products?tab=HNIs" },
+  { id: "service-bonds", Icon: Lock, title: "Bonds", desc: "Secure mode of investment backed by our deep understanding of debt markets.", href: "/products?tab=Bonds" },
 ];
 
 export default function InvestmentServices() {

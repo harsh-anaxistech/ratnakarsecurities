@@ -62,7 +62,7 @@ export default function Footer() {
   return (
     <footer style={{ background: "#011628", color: "#c8dff0" }}>
       <div className="pt-16 pb-10 border-b border-[#00aeee]/15">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
             {/* Brand column */}
             <div>
@@ -105,7 +105,7 @@ export default function Footer() {
 
       {/* Investor Notices */}
       <div className="py-8 border-b border-[#00aeee]/15">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-5 text-xs font-bold tracking-wide uppercase">
             {tabs.map((tab) => (
               <button
@@ -123,7 +123,7 @@ export default function Footer() {
 
       {/* Regulatory & Bottom bar */}
       <div className="py-8 border-b border-[#00aeee]/15 text-sm text-[#9fc8e0]">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 space-y-2">
+        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-2">
           <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-88</p>
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
           <p>Investor Grievance ID: investorgrievance@ratnakarsecurities.com</p>
@@ -137,7 +137,7 @@ export default function Footer() {
       </div>
 
       <div className="py-5 text-xs text-[#7a9bb5]">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
           <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
           <div className="flex flex-wrap gap-4 justify-center sm:justify-end">
             <Link href="/privacy-policy">Privacy Policy</Link>
