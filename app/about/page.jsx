@@ -86,9 +86,6 @@ function AboutContent() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
             {/* Sidebar / Tabs */}
             <aside className="w-full lg:w-1/4 space-y-4 lg:sticky lg:top-[100px] h-fit self-start z-10">
-              <h2 className="hidden lg:block text-xs font-bold uppercase tracking-wider text-muted-foreground px-3 mb-2">
-                About Us
-              </h2>
 
               {/* Desktop Vertical Menu */}
               <nav aria-label="About Categories - Desktop" className="hidden lg:flex flex-col gap-2 bg-muted/40 p-2 rounded-lg border border-border">
@@ -268,13 +265,7 @@ function OverviewContent() {
 function LeadershipContent() {
   return (
     <>
-      <div className="bg-primary/5 border border-primary/20 p-8 rounded-2xl text-center space-y-4">
-        <Quote className="w-10 h-10 text-primary mx-auto opacity-50" />
-        <p className="text-xl md:text-2xl font-medium text-foreground italic">
-          "A Leader is one who knows the way, goes the way, and shows the way"
-        </p>
-        <p className="text-secondary font-semibold">— John. C. Maxwell</p>
-      </div>
+
 
       <div className="space-y-8 pt-6 border-t border-border">
         {/* Ajay Shah */}
@@ -351,7 +342,7 @@ function MilestonesContent() {
 
           {milestones.map((item, i) => (
             <div key={i} className="relative flex items-center group">
-              
+
               {/* Step indicator (Year) */}
               <div className="shrink-0 w-14 h-14 md:w-20 md:h-20 rounded-full bg-white border-[3px] border-primary z-10 shadow-md flex items-center justify-center text-primary font-black text-lg md:text-xl group-hover:bg-primary group-hover:text-white transition-all duration-500 transform group-hover:scale-105">
                 {item.year}

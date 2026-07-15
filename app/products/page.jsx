@@ -285,10 +285,8 @@ function ProductsContent() {
         <Container>
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
             {/* --- SIDEBAR / TAB NAVIGATION --- */}
-            <aside className="w-full lg:w-1/4 space-y-4">
-              <h2 className="hidden lg:block text-xs font-bold uppercase tracking-wider text-muted-foreground px-3 mb-2">
-                Products Categories
-              </h2>
+            <aside className="w-full lg:w-1/4 space-y-4 lg:sticky lg:top-[100px] h-fit self-start z-10">
+              
 
               {/* Desktop Vertical Menu */}
               <nav aria-label="Products Categories - Desktop" className="hidden lg:flex flex-col gap-2 bg-muted/40 p-2 rounded-lg border border-border">
@@ -417,6 +415,7 @@ function ProductsContent() {
                     <ChevronRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
+
               </div>
 
             </div>
