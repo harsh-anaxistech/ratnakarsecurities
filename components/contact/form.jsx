@@ -107,48 +107,49 @@ export default function ContactUsPage() {
   return (
     <Container>
       <div className="grid grid-cols-1 lg:grid-cols-12 w-full font-sans bg-white border border-border shadow-md rounded-sm overflow-hidden my-10 animate-fade-in">
-        {/* Left Side: Brand Red Panel with world map background and Address Card */}
-        <div className="col-span-1 lg:col-span-5 bg-primary relative overflow-hidden flex flex-col justify-center p-8 sm:p-12 min-h-[420px] lg:min-h-[550px] select-none">
-          {/* World map background */}
-          <div
-            className="absolute inset-0 bg-cover bg-center mix-blend-multiply opacity-25 pointer-events-none"
-            style={{
-              backgroundImage: "url('/images/red_world_map.png')",
-            }}
-          />
-
-          {/* Dark Overlay Contact Details Card */}
-          <div className="z-10 bg-[#121212]/95 border border-white/10 rounded-sm p-6 sm:p-8 shadow-2xl max-w-sm w-full mx-auto">
-            <h3 className="text-primary text-xl sm:text-2xl font-bold mb-4 font-sans tracking-wide">
-              Ratnakar Securities Limited.
-            </h3>
+        {/* Left Side: Address Details Panel with custom dark blue radial gradient */}
+        <div 
+          className="col-span-1 lg:col-span-5 flex flex-col justify-center p-8 sm:p-12 min-h-[420px] lg:min-h-[550px] select-none text-white"
+          style={{
+            background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)"
+          }}
+        >
+          <div className="z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 shadow-xl max-w-sm w-full mx-auto space-y-6">
+            <div>
+              <span className="inline-block px-3 py-1 bg-white/20 text-white font-bold text-xs tracking-widest rounded-full uppercase mb-3">
+                Corporate Office
+              </span>
+              <h3 className="text-secondary text-xl sm:text-2xl font-bold font-sans tracking-tight">
+                Ratnakar Securities Ltd.
+              </h3>
+            </div>
             
-            <div className="text-white/90 text-sm sm:text-base space-y-2 font-medium leading-relaxed mb-6">
-              <p>304. Sankalp Square - 2,</p>
+            <div className="text-white/95 text-sm sm:text-base space-y-2 font-medium leading-relaxed">
+              <p>304, Sankalp Square - 2,</p>
               <p>Near Jalaram Mandir Crossing,</p>
               <p>Ellisbridge, Ahmedabad - 380006</p>
             </div>
 
-            <div className="space-y-4 pt-4 border-t border-white/10">
+            <div className="space-y-4 pt-6 border-t border-white/15">
               <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary-light/30">
-                  <Phone className="w-4 h-4 text-secondary" />
+                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-white">
+                  <Phone className="w-5 h-5" />
                 </span>
                 <a
                   href="tel:07949005200"
-                  className="text-secondary hover:text-secondary-dark font-bold text-sm sm:text-base transition-colors"
+                  className="text-white hover:text-secondary font-bold text-sm sm:text-base transition-colors"
                 >
                   079 - 49005200 / 01 / 02
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-secondary-light/30">
-                  <Mail className="w-4 h-4 text-secondary" />
+                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-white">
+                  <Mail className="w-5 h-5" />
                 </span>
                 <a
                   href="mailto:info@ratnakarsecurities.com"
-                  className="text-secondary hover:text-secondary-dark font-bold text-sm sm:text-base transition-colors break-all"
+                  className="text-white hover:text-secondary font-bold text-sm sm:text-base transition-colors break-all"
                 >
                   info@ratnakarsecurities.com
                 </a>
@@ -159,18 +160,11 @@ export default function ContactUsPage() {
 
         {/* Right Side: Contact Form and Breadcrumb Section */}
         <div className="col-span-1 lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
-          {/* Breadcrumb Header */}
-          <div className="flex justify-between items-start mb-8">
+          {/* Form Header */}
+          <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground font-sans tracking-tight">
-              Contact Us
+              Get In Touch
             </h2>
-            <div className="text-xs sm:text-sm font-semibold flex items-center gap-1.5 text-muted-foreground select-none">
-              <Link href="/" className="hover:text-primary transition-colors">
-                Home
-              </Link>
-              <span className="text-gray-400">‣</span>
-              <span className="text-primary font-bold">Contact Us</span>
-            </div>
           </div>
 
           {/* Form container */}

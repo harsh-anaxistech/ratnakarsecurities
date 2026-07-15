@@ -15,9 +15,9 @@ const FOOTER_LINKS = {
     { label: "Narnolia Investment Advisory Portfolios", href: "#" },
   ],
   Company: [
-    { label: "Overview", href: "#" },
-    { label: "Leadership", href: "#" },
-    { label: "Milestone", href: "#" },
+    { label: "Overview", href: "/about?tab=overview" },
+    { label: "Leadership", href: "/about?tab=leadership" },
+    { label: "Milestone", href: "/about?tab=milestones" },
   ],
   "Useful Links": [
     { label: "Broker Norms (NSE)", href: "#" },

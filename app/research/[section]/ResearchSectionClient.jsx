@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   Download,
@@ -196,6 +197,15 @@ export default function ResearchSectionClient({
 
       {/* ── HERO BANNER ── */}
       <section className="bg-[#011628] text-white py-12 md:py-16 relative overflow-hidden" aria-labelledby="page-title">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/images/hero/2150970201.jpg"
+            alt="Research Banner Background"
+            fill
+            className="object-cover mix-blend-overlay"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,174,238,0.15),transparent_50%)]" />
         <Container>
           {/* Breadcrumbs conforming to GIGW & WCAG */}
@@ -242,7 +252,7 @@ export default function ResearchSectionClient({
               </h2>
               
               {/* Desktop Vertical Menu */}
-              <nav aria-label="Research Categories - Desktop" className="hidden lg:flex flex-col gap-1 bg-muted/40 p-2 rounded-lg border border-border">
+              <nav aria-label="Research Categories - Desktop" className="hidden lg:flex flex-col gap-2 bg-muted/40 p-2 rounded-lg border border-border">
                 {sectionsList.map((sec) => {
                   const secCode = sec.section_name.toLowerCase();
                   const isActive = pathname.toLowerCase() === `/research/${secCode}`;
@@ -255,7 +265,7 @@ export default function ResearchSectionClient({
                         if (!isActive) setIsNavigating(true);
                       }}
                       className={cn(
-                        "flex items-center justify-between px-4 py-3 rounded-md text-sm font-semibold transition-all duration-200 border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
+                        "flex items-center justify-between px-4 py-3 rounded-md text-base font-semibold transition-all duration-200 border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
                         isActive
                           ? "bg-primary/5 text-primary border-primary font-bold shadow-sm"
                           : "text-foreground border-transparent hover:bg-muted hover:text-primary hover:border-primary/40"
@@ -270,7 +280,7 @@ export default function ResearchSectionClient({
               </nav>
 
               {/* Mobile Horizontal Scroll Menu */}
-              <nav aria-label="Research Categories - Mobile" className="lg:hidden -mx-4 px-4 overflow-x-auto scrollbar-none flex gap-2 pb-2">
+              <nav aria-label="Research Categories - Mobile" className="lg:hidden -mx-4 px-4 overflow-x-auto scrollbar-none flex gap-3 pb-2">
                 {sectionsList.map((sec) => {
                   const secCode = sec.section_name.toLowerCase();
                   const isActive = pathname.toLowerCase() === `/research/${secCode}`;
@@ -283,7 +293,7 @@ export default function ResearchSectionClient({
                         if (!isActive) setIsNavigating(true);
                       }}
                       className={cn(
-                        "whitespace-nowrap px-5 py-2.5 rounded-full text-xs font-bold transition-all border shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+                        "whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all border shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
                         isActive
                           ? "bg-primary text-white border-primary"
                           : "bg-white text-gray-700 border-border hover:border-primary/50 hover:text-primary"

@@ -75,21 +75,21 @@ import { getResearchSections } from "@/services/research";
 const NAV_LINKS = [
   {
     label: "Products",
-    href: "#",
+    href: "/products",
     columns: [
       [
-        { label: "Overview", href: "#", icon: "overview" },
-        { label: "Equity", href: "#", icon: "equity" },
-        { label: "Derivatives", href: "#", icon: "derivatives" },
-        { label: "Mutual Funds", href: "#", icon: "mutual-funds" },
-        { label: "Commodities", href: "#", icon: "commodities" },
+        { label: "Overview", href: "/products", icon: "overview" },
+        { label: "Equity", href: "/products?tab=Equity", icon: "equity" },
+        { label: "Derivatives", href: "/products?tab=Derivatives", icon: "derivatives" },
+        { label: "Mutual Funds", href: "/products?tab=Mutual", icon: "mutual-funds" },
+        { label: "Commodities", href: "/products?tab=Commodities", icon: "commodities" },
       ],
       [
-        { label: "Wealth Management", href: "#", icon: "wealth-management" },
-        { label: "NRIs", href: "#", icon: "nri" },
-        { label: "SLBS", href: "#", icon: "slbs" },
-        { label: "Bonds", href: "#", icon: "bonds" },
-        { label: "Narnolia Investment Advisory Portfolios", href: "#", external: true, icon: "investment-advisory" },
+        { label: "Wealth Management", href: "/products?tab=Wealth", icon: "wealth-management" },
+        { label: "NRIs", href: "/products?tab=NRIs", icon: "nri" },
+        { label: "SLBS", href: "/products?tab=SLBS", icon: "slbs" },
+        { label: "Bonds", href: "/products?tab=Bonds", icon: "bonds" },
+        { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", external: true, icon: "investment-advisory" },
       ],
     ],
   },
@@ -124,11 +124,11 @@ const NAV_LINKS = [
   },
   {
     label: "About Us",
-    href: "#",
+    href: "/about",
     dropdown: [
-      { label: "Overview", href: "#", icon: "overview" },
-      { label: "Leadership", href: "#", icon: "leadership" },
-      { label: "Milestone", href: "#", icon: "milestone" },
+      { label: "Overview", href: "/about?tab=overview", icon: "overview" },
+      { label: "Leadership", href: "/about?tab=leadership", icon: "leadership" },
+      { label: "Milestone", href: "/about?tab=milestones", icon: "milestone" },
     ],
   },
   { label: "Contact Us", href: "/contact" },
