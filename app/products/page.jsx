@@ -89,7 +89,7 @@ const TABS_DATA = [
       "Choice and flexibility of choosing funds to meet your investment needs and financial goals",
       "Dedicated customer support to meet your tailormade needs",
     ],
-    imageSrc: "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=2070&auto=format&fit=crop",
+    imageSrc: "/mutual_funds_tab.png",
     buttonText: "Start Investing Today",
   },
   {
