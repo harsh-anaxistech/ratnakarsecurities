@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Container from "@/components/common/Container";
-import Button from "@/components/common/Button";
 import { Download } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
+import { getStatutoryDocuments } from "@/services/investors";
+import { API_BASE_URL } from "@/services/config";
 
 export const metadata = generatePageMetadata({
   title:
@@ -12,80 +12,60 @@ export const metadata = generatePageMetadata({
   path: "/investors/statutory-and-registration-certificate-documents",
 });
 
-const reports = [
-  {
-    year: "Statutory Documents",
-    documents: [
-      { title: "Certificate of Incorporation" },
-      { title: "Memorandum of Association" },
-      { title: "Articles of Association" },
-      { title: "PAN Card" },
-    ],
-  },
-  {
-    year: "Registration Certificates",
-    documents: [
-      { title: "SEBI Registration Certificate" },
-      { title: "NSE Membership Certificate" },
-      { title: "BSE Membership Certificate" },
-      { title: "NSDL DP Registration Certificate" },
-      { title: "CDSL DP Registration Certificate" },
-    ],
-  },
-];
+export default async function StatutoryDocumentsPage() {
+  let documents = [];
+  try {
+    const response = await getStatutoryDocuments();
+    if (response.success && Array.isArray(response.data)) {
+      documents = response.data;
+    }
+  } catch (error) {
+    console.error("Error fetching statutory documents:", error);
+  }
 
-export default function StatutoryDocumentsPage() {
+  const baseUrl = API_BASE_URL.replace(/\/api$/, "");
+
   return (
-    <section className="py-10">
+    <section className="py-16 bg-background">
       <Container>
-        <h2 className="mb-10 text-2xl font-bold text-foreground md:text-3xl">
+        <h2 className="mb-10 text-3xl font-bold text-light-blue md:text-4xl text-center md:text-left">
           Statutory and Registration Certificate Documents
         </h2>
-        <div className="space-y-10">
-          {reports.map((section) => (
-            <div key={section.year}>
-              <h3 className="mb-5  bg-muted  text-base font-medium px-3 py-1 w-fit rounded-sm text-foreground">
-                {section.year}
-              </h3>
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
-                {section.documents.map((doc, index) => (
-                  <div key={index} className="flex h-full flex-col">
-                    <div className="group flex-1 rounded-sm border bg-muted border-border p-6 ">
-                      <div className="flex h-full items-start gap-4">
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border border-border bg-background ">
-                          <Image
-                            src="/images/icon/home/pdf-icon.svg"
-                            alt="PDF"
-                            width={30}
-                            height={30}
-                            className="object-contain"
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-base font-mediumtext-foreground ">
-                            {doc.title}
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-5">
-                      <Button
-                        as="a"
-                        href="/contact"
-                        variant="contained"
-                        color="primary"
-                        className="w-full "
-                        leftIcon={<Download size={18} />}
-                      >
-                        Download
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        
+        {documents.length === 0 ? (
+          <div className="text-center py-16 bg-muted/30 border border-border border-dashed rounded-lg">
+            <p className="text-muted-foreground text-lg">
+              No statutory documents available at the moment.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-stretch">
+            {documents.map((file) => {
+              const fileUrl = `${baseUrl}/uploads/files/Investorsfiles/${file.filename}`;
+              return (
+                <div
+                  key={file.srno}
+                  className="relative bg-white border border-border hover:border-primary/40 rounded-lg pt-10 pb-12 px-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 group min-h-[160px]"
+                >
+                  <h4 className="text-[16px] font-bold text-light-blue leading-snug group-hover:text-primary transition-colors duration-200">
+                    {file.caption || file.filename}
+                  </h4>
+                  
+                  {/* Hanging red download button with micro-animation on hover */}
+                  <a
+                    href={fileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-14 h-10 bg-primary hover:bg-primary-dark text-white rounded-b-2xl flex items-center justify-center shadow-md transition-all duration-200 hover:h-11 hover:-bottom-6 cursor-pointer"
+                    aria-label={`Download ${file.caption || file.filename}`}
+                  >
+                    <Download size={18} className="stroke-[2.5]" />
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </Container>
     </section>
   );

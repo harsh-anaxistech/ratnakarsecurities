@@ -69,11 +69,9 @@ export default function AboutOverview() {
   const cardWidth = isMobile ? 300 : 340;
   const maxIndex = Math.max(0, milestones.length - visibleCount);
 
-  useEffect(() => {
-    if (index > maxIndex) {
-      setIndex(maxIndex);
-    }
-  }, [maxIndex, index]);
+  if (index > maxIndex) {
+    setIndex(maxIndex);
+  }
 
   return (
     <Container>

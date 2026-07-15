@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import MenuIcons from "@/components/layout/MenuIcons";
+import { getResearchSections } from "@/services/research";
 
 // const NAV_LINKS = [
 //   {
@@ -94,12 +95,12 @@ const NAV_LINKS = [
   },
   {
     label: "Research",
-    href: "#",
+    href: "/research/company",
     dropdown: [
-      { label: "Company", href: "#", icon: "company" },
-      { label: "IPOs", href: "#", icon: "ipos" },
-      { label: "News", href: "#", icon: "news" },
-      { label: "Announcements", href: "#", icon: "announcements" },
+      { label: "Company", href: "/research/company", icon: "company" },
+      { label: "IPOs", href: "/research/ipos", icon: "ipos" },
+      { label: "News", href: "/research/news", icon: "news" },
+      { label: "Announcements", href: "/research/announcements", icon: "announcements" },
     ],
   },
   {
@@ -107,17 +108,17 @@ const NAV_LINKS = [
     href: "#",
     columns: [
       [
-        { label: "Board of Directors", href: "#", icon: "board-of-directors" },
-        { label: "Disclosure of Contact Details", href: "#", icon: "contact-details" },
-        { label: "Statutory Documents", href: "#", icon: "statutory" },
-        { label: "Policies", href: "#", icon: "policies" },
-        { label: "Financial Information", href: "#", icon: "financial-info" },
+        { label: "Board of Directors", href: "/investors/board-of-directors", icon: "board-of-directors" },
+        { label: "Disclosure of Contact Details", href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel", icon: "contact-details" },
+        { label: "Statutory Documents", href: "/investors/statutory-and-registration-certificate-documents", icon: "statutory" },
+        { label: "Policies", href: "/investors/policies", icon: "policies" },
+        { label: "Financial Information", href: "/investors/financial-information-and-annual-report", icon: "financial-info" },
       ],
       [
-        { label: "Shareholding Pattern", href: "#", icon: "shareholding-pattern" },
-        { label: "Newspaper Publication", href: "#", icon: "newspaper-publication" },
-        { label: "Annual Return", href: "#", icon: "annual-return" },
-        { label: "Material Events", href: "#", icon: "material-events" },
+        { label: "Shareholding Pattern", href: "/investors/shareholding-pattern", icon: "shareholding-pattern" },
+        { label: "Newspaper Publication", href: "/investors/newspaper-publication", icon: "newspaper-publication" },
+        { label: "Annual Return", href: "/investors/annual-return", icon: "annual-return" },
+        { label: "Material Events", href: "/investors/disclosures-of-material-events-or-information", icon: "material-events" },
       ],
     ],
   },
@@ -130,7 +131,7 @@ const NAV_LINKS = [
       { label: "Milestone", href: "#", icon: "milestone" },
     ],
   },
-  { label: "Contact Us", href: "#" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 
@@ -162,24 +163,73 @@ function NavLink({ link, children, className, onClick }) {
   return <Link href={link.href} className={className} onClick={onClick}>{children}</Link>;
 }
 
+const getSectionIcon = (name) => {
+  const lower = name.toLowerCase();
+  if (lower.includes("company")) return "company";
+  if (lower.includes("ipo")) return "ipos";
+  if (lower.includes("news")) return "news";
+  if (lower.includes("announcement")) return "announcements";
+  return "company";
+};
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setMobileOpen(false);
+    setOpenAccordion(null);
+    setMobileLoginOpen(false);
+  }
+
+  const [navLinks, setNavLinks] = useState(NAV_LINKS);
+
+  useEffect(() => {
+    async function loadResearchSections() {
+      try {
+        const result = await getResearchSections();
+        if (result && result.success && Array.isArray(result.data)) {
+          const dynamicDropdown = result.data.map((sec) => {
+            const code = sec.section_name.toLowerCase();
+            return {
+              label: sec.section_name,
+              href: `/research/${code}`,
+              icon: getSectionIcon(sec.section_name),
+            };
+          });
+
+          if (dynamicDropdown.length > 0) {
+            setNavLinks((prev) =>
+              prev.map((item) => {
+                if (item.label === "Research") {
+                  return {
+                    ...item,
+                    href: dynamicDropdown[0].href,
+                    dropdown: dynamicDropdown,
+                  };
+                }
+                return item;
+              })
+            );
+          }
+        }
+      } catch (error) {
+        console.error("Error loading research sections in Header:", error);
+      }
+    }
+    loadResearchSections();
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-    setOpenAccordion(null);
-    setMobileLoginOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -215,7 +265,7 @@ export default function Header() {
 
               {/* Desktop Nav */}
               <nav className="hidden lg:flex h-full items-center">
-                {NAV_LINKS.map((item) => {
+                {navLinks.map((item) => {
                   const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                   return (
                     <div key={item.label} className="group relative h-full flex items-center">
@@ -238,7 +288,7 @@ export default function Header() {
                           {item.columns.map((column, i) => (
                             <div key={i} className="space-y-0.5">
                               {column.map((link) => (
-                                <DropdownLink key={link.href} link={link} className="block rounded px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                                <DropdownLink key={link.label} link={link} className="block rounded px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
                                   {link.label}
                                 </DropdownLink>
                               ))}
@@ -251,7 +301,7 @@ export default function Header() {
                       {item.dropdown && (
                         <div className="absolute left-0 top-full mt-0 z-50 w-64 bg-white shadow-xl border border-border rounded-b-lg rounded-tr-lg p-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
                           {item.dropdown.map((link) => (
-                            <DropdownLink key={link.href} link={link} className="block rounded px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                            <DropdownLink key={link.label} link={link} className="block rounded px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
                               {link.label}
                             </DropdownLink>
                           ))}
@@ -322,7 +372,7 @@ export default function Header() {
           {/* Nav links */}
           <nav className="flex-1 overflow-y-auto px-4 py-4" aria-label="Mobile navigation">
             <div className="flex flex-col gap-1">
-              {NAV_LINKS.map((item) => {
+              {navLinks.map((item) => {
                 const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                 const isOpen = openAccordion === item.label;
                 const subLinks = getSubLinks(item);
@@ -340,7 +390,7 @@ export default function Header() {
                         <div className={cn("overflow-hidden transition-all duration-300", isOpen ? "max-h-[600px] pb-2" : "max-h-0")}>
                           <div className="flex flex-col gap-0.5 pl-3 pt-1">
                             {subLinks.map((link) => (
-                              <NavLink key={link.href} link={link} className={cn("block py-2 px-3 text-sm rounded transition-colors", pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted")} onClick={() => setMobileOpen(false)}>
+                              <NavLink key={link.label} link={link} className={cn("block py-2 px-3 text-sm rounded transition-colors", pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted")} onClick={() => setMobileOpen(false)}>
                                 {link.label}
                               </NavLink>
                             ))}

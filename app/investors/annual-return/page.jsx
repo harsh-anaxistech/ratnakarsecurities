@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Container from "@/components/common/Container";
-import Button from "@/components/common/Button";
 import { Download } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
+import { getInvestorDocuments } from "@/services/investors";
 
 export const metadata = generatePageMetadata({
   title: "Annual Return :: Ratnakar Securities Limited.",
@@ -11,73 +10,69 @@ export const metadata = generatePageMetadata({
   path: "/investors/annual-return",
 });
 
-const reports = [
-  {
-    year: "Financial Year 2025-2026",
-    documents: [{ title: "Annual Return 2025-2026" }],
-  },
-  {
-    year: "Financial Year 2024-2025",
-    documents: [{ title: "Annual Return 2024-2025" }],
-  },
-  {
-    year: "Financial Year 2023-2024",
-    documents: [{ title: "Annual Return 2023-2024" }],
-  },
-];
+export default async function AnnualReturnPage() {
+  let groupedData = [];
+  try {
+    const response = await getInvestorDocuments("Annual Return");
+    if (response.success && response.data && Array.isArray(response.data.grouped)) {
+      groupedData = response.data.grouped;
+    }
+  } catch (error) {
+    console.error("Error fetching annual return:", error);
+  }
 
-export default function AnnualReturnPage() {
   return (
-    <section className="py-10">
+    <section className="py-16 bg-background">
       <Container>
-        <h2 className="mb-10 text-2xl font-bold text-foreground md:text-3xl">
+        <h2 className="mb-10 text-3xl font-bold text-light-blue md:text-4xl text-center md:text-left">
           Annual Return
         </h2>
-        <div className="space-y-10">
-          {reports.map((section) => (
-            <div key={section.year}>
-              <h3 className="mb-5  bg-muted  text-base font-medium px-3 py-1 w-fit rounded-sm text-foreground">
-                {section.year}
-              </h3>
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-stretch">
-                {section.documents.map((doc, index) => (
-                  <div key={index} className="flex h-full flex-col">
-                    <div className="group flex-1 rounded-sm border bg-muted border-border p-6 ">
-                      <div className="flex h-full items-start gap-4">
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-sm border border-border bg-background ">
-                          <Image
-                            src="/images/icon/home/pdf-icon.svg"
-                            alt="PDF"
-                            width={30}
-                            height={30}
-                            className="object-contain"
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-base font-mediumtext-foreground ">
-                            {doc.title}
+        
+        {groupedData.length === 0 ? (
+          <div className="text-center py-16 bg-muted/30 border border-border border-dashed rounded-lg">
+            <p className="text-muted-foreground text-lg">
+              No annual returns available at the moment.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-16">
+            {groupedData.map((group) => (
+              <div key={group.financialYear} className="space-y-6">
+                <h3 className="text-lg font-semibold text-foreground">
+                  Financial year {group.financialYear}
+                </h3>
+                
+                <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-stretch">
+                  {group.files &&
+                    group.files.map((file) => {
+                      const fileUrl = file.fileurl || file.FILEURL;
+                      return (
+                        <div
+                          key={file.srno}
+                          className="relative bg-white border border-border hover:border-primary/40 rounded-lg pt-10 pb-12 px-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 group min-h-[160px]"
+                        >
+                          <h4 className="text-[16px] font-bold text-light-blue leading-snug group-hover:text-primary transition-colors duration-200">
+                            {file.caption}
                           </h4>
+                          
+                          {/* Hanging red download button with micro-animation on hover */}
+                          <a
+                            href={fileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-14 h-10 bg-primary hover:bg-primary-dark text-white rounded-b-2xl flex items-center justify-center shadow-md transition-all duration-200 hover:h-11 hover:-bottom-6 cursor-pointer"
+                            aria-label={`Download ${file.caption}`}
+                          >
+                            <Download size={18} className="stroke-[2.5]" />
+                          </a>
                         </div>
-                      </div>
-                    </div>
-                    <div className="mt-5">
-                      <Button
-                        as="a"
-                        href="/contact"
-                        variant="contained"
-                        color="primary"
-                        className="w-full "
-                        leftIcon={<Download size={18} />}
-                      >
-                        Download
-                      </Button>
-                    </div>
-                  </div>
-                ))}
+                      );
+                    })}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </Container>
     </section>
   );

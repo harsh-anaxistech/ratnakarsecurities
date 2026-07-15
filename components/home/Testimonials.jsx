@@ -115,7 +115,7 @@ export default function Testimonials() {
                     <StarRating count={t.stars} />
 
                     <p className="text-[16px] leading-relaxed text-slate-700 font-medium italic mb-6">
-                      "{t.quote}"
+                      &ldquo;{t.quote}&rdquo;
                     </p>
                   </div>
 

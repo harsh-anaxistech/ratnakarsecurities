@@ -37,7 +37,7 @@ const TAB_CONTENT = {
       <li>Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system w.e.f. September 1, 2020.</li>
       <li>Update your mobile number & email Id with your stock broker/depository participant and receive OTP directly from depository on your email id and/or mobile number to create pledge.</li>
       <li>Pay 20% upfront margin of the transaction value to trade in cash market segment.</li>
-      <li>Investors may please refer to the Exchange's Frequently Asked Questions (FAQs) issued vide circular reference NSE/INSP/45191 dated July 31, 2020 and NSE/INSP/45534 dated August 31, 2020 and other guidelines issued from time to time in this regard.</li>
+      <li>{"Investors may please refer to the Exchange's Frequently Asked Questions (FAQs) issued circular reference NSE/INSP/45191 dated July 31, 2020 and NSE/INSP/45534 dated August 31, 2020 and other circulars / guidelines issued from time to time in this regard."}</li>
       <li>Check your Securities /MF/ Bonds in the consolidated account statement issued by NSDL/CDSL every month.</li>
       <li className="font-semibold text-secondary pt-2">.......... Issued in the interest of Investors</li>
     </ul>
