@@ -323,15 +323,15 @@ export default function ContactDetailsSections() {
         {/* --- BOTTOM SECTION: RTA DETAILS & INVESTOR DETAILS Cards --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* RTA Details Block */}
-          <div className="bg-muted border border-border rounded-sm p-4 md:p-8 text-center space-y-4 ">
+          <div className="bg-muted border border-border rounded-sm p-4 md:p-8 text-center space-y-4 text-white" style={{ background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)" }}>
             <h2 className="text-2xl md:text-3xl font-bold text-center pb-3 ">
               RTA Details
             </h2>
-            <div className="text-base text-muted-foreground space-y-1.5 leading-relaxed">
+            <div className="text-base text-white space-y-1.5 leading-relaxed">
               <p className=" ">Cameo Corporate Services Limited</p>
               <p>#1, Subramanian Building,</p>
               <p>Club House Road, Chennai-600002.</p>
-              <p className="text-secondary pt-1 ">044-40020731</p>
+              <a href="tel:044-40020731" className="text-secondary hover:underline pt-1 block">044-40020731</a>
               <p>
                 <a
                   href="mailto:rta@cameoindia.com"
@@ -344,20 +344,20 @@ export default function ContactDetailsSections() {
           </div>
 
           {/* Investor Details Block */}
-          <div className="bg-muted border border-border rounded-sm p-4 md:p-8 text-center space-y-4 ">
+          <div className="bg-white border border-border rounded-sm p-4 md:p-8 text-center space-y-4 text-white" style={{ background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)" }}>
             <h2 className="text-2xl md:text-3xl font-bold text-center pb-3 ">
               Investor Details
             </h2>
 
-            <div className="text-base text-muted-foreground space-y-1.5 leading-relaxed">
+            <div className="text-base text-white space-y-1.5 leading-relaxed">
               <p className=" ">Harshil Shah</p>
-              <p className="text-base text-muted-foreground ">
+              <p className="text-base text-white ">
                 Company Secretary and Compliance Officer
               </p>
               <p>304, Sankalp Square II,</p>
               <p>Near Jalaram Mandir Crossing,</p>
               <p>Ellisbridge, Ahmedabad - 380006</p>
-              <p className="text-secondary pt-1 ">079 49005200</p>
+              <a href="tel:07949005200" className="text-secondary hover:underline pt-1 block">079 49005200</a>
               <p>
                 <a
                   href="mailto:cs@ratnakarsecurities.com"

@@ -61,7 +61,7 @@ export default function ContactPage() {
             </div>
             
             {/* Branches Table Section */}
-            <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] border border-black/5 overflow-hidden">
+            <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] border border-black/10 overflow-hidden">
                 <div className="bg-gray-100 border-b border-black/5 p-6 md:p-8 text-center flex flex-col items-center gap-3 text-gray-800">
                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
                     <MapPin className="w-6 h-6" />

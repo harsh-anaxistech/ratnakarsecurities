@@ -61,7 +61,7 @@ export default function Footer() {
 
   return (
     <footer style={{ background: "#011628", color: "#c8dff0" }}>
-      <div className="pt-16 pb-10 border-b border-[#00aeee]/15">
+      <div className="pt-16 pb-10 border-b border-gray-500/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
             {/* Brand column */}
@@ -104,7 +104,7 @@ export default function Footer() {
       </div>
 
       {/* Investor Notices */}
-      <div className="py-8 border-b border-[#00aeee]/15">
+      <div className="py-8 border-b border-[#00aeee]/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-5 text-xs font-bold tracking-wide uppercase">
             {tabs.map((tab) => (
