@@ -6,28 +6,28 @@ import Image from "next/image";
 
 const FOOTER_LINKS = {
   Products: [
-    { label: "Equity", href: "#" },
-    { label: "Derivatives", href: "#" },
-    { label: "Mutual Funds", href: "#" },
-    { label: "Commodities", href: "#" },
-    { label: "Real Estate", href: "#" },
-    { label: "NRIs", href: "#" },
-    { label: "Narnolia Investment Advisory Portfolios", href: "#" },
+    { label: "Equity", href: "/products?tab=Equity" },
+    { label: "Derivatives", href: "/products?tab=Derivatives" },
+    { label: "Mutual Fund", href: "/products?tab=MutualFunds" },
+    { label: "Commodities", href: "/products?tab=Commodities" },
+    { label: "Real Estate", href: "/products?tab=RealEstate" },
+    { label: "NRIs", href: "/products?tab=NRIs" },
+    { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", target: "_blank" },
   ],
-  Company: [
+  "About Us": [
     { label: "Overview", href: "/about?tab=overview" },
     { label: "Leadership", href: "/about?tab=leadership" },
     { label: "Milestone", href: "/about?tab=milestones" },
   ],
   "Useful Links": [
-    { label: "Broker Norms (NSE)", href: "#" },
-    { label: "Broker Norms (BSE)", href: "#" },
-    { label: "NSE", href: "#" },
-    { label: "BSE", href: "#" },
-    { label: "SEBI", href: "#" },
-    { label: "NSDL", href: "#" },
-    { label: "MCX", href: "#" },
-    { label: "SCORES", href: "#" },
+    { label: "Broker Norms (NSE)", href: "https://www.ratnakarsecurities.com/files/brokernorms.pdf", target: "_blank" },
+    { label: "Broker Norms (BSE)", href: "https://www.ratnakarsecurities.com/files/brokernormsbse.pdf", target: "_blank" },
+    { label: "NSE", href: "https://www.nseindia.com/", target: "_blank" },
+    { label: "BSE", href: "https://www.bseindia.com/", target: "_blank" },
+    { label: "SEBI", href: "https://www.sebi.gov.in/", target: "_blank" },
+    { label: "NSDL", href: "https://nsdl.co.in/", target: "_blank" },
+    { label: "MCX", href: "https://www.mcxindia.com/home", target: "_blank" },
+    { label: "SCORES", href: "https://scores.gov.in/scores/Welcome.html", target: "_blank" },
   ],
 };
 
@@ -72,13 +72,12 @@ export default function Footer() {
                 </div>
               </Link>
               {/* એડ્રેસ ની સાઈઝ 16px સેટ કરી */}
-              <p className="text-[16px] leading-relaxed max-w-[280px]" style={{ color: "#9fc8e0" }}>
-                <strong>Ratnakar Securities Pvt. Ltd.</strong><br />
-                304, Pinnacle Business Park,<br />
-                Corporate Road, Prahladnagar,<br />
-                Ahmedabad, Gujarat - 380015.<br />
-                Contact No : +91 79 4001 5500
-              </p>
+              <ul className="text-[16px] leading-relaxed max-w-[280px] space-y-1" style={{ color: "#9fc8e0" }}>
+                <li><strong>Cameo Corporate Services Limited</strong></li>
+                <li>#1, Subramanian Building,</li>
+                <li>Club House Road, Chennai-600002.</li>
+                <li>Contact No : <a href="tel:04440020731" className="hover:text-white transition-colors">044-40020731</a></li>
+              </ul>
             </div>
 
             {/* Link columns */}
@@ -90,7 +89,11 @@ export default function Footer() {
                   {links.map((l) => (
                     <li key={l.label}>
                       {/* લિંક્સ ની સાઈઝ 16px સેટ કરી */}
-                      <Link href={l.href} className="text-[16px] hover:text-white transition-colors">{l.label}</Link>
+                      {l.target ? (
+                        <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[16px] hover:text-white transition-colors">{l.label}</a>
+                      ) : (
+                        <Link href={l.href} className="text-[16px] hover:text-white transition-colors">{l.label}</Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -136,11 +139,15 @@ export default function Footer() {
       <div className="py-5 text-xs text-[#7a9bb5]">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
           <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
-          <div className="flex gap-4">
-            <Link href="#">Privacy Policy</Link>
-            <Link href="#">Disclaimer</Link>
-            <Link href="#">Terms of Conditions</Link>
-            <Link href="#">Investor Complaint</Link>
+          <div className="flex flex-wrap gap-4 justify-center sm:justify-end">
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/disclaimer">Disclaimer</Link>
+            <Link href="/terms-of-conditions">Terms of Conditions</Link>
+            <Link href="/investor-complaint">Investor Complaint</Link>
+            <Link href="https://www.ratnakarsecurities.com/static/refund-cancellation.aspx" target="_blank">Refund & Cancellation</Link>
+            <Link href="https://www.ratnakarsecurities.com/files/Segregation_and_Monitoring_of_Collateral_at_Client_Level.pdf" target="_blank">Segregation Monitoring Collateral</Link>
+            <Link href="https://www.evoting.nsdl.com/" target="_blank">NSDL E Voting</Link>
+            <Link href="https://eservices.nsdl.com/" target="_blank">NSDL IDEAS Services</Link>
             <span>Developed by <a href="#" className="text-secondary">Anaxistech</a></span>
           </div>
         </div>

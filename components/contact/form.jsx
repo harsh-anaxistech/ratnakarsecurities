@@ -106,15 +106,15 @@ export default function ContactUsPage() {
 
   return (
     <Container>
-      <div className="grid grid-cols-1 lg:grid-cols-12 w-full font-sans bg-white border border-border shadow-md rounded-sm overflow-hidden my-10 animate-fade-in">
+      <div className="grid grid-cols-1 lg:grid-cols-12 w-full font-sans bg-white border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] rounded-3xl overflow-hidden mb-12 animate-fade-in">
         {/* Left Side: Address Details Panel with custom dark blue radial gradient */}
         <div 
-          className="col-span-1 lg:col-span-5 flex flex-col justify-center p-8 sm:p-12 min-h-[420px] lg:min-h-[550px] select-none text-white"
+          className="col-span-1 lg:col-span-5 flex flex-col justify-center p-4 sm:p-12 min-h-[420px] lg:min-h-[550px] select-none text-white"
           style={{
             background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)"
           }}
         >
-          <div className="z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 shadow-xl max-w-sm w-full mx-auto space-y-6">
+          <div className="z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-8 shadow-xl max-w-sm w-full mx-auto space-y-6">
             <div>
               <span className="inline-block px-3 py-1 bg-white/20 text-white font-bold text-xs tracking-widest rounded-full uppercase mb-3">
                 Corporate Office
@@ -159,7 +159,7 @@ export default function ContactUsPage() {
         </div>
 
         {/* Right Side: Contact Form and Breadcrumb Section */}
-        <div className="col-span-1 lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
+        <div className="col-span-1 lg:col-span-7 p-4 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
           {/* Form Header */}
           <div className="mb-8">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground font-sans tracking-tight">

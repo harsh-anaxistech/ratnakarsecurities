@@ -17,7 +17,7 @@ export default function ContactPage() {
   return (
     <main className="bg-background min-h-screen">
       {/* Banner Section */}
-      <section className="bg-[#011628] text-white py-12 md:py-16 relative overflow-hidden">
+      <section className="bg-[#011628] text-white h-[240px] flex flex-col justify-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="/images/hero/2150970201.jpg"
@@ -53,23 +53,25 @@ export default function ContactPage() {
       {/* Main Content Area */}
       <section className="py-12 md:py-16">
         <Container>
-          <div className="flex flex-col gap-12 lg:gap-16">
+          <div className="flex flex-col gap-6">
             
             {/* Contact Form Section */}
-            <div className="bg-white rounded-3xl shadow-sm border border-border overflow-hidden">
+            <div className="w-full">
               <Form />
             </div>
             
             {/* Branches Table Section */}
-            <div className="bg-white rounded-3xl shadow-sm border border-border overflow-hidden">
-              <div className="bg-muted border-b border-border p-6 md:p-8 text-center flex flex-col items-center gap-3">
+            <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] border border-black/5 overflow-hidden">
+                <div className="bg-gray-100 border-b border-black/5 p-6 md:p-8 text-center flex flex-col items-center gap-3 text-gray-800">
                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
                     <MapPin className="w-6 h-6" />
                  </div>
-                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">Our Branches</h2>
-                 <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto">
-                    We have a wide network of branches across India to serve you better. Find the nearest Ratnakar Securities branch below.
-                 </p>
+                  <h2 className="text-3xl md:text-4xl tracking-tight font-bold text-black">Our Branches</h2>
+                 <div className="bg-gray-100 rounded-md p-4 max-w-xl mx-auto mb-4">
+                     <p className="text-gray-800 text-sm md:text-base">
+                      We have a wide network of branches across India to serve you better. Find the nearest Ratnakar Securities branch below.
+                    </p>
+                 </div>
               </div>
               <div className="p-0">
                 <Table />

@@ -23,6 +23,11 @@ function AboutContent() {
 
   const [activeTab, setActiveTab] = useState(initialTab);
 
+  const handleTabClick = (id) => {
+    setActiveTab(id);
+    window.scrollTo({ top: 400, behavior: "smooth" });
+  };
+
   useEffect(() => {
     if (tabParam && TABS.find((t) => t.id === tabParam)) {
       setActiveTab(tabParam);
@@ -34,7 +39,7 @@ function AboutContent() {
   return (
     <main className="bg-background min-h-screen">
       {/* Banner Section */}
-      <section className="bg-[#011628] text-white py-12 md:py-16 relative overflow-hidden">
+      <section className="bg-[#011628] text-white h-[240px] flex flex-col justify-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <Image
             src={currentTab.imageSrc}
@@ -93,7 +98,7 @@ function AboutContent() {
                   return (
                     <button
                       key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
+                      onClick={() => handleTabClick(tab.id)}
                       className={cn(
                         "flex items-center justify-between px-4 py-3 rounded-md text-base font-semibold transition-all duration-200 border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 text-left",
                         isActive
@@ -120,7 +125,7 @@ function AboutContent() {
                   return (
                     <button
                       key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
+                      onClick={() => handleTabClick(tab.id)}
                       className={cn(
                         "whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all border shadow-sm flex items-center uppercase tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
                         isActive
@@ -276,7 +281,7 @@ function LeadershipContent() {
         <div className="flex flex-col md:flex-row gap-8 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-border hover:border-primary/30 transition-colors">
           <div className="w-full md:w-1/3 shrink-0">
             <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-md">
-              <Image src="/images/leadership/ajay-shah.jpg" alt="Shri. Ajay Shah" fill className="object-cover" />
+              <Image src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2000&auto=format&fit=crop" alt="Shri. Ajay Shah" fill className="object-cover" />
             </div>
           </div>
           <div className="space-y-4 pt-4 md:pt-0 flex flex-col justify-center">
@@ -299,7 +304,7 @@ function LeadershipContent() {
         <div className="flex flex-col md:flex-row gap-8 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-border hover:border-primary/30 transition-colors">
           <div className="w-full md:w-1/3 shrink-0">
             <div className="relative w-full aspect-square rounded-xl overflow-hidden shadow-md">
-              <Image src="/images/leadership/kushal-shah.jpg" alt="Kushal Shah" fill className="object-cover" />
+              <Image src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2000&auto=format&fit=crop" alt="Kushal Shah" fill className="object-cover" />
             </div>
           </div>
           <div className="space-y-4 pt-4 md:pt-0 flex flex-col justify-center">
@@ -339,31 +344,31 @@ function MilestonesContent() {
         </p>
       </div>
 
-      <div className="pt-10">
-        <div className="flex flex-col space-y-8 relative">
+      <div className="pt-8">
+        <div className="flex flex-col space-y-5 relative">
           {/* Main Vertical Connecting Line */}
-          <div className="absolute left-8 md:left-12 top-10 bottom-10 w-[3px] bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full"></div>
+          <div className="absolute left-7 md:left-10 top-8 bottom-8 w-[2px] bg-gradient-to-b from-primary via-primary/50 to-transparent rounded-full"></div>
 
           {milestones.map((item, i) => (
             <div key={i} className="relative flex items-center group">
               
               {/* Step indicator (Year) */}
-              <div className="shrink-0 w-16 h-16 md:w-24 md:h-24 rounded-full bg-white border-[3px] border-primary z-10 shadow-lg flex items-center justify-center text-primary font-black text-xl md:text-2xl group-hover:bg-primary group-hover:text-white transition-all duration-500 transform group-hover:scale-105">
+              <div className="shrink-0 w-14 h-14 md:w-20 md:h-20 rounded-full bg-white border-[3px] border-primary z-10 shadow-md flex items-center justify-center text-primary font-black text-lg md:text-xl group-hover:bg-primary group-hover:text-white transition-all duration-500 transform group-hover:scale-105">
                 {item.year}
               </div>
 
               {/* Connecting arm */}
-              <div className="h-[3px] w-4 md:w-12 bg-primary/30 group-hover:bg-primary transition-colors duration-500"></div>
+              <div className="h-[2px] w-3 md:w-8 bg-primary/30 group-hover:bg-primary transition-colors duration-500"></div>
 
               {/* Content Card */}
-              <div className="flex-1 bg-white border border-border rounded-2xl p-6 md:p-8 shadow-sm group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-1 relative overflow-hidden group-hover:border-primary/40">
-                <div className="absolute top-0 left-0 w-1.5 h-full bg-primary/10 group-hover:bg-primary transition-colors duration-500"></div>
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex-1 bg-white border border-border rounded-xl p-4 md:p-5 shadow-sm group-hover:shadow-md transition-all duration-500 group-hover:-translate-y-0.5 relative overflow-hidden group-hover:border-primary/40">
+                <div className="absolute top-0 left-0 w-1 h-full bg-primary/10 group-hover:bg-primary transition-colors duration-500"></div>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
                   <div>
-                    <span className="text-sm font-bold tracking-widest text-[#00AEEE] uppercase mb-2 block">{item.date}</span>
-                    <h3 className="text-lg md:text-xl font-bold text-foreground leading-snug">{item.text}</h3>
+                    <span className="text-[13px] font-bold tracking-widest text-[#00AEEE] uppercase mb-1.5 block">{item.date}</span>
+                    <h3 className="text-base md:text-lg font-bold text-foreground leading-snug">{item.text}</h3>
                   </div>
-                  <div className="text-4xl md:text-5xl opacity-30 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0 transform group-hover:scale-110">
+                  <div className="text-3xl md:text-4xl opacity-30 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0 transform group-hover:scale-110">
                     {item.icon}
                   </div>
                 </div>

@@ -136,10 +136,10 @@ const NAV_LINKS = [
 
 
 const LOGIN_LINKS = [
-  { label: "Online Trading", href: "/login/online-trading" },
-  { label: "Backoffice Login", href: "/login/backoffice" },
-  { label: "Mutual Fund Portfolio", href: "/login/mutual-fund" },
-  { label: "Narnolia Investment Advisory Portfolio", href: "/login/advisory" },
+  { label: "Online Trading", href: "javascript://", external: false },
+  { label: "Backoffice Login", href: "https://www.ratnakarsecurities.com/static/backoffice-login.aspx", external: true },
+  { label: "Mutual Fund Portfolio", href: "https://ratnakarsecurities.investwell.app/app/#/login", external: true },
+  { label: "Narnolia Investment Advisory Portfolio", href: "https://ratnakarsecurities.narnolia.in/", external: true },
 ];
 
 function DropdownLink({ link, children, className }) {
@@ -314,11 +314,11 @@ export default function Header() {
 
               {/* Desktop Actions */}
               <div className="hidden lg:flex items-center gap-2">
-                <Link href="/contact">
+                <a href="https://smartkyc.co.in/" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
-                   Open a Demat Account
+                    Open a Demat Account
                   </Button>
-                </Link>
+                </a>
 
                 {/* Login dropdown */}
                 <div className="group relative">

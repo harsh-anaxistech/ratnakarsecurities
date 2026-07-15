@@ -196,7 +196,7 @@ export default function ResearchSectionClient({
       </div>
 
       {/* ── HERO BANNER ── */}
-      <section className="bg-[#011628] text-white py-12 md:py-16 relative overflow-hidden" aria-labelledby="page-title">
+      <section className="bg-[#011628] text-white h-[240px] flex flex-col justify-center relative overflow-hidden" aria-labelledby="page-title">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="/images/hero/2150970201.jpg"

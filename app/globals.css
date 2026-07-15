@@ -5,7 +5,8 @@
    ===================================================== */
 @theme {
   /* Fonts */
-  --font-sans: var(--font-Poppins), system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-Poppins), "Poppins Fallback", system-ui, -apple-system, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
   /* Brand Colors */
   --color-primary: #ea2830;
@@ -98,6 +99,10 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-serif);
 }
 
 /* =====================================================

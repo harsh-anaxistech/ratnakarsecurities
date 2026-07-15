@@ -13,7 +13,7 @@ export default function ContactDetailsSections() {
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
             <table className="w-full min-w-[800px] border-collapse text-left text-base">
               <thead>
-                <tr className="bg-muted border-b border-border text-foreground ">
+                <tr className="bg-[#011628] border-b border-border text-white ">
                   <th className="p-4 border-r border-border">Details of</th>
                   <th className="p-4 border-r border-border">Contact Person</th>
                   <th className="p-4 border-r border-border">Address</th>
@@ -199,7 +199,7 @@ export default function ContactDetailsSections() {
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
             <table className="w-full min-w-[800px] border-collapse text-left text-base">
               <thead>
-                <tr className="bg-muted border-b border-border text-foreground ">
+                <tr className="bg-[#011628] border-b border-border text-white ">
                   <th className="p-4 border-r border-border">
                     Stock Broker Name
                   </th>
@@ -251,7 +251,7 @@ export default function ContactDetailsSections() {
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
             <table className="w-full min-w-[800px] border-collapse text-left text-base">
               <thead>
-                <tr className="bg-muted border-b border-border text-foreground ">
+                <tr className="bg-[#011628] border-b border-border text-white ">
                   <th className="p-4 w-16 border-r border-border text-center">
                     Sr. No.
                   </th>
@@ -323,7 +323,7 @@ export default function ContactDetailsSections() {
         {/* --- BOTTOM SECTION: RTA DETAILS & INVESTOR DETAILS Cards --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* RTA Details Block */}
-          <div className="bg-muted border border-border rounded-sm p-8 text-center space-y-4 ">
+          <div className="bg-muted border border-border rounded-sm p-4 md:p-8 text-center space-y-4 ">
             <h2 className="text-2xl md:text-3xl font-bold text-center pb-3 ">
               RTA Details
             </h2>
@@ -344,7 +344,7 @@ export default function ContactDetailsSections() {
           </div>
 
           {/* Investor Details Block */}
-          <div className="bg-muted border border-border rounded-sm p-8 text-center space-y-4 ">
+          <div className="bg-muted border border-border rounded-sm p-4 md:p-8 text-center space-y-4 ">
             <h2 className="text-2xl md:text-3xl font-bold text-center pb-3 ">
               Investor Details
             </h2>

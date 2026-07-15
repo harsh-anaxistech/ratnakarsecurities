@@ -3,7 +3,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { ChevronRight, CheckCircle2, TrendingUp, ShieldCheck, PieChart, Landmark, Briefcase, Globe, FileText, BadgePercent, Building2 } from "lucide-react";
+import { ChevronRight, CheckCircle2, TrendingUp, ShieldCheck, PieChart, Landmark, Briefcase, Globe, FileText, BadgePercent, Building2, Info } from "lucide-react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,27 @@ import { cn } from "@/lib/utils";
 // DATA SETUP FOR ALL TABS
 // ==========================================
 const TABS_DATA = [
+  {
+    id: "Overview",
+    title: "OVERVIEW",
+    icon: Info,
+    tagline: "OVERVIEW",
+    mainTitle: "Invest at Ease with Ratnakar",
+    description1:
+      "Emerging as one of the leading broking houses and investment advisors in India, Ratnakar Securities is a member of NSE, BSE, MSEI, MCX, NCDEX and a depository participant with CDSL. Also, registered as a distributor with AMFI, our mutual funds vertical has partnered with 30+ AMC’s to get you the best schemes fitting your needs.",
+    description2:
+      "Offering you the most hassle-free investment and trading experience through our cutting-edge investment platforms and financial solutions, tailormade to your needs.\n\nSimply put, we help you maximize your wealth, while minimizing risks!",
+    featuresTitle: "Why Ratnakar?",
+    features: [
+      "Research and Advisory driven approach - Tailormade to your needs",
+      "Transparent services at affordable rates",
+      "Our objectives tied to our customers’ success",
+      "Investment Platforms backed by robust technology framework - Easy, Fast and Secure",
+      "Round the clock assistance",
+    ],
+    imageSrc: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2070&auto=format&fit=crop",
+    buttonText: "GET A CALL BACK",
+  },
   {
     id: "Equity",
     title: "EQUITY",
@@ -29,7 +50,7 @@ const TABS_DATA = [
       "Real time portfolio monitoring",
       "Tailormade alerts to help you buy or sell preferred stocks, just at right price",
     ],
-    imageSrc: "/images/hero/66722.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop",
     buttonText: "Open Your Trading Account",
   },
   {
@@ -48,7 +69,7 @@ const TABS_DATA = [
       "Our advisory services equip investors with knowledge and techniques to succeed",
       "Derivative reports and recommendations, that may yield good returns with lesser risk",
     ],
-    imageSrc: "/images/hero/2150970201.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=2070&auto=format&fit=crop",
     buttonText: "Know More / Contact Us Today",
   },
   {
@@ -68,7 +89,7 @@ const TABS_DATA = [
       "Choice and flexibility of choosing funds to meet your investment needs and financial goals",
       "Dedicated customer support to meet your tailormade needs",
     ],
-    imageSrc: "/images/hero/66722.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=2070&auto=format&fit=crop",
     buttonText: "Start Investing Today",
   },
   {
@@ -86,7 +107,7 @@ const TABS_DATA = [
       "We make client-based business in commodities trading simpler and easier",
       "Our commodity researchequips investors with knowledge to gain profits at minimal risk",
     ],
-    imageSrc: "/images/hero/2150970201.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1621504450181-5d356f61d307?q=80&w=2000&auto=format&fit=crop",
     buttonText: "Know More / Contact Us Today",
   },
   {
@@ -106,7 +127,7 @@ const TABS_DATA = [
       "Residential Properties, Commercial Properties OR Land, we covered you all",
       "Buy, rent or lease we help you with everything",
     ],
-    imageSrc: "/images/hero/66722.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop",
     buttonText: "GET A CALL BACK",
   },
   {
@@ -127,7 +148,7 @@ const TABS_DATA = [
       "Choice and flexibility of choosing investment and protection solution to meet your financial needs",
       "Dedicated Relationship (Wealth) Manager to support you 24X7, 365 days",
     ],
-    imageSrc: "/images/hero/66722.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
     buttonText: "Click Here to Enroll",
   },
   {
@@ -147,7 +168,7 @@ const TABS_DATA = [
       "Availability of resources per your convenience",
       "A tailormade investment options to suit your risk & return profile",
     ],
-    imageSrc: "/images/hero/2150970201.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
     buttonText: "Apply for our NRI Services Today",
   },
   {
@@ -166,7 +187,7 @@ const TABS_DATA = [
       "We take care of all the headache from lending to borrowing so that you can sit, relax and benefit",
       "A tailormade SLBS options to suit your risk & return profile",
     ],
-    imageSrc: "/images/hero/66722.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2036&auto=format&fit=crop",
     buttonText: "Learn More",
   },
   {
@@ -186,7 +207,7 @@ const TABS_DATA = [
       "Choice and flexibility of choosing bonds to meet your investment needs and financial goals",
       "Dedicated customer support to meet your tailormade needs",
     ],
-    imageSrc: "/images/hero/2150970201.jpg",
+    imageSrc: "https://images.unsplash.com/photo-1607863680198-23d4b2565df0?q=80&w=2070&auto=format&fit=crop",
     buttonText: "Start Investing Today",
   },
 ];
@@ -200,30 +221,16 @@ function ProductsContent() {
     : TABS_DATA[0].id;
 
   const [activeTab, setActiveTab] = useState(initialTab);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
     if (tabParam && TABS_DATA.find((t) => t.id === tabParam)) {
       setActiveTab(tabParam);
-      setIsAutoPlaying(false);
     }
   }, [tabParam]);
 
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-    const timer = setInterval(() => {
-      setActiveTab((prevTab) => {
-        const currentIndex = TABS_DATA.findIndex((t) => t.id === prevTab);
-        const nextIndex = (currentIndex + 1) % TABS_DATA.length;
-        return TABS_DATA[nextIndex].id;
-      });
-    }, 4000); // 4 seconds auto-slide
-    return () => clearInterval(timer);
-  }, [isAutoPlaying]);
-
   const handleTabClick = (id) => {
     setActiveTab(id);
-    setIsAutoPlaying(false);
+    window.scrollTo({ top: 300, behavior: "smooth" });
   };
 
   const currentTabData = TABS_DATA.find((tab) => tab.id === activeTab) || TABS_DATA[0];
@@ -233,7 +240,7 @@ function ProductsContent() {
       {/* ==========================================
           TOP BANNER SECTION
       ========================================== */}
-      <section className="bg-[#011628] text-white py-12 md:py-12 relative overflow-hidden" aria-labelledby="page-title">
+      <section className="bg-[#011628] text-white h-[240px] flex flex-col justify-center relative overflow-hidden" aria-labelledby="page-title">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="/images/hero/2150970201.jpg"
@@ -274,7 +281,7 @@ function ProductsContent() {
       {/* ==========================================
           MAIN CONTENT SECTION (Tabs & Content)
       ========================================== */}
-      <section className="py-12 md:py-12">
+      <section className="py-12 md:py-16">
         <Container>
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
             {/* --- SIDEBAR / TAB NAVIGATION --- */}
@@ -400,14 +407,16 @@ function ProductsContent() {
 
               {/* Bottom: Call to Action Button */}
               <div className="pt-4 border-t border-border">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="w-full md:w-auto font-bold text-base py-3 px-8 rounded-xl shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center"
-                >
-                  {currentTabData.buttonText || "Open Your Trading Account"}
-                  <ChevronRight className="w-5 h-5 ml-2" />
-                </Button>
+                <Link href="/contact" className="inline-block w-full md:w-auto">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className="w-full md:w-auto font-bold text-base py-3 px-8 rounded-xl shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center"
+                  >
+                    {currentTabData.buttonText || "Open Your Trading Account"}
+                    <ChevronRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
               </div>
 
             </div>
