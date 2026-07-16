@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import Container from "@/components/common/Container";
+import HeroSection from "@/components/common/HeroSection";
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
@@ -14,34 +15,12 @@ export default function DisclaimerPage() {
   return (
     <main className="bg-background min-h-screen">
       {/* Banner Section */}
-      <section className="bg-[#011628] text-white h-[240px] flex flex-col justify-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/images/hero/2150970201.jpg"
-            alt="Disclaimer Banner"
-            fill
-            className="object-cover mix-blend-overlay"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,174,238,0.15),transparent_50%)]" />
-        <Container>
-          <nav aria-label="Breadcrumbs" className="mb-4 relative z-10">
-            <ol className="flex items-center gap-2 text-sm text-gray-400 p-0 m-0 list-none">
-              <li className="flex items-center">
-                <Link href="/" className="hover:text-white transition-colors">Home</Link>
-              </li>
-              <li className="flex items-center gap-2" aria-hidden="true">
-                <ChevronRight size={14} className="opacity-60" />
-              </li>
-              <li className="text-secondary font-medium" aria-current="page">Disclaimer</li>
-            </ol>
-          </nav>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white relative z-10">
-            Disclaimer
-          </h1>
-        </Container>
-      </section>
+      <HeroSection
+          title="Disclaimer"
+          breadcrumbs={[{ label: "Disclaimer" }]}
+          image="/images/about/AboutUs-Ratnakarsec.png"
+          height="h-[400px]"
+        />
 
       {/* Content Section */}
       <section className="py-12 md:py-16">

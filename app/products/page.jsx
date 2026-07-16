@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { ChevronRight, CheckCircle2, TrendingUp, ShieldCheck, PieChart, Landmark, Briefcase, Globe, FileText, BadgePercent, Building2, Info } from "lucide-react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
+import HeroSection from "@/components/common/HeroSection";
 import { cn } from "@/lib/utils";
 
 // ==========================================
@@ -240,43 +241,12 @@ function ProductsContent() {
       {/* ==========================================
           TOP BANNER SECTION
       ========================================== */}
-      <section className="bg-[#011628] text-white h-[240px] flex flex-col justify-center relative overflow-hidden" aria-labelledby="page-title">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/images/hero/2150970201.jpg"
-            alt="Products Banner Background"
-            fill
-            className="object-cover mix-blend-overlay"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,174,238,0.15),transparent_50%)]" />
-        <Container>
-          {/* Breadcrumbs conforming to GIGW & WCAG */}
-          <nav aria-label="Breadcrumbs" className="mb-4 relative z-10">
-            <ol className="flex items-center gap-2 text-sm text-gray-400 p-0 m-0 list-none">
-              <li className="flex items-center">
-                <Link href="/" className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-                  Home
-                </Link>
-              </li>
-              <li className="flex items-center gap-2" aria-hidden="true">
-                <ChevronRight size={14} className="opacity-60" />
-              </li>
-              <li className="text-secondary font-medium" aria-current="page">
-                Products
-              </li>
-            </ol>
-          </nav>
-
-          <h1 id="page-title" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white relative z-10">
-            Our Products
-          </h1>
-          <p className="text-gray-300 mt-2 max-w-2xl text-sm md:text-base relative z-10">
-            Explore our wide range of financial products including equity trading, derivatives, mutual funds, commodities, and more.
-          </p>
-        </Container>
-      </section>
+      <HeroSection
+        title="Our Products"
+        breadcrumbs={[{ label: "Products" }]}
+        image="/images/about/AboutUs-Ratnakarsec.png"
+        height="h-[400px]"
+      />
 
       {/* ==========================================
           MAIN CONTENT SECTION (Tabs & Content)
@@ -286,7 +256,7 @@ function ProductsContent() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-8">
             {/* --- SIDEBAR / TAB NAVIGATION --- */}
             <aside className="w-full lg:w-1/4 space-y-4 lg:sticky lg:top-[100px] h-fit self-start z-10">
-              
+
 
               {/* Desktop Vertical Menu */}
               <nav aria-label="Products Categories - Desktop" className="hidden lg:flex flex-col gap-2 bg-muted/40 p-2 rounded-lg border border-border">

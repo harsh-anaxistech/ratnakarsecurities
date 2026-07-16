@@ -1,5 +1,7 @@
 import React from "react";
 import ResearchSectionClient from "./ResearchSectionClient";
+import HeroSection from "@/components/common/HeroSection";
+
 import { getResearchSections, getResearchReports } from "@/services/research";
 import { generatePageMetadata } from "@/constants/metadata";
 
@@ -63,11 +65,20 @@ export default async function Page({ params }) {
   }
 
   return (
-    <ResearchSectionClient
-      section={section}
-      matchedSectionName={matchedSectionName}
-      initialReports={reports}
-      initialSections={sections}
-    />
+    <>
+      <HeroSection
+        title={matchedSectionName.charAt(0).toUpperCase() + matchedSectionName.slice(1) + " Research"}
+        breadcrumbs={[{ label: "Research", href: "/research" }, { label: matchedSectionName, href: `/research/${section}` }]}
+        image="/images/hero/2150970201.jpg"
+        height="h-[400px]"
+      />
+
+      <ResearchSectionClient
+        section={section}
+        matchedSectionName={matchedSectionName}
+        initialReports={reports}
+        initialSections={sections}
+      />
+    </>
   );
 }

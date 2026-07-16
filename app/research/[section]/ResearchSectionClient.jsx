@@ -24,10 +24,10 @@ function getFinancialYear(dateString) {
   if (!dateString) return "Other Reports";
   const date = new Date(dateString);
   if (isNaN(date.getTime())) return "Other Reports";
-  
+
   const year = date.getFullYear();
   const month = date.getMonth(); // 0-indexed: 0 = Jan, 11 = Dec
-  
+
   if (month >= 3) {
     // April (3) to December (11) -> FY starts in current calendar year
     return `Financial year ${year}-${year + 1}`;
@@ -113,14 +113,14 @@ export default function ResearchSectionClient({
   const [currentPage, setCurrentPage] = useState(1);
 
   // Use dynamic sections if loaded, otherwise fall back to static list
-  const sectionsList = initialSections.length > 0 
-    ? initialSections 
+  const sectionsList = initialSections.length > 0
+    ? initialSections
     : [
-        { SRNO: "1", section_code: "1", section_name: "Company" },
-        { SRNO: "2", section_code: "2", section_name: "IPOs" },
-        { SRNO: "3", section_code: "3", section_name: "News" },
-        { SRNO: "4", section_code: "4", section_name: "Announcements" }
-      ];
+      { SRNO: "1", section_code: "1", section_name: "Company" },
+      { SRNO: "2", section_code: "2", section_name: "IPOs" },
+      { SRNO: "3", section_code: "3", section_name: "News" },
+      { SRNO: "4", section_code: "4", section_name: "Announcements" }
+    ];
 
   // Extract unique financial years from initial reports for filtering options
   const availableFYs = Array.from(
@@ -182,81 +182,38 @@ export default function ResearchSectionClient({
   };
 
   // Format section heading correctly
-  const displayHeading = matchedSectionName.toLowerCase().includes("research") 
-    ? matchedSectionName 
+  const displayHeading = matchedSectionName.toLowerCase().includes("research")
+    ? matchedSectionName
     : `${matchedSectionName} Research`;
 
   return (
     <div className="bg-background min-h-screen">
       {/* Visual accessibility live region for status announcements */}
       <div className="sr-only" aria-live="polite">
-        {searchTerm || selectedFY !== "all" 
+        {searchTerm || selectedFY !== "all"
           ? `Filtered results updated. Showing ${filteredReports.length} of ${initialReports.length} reports.`
           : `Showing all ${initialReports.length} reports.`}
       </div>
 
-      {/* ── HERO BANNER ── */}
-      <section className="bg-[#011628] text-white h-[240px] flex flex-col justify-center relative overflow-hidden" aria-labelledby="page-title">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="/images/hero/2150970201.jpg"
-            alt="Research Banner Background"
-            fill
-            className="object-cover mix-blend-overlay"
-            priority
-          />
-        </div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,174,238,0.15),transparent_50%)]" />
-        <Container>
-          {/* Breadcrumbs conforming to GIGW & WCAG */}
-          <nav aria-label="Breadcrumbs" className="mb-4 relative z-10">
-            <ol className="flex items-center gap-2 text-sm text-gray-400 p-0 m-0 list-none">
-              <li className="flex items-center">
-                <Link href="/" className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
-                  Home
-                </Link>
-              </li>
-              <li className="flex items-center gap-2" aria-hidden="true">
-                <ChevronRight size={14} className="opacity-60" />
-              </li>
-              <li className="text-gray-300">
-                Research
-              </li>
-              <li className="flex items-center gap-2" aria-hidden="true">
-                <ChevronRight size={14} className="opacity-60" />
-              </li>
-              <li className="text-secondary font-medium" aria-current="page">
-                {matchedSectionName}
-              </li>
-            </ol>
-          </nav>
 
-          <h1 id="page-title" className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white relative z-10">
-            {displayHeading}
-          </h1>
-          <p className="text-gray-300 mt-2 max-w-2xl text-sm md:text-base relative z-10">
-            Access our comprehensive database of {matchedSectionName.toLowerCase()} research papers, compliance notes, and market intelligence documents.
-          </p>
-        </Container>
-      </section>
 
       {/* ── MAIN CONTENT ── */}
       <section className="py-12 md:py-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-            
+
             {/* ── SIDEBAR / TAB NAVIGATION ── */}
             <aside className="lg:col-span-1 space-y-4">
               <h2 className="hidden lg:block text-xs font-bold uppercase tracking-wider text-muted-foreground px-3 mb-2">
                 Research Categories
               </h2>
-              
+
               {/* Desktop Vertical Menu */}
               <nav aria-label="Research Categories - Desktop" className="hidden lg:flex flex-col gap-2 bg-muted/40 p-2 rounded-lg border border-border">
                 {sectionsList.map((sec) => {
                   const secCode = sec.section_name.toLowerCase();
                   const isActive = pathname.toLowerCase() === `/research/${secCode}`;
-                  
+
                   return (
                     <Link
                       key={sec.SRNO}
@@ -284,7 +241,7 @@ export default function ResearchSectionClient({
                 {sectionsList.map((sec) => {
                   const secCode = sec.section_name.toLowerCase();
                   const isActive = pathname.toLowerCase() === `/research/${secCode}`;
-                  
+
                   return (
                     <Link
                       key={sec.SRNO}
@@ -309,7 +266,7 @@ export default function ResearchSectionClient({
 
             {/* ── REPORTS LISTING AREA ── */}
             <main className="lg:col-span-3 min-h-[300px]">
-              
+
               {/* ── SEARCH, FILTERS & VIEW TOGGLE BAR ── */}
               <div className="bg-white border border-border rounded-lg p-4 md:p-6 mb-6 shadow-sm flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
                 {/* Search Bar */}
@@ -544,10 +501,10 @@ export default function ResearchSectionClient({
                       const fileUrl = doc.fileurl || doc.FILEURL;
                       const docDate = doc.date || doc.param1
                         ? new Date(doc.date || doc.param1).toLocaleDateString("en-IN", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                          })
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                        })
                         : null;
 
                       return (
@@ -655,10 +612,10 @@ export default function ResearchSectionClient({
                           const docFY = getFinancialYear(doc.date || doc.param1);
                           const docDate = doc.date || doc.param1
                             ? new Date(doc.date || doc.param1).toLocaleDateString("en-IN", {
-                                day: "numeric",
-                                month: "short",
-                                year: "numeric",
-                              })
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            })
                             : "N/A";
                           const fileUrl = doc.fileurl || doc.FILEURL;
                           const isPdf = fileUrl?.toLowerCase().endsWith(".pdf") || true;
@@ -683,8 +640,8 @@ export default function ResearchSectionClient({
                               <td className="px-6 py-4.5">
                                 <span className={cn(
                                   "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold border",
-                                  isPdf 
-                                    ? "bg-danger/10 text-danger border-danger/25" 
+                                  isPdf
+                                    ? "bg-danger/10 text-danger border-danger/25"
                                     : "bg-info/10 text-info border-info/25"
                                 )}>
                                   {isPdf ? "PDF" : "DOC"}
@@ -780,7 +737,7 @@ export default function ResearchSectionClient({
                   leftIcon={<ChevronLeft size={16} />}
                 />
               </li>
-              
+
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
                 const isCurrent = page === currentPage;
                 return (

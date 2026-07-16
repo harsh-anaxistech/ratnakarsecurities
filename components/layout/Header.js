@@ -126,9 +126,9 @@ const NAV_LINKS = [
     label: "About Us",
     href: "/about",
     dropdown: [
-      { label: "Overview", href: "/about?tab=overview", icon: "overview" },
-      { label: "Leadership", href: "/about?tab=leadership", icon: "leadership" },
-      { label: "Milestone", href: "/about?tab=milestones", icon: "milestone" },
+      { label: "Overview",    href: "/about#overview",    icon: "overview" },
+      { label: "Leadership", href: "/about#leadership", icon: "leadership" },
+      { label: "Milestone",  href: "/about#journey",    icon: "milestone" }
     ],
   },
   { label: "Contact Us", href: "/contact" },

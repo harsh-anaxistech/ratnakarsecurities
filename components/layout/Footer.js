@@ -15,9 +15,9 @@ const FOOTER_LINKS = {
     { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", target: "_blank" },
   ],
   "About Us": [
-    { label: "Overview", href: "/about?tab=overview" },
-    { label: "Leadership", href: "/about?tab=leadership" },
-    { label: "Milestone", href: "/about?tab=milestones" },
+    { label: "Overview", href: "/about#overview" },
+    { label: "Leadership", href: "/about#leadership" },
+    { label: "Milestone", href: "/about#journey" },
   ],
   "Useful Links": [
     { label: "Broker Norms (NSE)", href: "https://www.ratnakarsecurities.com/files/brokernorms.pdf", target: "_blank" },
