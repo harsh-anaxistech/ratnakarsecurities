@@ -97,7 +97,7 @@ export default async function NewspaperPublicationPage() {
                               <FileText size={24} />
                             </div>
                             
-                            <h4 className={`text-[15px] font-sans font-semibold text-gray-900 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300 ${date ? 'mb-2' : 'mb-6'}`}>
+                            <h4 className={`text-[16px] font-sans font-medium text-gray-900 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300 ${date ? 'mb-2' : 'mb-6'}`}>
                               {title}
                             </h4>
                             {date && (

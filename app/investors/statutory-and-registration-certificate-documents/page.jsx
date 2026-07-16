@@ -75,7 +75,7 @@ export default async function StatutoryDocumentsPage() {
                       <FileText size={24} />
                     </div>
                     
-                    <h4 className="text-[15px] font-sans font-semibold text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">
+                    <h4 className="text-[16px] font-sans font-medium text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">
                       {file.caption || file.filename}
                     </h4>
                     
