@@ -48,7 +48,7 @@ export default function ProductDetailsPage() {
 
             {/* Niche Content */}
             <div className="max-w-none mb-12">
-              <p className="text-[16px] leading-relaxed mb-6 font-medium text-[#314158]">
+              <p className="text-[16px] leading-relaxed mb-6 text-[#314158]">
                 {product.description1}
               </p>
 

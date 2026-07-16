@@ -60,7 +60,7 @@ export default function OverviewPage() {
 
             {/* Niche Content */}
             <div className="max-w-none mb-12">
-              <p className="text-[16px] leading-relaxed mb-6 font-medium text-[#314158]">
+              <p className="text-[16px] leading-relaxed mb-6 text-[#314158]">
                 {content.description1}
               </p>
 
@@ -121,7 +121,7 @@ export default function OverviewPage() {
                     <li key={item.id}>
                       <Link
                         href={`/products/${item.slug}`}
-                        className="flex items-center justify-between p-4 rounded-xl transition-all duration-300 group font-bold text-[16px] bg-slate-50 text-slate-700 border-l-[3px] border-transparent hover:bg-slate-100 hover:text-[#ea2830]"
+                        className="flex items-center justify-between p-4 rounded-xl transition-all duration-300 group font-bold text-[16px] bg-slate-50 text-[#314158] border-l-[3px] border-transparent hover:bg-slate-100 hover:text-[#ea2830]"
                       >
                         <div className="flex items-center gap-3">
                           <Icon className="w-5 h-5 text-[#ea2830]" />
