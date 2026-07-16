@@ -16,15 +16,15 @@ import {
 } from "lucide-react";
 
 const SERVICES = [
-  { id: "service-equity", Icon: TrendingUp, title: "Equities", desc: "A captivating avenue for returns. Remember: buy right, hold tight.", href: "/products?tab=Equity" },
-  { id: "service-derivatives", Icon: BarChart2, title: "Derivatives", desc: "Leverage your position and hedge risks against unfavorable market movements.", href: "/products?tab=Derivatives" },
-  { id: "service-mutual-funds", Icon: PiggyBank, title: "Mutual Funds", desc: "A pool of small investments working together to achieve common financial goals.", href: "/products?tab=Mutual" },
-  { id: "service-commodities", Icon: Wheat, title: "Commodities", desc: "Lucrative market trading providing effective risk management and hedging tools.", href: "/products?tab=Commodities" },
-  { id: "service-nris", Icon: Globe, title: "NRIs", desc: "Comprehensive investment options for foreign nationals, backed by extensive research.", href: "/products?tab=NRIs" },
-  { id: "service-wealth", Icon: Briefcase, title: "Wealth Management", desc: "Managing and growing your wealth through every stage of your life.", href: "/products?tab=Wealth" },
-  { id: "service-slbs", Icon: RefreshCw, title: "SLBs", desc: "Lend your stocks or borrow to increase liquidity and benefit from downturns.", href: "/products?tab=SLBS" },
-  { id: "service-hnis", Icon: Users, title: "HNIs", desc: "Tailormade investment solutions with a dedicated Relationship Manager for guidance.", href: "/products?tab=HNIs" },
-  { id: "service-bonds", Icon: Lock, title: "Bonds", desc: "Secure mode of investment backed by our deep understanding of debt markets.", href: "/products?tab=Bonds" },
+  { id: "service-equity", Icon: TrendingUp, title: "Equities", desc: "A captivating avenue for returns. Remember: buy right, hold tight.", href: "/products/equity" },
+  { id: "service-derivatives", Icon: BarChart2, title: "Derivatives", desc: "Leverage your position and hedge risks against unfavorable market movements.", href: "/products/derivatives" },
+  { id: "service-mutual-funds", Icon: PiggyBank, title: "Mutual Funds", desc: "A pool of small investments working together to achieve common financial goals.", href: "/products/mutual-funds" },
+  { id: "service-commodities", Icon: Wheat, title: "Commodities", desc: "Lucrative market trading providing effective risk management and hedging tools.", href: "/products/commodities" },
+  { id: "service-nris", Icon: Globe, title: "NRIs", desc: "Comprehensive investment options for foreign nationals, backed by extensive research.", href: "/products/nris" },
+  { id: "service-wealth", Icon: Briefcase, title: "Wealth Management", desc: "Managing and growing your wealth through every stage of your life.", href: "/products/wealth-management" },
+  { id: "service-slbs", Icon: RefreshCw, title: "SLBs", desc: "Lend your stocks or borrow to increase liquidity and benefit from downturns.", href: "/products/slbs" },
+  { id: "service-hnis", Icon: Users, title: "HNIs", desc: "Tailormade investment solutions with a dedicated Relationship Manager for guidance.", href: "/products/hnis" },
+  { id: "service-bonds", Icon: Lock, title: "Bonds", desc: "Secure mode of investment backed by our deep understanding of debt markets.", href: "/products/bonds" },
 ];
 
 export default function InvestmentServices() {
@@ -43,7 +43,7 @@ export default function InvestmentServices() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {SERVICES.map(({ Icon, title, desc, href }) => (
             <div
               key={title}

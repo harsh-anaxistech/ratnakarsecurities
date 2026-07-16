@@ -16,11 +16,10 @@ export default function DisclaimerPage() {
     <main className="bg-background min-h-screen">
       {/* Banner Section */}
       <HeroSection
-          title="Disclaimer"
-          breadcrumbs={[{ label: "Disclaimer" }]}
-          image="/images/about/AboutUs-Ratnakarsec.png"
-          height="h-[400px]"
-        />
+        title="Disclaimer"
+        breadcrumbs={[{ label: "Disclaimer" }]}
+        image="/images/about/AboutUs-Ratnakarsec.png"
+        height="h-[300px] md:h-[400px]" />
 
       {/* Content Section */}
       <section className="py-12 md:py-16">

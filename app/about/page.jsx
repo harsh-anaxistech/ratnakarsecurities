@@ -60,8 +60,7 @@ export default function AboutPage() {
         title="About Ratnakar"
         breadcrumbs={[{ label: "About Ratnakar" }]}
         image="/images/about/AboutUs-Ratnakarsec.png"
-        height="h-[400px]"
-      />
+        height="h-[300px] md:h-[400px]" />
 
       {/* Overview Section */}
       <section id="overview" className="py-12 bg-[#f7f9fc]">

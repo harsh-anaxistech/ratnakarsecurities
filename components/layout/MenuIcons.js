@@ -15,6 +15,7 @@ const MenuIcons = {
     nri: getIcon("/images/icon/menu/NRIs 1.svg", "NRIs"),
     slbs: getIcon("/images/icon/menu/SLBS 1.svg", "SLBS"),
     bonds: getIcon("/images/icon/menu/Bonds 1.svg", "Bonds"),
+    users: getIcon("/images/icon/menu/board of directors 1.svg", "HNIs"),
     "investment-advisory": getIcon("/images/icon/menu/invesment 1.svg", "Investment Advisory"),
 
     // ── Research ──

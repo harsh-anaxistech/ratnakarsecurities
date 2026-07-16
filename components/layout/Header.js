@@ -78,17 +78,18 @@ const NAV_LINKS = [
     href: "/products",
     columns: [
       [
-        { label: "Overview", href: "/products", icon: "overview" },
-        { label: "Equity", href: "/products?tab=Equity", icon: "equity" },
-        { label: "Derivatives", href: "/products?tab=Derivatives", icon: "derivatives" },
-        { label: "Mutual Funds", href: "/products?tab=Mutual", icon: "mutual-funds" },
-        { label: "Commodities", href: "/products?tab=Commodities", icon: "commodities" },
+        { label: "Overview", href: "/products/overview", icon: "overview" },
+        { label: "Equity", href: "/products/equity", icon: "equity" },
+        { label: "Derivatives", href: "/products/derivatives", icon: "derivatives" },
+        { label: "Mutual Funds", href: "/products/mutual-funds", icon: "mutual-funds" },
+        { label: "Commodities", href: "/products/commodities", icon: "commodities" },
       ],
       [
-        { label: "Wealth Management", href: "/products?tab=Wealth", icon: "wealth-management" },
-        { label: "NRIs", href: "/products?tab=NRIs", icon: "nri" },
-        { label: "SLBS", href: "/products?tab=SLBS", icon: "slbs" },
-        { label: "Bonds", href: "/products?tab=Bonds", icon: "bonds" },
+        { label: "Wealth Management", href: "/products/wealth-management", icon: "wealth-management" },
+        { label: "NRIs", href: "/products/nris", icon: "nri" },
+        { label: "HNIs", href: "/products/hnis", icon: "users" },
+        { label: "SLBS", href: "/products/slbs", icon: "slbs" },
+        { label: "Bonds", href: "/products/bonds", icon: "bonds" },
         { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", external: true, icon: "investment-advisory" },
       ],
     ],
@@ -124,12 +125,7 @@ const NAV_LINKS = [
   },
   {
     label: "About Us",
-    href: "/about",
-    dropdown: [
-      { label: "Overview",    href: "/about#overview",    icon: "overview" },
-      { label: "Leadership", href: "/about#leadership", icon: "leadership" },
-      { label: "Milestone",  href: "/about#journey",    icon: "milestone" }
-    ],
+    href: "/about"
   },
   { label: "Contact Us", href: "/contact" },
 ];
