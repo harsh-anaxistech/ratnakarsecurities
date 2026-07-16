@@ -215,7 +215,7 @@ export default function Header() {
           }
         }
       } catch (error) {
-        console.error("Error loading research sections in Header:", error);
+        // API server may not be running in local dev - silently ignore
       }
     }
     loadResearchSections();
@@ -383,12 +383,12 @@ export default function Header() {
                           <span>{item.label}</span>
                           <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isOpen && "rotate-180")} />
                         </button>
-                        <div className={cn("overflow-hidden transition-all duration-300", isOpen ? "max-h-[600px] pb-2" : "max-h-0")}>
+                        <div className={cn("overflow-hidden transition-all duration-300", isOpen ? "max-h-[1000px] pb-2" : "max-h-0")}>
                           <div className="flex flex-col gap-0.5 pl-3 pt-1">
                             {subLinks.map((link) => (
-                              <NavLink key={link.label} link={link} className={cn("block py-2 px-3 text-sm rounded transition-colors", pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground hover:bg-muted")} onClick={() => setMobileOpen(false)}>
+                              <DropdownLink key={link.label} link={link} className={cn("block py-2 px-3 text-sm rounded transition-colors", pathname === link.href ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground hover:bg-muted")} onClick={() => setMobileOpen(false)}>
                                 {link.label}
-                              </NavLink>
+                              </DropdownLink>
                             ))}
                           </div>
                         </div>

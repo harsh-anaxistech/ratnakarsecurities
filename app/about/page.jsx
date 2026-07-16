@@ -134,15 +134,16 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row gap-8 bg-white p-6 rounded-3xl shadow-xl border border-blue-50">
 
             {/* Left Image Box - Dynamic Image */}
-            <div className="flex-1 relative h-[450px] rounded-3xl overflow-hidden p-8 flex flex-col justify-end text-white">
+            <div className="flex-1 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden flex flex-col justify-end text-white">
               <Image
-                src="/images/about/1.jpg"
+                src="/images/about/22.jpg"
                 alt="Milestone"
                 fill
-                className="object-cover transition-all duration-500"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover object-top transition-all duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-              <div className="relative z-10">
+              <div className="relative z-10 p-8">
                 <h3 className="text-6xl font-black mb-2">{milestones[active].year}</h3>
                 <h4 className="text-2xl font-bold mb-4">{milestones[active].title}</h4>
                 <p className="text-white/90 text-lg">{milestones[active].desc}</p>
