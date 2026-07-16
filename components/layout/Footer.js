@@ -6,12 +6,15 @@ import Image from "next/image";
 
 const FOOTER_LINKS = {
   Products: [
-    { label: "Equity", href: "/products?tab=Equity" },
-    { label: "Derivatives", href: "/products?tab=Derivatives" },
-    { label: "Mutual Fund", href: "/products?tab=MutualFunds" },
-    { label: "Commodities", href: "/products?tab=Commodities" },
-    { label: "Real Estate", href: "/products?tab=RealEstate" },
-    { label: "NRIs", href: "/products?tab=NRIs" },
+    { label: "Equity", href: "/products/equity" },
+    { label: "Derivatives", href: "/products/derivatives" },
+    { label: "Mutual Funds", href: "/products/mutual-funds" },
+    { label: "Commodities", href: "/products/commodities" },
+    { label: "Wealth Management", href: "/products/wealth-management" },
+    { label: "Bonds", href: "/products/bonds" },
+    { label: "SLBs", href: "/products/slbs" },
+    { label: "HNIs", href: "/products/hnis" },
+    { label: "NRIs", href: "/products/nris" },
     { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", target: "_blank" },
   ],
   "About Us": [
@@ -141,10 +144,10 @@ export default function Footer() {
           <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
           <div className="flex flex-wrap gap-4 justify-center sm:justify-end">
             <Link href="/privacy-policy">Privacy Policy</Link>
-            <Link href="/disclaimer">Disclaimer</Link>
-            <Link href="/terms-of-conditions">Terms of Conditions</Link>
-            <Link href="/investor-complaint">Investor Complaint</Link>
-            <Link href="https://www.ratnakarsecurities.com/static/refund-cancellation.aspx" target="_blank">Refund & Cancellation</Link>
+            <a href="/images/disclaimer.pdf" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+            <a href="/images/termsofuse.pdf" target="_blank" rel="noopener noreferrer">Terms of Conditions</a>
+            <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer">Investor Complaint</a>
+            <Link href="/refund-and-cancellation">Refund & Cancellation</Link>
 
             <span>Developed by <a href="#" className="text-secondary">Anaxistech</a></span>
           </div>
