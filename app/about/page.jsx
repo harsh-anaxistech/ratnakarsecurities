@@ -102,8 +102,8 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {[
-              { name: "Shri. Ajay Shah", role: "Founder, Chairman and Managing Director", image: "/images/about/human-2 (1).png", desc: "A recognized leader in financial services and capital markets." },
-              { name: "Kushal Shah", role: "Chief Operations Officer (COO)", image: "/images/about/human-2 (1).png", desc: "Kushal takes the legacy of Ratnakar Securities forward with his sharp business acumen." }
+              { name: "Shri. Ajay Shah", role: "Founder, Chairman and Managing Director", image: "/images/about/human-2 (1).png", desc: "A recognized leader in financial services and capital markets, Shri Ajay Shah represents the third generation of a reputed business family in Ahmedabad. He founded Ratnakar Securities in 1994 with 32+ years of experience in Banking and Capital Markets, and served as President of Ahmedabad Stock Exchange for two consecutive years." },
+              { name: "Kushal Shah", role: "Chief Operations Officer (COO)", image: "/images/about/human-2 (1).png", desc: "Kushal takes the legacy of Ratnakar Securities forward with his sharp business acumen and dynamism. A post graduate in financial markets, CFA USA Level II cleared, he has transformed Ratnakar Securities into a research and technology driven investment enterprise in his 5 years as COO." }
             ].map((leader, index) => (
               <div key={index} className="flex flex-col md:flex-row items-center bg-white border border-gray-100 p-4 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="relative w-full md:w-[280px] h-[380px] shrink-0 overflow-hidden rounded-3xl rounded-tr-[80px] shadow-md transition-all duration-300">
@@ -113,7 +113,13 @@ export default function AboutPage() {
                 <div className="p-8 w-full flex flex-col justify-center">
                   <h3 className="text-2xl font-bold text-black mb-1">{leader.name}</h3>
                   <p className="text-[#EA2830] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
-                  <p className="text-gray-600 leading-relaxed text-[15px] italic">"{leader.desc}"</p>
+                  <div className="text-[#314158] leading-relaxed text-[15px] space-y-3 italic">
+                    {leader.desc.split('\n\n').map((para, i, arr) => (
+                      <p key={i}>
+                        {i === 0 ? '\u201C' : ''}{para}{i === arr.length - 1 ? '\u201D' : ''}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
