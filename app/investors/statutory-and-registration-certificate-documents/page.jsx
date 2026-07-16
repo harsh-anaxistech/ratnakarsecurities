@@ -1,5 +1,6 @@
 import Container from "@/components/common/Container";
-import { Download } from "lucide-react";
+import HeroSection from "@/components/common/HeroSection";
+import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
 import { getStatutoryDocuments } from "@/services/investors";
 import { API_BASE_URL } from "@/services/config";
@@ -26,47 +27,69 @@ export default async function StatutoryDocumentsPage() {
   const baseUrl = API_BASE_URL.replace(/\/api$/, "");
 
   return (
-    <section className="py-16 bg-background">
-      <Container>
-        <h2 className="mb-10 text-3xl font-bold text-light-blue md:text-4xl text-center md:text-left">
-          Statutory and Registration Certificate Documents
-        </h2>
-        
-        {documents.length === 0 ? (
-          <div className="text-center py-16 bg-muted/30 border border-border border-dashed rounded-lg">
-            <p className="text-muted-foreground text-lg">
-              No statutory documents available at the moment.
+    <main className="bg-background min-h-screen">
+      <HeroSection 
+        title="Statutory Documents"
+        breadcrumbs={[
+          { label: "Investors", href: "/investors" },
+          { label: "Statutory Documents" }
+        ]}
+        height="h-[300px] md:h-[400px]"
+      />
+
+      <section className="py-12 bg-[#f7f9fc]">
+        <Container>
+          <div className="mb-12 text-center">
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "rgb(234, 40, 48)" }}>
+              Investors
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">
+              Statutory and Registration Certificate Documents
+            </h2>
+            <p className="text-[16px] text-gray-700 max-w-3xl mx-auto font-medium">
+              Access and download our official registration certificates, statutory documents, and other important regulatory filings.
             </p>
           </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-stretch">
-            {documents.map((file) => {
-              const fileUrl = `${baseUrl}/uploads/files/Investorsfiles/${file.filename}`;
-              return (
-                <div
-                  key={file.srno}
-                  className="relative bg-white border border-border hover:border-primary/40 rounded-lg pt-10 pb-12 px-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-all duration-300 group min-h-[160px]"
-                >
-                  <h4 className="text-[16px] font-bold text-light-blue leading-snug group-hover:text-primary transition-colors duration-200">
-                    {file.caption || file.filename}
-                  </h4>
-                  
-                  {/* Hanging red download button with micro-animation on hover */}
+          
+          {documents.length === 0 ? (
+            <div className="text-center py-20 bg-white border border-gray-100 rounded-2xl shadow-sm">
+              <FileBadge className="mx-auto h-12 w-12 text-gray-300 mb-4" />
+              <h3 className="text-lg font-bold text-gray-900">No documents found</h3>
+              <p className="text-gray-500 mt-2 font-medium">
+                There are currently no statutory documents available for viewing.
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {documents.map((file) => {
+                const fileUrl = `${baseUrl}/uploads/files/Investorsfiles/${file.filename}`;
+                return (
                   <a
+                    key={file.srno}
                     href={fileUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-14 h-10 bg-primary hover:bg-primary-dark text-white rounded-b-2xl flex items-center justify-center shadow-md transition-all duration-200 hover:h-11 hover:-bottom-6 cursor-pointer"
-                    aria-label={`Download ${file.caption || file.filename}`}
+                    className="group p-6 border border-gray-200 rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-[#EA2830]/10 hover:border-[#EA2830]/30 flex flex-col items-center text-center h-full"
                   >
-                    <Download size={18} className="stroke-[2.5]" />
+                    <div className="w-14 h-14 bg-[#EA2830] rounded-full flex items-center justify-center text-white mb-5 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
+                      <FileText size={24} />
+                    </div>
+                    
+                    <h4 className="text-[15px] font-sans font-semibold text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">
+                      {file.caption || file.filename}
+                    </h4>
+                    
+                    <div className="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gray-50 text-gray-600 text-sm font-semibold group-hover:bg-[#EA2830] group-hover:text-white transition-colors duration-300">
+                      <Download size={16} className="stroke-[2.5]" />
+                      <span>Download</span>
+                    </div>
                   </a>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </Container>
-    </section>
+                );
+              })}
+            </div>
+          )}
+        </Container>
+      </section>
+    </main>
   );
 }
