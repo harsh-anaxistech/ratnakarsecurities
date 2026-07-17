@@ -12,10 +12,10 @@
 const APP_ENV = process.env.NEXT_PUBLIC_APP_ENV || "local";
 
 const API_ENV_URLS = {
-  local: "https://jokingly-smoking-blooming.ngrok-free.dev/api",
-  stage: "https://staging.api.ratnakarsecurities.com/api",
-  staging: "https://staging.api.ratnakarsecurities.com/api",
-  production: "https://api.ratnakarsecurities.com/api",
+  local: "https://api.ratnakarsecurities.com/api",
+  // stage: "https://staging.api.ratnakarsecurities.com/api",
+  // staging: "https://staging.api.ratnakarsecurities.com/api",
+  // production: "https://api.ratnakarsecurities.com/api",
 };
 
 // Export the resolved API Base URL (highest priority is direct variable override)
