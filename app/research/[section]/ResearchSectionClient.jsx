@@ -30,10 +30,10 @@ function getFinancialYear(dateString) {
 
   if (month >= 3) {
     // April (3) to December (11) -> FY starts in current calendar year
-    return `Financial year ${year}-${year + 1}`;
+    return `${year}-${year + 1}`;
   } else {
     // January (0) to March (2) -> FY starts in previous calendar year
-    return `Financial year ${year - 1}-${year}`;
+    return `${year - 1}-${year}`;
   }
 }
 
@@ -122,14 +122,32 @@ export default function ResearchSectionClient({
       { SRNO: "4", section_code: "4", section_name: "Announcements" }
     ];
 
-  // Extract unique financial years from initial reports for filtering options
-  const availableFYs = Array.from(
-    new Set(
-      initialReports
-        .map((doc) => getFinancialYear(doc.date || doc.param1))
-        .filter((fy) => fy && fy !== "Other Reports")
-    )
-  ).sort().reverse();
+  // Extract unique financial years from initial reports combined with the current and last 5 financial years
+  const availableFYs = React.useMemo(() => {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth(); // 0 = Jan, 11 = Dec
+    
+    // If month is April (3) or later, current FY starts in current calendar year.
+    // If month is Jan-Mar (0-2), current FY starts in previous calendar year.
+    const startYear = currentMonth >= 3 ? currentYear : currentYear - 1;
+    
+    // Generate the current FY and the last 5 financial years (6 total)
+    const defaultYears = [];
+    for (let i = 0; i < 6; i++) {
+      const y = startYear - i;
+      defaultYears.push(`${y}-${y + 1}`);
+    }
+    
+    // Extract unique financial years from actual reports (for any older reports in DB)
+    const reportYears = initialReports
+      .map((doc) => getFinancialYear(doc.date || doc.param1))
+      .filter((fy) => fy && fy !== "Other Reports");
+      
+    // Combine, remove duplicates, and sort in descending order
+    const combined = Array.from(new Set([...defaultYears, ...reportYears]));
+    return combined.sort((a, b) => b.localeCompare(a));
+  }, [initialReports]);
 
   // Filter client-side based on search term and selected FY
   const filteredReports = initialReports.filter((doc) => {
