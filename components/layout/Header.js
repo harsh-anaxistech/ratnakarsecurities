@@ -243,7 +243,7 @@ export default function Header() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+          "fixed inset-x-0 top-0 z-[999] transition-all duration-300",
           scrolled ? "shadow-md" : ""
         )}
       >
@@ -310,9 +310,9 @@ export default function Header() {
 
               {/* Desktop Actions */}
               <div className="hidden lg:flex items-center gap-2">
-                <a href="https://smartkyc.co.in/" target="_blank" rel="noopener noreferrer">
+                <a href="https://smartkyc.co.in/d/ratnakar" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
-                    Open a Demat Account
+                    Open Demat Account
                   </Button>
                 </a>
 
@@ -348,10 +348,10 @@ export default function Header() {
       </header>
 
       {/* Spacer */}
-      <div className={cn("transition-all duration-300", scrolled ? "h-16 lg:h-[72px]" : "h-16 lg:[109px]")} aria-hidden="true" />
+      <div className="h-16 lg:h-[72px]" aria-hidden="true" />
 
       {/* Mobile Drawer */}
-      <div id="mobile-menu" className={cn("fixed inset-0 z-40 transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto" : "pointer-events-none")} aria-hidden={!mobileOpen}>
+      <div id="mobile-menu" className={cn("fixed inset-0 z-[1000] transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto" : "pointer-events-none")} aria-hidden={!mobileOpen}>
         <div className={cn("absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300", mobileOpen ? "opacity-100" : "opacity-0")} onClick={() => setMobileOpen(false)} />
         <div className={cn("absolute right-0 top-0 h-full w-full bg-white transition-transform duration-300 ease-in-out flex flex-col", mobileOpen ? "translate-x-0" : "translate-x-full")}>
           {/* Drawer Header */}

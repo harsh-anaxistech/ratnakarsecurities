@@ -94,7 +94,7 @@ export default function HeroBanner() {
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 w-full max-w-xl mx-auto lg:mx-0">
               <a 
-                href="https://smartkyc.co.in/" 
+                href="https://smartkyc.co.in/d/ratnakar" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold py-3.5 px-5 rounded-xl shadow-lg shadow-sky-900/20 transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto"
@@ -182,13 +182,15 @@ export default function HeroBanner() {
 
             {/* Buttons Setup */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 w-full max-w-xl mx-auto lg:mx-0">
-              <Link 
-                href="#" 
+              <a 
+                href="https://smartkyc.co.in/d/ratnakar" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto"
               >
                 <span>Open Demat Account</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
 
               <Link 
                 href="/products" 

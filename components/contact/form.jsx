@@ -26,6 +26,8 @@ export default function ContactUsPage() {
     captcha: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   // Client-side captcha value state
   // Generate a random 6-character captcha string helper
   const getRandomCaptcha = () => {
@@ -51,24 +53,67 @@ export default function ContactUsPage() {
 
   // Handle value change for all input elements
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    let filteredValue = value;
+    if (name === "phno") {
+      // Allow only digits and limit to 10 characters
+      filteredValue = value.replace(/\D/g, "").slice(0, 10);
+    }
+    setFormData({ ...formData, [name]: filteredValue });
+    
+    // Clear error message when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
   // Submit the form to the backend REST API
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatusMessage(null);
 
-    // Verify Captcha
-    if (formData.captcha.trim().toUpperCase() !== captchaVal.toUpperCase()) {
-      setStatusMessage("Invalid captcha code. Please try again.");
-      setStatusType("error");
-      setFormData((prev) => ({ ...prev, captcha: "" }));
-      generateCaptcha();
+    // Validate form fields
+    const newErrors = {};
+    if (!formData.department) {
+      newErrors.department = "Department name is required";
+    }
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Email ID is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    if (!formData.phno) {
+      newErrors.phno = "Mobile number is required";
+    } else if (formData.phno.length !== 10) {
+      newErrors.phno = "Please enter a valid 10-digit mobile number";
+    }
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+    if (!formData.details.trim()) {
+      newErrors.details = "Details are required";
+    }
+    if (!formData.captcha.trim()) {
+      newErrors.captcha = "Captcha code is required";
+    } else if (formData.captcha.trim().toUpperCase() !== captchaVal.toUpperCase()) {
+      newErrors.captcha = "Invalid captcha code";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      if (newErrors.captcha === "Invalid captcha code") {
+        setFormData((prev) => ({ ...prev, captcha: "" }));
+        generateCaptcha();
+      }
       return;
     }
 
+    setErrors({});
     setLoading(true);
-    setStatusMessage(null);
 
     try {
       // API call to submit contact form data via services
@@ -94,10 +139,11 @@ export default function ContactUsPage() {
         details: "",
         captcha: "",
       });
+      setErrors({});
       generateCaptcha();
     } catch (error) {
       console.error("API submission error: ", error);
-      setStatusMessage("Failed to submit details. Please check if the backend API server is running at http://localhost:5000.");
+      setStatusMessage("Failed to submit details. Please check if the backend API server is running at http://localhost:6010.");
       setStatusType("error");
     } finally {
       setLoading(false);
@@ -168,136 +214,188 @@ export default function ContactUsPage() {
           </div>
 
           {/* Form container */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} noValidate className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Department Selector */}
-              <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
-                <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
-                  <User className="w-5 h-5" />
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                    <User className="w-5 h-5" />
+                  </div>
+                  <select
+                    name="department"
+                    value={formData.department}
+                    onChange={handleChange}
+                    className="w-full h-full pl-12 pr-8 text-[15px] text-foreground bg-transparent outline-none appearance-none cursor-pointer focus:text-foreground font-semibold"
+                    required
+                  >
+                    <option value="" disabled>
+                      Department Name
+                    </option>
+                    <option value="Accounts">Accounts</option>
+                    <option value="Trading">Trading</option>
+                    <option value="Mutual Funds">Mutual Funds</option>
+                    <option value="Demat">Demat</option>
+                    <option value="New Account Opening">New Account Opening</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Others">Others</option>
+                    <option value="Research">Research</option>
+                  </select>
+                  <div className="absolute right-4 pointer-events-none text-muted-foreground text-xs">
+                    ▼
+                  </div>
                 </div>
-                <select
-                  name="department"
-                  value={formData.department}
-                  onChange={handleChange}
-                  className="w-full h-full pl-12 pr-8 text-[15px] text-foreground bg-transparent outline-none appearance-none cursor-pointer focus:text-foreground font-semibold"
-                  required
-                >
-                  <option value="" disabled>
-                    Department Name
-                  </option>
-                  <option value="Accounts">Accounts</option>
-                  <option value="Trading">Trading</option>
-                  <option value="Mutual Funds">Mutual Funds</option>
-                  <option value="Demat">Demat</option>
-                  <option value="New Account Opening">New Account Opening</option>
-                  <option value="Technical">Technical</option>
-                  <option value="Others">Others</option>
-                  <option value="Research">Research</option>
-                </select>
-                <div className="absolute right-4 pointer-events-none text-muted-foreground text-xs">
-                  ▼
-                </div>
+                {errors.department && (
+                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                    {errors.department}
+                  </span>
+                )}
               </div>
 
               {/* Name Input */}
-              <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
-                <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
-                  <User className="w-5 h-5" />
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                    <User className="w-5 h-5" />
+                  </div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                    required
+                  />
                 </div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
-                  required
-                />
+                {errors.name && (
+                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                    {errors.name}
+                  </span>
+                )}
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Email Input */}
-              <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
-                <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
-                  <Mail className="w-5 h-5" />
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email ID"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                    required
+                  />
                 </div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email ID"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
-                  required
-                />
+                {errors.email && (
+                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                    {errors.email}
+                  </span>
+                )}
               </div>
 
               {/* Mobile Number Input */}
-              <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
-                <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
-                  <Phone className="w-5 h-5" />
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <input
+                    type="tel"
+                    name="phno"
+                    placeholder="Mobile Number"
+                    value={formData.phno}
+                    onChange={handleChange}
+                    maxLength={10}
+                    pattern="[0-9]{10}"
+                    title="Please enter a 10-digit mobile number"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                    required
+                  />
                 </div>
-                <input
-                  type="tel"
-                  name="phno"
-                  placeholder="Mobile Number"
-                  value={formData.phno}
-                  onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
-                  required
-                />
+                {errors.phno && (
+                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                    {errors.phno}
+                  </span>
+                )}
               </div>
             </div>
 
             {/* Subject Input */}
-            <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
-              <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
-                <Info className="w-5 h-5" />
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                  <Info className="w-5 h-5" />
+                </div>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                  required
+                />
               </div>
-              <input
-                type="text"
-                name="subject"
-                placeholder="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
-                required
-              />
+              {errors.subject && (
+                <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                  {errors.subject}
+                </span>
+              )}
             </div>
 
             {/* Details Textarea */}
-            <div className="flex items-start border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white transition-colors relative min-h-[120px]">
-              <div className="absolute left-4 top-3.5 text-muted-foreground flex items-center justify-center pointer-events-none">
-                <FileText className="w-5 h-5" />
+            <div className="flex flex-col gap-1">
+              <div className="flex items-start border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white transition-colors relative min-h-[120px]">
+                <div className="absolute left-4 top-3.5 text-muted-foreground flex items-center justify-center pointer-events-none">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <textarea
+                  name="details"
+                  placeholder="Details"
+                  rows={4}
+                  value={formData.details}
+                  onChange={handleChange}
+                  className="w-full h-full pl-12 pr-4 py-3 text-[15px] text-foreground bg-transparent outline-none resize-none placeholder-muted-foreground font-semibold"
+                  required
+                />
               </div>
-              <textarea
-                name="details"
-                placeholder="Details"
-                rows={4}
-                value={formData.details}
-                onChange={handleChange}
-                className="w-full h-full pl-12 pr-4 py-3 text-[15px] text-foreground bg-transparent outline-none resize-none placeholder-muted-foreground font-semibold"
-                required
-              />
+              {errors.details && (
+                <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                  {errors.details}
+                </span>
+              )}
             </div>
 
             {/* Captcha Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
               {/* Captcha Input */}
-              <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
-                <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
-                  <HelpCircle className="w-5 h-5" />
+              <div className="flex flex-col gap-1">
+                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                    <HelpCircle className="w-5 h-5" />
+                  </div>
+                  <input
+                    type="text"
+                    name="captcha"
+                    placeholder="Enter Captcha"
+                    value={formData.captcha}
+                    onChange={handleChange}
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                    required
+                  />
                 </div>
-                <input
-                  type="text"
-                  name="captcha"
-                  placeholder="Enter Captcha"
-                  value={formData.captcha}
-                  onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
-                  required
-                />
+                {errors.captcha && (
+                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                    {errors.captcha}
+                  </span>
+                )}
               </div>
 
               {/* Captcha Value Display & Refresh */}

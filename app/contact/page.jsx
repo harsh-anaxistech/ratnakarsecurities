@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
 import Container from "@/components/common/Container";
 import Form from "@/components/contact/form";
 import Table from "@/components/contact/table";
@@ -36,17 +35,6 @@ export default function ContactPage() {
 
             {/* Branches Table Section */}
             <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] border border-black/10 overflow-hidden">
-              <div className="bg-gray-100 border-b border-black/5 p-6 md:p-8 text-center flex flex-col items-center gap-3 text-gray-800">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <h2 className="text-3xl md:text-4xl tracking-tight font-bold text-black">Our Branches</h2>
-                <div className="bg-gray-100 rounded-md p-4 max-w-xl mx-auto mb-4">
-                  <p className="text-gray-800 text-sm md:text-base">
-                    We have a wide network of branches across India to serve you better. Find the nearest Ratnakar Securities branch below.
-                  </p>
-                </div>
-              </div>
               <div className="p-0">
                 <Table />
               </div>

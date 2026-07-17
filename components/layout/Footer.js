@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 
 const FOOTER_LINKS = {
   Products: [
@@ -34,6 +35,13 @@ const FOOTER_LINKS = {
   ],
 };
 
+const SOCIAL_LINKS = [
+  { icon: FaFacebookF, href: "https://bit.ly/3Qp6APj", label: "Facebook" },
+  { icon: FaXTwitter, href: "https://bit.ly/3ZYYotx", label: "Twitter" },
+  { icon: FaInstagram, href: "https://instagram.com/ratnakar_securities_pvt_ltd?igshid=YmMyMTA2M2Y=", label: "Instagram" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/ratnakar-securities", label: "LinkedIn" },
+];
+
 const TAB_CONTENT = {
   "ATTENTION INVESTORS": (
     <ul className="list-disc pl-5 space-y-2 text-sm" style={{ color: "#9fc8e0" }}>
@@ -60,7 +68,19 @@ const TAB_CONTENT = {
 
 export default function Footer() {
   const [activeTab, setActiveTab] = useState("ATTENTION INVESTORS");
+  const [isScoresModalOpen, setIsScoresModalOpen] = useState(false);
   const tabs = Object.keys(TAB_CONTENT);
+
+  useEffect(() => {
+    if (isScoresModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isScoresModalOpen]);
 
   return (
     <footer style={{ background: "#011628", color: "#c8dff0" }}>
@@ -75,12 +95,20 @@ export default function Footer() {
                 </div>
               </Link>
               {/* એડ્રેસ ની સાઈઝ 16px સેટ કરી */}
-              <ul className="text-[16px] leading-relaxed max-w-[280px] space-y-1" style={{ color: "#9fc8e0" }}>
+              <ul className="text-[16px] leading-relaxed max-w-[350px] space-y-1" style={{ color: "#9fc8e0" }}>
                 <li><strong>Cameo Corporate Services Limited</strong></li>
                 <li>#1, Subramanian Building,</li>
                 <li>Club House Road, Chennai-600002.</li>
                 <li>Contact No : <a href="tel:04440020731" className="hover:text-white transition-colors">044-40020731</a></li>
               </ul>
+
+              <div className="mt-5 text-[16px] leading-relaxed max-w-[350px] flex flex-wrap items-center gap-x-2 gap-y-1" style={{ color: "#9fc8e0" }}>
+                <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Segregation Monitoring Collateral</a>
+                <span>|</span>
+                <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">NSDL e Voting</a>
+                <span>|</span>
+                <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">NSDL IDEAS Services</a>
+              </div>
             </div>
 
             {/* Link columns */}
@@ -100,6 +128,26 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
+
+                {heading === "Products" && (
+                  <div className="flex items-center gap-3 mt-6">
+                    {SOCIAL_LINKS.map((social) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={social.label}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={social.label}
+                          className="w-9 h-9 rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#00aeee] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
+                        >
+                          <Icon className="w-4 h-4" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -131,10 +179,15 @@ export default function Footer() {
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
           <p>Investor Grievance ID: investorgrievance@ratnakarsecurities.com</p>
           <div className="flex gap-4 flex-wrap mt-4 text-xs font-bold underline">
-            <Link href="#">Online Dispute Resolution Portal - SMART ODR</Link>
-            <Link href="#">To File A Complaint on SCORES Click Here</Link>
-            <Link href="#">For Nomination, Please Click Here</Link>
-            <Link href="#">To Close Account, Please Click Here</Link>
+            <a href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf" target="_blank" rel="noopener noreferrer">Online Dispute Resolution Portal - SMART ODR</a>
+            <button
+              onClick={() => setIsScoresModalOpen(true)}
+              className="text-xs font-bold underline cursor-pointer text-left hover:text-white transition-colors"
+            >
+              To File A Complaint on SCORES Click Here
+            </button>
+            <Link href="/nomination">For Nomination, Please Click Here</Link>
+            <a href="https://tradewebx1.ratnakarsecurities.com:9001/#/" target="_blank" rel="noopener noreferrer">To Close Account, Please Click Here</a>
           </div>
         </div>
       </div>
@@ -149,10 +202,81 @@ export default function Footer() {
             <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer">Investor Complaint</a>
             <Link href="/refund-and-cancellation">Refund & Cancellation</Link>
 
-            <span>Developed by <a href="#" className="text-secondary">Anaxistech</a></span>
+            <span>Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="text-secondary">Anaxistech</a></span>
           </div>
         </div>
       </div>
+
+      {/* SCORES Modal */}
+      {isScoresModalOpen && (
+        <div 
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 backdrop-blur-xs p-4"
+          onClick={() => setIsScoresModalOpen(false)}
+        >
+          <div 
+            className="relative w-full max-w-[550px] bg-[#011628] border-2 border-[#00aeee] rounded-md shadow-2xl p-6 sm:p-8 text-left transition-all duration-300 transform scale-100"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button 
+              onClick={() => setIsScoresModalOpen(false)}
+              className="absolute top-4 right-4 text-xs font-bold uppercase tracking-wider text-[#9fc8e0] hover:text-white transition-colors flex items-center gap-1 cursor-pointer animate-pulse"
+            >
+              CLOSE <span className="text-[#00aeee] text-sm font-black">X</span>
+            </button>
+            
+            {/* Content */}
+            <div className="space-y-6 mt-4">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-wide">Filing complaints on SCORES</h3>
+                <p className="text-sm font-semibold tracking-wide" style={{ color: "#00aeee" }}>Easy & quick</p>
+              </div>
+
+              <ul className="space-y-5 text-[#c8dff0] text-sm sm:text-base">
+                <li className="flex items-start gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee] shadow-[0_0_8px_#00aeee] flex-shrink-0 mt-1.5"></span>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <span>Register on SCORES portal</span>
+                    <a 
+                      href="https://scores.gov.in" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="bg-[#00aeee] text-white px-2 py-0.5 rounded text-xs hover:bg-[#00aeee]/80 transition-colors font-semibold"
+                    >
+                      (link:https://scores.gov.in)
+                    </a>
+                  </div>
+                </li>
+
+                <li className="flex flex-col gap-2.5">
+                  <div className="flex items-start gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee] shadow-[0_0_8px_#00aeee] flex-shrink-0 mt-1.5"></span>
+                    <span>Mandatory details for filing complaints on SCORES</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pl-5">
+                    {["Name", "PAN", "Address", "Mobile Number", "E-mail ID"].map((item) => (
+                      <span key={item} className="bg-[#00aeee] text-white py-1 px-3 rounded text-xs font-semibold">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </li>
+
+                <li className="flex flex-col gap-2">
+                  <div className="flex items-start gap-3">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee] shadow-[0_0_8px_#00aeee] flex-shrink-0 mt-1.5"></span>
+                    <span>Benefits:</span>
+                  </div>
+                  <ul className="list-disc pl-10 space-y-1.5 text-sm text-[#9fc8e0]">
+                    <li>Effective communication</li>
+                    <li>Speedy redressal of the grievances</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }

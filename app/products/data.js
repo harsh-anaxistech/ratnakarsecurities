@@ -73,7 +73,7 @@ export const PRODUCTS_DATA = [
       "Choice and flexibility of choosing funds to meet your investment needs and financial goals",
       "Dedicated customer support to meet your tailormade needs",
     ],
-    imageSrc: "/mutual_funds_tab.png",
+    imageSrc: "/images/photorealistic-money-with-plant.jpg",
     buttonText: "Start Investing Today",
   },
   {
