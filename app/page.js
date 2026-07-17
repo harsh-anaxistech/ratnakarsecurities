@@ -7,6 +7,7 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 import { generatePageMetadata } from "@/constants/metadata";
 import DownloadApp from "@/components/home/DownloadApp";
+import CalculatorSection from "@/components/home/Calculator";
 
 export const metadata = generatePageMetadata({
   title: "Ratnakar Securities Limited. :: Rest Assured",
@@ -25,6 +26,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <DownloadApp />
       <Testimonials />
+      <CalculatorSection />
       
       {/* તમારા મોબાઈલ ટ્રેડિંગ એપ્સનું ફ્લોટિંગ મોડલ બટન */}
       <FloatingMobileTrading /> 

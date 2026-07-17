@@ -310,16 +310,22 @@ export default function Header() {
 
               {/* Desktop Actions */}
               <div className="hidden lg:flex items-center gap-2">
+                <a href="https://twx.ratnakarsecurities.com:4433/twx/signin" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
+                    RE-KYC
+                  </Button>
+                </a>
+
                 <a href="https://smartkyc.co.in/d/ratnakar" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
-                    Open Demat Account
+                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
+                    OPEN AN ACCOUNT
                   </Button>
                 </a>
 
                 {/* Login dropdown */}
                 <div className="group relative">
-                  <Button variant="outlined" color="secondary" className="text-sm font-bold rounded-lg px-5">
-                    Login <ChevronDown className="h-3.5 w-3.5 ml-1 group-hover:rotate-180 transition-transform duration-200 inline" />
+                  <Button className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
+                    LOGIN <ChevronDown className="h-3.5 w-3.5 ml-1 group-hover:rotate-180 transition-transform duration-200 inline" />
                   </Button>
                   <div className="absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-lg py-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
                     {LOGIN_LINKS.map((link) => (
@@ -423,10 +429,13 @@ export default function Header() {
               </div>
 
               {/* CTA */}
-              <div className="mt-4">
-                <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                  <Button className="w-full bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5">Open an Account</Button>
-                </Link>
+              <div className="mt-4 flex flex-col gap-2">
+                <a href="https://twx.ratnakarsecurities.com:4433/twx/signin" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
+                  <Button className="w-full bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5">RE-KYC</Button>
+                </a>
+                <a href="https://smartkyc.co.in/d/ratnakar" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
+                  <Button className="w-full bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5">OPEN AN ACCOUNT</Button>
+                </a>
               </div>
             </div>
           </nav>
