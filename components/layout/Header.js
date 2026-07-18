@@ -385,7 +385,9 @@ export default function Header() {
           {/* Drawer Header */}
           <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100" style={{ background: "#011628" }}>
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={150} height={40} className="object-contain brightness-0 invert" />
+              <div className="bg-white rounded-lg p-2">
+                <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={120} height={35} className="object-contain" />
+              </div>
             </Link>
             <button onClick={() => setMobileOpen(false)} aria-label="Close menu" className="w-9 h-9 flex items-center justify-center text-white/70 hover:text-white">
               <span className="absolute h-0.5 w-5 bg-current rotate-45 rounded" />

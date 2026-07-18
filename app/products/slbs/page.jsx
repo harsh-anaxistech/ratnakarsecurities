@@ -91,12 +91,21 @@ export default function ProductDetailsPage() {
             {/* How to Get Started */}
             <div className="mb-12 bg-blue-50 p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-slate-900 mb-6">How to Get Started</h3>
-              <ol className="list-decimal list-inside space-y-2 text-[16px] text-[#314158]">
-                <li>Open a Demat and Trading Account.</li>
-                <li>Register for the SLBS facility.</li>
-                <li>Ensure eligible securities are in your Demat account.</li>
-                <li>Select securities and place your request online.</li>
-                <li>Monitor your earnings via the dashboard.</li>
+              <ol className="list-none space-y-1">
+                {[
+                  "Open a Demat and Trading Account.",
+                  "Register for the SLBS facility.",
+                  "Ensure eligible securities are in your Demat account.",
+                  "Select securities and place your request online.",
+                  "Monitor your earnings via the dashboard."
+                ].map((item, idx) => (
+                  <li key={idx} className="p-2 rounded-lg font-semibold text-[16px] flex items-start gap-3 text-[#314158]">
+                    <span className="font-bold text-lg min-w-fit text-[#ea2830]">
+                      {idx + 1}.
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ol>
             </div>
 
@@ -144,7 +153,6 @@ export default function ProductDetailsPage() {
                           }`}
                       >
                         <div className="flex items-center gap-3">
-                          {item.iconPath && <img src={item.iconPath} alt={item.title} className="w-5 h-5" />}
                           <span>{item.title}</span>
                         </div>
                         <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-[#ea2830] translate-x-1" : "text-white/60 group-hover:translate-x-1 group-hover:text-[#ea2830]"

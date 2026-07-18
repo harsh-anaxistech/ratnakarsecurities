@@ -148,7 +148,6 @@ export default function ProductDetailsPage() {
                     <li key={item.id}>
                       <Link href={`/products/${item.slug}`} className={`flex items-center justify-between p-4 rounded-xl font-bold ${isActive ? "bg-white text-[#ea2830]" : "bg-white/10 text-white hover:bg-white hover:text-[#ea2830]"}`}>
                         <div className="flex items-center gap-3">
-                          {item.iconPath && <img src={item.iconPath} alt={item.title} className="w-5 h-5" />}
                           {item.title}
                         </div>
                         <ChevronRight className="w-5 h-5" />

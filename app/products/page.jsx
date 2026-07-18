@@ -17,7 +17,7 @@ export default function ProductsPage() {
       />
 
       <section className="relative overflow-hidden bg-[#f7f9fc] py-16">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
           <div className="mb-12 text-center">
@@ -30,7 +30,7 @@ export default function ProductsPage() {
           </div>
 
           {/* Grid with custom card style */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {PRODUCTS_DATA.map((product) => (
               <Link
                 href={`/products/${product.slug}`}
