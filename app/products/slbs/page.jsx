@@ -134,12 +134,23 @@ export default function ProductDetailsPage() {
                   const isActive = item.slug === slug;
                   const Icon = item.icon;
                   return (
-                    <li key={item.id}>
-                      <Link href={`/products/${item.slug}`} className={`flex items-center justify-between p-4 rounded-xl font-bold ${isActive ? "bg-white text-[#ea2830]" : "bg-white/10 text-white hover:bg-white hover:text-[#ea2830]"}`}>
-                        <div className="flex items-center gap-3"><Icon className="w-5 h-5" /> {item.title}</div>
-                        <ChevronRight className="w-5 h-5" />
-                      </Link>
-                    </li>
+                   <li key={item.id}>
+  <Link 
+    href={`/products/${item.slug}`} 
+    className={`flex items-center justify-between p-4 rounded-xl font-bold ${isActive ? "bg-white text-[#ea2830]" : "bg-white/10 text-white hover:bg-white hover:text-[#ea2830]"}`}
+  >
+    <div className="flex items-center gap-3">
+      {/* અહીં આપણે Icon component ને બદલે Image tag વાપરીશું */}
+      <img 
+        src={item.iconPath} 
+        alt={item.title} 
+        className="w-5 h-5 object-contain" 
+      /> 
+      {item.title}
+    </div>
+    <ChevronRight className="w-5 h-5" />
+  </Link>
+</li>
                   );
                 })}
               </ul>
