@@ -4,8 +4,8 @@ import Container from "@/components/common/Container";
 
 const calculators = [
   {
-    title: "SIP Calculator",
-    href: "/sip-calculator",
+    title: "SIP Calculator - Calculate returns for SIP investment",
+    href: "https://sipcalculator.in/",
     icon: "/images/icon/home/sipcalc-icon_1.png",
   },
   {

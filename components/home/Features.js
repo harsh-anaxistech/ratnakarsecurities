@@ -2,17 +2,17 @@
 import React from "react";
 import Link from "next/link";
 import Container from "@/components/common/Container";
-import { 
-  ArrowRight, 
-  TrendingUp, 
-  BarChart2, 
-  PiggyBank, 
-  Wheat, 
-  Briefcase, 
-  Globe, 
-  Lock, 
+import {
+  ArrowRight,
+  TrendingUp,
+  BarChart2,
+  PiggyBank,
+  Wheat,
+  Briefcase,
+  Globe,
+  Lock,
   RefreshCw,
-  Users 
+  Users
 } from "lucide-react";
 
 const SERVICES = [
@@ -31,7 +31,7 @@ export default function InvestmentServices() {
   return (
     <section className="relative overflow-hidden bg-[#f7f9fc] py-12">
       <Container>
-        
+
         {/* Header */}
         <div className="mb-12 text-center">
           <div style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3">
@@ -61,7 +61,7 @@ export default function InvestmentServices() {
                 <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#00aeee] transition-colors duration-300">
                   {title}
                 </h3>
-                
+
                 <p className="text-[16px] text-slate-600 leading-relaxed font-medium">
                   {desc}
                 </p>
@@ -72,7 +72,7 @@ export default function InvestmentServices() {
                   href={href}
                   className="inline-flex items-center gap-1 text-sm font-bold text-[#ea2830] hover:text-[#00aeee] transition-colors"
                 >
-                  <span>Learn more</span> 
+                  <span>Learn more</span>
                   <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -81,7 +81,7 @@ export default function InvestmentServices() {
             </div>
           ))}
         </div>
-        
+
       </Container>
     </section>
   );

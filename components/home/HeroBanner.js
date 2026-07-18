@@ -18,7 +18,7 @@ export default function HeroBanner() {
   }, []);
 
   return (
-    <section 
+    <section
       style={{
         background: "radial-gradient(1200px 600px at 85% -10%, #1a6eb5 0%, #012e54 45%, #011628 100%)",
         color: "#fff"
@@ -36,7 +36,7 @@ export default function HeroBanner() {
       </div>
 
       {/* ── SLIDE 2 BACKGROUND OVERLAY LAYER (60% Left Dark & 40% Right Image) ── */}
-      <div 
+      <div
         className={cn(
           "absolute inset-0 transition-all duration-1000 ease-in-out z-0 flex justify-end pointer-events-none",
           currentSlide === 1 ? "opacity-100 scale-100 visible" : "opacity-0 scale-105 invisible"
@@ -45,20 +45,20 @@ export default function HeroBanner() {
         {/* 📸 જમણી બાજુ રાખેલી તમારી મેઇન ઇમેજ (હવે 40% વિડ્થ જેથી ડાબી બાજુ 60% સ્પેસ મળે) */}
         <div className="relative w-full lg:w-[40%] h-full">
           <Image
-            src="/images/hero/2150970201.jpg" 
+            src="/images/hero/2150970201.jpg"
             alt="Hero Investment Background"
             fill
             className="object-cover object-right"
             priority
           />
         </div>
-        
+
         {/* 🎨 ડાર્ક ગ્રેડિયન્ટ ઓવરલે: via-[60%] નો ઉપયોગ કરીને ડાબો ભાગ 60% ડાર્ક રાખ્યો છે */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#011628] via-[#011628] via-[60%] to-transparent" />
       </div>
 
       <Container className="relative z-10 w-full">
-        
+
         {/* ── SLIDE 1: POWERFUL TRADING PLATFORM ── */}
         <div className={cn(
           "grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center transition-all duration-700 ease-in-out",
@@ -93,9 +93,9 @@ export default function HeroBanner() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 w-full max-w-xl mx-auto lg:mx-0">
-              <a 
-                href="https://smartkyc.co.in/d/ratnakar" 
-                target="_blank" 
+              <a
+                href="https://smartkyc.co.in/d/ratnakar"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold py-3.5 px-5 rounded-xl shadow-lg shadow-sky-900/20 transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto"
               >
@@ -110,17 +110,17 @@ export default function HeroBanner() {
 
           {/* Right Side Graph Dashboard Asset */}
           <div className="lg:col-span-6 w-full relative mt-4 lg:mt-0 max-w-2xl mx-auto">
-            <div 
+            <div
               style={{
                 background: "rgba(255, 255, 255, 0.06)",
                 borderColor: "rgba(255, 255, 255, 0.1)",
                 backdropFilter: "blur(8px)"
-              }} 
+              }}
               className="rounded-3xl p-4 sm:p-6 border shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] transform hover:-translate-y-1 transition-all duration-500 overflow-hidden"
             >
-              <img 
-                src="/images/hero/66722.jpg" 
-                alt="Portfolio Dashboard" 
+              <img
+                src="/images/hero/66722.jpg"
+                alt="Portfolio Dashboard"
                 className="w-full h-auto rounded-2xl object-cover shadow-md"
               />
               <div className="text-white/60 flex flex-col sm:flex-row justify-between items-center mt-4 text-xs sm:text-sm font-medium gap-2 text-center">
@@ -138,7 +138,7 @@ export default function HeroBanner() {
         )}>
           {/* Left Side Content - ડાર્ક ભાગ સાથે પ્રોપર સેટ કરવા માટે 7 કોલમ (60%) આપ્યા છે */}
           <div className="lg:col-span-7 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
-            
+
             <div className="inline-flex items-center gap-2 bg-[#00aeee]/10 border border-[#00aeee]/20 rounded-full px-4 py-1.5 shadow-sm mx-auto lg:mx-0">
               <ShieldCheck className="w-4 h-4 text-[#00aeee] shrink-0" />
               <span className="text-[#00aeee] text-xs font-bold tracking-wider uppercase">
@@ -182,9 +182,9 @@ export default function HeroBanner() {
 
             {/* Buttons Setup */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 w-full max-w-xl mx-auto lg:mx-0">
-              <a 
-                href="https://smartkyc.co.in/d/ratnakar" 
-                target="_blank" 
+              <a
+                href="https://smartkyc.co.in/d/ratnakar"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto"
               >
@@ -192,11 +192,11 @@ export default function HeroBanner() {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <Link 
-                href="/products" 
+              <Link
+                href="/products"
                 className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/10 text-sm font-bold py-3.5 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto"
               >
-                <span>Explore Our Services</span>
+                <span>Explore Our Prouducts</span>
               </Link>
             </div>
           </div>
@@ -207,7 +207,7 @@ export default function HeroBanner() {
 
         {/* ── SLIDER DOTS INDICATORS ── */}
         <div className="flex items-center justify-center gap-3 mt-12">
-          <button 
+          <button
             onClick={() => setCurrentSlide(0)}
             aria-label="Go to Slide 1"
             className={cn(
@@ -215,7 +215,7 @@ export default function HeroBanner() {
               currentSlide === 0 ? "w-8 bg-[#00aeee] drop-shadow-[0_0_4px_#00aeee]" : "w-2.5 bg-white/30 hover:bg-white/50"
             )}
           />
-          <button 
+          <button
             onClick={() => setCurrentSlide(1)}
             aria-label="Go to Slide 2"
             className={cn(
