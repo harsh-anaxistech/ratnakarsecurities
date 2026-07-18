@@ -65,29 +65,39 @@ export default function AboutPage() {
       {/* Overview Section */}
       <section id="overview" className="py-12 bg-[#f7f9fc]">
         <Container>
-          <div className="mb-12 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "rgb(234, 40, 48)" }}>
-              About Ratnakar
+          <div className="mb-10 text-center">
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#EA2830]">
+              About Ratnakar Securities
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">Overview</h2>
-            <p className="text-[16px] text-gray-700 max-w-3xl mx-auto font-medium">
-              Emerging as one of the leading broking houses and investment advisors in India,
-              Ratnakar Securities offers 20 years of expertise in financial planning solutions.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black mb-6">
+              Building Trust, Creating Wealth
+            </h2>
+
+            {/* Short & Punchy Content */}
+            <div className="max-w-6xl mx-auto text-gray-700 space-y-6 text-[16px] leading-relaxed">
+              <p>
+                Ratnakar Securities is a trusted leader in India’s financial landscape. Since 1994, we have empowered thousands of investors by combining deep market expertise with a commitment to integrity, transparency, and long-term value creation.
+              </p>
+              <p>
+                Whether you are a first-time investor, a seasoned trader, or an institution, we provide personalized financial solutions backed by advanced technology and in-depth research. Our mission is simple: to guide you toward informed decisions and sustainable financial success at every stage of your journey.
+              </p>
+            </div>
           </div>
+
+          {/* Feature Grid remains the same */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Home, title: "One-stop shop", desc: "Comprehensive products across equities, derivatives, and more." },
-              { icon: Target, title: "Interest Priority", desc: "360-degree financial planning tailored to your specific life goals." },
-              { icon: Laptop, title: "Seamless Trading", desc: "Trade via online, mobile, telephone, or associate branches." },
-              { icon: BarChart3, title: "Track like Pro", desc: "Optimize returns with our portfolio tracker and SMS alerts." }
+              { icon: Home, title: "One-stop shop", desc: "Comprehensive solutions across equities, derivatives, and more." },
+              { icon: Target, title: "Client-Centric", desc: "Tailored financial planning designed for your specific life goals." },
+              { icon: Laptop, title: "Seamless Trading", desc: "Trade effortlessly via web, mobile, or our support network." },
+              { icon: BarChart3, title: "Pro Tracking", desc: "Optimize your portfolio with real-time analytics and alerts." }
             ].map((item, index) => (
-              <div key={index} className="group p-6 border border-gray-100 rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-gray-200">
-                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-red-600 mb-4 transition-all duration-300 group-hover:bg-[#EA2830] group-hover:text-white">
+              <div key={index} className="group p-6 border border-gray-100 rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-red-600 mb-4 group-hover:bg-[#EA2830] group-hover:text-white transition-all duration-300">
                   <item.icon size={24} />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-[16px] text-gray-600 leading-relaxed">{item.desc}</p>
+                <p className="text-[15px] text-gray-600 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -97,13 +107,33 @@ export default function AboutPage() {
       {/* Leadership Section */}
       <section id="leadership" className="py-12 bg-white">
         <Container>
-          <div className="text-center mb-10">
-            <h2 className="text-4xl text-black mb-4">Leadership</h2>
+          {/* Leadership Intro Text */}
+          {/* Increased max-width from 4xl to 5xl for better readability/wider look */}
+          <div className="max-w-6xl mx-auto text-center mb-10 px-4">
+            <h2 className="text-4xl text-black  mb-6">About Our Leadership</h2>
+            <div className="text-[#314158] text-[16px] leading-relaxed space-y-4">
+              <p>
+                At Ratnakar Securities, our Key Managerial Personnel (KMP) play a vital role in ensuring strong corporate governance, regulatory compliance, financial discipline, and strategic decision-making. Their leadership helps maintain transparency, operational excellence, and a client-centric approach across all business functions.
+              </p>
+
+            </div>
           </div>
+
+          {/* Leadership Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {[
-              { name: "Shri. Ajay Shah", role: "Founder, Chairman and Managing Director", image: "/images/about/human-2 (1).png", desc: "A recognized leader in financial services and capital markets, Shri Ajay Shah represents the third generation of a reputed business family in Ahmedabad. He founded Ratnakar Securities in 1994 with 32+ years of experience in Banking and Capital Markets, and served as President of Ahmedabad Stock Exchange for two consecutive years." },
-              { name: "Kushal Shah", role: "Chief Operations Officer (COO)", image: "/images/about/human-2 (1).png", desc: "Kushal takes the legacy of Ratnakar Securities forward with his sharp business acumen and dynamism. A post graduate in financial markets, CFA USA Level II cleared, he has transformed Ratnakar Securities into a research and technology driven investment enterprise in his 5 years as COO." }
+              {
+                name: "Shri. Ajay Shah",
+                role: "Founder, Chairman and Managing Director",
+                image: "/images/about/human-2 (1).png",
+                desc: "A recognized leader in financial services and capital markets, Shri Ajay Shah represents the third generation of a reputed business family in Ahmedabad. He founded Ratnakar Securities in 1994 with 32+ years of experience in Banking and Capital Markets, and served as President of Ahmedabad Stock Exchange for two consecutive years."
+              },
+              {
+                name: "Kushal Shah",
+                role: "Chief Operations Officer (COO)",
+                image: "/images/about/human-2 (1).png",
+                desc: "Kushal takes the legacy of Ratnakar Securities forward with his sharp business acumen and dynamism. A post graduate in financial markets, CFA USA Level II cleared, he has transformed Ratnakar Securities into a research and technology driven investment enterprise in his 5 years as COO."
+              }
             ].map((leader, index) => (
               <div key={index} className="flex flex-col md:flex-row items-center bg-white border border-gray-100 p-4 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
                 <div className="relative w-full md:w-[280px] h-[380px] shrink-0 overflow-hidden rounded-3xl rounded-tr-[80px] shadow-md transition-all duration-300">
@@ -113,12 +143,8 @@ export default function AboutPage() {
                 <div className="p-8 w-full flex flex-col justify-center">
                   <h3 className="text-2xl font-bold text-black mb-1">{leader.name}</h3>
                   <p className="text-[#EA2830] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
-                  <div className="text-[#314158] leading-relaxed text-[15px] space-y-3 italic">
-                    {leader.desc.split('\n\n').map((para, i, arr) => (
-                      <p key={i}>
-                        {i === 0 ? '\u201C' : ''}{para}{i === arr.length - 1 ? '\u201D' : ''}
-                      </p>
-                    ))}
+                  <div className="text-[#314158] leading-relaxed text-[15px] italic">
+                    <p>“{leader.desc}”</p>
                   </div>
                 </div>
               </div>
@@ -130,11 +156,22 @@ export default function AboutPage() {
       {/* Milestones Section */}
       <section id="journey" className="py-12 bg-[#f7f9fc]">
         <Container>
-          <h2 className="text-4xl text-center text-gray-900 mb-10">Our Journey</h2>
+          {/* Centered Introduction Text */}
+          <div className="max-w-5xl mx-auto text-center mb-10">
+            <h2 className="text-5xl  text-gray-900 mb-6">Our Journey</h2>
+            <p className="text-[#314158] text-[16px] leading-relaxed">
+              Ratnakar Securities has grown steadily through innovation, customer trust, and a commitment to excellence.
+              Every milestone reflects our dedication to expanding financial opportunities, embracing new technologies,
+              and adapting to the evolving needs of investors. Our journey is built on a foundation of trust,
+              expertise, and continuous progress.
+            </p>
+          </div>
+
+          {/* Milestone Interactive Grid */}
           <div className="flex flex-col lg:flex-row gap-8 bg-white p-6 rounded-3xl shadow-xl border border-blue-50">
 
-            {/* Left Image Box - Dynamic Image */}
-            <div className="flex-1 relative h-[300px] md:h-[450px] rounded-3xl overflow-hidden flex flex-col justify-end text-white">
+            {/* Left Image Box */}
+            <div className="flex-1 relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden flex flex-col justify-end text-white">
               <Image
                 src="/images/about/22.jpg"
                 alt="Milestone"
@@ -156,13 +193,37 @@ export default function AboutPage() {
                 <div
                   key={index}
                   onClick={() => setActive(index)}
-                  className={`p-4 rounded-xl border-l-4 transition-all duration-300 cursor-pointer ${active === index ? "bg-blue-50 border-red-600 shadow-md" : "bg-gray-100 border-gray-300 hover:bg-gray-200"
+                  className={`p-4 rounded-xl border-l-4 transition-all duration-300 cursor-pointer ${active === index
+                    ? "bg-blue-50 border-red-600 shadow-md"
+                    : "bg-gray-100 border-gray-300 hover:bg-gray-200"
                     }`}
                 >
-                  <div className={`font-black text-lg ${active === index ? "text-red-600" : "text-gray-500"}`}>{item.year}</div>
+                  <div className={`font-black text-lg ${active === index ? "text-red-600" : "text-gray-500"}`}>
+                    {item.year}
+                  </div>
                   <div className="font-semibold text-gray-800 text-sm">{item.title}</div>
                 </div>
               ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Promise Section */}
+      <section id="promise" className="py-12">
+        <Container>
+          <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100 grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">Our Promise</h2>
+              <p className="text-[#314158] leading-relaxed">
+                At Ratnakar Securities, we believe successful investing is built on knowledge, trust, and disciplined decision-making.
+              </p>
+              <p className="font-semibold italic border-l-4 border-[#EA2830] pl-4">
+                "Together, we strive to build lasting relationships and create sustainable financial success."
+              </p>
+            </div>
+            <div className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-md">
+              <Image src="/images/about/digital-partnership-trust-concept_1048363-21037.avif" alt="Promise" fill className="object-cover" />
             </div>
           </div>
         </Container>

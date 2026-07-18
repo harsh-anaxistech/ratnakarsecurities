@@ -69,7 +69,7 @@ export default function Testimonials() {
   return (
     <section className="py-12 bg-white overflow-hidden">
       <Container>
-        
+
         {/* Header Section — સેન્ટર અંડરલાઈન ઇફેક્ટ */}
         <div className="text-center mb-10">
           <div
@@ -142,14 +142,13 @@ export default function Testimonials() {
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === idx ? "w-6 bg-[#00aeee]" : "w-2 bg-slate-200"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${activeIndex === idx ? "w-6 bg-[#00aeee]" : "w-2 bg-slate-200"
+                }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
         </div>
-        
+
       </Container>
     </section>
   );
