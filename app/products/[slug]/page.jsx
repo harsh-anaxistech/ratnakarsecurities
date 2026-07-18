@@ -104,28 +104,27 @@ export default function ProductDetailsPage({ params }) {
           <aside className="w-full lg:w-[30%] space-y-8">
 
             {/* Services List Box */}
-            <div className="bg-white rounded-2xl shadow-sm border border-black/5 p-6 sticky top-[100px]">
-              <h3 className="text-xl font-bold text-slate-900 mb-6 pb-4 border-b border-black/5 uppercase tracking-wide">
+            <div className="rounded-2xl shadow-lg p-6 sticky top-[100px]" style={{ background: "linear-gradient(180deg, #2a689b 0%, #1e4b75 100%)", color: "rgb(255, 255, 255)" }}>
+              <h3 className="text-xl font-bold font-serif text-white mb-6 pb-4 border-b border-white/20 uppercase tracking-wide">
                 Investment Options
               </h3>
               <ul className="space-y-3">
                 {PRODUCTS_DATA.map((item) => {
                   const isActive = item.slug === slug;
-                  const Icon = item.icon;
                   return (
                     <li key={item.id}>
                       <Link
                         href={`/products/${item.slug}`}
-                        className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 group font-bold ${isActive
-                            ? "bg-[#ea2830] text-white shadow-md"
-                            : "bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-[#ea2830]"
+                        className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 group font-bold text-[16px] ${isActive
+                          ? "bg-white text-[#ea2830] border-l-[3px] border-[#ea2830] shadow-md"
+                          : "bg-white/10 text-white border-l-[3px] border-transparent hover:bg-white hover:text-[#ea2830]"
                           }`}
                       >
                         <div className="flex items-center gap-3">
-                          <Icon className={`w-5 h-5 ${isActive ? "text-white" : "text-[#ea2830]"}`} />
+                          {item.iconPath && <img src={item.iconPath} alt={item.title} className="w-5 h-5" />}
                           <span>{item.title}</span>
                         </div>
-                        <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-white translate-x-1" : "text-slate-400 group-hover:translate-x-1 group-hover:text-[#ea2830]"
+                        <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-[#ea2830] translate-x-1" : "text-white/60 group-hover:translate-x-1 group-hover:text-[#ea2830]"
                           }`} />
                       </Link>
                     </li>

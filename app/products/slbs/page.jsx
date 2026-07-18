@@ -125,19 +125,30 @@ export default function ProductDetailsPage() {
             </div>
           </div>
 
-          {/* Sidebar */}
-          <aside className="w-full lg:w-[30%]">
-            <div className="rounded-2xl shadow-lg p-6 sticky top-[100px] bg-gradient-to-b from-[#2a689b] to-[#1e4b75] text-white">
-              <h3 className="text-xl font-bold mb-6 pb-4 border-b border-white/20 uppercase tracking-wide">Investment Options</h3>
+          {/* RIGHT SIDE: ALL PRODUCTS SIDEBAR */}
+          <aside className="w-full lg:w-[30%] space-y-8">
+            <div className="rounded-2xl shadow-lg p-6 sticky top-[100px]" style={{ background: "linear-gradient(180deg, #2a689b 0%, #1e4b75 100%)", color: "rgb(255, 255, 255)" }}>
+              <h3 className="text-xl font-bold font-serif text-white mb-6 pb-4 border-b border-white/20 uppercase tracking-wide">
+                Investment Options
+              </h3>
               <ul className="space-y-3">
                 {PRODUCTS_DATA.map((item) => {
                   const isActive = item.slug === slug;
-                  const Icon = item.icon;
                   return (
                     <li key={item.id}>
-                      <Link href={`/products/${item.slug}`} className={`flex items-center justify-between p-4 rounded-xl font-bold ${isActive ? "bg-white text-[#ea2830]" : "bg-white/10 text-white hover:bg-white hover:text-[#ea2830]"}`}>
-                        <div className="flex items-center gap-3"><Icon className="w-5 h-5" /> {item.title}</div>
-                        <ChevronRight className="w-5 h-5" />
+                      <Link
+                        href={`/products/${item.slug}`}
+                        className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 group font-bold text-[16px] ${isActive
+                          ? "bg-white text-[#ea2830] border-l-[3px] border-[#ea2830] shadow-md"
+                          : "bg-white/10 text-white border-l-[3px] border-transparent hover:bg-white hover:text-[#ea2830]"
+                          }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          {item.iconPath && <img src={item.iconPath} alt={item.title} className="w-5 h-5" />}
+                          <span>{item.title}</span>
+                        </div>
+                        <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-[#ea2830] translate-x-1" : "text-white/60 group-hover:translate-x-1 group-hover:text-[#ea2830]"
+                          }`} />
                       </Link>
                     </li>
                   );

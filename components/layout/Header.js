@@ -10,6 +10,7 @@ import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import MenuIcons from "@/components/layout/MenuIcons";
 import { getResearchSections } from "@/services/research";
+import BackofficeLoginModal from "@/components/modals/BackofficeLoginModal";
 
 // const NAV_LINKS = [
 //   {
@@ -173,6 +174,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
+  const [backofficeModalOpen, setBackofficeModalOpen] = useState(false);
   const pathname = usePathname();
   const [prevPathname, setPrevPathname] = useState(pathname);
 
@@ -328,11 +330,31 @@ export default function Header() {
                     LOGIN <ChevronDown className="h-3.5 w-3.5 ml-1 group-hover:rotate-180 transition-transform duration-200 inline" />
                   </Button>
                   <div className="absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-lg py-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
-                    {LOGIN_LINKS.map((link) => (
-                      <Link key={link.href} href={link.href} className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
-                        {link.label}
-                      </Link>
-                    ))}
+                    {LOGIN_LINKS.map((link) => {
+                      if (link.label === "Backoffice Login") {
+                        return (
+                          <button
+                            key={link.label}
+                            onClick={() => setBackofficeModalOpen(true)}
+                            className="w-full text-left block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors"
+                          >
+                            {link.label}
+                          </button>
+                        );
+                      }
+                      if (link.external) {
+                        return (
+                          <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                            {link.label}
+                          </a>
+                        );
+                      }
+                      return (
+                        <Link key={link.href} href={link.href} className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                          {link.label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -419,11 +441,34 @@ export default function Header() {
                 </button>
                 <div className={cn("overflow-hidden transition-all duration-300", mobileLoginOpen ? "max-h-[300px] pb-2" : "max-h-0")}>
                   <div className="flex flex-col gap-0.5 pl-3 pt-1">
-                    {LOGIN_LINKS.map((link) => (
-                      <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors">
-                        {link.label}
-                      </Link>
-                    ))}
+                    {LOGIN_LINKS.map((link) => {
+                      if (link.label === "Backoffice Login") {
+                        return (
+                          <button
+                            key={link.label}
+                            onClick={() => {
+                              setBackofficeModalOpen(true);
+                              setMobileOpen(false);
+                            }}
+                            className="w-full text-left block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors"
+                          >
+                            {link.label}
+                          </button>
+                        );
+                      }
+                      if (link.external) {
+                        return (
+                          <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors">
+                            {link.label}
+                          </a>
+                        );
+                      }
+                      return (
+                        <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)} className="block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors">
+                          {link.label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -441,6 +486,8 @@ export default function Header() {
           </nav>
         </div>
       </div>
+
+      <BackofficeLoginModal isOpen={backofficeModalOpen} onClose={() => setBackofficeModalOpen(false)} />
     </>
   );
 }

@@ -250,13 +250,12 @@ export default function ProductDetailsPage() {
           {/* RIGHT SIDE: ALL PRODUCTS SIDEBAR */}
           <aside className="w-full lg:w-[30%] space-y-8">
             <div className="rounded-2xl shadow-lg p-6 sticky top-[100px]" style={{ background: "linear-gradient(180deg, #2a689b 0%, #1e4b75 100%)", color: "rgb(255, 255, 255)" }}>
-              <h3 className="text-[18px] font-bold font-serif text-white mb-6 pb-4 border-b border-white/20 uppercase tracking-wide">
-                Our Offerings
+              <h3 className="text-xl font-bold font-serif text-white mb-6 pb-4 border-b border-white/20 uppercase tracking-wide">
+                Investment Options
               </h3>
               <ul className="space-y-3">
                 {PRODUCTS_DATA.map((item) => {
                   const isActive = item.slug === slug;
-                  const Icon = item.icon;
                   return (
                     <li key={item.id}>
                       <Link
@@ -267,7 +266,7 @@ export default function ProductDetailsPage() {
                           }`}
                       >
                         <div className="flex items-center gap-3">
-                          <Icon className={`w-5 h-5 ${isActive ? "text-[#ea2830]" : "text-white group-hover:text-[#ea2830]"}`} />
+                          {item.iconPath && <img src={item.iconPath} alt={item.title} className="w-5 h-5" />}
                           <span>{item.title}</span>
                         </div>
                         <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-[#ea2830] translate-x-1" : "text-white/60 group-hover:translate-x-1 group-hover:text-[#ea2830]"

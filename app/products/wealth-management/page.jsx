@@ -144,11 +144,13 @@ export default function ProductDetailsPage() {
               <ul className="space-y-3">
                 {PRODUCTS_DATA.map((item) => {
                   const isActive = item.slug === slug;
-                  const Icon = item.icon;
                   return (
                     <li key={item.id}>
                       <Link href={`/products/${item.slug}`} className={`flex items-center justify-between p-4 rounded-xl font-bold ${isActive ? "bg-white text-[#ea2830]" : "bg-white/10 text-white hover:bg-white hover:text-[#ea2830]"}`}>
-                        <div className="flex items-center gap-3"><Icon className="w-5 h-5" /> {item.title}</div>
+                        <div className="flex items-center gap-3">
+                          {item.iconPath && <img src={item.iconPath} alt={item.title} className="w-5 h-5" />}
+                          {item.title}
+                        </div>
                         <ChevronRight className="w-5 h-5" />
                       </Link>
                     </li>
