@@ -62,7 +62,7 @@ export default async function StatutoryDocumentsPage() {
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
               {documents.map((file) => {
-                const fileUrl = `${baseUrl}/uploads/files/Investorsfiles/${file.filename}`;
+                const fileUrl = `${baseUrl}/uploads/Investorsfiles/${file.filename}`;
                 return (
                   <a
                     key={file.srno}
