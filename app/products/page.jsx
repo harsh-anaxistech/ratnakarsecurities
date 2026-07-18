@@ -12,11 +12,13 @@ export default function ProductsPage() {
         title="Our Products"
         breadcrumbs={[{ label: "Products" }]}
         image="/images/about/AboutUs-Ratnakarsec.png"
-        height="h-[300px] md:h-[400px]" />
+        height="h-[300px] md:h-[400px]" 
+      />
 
       <section className="relative overflow-hidden bg-[#f7f9fc] py-16">
-        <div className="mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 
+          {/* Header */}
           <div className="mb-12 text-center">
             <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#ea2830]">
               Investment Opportunities
@@ -26,42 +28,44 @@ export default function ProductsPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {/* Grid with custom card style */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {PRODUCTS_DATA.map((product) => {
               const Icon = product.icon;
               return (
-                <div
+                <Link
+                  href={`/products/${product.slug}`}
                   key={product.id}
-                  className="group bg-white border border-black/10 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-between"
+                  className="group bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[240px] block"
                 >
-                  <div>
-                    <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
-                      style={{ background: "linear-gradient(135deg, rgb(234, 40, 48), rgb(196, 31, 38))" }}
-                    >
-                      <Icon className="w-7 h-7 text-white" aria-hidden="true" strokeWidth={1.8} />
+                  {/* Content: Title/Desc Left, Icon Right */}
+                  <div className="flex justify-between items-start gap-4 mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-[20px] font-bold text-[#ea2830] mb-3 group-hover:text-[#00aeee] transition-colors duration-300">
+                        {product.title}
+                      </h3>
+                      <p className="text-[15px] text-gray-500 leading-relaxed font-medium">
+                        {product.shortDescription}
+                      </p>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-[#00aeee] transition-colors duration-300">
-                      {product.title}
-                    </h3>
-                    <p className="text-[16px] text-slate-600 leading-relaxed font-medium">
-                      {product.shortDescription}
-                    </p>
+
+                    {/* Large Icon on the right side */}
+                    <div className="flex-shrink-0">
+                      <Icon 
+                        className="w-[70px] h-[70px] text-gray-200 group-hover:text-[#ea2830] transition-colors duration-500" 
+                        strokeWidth={1.2} 
+                      />
+                    </div>
                   </div>
 
-                  <div className="mt-6 pt-2">
-                    <Link
-                      href={`/products/${product.slug}`}
-                      className="inline-flex items-center gap-1.5 text-sm font-bold text-[#ea2830] hover:text-[#00aeee] transition-colors"
-                    >
-                      <span>Learn more</span>
-                      <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform" />
-                    </Link>
+                  {/* Bottom Section with Border Line and Arrow */}
+                  <div className="mt-auto pt-4 border-t border-gray-200 flex items-center justify-between">
+                    <span className="text-[14px] font-bold text-gray-700 group-hover:text-[#ea2830] transition-colors">
+                      Learn More
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-[#ea2830] transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
-
-                  {/* Bottom Border Accent */}
-                  <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#ea2830] group-hover:w-full transition-all duration-500"></div>
-                </div>
+                </Link>
               );
             })}
           </div>

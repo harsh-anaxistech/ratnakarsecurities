@@ -102,7 +102,7 @@ export default function Testimonials() {
                 className="w-full shrink-0 px-2 md:w-auto md:shrink md:px-0"
               >
                 <div
-                  className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-[#00aeee]/40 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group h-full"
+                  className="bg-[#f7f9fc] rounded-2xl p-6 border border-slate-200 hover:border-[#00aeee]/40 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group h-full"
                 >
                   <div>
                     <div

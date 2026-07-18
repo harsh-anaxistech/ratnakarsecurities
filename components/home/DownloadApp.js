@@ -21,15 +21,14 @@ export default function DownloadApp() {
    />
 </div>
           </div>
-
-          {/* મિડલ સાઇડ: નવો સ્થાનિક ફોટો */}
-          <div className="flex-shrink-0">
-            <img
-              src="/images/hero/Gemini_Generated_Image_karn1zkarn1zkarn.png"
-              alt="Investment App"
-              className="w-64 md:w-70 object-contain drop-shadow-2xl"
-            />
-          </div>
+{/* મિડલ સાઇડ: નવો સ્થાનિક ફોટો */}
+<div className="flex-shrink-0">
+  <img
+    src="/images/about/Stock trading on sleek iPhones.png"
+    alt="Investment App"
+    className="w-64 md:w-70 object-contain drop-shadow-2xl"
+  />
+</div>
 
           {/* રાઈટ સાઇડ: બટન્સ */}
           <div className="flex flex-col gap-4 w-full md:w-auto">

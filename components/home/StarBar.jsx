@@ -68,21 +68,20 @@ export default function StatsBar() {
                   md:justify-start md:text-left md:flex-row`}
               >
                 
-                {/* લાલ ઉભી લાઇન (મોબાઈલમાં રાઈટ વાળામાં જમણી બાજુ આવી જશે) */}
                 <div className="w-[3px] h-10 md:h-14 bg-[#ea2830] rounded-full flex-shrink-0" />
                 
-                {/* ટેક્સ્ટ કન્ટેનર */}
-                <div className={`flex flex-col justify-center
-                  ${isRightMobile ? "items-end" : isCenteredMobile ? "items-center" : "items-start"} 
-                  md:items-start`}
-                >
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#ea2830] tracking-tight">
-                    <CountUp target={s.num} suffix={s.suffix} />
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-lg font-bold text-slate-600 mt-0.5 md:mt-1 tracking-tight leading-tight md:whitespace-nowrap">
-                    {s.label}
-                  </p>
-                </div>
+<div className={`flex flex-col justify-center
+  ${isRightMobile ? "items-end" : isCenteredMobile ? "items-center" : "items-start"} 
+  md:items-start`}
+>
+  <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-[#ea2830] tracking-tight">
+    <CountUp target={s.num} suffix={s.suffix} />
+  </h3>
+  
+  <p className="text-xs sm:text-sm md:text-lg font-light text-slate-500 mt-0.5 md:mt-1 tracking-tight leading-tight md:whitespace-nowrap">
+    {s.label}
+  </p>
+</div>
 
               </div>
             );

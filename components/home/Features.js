@@ -16,15 +16,15 @@ import {
 } from "lucide-react";
 
 const SERVICES = [
-  { id: "service-equity", Icon: TrendingUp, title: "Equities", desc: "A captivating avenue for returns. Remember: buy right, hold tight.", href: "/products/equity" },
-  { id: "service-derivatives", Icon: BarChart2, title: "Derivatives", desc: "Leverage your position and hedge risks against unfavorable market movements.", href: "/products/derivatives" },
-  { id: "service-mutual-funds", Icon: PiggyBank, title: "Mutual Funds", desc: "A pool of small investments working together to achieve common financial goals.", href: "/products/mutual-funds" },
+  { id: "service-equity", Icon: TrendingUp, title: "Equity", desc: "Our detailed research, acute investing insights, and real-time market data for your seamless equity investing experience.", href: "/products/equity" },
+  { id: "service-derivatives", Icon: BarChart2, title: "Derivatives", desc: "Your derivatives trading made simple and intuitive with our competitive rates, advanced platforms, and expert research.", href: "/products/derivatives" },
+  { id: "service-mutual-funds", Icon: PiggyBank, title: "Mutual Funds*", desc: "Invest in 5000+ Mutual Funds schemes with the added advantage of our research and ready-made baskets.", href: "/products/mutual-funds" },
   { id: "service-commodities", Icon: Wheat, title: "Commodities", desc: "Lucrative market trading providing effective risk management and hedging tools.", href: "/products/commodities" },
   { id: "service-nris", Icon: Globe, title: "NRIs", desc: "Comprehensive investment options for foreign nationals, backed by extensive research.", href: "/products/nris" },
   { id: "service-wealth", Icon: Briefcase, title: "Wealth Management", desc: "Managing and growing your wealth through every stage of your life.", href: "/products/wealth-management" },
   { id: "service-slbs", Icon: RefreshCw, title: "SLBs", desc: "Lend your stocks or borrow to increase liquidity and benefit from downturns.", href: "/products/slbs" },
   { id: "service-hnis", Icon: Users, title: "HNIs", desc: "Tailormade investment solutions with a dedicated Relationship Manager for guidance.", href: "/products/hnis" },
-  { id: "service-bonds", Icon: Lock, title: "Bonds", desc: "Secure mode of investment backed by our deep understanding of debt markets.", href: "/products/bonds" },
+  { id: "service-bonds", Icon: Lock, title: "Fixed Income*", desc: "Fix your long-term wealth goals with our customized investment solutions, expert guidance, and stable performance.", href: "/products/bonds" },
 ];
 
 export default function InvestmentServices() {
@@ -43,42 +43,41 @@ export default function InvestmentServices() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {SERVICES.map(({ Icon, title, desc, href }) => (
-            <div
+            <Link 
+              href={href} 
               key={title}
-              // અહીં મેં border-black/10 ઉમેર્યું છે
-              className="group bg-white border border-black/10 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] relative overflow-hidden flex flex-col justify-between"
+              className="group bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[240px] block"
             >
-              <div>
-                <div
-                  className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
-                  style={{ background: "linear-gradient(135deg, #ea2830, #c41f26)" }}
-                >
-                  <Icon className="w-6 h-6 text-white" strokeWidth={1.8} />
+              {/* Content */}
+              <div className="flex justify-between items-start gap-4 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-[20px] font-bold text-[#ea2830] mb-3 group-hover:text-[#00aeee] transition-colors duration-300">
+                    {title}
+                  </h3>
+                  <p className="text-[15px] text-gray-500 leading-relaxed font-medium">
+                    {desc}
+                  </p>
                 </div>
-
-                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#00aeee] transition-colors duration-300">
-                  {title}
-                </h3>
-
-                <p className="text-[16px] text-slate-600 leading-relaxed font-medium">
-                  {desc}
-                </p>
+                
+                {/* Large Icon on the right side */}
+                <div className="flex-shrink-0">
+                  <Icon 
+                    className="w-[70px] h-[70px] text-gray-200 group-hover:text-[#ea2830] transition-colors duration-500" 
+                    strokeWidth={1.2} 
+                  />
+                </div>
               </div>
 
-              <div className="mt-5 pt-2">
-                <Link
-                  href={href}
-                  className="inline-flex items-center gap-1 text-sm font-bold text-[#ea2830] hover:text-[#00aeee] transition-colors"
-                >
-                  <span>Learn more</span>
-                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-                </Link>
+              {/* Bottom Section with Arrow */}
+              <div className="mt-auto pt-4 border-t border-gray-200 flex items-center justify-between">
+                <span className="text-[14px] font-bold text-gray-700 group-hover:text-[#ea2830] transition-colors">
+                  Learn More
+                </span>
+                <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-[#ea2830] transition-transform duration-300 group-hover:translate-x-1" />
               </div>
-
-              <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#ea2830] group-hover:w-full transition-all duration-500" />
-            </div>
+            </Link>
           ))}
         </div>
 

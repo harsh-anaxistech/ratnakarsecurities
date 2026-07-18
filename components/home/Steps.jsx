@@ -76,7 +76,7 @@ export default function InvestmentSteps() {
                 </h3>
                 
                 {/* ડિસ્ક્રિપ્શન */}
-                <p className="text-[16px] text-slate-500 leading-relaxed font-medium max-w-[240px]">
+                <p className="text-[15px] text-slate-500 leading-relaxed font-medium max-w-[260px]">
                   {step.desc}
                 </p>
               </div>
