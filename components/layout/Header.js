@@ -342,6 +342,13 @@ export default function Header() {
                           </button>
                         );
                       }
+                      if (link.external) {
+                        return (
+                          <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                            {link.label}
+                          </a>
+                        );
+                      }
                       return (
                         <Link key={link.href} href={link.href} className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
                           {link.label}
@@ -447,6 +454,13 @@ export default function Header() {
                           >
                             {link.label}
                           </button>
+                        );
+                      }
+                      if (link.external) {
+                        return (
+                          <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors">
+                            {link.label}
+                          </a>
                         );
                       }
                       return (
