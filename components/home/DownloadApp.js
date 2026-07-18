@@ -13,13 +13,13 @@ export default function DownloadApp() {
             <p className="text-blue-100 text-lg mb-8">Trade seamlessly on the go with our professional mobile platform.</p>
             
             {/* Google Image QR Code */}
-            <div className="bg-white p-3 rounded-2xl inline-block shadow-lg">
-               <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" 
-                  alt="QR Code" 
-                  className="w-32 h-32" 
-               />
-            </div>
+           <div className="bg-white p-3 rounded-2xl inline-block shadow-lg">
+   <img 
+      src="/images/about/image (28).png" 
+      alt="QR Code" 
+      className="w-32 h-32" 
+   />
+</div>
           </div>
 
           {/* મિડલ સાઇડ: નવો સ્થાનિક ફોટો */}
