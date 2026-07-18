@@ -32,12 +32,13 @@ export default function ProductDetailsPage() {
 
   return (
     <main className="bg-[#f7f9fc] min-h-screen pb-12">
-      <HeroSection
-        title={product.title}
-        breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
-        image={product.imageSrc}
-        height="h-[300px] md:h-[400px]"
-      />
+   <HeroSection
+    title={product.title}
+    breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
+    image="/images/about/2151893449 (1).jpg"
+    height="h-[300px] md:h-[400px]"
+    className="object-top" // અથવા imageClassName="object-top" (તમારા પ્રોપ મુજબ)
+/>
 
       <Container className="mt-12">
         <div className="flex flex-col lg:flex-row gap-10">
