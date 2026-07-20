@@ -91,7 +91,7 @@ export default function ProductDetailsPage() {
               </div>
             </div>
             {/* Strategies */}
-            <div className="bg-gray-200 rounded-2xl p-8 text-slate-900 mb-12">
+            <div className="bg-slate-50 rounded-2xl p-8 text-slate-900 mb-12">
               <h3 className="text-2xl font-bold mb-6">Commodity Trading Strategies</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {["Trend Following Strategy", "Hedging Strategy", "Seasonal Trading", "Technical Analysis Trading", "Fundamental Analysis", "Spread Trading", "Diversified Commodity Portfolio"].map((s, i) => (

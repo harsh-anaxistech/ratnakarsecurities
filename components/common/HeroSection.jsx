@@ -15,7 +15,7 @@ export default function HeroSection({
       <div className="absolute inset-0">
         <Image src={image} alt={`${title} Banner`} fill priority className="object-cover" />
       </div>
-      <div className="absolute inset-0 bg-black/40"></div>
+      
       <Container className="relative z-20 mt-auto pb-12">
         <nav aria-label="Breadcrumbs" className="mb-4">
           <ol className="flex items-center gap-2 text-sm text-white/90">

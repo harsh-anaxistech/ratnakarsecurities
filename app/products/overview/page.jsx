@@ -37,7 +37,7 @@ export default function OverviewPage() {
     { label: "Products", href: "/products" },
     { label: "Overview" }
   ]}
-  image="/images/about/66722.jpg"
+  image="/images/about/Products Overview.jpg"
   height="h-[300px] md:h-[400px]"
 />
 

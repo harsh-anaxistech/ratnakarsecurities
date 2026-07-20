@@ -100,7 +100,7 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* Who Can Invest */}
-            <div className="bg-gray-200 rounded-2xl p-8 mb-12">
+            <div className="bg-slate-50 rounded-2xl p-8 mb-12">
               <h3 className="text-2xl font-bold text-slate-900 mb-6">Who Can Invest?</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {["Non-Resident Indians (NRIs)", "Persons of Indian Origin (PIOs)", "Overseas Citizens of India (OCIs)", "Indian professionals abroad", "Business owners overseas", "Global investors"].map((s, i) => (
