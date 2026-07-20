@@ -71,7 +71,7 @@ const NAV_LINKS = [
 ];
 
 const LOGIN_LINKS = [
-  { label: "Online Trading", href: "javascript://", external: false },
+  { label: "Ratnakar's Online Trading Mobile APP - TradeXpress", href: "javascript://", external: false },
   { label: "Backoffice Login", href: "#", isButton: true },
   { label: "Mutual Fund Portfolio", href: "https://ratnakarsecurities.investwell.app/app/#/login", external: true },
   { label: "Narnolia Investment Advisory Portfolio", href: "https://ratnakarsecurities.narnolia.in/", external: true },
@@ -305,8 +305,7 @@ export default function Header() {
 
                 <a href="https://smartkyc.co.in/d/ratnakar" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
-                    OPEN AN ACCOUNT
-                  </Button>
+OPEN DEMAT ACCOUNT                  </Button>
                 </a>
 
                 {/* Login dropdown */}
