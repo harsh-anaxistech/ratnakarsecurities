@@ -32,7 +32,7 @@ export default function ProductDetailsPage() {
           { label: "Products", href: "/products" },
           { label: product.title }
         ]}
-        image="/images/about/2151908131 (1).jpg"
+        image="/images/about/Equities.jpg"
         height="h-[300px] md:h-[400px]" 
         imageClassName="object-top" // જો કમ્પોનન્ટમાં આ prop સપોર્ટ કરતો હોય 
       />

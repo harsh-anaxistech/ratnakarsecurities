@@ -201,7 +201,7 @@ export default function PartnerForm() {
 
   return (
     <Container>
-      <div className="bg-white rounded-3xl border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] overflow-hidden my-8 lg:my-12">
+      <div className="bg-white rounded-3xl border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12">
           {/* Left Column: Image Banner */}
           <div className="col-span-1 lg:col-span-5 relative min-h-[350px] lg:min-h-[600px] bg-slate-100">
