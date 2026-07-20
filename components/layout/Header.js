@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+
 import { useState, useEffect } from "react";
 import { ChevronDown, TrendingUp, Smartphone, Download, HelpCircle, Heart, Handshake } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -126,7 +127,9 @@ const NAV_LINKS = [
     href: "/about"
   },
   { label: "Contact Us", href: "/contact" },
+  { label: "Partner With Us", href: "/partner-with-us" },
 ];
+
 
 
 const LOGIN_LINKS = [
@@ -240,6 +243,15 @@ export default function Header() {
     if (item.columns) return item.columns.flat();
     return [];
   };
+  const router = useRouter();
+
+  const handleTopNav = (e, href) => {
+    if (!href || href === "#") return;
+    if (!e.ctrlKey && !e.metaKey) {
+      e.preventDefault();
+      router.push(href);
+    }
+  };
 
   return (
     <>
@@ -265,18 +277,21 @@ export default function Header() {
         { Icon: TrendingUp, title: "Markets", href: "#" },
         { Icon: Smartphone, title: "Mobile App", href: "#" },
         { Icon: Download, title: "Downloads", href: "/downloads" },
-        { Icon: HelpCircle, title: "Help", href: "#" },
-        { Icon: Handshake, title: "Partners", href: "#" },
+        { Icon: HelpCircle, title: "Help", href: "/contact" },
+        { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
       ].map((item, index) => (
         <a 
           key={index}
           href={item.href} 
-          className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300" 
+          onClick={(e) => handleTopNav(e, item.href)}
+          className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300 cursor-pointer pointer-events-auto z-10" 
           title={item.title}
         >
-          <item.Icon className="h-5 w-5" />
+          <item.Icon className="h-5 w-5 pointer-events-none" />
         </a>
       ))}
+
+
 
     </div>
   </div>
