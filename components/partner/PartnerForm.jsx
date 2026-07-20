@@ -10,9 +10,9 @@ import { submitPartnerForm } from "@/services/contact";
 /**
  * PartnerForm Component
  *
- * Replicates the Partner With Us page layout as shown in the reference design.
- * Features 2-column layout (handshake image on left, intro text + form on right),
- * detailed input validation, dynamic captcha verification, and REST API integration.
+ * Replicates the Partner With Us page layout matching reference design.
+ * Features 2-column form grid, interactive Date & Time picker for Suitable Time Slot,
+ * dynamic captcha verification, and REST API integration with detailed validation feedback.
  */
 export default function PartnerForm() {
   const [formData, setFormData] = useState({
@@ -21,10 +21,11 @@ export default function PartnerForm() {
     phone: "",
     timeslot: "",
     city: "",
-    interested: "Sub-Broker", // Default value matching curl payload schema
+    interested: "Sub-Broker",
     captcha: "",
   });
 
+  const [timeslotInputType, setTimeslotInputType] = useState("text");
   const [errors, setErrors] = useState({});
   const [captchaVal, setCaptchaVal] = useState("");
   const [isMounted, setIsMounted] = useState(false);
@@ -56,10 +57,10 @@ export default function PartnerForm() {
     let filteredValue = value;
 
     if (name === "phone") {
-      // Mobile number validation: only digits, maximum 10 characters
+      // Mobile number: digits only, max 10 digits
       filteredValue = value.replace(/\D/g, "").slice(0, 10);
     } else if (name === "fullName") {
-      // Name validation: max 100 characters
+      // Name: max 100 characters
       filteredValue = value.slice(0, 100);
     }
 
@@ -74,6 +75,29 @@ export default function PartnerForm() {
     // Clear field error when user types
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  // Helper to format ISO datetime-local string to clean human readable format for backend submission
+  const formatSubmissionDateTime = (dtStr) => {
+    if (!dtStr) return "";
+    if (!dtStr.includes("T")) return dtStr;
+    try {
+      const d = new Date(dtStr);
+      if (isNaN(d.getTime())) return dtStr;
+      const datePart = d.toLocaleDateString("en-IN", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      });
+      const timePart = d.toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+      return `${datePart} ${timePart}`;
+    } catch {
+      return dtStr;
     }
   };
 
@@ -98,16 +122,16 @@ export default function PartnerForm() {
       newErrors.email = "Please enter a valid email address";
     }
 
-    // 3. Mobile number validation (max and exactly 10 digits)
+    // 3. Mobile number validation (exactly 10 digits)
     if (!formData.phone) {
       newErrors.phone = "Mobile number is required";
     } else if (formData.phone.length !== 10) {
       newErrors.phone = "Mobile number must be exactly 10 digits";
     }
 
-    // 4. Suitable Time Slot & Date validation
+    // 4. Suitable Time Slot (Date & Time selection) validation
     if (!formData.timeslot.trim()) {
-      newErrors.timeslot = "Suitable time slot with date is required";
+      newErrors.timeslot = "Please select a suitable date and time slot";
     }
 
     // 5. City validation
@@ -139,17 +163,19 @@ export default function PartnerForm() {
     setErrors({});
     setLoading(true);
 
+    const formattedTimeSlot = formatSubmissionDateTime(formData.timeslot);
+
     try {
       await submitPartnerForm({
         fullName: formData.fullName,
         email: formData.email,
         phone: formData.phone,
         city: formData.city,
-        timeslot: formData.timeslot,
+        timeslot: formattedTimeSlot,
         interseted: formData.interested,
       });
 
-      setStatusMessage("Thank you! Your partner request has been submitted successfully. Our team will contact you soon.");
+      setStatusMessage("Thank you! Your partner request has been submitted successfully. Our executive will contact you soon.");
       setStatusType("success");
       setFormData({
         fullName: "",
@@ -160,11 +186,12 @@ export default function PartnerForm() {
         interested: "Sub-Broker",
         captcha: "",
       });
+      setTimeslotInputType("text");
       generateCaptcha();
     } catch (error) {
       console.error("Partner form submission error:", error);
       setStatusMessage(
-        error.message || "Failed to submit request. Please check if backend API server is running."
+        error.message || "Submission failed. Please check your details and try again."
       );
       setStatusType("error");
     } finally {
@@ -204,7 +231,7 @@ export default function PartnerForm() {
               {/* Description Paragraphs */}
               <div className="text-gray-600 text-xs sm:text-sm leading-relaxed space-y-3 mb-8">
                 <p>
-                  Whatever your involvement in trading or the financial markets, you could benefit from a partnership with us . Partnership is a growing part of our business. Whether you are authorised to trade directly for your own clients or simply deliver educational advice, we could work with you to make your business more profitable, without straining your resources.
+                  Whatever your involvement in trading or the financial markets, you could benefit from a partnership with us. Partnership is a growing part of our business. Whether you are authorised to trade directly for your own clients or simply deliver educational advice, we could work with you to make your business more profitable, without straining your resources.
                 </p>
                 <p>
                   To find the right partnership model for your needs, just fill the below information & our executive will be in touch with you.
@@ -263,7 +290,7 @@ export default function PartnerForm() {
                   </div>
                 </div>
 
-                {/* Row 2: Mobile Number & Suitable Time Slot */}
+                {/* Row 2: Mobile Number & Suitable Time Slot (Date & Time Picker) */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Mobile Number Input */}
                   <div className="flex flex-col gap-1">
@@ -289,19 +316,24 @@ export default function PartnerForm() {
                     )}
                   </div>
 
-                  {/* Suitable Time Slot Input */}
+                  {/* Suitable Time Slot (Date & Time Selector) */}
                   <div className="flex flex-col gap-1">
                     <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] focus-within:ring-1 focus-within:ring-[#00aeee] rounded bg-white h-11 transition-colors relative">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
                         <Calendar className="w-4 h-4" />
                       </div>
                       <input
-                        type="text"
+                        type={timeslotInputType || (formData.timeslot ? "datetime-local" : "text")}
                         name="timeslot"
                         placeholder="Suitable Time Slot"
                         value={formData.timeslot}
+                        onFocus={() => setTimeslotInputType("datetime-local")}
+                        onBlur={(e) => {
+                          if (!e.target.value) setTimeslotInputType("text");
+                        }}
                         onChange={handleChange}
-                        className="w-full h-full pl-10 pr-3 text-sm text-gray-800 bg-transparent outline-none placeholder-gray-400 font-medium"
+                        min={new Date().toISOString().slice(0, 16)}
+                        className="w-full h-full pl-10 pr-3 text-sm text-gray-800 bg-transparent outline-none placeholder-gray-400 font-medium cursor-pointer"
                         required
                       />
                     </div>

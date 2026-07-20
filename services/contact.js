@@ -64,19 +64,26 @@ export async function submitPartnerForm(partnerData) {
     },
     body: JSON.stringify({
       fullName: partnerData.fullName,
+      name: partnerData.fullName,
       email: partnerData.email,
       phone: partnerData.phone,
+      phno: partnerData.phone,
       city: partnerData.city,
       timeslot: partnerData.timeslot,
       interseted: partnerData.interseted,
+      interest: partnerData.interseted,
     }),
   });
 
   if (!response.ok) {
     const errData = await response.json().catch(() => ({}));
-    throw new Error(errData.message || `Failed to submit partner request: ${response.statusText}`);
+    const detailMsg = errData.data && errData.data.errors && Array.isArray(errData.data.errors) 
+      ? errData.data.errors.join(", ") 
+      : null;
+    throw new Error(detailMsg || errData.message || `Failed to submit partner request: ${response.statusText}`);
   }
 
   return await response.json();
 }
+
 
