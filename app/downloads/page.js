@@ -1,165 +1,146 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronRight, Download as DownloadIcon, FileText } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronRight, Download as DownloadIcon, FileText, FileBadge, Loader2 } from "lucide-react";
 import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
+import { API_BASE_URL } from "@/services/config";
+import {
+  getDownloadSections,
+  getDownloadSubsections,
+  getDownloadFront,
+} from "@/services/downloads";
 
-const DOWNLOADS_DATA = {
-  downloads: {
-    title: "Downloads",
-    categories: [
-      {
-        name: "CKYC",
-        items: [
-          { title: "RATNAKAR - CKYC FORM", pdf: "/files/ckyc-form.pdf" },
-          { title: "Non Individual CKYC Form", pdf: "/files/non-individual-ckyc.pdf" },
-          { title: "CKYC - INDIVIDUAL", pdf: "/files/ckyc-individual.pdf" },
-          { title: "FATCA Declaration", pdf: "/files/fatca-declaration.pdf" },
-        ],
-      },
-      {
-        name: "DEMAT",
-        items: [
-          { title: "Demat Account Opening Form", pdf: "/files/demat-form.pdf" },
-          { title: "Demat - Important Guidelines", pdf: "/files/demat-guidelines.pdf" },
-        ],
-      },
-      {
-        name: "KYC AMENDMENT",
-        items: [
-          { title: "KYC Amendment Form", pdf: "/files/kyc-amendment.pdf" },
-        ],
-      },
-    ],
-  },
-  documents: {
-    title: "Documents",
-    categories: [
-      {
-        name: "CKYC",
-        items: [
-          { title: "CKYC Documentation", pdf: "/files/ckyc-docs.pdf" },
-        ],
-      },
-      {
-        name: "DEMAT",
-        items: [
-          { title: "DEMAT Documentation", pdf: "/files/demat-docs.pdf" },
-        ],
-      },
-      {
-        name: "EXCHANGE-SURVEILLANCE-SCRIPS",
-        items: [
-          { title: "Exchange Surveillance Scrips", pdf: "/files/exchange-scrips.pdf" },
-        ],
-      },
-      {
-        name: "KRA",
-        items: [
-          { title: "KRA Documentation", pdf: "/files/kra-docs.pdf" },
-        ],
-      },
-      {
-        name: "MARGIN",
-        items: [
-          { title: "Margin Policy", pdf: "/files/margin-policy.pdf" },
-        ],
-      },
-      {
-        name: "MUTUAL-FUND",
-        items: [
-          { title: "Mutual Fund Documentation", pdf: "/files/mutual-fund-docs.pdf" },
-        ],
-      },
-      {
-        name: "ODIN-UPDATE",
-        items: [
-          { title: "ODIN Update Guide", pdf: "/files/odin-update.pdf" },
-        ],
-      },
-      {
-        name: "POLICIES",
-        items: [
-          { title: "Company Policies", pdf: "/files/policies.pdf" },
-        ],
-      },
-      {
-        name: "RATNAKAR-COMMODITIES-KYC-DOCS",
-        items: [
-          { title: "Commodities KYC Documents", pdf: "/files/commodities-kyc.pdf" },
-        ],
-      },
-      {
-        name: "TRADING",
-        items: [
-          { title: "Trading Documentation", pdf: "/files/trading-docs.pdf" },
-        ],
-      },
-    ],
-  },
-  "new-update": {
-    title: "New Update",
-    categories: [
-      {
-        name: "New Update",
-        items: [
-          { title: "New Update", pdf: "/files/new-update.pdf" },
-          { title: "Handling of Clients' Securities", pdf: "/files/clients-securities.pdf" },
-          { title: "Reliance - Rights Issues - Basic Details & FAQs", pdf: "/files/reliance-rights.pdf" },
-          { title: "Cash Segment Margin Pledge", pdf: "/files/cash-margin.pdf" },
-        ],
-      },
-    ],
-  },
-  "trading-demat": {
-    title: "Trading & Demat",
-    categories: [
-      {
-        name: "Online Trading",
-        items: [
-          { title: "Online Trading", pdf: "/files/online-trading.pdf" },
-          { title: "Online Trading - Funds Transfer - Bank Details", pdf: "/files/trading-funds.pdf" },
-        ],
-      },
-      {
-        name: "Margin",
-        items: [
-          { title: "Margin Trading Guide", pdf: "/files/margin-trading.pdf" },
-        ],
-      },
-    ],
-  },
-};
+function getFileUrl(file) {
+  if (!file) return "#";
+  let url = file.fileurl || file.FILEURL || file.fileupload || file.pdf || file.url || file.filepath || "";
+  
+  if (!url && file.filename && (file.filename.includes(".pdf") || file.filename.includes(".doc"))) {
+    const baseUrl = API_BASE_URL.replace(/\/api$/, "");
+    url = `${baseUrl}/uploads/Downloads/${file.filename}`;
+  }
 
-const TABS = [
-  { id: "downloads", label: "Downloads", icon: "📥" },
-  { id: "documents", label: "Documents", icon: "📄" },
-  { id: "new-update", label: "New Update", icon: "🆕" },
-  { id: "trading-demat", label: "Trading & Demat", icon: "📊" },
+  // Ensure HTTPS if live API returns http://
+  if (url && url.startsWith("http://api.ratnakarsecurities.com")) {
+    url = url.replace("http://api.ratnakarsecurities.com", "https://api.ratnakarsecurities.com");
+  } else if (url && !url.startsWith("http://") && !url.startsWith("https://") && !url.startsWith("/")) {
+    const baseUrl = API_BASE_URL.replace(/\/api$/, "");
+    url = `${baseUrl}/${url}`;
+  }
+  
+  return url || "#";
+}
+
+const FALLBACK_SECTIONS = [
+  { SRNO: "3", section_name: "Documents", secname: "Documents" },
+  { SRNO: "2", section_name: "New Update", secname: "NewUpdate" },
+  { SRNO: "1", section_name: "Trading & Demat", secname: "TradingDemat" },
 ];
 
 export default function DownloadsPage() {
-  const [activeTab, setActiveTab] = useState("downloads");
-  const [expandedCategories, setExpandedCategories] = useState({});
+  const [sections, setSections] = useState([]);
+  const [activeSectionId, setActiveSectionId] = useState(null);
+  
+  const [subsections, setSubsections] = useState([]);
+  const [activeSubsectionId, setActiveSubsectionId] = useState(null);
 
-  const currentData = DOWNLOADS_DATA[activeTab];
+  const [items, setItems] = useState([]);
 
-  const toggleCategory = (categoryName) => {
-    setExpandedCategories((prev) => ({
-      ...prev,
-      [categoryName]: !prev[categoryName],
-    }));
-  };
+  const [loadingSections, setLoadingSections] = useState(true);
+  const [loadingSubsections, setLoadingSubsections] = useState(false);
+  const [loadingItems, setLoadingItems] = useState(false);
+
+  // 1. Fetch headers (sections) on page load
+  useEffect(() => {
+    async function loadSections() {
+      setLoadingSections(true);
+      try {
+        const res = await getDownloadSections();
+        const data = res?.data || (Array.isArray(res) ? res : []);
+        if (Array.isArray(data) && data.length > 0) {
+          setSections(data);
+          const firstSecId = data[0].SRNO ?? data[0].id ?? data[0].section_id;
+          setActiveSectionId(firstSecId);
+        } else {
+          setSections(FALLBACK_SECTIONS);
+          setActiveSectionId(FALLBACK_SECTIONS[0].SRNO);
+        }
+      } catch (err) {
+        console.error("Error fetching download sections:", err);
+        setSections(FALLBACK_SECTIONS);
+        setActiveSectionId(FALLBACK_SECTIONS[0].SRNO);
+      } finally {
+        setLoadingSections(false);
+      }
+    }
+    loadSections();
+  }, []);
+
+  // 2. Fetch subheaders (subsections) when active section changes (also runs on page load right after sections load)
+  useEffect(() => {
+    if (!activeSectionId) return;
+
+    async function loadSubsections() {
+      setLoadingSubsections(true);
+      setSubsections([]);
+      setActiveSubsectionId(null);
+      setItems([]);
+
+      try {
+        const res = await getDownloadSubsections(activeSectionId);
+        const data = res?.data || (Array.isArray(res) ? res : []);
+        if (Array.isArray(data) && data.length > 0) {
+          setSubsections(data);
+          const firstSubId = data[0].SRNO ?? data[0].id ?? data[0].subsection_id;
+          setActiveSubsectionId(firstSubId);
+        }
+      } catch (err) {
+        console.error(`Error fetching subsections for section ${activeSectionId}:`, err);
+      } finally {
+        setLoadingSubsections(false);
+      }
+    }
+
+    loadSubsections();
+  }, [activeSectionId]);
+
+  // 3. Fetch subheader data (items) when active section or active subsection changes
+  useEffect(() => {
+    if (!activeSectionId || !activeSubsectionId) return;
+
+    async function loadItems() {
+      setLoadingItems(true);
+      try {
+        const res = await getDownloadFront(activeSectionId, activeSubsectionId);
+        const data = res?.data || (Array.isArray(res) ? res : []);
+        setItems(Array.isArray(data) ? data : []);
+      } catch (err) {
+        console.error(
+          `Error fetching download items for section ${activeSectionId}, subsection ${activeSubsectionId}:`,
+          err
+        );
+        setItems([]);
+      } finally {
+        setLoadingItems(false);
+      }
+    }
+
+    loadItems();
+  }, [activeSectionId, activeSubsectionId]);
+
+  const activeSection = sections.find(
+    (s) => String(s.SRNO ?? s.id ?? s.section_id) === String(activeSectionId)
+  );
+
+  const activeSectionTitle =
+    activeSection?.section_name || activeSection?.name || activeSection?.title || "Downloads";
 
   return (
-    <main className="w-full">
+    <main className="w-full min-h-screen bg-background">
       {/* Hero Banner */}
-      <HeroSection 
+      <HeroSection
         title="Downloads"
-        breadcrumbs={[
-          { label: "Downloads" }
-        ]}
+        breadcrumbs={[{ label: "Downloads" }]}
         image="/images/about/AboutUs-Ratnakarsec.png"
         height="h-[300px] md:h-[400px]"
       />
@@ -168,11 +149,14 @@ export default function DownloadsPage() {
       <section className="py-12 bg-[#f7f9fc]">
         <Container>
           <div className="mb-12 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "rgb(234, 40, 48)" }}>
+            <div
+              className="text-[14px] font-black tracking-widest uppercase mb-3"
+              style={{ color: "rgb(234, 40, 48)" }}
+            >
               Resources & Support
             </div>
             <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">
-              {currentData.title}
+              {activeSectionTitle}
             </h2>
             <p className="text-[16px] text-gray-700 max-w-3xl mx-auto font-medium">
               Access all our important documents, forms, and resources for your convenience.
@@ -181,105 +165,148 @@ export default function DownloadsPage() {
         </Container>
       </section>
 
-      {/* Tabs */}
-      <div className="bg-white border-b border-gray-200 sticky top-[72px] z-40">
+      {/* 1. Header Tabs (Sections) */}
+      <div className="bg-white border-b border-gray-200 sticky top-[72px] z-40 shadow-sm">
         <Container>
-          <div className="flex gap-0 overflow-x-auto">
-            {TABS.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => {
-                  setActiveTab(tab.id);
-                  setExpandedCategories({});
-                }}
-                className={`px-6 py-4 font-medium text-base border-b-2 transition-all duration-300 whitespace-nowrap ${
-                  activeTab === tab.id
-                    ? "border-red-600 text-red-600 bg-red-50"
-                    : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          <div className="flex gap-2 overflow-x-auto py-1 scrollbar-none">
+            {loadingSections ? (
+              <div className="flex items-center gap-4 py-4 text-sm text-gray-500 font-medium">
+                <Loader2 className="w-4 h-4 animate-spin text-red-600" />
+                <span>Loading sections...</span>
+              </div>
+            ) : (
+              sections.map((sec) => {
+                const secId = sec.SRNO ?? sec.id ?? sec.section_id;
+                const secName = sec.section_name || sec.name || sec.title || "Section";
+                const isActive = String(secId) === String(activeSectionId);
+
+                return (
+                  <button
+                    key={secId}
+                    onClick={() => setActiveSectionId(secId)}
+                    className={`px-6 py-4 font-semibold text-base border-b-2 cursor-pointer transition-all duration-300 whitespace-nowrap rounded-t-lg ${
+                      isActive
+                        ? "border-red-600 text-red-600 bg-red-50/70 shadow-sm"
+                        : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                    }`}
+                  >
+                    {secName}
+                  </button>
+                );
+              })
+            )}
           </div>
         </Container>
       </div>
 
-      {/* Main Content */}
+      {/* Main Content Area */}
       <div className="bg-white py-12">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-            {/* Sidebar - Categories */}
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+            {/* 2. Sidebar - Subheaders (Subsections) */}
             <div className="lg:col-span-1">
-              <div className="bg-gray-50 rounded-lg p-4 sticky top-[200px]">
-                {currentData.categories.map((category) => (
-                  <div key={category.name} className="border-b border-gray-200 last:border-b-0">
-                    <button
-                      onClick={() => toggleCategory(category.name)}
-                      className="w-full flex items-center justify-between py-3 px-2 text-left font-medium text-gray-700 hover:text-red-600 hover:bg-red-50 rounded transition-colors duration-200"
-                    >
-                      <span className="text-sm">{category.name}</span>
-                      <ChevronRight
-                        className={`h-4 w-4 transition-transform duration-300 ${
-                          expandedCategories[category.name] ? "rotate-90" : ""
-                        }`}
-                      />
-                    </button>
-                    
-                    {/* Expandable Items */}
-                    {expandedCategories[category.name] && (
-                      <div className="bg-white border-l-2 border-red-600">
-                        {category.items.map((item) => (
-                          <a
-                            key={item.title}
-                            href={item.pdf}
-                            download
-                            className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 transition-colors duration-200 block"
-                          >
-                            {item.title}
-                          </a>
-                        ))}
-                      </div>
-                    )}
+              <div className="bg-gray-50 rounded-xl p-4 border border-gray-200/80 sticky top-[180px]">
+                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 px-2">
+                  Subsections
+                </h3>
+
+                {loadingSubsections ? (
+                  <div className="py-8 text-center text-gray-400">
+                    <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2 text-red-600" />
+                    <span className="text-xs font-medium">Loading subheaders...</span>
                   </div>
-                ))}
+                ) : subsections.length === 0 ? (
+                  <div className="text-xs text-gray-500 p-3 italic">No subsections found</div>
+                ) : (
+                  <div className="space-y-1">
+                    {subsections.map((sub) => {
+                      const subId = sub.SRNO ?? sub.id ?? sub.subsection_id;
+                      const subName =
+                        sub.subsection_name || sub.name || sub.title || sub.category || "Subsection";
+                      const isSubActive = String(subId) === String(activeSubsectionId);
+
+                      return (
+                        <button
+                          key={subId}
+                          onClick={() => setActiveSubsectionId(subId)}
+                          className={`w-full flex items-center justify-between py-3 px-3 rounded-lg text-left font-medium text-sm cursor-pointer transition-all duration-200 ${
+                            isSubActive
+                              ? "bg-red-600 text-white font-bold shadow-sm"
+                              : "text-gray-700 hover:text-red-600 hover:bg-red-50"
+                          }`}
+                        >
+                          <span>{subName}</span>
+                          <ChevronRight
+                            className={`h-4 w-4 transition-transform duration-200 ${
+                              isSubActive ? "translate-x-0.5" : "opacity-60"
+                            }`}
+                          />
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
 
-            {/* Grid View - All documents */}
+            {/* 3. Grid View - Subheader Data (Items) */}
             <div className="lg:col-span-4">
-              <div className="space-y-8">
-                {currentData.categories.map((category) => (
-                  <div key={category.name}>
-                    <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-3 mb-6">
-                      {category.name}
-                    </h3>
-                    <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-                      {category.items.map((file) => (
-                        <a
-                          key={file.title}
-                          href={file.pdf}
-                          download
-                          className="group p-6 border border-gray-200 rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-[#EA2830]/10 hover:border-[#EA2830]/30 flex flex-col items-center text-center h-full"
-                        >
-                          <div className="w-14 h-14 bg-[#EA2830] rounded-full flex items-center justify-center text-white mb-5 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
-                            <FileText size={24} />
-                          </div>
-                          
-                          <h4 className="text-[16px] font-sans font-medium text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">
-                            {file.title}
-                          </h4>
-                          
-                          <div className="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gray-50 text-gray-600 text-sm font-semibold group-hover:bg-[#EA2830] group-hover:text-white transition-colors duration-300">
-                            <DownloadIcon size={16} className="stroke-[2.5]" />
-                            <span>Download</span>
-                          </div>
-                        </a>
-                      ))}
+              {loadingItems ? (
+                <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                  {Array.from({ length: 6 }).map((_, idx) => (
+                    <div
+                      key={idx}
+                      className="p-6 border border-gray-100 rounded-2xl bg-white shadow-sm flex flex-col items-center text-center animate-pulse"
+                    >
+                      <div className="w-14 h-14 bg-gray-200 rounded-full mb-5" />
+                      <div className="h-4 bg-gray-200 rounded w-3/4 mb-3" />
+                      <div className="h-4 bg-gray-200 rounded w-1/2 mb-6" />
+                      <div className="mt-auto w-full h-10 bg-gray-200 rounded-xl" />
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : items.length === 0 ? (
+                <div className="text-center py-20 bg-white border border-gray-100 rounded-2xl shadow-sm">
+                  <FileBadge className="mx-auto h-12 w-12 text-gray-300 mb-4" />
+                  <h3 className="text-lg font-bold text-gray-900">No documents found</h3>
+                  <p className="text-gray-500 mt-2 font-medium">
+                    There are currently no documents available for this section.
+                  </p>
+                </div>
+              ) : (
+                <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                  {items.map((file, idx) => {
+                    const fileTitle =
+                      file.filename || file.title || file.caption || file.name || "Download Document";
+                    const fileUrl = getFileUrl(file);
+                    const key = file.SRNO || file.srno || file.id || idx;
+
+                    return (
+                      <a
+                        key={key}
+                        href={fileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download
+                        className="group p-6 border border-gray-200 rounded-2xl bg-white shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-[#EA2830]/10 hover:border-[#EA2830]/30 flex flex-col items-center text-center h-full"
+                      >
+                        <div className="w-14 h-14 bg-[#EA2830] rounded-full flex items-center justify-center text-white mb-5 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
+                          <FileText size={24} />
+                        </div>
+
+                        <h4 className="text-[16px] font-sans font-medium text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">
+                          {fileTitle}
+                        </h4>
+
+                        <div className="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gray-50 text-gray-600 text-sm font-semibold group-hover:bg-[#EA2830] group-hover:text-white transition-colors duration-300">
+                          <DownloadIcon size={16} className="stroke-[2.5]" />
+                          <span>Download</span>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </Container>
