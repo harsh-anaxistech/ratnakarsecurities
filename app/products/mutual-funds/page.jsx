@@ -102,7 +102,7 @@ export default function ProductDetailsPage() {
       { label: "Products", href: "/products" },
       { label: product.title }
     ]}
-    image="/images/about/615 (1).jpg"
+    image="/images/about/Mutual Funds.jpg"
     height="h-[300px] md:h-[400px]"
     imageClassName="object-top" // તમારા કમ્પોનન્ટ મુજબ જે પ્રોપ હોય તે વાપરો (દા.ત. className="object-top")
 />

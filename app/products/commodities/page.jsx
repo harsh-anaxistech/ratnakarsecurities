@@ -34,7 +34,7 @@ export default function ProductDetailsPage() {
      <HeroSection
     title={product.title}
     breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
-    image="/images/about/23515 (1).jpg"
+    image="/images/about/Commodities.jpg"
     height="h-[300px] md:h-[400px]"
 />
 

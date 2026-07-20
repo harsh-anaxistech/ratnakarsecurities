@@ -5,7 +5,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 import { useState, useEffect } from "react";
-import { ChevronDown, TrendingUp, Smartphone, Download, HelpCircle, Heart, Handshake } from "lucide-react";
+// Navu: X (Close icon) ane Briefcase icon import karya chhe
+import { ChevronDown, TrendingUp, Smartphone, Download, HelpCircle, Heart, Handshake, X, Briefcase } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
@@ -93,28 +94,14 @@ function DropdownLink({ link, children, className }) {
   return <Link href={link.href} className={className}>{content}</Link>;
 }
 
-function NavLink({ link, children, className, onClick }) {
-  if (link.external) {
-    return <a href={link.href} target="_blank" rel="noopener noreferrer" className={className} onClick={onClick}>{children}</a>;
-  }
-  return <Link href={link.href} className={className} onClick={onClick}>{children}</Link>;
-}
-
-const getSectionIcon = (name) => {
-  const lower = name.toLowerCase();
-  if (lower.includes("company")) return "company";
-  if (lower.includes("ipo")) return "ipos";
-  if (lower.includes("news")) return "news";
-  if (lower.includes("announcement")) return "announcements";
-  return "company";
-};
-
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
   const [backofficeModalOpen, setBackofficeModalOpen] = useState(false);
+  const [mobileAppModalOpen, setMobileAppModalOpen] = useState(false); // Navu state app modal mate
+  
   const pathname = usePathname();
   const [prevPathname, setPrevPathname] = useState(pathname);
 
@@ -123,6 +110,7 @@ export default function Header() {
     setMobileOpen(false);
     setOpenAccordion(null);
     setMobileLoginOpen(false);
+    setMobileAppModalOpen(false); // Page change par modal close karva
   }
 
   const [navLinks, setNavLinks] = useState(NAV_LINKS);
@@ -132,6 +120,14 @@ export default function Header() {
       try {
         const result = await getResearchSections();
         if (result && result.success && Array.isArray(result.data)) {
+          const getSectionIcon = (name) => {
+            const lower = name.toLowerCase();
+            if (lower.includes("company")) return "company";
+            if (lower.includes("ipo")) return "ipos";
+            if (lower.includes("news")) return "news";
+            if (lower.includes("announcement")) return "announcements";
+            return "company";
+          };
           const dynamicDropdown = result.data.map((sec) => {
             const code = sec.section_name.toLowerCase();
             return {
@@ -170,9 +166,9 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    document.body.style.overflow = (mobileOpen || mobileAppModalOpen) ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
+  }, [mobileOpen, mobileAppModalOpen]);
 
   const hasSubmenu = (item) => item.columns || item.dropdown;
   const getSubLinks = (item) => {
@@ -195,7 +191,6 @@ export default function Header() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-[999] flex flex-col transition-transform duration-300 ease-in-out",
-          // Mukhya Change ahiya chhe: md:-translate-y-14 (jyare scroll thay tyare top header hide thay)
           scrolled ? "shadow-md md:-translate-y-14" : "translate-y-0"
         )}
       >
@@ -221,7 +216,15 @@ export default function Header() {
                 <a 
                   key={index}
                   href={item.href} 
-                  onClick={(e) => handleTopNav(e, item.href)}
+                  onClick={(e) => {
+                    // Jo Mobile App par click thay to popup khule
+                    if(item.title === "Mobile App") {
+                      e.preventDefault();
+                      setMobileAppModalOpen(true);
+                    } else {
+                      handleTopNav(e, item.href);
+                    }
+                  }}
                   className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300 cursor-pointer pointer-events-auto z-10" 
                   title={item.title}
                 >
@@ -357,14 +360,13 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Spacer - Content header ni niche na dabu jay eni mate */}
+      {/* Spacer */}
       <div className="h-16 md:h-[128px] w-full" aria-hidden="true" />
 
       {/* Mobile Drawer */}
       <div id="mobile-menu" className={cn("fixed inset-0 z-[1000] transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto" : "pointer-events-none")} aria-hidden={!mobileOpen}>
         <div className={cn("absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300", mobileOpen ? "opacity-100" : "opacity-0")} onClick={() => setMobileOpen(false)} />
         <div className={cn("absolute right-0 top-0 h-full w-full bg-white transition-transform duration-300 ease-in-out flex flex-col", mobileOpen ? "translate-x-0" : "translate-x-full")}>
-          {/* Drawer Header */}
           <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100" style={{ background: "#011628" }}>
             <Link href="/" onClick={() => setMobileOpen(false)}>
               <div className="bg-white rounded-lg p-2">
@@ -377,7 +379,6 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Nav links */}
           <nav className="flex-1 overflow-y-auto px-4 py-4" aria-label="Mobile navigation">
             <div className="flex flex-col gap-1">
               {navLinks.map((item) => {
@@ -414,7 +415,6 @@ export default function Header() {
                 );
               })}
 
-              {/* Login */}
               <div className="mt-2">
                 <button
                   onClick={() => { setMobileLoginOpen((p) => !p); setOpenAccordion(null); }}
@@ -457,7 +457,6 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="mt-4 flex flex-col gap-2">
                 <a href="https://twx.ratnakarsecurities.com:4433/twx/signin" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
                   <Button className="w-full bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5">RE-KYC</Button>
@@ -472,6 +471,52 @@ export default function Header() {
       </div>
 
       <BackofficeLoginModal isOpen={backofficeModalOpen} onClose={() => setBackofficeModalOpen(false)} />
+
+      {/* ── MOBILE APP MODAL (POPUP) ── */}
+      {mobileAppModalOpen && (
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl">
+            
+            {/* ક્લોઝ બટન */}
+            <button 
+              onClick={() => setMobileAppModalOpen(false)} 
+              className="absolute top-4 right-4 text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors"
+            >
+              <X size={24} strokeWidth={3} />
+            </button>
+
+            <h2 className="text-2xl font-bold text-center text-slate-900 mb-8">Choose Your App</h2>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-8">
+              {/* Option 1: Wealth Management */}
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.tvs.ratnakar" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center group"
+              >
+                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#00aeee] transition-all duration-300 mb-4">
+                  <Briefcase className="w-12 h-12 text-[#00aeee]" />
+                </div>
+                <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">WEALTH<br/>MANAGEMENT</span>
+              </a>
+
+              {/* Option 2: Trade Express */}
+              <a 
+                href="https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center group"
+              >
+                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#ea2830] transition-all duration-300 mb-4">
+                  <TrendingUp className="w-12 h-12 text-[#ea2830]" />
+                </div>
+                <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">TRADE<br/>EXPRESS</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

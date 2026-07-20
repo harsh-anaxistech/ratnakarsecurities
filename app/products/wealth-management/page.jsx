@@ -35,7 +35,7 @@ export default function ProductDetailsPage() {
   <HeroSection
     title={product.title}
     breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
-    image="/images/about/photo-1600880292203-757bb62b4baf.jpeg"
+    image="/images/about/Wealth Management.jpg"
     height="h-[300px] md:h-[400px]"
     className="object-top" /* અથવા imageClassName="object-top" */
 />

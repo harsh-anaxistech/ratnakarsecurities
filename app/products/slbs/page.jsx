@@ -38,7 +38,7 @@ export default function ProductDetailsPage() {
     { label: "Products", href: "/products" }, 
     { label: product.title }
   ]}
-  image="/images/about/127803 (1).jpg"
+  image="/images/about/SLBs.jpg"
   height="h-[300px] md:h-[400px]"
 />
       <Container className="mt-12">
