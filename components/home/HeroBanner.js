@@ -126,7 +126,7 @@ export default function HeroBanner() {
             {/* ── FLOATING GLASSMORPHIC BADGES ── */}
             
             {/* 1. Equity (Top Left) */}
-            <div className="absolute top-[6%] left-[0%] sm:left-[8%] lg:left-[10%] z-20 float-anim-1 scale-[0.72] sm:scale-100 origin-left">
+            <div className="absolute top-[10%] left-[0%] sm:left-[8%] lg:left-[10%] z-20 float-anim-1 scale-[0.72] sm:scale-100 origin-left">
               <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-2 sm:p-2.5 shadow-xl hover:bg-white/15 hover:border-[#00aeee]/40 transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/20 rounded-lg flex items-center justify-center shrink-0">
                   <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />

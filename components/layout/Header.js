@@ -4,14 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, TrendingUp, Smartphone, Download, HelpCircle, Heart, Handshake } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import MenuIcons from "@/components/layout/MenuIcons";
 import { getResearchSections } from "@/services/research";
 import BackofficeLoginModal from "@/components/modals/BackofficeLoginModal";
-
 // const NAV_LINKS = [
 //   {
 //     label: "Products",
@@ -250,7 +249,38 @@ export default function Header() {
           scrolled ? "shadow-md" : ""
         )}
       >
+{/* ── GRADIENT RADIAL TOP HEADER ── */}
+<div 
+  className="hidden md:flex h-14 w-full items-center border-b border-white/10 sticky top-0 z-50 shadow-md"
+  style={{
+    background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
+    color: "#fff"
+  }}
+>
+  <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 w-full">
+    <div className="flex h-14 items-center justify-end gap-4">
+      
+      {/* Icons List */}
+      {[
+        { Icon: TrendingUp, title: "Markets", href: "#" },
+        { Icon: Smartphone, title: "Mobile App", href: "#" },
+        { Icon: Download, title: "Downloads", href: "/downloads" },
+        { Icon: HelpCircle, title: "Help", href: "#" },
+        { Icon: Handshake, title: "Partners", href: "#" },
+      ].map((item, index) => (
+        <a 
+          key={index}
+          href={item.href} 
+          className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300" 
+          title={item.title}
+        >
+          <item.Icon className="h-5 w-5" />
+        </a>
+      ))}
 
+    </div>
+  </div>
+</div>
         {/* ── MAIN NAV ── */}
 
         <div className="bg-white border-b border-gray-200">
