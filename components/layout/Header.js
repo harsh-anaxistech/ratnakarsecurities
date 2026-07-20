@@ -12,67 +12,7 @@ import Button from "@/components/common/Button";
 import MenuIcons from "@/components/layout/MenuIcons";
 import { getResearchSections } from "@/services/research";
 import BackofficeLoginModal from "@/components/modals/BackofficeLoginModal";
-// const NAV_LINKS = [
-//   {
-//     label: "Products",
-//     href: "/products",
-//     columns: [
-//       [
-//         { label: "Overview", href: "/products", icon: "overview" },
-//         { label: "Equity", href: "/products/equity", icon: "equity" },
-//         { label: "Derivatives", href: "/products/derivatives", icon: "derivatives" },
-//         { label: "Mutual Funds", href: "/products/mutual-funds", icon: "mutual-funds" },
-//         { label: "Commodities", href: "/products/commodities", icon: "commodities" },
-//       ],
-//       [
-//         { label: "Wealth Management", href: "/products/wealth-management", icon: "wealth-management" },
-//         { label: "NRIs", href: "/products/nri", icon: "nri" },
-//         { label: "SLBS", href: "/products/slbs", icon: "slbs" },
-//         { label: "Bonds", href: "/products/bonds", icon: "bonds" },
-//         { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", external: true, icon: "investment-advisory" },
-//       ],
-//     ],
-//   },
-//   {
-//     label: "Research",
-//     href: "/research",
-//     dropdown: [
-//       { label: "Company", href: "/research/company", icon: "company" },
-//       { label: "IPOs", href: "/research/ipos", icon: "ipos" },
-//       { label: "News", href: "/research/news", icon: "news" },
-//       { label: "Announcements", href: "/research/announcements", icon: "announcements" },
-//     ],
-//   },
-//   {
-//     label: "Investors",
-//     href: "/investors",
-//     columns: [
-//       [
-//         { label: "Board of Directors", href: "/investors/board-of-directors", icon: "board-of-directors" },
-//         { label: "Disclosure of Contact Details", href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel", icon: "contact-details" },
-//         { label: "Statutory Documents", href: "/investors/statutory-and-registration-certificate-documents", icon: "statutory" },
-//         { label: "Policies", href: "/investors/policies", icon: "policies" },
-//         { label: "Financial Information", href: "/investors/financial-information-and-annual-report", icon: "financial-info" },
-//       ],
-//       [
-//         { label: "Shareholding Pattern", href: "/investors/shareholding-pattern", icon: "shareholding-pattern" },
-//         { label: "Newspaper Publication", href: "/investors/newspaper-publication", icon: "newspaper-publication" },
-//         { label: "Annual Return", href: "/investors/annual-return", icon: "annual-return" },
-//         { label: "Material Events", href: "/investors/disclosures-of-material-events-or-information", icon: "material-events" },
-//       ],
-//     ],
-//   },
-//   {
-//     label: "About Us",
-//     href: "/about",
-//     dropdown: [
-//       { label: "Overview", href: "/about", icon: "overview" },
-//       { label: "Leadership", href: "/about/leadership", icon: "leadership" },
-//       { label: "Milestone", href: "/about/milestone", icon: "milestone" },
-//     ],
-//   },
-//   { label: "Contact Us", href: "/contact" },
-// ];
+
 const NAV_LINKS = [
   {
     label: "Products",
@@ -127,10 +67,7 @@ const NAV_LINKS = [
     href: "/about"
   },
   { label: "Contact Us", href: "/contact" },
-  { label: "Partner With Us", href: "/partner-with-us" },
 ];
-
-
 
 const LOGIN_LINKS = [
   { label: "Online Trading", href: "javascript://", external: false },
@@ -257,48 +194,47 @@ export default function Header() {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-[999] transition-all duration-300",
-          scrolled ? "shadow-md" : ""
+          "fixed inset-x-0 top-0 z-[999] flex flex-col transition-transform duration-300 ease-in-out",
+          // Mukhya Change ahiya chhe: md:-translate-y-14 (jyare scroll thay tyare top header hide thay)
+          scrolled ? "shadow-md md:-translate-y-14" : "translate-y-0"
         )}
       >
-{/* ── GRADIENT RADIAL TOP HEADER ── */}
-<div 
-  className="hidden md:flex h-14 w-full items-center border-b border-white/10 sticky top-0 z-50 shadow-md"
-  style={{
-    background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
-    color: "#fff"
-  }}
->
-  <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 w-full">
-    <div className="flex h-14 items-center justify-end gap-4">
-      
-      {/* Icons List */}
-      {[
-        { Icon: TrendingUp, title: "Markets", href: "#" },
-        { Icon: Smartphone, title: "Mobile App", href: "#" },
-        { Icon: Download, title: "Downloads", href: "/downloads" },
-        { Icon: HelpCircle, title: "Help", href: "/contact" },
-        { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
-      ].map((item, index) => (
-        <a 
-          key={index}
-          href={item.href} 
-          onClick={(e) => handleTopNav(e, item.href)}
-          className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300 cursor-pointer pointer-events-auto z-10" 
-          title={item.title}
+        {/* ── GRADIENT RADIAL TOP HEADER ── */}
+        <div 
+          className="hidden md:flex h-14 w-full items-center border-b border-white/10"
+          style={{
+            background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
+            color: "#fff"
+          }}
         >
-          <item.Icon className="h-5 w-5 pointer-events-none" />
-        </a>
-      ))}
+          <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 w-full">
+            <div className="flex h-14 items-center justify-end gap-4">
+              
+              {/* Icons List */}
+              {[
+                { Icon: TrendingUp, title: "Markets", href: "#" },
+                { Icon: Smartphone, title: "Mobile App", href: "#" },
+                { Icon: Download, title: "Downloads", href: "/downloads" },
+                { Icon: HelpCircle, title: "Help", href: "/contact" },
+                { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
+              ].map((item, index) => (
+                <a 
+                  key={index}
+                  href={item.href} 
+                  onClick={(e) => handleTopNav(e, item.href)}
+                  className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300 cursor-pointer pointer-events-auto z-10" 
+                  title={item.title}
+                >
+                  <item.Icon className="h-5 w-5 pointer-events-none" />
+                </a>
+              ))}
 
-
-
-    </div>
-  </div>
-</div>
+            </div>
+          </div>
+        </div>
+        
         {/* ── MAIN NAV ── */}
-
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-white border-b border-gray-200 w-full">
           <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between lg:h-[72px]">
 
@@ -421,8 +357,8 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Spacer */}
-      <div className="h-16 lg:h-[72px]" aria-hidden="true" />
+      {/* Spacer - Content header ni niche na dabu jay eni mate */}
+      <div className="h-16 md:h-[128px] w-full" aria-hidden="true" />
 
       {/* Mobile Drawer */}
       <div id="mobile-menu" className={cn("fixed inset-0 z-[1000] transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto" : "pointer-events-none")} aria-hidden={!mobileOpen}>
