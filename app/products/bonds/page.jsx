@@ -138,10 +138,7 @@ export default function ProductDetailsPage() {
                           : "bg-white/10 text-white border-l-[3px] border-transparent hover:bg-white hover:text-[#ea2830]"
                           }`}
                       >
-                        <div className="flex items-center gap-3">
-                          {item.iconPath && <img src={item.iconPath} alt={item.title} className="w-5 h-5" />}
-                          <span>{item.title}</span>
-                        </div>
+                        <span>{item.title}</span>
                         <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-[#ea2830] translate-x-1" : "text-white/60 group-hover:translate-x-1 group-hover:text-[#ea2830]"
                           }`} />
                       </Link>

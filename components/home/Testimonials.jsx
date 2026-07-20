@@ -65,10 +65,10 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="py-20 bg-white overflow-hidden relative">
+    <section className="py-12 bg-white overflow-hidden relative">
       <Container>
         {/* Header Section */}
-        <div className="text-center mb-16 relative z-10 max-w-2xl mx-auto">
+        <div className="text-center mb-10 relative z-10 max-w-2xl mx-auto">
           <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "#ea2830" }}>
             Words of Trust
           </div>

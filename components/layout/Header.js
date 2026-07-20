@@ -98,10 +98,10 @@ const NAV_LINKS = [
     label: "Research",
     href: "/research/company",
     dropdown: [
-      { label: "Company", href: "/research/company", icon: "company" },
-      { label: "IPOs", href: "/research/ipos", icon: "ipos" },
-      { label: "News", href: "/research/news", icon: "news" },
-      { label: "Announcements", href: "/research/announcements", icon: "announcements" },
+      { label: "Company", href: "/research/company", icon: "company", description: "Detailed company research reports" },
+      { label: "IPOs", href: "/research/ipos", icon: "ipos", description: "IPO analysis and recommendations" },
+      { label: "News", href: "/research/news", icon: "news", description: "Latest market news and updates" },
+      { label: "Announcements", href: "/research/announcements", icon: "announcements", description: "Important announcements and alerts" },
     ],
   },
   {
@@ -258,8 +258,8 @@ export default function Header() {
             <div className="flex h-16 items-center justify-between lg:h-[72px]">
 
               {/* Logo */}
-              <Link href="/" aria-label="Ratnakar Securities – Home" className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
-                <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={200} height={55} priority className="object-contain" />
+              <Link href="/" aria-label="Ratnakar Securities – Home" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
+                <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={202} height={57} priority className="object-contain" />
               </Link>
 
               {/* Desktop Nav */}
@@ -298,9 +298,9 @@ export default function Header() {
 
                       {/* Single dropdown */}
                       {item.dropdown && (
-                        <div className="absolute left-0 top-full mt-0 z-50 w-64 bg-white shadow-xl border border-border rounded-b-lg rounded-tr-lg p-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
+                        <div className="absolute left-0 top-full mt-0 z-50 w-96 bg-white shadow-2xl border border-border rounded-b-lg rounded-tr-lg p-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
                           {item.dropdown.map((link) => (
-                            <DropdownLink key={link.label} link={link} className="block rounded px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                            <DropdownLink key={link.label} link={link} className="block rounded-lg px-4 py-3 hover:bg-secondary-light transition-colors duration-200">
                               {link.label}
                             </DropdownLink>
                           ))}

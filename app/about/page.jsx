@@ -104,54 +104,65 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Leadership Section */}
-      <section id="leadership" className="py-12 bg-white">
-        <Container>
-          {/* Leadership Intro Text */}
-          {/* Increased max-width from 4xl to 5xl for better readability/wider look */}
-          <div className="max-w-6xl mx-auto text-center mb-10 px-4">
-            <h2 className="text-4xl text-black  mb-6">About Our Leadership</h2>
-            <div className="text-[#314158] text-[16px] leading-relaxed space-y-4">
-              <p>
-                At Ratnakar Securities, our Key Managerial Personnel (KMP) play a vital role in ensuring strong corporate governance, regulatory compliance, financial discipline, and strategic decision-making. Their leadership helps maintain transparency, operational excellence, and a client-centric approach across all business functions.
-              </p>
+{/* Leadership Section */}
+<section id="leadership" className="py-12 bg-white">
+  <Container>
+    {/* Leadership Intro Text */}
+    <div className="max-w-6xl mx-auto text-center mb-10 px-4">
+      <h2 className="text-4xl text-black mb-6">About Our Leadership</h2>
+      <div className="text-[#314158] text-[16px] leading-relaxed space-y-4">
+        <p>
+          At Ratnakar Securities, our Key Managerial Personnel (KMP) and Board of Directors play a vital role in ensuring strong corporate governance, regulatory compliance, and strategic decision-making.
+        </p>
+      </div>
+    </div>
 
+    {/* Leadership Grid */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+      {[
+        {
+          name: "Ajay Jayantilal Shah",
+          role: "Chairman & Managing Director | Director",
+          image: "/images/about/AJAY_SHAH_PHOTO__MD___CHAIRMAN-removebg-preview.png",
+          desc: "A recognized leader in financial services and capital markets, representing the third generation of a reputed business family in Ahmedabad. With 32+ years of experience, he leads the Board of Directors and strategic growth initiatives."
+        },
+        {
+          name: "Kushal Ajay Shah",
+          role: "COO | Whole-Time Director | Compliance Officer",
+          image: "/images/about/Kushal_Shah-removebg-preview.png",
+          desc: "Kushal takes the legacy forward with dynamic business acumen. A post-graduate in financial markets and CFA USA Level II cleared, he manages operations, compliance, and technological transformation."
+        },
+        {
+          name: "Ajay Nagindas Gandhi",
+          role: "Chief Financial Officer (CFO)",
+          image: "/images/about/AJAY_GANDHI_CFO-removebg-preview.png",
+          desc: "Shri. Ajay Gandhi brings extensive experience in financial management and strategic planning. He plays a crucial role in ensuring the company's financial health, audit compliance, and resource allocation."
+        }
+      ].map((leader, index) => (
+        <div 
+          key={index} 
+          className={`flex flex-col md:flex-row items-center bg-white border border-gray-100 p-4 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2
+            ${index === 2 ? 'lg:col-span-2 lg:max-w-2xl lg:mx-auto w-full' : ''}`}
+        >
+          {/* Image Box - Bottom 5px rounded added here */}
+          <div className="relative w-full md:w-[280px] h-[380px] shrink-0 overflow-hidden rounded-3xl rounded-tr-[80px] rounded-b-[5px] shadow-md transition-all duration-300">
+            <div className="absolute inset-0 bg-[#e0e8f9]"></div>
+            <Image src={leader.image} alt={leader.name} fill className="object-cover object-top" />
+          </div>
+          
+          {/* Text Content */}
+          <div className="p-8 w-full flex flex-col justify-center">
+            <h3 className="text-2xl font-bold text-black mb-1">{leader.name}</h3>
+            <p className="text-[#EA2830] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
+            <div className="text-[#314158] leading-relaxed text-[15px] italic">
+              <p>“{leader.desc}”</p>
             </div>
           </div>
-
-          {/* Leadership Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {[
-              {
-                name: "Shri. Ajay Shah",
-                role: "Founder, Chairman and Managing Director",
-                image: "/images/about/human-2 (1).png",
-                desc: "A recognized leader in financial services and capital markets, Shri Ajay Shah represents the third generation of a reputed business family in Ahmedabad. He founded Ratnakar Securities in 1994 with 32+ years of experience in Banking and Capital Markets, and served as President of Ahmedabad Stock Exchange for two consecutive years."
-              },
-              {
-                name: "Kushal Shah",
-                role: "Chief Operations Officer (COO)",
-                image: "/images/about/human-2 (1).png",
-                desc: "Kushal takes the legacy of Ratnakar Securities forward with his sharp business acumen and dynamism. A post graduate in financial markets, CFA USA Level II cleared, he has transformed Ratnakar Securities into a research and technology driven investment enterprise in his 5 years as COO."
-              }
-            ].map((leader, index) => (
-              <div key={index} className="flex flex-col md:flex-row items-center bg-white border border-gray-100 p-4 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className="relative w-full md:w-[280px] h-[380px] shrink-0 overflow-hidden rounded-3xl rounded-tr-[80px] shadow-md transition-all duration-300">
-                  <div className="absolute inset-0 bg-[#e0e8f9]"></div>
-                  <Image src={leader.image} alt={leader.name} fill className="object-cover object-top p-2" />
-                </div>
-                <div className="p-8 w-full flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold text-black mb-1">{leader.name}</h3>
-                  <p className="text-[#EA2830] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
-                  <div className="text-[#314158] leading-relaxed text-[15px] italic">
-                    <p>“{leader.desc}”</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
 
       {/* Milestones Section */}
       <section id="journey" className="py-12 bg-[#f7f9fc]">

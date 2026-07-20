@@ -31,14 +31,15 @@ export default function OverviewPage() {
   return (
     <main className="bg-[#f7f9fc] min-h-screen pb-12">
       {/* Top Banner Section with Niche Image */}
-      <HeroSection
-        title="Products Overview"
-        breadcrumbs={[
-          { label: "Products", href: "/products" },
-          { label: "Overview" }
-        ]}
-        image={content.imageSrc}
-        height="h-[300px] md:h-[400px]" />
+     <HeroSection
+  title="Products Overview"
+  breadcrumbs={[
+    { label: "Products", href: "/products" },
+    { label: "Overview" }
+  ]}
+  image="/images/about/66722.jpg"
+  height="h-[300px] md:h-[400px]"
+/>
 
       <Container className="mt-12">
         <div className="flex flex-col lg:flex-row gap-10">
