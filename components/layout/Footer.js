@@ -192,17 +192,17 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="py-5 text-sm text-[#7a9bb5]">
+      <div className="bg-white py-5 text-sm text-black">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
           <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
-          <div className="flex flex-wrap gap-4 justify-center sm:justify-end">
-            <Link href="/privacy-policy">Privacy Policy</Link>
-            <a href="/images/disclaimer.pdf" target="_blank" rel="noopener noreferrer">Disclaimer</a>
-            <a href="/images/termsofuse.pdf" target="_blank" rel="noopener noreferrer">Terms of Conditions</a>
-            <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer">Investor Complaint</a>
-            <Link href="/refund-and-cancellation">Refund & Cancellation</Link>
+          <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-4 justify-center sm:justify-end items-center">
+            <Link href="/privacy-policy" className="text-black hover:opacity-70 transition-opacity">Privacy Policy</Link>
+            <a href="/images/disclaimer.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:opacity-70 transition-opacity">Disclaimer</a>
+            <a href="/images/termsofuse.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:opacity-70 transition-opacity">Terms of Conditions</a>
+            <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer" className="text-black hover:opacity-70 transition-opacity">Investor Complaint</a>
+            <Link href="/refund-and-cancellation" className="text-black hover:opacity-70 transition-opacity">Refund & Cancellation</Link>
 
-            <span>Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="text-secondary">Anaxistech</a></span>
+            <span className="bg-white text-black px-2 py-1 rounded">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-black hover:opacity-80 transition-opacity">Anaxistech</a></span>
           </div>
         </div>
       </div>

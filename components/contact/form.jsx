@@ -39,7 +39,15 @@ export default function ContactUsPage() {
     return code;
   };
 
-  const [captchaVal, setCaptchaVal] = useState(() => getRandomCaptcha());
+  // FIX: Initialize with empty string to match server & client initial render
+  const [captchaVal, setCaptchaVal] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
+
+  // FIX: Generate the random captcha only after the component mounts on the client
+  useEffect(() => {
+    setCaptchaVal(getRandomCaptcha());
+    setIsMounted(true);
+  }, []);
   
   // Form submission loading and notification states
   const [loading, setLoading] = useState(false);
@@ -402,7 +410,8 @@ export default function ContactUsPage() {
               <div className="flex items-center gap-3">
                 <div className="flex-1 bg-muted border border-border rounded-sm h-12 flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-extrabold text-lg text-muted-foreground text-center relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f9fafb,#f9fafb_8px,#f3f4f6_8px,#f3f4f6_16px)]">
                   <span className="relative z-10 text-gray-700 italic select-none">
-                    {captchaVal}
+                    {/* FIX: Ensure we only render the captcha value after mounting to avoid layout shifts/hydration mismatch */}
+                    {isMounted ? captchaVal : "------"}
                   </span>
                   <div className="absolute inset-0 opacity-10 flex flex-col justify-around pointer-events-none">
                     <div className="w-full h-[2px] bg-gray-900 -rotate-2"></div>

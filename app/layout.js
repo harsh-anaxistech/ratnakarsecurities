@@ -5,6 +5,7 @@ import { organizationSchema, websiteSchema } from "@/lib/jsonld";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/common/ScrollToTop";
+import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 
 const inter = Poppins({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
         </main>
         <Footer />
         <ScrollToTop />
+        <FloatingMobileTrading />
       </body>
     </html>
   );

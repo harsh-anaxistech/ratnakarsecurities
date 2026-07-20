@@ -32,9 +32,9 @@ const TESTIMONIALS = [
 
 function StarRating({ count }) {
   return (
-    <div className="flex gap-0.5 mb-4">
+    <div className="flex gap-1 mb-4">
       {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-[#ea2830] text-[#ea2830]" />
+        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
       ))}
     </div>
   );
@@ -47,9 +47,8 @@ function Avatar({ name }) {
     .join("")
     .toUpperCase();
   return (
-    <div
-      className="w-11 h-11 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 bg-[#00aeee]/10 text-[#011628] border border-[#00aeee]/20"
-    >
+    // અહીં મેં rounded-md આપ્યું છે જેથી તે ગોળ નથી, સ્ક્વેર લુક આપશે
+    <div className="w-10 h-10 rounded-md flex items-center justify-center font-bold text-xs flex-shrink-0 bg-[#00aeee]/10 text-[#00aeee] border border-[#00aeee]/20">
       {initials}
     </div>
   );
@@ -58,38 +57,28 @@ function Avatar({ name }) {
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // મોબાઈલ સ્લાઇડર માટે ઓટો-પ્લે ઇફેક્ટ (દર 3.5 સેકન્ડે સ્લાઇડ બદલાશે)
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length);
-    }, 3500);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="py-12 bg-white overflow-hidden">
+    <section className="py-20 bg-white overflow-hidden relative">
       <Container>
-
-        {/* Header Section — સેન્ટર અંડરલાઈન ઇફેક્ટ */}
-        <div className="text-center mb-10">
-          <div
-            className="text-[14px] font-black tracking-widest uppercase mb-3"
-            style={{ color: "#ea2830" }}
-          >
+        {/* Header Section */}
+        <div className="text-center mb-16 relative z-10 max-w-2xl mx-auto">
+          <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "#ea2830" }}>
             Words of Trust
           </div>
-          <h2
-            className="text-3xl md:text-4xl font-serif tracking-tight leading-tight text-[#011628]"
-          >
-            Hear From Our{" "}
-            <span className="relative inline-block">
-              Investors
-            </span>
+          <h2 className="text-3xl md:text-4xl font-serif tracking-tight leading-tight text-[#011628]">
+            Hear From Our Investors
           </h2>
         </div>
 
-        {/* સ્લાઇડર કન્ટેનર: મોબાઈલમાં લિમિટેડ વિડ્થ અને ડેસ્કટોપ પર નોર્મલ */}
-        <div className="relative w-full overflow-hidden md:overflow-visible">
+        {/* Slider Container */}
+        <div className="relative w-full overflow-hidden md:overflow-visible z-10">
           <div
             className="flex transition-transform duration-500 ease-in-out md:grid md:grid-cols-3 md:gap-6 md:!transform-none"
             style={{
@@ -99,34 +88,27 @@ export default function Testimonials() {
             {TESTIMONIALS.map((t, i) => (
               <div
                 key={i}
-                className="w-full shrink-0 px-2 md:w-auto md:shrink md:px-0"
+                className="w-full shrink-0 px-3 md:w-auto md:shrink md:px-0"
               >
-                <div
-                  className="bg-[#f7f9fc] rounded-2xl p-6 border border-slate-200 hover:border-[#00aeee]/40 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group h-full"
-                >
-                  <div>
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 border border-[#00aeee]/20"
-                      style={{ background: "rgba(0, 174, 238, 0.08)" }}
-                    >
-                      <Quote className="w-4 h-4 text-[#00aeee]" fill="#00aeee" strokeWidth={1} />
-                    </div>
+                <div className="bg-gradient-to-br from-white via-white to-blue-100 rounded-2xl p-8 border border-slate-100 hover:border-[#00aeee]/30 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between group h-full relative overflow-hidden">
+                  
+                  <Quote className="absolute right-6 top-6 w-24 h-24 text-[#00aeee]/10 group-hover:text-[#00aeee]/15 transition-colors duration-500 pointer-events-none -rotate-12" strokeWidth={1} />
 
+                  <div className="relative z-10">
                     <StarRating count={t.stars} />
-
-                    <p className="text-[16px] leading-relaxed text-slate-700 font-medium italic mb-6">
-                      &ldquo;{t.quote}&rdquo;
+                    <p className="text-[15px] leading-relaxed text-slate-600 font-medium mb-8">
+                      {t.quote}
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
+                  <div className="flex items-center gap-4 pt-5 border-t border-slate-200/60 relative z-10">
                     <Avatar name={t.name} />
                     <div>
                       <p className="text-base font-bold text-slate-900 group-hover:text-[#00aeee] transition-colors duration-300">
                         {t.name}
                       </p>
-                      <p className="text-xs font-semibold text-slate-400 mt-0.5">
-                        {t.role} · {t.location}
+                      <p className="text-xs font-semibold text-slate-400 mt-0.5 tracking-wide">
+                        {t.role} <span className="text-slate-300 mx-1">•</span> {t.location}
                       </p>
                     </div>
                   </div>
@@ -136,19 +118,21 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* ડોટ્સ ઇન્ડિકેટર્સ: માત્ર મોબાઈલ વ્યુમાં જ નીચે દેખાશે */}
-        <div className="flex justify-center gap-2 mt-6 md:hidden">
+        {/* Navigation Dots */}
+        <div className="flex justify-center gap-2.5 mt-8 md:hidden relative z-10">
           {TESTIMONIALS.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-300 ${activeIndex === idx ? "w-6 bg-[#00aeee]" : "w-2 bg-slate-200"
-                }`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                activeIndex === idx 
+                  ? "w-7 bg-[#00aeee]" 
+                  : "w-2 bg-slate-200"
+              }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
         </div>
-
       </Container>
     </section>
   );

@@ -26,16 +26,16 @@ export default function ProductDetailsPage() {
 
   return (
     <main className="bg-[#f7f9fc] min-h-screen pb-12">
-   <HeroSection
-    title={product.title}
-    breadcrumbs={[
-      { label: "Products", href: "/products" },
-      { label: product.title }
-    ]}
-    image="/images/about/2151908131 (1).jpg"
-    height="h-[300px] md:h-[400px]" 
-    imageClassName="object-top" // જો કમ્પોનન્ટમાં આ prop સપોર્ટ કરતો હોય 
-/>
+      <HeroSection
+        title={product.title}
+        breadcrumbs={[
+          { label: "Products", href: "/products" },
+          { label: product.title }
+        ]}
+        image="/images/about/2151908131 (1).jpg"
+        height="h-[300px] md:h-[400px]" 
+        imageClassName="object-top" // જો કમ્પોનન્ટમાં આ prop સપોર્ટ કરતો હોય 
+      />
 
       <Container className="mt-12">
         <div className="flex flex-col lg:flex-row gap-10">
@@ -69,9 +69,18 @@ export default function ProductDetailsPage() {
                   "Intraday Trading – Take advantage of short-term market movements with fast execution and live market tracking.",
                   "IPO Investments – Apply for Initial Public Offerings (IPOs) directly through our seamless online platform.",
                   "Portfolio Advisory – Receive personalized stock recommendations and portfolio management guidance based on your investment goals."
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3"><CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5" /><span className="text-[16px] text-[#314158]">{item}</span></li>
-                ))}
+                ].map((item, i) => {
+                  // String ને dash થી split કરીને title અને description અલગ કર્યા
+                  const [title, desc] = item.split(" – ");
+                  return (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5" />
+                      <span className="text-[16px] text-[#314158] leading-relaxed">
+                        <strong className="font-bold text-slate-900">{title}</strong> — {desc}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
 
               <h3 className="text-[18px] font-bold text-slate-900 mb-6">Benefits of Investing in Equities</h3>
@@ -86,7 +95,10 @@ export default function ProductDetailsPage() {
                   "Transparent and regulated trading.",
                   "Access to real-time market information and research."
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5"><CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0" /><span className="text-[16px] text-[#314158]">{item}</span></div>
+                  <div key={i} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5">
+                    <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0" />
+                    <span className="text-[16px] text-[#314158]">{item}</span>
+                  </div>
                 ))}
               </div>
 

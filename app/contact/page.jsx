@@ -20,7 +20,7 @@ export default function ContactPage() {
       <HeroSection
         title="Contact Us"
         breadcrumbs={[{ label: "Contact Us" }]}
-        image="/images/about/AboutUs-Ratnakarsec.png"
+        image="/images/about/444.png"
         height="h-[300px] md:h-[400px]" />
 
       {/* Main Content Area */}

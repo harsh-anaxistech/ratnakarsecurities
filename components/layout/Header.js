@@ -79,19 +79,18 @@ const NAV_LINKS = [
     href: "/products",
     columns: [
       [
-        { label: "Overview", href: "/products/overview", icon: "overview" },
-        { label: "Equity", href: "/products/equity", icon: "equity" },
-        { label: "Derivatives", href: "/products/derivatives", icon: "derivatives" },
-        { label: "Mutual Funds", href: "/products/mutual-funds", icon: "mutual-funds" },
-        { label: "Commodities", href: "/products/commodities", icon: "commodities" },
+        { label: "Overview", href: "/products/overview", icon: "overview", description: "Products overview" },
+        { label: "Equity", href: "/products/equity", icon: "equity", description: "Invest in stocks with SIHL." },
+        { label: "Derivatives", href: "/products/derivatives", icon: "derivatives", description: "Trade derivatives with expertise." },
+        { label: "Mutual Funds", href: "/products/mutual-funds", icon: "mutual-funds", description: "Invest smartly in mutual funds." },
+        { label: "Commodities", href: "/products/commodities", icon: "commodities", description: "From gold to grains – diversify." },
       ],
       [
-        { label: "Wealth Management", href: "/products/wealth-management", icon: "wealth-management" },
-        { label: "NRIs", href: "/products/nris", icon: "nri" },
-        { label: "HNIs", href: "/products/hnis", icon: "users" },
-        { label: "SLBS", href: "/products/slbs", icon: "slbs" },
-        { label: "Bonds", href: "/products/bonds", icon: "bonds" },
-        { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", external: true, icon: "investment-advisory" },
+        { label: "Wealth Management", href: "/products/wealth-management", icon: "wealth-management", description: "Tailored wealth strategies." },
+        { label: "NRIs", href: "/products/nris", icon: "nri", description: "NRI solutions for global Indians." },
+        { label: "SLBS", href: "/products/slbs", icon: "slbs", description: "Earn more from your idle stocks." },
+        { label: "Bonds", href: "/products/bonds", icon: "bonds", description: "Build a safer portfolio with bonds." },
+        { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", icon: "investment-advisory", description: "Investment advisory portfolios", external: true },
       ],
     ],
   },
@@ -110,17 +109,16 @@ const NAV_LINKS = [
     href: "#",
     columns: [
       [
-        { label: "Board of Directors", href: "/investors/board-of-directors", icon: "board-of-directors" },
-        { label: "Disclosure of Contact Details", href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel", icon: "contact-details" },
-        { label: "Statutory Documents", href: "/investors/statutory-and-registration-certificate-documents", icon: "statutory" },
-        { label: "Policies", href: "/investors/policies", icon: "policies" },
-        { label: "Financial Information", href: "/investors/financial-information-and-annual-report", icon: "financial-info" },
+        { label: "Board of Directors", href: "/investors/board-of-directors", icon: "board-of-directors", description: "Meet our leadership team" },
+        { label: "Disclosure of Contact Details", href: "/investors/disclosure-of-contact-details-of-key-managerial-personnel", icon: "contact-details", description: "Contact details of key personnel" },
+        { label: "Statutory Documents", href: "/investors/statutory-and-registration-certificate-documents", icon: "statutory", description: "Legal and registration documents" },
+        { label: "Policies", href: "/investors/policies", icon: "policies", description: "Company policies and guidelines" },
       ],
       [
-        { label: "Shareholding Pattern", href: "/investors/shareholding-pattern", icon: "shareholding-pattern" },
-        { label: "Newspaper Publication", href: "/investors/newspaper-publication", icon: "newspaper-publication" },
-        { label: "Annual Return", href: "/investors/annual-return", icon: "annual-return" },
-        { label: "Material Events", href: "/investors/disclosures-of-material-events-or-information", icon: "material-events" },
+        { label: "Financial Information", href: "/investors/financial-information-and-annual-report", icon: "financial-info", description: "Financial reports and statements" },
+        { label: "Shareholding Pattern", href: "/investors/shareholding-pattern", icon: "shareholding-pattern", description: "Stock ownership distribution" },
+        { label: "Newspaper Publication", href: "/investors/newspaper-publication", icon: "newspaper-publication", description: "News and announcements" },
+        { label: "Material Events", href: "/investors/disclosures-of-material-events-or-information", icon: "material-events", description: "Important business updates" },
       ],
     ],
   },
@@ -134,7 +132,7 @@ const NAV_LINKS = [
 
 const LOGIN_LINKS = [
   { label: "Online Trading", href: "javascript://", external: false },
-  { label: "Backoffice Login", href: "https://www.ratnakarsecurities.com/static/backoffice-login.aspx", external: true },
+  { label: "Backoffice Login", href: "#", isButton: true },
   { label: "Mutual Fund Portfolio", href: "https://ratnakarsecurities.investwell.app/app/#/login", external: true },
   { label: "Narnolia Investment Advisory Portfolio", href: "https://ratnakarsecurities.narnolia.in/", external: true },
 ];
@@ -142,9 +140,12 @@ const LOGIN_LINKS = [
 function DropdownLink({ link, children, className }) {
   const iconSvg = link.icon ? MenuIcons[link.icon] : null;
   const content = (
-    <div className="flex items-center gap-3 text-sm">
-      {iconSvg && <span className="flex h-7 w-7 shrink-0 items-center justify-center text-secondary">{iconSvg}</span>}
-      <span>{children}</span>
+    <div className="flex items-start gap-3">
+      {iconSvg && <span className="flex h-8 w-8 shrink-0 items-center justify-center text-secondary mt-0.5">{iconSvg}</span>}
+      <div className="flex flex-col">
+        <span className="text-sm font-medium text-foreground">{children}</span>
+        {link.description && <span className="text-xs text-muted-foreground mt-0.5">{link.description}</span>}
+      </div>
     </div>
   );
   if (link.external) {
@@ -282,11 +283,11 @@ export default function Header() {
 
                       {/* Multi-column dropdown */}
                       {item.columns && (
-                        <div className="absolute left-0 top-full mt-0 z-50 min-w-max grid grid-cols-2 gap-6 bg-white shadow-xl border border-border rounded-b-lg rounded-tr-lg p-5 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
+                        <div className="absolute left-0 top-full mt-0 z-50 w-[1000px] grid grid-cols-2 gap-8 bg-white shadow-2xl border border-border rounded-b-lg rounded-tr-lg p-6 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
                           {item.columns.map((column, i) => (
-                            <div key={i} className="space-y-0.5">
+                            <div key={i} className="space-y-2">
                               {column.map((link) => (
-                                <DropdownLink key={link.label} link={link} className="block rounded px-3 py-2 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                                <DropdownLink key={link.label} link={link} className="block rounded-lg px-4 py-3 hover:bg-secondary-light transition-colors duration-200">
                                   {link.label}
                                 </DropdownLink>
                               ))}
@@ -331,7 +332,7 @@ export default function Header() {
                   </Button>
                   <div className="absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-lg py-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
                     {LOGIN_LINKS.map((link) => {
-                      if (link.label === "Backoffice Login") {
+                      if (link.isButton) {
                         return (
                           <button
                             key={link.label}
