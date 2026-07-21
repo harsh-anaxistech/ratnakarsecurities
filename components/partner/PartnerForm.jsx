@@ -469,11 +469,10 @@ export default function PartnerForm() {
                 {/* Alert Box for Status Messages */}
                 {statusMessage && (
                   <div
-                    className={`p-3.5 rounded text-xs sm:text-sm font-semibold ${
-                      statusType === "success"
+                    className={`p-3.5 rounded text-xs sm:text-sm font-semibold ${statusType === "success"
                         ? "bg-green-50 text-green-700 border border-green-200"
                         : "bg-red-50 text-red-700 border border-red-200"
-                    }`}
+                      }`}
                   >
                     {statusMessage}
                   </div>
@@ -486,7 +485,7 @@ export default function PartnerForm() {
                     type="submit"
                     variant="contained"
                     loading={loading}
-                    className="bg-[#00aeee] hover:bg-[#0094cb] text-white font-bold text-xs sm:text-sm tracking-wider uppercase px-8 py-2.5 rounded shadow-sm transition-colors"
+                    className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none hover:bg-primary-dark focus-visible:ring-primary h-11 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2"
                   >
                     SUBMIT
                   </Button>
