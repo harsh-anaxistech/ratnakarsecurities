@@ -54,7 +54,7 @@ export default function KeyManagerialPersonnelPage() {
           { label: "Investors", href: "/investors" },
           { label: "Key Managerial Personnel" },
         ]}
-        image="/images/about/AboutUs-Ratnakarsec.png"
+        image="/images/about/our product 1.jpg"
         height="h-[300px] md:h-[400px]"
       />
 
