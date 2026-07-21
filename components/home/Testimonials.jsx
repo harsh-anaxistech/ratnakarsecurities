@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Container from "@/components/common/Container";
 import { Quote, Star } from "lucide-react";
 import { getTestimonials } from "@/services/testimonials";
+import { API_BASE_URL } from "@/services/config";
 
 const FALLBACK_TESTIMONIALS = [
   {
@@ -56,9 +57,15 @@ function Avatar({ name, initials, profileImage }) {
       : "RS");
 
   if (profileImage && !imgError) {
-    const imageUrl = profileImage.startsWith("http")
+    const baseUrl = API_BASE_URL.replace(/\/api$/, "");
+    let imageUrl = profileImage.startsWith("http://") || profileImage.startsWith("https://")
       ? profileImage
-      : `http://localhost:6010/uploads/${profileImage}`;
+      : `${baseUrl}/uploads/${profileImage}`;
+
+    if (imageUrl.startsWith("http://api.ratnakarsecurities.com")) {
+      imageUrl = imageUrl.replace("http://api.ratnakarsecurities.com", "https://api.ratnakarsecurities.com");
+    }
+
     return (
       <img
         src={imageUrl}

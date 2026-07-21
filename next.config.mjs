@@ -21,7 +21,28 @@ const nextConfig = {
         protocol: "https",
         hostname: "ui-avatars.com",
       },
+      {
+        protocol: "https",
+        hostname: "api.ratnakarsecurities.com",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+      },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: "upgrade-insecure-requests",
+          },
+        ],
+      },
+    ];
   },
   async redirects() {
     return [
