@@ -69,7 +69,7 @@ export default async function Page({ params }) {
       <HeroSection
         title={matchedSectionName.charAt(0).toUpperCase() + matchedSectionName.slice(1) + " Research"}
         breadcrumbs={[{ label: "Research", href: "/research" }, { label: matchedSectionName, href: `/research/${section}` }]}
-        image="/images/about/AboutUs-Ratnakarsec.png"
+        image="/images/about/research banner.jpg"
         height="h-[300px] md:h-[400px]" />
 
       <ResearchSectionClient
