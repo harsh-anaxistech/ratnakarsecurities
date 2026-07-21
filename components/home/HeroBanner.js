@@ -103,11 +103,11 @@ export default function HeroBanner() {
 
           {/* ── RIGHT COLUMN: HERO IMAGE & BACKGROUND CIRCLES ── */}
           {/* Shifted circles down slightly using lg:translate-y-[20px] and added items-end */}
-          <div className="lg:col-span-6 w-full relative h-[380px] sm:h-[620px] lg:h-[620px] flex items-end justify-center mt-0 sm:mt-6 lg:mt-0">
+          <div className="lg:col-span-6 w-full relative h-[460px] sm:h-[620px] lg:h-[620px] flex items-end justify-center mt-0 sm:mt-6 lg:mt-0">
 
             {/* ── CONCENTRIC DOT-LINE CIRCLES ── */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 transform translate-x-0 sm:translate-x-[-30px] lg:translate-x-[-30px] lg:translate-y-[20px]">
-              <div className="w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] lg:w-[660px] lg:h-[660px] opacity-25 text-white animate-spin" style={{ animationDuration: "90s" }}>
+              <div className="w-[340px] h-[340px] sm:w-[600px] sm:h-[600px] lg:w-[660px] lg:h-[660px] opacity-25 text-white animate-spin" style={{ animationDuration: "90s" }}>
                 <svg className="w-full h-full" viewBox="0 0 800 800" fill="none">
                   <circle cx="400" cy="400" r="160" stroke="currentColor" strokeWidth="2" strokeDasharray="6 6" />
                   <circle cx="400" cy="400" r="260" stroke="currentColor" strokeWidth="2" strokeDasharray="8 8" />
@@ -118,7 +118,7 @@ export default function HeroBanner() {
 
             {/* 📸 Grounded Phone/Hand Mockup (Removed gap, shifted left and scaled slightly) */}
             {/* Added `items-end` to div, and ensure `lg:translate-x-[-40px] scale-[1.05]` matches the visual grounding. */}
-            <div className="relative w-[190px] h-[380px] sm:w-[420px] sm:h-[640px] lg:w-[420px] lg:h-[620px] z-10 drop-shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform translate-x-0 sm:translate-x-[-50px] lg:translate-x-[-40px] scale-[1.05] hover:scale-[1.06] transition-all duration-500 flex items-end">
+            <div className="relative w-[230px] h-[460px] sm:w-[420px] sm:h-[640px] lg:w-[420px] lg:h-[620px] z-10 drop-shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform translate-x-0 sm:translate-x-[-50px] lg:translate-x-[-40px] scale-[1.05] hover:scale-[1.06] transition-all duration-500 flex items-end">
               <Image
                 src="/images/about/2444.png"
                 alt="Portfolio Mobile App Dashboard"
@@ -131,7 +131,7 @@ export default function HeroBanner() {
             {/* ── FLOATING GLASSMORPHIC BADGES ── */}
 
             {/* 1. Equity (Top Left) */}
-            <div className="absolute top-[10%] left-[0%] sm:left-[8%] lg:left-[10%] z-20 float-anim-1 scale-[0.72] sm:scale-100 origin-left">
+            <div className="absolute top-[10%] left-[0%] sm:left-[8%] lg:left-[10%] z-20 float-anim-1 scale-[0.90] sm:scale-100 origin-left">
               <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-2 sm:p-2.5 shadow-xl hover:bg-white/15 hover:border-[#00aeee]/40 transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/20 rounded-lg flex items-center justify-center shrink-0">
                   <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
@@ -141,7 +141,7 @@ export default function HeroBanner() {
             </div>
 
             {/* 2. Stock Trading (Middle Left) */}
-            <div className="absolute top-[34%] left-[-4%] sm:left-[0%] lg:left-[3%] z-20 float-anim-2 scale-[0.72] sm:scale-100 origin-left">
+            <div className="absolute top-[34%] left-[-4%] sm:left-[0%] lg:left-[3%] z-20 float-anim-2 scale-[0.90] sm:scale-100 origin-left">
               <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-white/15 hover:border-[#00aeee]/40 transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
                   <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
@@ -151,7 +151,7 @@ export default function HeroBanner() {
             </div>
 
             {/* 3. Mutual Fund Distribution (Bottom Left) */}
-            <div className="absolute bottom-[10%] left-[-4%] sm:left-[2%] lg:left-[5%] z-20 float-anim-3 scale-[0.72] sm:scale-100 origin-left">
+            <div className="absolute bottom-[10%] left-[-4%] sm:left-[2%] lg:left-[5%] z-20 float-anim-3 scale-[0.90] sm:scale-100 origin-left">
               <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-white/15 hover:border-[#00aeee]/40 transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/20 rounded-lg flex items-center justify-center shrink-0">
                   <PiggyBank className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
@@ -161,7 +161,7 @@ export default function HeroBanner() {
             </div>
 
             {/* 4. Wealth Management (Top Right) */}
-            <div className="absolute top-[18%] right-[-4%] sm:right-[10%] lg:right-[3%] z-20 float-anim-2 scale-[0.72] sm:scale-100 origin-right">
+            <div className="absolute top-[18%] right-[-4%] sm:right-[10%] lg:right-[3%] z-20 float-anim-2 scale-[0.90] sm:scale-100 origin-right">
               <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-white/15 hover:border-[#00aeee]/40 transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
                   <Wallet className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
@@ -171,7 +171,7 @@ export default function HeroBanner() {
             </div>
 
             {/* 5. Investment Advisory (Bottom Right) */}
-            <div className="absolute bottom-[20%] right-[-6%] sm:right-[6%] lg:right-[10%] z-20 float-anim-1 scale-[0.72] sm:scale-100 origin-right">
+            <div className="absolute bottom-[20%] right-[-6%] sm:right-[6%] lg:right-[10%] z-20 float-anim-1 scale-[0.90] sm:scale-100 origin-right">
               <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-white/15 hover:border-[#00aeee]/40 transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/20 rounded-lg flex items-center justify-center shrink-0">
                   <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />

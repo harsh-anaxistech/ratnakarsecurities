@@ -12,8 +12,8 @@ export default function ProductsPage() {
       <HeroSection
         title="Our Products"
         breadcrumbs={[{ label: "Products" }]}
-        image="/images/about/AboutUs-Ratnakarsec.png"
-        height="h-[300px] md:h-[400px]" 
+        image="/images/about/our product.jpg"
+        height="h-[300px] md:h-[400px]"
       />
 
       <section className="relative overflow-hidden bg-[#f7f9fc] py-16">
@@ -51,11 +51,11 @@ export default function ProductsPage() {
                   {/* Image Icon resized to 64px from public folder */}
                   {/* ખાતરી કરો કે data.js માં iconPath આ રીતે સેટ કરેલ છે: "/images/icon/menu/Equity1.svg" */}
                   <div className="flex-shrink-0 w-[64px] h-[64px] transition-transform duration-500 group-hover:scale-110">
-                    <Image 
-                      src={product.iconPath} 
-                      alt={product.title} 
-                      width={64} 
-                      height={64} 
+                    <Image
+                      src={product.iconPath}
+                      alt={product.title}
+                      width={64}
+                      height={64}
                       className="w-full h-full object-contain"
                     />
                   </div>

@@ -15,14 +15,14 @@ export default function RefundCancellationPage() {
       <HeroSection
         title="Refund & Cancellation"
         breadcrumbs={[{ label: "Refund & Cancellation" }]}
-        image="/images/about/AboutUs-Ratnakarsec.png"
-        height="h-[300px] md:h-[400px]" 
+        image="/images/about/our product 1.jpg"
+        height="h-[300px] md:h-[400px]"
       />
 
       {/* Content Section */}
       <Container className="mt-12">
         <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-10 md:p-12 space-y-6 max-w-4xl mx-auto">
-          
+
           <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 mb-2">Refund & Cancellation</h2>
           <h3 className="text-xl font-bold text-[#ea2830] mb-6">At Ratnakar, We Care!</h3>
 
@@ -49,7 +49,7 @@ export default function RefundCancellationPage() {
           <p className="text-[16px] text-[#314158] leading-relaxed font-semibold italic border-l-4 border-[#1a6eb5] pl-4 py-2 mt-8 bg-[#1a6eb5]/5">
             <span className="text-slate-800">Note:</span> The completion of the refund procedure is subject to agencies such as banks, payment gateways.
           </p>
-          
+
         </div>
       </Container>
     </main>

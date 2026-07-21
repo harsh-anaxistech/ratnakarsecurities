@@ -87,7 +87,7 @@ export default function AboutPage() {
           {/* Feature Grid remains the same */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: Home, title: "One-stop shop", desc: "Comprehensive solutions across equities, derivatives, and more." },
+              { icon: Home, title: "Investment Gateway", desc: "Comprehensive solutions across equities, derivatives, and more." },
               { icon: Target, title: "Client-Centric", desc: "Tailored financial planning designed for your specific life goals." },
               { icon: Laptop, title: "Seamless Trading", desc: "Trade effortlessly via web, mobile, or our support network." },
               { icon: BarChart3, title: "Pro Tracking", desc: "Optimize your portfolio with real-time analytics and alerts." }

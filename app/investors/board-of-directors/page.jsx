@@ -69,7 +69,7 @@ export default function BoardOfDirectorsPage() {
           { label: "Investors", href: "/investors" },
           { label: "Board of Directors" },
         ]}
-        image="/images/about/AboutUs-Ratnakarsec.png"
+        image="/images/about/our product 1.jpg"
         height="h-[300px] md:h-[400px]"
       />
 
