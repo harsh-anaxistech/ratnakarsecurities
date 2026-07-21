@@ -35,14 +35,16 @@ export default function ProductDetailsPage() {
     <main className="bg-[#f7f9fc] min-h-screen pb-12">
       {/* Top Banner Section with Niche Image */}
       <HeroSection
-    title={product.title}
-    breadcrumbs={[
-      { label: "Products", href: "/products" },
-      { label: product.title }
-    ]}
-    image="/images/about/Derivatives.jpg"
-    height="h-[300px] md:h-[400px]" 
-/>
+        title={product.title}
+        breadcrumbs={[
+          { label: "Products", href: "/products" },
+          { label: product.title }
+        ]}
+        image="/images/about/Derivatives.jpg"
+        height="h-[300px] md:h-[400px]"
+        imagePosition="object-right sm:object-center"
+
+      />
 
       <Container className="mt-12">
         <div className="flex flex-col lg:flex-row gap-10">

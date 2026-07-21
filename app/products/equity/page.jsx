@@ -33,8 +33,10 @@ export default function ProductDetailsPage() {
           { label: product.title }
         ]}
         image="/images/about/Equities.jpg"
-        height="h-[300px] md:h-[400px]" 
-        imageClassName="object-top" // જો કમ્પોનન્ટમાં આ prop સપોર્ટ કરતો હોય 
+        height="h-[300px] md:h-[400px]"
+        imageClassName="object-top"
+        imagePosition="object-right sm:object-center"
+      // જો કમ્પોનન્ટમાં આ prop સપોર્ટ કરતો હોય 
       />
 
       <Container className="mt-12">
@@ -131,7 +133,7 @@ export default function ProductDetailsPage() {
                   { q: "How do I choose the right stocks?", a: "Stock selection should be based on financial goals, risk appetite, company fundamentals, and market research. Ratnakar Securities provides research-backed recommendations to support informed investment decisions." }
                 ].map((faq, i) => (
                   <div key={i} className="bg-slate-50 rounded-xl border border-black/5 overflow-hidden">
-                    <button 
+                    <button
                       onClick={() => toggleFAQ(i)}
                       className="w-full p-6 text-left flex items-center justify-between font-bold text-slate-900"
                     >

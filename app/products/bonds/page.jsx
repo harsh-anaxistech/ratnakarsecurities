@@ -33,11 +33,12 @@ export default function ProductDetailsPage() {
   return (
     <main className="bg-[#f7f9fc] min-h-screen pb-12">
       <HeroSection
-    title={product.title}
-    breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
-    image="/images/about/Bonds.jpg"
-    height="h-[300px] md:h-[400px]"
-/>
+        title={product.title}
+        breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
+        image="/images/about/Bonds.jpg"
+        height="h-[300px] md:h-[400px]"
+        imagePosition="object-right sm:object-center"
+      />
 
       <Container className="mt-12">
         <div className="flex flex-col lg:flex-row gap-10">
