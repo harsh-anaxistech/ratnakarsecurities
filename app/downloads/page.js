@@ -14,7 +14,7 @@ import {
 function getFileUrl(file) {
   if (!file) return "#";
   let url = file.fileurl || file.FILEURL || file.fileupload || file.pdf || file.url || file.filepath || "";
-  
+
   if (!url && file.filename && (file.filename.includes(".pdf") || file.filename.includes(".doc"))) {
     const baseUrl = API_BASE_URL.replace(/\/api$/, "");
     url = `${baseUrl}/uploads/Downloads/${file.filename}`;
@@ -27,7 +27,7 @@ function getFileUrl(file) {
     const baseUrl = API_BASE_URL.replace(/\/api$/, "");
     url = `${baseUrl}/${url}`;
   }
-  
+
   return url || "#";
 }
 
@@ -40,7 +40,7 @@ const FALLBACK_SECTIONS = [
 export default function DownloadsPage() {
   const [sections, setSections] = useState([]);
   const [activeSectionId, setActiveSectionId] = useState(null);
-  
+
   const [subsections, setSubsections] = useState([]);
   const [activeSubsectionId, setActiveSubsectionId] = useState(null);
 
@@ -148,7 +148,7 @@ export default function DownloadsPage() {
       {/* Section Header */}
       <section className="py-12 bg-[#f7f9fc]">
         <Container>
-          <div className="mb-12 text-center">
+          <div className="text-center">
             <div
               className="text-[14px] font-black tracking-widest uppercase mb-3"
               style={{ color: "rgb(234, 40, 48)" }}
@@ -184,11 +184,10 @@ export default function DownloadsPage() {
                   <button
                     key={secId}
                     onClick={() => setActiveSectionId(secId)}
-                    className={`px-6 py-4 font-semibold text-base border-b-2 cursor-pointer transition-all duration-300 whitespace-nowrap rounded-t-lg ${
-                      isActive
-                        ? "border-red-600 text-red-600 bg-red-50/70 shadow-sm"
-                        : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                    }`}
+                    className={`px-6 py-4 font-semibold text-base border-b-2 cursor-pointer transition-all duration-300 whitespace-nowrap rounded-t-lg ${isActive
+                      ? "border-red-600 text-red-600 bg-red-50/70 shadow-sm"
+                      : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                      }`}
                   >
                     {secName}
                   </button>
@@ -203,22 +202,29 @@ export default function DownloadsPage() {
       <div className="bg-white py-12">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-            {/* 2. Sidebar - Subheaders (Subsections) */}
-            <div className="lg:col-span-1">
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-200/80 sticky top-[180px]">
-                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 px-2">
-                  Subsections
-                </h3>
 
-                {loadingSubsections ? (
-                  <div className="py-8 text-center text-gray-400">
-                    <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2 text-red-600" />
-                    <span className="text-xs font-medium">Loading subheaders...</span>
-                  </div>
-                ) : subsections.length === 0 ? (
-                  <div className="text-xs text-gray-500 p-3 italic">No subsections found</div>
-                ) : (
-                  <div className="space-y-1">
+            {/* 2. Sidebar - Subheaders (Subsections) Updated Design (Desktop & Mobile) */}
+            <aside className="lg:col-span-1 space-y-4">
+              <h2 className="hidden lg:block text-[13px] font-bold text-slate-500 uppercase tracking-widest mb-3 px-1">
+                Categories
+              </h2>
+
+              {loadingSubsections ? (
+                <div className="py-8 text-center text-gray-400 bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hidden lg:block">
+                  <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2 text-[#EA2830]" />
+                  <span className="text-xs font-medium">Loading categories...</span>
+                </div>
+              ) : subsections.length === 0 ? (
+                <div className="text-xs text-gray-500 p-3 italic text-center bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hidden lg:block">
+                  No categories found
+                </div>
+              ) : (
+                <>
+                  {/* Desktop Navigation */}
+                  <nav
+                    aria-label="Research Categories - Desktop"
+                    className="hidden lg:flex flex-col gap-1 bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-3"
+                  >
                     {subsections.map((sub) => {
                       const subId = sub.SRNO ?? sub.id ?? sub.subsection_id;
                       const subName =
@@ -227,27 +233,52 @@ export default function DownloadsPage() {
 
                       return (
                         <button
-                          key={subId}
+                          key={`desktop-${subId}`}
                           onClick={() => setActiveSubsectionId(subId)}
-                          className={`w-full flex items-center justify-between py-3 px-3 rounded-lg text-left font-medium text-sm cursor-pointer transition-all duration-200 ${
-                            isSubActive
-                              ? "bg-red-600 text-white font-bold shadow-sm"
-                              : "text-gray-700 hover:text-red-600 hover:bg-red-50"
-                          }`}
+                          className={`w-full flex items-center justify-between px-4 py-3.5 text-left text-[15px] transition-all duration-200 border-l-[3.5px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EA2830] focus-visible:ring-offset-1 ${isSubActive
+                            ? "bg-gradient-to-r from-red-50 to-white/40 border-[#EA2830] text-[#EA2830] font-bold rounded-r-xl rounded-l-[4px] shadow-[0_2px_10px_rgba(234,40,48,0.06)]"
+                            : "text-[#0f172a] border-transparent hover:bg-slate-50 rounded-xl font-bold"
+                            }`}
                         >
                           <span>{subName}</span>
                           <ChevronRight
-                            className={`h-4 w-4 transition-transform duration-200 ${
-                              isSubActive ? "translate-x-0.5" : "opacity-60"
-                            }`}
+                            className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? "text-[#EA2830] translate-x-1" : "text-slate-400"
+                              }`}
+                            aria-hidden="true"
                           />
                         </button>
                       );
                     })}
-                  </div>
-                )}
-              </div>
-            </div>
+                  </nav>
+
+                  {/* Mobile Navigation */}
+                  <nav
+                    aria-label="Research Categories - Mobile"
+                    className="lg:hidden -mx-4 px-4 overflow-x-auto scrollbar-none flex gap-3 pb-2"
+                  >
+                    {subsections.map((sub) => {
+                      const subId = sub.SRNO ?? sub.id ?? sub.subsection_id;
+                      const subName =
+                        sub.subsection_name || sub.name || sub.title || sub.category || "Subsection";
+                      const isSubActive = String(subId) === String(activeSubsectionId);
+
+                      return (
+                        <button
+                          key={`mobile-${subId}`}
+                          onClick={() => setActiveSubsectionId(subId)}
+                          className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all border shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EA2830] ${isSubActive
+                            ? "bg-[#EA2830] text-white border-[#EA2830]"
+                            : "bg-white text-gray-700 border-gray-200 hover:border-[#EA2830]/50 hover:text-[#EA2830]"
+                            }`}
+                        >
+                          {subName}
+                        </button>
+                      );
+                    })}
+                  </nav>
+                </>
+              )}
+            </aside>
 
             {/* 3. Grid View - Subheader Data (Items) */}
             <div className="lg:col-span-4">
