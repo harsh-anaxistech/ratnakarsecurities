@@ -179,15 +179,38 @@ export default function Footer() {
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
           <p>Investor Grievance ID: investorgrievance@ratnakarsecurities.com</p>
           <div className="flex gap-4 flex-wrap mt-4 text-xs font-bold underline">
-            <a href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf" target="_blank" rel="noopener noreferrer">Online Dispute Resolution Portal - SMART ODR</a>
+            <a
+              href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#00aeee" }}
+              className="hover:opacity-80 transition-opacity"
+            >
+              Online Dispute Resolution Portal - SMART ODR
+            </a>
             <button
               onClick={() => setIsScoresModalOpen(true)}
-              className="text-xs font-bold underline cursor-pointer text-left hover:text-white transition-colors"
+              style={{ color: "#00aeee" }}
+              className="text-xs font-bold underline cursor-pointer text-left hover:opacity-80 transition-opacity"
             >
               To File A Complaint on SCORES Click Here
             </button>
-            <Link href="/nomination">For Nomination, Please Click Here</Link>
-            <a href="https://tradewebx1.ratnakarsecurities.com:9001/#/" target="_blank" rel="noopener noreferrer">To Close Account, Please Click Here</a>
+            <Link
+              href="/nomination"
+              style={{ color: "#00aeee" }}
+              className="hover:opacity-80 transition-opacity"
+            >
+              For Nomination, Please Click Here
+            </Link>
+            <a
+              href="https://tradewebx1.ratnakarsecurities.com:9001/#/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#00aeee" }}
+              className="hover:opacity-80 transition-opacity"
+            >
+              To Close Account, Please Click Here
+            </a>
           </div>
         </div>
       </div>
@@ -209,22 +232,22 @@ export default function Footer() {
 
       {/* SCORES Modal */}
       {isScoresModalOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 backdrop-blur-xs p-4"
           onClick={() => setIsScoresModalOpen(false)}
         >
-          <div 
+          <div
             className="relative w-full max-w-[550px] bg-[#011628] border-2 border-[#00aeee] rounded-md shadow-2xl p-6 sm:p-8 text-left transition-all duration-300 transform scale-100"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
-            <button 
+            <button
               onClick={() => setIsScoresModalOpen(false)}
               className="absolute top-4 right-4 text-xs font-bold uppercase tracking-wider text-[#9fc8e0] hover:text-white transition-colors flex items-center gap-1 cursor-pointer animate-pulse"
             >
               CLOSE <span className="text-[#00aeee] text-sm font-black">X</span>
             </button>
-            
+
             {/* Content */}
             <div className="space-y-6 mt-4">
               <div>
@@ -237,10 +260,10 @@ export default function Footer() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee] shadow-[0_0_8px_#00aeee] flex-shrink-0 mt-1.5"></span>
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                     <span>Register on SCORES portal</span>
-                    <a 
-                      href="https://scores.gov.in" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
+                    <a
+                      href="https://scores.gov.in"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="bg-[#00aeee] text-white px-2 py-0.5 rounded text-xs hover:bg-[#00aeee]/80 transition-colors font-semibold"
                     >
                       (link:https://scores.gov.in)

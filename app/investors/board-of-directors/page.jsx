@@ -1,6 +1,7 @@
 import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import Link from "next/link";
+import Image from "next/image";
 import { generatePageMetadata } from "@/constants/metadata";
 import { UserCheck, Building2 } from "lucide-react";
 
@@ -17,6 +18,7 @@ const directors = [
     designation: "Chairman and Managing Director",
     type: "Executive",
     initials: "AJS",
+    image: "/images/about/AJAY_SHAH_PHOTO__MD___CHAIRMAN-removebg-preview.png",
     description:
       "Mr. Ajay Jayantilal Shah, born in 1951, holds a BSc from Gujarat University and brings over 30 years of combined experience in stock broking and banking. He founded Ratnakar Securities in 1994, securing memberships with NSE and BSE, and establishing it as an NSDL Depository Participant. His leadership extended to serving as President of the Ahmedabad Stock Exchange, demonstrating his significant influence in India's securities market.",
   },
@@ -25,6 +27,7 @@ const directors = [
     designation: "Whole Time Director",
     type: "Executive",
     initials: "KAS",
+    image: "/images/about/khusal.png",
     description:
       "Mr. Kushal Ajay Shah, born in 1988, holds a Business Management degree from Christ College and a PGDM in Financial Markets from Gujarat University. With 15 years of experience, he has expertise in Investment Banking, Broking Operations, and Compliance at Ratnakar Securities, while also serving on the BSE Brokers Forum Board for six years. He has been instrumental in modernizing the firm's technology infrastructure to enhance client experience.",
   },
@@ -102,12 +105,23 @@ export default function BoardOfDirectorsPage() {
                 className="bg-white rounded-2xl border border-black/5 shadow-sm p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex items-start gap-5 mb-5">
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-lg shrink-0"
-                    style={{ background: "linear-gradient(135deg, #ea2830, #c41f26)" }}
-                  >
-                    {member.initials}
-                  </div>
+                  {member.image ? (
+                    <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-red-50 border border-red-100 relative flex items-center justify-center">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="w-16 h-16 rounded-xl flex items-center justify-center text-white font-bold text-lg shrink-0"
+                      style={{ background: "linear-gradient(135deg, #ea2830, #c41f26)" }}
+                    >
+                      {member.initials}
+                    </div>
+                  )}
                   <div>
                     <h2 className="text-xl font-bold text-slate-900">{member.name}</h2>
                     <p className="text-[#ea2830] font-semibold text-sm uppercase tracking-wider mt-1">
