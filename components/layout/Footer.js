@@ -237,62 +237,78 @@ export default function Footer() {
           onClick={() => setIsScoresModalOpen(false)}
         >
           <div
-            className="relative w-full max-w-[550px] bg-[#011628] border-2 border-[#00aeee] rounded-md shadow-2xl p-6 sm:p-8 text-left transition-all duration-300 transform scale-100"
+            className="relative w-full max-w-[620px] bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden text-left transition-all duration-300 transform scale-100"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
-            <button
-              onClick={() => setIsScoresModalOpen(false)}
-              className="absolute top-4 right-4 text-xs font-bold uppercase tracking-wider text-[#9fc8e0] hover:text-white transition-colors flex items-center gap-1 cursor-pointer animate-pulse"
+            {/* Header with requested background gradient */}
+            <div
+              className="px-6 py-6 sm:px-8 sm:py-7 relative flex items-center justify-between"
+              style={{ background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)" }}
             >
-              CLOSE <span className="text-[#00aeee] text-sm font-black">X</span>
-            </button>
-
-            {/* Content */}
-            <div className="space-y-6 mt-4">
               <div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-wide">Filing complaints on SCORES</h3>
-                <p className="text-sm font-semibold tracking-wide" style={{ color: "#00aeee" }}>Easy & quick</p>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide">Filing complaints on SCORES</h3>
+                <p className="text-xs sm:text-sm font-semibold tracking-wider uppercase mt-1" style={{ color: "#00aeee" }}>Easy & quick</p>
               </div>
 
-              <ul className="space-y-5 text-[#c8dff0] text-sm sm:text-base">
-                <li className="flex items-start gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee] shadow-[0_0_8px_#00aeee] flex-shrink-0 mt-1.5"></span>
+              {/* Close button */}
+              <button
+                onClick={() => setIsScoresModalOpen(false)}
+                className="text-xs font-bold uppercase tracking-wider text-white/80 hover:text-white transition-colors flex items-center gap-1 cursor-pointer bg-white/10 hover:bg-white/20 p-2.5 rounded-full"
+                aria-label="Close modal"
+              >
+                <span className="text-[#00aeee] text-base font-black">✕</span>
+              </button>
+            </div>
+
+            {/* Content Body with white background */}
+            <div className="p-6 sm:p-8 space-y-6 bg-white text-gray-800">
+              <ul className="space-y-6 text-sm sm:text-base">
+                {/* Item 1 */}
+                <li className="flex items-start gap-3.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ea2830] shadow-[0_0_8px_#ea2830] flex-shrink-0 mt-2"></span>
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                    <span>Register on SCORES portal</span>
+                    <span className="font-medium text-gray-900">Register on SCORES portal</span>
                     <a
                       href="https://scores.gov.in"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#00aeee] text-white px-2 py-0.5 rounded text-xs hover:bg-[#00aeee]/80 transition-colors font-semibold"
+                      className="bg-[#ea2830] text-white px-2.5 py-0.5 rounded text-xs hover:bg-[#c41f26] transition-colors font-semibold"
                     >
-                      (link:https://scores.gov.in)
+                      (link: https://scores.gov.in)
                     </a>
                   </div>
                 </li>
 
-                <li className="flex flex-col gap-2.5">
-                  <div className="flex items-start gap-3">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee] shadow-[0_0_8px_#00aeee] flex-shrink-0 mt-1.5"></span>
-                    <span>Mandatory details for filing complaints on SCORES</span>
+                {/* Item 2 */}
+                <li className="flex flex-col gap-3">
+                  <div className="flex items-start gap-3.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ea2830] shadow-[0_0_8px_#ea2830] flex-shrink-0 mt-2"></span>
+                    <span className="font-medium text-gray-900">Mandatory details for filing complaints on SCORES</span>
                   </div>
-                  <div className="flex flex-wrap gap-2 pl-5">
+                  <div className="flex flex-wrap gap-2 pl-6">
                     {["Name", "PAN", "Address", "Mobile Number", "E-mail ID"].map((item) => (
-                      <span key={item} className="bg-[#00aeee] text-white py-1 px-3 rounded text-xs font-semibold">
+                      <span key={item} className="bg-red-50 text-[#ea2830] border border-red-100 py-1 px-3 rounded-lg text-xs font-bold">
                         {item}
                       </span>
                     ))}
                   </div>
                 </li>
 
-                <li className="flex flex-col gap-2">
-                  <div className="flex items-start gap-3">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee] shadow-[0_0_8px_#00aeee] flex-shrink-0 mt-1.5"></span>
-                    <span>Benefits:</span>
+                {/* Item 3 */}
+                <li className="flex flex-col gap-2.5">
+                  <div className="flex items-start gap-3.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ea2830] shadow-[0_0_8px_#ea2830] flex-shrink-0 mt-2"></span>
+                    <span className="font-medium text-gray-900">Benefits:</span>
                   </div>
-                  <ul className="list-disc pl-10 space-y-1.5 text-sm text-[#9fc8e0]">
-                    <li>Effective communication</li>
-                    <li>Speedy redressal of the grievances</li>
+                  <ul className="space-y-2 pl-6 text-sm text-gray-600 font-medium">
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#1a6eb5]"></span>
+                      <span>Effective communication</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#1a6eb5]"></span>
+                      <span>Speedy redressal of the grievances</span>
+                    </li>
                   </ul>
                 </li>
               </ul>

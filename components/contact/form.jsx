@@ -48,7 +48,7 @@ export default function ContactUsPage() {
     setCaptchaVal(getRandomCaptcha());
     setIsMounted(true);
   }, []);
-  
+
   // Form submission loading and notification states
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
@@ -68,7 +68,7 @@ export default function ContactUsPage() {
       filteredValue = value.replace(/\D/g, "").slice(0, 10);
     }
     setFormData({ ...formData, [name]: filteredValue });
-    
+
     // Clear error message when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -162,7 +162,7 @@ export default function ContactUsPage() {
     <Container>
       <div className="grid grid-cols-1 lg:grid-cols-12 w-full font-sans bg-white border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] rounded-3xl overflow-hidden mb-12 animate-fade-in">
         {/* Left Side: Address Details Panel with custom dark blue radial gradient */}
-        <div 
+        <div
           className="col-span-1 lg:col-span-5 flex flex-col justify-center p-4 sm:p-12 min-h-[420px] lg:min-h-[550px] select-none text-white"
           style={{
             background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)"
@@ -177,7 +177,7 @@ export default function ContactUsPage() {
                 Ratnakar Securities Ltd.
               </h3>
             </div>
-            
+
             <div className="text-white/95 text-sm sm:text-base space-y-2 font-medium leading-relaxed">
               <p>304, Sankalp Square - 2,</p>
               <p>Near Jalaram Mandir Crossing,</p>
@@ -216,7 +216,7 @@ export default function ContactUsPage() {
         <div className="col-span-1 lg:col-span-7 p-4 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
           {/* Form Header */}
           <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground font-sans tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-serif  text-foreground font-sans tracking-tight">
               Get In Touch
             </h2>
           </div>
@@ -433,11 +433,10 @@ export default function ContactUsPage() {
             {/* Alert Box for Status Messages */}
             {statusMessage && (
               <div
-                className={`p-4 rounded-sm text-sm font-semibold ${
-                  statusType === "success"
-                    ? "bg-green-50 text-success border border-success/20 animate-fade-in"
-                    : "bg-red-50 text-danger border border-danger/20 animate-fade-in"
-                }`}
+                className={`p-4 rounded-sm text-sm font-semibold ${statusType === "success"
+                  ? "bg-green-50 text-success border border-success/20 animate-fade-in"
+                  : "bg-red-50 text-danger border border-danger/20 animate-fade-in"
+                  }`}
               >
                 {statusMessage}
               </div>

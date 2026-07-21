@@ -17,7 +17,8 @@ export default function HeroBanner() {
       aria-label="Maximize Your Wealth Hero Section"
     >
       {/* ── CUSTOM FLOATING ANIMATIONS STYLE ── */}
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @keyframes gentleDrift1 {
           0%, 100% { transform: translateY(0px) translateX(0px); }
           50% { transform: translateY(-6px) translateX(2px); }
@@ -40,17 +41,17 @@ export default function HeroBanner() {
 
       <Container className="relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 items-center">
-          
+
           {/* ── LEFT COLUMN: TYPOGRAPHY, BUTTONS & MARKET ENTITIES ── */}
           <div className="lg:col-span-6 space-y-4 sm:space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left pt-4 sm:py-6">
-            
+
             <div className="space-y-2 sm:space-y-3 w-full">
-              <span className="text-[#00aeee] text-xs sm:text-base font-bold tracking-wider uppercase block">
+              <span className="text-[#00aeee] text-[14px] font-bold tracking-wider uppercase block">
                 Maximize Your Wealth.
               </span>
               <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-serif text-white tracking-tight leading-[1.15]">
                 Trade Smarter. <br />
-                <span className="font-sans font-extrabold bg-gradient-to-r from-[#00aeee] to-[#008cc3] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#00aeee] to-[#008cc3] bg-clip-text text-transparent">
                   Invest Better.
                 </span>
               </h1>
@@ -72,34 +73,33 @@ export default function HeroBanner() {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <Link 
-                href="/products" 
+              <Link
+                href="/products"
                 className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center"
               >
                 <span>Explore Our Products</span>
               </Link>
             </div>
-
             {/* 🏛️ MARKET & REGULATORY ENTITIES CONTENT */}
-            <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 text-white/60 text-xs sm:text-base font-bold tracking-widest uppercase">
-              <span className="hover:text-white transition-colors duration-200">NSE</span>
+            <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 text-white/60 text-[12px] sm:text-sm font-bold tracking-widest uppercase">
+              <a href="https://www.nseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">NSE</a>
               <span className="text-[#00aeee]/40 font-normal">•</span>
-              <span className="hover:text-white transition-colors duration-200">BSE</span>
+              <a href="https://www.bseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">BSE</a>
               <span className="text-[#00aeee]/40 font-normal">•</span>
-              <span className="hover:text-white transition-colors duration-200">SEBI</span>
+              <a href="https://www.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">SEBI</a>
               <span className="text-[#00aeee]/40 font-normal">•</span>
-              <span className="hover:text-white transition-colors duration-200">NSDL</span>
+              <a href="https://nsdl.co.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">NSDL</a>
               <span className="text-[#00aeee]/40 font-normal">•</span>
-              <span className="hover:text-white transition-colors duration-200">MCX</span>
+              <a href="https://www.mcxindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">MCX</a>
               <span className="text-[#00aeee]/40 font-normal">•</span>
-              <span className="hover:text-white transition-colors duration-200">SCORES</span>
+              <a href="https://scores.sebi.gov.in/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">SCORES</a>
             </div>
           </div>
 
           {/* ── RIGHT COLUMN: HERO IMAGE & BACKGROUND CIRCLES ── */}
           {/* Shifted circles down slightly using lg:translate-y-[20px] and added items-end */}
           <div className="lg:col-span-6 w-full relative h-[380px] sm:h-[620px] lg:h-[620px] flex items-end justify-center mt-0 sm:mt-6 lg:mt-0">
-            
+
             {/* ── CONCENTRIC DOT-LINE CIRCLES ── */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 transform translate-x-0 sm:translate-x-[-30px] lg:translate-x-[-30px] lg:translate-y-[20px]">
               <div className="w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] lg:w-[660px] lg:h-[660px] opacity-25 text-white animate-spin" style={{ animationDuration: "90s" }}>
@@ -115,7 +115,7 @@ export default function HeroBanner() {
             {/* Added `items-end` to div, and ensure `lg:translate-x-[-40px] scale-[1.05]` matches the visual grounding. */}
             <div className="relative w-[190px] h-[380px] sm:w-[420px] sm:h-[640px] lg:w-[420px] lg:h-[620px] z-10 drop-shadow-[0_15px_35px_rgba(0,0,0,0.5)] transform translate-x-0 sm:translate-x-[-50px] lg:translate-x-[-40px] scale-[1.05] hover:scale-[1.06] transition-all duration-500 flex items-end">
               <Image
-                src="/images/about/2444.png" 
+                src="/images/about/2444.png"
                 alt="Portfolio Mobile App Dashboard"
                 fill
                 className="object-contain object-bottom"
@@ -124,7 +124,7 @@ export default function HeroBanner() {
             </div>
 
             {/* ── FLOATING GLASSMORPHIC BADGES ── */}
-            
+
             {/* 1. Equity (Top Left) */}
             <div className="absolute top-[10%] left-[0%] sm:left-[8%] lg:left-[10%] z-20 float-anim-1 scale-[0.72] sm:scale-100 origin-left">
               <div className="flex items-center gap-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-2 sm:p-2.5 shadow-xl hover:bg-white/15 hover:border-[#00aeee]/40 transition-all duration-300">

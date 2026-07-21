@@ -4,10 +4,10 @@ import Container from "@/components/common/Container";
 export default function ContactDetailsSections() {
   return (
     <Container>
-      <div className="w-full space-y-16 py-16">
+      <div className="w-full space-y-10 py-10">
         {/* --- ESCALATION MATRIX SECTION --- */}
         <div className="space-y-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-center  ">
+          <h2 className="text-3xl md:text-4xl font-serif  text-center  ">
             Escalation Matrix
           </h2>
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
@@ -193,7 +193,7 @@ export default function ContactDetailsSections() {
 
         {/* --- BASIC DETAILS SECTION --- */}
         <div className="space-y-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-center  ">
+          <h2 className="text-3xl md:text-4xl font-serif text-center  ">
             Basic Details
           </h2>
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
@@ -245,7 +245,7 @@ export default function ContactDetailsSections() {
 
         {/* --- KEY MANAGERIAL PERSONNEL SECTION --- */}
         <div className="space-y-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-center  ">
+          <h2 className="text-3xl md:text-4xl font-serif  text-center  ">
             Key Managerial Personnel
           </h2>
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
@@ -324,7 +324,7 @@ export default function ContactDetailsSections() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* RTA Details Block */}
           <div className="bg-muted border border-border rounded-sm p-4 md:p-8 text-center space-y-4 text-white" style={{ background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)" }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-center pb-3 ">
+            <h2 className="text-2xl md:text-3xl  text-center pb-3 ">
               RTA Details
             </h2>
             <div className="text-base text-white space-y-1.5 leading-relaxed">
@@ -345,7 +345,7 @@ export default function ContactDetailsSections() {
 
           {/* Investor Details Block */}
           <div className="bg-white border border-border rounded-sm p-4 md:p-8 text-center space-y-4 text-white" style={{ background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)" }}>
-            <h2 className="text-2xl md:text-3xl font-bold text-center pb-3 ">
+            <h2 className="text-2xl md:text-3xl text-center pb-3 ">
               Investor Details
             </h2>
 
