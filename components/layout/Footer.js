@@ -219,13 +219,13 @@ export default function Footer() {
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
           <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
           <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-4 justify-center sm:justify-end items-center">
-            <Link href="/privacy-policy" className="text-black hover:opacity-70 transition-opacity">Privacy Policy</Link>
-            <a href="/images/disclaimer.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:opacity-70 transition-opacity">Disclaimer</a>
-            <a href="/images/termsofuse.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:opacity-70 transition-opacity">Terms of Conditions</a>
-            <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer" className="text-black hover:opacity-70 transition-opacity">Investor Complaint</a>
-            <Link href="/refund-and-cancellation" className="text-black hover:opacity-70 transition-opacity">Refund & Cancellation</Link>
+            <Link href="/privacy-policy" className="text-black hover:text-[#00aeee] transition-colors">Privacy Policy</Link>
+            <a href="/images/disclaimer.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors">Disclaimer</a>
+            <a href="/images/termsofuse.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors">Terms of Conditions</a>
+            <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors">Investor Complaint</a>
+            <Link href="/refund-and-cancellation" className="text-black hover:text-[#00aeee] transition-colors">Refund & Cancellation</Link>
 
-            <span className="bg-white text-black px-2 py-1 rounded">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-black hover:opacity-80 transition-opacity">Anaxistech</a></span>
+            <span className="bg-white text-black px-2 py-1 rounded">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-black hover:text-[#00aeee] transition-colors">Anaxistech</a></span>
           </div>
         </div>
       </div>

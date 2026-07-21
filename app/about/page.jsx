@@ -59,7 +59,7 @@ export default function AboutPage() {
       <HeroSection
         title="About Ratnakar"
         breadcrumbs={[{ label: "About Ratnakar" }]}
-        image="/images/about/AboutUs-Ratnakarsec.png"
+        image="/images/about/about us.jpg"
         height="h-[300px] md:h-[400px]" />
 
       {/* Overview Section */}
