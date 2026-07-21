@@ -71,7 +71,7 @@ const NAV_LINKS = [
 ];
 
 const LOGIN_LINKS = [
-  { label: "Ratnakar's Online Trading Mobile APP - TradeXpress", href: "javascript://", external: false },
+  { label: "Ratnakar's Online Trading Mobile APP - TradeXpress", href: "#", isModal: true },
   { label: "Backoffice Login", href: "#", isButton: true },
   { label: "Mutual Fund Portfolio", href: "https://ratnakarsecurities.investwell.app/app/#/login", external: true },
   { label: "Narnolia Investment Advisory Portfolio", href: "https://ratnakarsecurities.narnolia.in/", external: true },
@@ -326,6 +326,17 @@ OPEN DEMAT ACCOUNT                  </Button>
                           </button>
                         );
                       }
+                      if (link.isModal) {
+                        return (
+                          <button
+                            key={link.label}
+                            onClick={() => setMobileAppModalOpen(true)}
+                            className="w-full text-left block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors"
+                          >
+                            {link.label}
+                          </button>
+                        );
+                      }
                       if (link.external) {
                         return (
                           <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
@@ -439,6 +450,20 @@ OPEN DEMAT ACCOUNT                  </Button>
                           </button>
                         );
                       }
+                      if (link.isModal) {
+                        return (
+                          <button
+                            key={link.label}
+                            onClick={() => {
+                              setMobileAppModalOpen(true);
+                              setMobileOpen(false);
+                            }}
+                            className="w-full text-left block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors"
+                          >
+                            {link.label}
+                          </button>
+                        );
+                      }
                       if (link.external) {
                         return (
                           <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors">
@@ -471,46 +496,92 @@ OPEN DEMAT ACCOUNT                  </Button>
 
       <BackofficeLoginModal isOpen={backofficeModalOpen} onClose={() => setBackofficeModalOpen(false)} />
 
-      {/* ── MOBILE APP MODAL (POPUP) ── */}
+      {/* ── MOBILE APP DOWNLOAD MODAL (POPUP) ── */}
       {mobileAppModalOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl">
-            
-            {/* ક્લોઝ બટન */}
-            <button 
-              onClick={() => setMobileAppModalOpen(false)} 
-              className="absolute top-4 right-4 text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors"
+        <div
+          className="fixed inset-0 z-[1000] flex items-center justify-center p-4"
+          style={{ background: "rgba(1,22,40,0.75)", backdropFilter: "blur(6px)" }}
+          onClick={() => setMobileAppModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-md rounded-3xl shadow-2xl overflow-hidden"
+            style={{ background: "linear-gradient(135deg, #011628 0%, #012e54 60%, #1a6eb5 100%)" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Decorative circles */}
+            <div style={{ position: "absolute", top: "-40px", right: "-40px", width: "160px", height: "160px", borderRadius: "50%", background: "rgba(255,255,255,0.04)", pointerEvents: "none" }} />
+            <div style={{ position: "absolute", bottom: "-30px", left: "-30px", width: "120px", height: "120px", borderRadius: "50%", background: "rgba(255,255,255,0.04)", pointerEvents: "none" }} />
+
+            {/* Close button */}
+            <button
+              onClick={() => setMobileAppModalOpen(false)}
+              className="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200"
+              style={{ background: "rgba(234,40,48,0.15)", color: "#ea2830" }}
+              aria-label="Close"
             >
-              <X size={24} strokeWidth={3} />
+              <X size={20} strokeWidth={2.5} />
             </button>
 
-            <h2 className="text-2xl font-bold text-center text-slate-900 mb-8">Choose Your App</h2>
+            {/* Header */}
+            <div className="px-8 pt-10 pb-6 text-center">
+              <div className="flex items-center justify-center gap-2 mb-3">
+                <Smartphone className="w-6 h-6" style={{ color: "#00aeee" }} />
+                <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "#00aeee" }}>Download App</span>
+              </div>
+              <h2 className="text-xl font-bold leading-snug text-white">
+                Ratnakar&apos;s Online Trading<br/>Mobile APP – TradeXpress
+              </h2>
+              <p className="mt-2 text-sm" style={{ color: "rgba(255,255,255,0.55)" }}>Choose your platform to download</p>
+            </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-8">
-              {/* Option 1: Wealth Management */}
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.tvs.ratnakar" 
+            {/* Download boxes */}
+            <div className="flex flex-col sm:flex-row gap-4 px-8 pb-10">
+              {/* Android */}
+              <a
+                href="https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center group"
+                className="flex-1 group flex flex-col items-center gap-3 rounded-2xl p-5 transition-all duration-300"
+                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(61,220,132,0.15)"; e.currentTarget.style.borderColor = "#3DDC84"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; }}
               >
-                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#00aeee] transition-all duration-300 mb-4">
-                  <Briefcase className="w-12 h-12 text-[#00aeee]" />
+                {/* Android SVG icon */}
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: "rgba(61,220,132,0.15)" }}>
+                  <svg viewBox="0 0 24 24" className="w-9 h-9" fill="#3DDC84">
+                    <path d="M17.523 15.341a.976.976 0 0 1-.973-.975.976.976 0 0 1 .973-.974.976.976 0 0 1 .973.974.976.976 0 0 1-.973.975m-11.046 0a.976.976 0 0 1-.973-.975.976.976 0 0 1 .973-.974.976.976 0 0 1 .973.974.976.976 0 0 1-.973.975M17.75 9.5l1.938-3.354a.403.403 0 0 0-.148-.55.403.403 0 0 0-.55.148l-1.963 3.4A11.64 11.64 0 0 0 12 8.25a11.64 11.64 0 0 0-5.027 1.144L4.01 5.744a.403.403 0 0 0-.55-.148.403.403 0 0 0-.148.55L5.25 9.5C2.95 10.8 1.5 13.14 1.5 15.75h21c0-2.61-1.45-4.95-3.75-6.25" />
+                  </svg>
                 </div>
-                <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">WEALTH<br/>MANAGEMENT</span>
+                <div className="text-center">
+                  <p className="text-xs mb-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>GET IT ON</p>
+                  <p className="text-base font-bold text-white">Google Play</p>
+                  <p className="text-xs mt-1" style={{ color: "#3DDC84" }}>Android</p>
+                </div>
+                <Download className="w-4 h-4" style={{ color: "rgba(255,255,255,0.4)" }} />
               </a>
 
-              {/* Option 2: Trade Express */}
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress" 
+              {/* Apple iOS */}
+              <a
+                href="https://apps.apple.com/in/app/ratnakar-tradeexpress/id6742447581"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center group"
+                className="flex-1 group flex flex-col items-center gap-3 rounded-2xl p-5 transition-all duration-300"
+                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.6)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; }}
               >
-                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#ea2830] transition-all duration-300 mb-4">
-                  <TrendingUp className="w-12 h-12 text-[#ea2830]" />
+                {/* Apple SVG icon */}
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center" style={{ background: "rgba(255,255,255,0.12)" }}>
+                  <svg viewBox="0 0 24 24" className="w-9 h-9" fill="white">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                  </svg>
                 </div>
-                <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">TRADE<br/>EXPRESS</span>
+                <div className="text-center">
+                  <p className="text-xs mb-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>DOWNLOAD ON THE</p>
+                  <p className="text-base font-bold text-white">App Store</p>
+                  <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>Apple iOS</p>
+                </div>
+                <Download className="w-4 h-4" style={{ color: "rgba(255,255,255,0.4)" }} />
               </a>
             </div>
           </div>

@@ -1,94 +1,144 @@
 "use client";
 
-import { X, Download, Apple, Smartphone } from "lucide-react";
+import { X, Download } from "lucide-react";
 
 export default function ChooseAppModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const apps = [
     {
-      name: "iOS App",
-      icon: Apple,
-      description: "Download for iPhone & iPad",
-      link: "https://apps.apple.com/in/app/ratnakar-securities/id...", // Update with actual link
-      color: "bg-black hover:bg-gray-800",
-      bgLight: "bg-black/5",
+      name: "Android",
+      label: "Google Play",
+      description: "Ratnakar TradeExpress – Apps on Google Play",
+      link: "https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress",
+      iconSvg: (
+        <svg viewBox="0 0 24 24" className="w-8 h-8" fill="#3DDC84">
+          <path d="M17.523 15.341a.976.976 0 0 1-.973-.975.976.976 0 0 1 .973-.974.976.976 0 0 1 .973.974.976.976 0 0 1-.973.975m-11.046 0a.976.976 0 0 1-.973-.975.976.976 0 0 1 .973-.974.976.976 0 0 1 .973.974.976.976 0 0 1-.973.975M17.75 9.5l1.938-3.354a.403.403 0 0 0-.148-.55.403.403 0 0 0-.55.148l-1.963 3.4A11.64 11.64 0 0 0 12 8.25a11.64 11.64 0 0 0-5.027 1.144L4.01 5.744a.403.403 0 0 0-.55-.148.403.403 0 0 0-.148.55L5.25 9.5C2.95 10.8 1.5 13.14 1.5 15.75h21c0-2.61-1.45-4.95-3.75-6.25" />
+        </svg>
+      ),
+      iconBg: "rgba(61,220,132,0.12)",
+      badge: "GET IT ON",
+      accentColor: "#3DDC84",
     },
     {
-      name: "Android App",
-      icon: Smartphone,
-      description: "Download for Android devices",
-      link: "https://play.google.com/store/apps/details?id=...", // Update with actual link
-      color: "bg-green-600 hover:bg-green-700",
-      bgLight: "bg-green-50",
+      name: "Apple iOS",
+      label: "App Store",
+      description: "Ratnakar TradeExpress App – App Store",
+      link: "https://apps.apple.com/in/app/ratnakar-tradeexpress/id6742447581",
+      iconSvg: (
+        <svg viewBox="0 0 24 24" className="w-8 h-8" fill="#555">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+        </svg>
+      ),
+      iconBg: "rgba(0,0,0,0.06)",
+      badge: "DOWNLOAD ON THE",
+      accentColor: "#888888",
     },
   ];
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+    <div
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-4"
+      style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(5px)" }}
+      onClick={onClose}
+    >
+      {/* Card — white background */}
+      <div
+        className="relative w-full max-w-md rounded-3xl shadow-2xl bg-white overflow-hidden"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
-        <div className="bg-gradient-to-r from-red-600 to-red-700 px-6 py-6 flex items-center justify-between">
-          <h2 className="text-2xl font-bold text-white">Choose Your App</h2>
-          <button
-            onClick={onClose}
-            className="text-white hover:bg-white/20 rounded-full p-2 transition-colors duration-200"
-          >
-            <X className="h-6 w-6" />
-          </button>
-        </div>
+        <div className="px-7 pt-8 pb-5 border-b border-gray-100">
 
-        {/* Content */}
-        <div className="p-6">
-          <p className="text-gray-600 text-center mb-6">
-            Download the Ratnakar Securities app for a seamless trading experience on the go.
+          {/* "Download App" label — red */}
+          <div className="flex items-center gap-2 mb-2">
+            <Download className="w-4 h-4" style={{ color: "#ea2830" }} />
+            <span
+              className="text-xs font-bold tracking-widest uppercase"
+              style={{ color: "#ea2830" }}
+            >
+              Download App
+            </span>
+          </div>
+
+          {/* Heading — blue */}
+          <h2
+            className="text-xl font-bold leading-snug"
+            style={{ color: "#0056a0" }}
+          >
+            Ratnakar&apos;s Online Trading
+            <br />
+            Mobile APP – TradeXpress
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">
+            Choose your platform to download
           </p>
 
-          <div className="space-y-4">
-            {apps.map((app) => {
-              const IconComponent = app.icon;
-              return (
-                <a
-                  key={app.name}
-                  href={app.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${app.bgLight} border-2 border-gray-200 rounded-xl p-4 transition-all duration-300 hover:border-red-600 hover:shadow-lg block`}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className={`${app.color} text-white rounded-lg p-3 flex items-center justify-center`}>
-                      <IconComponent className="h-6 w-6" />
-                    </div>
-                    <div className="flex-grow">
-                      <h3 className="font-bold text-gray-900">{app.name}</h3>
-                      <p className="text-sm text-gray-600">{app.description}</p>
-                    </div>
-                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-red-600 text-white">
-                      <Download className="h-5 w-5" />
-                    </div>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <p className="text-sm text-blue-900 text-center">
-              💡 <strong>Tip:</strong> You can also access our platform from any web browser.
-            </p>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
+          {/* Close button */}
           <button
             onClick={onClose}
-            className="w-full py-2.5 text-center font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+            className="absolute top-5 right-5 flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 hover:bg-red-50"
+            style={{ color: "#ea2830" }}
+            aria-label="Close"
           >
-            Close
+            <X size={20} strokeWidth={2.5} />
           </button>
+        </div>
+
+        {/* Download boxes */}
+        <div className="flex flex-col sm:flex-row gap-4 p-6">
+          {apps.map((app) => (
+            <a
+              key={app.name}
+              href={app.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex flex-col items-center gap-3 rounded-2xl p-5 border-2 border-gray-100 bg-white transition-all duration-200 hover:shadow-md"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = app.accentColor;
+                e.currentTarget.style.background = app.iconBg;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "#f3f4f6";
+                e.currentTarget.style.background = "#fff";
+              }}
+            >
+              {/* Platform icon */}
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                style={{ background: app.iconBg }}
+              >
+                {app.iconSvg}
+              </div>
+
+              {/* Text */}
+              <div className="text-center">
+                <p className="text-[10px] font-semibold text-gray-400 tracking-wider mb-0.5">
+                  {app.badge}
+                </p>
+                <p className="text-base font-bold text-gray-900">{app.label}</p>
+                <p className="text-xs text-gray-500 mt-0.5">{app.name}</p>
+              </div>
+
+              {/* Download icon — red circle */}
+              <div
+                className="flex items-center justify-center w-8 h-8 rounded-full"
+                style={{ background: "#ea2830" }}
+              >
+                <Download className="w-4 h-4 text-white" />
+              </div>
+            </a>
+          ))}
+        </div>
+
+        {/* Footer tip */}
+        <div className="mx-6 mb-6 p-3 rounded-xl border border-blue-100 bg-blue-50">
+          <p className="text-xs text-blue-700 text-center">
+            💡 You can also access our platform from any web browser.
+          </p>
         </div>
       </div>
     </div>
   );
 }
+
