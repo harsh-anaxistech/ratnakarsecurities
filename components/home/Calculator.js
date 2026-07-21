@@ -27,7 +27,8 @@ export default function CalculatorSection() {
             <Link
               key={item.title}
               href={item.href}
-              className="group w-full flex items-center gap-6 p-6 rounded-2xl border border-slate-200 bg-white hover:border-[#00aeee]/30 shadow-[0_5px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1.5 transition-all duration-500"
+              // Updated background gradient and shadows here
+              className="group w-full flex items-center gap-6 p-6 rounded-2xl bg-gradient-to-br from-[#00aeee] to-[#0088c2] shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500"
             >
               {/* Icon Container - સ્ક્વેર લુક */}
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-white to-blue-50 border border-slate-100 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md">
@@ -40,15 +41,15 @@ export default function CalculatorSection() {
                 />
               </div>
 
-              {/* Text Content */}
+              {/* Text Content - Updated colors for readability on blue background */}
               <div>
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#00aeee] transition-colors duration-300">
+                <h3 className="text-lg font-bold text-white transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-[14px] text-slate-500 font-medium mt-0.5 mb-2">
+                <p className="text-[14px] text-blue-100 font-medium mt-0.5 mb-2">
                   {item.subtitle}
                 </p>
-                <span className="inline-flex items-center text-xs font-bold text-[#ea2830] transition-transform duration-300 group-hover:translate-x-1 uppercase tracking-wider">
+                <span className="inline-flex items-center text-xs font-bold text-white transition-transform duration-300 group-hover:translate-x-1 uppercase tracking-wider">
                   Calculate Now &rarr;
                 </span>
               </div>

@@ -6,29 +6,29 @@ export default function DownloadApp() {
     <section className="pt-12 px-4">
       <div className="max-w-6xl mx-auto bg-gradient-to-r from-[#ea2830] to-[#00aeee] rounded-3xl p-8 md:p-8  text-white">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          
+
           {/* લેફ્ટ સાઇડ: કન્ટેન્ટ */}
           <div className="text-center md:text-left flex-1">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Download Our App</h2>
             <p className="text-blue-100 text-lg mb-8">Trade seamlessly on the go with our professional mobile platform.</p>
-            
+
             {/* Google Image QR Code */}
-           <div className="bg-white p-3 rounded-2xl inline-block shadow-lg">
-   <img 
-      src="/images/about/image (28).png" 
-      alt="QR Code" 
-      className="w-32 h-32" 
-   />
-</div>
+            <div className="bg-white p-3 rounded-2xl inline-block shadow-lg">
+              <img
+                src="/images/about/image (28).png"
+                alt="QR Code"
+                className="w-32 h-32"
+              />
+            </div>
           </div>
-{/* મિડલ સાઇડ: નવો સ્થાનિક ફોટો */}
-<div className="flex-shrink-0">
-  <img
-    src="/images/about/Stock trading on sleek iPhones.png"
-    alt="Investment App"
-    className="w-64 md:w-70 object-contain drop-shadow-2xl"
-  />
-</div>
+          {/* મિડલ સાઇડ: નવો સ્થાનિક ફોટો */}
+          <div className="flex-shrink-0">
+            <img
+              src="/images/about/Stock trading on sleek iPhones.png"
+              alt="Investment App"
+              className="w-64 md:w-70 object-contain drop-shadow-2xl"
+            />
+          </div>
 
           {/* રાઈટ સાઇડ: બટન્સ */}
           <div className="flex flex-col gap-4 w-full md:w-auto">
