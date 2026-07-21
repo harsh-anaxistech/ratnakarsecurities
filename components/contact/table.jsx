@@ -274,7 +274,7 @@ export default function ContactDetailsSections() {
                   },
                   {
                     id: 2,
-                    name: "MAYUR AJAY SHAH",
+                    name: "MAYURI AJAY SHAH",
                     role: "DIRECTORS",
                     phone: "98980 18051",
                     email: "kushal@ratnakarsecurities.com",

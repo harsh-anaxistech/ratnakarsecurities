@@ -86,51 +86,63 @@ export default function Footer() {
     <footer style={{ background: "#011628", color: "#c8dff0" }}>
       <div className="pt-16 pb-10 border-b border-gray-500/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
-            {/* Brand column */}
-            <div>
-              <Link href="#" className="inline-block mb-5">
-                <div className="bg-white rounded-xl px-4 py-3 inline-flex items-center justify-center">
-                  <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={180} height={50} className="object-contain" />
-                </div>
-              </Link>
-              {/* એડ્રેસ ની સાઈઝ 16px સેટ કરી */}
-              <ul className="text-[16px] leading-relaxed max-w-[350px] space-y-1" style={{ color: "#9fc8e0" }}>
-                <li><strong>Cameo Corporate Services Limited</strong></li>
-                <li>#1, Subramanian Building,</li>
-                <li>Club House Road, Chennai-600002.</li>
-                <li>Contact No : <a href="tel:04440020731" className="hover:text-white transition-colors">044-40020731</a></li>
-              </ul>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-              <div className="mt-5 text-[16px] leading-relaxed max-w-[350px] flex flex-wrap items-center gap-x-2 gap-y-1" style={{ color: "#9fc8e0" }}>
-                <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Segregation Monitoring Collateral</a>
-                <span>|</span>
-                <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">NSDL e Voting</a>
-                <span>|</span>
-                <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">NSDL IDEAS Services</a>
-              </div>
+            {/* 1. પ્રથમ કૉલમ: પહેલા 6 પ્રોડક્ટ્સ અને તેની નીચે લોગો + એડ્રેસ */}
+            <div>
+              {/* પહેલા 6 પ્રોડક્ટ્સ */}
+              {FOOTER_LINKS["Products"] && (
+                <div className="mb-8">
+                  <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5" style={{ color: "#00aeee" }}>
+                    Products
+                  </h4>
+                  <ul className="space-y-2.5">
+                    {FOOTER_LINKS["Products"].slice(0, 6).map((l) => (
+                      <li key={l.label}>
+                        {l.target ? (
+                          <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[16px] hover:text-white transition-colors">
+                            {l.label}
+                          </a>
+                        ) : (
+                          <Link href={l.href} className="text-[16px] hover:text-white transition-colors">
+                            {l.label}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+
             </div>
 
-            {/* Link columns */}
-            {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
-              <div key={heading}>
-                {/* હેડિંગ ની સાઈઝ 16px સેટ કરી */}
-                <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5" style={{ color: "#00aeee" }}>{heading}</h4>
-                <ul className="space-y-2.5">
-                  {links.map((l) => (
-                    <li key={l.label}>
-                      {/* લિંક્સ ની સાઈઝ 16px સેટ કરી */}
-                      {l.target ? (
-                        <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[16px] hover:text-white transition-colors">{l.label}</a>
-                      ) : (
-                        <Link href={l.href} className="text-[16px] hover:text-white transition-colors">{l.label}</Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
+            {/* 2. બીજી કૉલમ: બાકીના 6 પ્રોડક્ટ્સ */}
+            <div>
+              {FOOTER_LINKS["Products"] && FOOTER_LINKS["Products"].length > 6 && (
+                <div>
+                  {/* અલાઈનમેન્ટ બરાબર રાખવા હેડિંગ ની જગ્યા પર સ્પેસિંગ અથવા હિડન હેડર */}
+                  <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5 invisible hidden lg:block">
+                    More Products
+                  </h4>
+                  <ul className="space-y-2.5">
+                    {FOOTER_LINKS["Products"].slice(6, 12).map((l) => (
+                      <li key={l.label}>
+                        {l.target ? (
+                          <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[16px] hover:text-white transition-colors">
+                            {l.label}
+                          </a>
+                        ) : (
+                          <Link href={l.href} className="text-[16px] hover:text-white transition-colors">
+                            {l.label}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
 
-                {heading === "Products" && (
-                  <div className="flex items-center gap-3 mt-6">
+                  {/* સોશિયલ મીડિયા લિંક્સ */}
+                  <div className="flex items-center gap-3 mt-8">
                     {SOCIAL_LINKS.map((social) => {
                       const Icon = social.icon;
                       return (
@@ -147,14 +159,87 @@ export default function Footer() {
                       );
                     })}
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              )}
+            </div>
+
+            {/* 3. બાકીની કૅટેગરીઝ (જેમ કે Quick Links, Company વગેરે) */}
+            {Object.entries(FOOTER_LINKS)
+              .filter(([heading]) => heading !== "Products")
+              .map(([heading, links]) => (
+                <div key={heading}>
+                  <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5" style={{ color: "#00aeee" }}>
+                    {heading}
+                  </h4>
+                  <ul className="space-y-2.5">
+                    {links.map((l) => (
+                      <li key={l.label}>
+                        {l.target ? (
+                          <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[16px] hover:text-white transition-colors">
+                            {l.label}
+                          </a>
+                        ) : (
+                          <Link href={l.href} className="text-[16px] hover:text-white transition-colors">
+                            {l.label}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+
           </div>
         </div>
       </div>
 
-      {/* Investor Notices */}
+      {/* 1. TOP FULL-WIDTH SECTION: લોગો, એડ્રેસ અને ઈમ્પોર્ટન્ટ લિંક્સ */}
+      <div className="py-6 border-b border-gray-500/30">
+        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+
+            {/* Logo */}
+            <div className="shrink-0">
+              <Link href="#" className="inline-block">
+                <div className="bg-white rounded-xl px-4 py-3 inline-flex items-center justify-center">
+                  <Image
+                    src="/images/logo/RSL_logo.png"
+                    alt="Ratnakar Securities"
+                    width={180}
+                    height={50}
+                    className="object-contain"
+                  />
+                </div>
+              </Link>
+            </div>
+
+            {/* Address */}
+            <ul className="text-[15px] sm:text-[16px] leading-relaxed space-y-0.5" style={{ color: "#9fc8e0" }}>
+              <li><strong>Cameo Corporate Services Limited</strong></li>
+              <li>#1, Subramanian Building, Club House Road, Chennai-600002.</li>
+              <li>Contact No : <a href="tel:04440020731" className="hover:text-white transition-colors">044-40020731</a></li>
+            </ul>
+
+            {/* Quick Important Links */}
+            <div className="text-[15px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1 lg:justify-end" style={{ color: "#9fc8e0" }}>
+              <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                Segregation Monitoring Collateral
+              </a>
+              <span>|</span>
+              <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                NSDL e Voting
+              </a>
+              <span>|</span>
+              <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                NSDL IDEAS Services
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* 2. INVESTOR NOTICES (TABS) SECTION */}
       <div className="py-8 border-b border-[#00aeee]/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-5 text-xs font-bold tracking-wide uppercase">
@@ -162,6 +247,7 @@ export default function Footer() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
+                className="transition-colors hover:text-[#00aeee]"
                 style={{ color: activeTab === tab ? "#00aeee" : "#9fc8e0" }}
               >
                 {tab}
