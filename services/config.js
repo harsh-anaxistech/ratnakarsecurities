@@ -12,7 +12,7 @@
 const APP_ENV = process.env.NEXT_PUBLIC_APP_ENV || "local";
 
 const API_ENV_URLS = {
-  local: "http://localhost:6010/api",
+  local: "https://api.ratnakarsecurities.com/api",
   stage: "https://api.ratnakarsecurities.com/api",
   staging: "https://api.ratnakarsecurities.com/api",
   prod: "https://api.ratnakarsecurities.com/api",
