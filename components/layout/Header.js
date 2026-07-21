@@ -101,8 +101,7 @@ export default function Header() {
   const [openAccordion, setOpenAccordion] = useState(null);
   const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
   const [backofficeModalOpen, setBackofficeModalOpen] = useState(false);
-  const [mobileAppModalOpen, setMobileAppModalOpen] = useState(false); // Navu state app modal mate
-
+  const [mobileAppModalOpen, setMobileAppModalOpen] = useState(false);
   const pathname = usePathname();
   const [prevPathname, setPrevPathname] = useState(pathname);
 
@@ -205,10 +204,7 @@ export default function Header() {
         >
           <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 w-full">
             <div className="flex h-14 items-center justify-end gap-4">
-
-              {/* Icons List */}
               {[
-                // { Icon: TrendingUp, title: "Markets", href: "#" },
                 { Icon: Smartphone, title: "Mobile App", href: "#" },
                 { Icon: Download, title: "Downloads", href: "/downloads" },
                 { Icon: HelpCircle, title: "Help", href: "/contact" },
@@ -218,7 +214,6 @@ export default function Header() {
                   key={index}
                   href={item.href}
                   onClick={(e) => {
-                    // Jo Mobile App par click thay to popup khule
                     if (item.title === "Mobile App") {
                       e.preventDefault();
                       setMobileAppModalOpen(true);
@@ -226,10 +221,10 @@ export default function Header() {
                       handleTopNav(e, item.href);
                     }
                   }}
-                  className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300 cursor-pointer pointer-events-auto z-10"
+                  className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300"
                   title={item.title}
                 >
-                  <item.Icon className="h-5 w-5 pointer-events-none" />
+                  <item.Icon className="h-5 w-5" />
                 </a>
               ))}
 
@@ -497,7 +492,9 @@ export default function Header() {
 
       <BackofficeLoginModal isOpen={backofficeModalOpen} onClose={() => setBackofficeModalOpen(false)} />
 
-      <ChooseAppModal isOpen={mobileAppModalOpen} onClose={() => setMobileAppModalOpen(false)} />
-    </>
+      <ChooseAppModal
+        isOpen={mobileAppModalOpen}
+        onClose={() => setMobileAppModalOpen(false)}
+      />    </>
   );
 }

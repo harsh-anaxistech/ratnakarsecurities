@@ -163,7 +163,7 @@ export default function ContactDetailsSections() {
                 href="https://investorhelpline.nseindia.com/NICEPLUS/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-1.5 bg-secondary text-white text-base rounded-sm hover:bg-secondary-dark transition-colors font-semibold select-none shadow-sm"
+                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none h-11 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2 shadow-sm"
               >
                 NSE
               </a>
@@ -171,7 +171,7 @@ export default function ContactDetailsSections() {
                 href="https://bsecrs.bseindia.com/ecomplaint/frmInvestorHome.aspx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-1.5 bg-secondary text-white text-base rounded-sm hover:bg-secondary-dark transition-colors font-semibold select-none shadow-sm"
+                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none h-11 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2 shadow-sm"
               >
                 BSE
               </a>
@@ -179,7 +179,7 @@ export default function ContactDetailsSections() {
                 href="https://www.epass.nsdl.com/complaints/websx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-1.5 bg-secondary text-white text-base rounded-sm hover:bg-secondary-dark transition-colors font-semibold select-none shadow-sm"
+                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none h-11 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2 shadow-sm"
               >
                 NSDL
               </a>

@@ -178,36 +178,45 @@ export default function Footer() {
           <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-88</p>
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
           <p>Investor Grievance ID: investorgrievance@ratnakarsecurities.com</p>
-          <div className="flex gap-4 flex-wrap mt-4 text-xs font-bold underline">
+          <div className="flex flex-wrap items-center gap-2 mt-4 text-xs font-bold">
             <a
               href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "#00aeee" }}
-              className="hover:opacity-80 transition-opacity"
+              className="underline hover:opacity-80 transition-opacity"
             >
               Online Dispute Resolution Portal - SMART ODR
             </a>
+
+            <span className="text-gray-400">|</span>
+
             <button
               onClick={() => setIsScoresModalOpen(true)}
               style={{ color: "#00aeee" }}
-              className="text-xs font-bold underline cursor-pointer text-left hover:opacity-80 transition-opacity"
+              className="underline cursor-pointer text-left hover:opacity-80 transition-opacity"
             >
               To File A Complaint on SCORES Click Here
             </button>
+
+            <span className="text-gray-400">|</span>
+
             <Link
               href="/nomination"
               style={{ color: "#00aeee" }}
-              className="hover:opacity-80 transition-opacity"
+              className="underline hover:opacity-80 transition-opacity"
             >
               For Nomination, Please Click Here
             </Link>
+
+            <span className="text-gray-400">|</span>
+
             <a
               href="https://tradewebx1.ratnakarsecurities.com:9001/#/"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "#00aeee" }}
-              className="hover:opacity-80 transition-opacity"
+              className="underline hover:opacity-80 transition-opacity"
             >
               To Close Account, Please Click Here
             </a>
@@ -240,14 +249,24 @@ export default function Footer() {
             className="relative w-full max-w-[620px] bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden text-left transition-all duration-300 transform scale-100"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header with requested background gradient */}
+            {/* Header */}
             <div
               className="px-6 py-6 sm:px-8 sm:py-7 relative flex items-center justify-between"
-              style={{ background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)" }}
+              style={{
+                background:
+                  "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
+              }}
             >
               <div>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide">Filing complaints on SCORES</h3>
-                <p className="text-xs sm:text-sm font-semibold tracking-wider uppercase mt-1" style={{ color: "#00aeee" }}>Easy & quick</p>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide">
+                  Filing complaints on SCORES
+                </h3>
+                <p
+                  className="text-xs sm:text-sm font-semibold tracking-wider uppercase mt-1"
+                  style={{ color: "#00aeee" }}
+                >
+                  Easy & quick
+                </p>
               </div>
 
               {/* Close button */}
@@ -260,21 +279,39 @@ export default function Footer() {
               </button>
             </div>
 
-            {/* Content Body with white background */}
+            {/* Body */}
             <div className="p-6 sm:p-8 space-y-6 bg-white text-gray-800">
               <ul className="space-y-6 text-sm sm:text-base">
                 {/* Item 1 */}
                 <li className="flex items-start gap-3.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#ea2830] shadow-[0_0_8px_#ea2830] flex-shrink-0 mt-2"></span>
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                    <span className="font-medium text-gray-900">Register on SCORES portal</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+
+                  <div>
+                    <p className="font-medium text-gray-900">
+                      Register on SCORES portal
+                    </p>
+
                     <a
                       href="https://scores.gov.in"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#ea2830] text-white px-2.5 py-0.5 rounded text-xs hover:bg-[#c41f26] transition-colors font-semibold"
+                      className="text-[#1a6eb5] underline hover:text-[#ea2830] transition-colors break-all font-medium"
                     >
-                      (link: https://scores.gov.in)
+                      https://scores.gov.in
                     </a>
                   </div>
                 </li>
@@ -282,31 +319,121 @@ export default function Footer() {
                 {/* Item 2 */}
                 <li className="flex flex-col gap-3">
                   <div className="flex items-start gap-3.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#ea2830] shadow-[0_0_8px_#ea2830] flex-shrink-0 mt-2"></span>
-                    <span className="font-medium text-gray-900">Mandatory details for filing complaints on SCORES</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+
+                    <span className="font-medium text-gray-900">
+                      Mandatory details for filing complaints on SCORES
+                    </span>
                   </div>
-                  <div className="flex flex-wrap gap-2 pl-6">
-                    {["Name", "PAN", "Address", "Mobile Number", "E-mail ID"].map((item) => (
-                      <span key={item} className="bg-red-50 text-[#ea2830] border border-red-100 py-1 px-3 rounded-lg text-xs font-bold">
-                        {item}
-                      </span>
-                    ))}
+
+                  <div className="flex flex-wrap gap-2 pl-8">
+                    {["Name", "PAN", "Address", "Mobile Number", "E-mail ID"].map(
+                      (item) => (
+                        <span
+                          key={item}
+                          className="bg-red-50 text-[#ea2830] border border-red-100 py-1 px-3 rounded-lg text-xs font-bold"
+                        >
+                          {item}
+                        </span>
+                      )
+                    )}
                   </div>
                 </li>
 
                 {/* Item 3 */}
-                <li className="flex flex-col gap-2.5">
+                <li className="flex flex-col gap-3">
                   <div className="flex items-start gap-3.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#ea2830] shadow-[0_0_8px_#ea2830] flex-shrink-0 mt-2"></span>
-                    <span className="font-medium text-gray-900">Benefits:</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
+                    </svg>
+
+                    <span className="font-medium text-gray-900">Benefits</span>
                   </div>
-                  <ul className="space-y-2 pl-6 text-sm text-gray-600 font-medium">
+
+                  <ul className="space-y-2 pl-8 text-sm text-gray-600">
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#1a6eb5]"></span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-4 h-4 text-[#1a6eb5] shrink-0"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+
                       <span>Effective communication</span>
                     </li>
+
                     <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#1a6eb5]"></span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-4 h-4 text-[#1a6eb5] shrink-0"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+
+                      <span>Effective communication</span>
+                    </li>
+
+                    <li className="flex items-center gap-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="w-4 h-4 text-[#1a6eb5] shrink-0"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m9 12 2 2 4-4" />
+                      </svg>
+
                       <span>Speedy redressal of the grievances</span>
                     </li>
                   </ul>

@@ -62,7 +62,7 @@ export default function ChooseAppModal({ isOpen, onClose }) {
               Ratnakar&apos;s Online Trading<br />
               Mobile App &ndash; <span style={{ color: "#00aeee" }}>TradeXpress</span>
             </h2>
-            <p className="text-[11px] mt-1 leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+            <p className="text-[12px] mt-1 leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
               Choose your platform and download our app to start trading anywhere.
             </p>
           </div>

@@ -135,7 +135,7 @@ export default function AboutPage() {
               {
                 name: "Ajay Nagindas Gandhi",
                 role: "Chief Financial Officer (CFO)",
-                image: "/images/about/AJAY_GANDHI_CFO-removebg-preview1.png",
+                image: "/images/about/about us image.png",
                 desc: "Shri. Ajay Gandhi brings extensive experience in financial management and strategic planning. He plays a crucial role in ensuring the company's financial health, audit compliance, and resource allocation."
               }
             ].map((leader, index) => (

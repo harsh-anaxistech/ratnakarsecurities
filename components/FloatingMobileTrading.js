@@ -1,30 +1,36 @@
 "use client";
 import React, { useState } from "react";
-import { Smartphone, X, Briefcase, TrendingUp } from "lucide-react";
+import { X, Briefcase, TrendingUp } from "lucide-react";
 
-export default function FloatingMobileTrading() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose }) {
+  const [internalOpen, setInternalOpen] = useState(false);
+
+  // If external control props are provided, use them; otherwise use internal state
+  const isControlled = externalIsOpen !== undefined;
+  const isOpen = isControlled ? externalIsOpen : internalOpen;
+  const handleClose = () => {
+    if (isControlled) {
+      onClose?.();
+    } else {
+      setInternalOpen(false);
+    }
+  };
 
   return (
     <>
-      {/* ફ્લોટિંગ ટ્રિગર બટન */}
-      <div 
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 z-[999] cursor-pointer group"
-      >
-        <div className="flex items-center  text-white p-4 rounded-full transition-all duration-300 hover:scale-110">
-          <Smartphone className="w-6 h-6" />
-        </div>
-      </div>
-
-      {/* મોડલ (Popup) */}
+      {/* Modal (Popup) */}
       {isOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl">
-            
-            {/* ક્લોઝ બટન */}
-            <button 
-              onClick={() => setIsOpen(false)} 
+        <div
+          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          onClick={handleClose}
+        >
+          <div
+            className="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={handleClose}
               className="absolute top-4 right-4 text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors"
             >
               <X size={24} strokeWidth={3} />
@@ -34,8 +40,8 @@ export default function FloatingMobileTrading() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-8">
               {/* Option 1: Wealth Management */}
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.tvs.ratnakar" 
+              <a
+                href="https://play.google.com/store/apps/details?id=com.tvs.ratnakar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center group"
@@ -47,8 +53,8 @@ export default function FloatingMobileTrading() {
               </a>
 
               {/* Option 2: Trade Express */}
-              <a 
-                href="https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress" 
+              <a
+                href="https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center group"

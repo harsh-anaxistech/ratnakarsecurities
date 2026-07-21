@@ -83,15 +83,20 @@ export default function HeroBanner() {
             {/* 🏛️ MARKET & REGULATORY ENTITIES CONTENT */}
             <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 text-white/60 text-[12px] sm:text-sm font-bold tracking-widest uppercase">
               <a href="https://www.nseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">NSE</a>
-              <span className="text-[#00aeee]/40 font-normal">•</span>
+              <span className="text-[#00aeee]/50">|</span>
+
               <a href="https://www.bseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">BSE</a>
-              <span className="text-[#00aeee]/40 font-normal">•</span>
+              <span className="text-[#00aeee]/50">|</span>
+
               <a href="https://www.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">SEBI</a>
-              <span className="text-[#00aeee]/40 font-normal">•</span>
+              <span className="text-[#00aeee]/50">|</span>
+
               <a href="https://nsdl.co.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">NSDL</a>
-              <span className="text-[#00aeee]/40 font-normal">•</span>
+              <span className="text-[#00aeee]/50">|</span>
+
               <a href="https://www.mcxindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">MCX</a>
-              <span className="text-[#00aeee]/40 font-normal">•</span>
+              <span className="text-[#00aeee]/50">|</span>
+
               <a href="https://scores.sebi.gov.in/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">SCORES</a>
             </div>
           </div>

@@ -29,7 +29,6 @@ export default function ContactUsPage() {
   const [errors, setErrors] = useState({});
 
   // Client-side captcha value state
-  // Generate a random 6-character captcha string helper
   const getRandomCaptcha = () => {
     const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let code = "";
@@ -39,11 +38,9 @@ export default function ContactUsPage() {
     return code;
   };
 
-  // FIX: Initialize with empty string to match server & client initial render
   const [captchaVal, setCaptchaVal] = useState("");
   const [isMounted, setIsMounted] = useState(false);
 
-  // FIX: Generate the random captcha only after the component mounts on the client
   useEffect(() => {
     setCaptchaVal(getRandomCaptcha());
     setIsMounted(true);
@@ -54,33 +51,27 @@ export default function ContactUsPage() {
   const [statusMessage, setStatusMessage] = useState(null);
   const [statusType, setStatusType] = useState(null); // "success" | "error"
 
-  // Generate a random 6-character captcha string
   const generateCaptcha = () => {
     setCaptchaVal(getRandomCaptcha());
   };
 
-  // Handle value change for all input elements
   const handleChange = (e) => {
     const { name, value } = e.target;
     let filteredValue = value;
     if (name === "phno") {
-      // Allow only digits and limit to 10 characters
       filteredValue = value.replace(/\D/g, "").slice(0, 10);
     }
     setFormData({ ...formData, [name]: filteredValue });
 
-    // Clear error message when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
-  // Submit the form to the backend REST API
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatusMessage(null);
 
-    // Validate form fields
     const newErrors = {};
     if (!formData.department) {
       newErrors.department = "Department name is required";
@@ -124,7 +115,6 @@ export default function ContactUsPage() {
     setLoading(true);
 
     try {
-      // API call to submit contact form data via services
       const data = await submitContactForm({
         name: formData.name,
         department: formData.department,
@@ -133,9 +123,7 @@ export default function ContactUsPage() {
         subject: formData.subject,
         details: formData.details,
       });
-      console.log("Success API response: ", data);
 
-      // Display success status and clear form
       setStatusMessage("Your inquiry has been submitted successfully! We will get back to you soon.");
       setStatusType("success");
       setFormData({
@@ -212,21 +200,19 @@ export default function ContactUsPage() {
           </div>
         </div>
 
-        {/* Right Side: Contact Form and Breadcrumb Section */}
+        {/* Right Side: Contact Form Section */}
         <div className="col-span-1 lg:col-span-7 p-4 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
-          {/* Form Header */}
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-serif  text-foreground font-sans tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-serif text-foreground font-sans tracking-tight">
               Get In Touch
             </h2>
           </div>
 
-          {/* Form container */}
           <form onSubmit={handleSubmit} noValidate className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
-                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                <div className={`flex items-center border ${errors.department ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
                   <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
                     <User className="w-5 h-5" />
                   </div>
@@ -234,7 +220,7 @@ export default function ContactUsPage() {
                     name="department"
                     value={formData.department}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-8 text-[15px] text-foreground bg-transparent outline-none appearance-none cursor-pointer focus:text-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-8 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 appearance-none cursor-pointer focus:text-foreground font-semibold"
                     required
                   >
                     <option value="" disabled>
@@ -262,7 +248,7 @@ export default function ContactUsPage() {
 
               {/* Name Input */}
               <div className="flex flex-col gap-1">
-                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                <div className={`flex items-center border ${errors.name ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
                   <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
                     <User className="w-5 h-5" />
                   </div>
@@ -272,7 +258,7 @@ export default function ContactUsPage() {
                     placeholder="Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
                     required
                   />
                 </div>
@@ -287,7 +273,7 @@ export default function ContactUsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Email Input */}
               <div className="flex flex-col gap-1">
-                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                <div className={`flex items-center border ${errors.email ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
                   <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
                     <Mail className="w-5 h-5" />
                   </div>
@@ -297,7 +283,7 @@ export default function ContactUsPage() {
                     placeholder="Email ID"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
                     required
                   />
                 </div>
@@ -310,7 +296,7 @@ export default function ContactUsPage() {
 
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
-                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                <div className={`flex items-center border ${errors.phno ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
                   <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
                     <Phone className="w-5 h-5" />
                   </div>
@@ -323,7 +309,7 @@ export default function ContactUsPage() {
                     maxLength={10}
                     pattern="[0-9]{10}"
                     title="Please enter a 10-digit mobile number"
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
                     required
                   />
                 </div>
@@ -337,17 +323,17 @@ export default function ContactUsPage() {
 
             {/* Subject Input */}
             <div className="flex flex-col gap-1">
-              <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+              <div className={`flex items-center border ${errors.subject ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
                 <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
                   <Info className="w-5 h-5" />
                 </div>
                 <input
                   type="text"
                   name="subject"
-                  placeholder="subject"
+                  placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                  className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
                   required
                 />
               </div>
@@ -360,7 +346,7 @@ export default function ContactUsPage() {
 
             {/* Details Textarea */}
             <div className="flex flex-col gap-1">
-              <div className="flex items-start border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white transition-colors relative min-h-[120px]">
+              <div className={`flex items-start border ${errors.details ? "border-red-500" : "border-border"} rounded-sm bg-white transition-colors relative min-h-[120px]`}>
                 <div className="absolute left-4 top-3.5 text-muted-foreground flex items-center justify-center pointer-events-none">
                   <FileText className="w-5 h-5" />
                 </div>
@@ -370,7 +356,7 @@ export default function ContactUsPage() {
                   rows={4}
                   value={formData.details}
                   onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 py-3 text-[15px] text-foreground bg-transparent outline-none resize-none placeholder-muted-foreground font-semibold"
+                  className="w-full h-full pl-12 pr-4 py-3 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 resize-none placeholder-muted-foreground font-semibold"
                   required
                 />
               </div>
@@ -385,7 +371,7 @@ export default function ContactUsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
               {/* Captcha Input */}
               <div className="flex flex-col gap-1">
-                <div className="flex items-center border border-border focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary rounded-sm bg-white h-12 transition-colors relative">
+                <div className={`flex items-center border ${errors.captcha ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
                   <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
                     <HelpCircle className="w-5 h-5" />
                   </div>
@@ -395,7 +381,7 @@ export default function ContactUsPage() {
                     placeholder="Enter Captcha"
                     value={formData.captcha}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent outline-none placeholder-muted-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
                     required
                   />
                 </div>
@@ -410,7 +396,6 @@ export default function ContactUsPage() {
               <div className="flex items-center gap-3">
                 <div className="flex-1 bg-muted border border-border rounded-sm h-12 flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-extrabold text-lg text-muted-foreground text-center relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f9fafb,#f9fafb_8px,#f3f4f6_8px,#f3f4f6_16px)]">
                   <span className="relative z-10 text-gray-700 italic select-none">
-                    {/* FIX: Ensure we only render the captcha value after mounting to avoid layout shifts/hydration mismatch */}
                     {isMounted ? captchaVal : "------"}
                   </span>
                   <div className="absolute inset-0 opacity-10 flex flex-col justify-around pointer-events-none">
@@ -447,10 +432,8 @@ export default function ContactUsPage() {
               <Button
                 as="button"
                 type="submit"
-                variant="contained"
-                color="secondary"
                 loading={loading}
-                className="uppercase font-extrabold text-sm tracking-wider h-12 w-32 shadow-md rounded-sm bg-secondary hover:bg-secondary-dark text-white transition-colors"
+                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none hover:bg-primary-dark focus-visible:ring-primary h-11 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2"
               >
                 Submit
               </Button>
