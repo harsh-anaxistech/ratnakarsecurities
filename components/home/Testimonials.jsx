@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from "react";
 import Container from "@/components/common/Container";
 import { Quote, Star } from "lucide-react";
+import { getTestimonials } from "@/services/testimonials";
 
-const TESTIMONIALS = [
+const FALLBACK_TESTIMONIALS = [
   {
     quote:
       "Ratnakar Securities helped me build a disciplined portfolio over 10 years. Their research team gives actionable advice — not just noise.",
@@ -31,38 +32,85 @@ const TESTIMONIALS = [
 ];
 
 function StarRating({ count }) {
+  const validCount = Number(count) || 5;
   return (
     <div className="flex gap-1 mb-4">
-      {Array.from({ length: count }).map((_, i) => (
+      {Array.from({ length: validCount }).map((_, i) => (
         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
       ))}
     </div>
   );
 }
 
-function Avatar({ name }) {
-  const initials = name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase();
+function Avatar({ name, initials, profileImage }) {
+  const [imgError, setImgError] = useState(false);
+  const displayInitials =
+    initials ||
+    (name
+      ? name
+          .split(" ")
+          .filter(Boolean)
+          .map((n) => n[0])
+          .join("")
+          .toUpperCase()
+      : "RS");
+
+  if (profileImage && !imgError) {
+    const imageUrl = profileImage.startsWith("http")
+      ? profileImage
+      : `http://localhost:6010/uploads/${profileImage}`;
+    return (
+      <img
+        src={imageUrl}
+        alt={name || "User"}
+        onError={() => setImgError(true)}
+        className="w-10 h-10 rounded-md object-cover flex-shrink-0 border border-[#00aeee]/20"
+      />
+    );
+  }
+
   return (
-    // અહીં મેં rounded-md આપ્યું છે જેથી તે ગોળ નથી, સ્ક્વેર લુક આપશે
     <div className="w-10 h-10 rounded-md flex items-center justify-center font-bold text-xs flex-shrink-0 bg-[#00aeee]/10 text-[#00aeee] border border-[#00aeee]/20">
-      {initials}
+      {displayInitials}
     </div>
   );
 }
 
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState(FALLBACK_TESTIMONIALS);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    async function loadTestimonials() {
+      try {
+        const res = await getTestimonials();
+        const items = res?.data || (Array.isArray(res) ? res : null);
+        if (items && items.length > 0) {
+          const mapped = items.map((item) => ({
+            quote: item.message || item.quote || "",
+            name: item.customer_name || item.name || "Valued Client",
+            role: item.designation || item.role || "Investor",
+            location: item.location || "",
+            stars: item.rating || item.stars || 5,
+            initials: item.initials,
+            profile_image: item.profile_image,
+          }));
+          setTestimonials(mapped);
+        }
+      } catch (err) {
+        // Silently fallback to default list if API fails
+      }
+    }
+    loadTestimonials();
+  }, []);
+
+  useEffect(() => {
+    if (testimonials.length === 0) return;
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length);
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <section className="py-12 bg-white overflow-hidden relative">
@@ -85,7 +133,7 @@ export default function Testimonials() {
               transform: `translateX(-${activeIndex * 100}%)`,
             }}
           >
-            {TESTIMONIALS.map((t, i) => (
+            {testimonials.map((t, i) => (
               <div
                 key={i}
                 className="w-full shrink-0 px-3 md:w-auto md:shrink md:px-0"
@@ -102,13 +150,13 @@ export default function Testimonials() {
                   </div>
 
                   <div className="flex items-center gap-4 pt-5 border-t border-slate-200/60 relative z-10">
-                    <Avatar name={t.name} />
+                    <Avatar name={t.name} initials={t.initials} profileImage={t.profile_image} />
                     <div>
                       <p className="text-base font-bold text-slate-900 group-hover:text-[#00aeee] transition-colors duration-300">
                         {t.name}
                       </p>
                       <p className="text-xs font-semibold text-slate-400 mt-0.5 tracking-wide">
-                        {t.role} <span className="text-slate-300 mx-1">•</span> {t.location}
+                        {t.role} {t.location && <><span className="text-slate-300 mx-1">•</span> {t.location}</>}
                       </p>
                     </div>
                   </div>
@@ -120,7 +168,7 @@ export default function Testimonials() {
 
         {/* Navigation Dots */}
         <div className="flex justify-center gap-2.5 mt-8 md:hidden relative z-10">
-          {TESTIMONIALS.map((_, idx) => (
+          {testimonials.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}

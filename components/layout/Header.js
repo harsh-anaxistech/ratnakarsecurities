@@ -13,7 +13,7 @@ import Button from "@/components/common/Button";
 import MenuIcons from "@/components/layout/MenuIcons";
 import { getResearchSections } from "@/services/research";
 import BackofficeLoginModal from "@/components/modals/BackofficeLoginModal";
-import ChooseAppModal from "@/components/modals/ChooseAppModal";
+import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 
 const NAV_LINKS = [
   {
@@ -492,7 +492,7 @@ export default function Header() {
 
       <BackofficeLoginModal isOpen={backofficeModalOpen} onClose={() => setBackofficeModalOpen(false)} />
 
-      <ChooseAppModal
+      <FloatingMobileTrading
         isOpen={mobileAppModalOpen}
         onClose={() => setMobileAppModalOpen(false)}
       />    </>
