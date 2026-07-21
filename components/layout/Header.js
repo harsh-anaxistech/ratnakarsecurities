@@ -13,6 +13,7 @@ import Button from "@/components/common/Button";
 import MenuIcons from "@/components/layout/MenuIcons";
 import { getResearchSections } from "@/services/research";
 import BackofficeLoginModal from "@/components/modals/BackofficeLoginModal";
+import ChooseAppModal from "@/components/modals/ChooseAppModal";
 import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 
 const NAV_LINKS = [
@@ -101,7 +102,8 @@ export default function Header() {
   const [openAccordion, setOpenAccordion] = useState(null);
   const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
   const [backofficeModalOpen, setBackofficeModalOpen] = useState(false);
-  const [mobileAppModalOpen, setMobileAppModalOpen] = useState(false);
+  const [floatingMobileModalOpen, setFloatingMobileModalOpen] = useState(false);
+  const [chooseAppModalOpen, setChooseAppModalOpen] = useState(false);
   const pathname = usePathname();
   const [prevPathname, setPrevPathname] = useState(pathname);
 
@@ -110,7 +112,8 @@ export default function Header() {
     setMobileOpen(false);
     setOpenAccordion(null);
     setMobileLoginOpen(false);
-    setMobileAppModalOpen(false); // Page change par modal close karva
+    setFloatingMobileModalOpen(false);
+    setChooseAppModalOpen(false); // Page change par modal close karva
   }
 
   const [navLinks, setNavLinks] = useState(NAV_LINKS);
@@ -166,9 +169,9 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = (mobileOpen || mobileAppModalOpen) ? "hidden" : "";
+    document.body.style.overflow = (mobileOpen || floatingMobileModalOpen || chooseAppModalOpen) ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen, mobileAppModalOpen]);
+  }, [mobileOpen, floatingMobileModalOpen, chooseAppModalOpen]);
 
   const hasSubmenu = (item) => item.columns || item.dropdown;
   const getSubLinks = (item) => {
@@ -216,7 +219,7 @@ export default function Header() {
                   onClick={(e) => {
                     if (item.title === "Mobile App") {
                       e.preventDefault();
-                      setMobileAppModalOpen(true);
+                      setFloatingMobileModalOpen(true);
                     } else {
                       handleTopNav(e, item.href);
                     }
@@ -326,7 +329,7 @@ export default function Header() {
                         return (
                           <button
                             key={link.label}
-                            onClick={() => setMobileAppModalOpen(true)}
+                            onClick={() => setChooseAppModalOpen(true)}
                             className="w-full text-left block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors"
                           >
                             {link.label}
@@ -451,7 +454,7 @@ export default function Header() {
                           <button
                             key={link.label}
                             onClick={() => {
-                              setMobileAppModalOpen(true);
+                              setChooseAppModalOpen(true);
                               setMobileOpen(false);
                             }}
                             className="w-full text-left block py-2 px-3 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded transition-colors"
@@ -493,8 +496,14 @@ export default function Header() {
       <BackofficeLoginModal isOpen={backofficeModalOpen} onClose={() => setBackofficeModalOpen(false)} />
 
       <FloatingMobileTrading
-        isOpen={mobileAppModalOpen}
-        onClose={() => setMobileAppModalOpen(false)}
-      />    </>
+        isOpen={floatingMobileModalOpen}
+        onClose={() => setFloatingMobileModalOpen(false)}
+      />
+
+      <ChooseAppModal
+        isOpen={chooseAppModalOpen}
+        onClose={() => setChooseAppModalOpen(false)}
+      />
+    </>
   );
 }
