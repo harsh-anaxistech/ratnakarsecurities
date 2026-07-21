@@ -7,7 +7,7 @@ import Container from "@/components/common/Container";
 export default function HeroSection({
   title,
   breadcrumbs = [],
-  image = "/images/about/AboutUs-Ratnakarsec.png",
+  image = "/images/about/our product 1.jpg",
   height = "h-[400px]",
 }) {
   return (
