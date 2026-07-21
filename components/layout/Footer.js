@@ -119,12 +119,14 @@ export default function Footer() {
 
             {/* 2. બીજી કૉલમ: બાકીના 6 પ્રોડક્ટ્સ */}
             <div>
+
               {FOOTER_LINKS["Products"] && FOOTER_LINKS["Products"].length > 6 && (
+
                 <div>
-                  {/* અલાઈનમેન્ટ બરાબર રાખવા હેડિંગ ની જગ્યા પર સ્પેસિંગ અથવા હિડન હેડર */}
-                  <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5 invisible hidden lg:block">
-                    More Products
+                  <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5" style={{ color: "#00aeee" }}>
+                    Products
                   </h4>
+
                   <ul className="space-y-2.5">
                     {FOOTER_LINKS["Products"].slice(6, 12).map((l) => (
                       <li key={l.label}>
@@ -215,11 +217,12 @@ export default function Footer() {
 
             {/* Address */}
             <ul className="text-[15px] sm:text-[16px] leading-relaxed space-y-0.5" style={{ color: "#9fc8e0" }}>
-              <li><strong>Cameo Corporate Services Limited</strong></li>
-              <li>#1, Subramanian Building, Club House Road, Chennai-600002.</li>
-              <li>Contact No : <a href="tel:04440020731" className="hover:text-white transition-colors">044-40020731</a></li>
+              <li><strong>Ratnakar Securities Ltd.</strong></li>
+              <li>304, Sankalp Square - 2,</li>
+              <li>Near Jalaram Mandir Crossing,</li>
+              <li>Ellisbridge, Ahmedabad - 380006</li>
+              <li>Contact No : <a href="tel:07949005200" className="hover:text-white transition-colors">079 - 49005200 / 01 / 02</a></li>
             </ul>
-
             {/* Quick Important Links */}
             <div className="text-[15px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1 lg:justify-end" style={{ color: "#9fc8e0" }}>
               <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">

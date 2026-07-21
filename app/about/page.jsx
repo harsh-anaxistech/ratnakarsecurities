@@ -123,19 +123,19 @@ export default function AboutPage() {
               {
                 name: "Ajay Jayantilal Shah",
                 role: "Chairman & Managing Director | Director",
-                image: "/images/about/AJAY_SHAH_PHOTO__MD___CHAIRMAN-removebg-preview.png",
+                image: "/images/about/ajay shah.jpg",
                 desc: "A recognized leader in financial services and capital markets, representing the third generation of a reputed business family in Ahmedabad. With 32+ years of experience, he leads the Board of Directors and strategic growth initiatives."
               },
               {
                 name: "Kushal Ajay Shah",
                 role: "COO | Whole-Time Director | Compliance Officer",
-                image: "/images/about/khusal.png",
+                image: "/images/about/ajay gandhi.jpg",
                 desc: "Kushal takes the legacy forward with dynamic business acumen. A post-graduate in financial markets and CFA USA Level II cleared, he manages operations, compliance, and technological transformation."
               },
               {
                 name: "Ajay Nagindas Gandhi",
                 role: "Chief Financial Officer (CFO)",
-                image: "/images/about/about us image.png",
+                image: "/images/about/ajay gandhi(1).jpg",
                 desc: "Shri. Ajay Gandhi brings extensive experience in financial management and strategic planning. He plays a crucial role in ensuring the company's financial health, audit compliance, and resource allocation."
               }
             ].map((leader, index) => (

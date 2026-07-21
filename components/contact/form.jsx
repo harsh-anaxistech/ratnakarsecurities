@@ -2,20 +2,24 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, Mail, User, Info, FileText, HelpCircle, RefreshCw } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  User,
+  Info,
+  FileText,
+  HelpCircle,
+  RefreshCw,
+  ChevronDown
+} from "lucide-react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import { submitContactForm } from "@/services/contact";
 
 /**
  * Contact Form Component
- *
- * Implements the contact page layout with a red card containing the address details
- * over a world map background, and a white form section supporting input icons,
- * dynamic captcha generation, and connection to the backend REST API.
  */
 export default function ContactUsPage() {
-  // Form input states (phno maps to the backend API expected key)
   const [formData, setFormData] = useState({
     name: "",
     department: "",
@@ -28,7 +32,6 @@ export default function ContactUsPage() {
 
   const [errors, setErrors] = useState({});
 
-  // Client-side captcha value state
   const getRandomCaptcha = () => {
     const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let code = "";
@@ -46,10 +49,9 @@ export default function ContactUsPage() {
     setIsMounted(true);
   }, []);
 
-  // Form submission loading and notification states
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
-  const [statusType, setStatusType] = useState(null); // "success" | "error"
+  const [statusType, setStatusType] = useState(null);
 
   const generateCaptcha = () => {
     setCaptchaVal(getRandomCaptcha());
@@ -73,29 +75,25 @@ export default function ContactUsPage() {
     setStatusMessage(null);
 
     const newErrors = {};
-    if (!formData.department) {
-      newErrors.department = "Department name is required";
-    }
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
+    if (!formData.department) newErrors.department = "Department name is required";
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
       newErrors.email = "Email ID is required";
     } else if (!emailRegex.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
+
     if (!formData.phno) {
       newErrors.phno = "Mobile number is required";
     } else if (formData.phno.length !== 10) {
       newErrors.phno = "Please enter a valid 10-digit mobile number";
     }
-    if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
-    }
-    if (!formData.details.trim()) {
-      newErrors.details = "Details are required";
-    }
+
+    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
+    if (!formData.details.trim()) newErrors.details = "Details are required";
+
     if (!formData.captcha.trim()) {
       newErrors.captcha = "Captcha code is required";
     } else if (formData.captcha.trim().toUpperCase() !== captchaVal.toUpperCase()) {
@@ -115,7 +113,7 @@ export default function ContactUsPage() {
     setLoading(true);
 
     try {
-      const data = await submitContactForm({
+      await submitContactForm({
         name: formData.name,
         department: formData.department,
         email: formData.email,
@@ -149,7 +147,8 @@ export default function ContactUsPage() {
   return (
     <Container>
       <div className="grid grid-cols-1 lg:grid-cols-12 w-full font-sans bg-white border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] rounded-3xl overflow-hidden mb-12 animate-fade-in">
-        {/* Left Side: Address Details Panel with custom dark blue radial gradient */}
+
+        {/* Left Side: Address Details Panel (Original Unchanged) */}
         <div
           className="col-span-1 lg:col-span-5 flex flex-col justify-center p-4 sm:p-12 min-h-[420px] lg:min-h-[550px] select-none text-white"
           style={{
@@ -200,32 +199,31 @@ export default function ContactUsPage() {
           </div>
         </div>
 
-        {/* Right Side: Contact Form Section */}
-        <div className="col-span-1 lg:col-span-7 p-4 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
-          <div className="mb-8">
+        {/* Right Side: Inputs without hover/focus border shifts */}
+        <div className="col-span-1 lg:col-span-7 p-4 sm:p-10 lg:p-12 flex flex-col justify-between bg-slate-50">
+          <div className="mb-6">
             <h2 className="text-3xl md:text-4xl font-serif text-foreground font-sans tracking-tight">
               Get In Touch
             </h2>
           </div>
 
-          <form onSubmit={handleSubmit} noValidate className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} noValidate className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
-                <div className={`flex items-center border ${errors.department ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
-                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                <div className={`relative flex items-center border ${errors.department ? "border-red-500 bg-red-50/20" : "border-slate-200"} rounded-xl bg-slate-50/50 transition-colors h-12`}>
+                  <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <User className="w-5 h-5" />
                   </div>
                   <select
                     name="department"
                     value={formData.department}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-8 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 appearance-none cursor-pointer focus:text-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-10 text-[15px] text-slate-800 bg-transparent border-none outline-none appearance-none cursor-pointer font-medium"
                     required
                   >
-                    <option value="" disabled>
-                      Department Name
-                    </option>
+                    <option value="" disabled>Department Name</option>
                     <option value="Accounts">Accounts</option>
                     <option value="Trading">Trading</option>
                     <option value="Mutual Funds">Mutual Funds</option>
@@ -235,8 +233,8 @@ export default function ContactUsPage() {
                     <option value="Others">Others</option>
                     <option value="Research">Research</option>
                   </select>
-                  <div className="absolute right-4 pointer-events-none text-muted-foreground text-xs">
-                    ▼
+                  <div className="absolute right-4 pointer-events-none text-slate-400">
+                    <ChevronDown className="w-4 h-4" />
                   </div>
                 </div>
                 {errors.department && (
@@ -248,8 +246,8 @@ export default function ContactUsPage() {
 
               {/* Name Input */}
               <div className="flex flex-col gap-1">
-                <div className={`flex items-center border ${errors.name ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
-                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                <div className={`relative flex items-center border ${errors.name ? "border-red-500 bg-red-50/20" : "border-slate-200"} rounded-xl bg-slate-50/50 transition-colors h-12`}>
+                  <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <User className="w-5 h-5" />
                   </div>
                   <input
@@ -258,7 +256,7 @@ export default function ContactUsPage() {
                     placeholder="Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none font-medium placeholder:text-slate-400"
                     required
                   />
                 </div>
@@ -270,11 +268,12 @@ export default function ContactUsPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
               {/* Email Input */}
               <div className="flex flex-col gap-1">
-                <div className={`flex items-center border ${errors.email ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
-                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                <div className={`relative flex items-center border ${errors.email ? "border-red-500 bg-red-50/20" : "border-slate-200"} rounded-xl bg-slate-50/50 transition-colors h-12`}>
+                  <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <Mail className="w-5 h-5" />
                   </div>
                   <input
@@ -283,7 +282,7 @@ export default function ContactUsPage() {
                     placeholder="Email ID"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none font-medium placeholder:text-slate-400"
                     required
                   />
                 </div>
@@ -296,8 +295,8 @@ export default function ContactUsPage() {
 
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
-                <div className={`flex items-center border ${errors.phno ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
-                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                <div className={`relative flex items-center border ${errors.phno ? "border-red-500 bg-red-50/20" : "border-slate-200"} rounded-xl bg-slate-50/50 transition-colors h-12`}>
+                  <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <Phone className="w-5 h-5" />
                   </div>
                   <input
@@ -307,9 +306,7 @@ export default function ContactUsPage() {
                     value={formData.phno}
                     onChange={handleChange}
                     maxLength={10}
-                    pattern="[0-9]{10}"
-                    title="Please enter a 10-digit mobile number"
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none font-medium placeholder:text-slate-400"
                     required
                   />
                 </div>
@@ -323,8 +320,8 @@ export default function ContactUsPage() {
 
             {/* Subject Input */}
             <div className="flex flex-col gap-1">
-              <div className={`flex items-center border ${errors.subject ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
-                <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+              <div className={`relative flex items-center border ${errors.subject ? "border-red-500 bg-red-50/20" : "border-slate-200"} rounded-xl bg-slate-50/50 transition-colors h-12`}>
+                <div className="absolute left-4 text-slate-400 pointer-events-none">
                   <Info className="w-5 h-5" />
                 </div>
                 <input
@@ -333,7 +330,7 @@ export default function ContactUsPage() {
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
+                  className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none font-medium placeholder:text-slate-400"
                   required
                 />
               </div>
@@ -346,8 +343,8 @@ export default function ContactUsPage() {
 
             {/* Details Textarea */}
             <div className="flex flex-col gap-1">
-              <div className={`flex items-start border ${errors.details ? "border-red-500" : "border-border"} rounded-sm bg-white transition-colors relative min-h-[120px]`}>
-                <div className="absolute left-4 top-3.5 text-muted-foreground flex items-center justify-center pointer-events-none">
+              <div className={`relative flex items-start border ${errors.details ? "border-red-500 bg-red-50/20" : "border-slate-200"} rounded-xl bg-slate-50/50 transition-colors min-h-[120px]`}>
+                <div className="absolute left-4 top-3.5 text-slate-400 pointer-events-none">
                   <FileText className="w-5 h-5" />
                 </div>
                 <textarea
@@ -356,7 +353,7 @@ export default function ContactUsPage() {
                   rows={4}
                   value={formData.details}
                   onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 py-3 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 resize-none placeholder-muted-foreground font-semibold"
+                  className="w-full h-full pl-12 pr-4 py-3 text-[15px] text-slate-800 bg-transparent border-none outline-none resize-none font-medium placeholder:text-slate-400"
                   required
                 />
               </div>
@@ -368,11 +365,10 @@ export default function ContactUsPage() {
             </div>
 
             {/* Captcha Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
-              {/* Captcha Input */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center">
               <div className="flex flex-col gap-1">
-                <div className={`flex items-center border ${errors.captcha ? "border-red-500" : "border-border"} rounded-sm bg-white h-12 transition-colors relative`}>
-                  <div className="absolute left-4 text-muted-foreground flex items-center justify-center pointer-events-none">
+                <div className={`relative flex items-center border ${errors.captcha ? "border-red-500 bg-red-50/20" : "border-slate-200"} rounded-xl bg-slate-50/50 transition-colors h-12`}>
+                  <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <HelpCircle className="w-5 h-5" />
                   </div>
                   <input
@@ -381,7 +377,7 @@ export default function ContactUsPage() {
                     placeholder="Enter Captcha"
                     value={formData.captcha}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-foreground bg-transparent border-none outline-none focus:outline-none focus:ring-0 placeholder-muted-foreground font-semibold"
+                    className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none font-medium placeholder:text-slate-400 uppercase placeholder:normal-case"
                     required
                   />
                 </div>
@@ -392,9 +388,9 @@ export default function ContactUsPage() {
                 )}
               </div>
 
-              {/* Captcha Value Display & Refresh */}
+              {/* Captcha Display & Refresh */}
               <div className="flex items-center gap-3">
-                <div className="flex-1 bg-muted border border-border rounded-sm h-12 flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-extrabold text-lg text-muted-foreground text-center relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f9fafb,#f9fafb_8px,#f3f4f6_8px,#f3f4f6_16px)]">
+                <div className="flex-1 bg-muted border border-border rounded-xl h-12 flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-extrabold text-lg text-muted-foreground text-center relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f9fafb,#f9fafb_8px,#f3f4f6_8px,#f3f4f6_16px)]">
                   <span className="relative z-10 text-gray-700 italic select-none">
                     {isMounted ? captchaVal : "------"}
                   </span>
@@ -408,17 +404,17 @@ export default function ContactUsPage() {
                   type="button"
                   onClick={generateCaptcha}
                   title="Refresh Captcha"
-                  className="w-12 h-12 border border-border hover:bg-muted text-primary rounded-sm flex items-center justify-center transition-colors group"
+                  className="w-12 h-12 border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-xl flex items-center justify-center transition-colors group shrink-0"
                 >
                   <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-300" />
                 </button>
               </div>
             </div>
 
-            {/* Alert Box for Status Messages */}
+            {/* Alert Box */}
             {statusMessage && (
               <div
-                className={`p-4 rounded-sm text-sm font-semibold ${statusType === "success"
+                className={`p-4 rounded-xl text-sm font-semibold ${statusType === "success"
                   ? "bg-green-50 text-success border border-success/20 animate-fade-in"
                   : "bg-red-50 text-danger border border-danger/20 animate-fade-in"
                   }`}
@@ -427,7 +423,7 @@ export default function ContactUsPage() {
               </div>
             )}
 
-            {/* Submit Button */}
+            {/* Submit Button (Original Unchanged) */}
             <div className="pt-2">
               <Button
                 as="button"
@@ -440,6 +436,7 @@ export default function ContactUsPage() {
             </div>
           </form>
         </div>
+
       </div>
     </Container>
   );
