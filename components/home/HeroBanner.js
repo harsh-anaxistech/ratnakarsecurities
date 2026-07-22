@@ -136,7 +136,7 @@ export default function HeroBanner() {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/20 rounded-lg flex items-center justify-center shrink-0">
                   <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
                 </div>
-                <span className="text-xs sm:text-sm font-bold tracking-wide pr-1">Equity</span>
+                <span className="text-[13px] sm:text-sm font-bold tracking-wide pr-1">Equity</span>
               </div>
             </div>
 
@@ -146,7 +146,7 @@ export default function HeroBanner() {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
                   <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
                 </div>
-                <span className="text-xs sm:text-sm font-bold tracking-wide pr-1 leading-tight">Stock<br />Trading</span>
+                <span className="text-[13px] sm:text-sm font-bold tracking-wide pr-1 leading-tight">Stock<br />Trading</span>
               </div>
             </div>
 
@@ -156,7 +156,7 @@ export default function HeroBanner() {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/20 rounded-lg flex items-center justify-center shrink-0">
                   <PiggyBank className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
                 </div>
-                <span className="text-xs sm:text-sm font-bold tracking-wide pr-1 leading-tight">Mutual Fund<br />Distribution</span>
+                <span className="text-[13px] sm:text-sm font-bold tracking-wide pr-1 leading-tight">Mutual Fund<br />Distribution</span>
               </div>
             </div>
 
@@ -166,7 +166,7 @@ export default function HeroBanner() {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
                   <Wallet className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
                 </div>
-                <span className="text-xs sm:text-sm font-bold tracking-wide pr-1 leading-tight">Wealth<br />Management</span>
+                <span className="text-[13px] sm:text-sm font-bold tracking-wide pr-1 leading-tight">Wealth<br />Management</span>
               </div>
             </div>
 
@@ -176,7 +176,7 @@ export default function HeroBanner() {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/20 rounded-lg flex items-center justify-center shrink-0">
                   <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00aeee]" />
                 </div>
-                <span className="text-xs sm:text-sm font-bold tracking-wide pr-1 leading-tight">Investment<br />Advisory</span>
+                <span className="text-[13px] sm:text-sm font-bold tracking-wide pr-1 leading-tight">Investment<br />Advisory</span>
               </div>
             </div>
 

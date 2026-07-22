@@ -135,10 +135,10 @@ export default function ProductDetailsPage() {
                   <div key={i} className="bg-slate-50 rounded-xl border border-black/5 overflow-hidden">
                     <button
                       onClick={() => toggleFAQ(i)}
-                      className="w-full p-6 text-left flex items-center justify-between font-bold text-slate-900"
+                      className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 font-bold text-slate-900"
                     >
-                      <span className="flex items-center gap-2"><HelpCircle className="w-5 h-5 text-[#ea2830]" />{faq.q}</span>
-                      {openIndex === i ? <Minus className="w-5 h-5 text-slate-500" /> : <Plus className="w-5 h-5 text-slate-500" />}
+                      <span className="flex items-center gap-2 flex-1 min-w-0"><HelpCircle className="w-5 h-5 text-[#ea2830] shrink-0" />{faq.q}</span>
+                      {openIndex === i ? <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10"><Minus className="w-4 h-4 text-[#ea2830]" /></span> : <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10"><Plus className="w-4 h-4 text-[#ea2830]" /></span>}
                     </button>
                     {openIndex === i && (
                       <div className="px-6 pb-6 pt-0 text-[16px] text-[#314158] leading-relaxed animate-in fade-in slide-in-from-top-2 duration-200">
@@ -155,8 +155,8 @@ export default function ProductDetailsPage() {
               </div>
 
               <div className="pt-8 border-t border-black/5">
-                <Link href="/contact">
-                  <Button variant="contained" className="bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg flex items-center justify-center gap-2">
+                <Link href="/contact" className="block">
+                  <Button variant="contained" className="w-full sm:w-auto bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg flex items-center justify-center gap-2">
                     {product.buttonText} <ArrowRight className="w-5 h-5" />
                   </Button>
                 </Link>
