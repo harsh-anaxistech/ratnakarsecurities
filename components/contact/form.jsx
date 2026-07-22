@@ -147,7 +147,7 @@ export default function ContactUsPage() {
 
   return (
     <Container>
-      <div className="grid grid-cols-1 lg:grid-cols-12 w-full font-sans bg-white border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] rounded-3xl overflow-hidden mb-12 animate-fade-in">
+      <div className="grid grid-cols-1 lg:grid-cols-12 w-full font-sans bg-white border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] rounded-3xl overflow-hidden mb-8 animate-fade-in">
 
         {/* Left Side: Address Details Panel */}
         <div

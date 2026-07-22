@@ -32,14 +32,6 @@ export default function ContactPage() {
             <div className="w-full">
               <Form />
             </div>
-
-            {/* Branches Table Section */}
-            <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] border border-black/10 overflow-hidden">
-              <div className="p-0">
-                <Table />
-              </div>
-            </div>
-
             {/* Live Map Section */}
             <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] border border-black/10 overflow-hidden p-3 md:p-4">
               <div className="relative w-full h-[250px] md:h-[320px] rounded-2xl overflow-hidden border border-gray-200 shadow-inner">
@@ -56,6 +48,14 @@ export default function ContactPage() {
                 ></iframe>
               </div>
             </div>
+            {/* Branches Table Section */}
+            <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] border border-black/10 overflow-hidden">
+              <div className="p-0">
+                <Table />
+              </div>
+            </div>
+
+
 
           </div>
         </Container>
