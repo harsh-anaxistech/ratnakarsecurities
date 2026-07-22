@@ -38,7 +38,7 @@ export default function HeroSection({
             </li>
             {breadcrumbs.map((b, i) => (
               <React.Fragment key={i}>
-                <span className="text-white/50">/</span>
+                <span className="text-white/90">/</span>
                 {b.href ? (
                   <li className="font-semibold text-white">
                     <Link href={b.href}>{b.label}</Link>
