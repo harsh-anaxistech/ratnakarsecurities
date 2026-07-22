@@ -15,7 +15,7 @@ export default function NominationPage() {
       <HeroSection
         title="Nomination"
         breadcrumbs={[{ label: "Nomination" }]}
-        image="/images/about/nomination.jpg"
+        image="/images/about/nomination f.jpg"
         height="h-[300px] md:h-[400px]"
       />
 
