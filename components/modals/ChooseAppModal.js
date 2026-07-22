@@ -80,7 +80,7 @@ export default function ChooseAppModal({ isOpen, onClose }) {
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 cursor-pointer z-20"
+            className="absolute top-2.5 right-2.5 flex items-center justify-center w-7 h-7 rounded-full transition-all duration-200 cursor-pointer z-20"
             style={{ background: "rgba(255,255,255,0.15)", color: "#fff" }}
             aria-label="Close"
           >
