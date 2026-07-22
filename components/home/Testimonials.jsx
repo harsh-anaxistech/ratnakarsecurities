@@ -35,9 +35,9 @@ const FALLBACK_TESTIMONIALS = [
 function StarRating({ count }) {
   const validCount = Number(count) || 5;
   return (
-    <div className="flex gap-1 mb-4">
+    <div className="flex gap-1">
       {Array.from({ length: validCount }).map((_, i) => (
-        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
       ))}
     </div>
   );
@@ -49,11 +49,11 @@ function Avatar({ name, initials, profileImage }) {
     initials ||
     (name
       ? name
-          .split(" ")
-          .filter(Boolean)
-          .map((n) => n[0])
-          .join("")
-          .toUpperCase()
+        .split(" ")
+        .filter(Boolean)
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
       : "RS");
 
   if (profileImage && !imgError) {
@@ -71,13 +71,13 @@ function Avatar({ name, initials, profileImage }) {
         src={imageUrl}
         alt={name || "User"}
         onError={() => setImgError(true)}
-        className="w-10 h-10 rounded-md object-cover flex-shrink-0 border border-[#00aeee]/20"
+        className="w-10 h-10 rounded-full object-cover flex-shrink-0 border-2 border-white shadow-sm"
       />
     );
   }
 
   return (
-    <div className="w-10 h-10 rounded-md flex items-center justify-center font-bold text-xs flex-shrink-0 bg-[#00aeee]/10 text-[#00aeee] border border-[#00aeee]/20">
+    <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 bg-gradient-to-br from-[#00aeee]/20 to-[#00aeee]/10 text-[#00aeee] border border-[#00aeee]/20 shadow-sm">
       {displayInitials}
     </div>
   );
@@ -120,16 +120,23 @@ export default function Testimonials() {
   }, [testimonials.length]);
 
   return (
-    <section className="py-12 bg-white overflow-hidden relative">
+    <section className="py-12 bg-gradient-to-b from-slate-50 via-sky-50/40 to-slate-50 relative overflow-hidden">
+
+      {/* Background Glow Effects */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-sky-400/10 via-blue-500/10 to-indigo-500/10 blur-[100px] rounded-full pointer-events-none" />
+
       <Container>
-        {/* Header Section */}
+        {/* Header Section (Unchanged Text & Sizes) */}
         <div className="text-center mb-10 relative z-10 max-w-2xl mx-auto">
           <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "#ea2830" }}>
             Words of Trust
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif tracking-tight leading-tight text-[#011628]">
+          <h2 className="text-3xl md:text-4xl font-serif tracking-tight leading-tight text-[#011628] mb-3">
             Hear From Our Investors
           </h2>
+          <p className="text-slate-500 text-sm md:text-base font-normal max-w-lg mx-auto">
+            Discover how our tailored research and financial expertise empower long-term growth.
+          </p>
         </div>
 
         {/* Slider Container */}
@@ -145,45 +152,52 @@ export default function Testimonials() {
                 key={i}
                 className="w-full shrink-0 px-3 md:w-auto md:shrink md:px-0"
               >
-                <div className="bg-gradient-to-br from-white via-white to-blue-100 rounded-2xl p-8 border border-slate-100 hover:border-[#00aeee]/30 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between group h-full relative overflow-hidden">
-                  
-                  <Quote className="absolute right-6 top-6 w-24 h-24 text-[#00aeee]/10 group-hover:text-[#00aeee]/15 transition-colors duration-500 pointer-events-none -rotate-12" strokeWidth={1} />
+                <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-7 border border-slate-300 hover:border-[#00aeee]/60 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_-15px_rgba(0,174,238,0.15)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full relative group">
 
-                  <div className="relative z-10">
-                    <StarRating count={t.stars} />
+                  <div>
+                    {/* Top Header inside Card: Small Quote Icon & Rating */}
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="w-9 h-9 rounded-xl bg-[#00aeee]/10 border border-[#00aeee]/20 flex items-center justify-center text-[#00aeee] shrink-0 group-hover:bg-[#00aeee] group-hover:text-white transition-colors duration-300">
+                        <Quote className="w-4 h-4" />
+                      </div>
+                      <StarRating count={t.stars} />
+                    </div>
+
+                    {/* Testimonial Message */}
                     <p className="text-[15px] leading-relaxed text-slate-600 font-medium mb-8">
-                      {t.quote}
+                      &ldquo;{t.quote}&rdquo;
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-4 pt-5 border-t border-slate-200/60 relative z-10">
+                  {/* Customer Info */}
+                  <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100 relative z-10">
                     <Avatar name={t.name} initials={t.initials} profileImage={t.profile_image} />
-                    <div>
-                      <p className="text-base font-bold text-slate-900 group-hover:text-[#00aeee] transition-colors duration-300">
+                    <div className="overflow-hidden">
+                      <p className="text-sm font-bold text-slate-900 group-hover:text-[#00aeee] transition-colors duration-300 truncate">
                         {t.name}
                       </p>
-                      <p className="text-xs font-semibold text-slate-400 mt-0.5 tracking-wide">
+                      <p className="text-xs font-semibold text-slate-400 mt-0.5 tracking-wide truncate">
                         {t.role} {t.location && <><span className="text-slate-300 mx-1">•</span> {t.location}</>}
                       </p>
                     </div>
                   </div>
+
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Navigation Dots */}
-        <div className="flex justify-center gap-2.5 mt-8 md:hidden relative z-10">
+        {/* Mobile Navigation Dots */}
+        <div className="flex justify-center gap-2 mt-8 md:hidden relative z-10">
           {testimonials.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === idx 
-                  ? "w-7 bg-[#00aeee]" 
-                  : "w-2 bg-slate-200"
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${activeIndex === idx
+                ? "w-7 bg-[#00aeee]"
+                : "w-2 bg-slate-300"
+                }`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
