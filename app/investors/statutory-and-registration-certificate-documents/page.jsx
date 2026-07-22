@@ -34,6 +34,7 @@ export default async function StatutoryDocumentsPage() {
           { label: "Investors", href: "/investors" },
           { label: "Statutory Documents" }
         ]}
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

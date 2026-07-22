@@ -39,6 +39,7 @@ export default function ProductDetailsPage() {
           { label: product.title }
         ]}
         image="/images/about/SLBs.jpg"
+        mobileImage="/images/about/mobile banner/SLBs mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
       <Container className="mt-12">

@@ -30,6 +30,7 @@ export default async function ShareholdingPatternPage() {
           { label: "Investors", href: "/investors" },
           { label: "Shareholding Pattern" }
         ]}
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

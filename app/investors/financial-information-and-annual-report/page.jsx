@@ -25,11 +25,12 @@ export default async function FinancialInformationPage() {
   return (
     <main className="bg-background min-h-screen">
       <HeroSection 
-        title="Financial Information and Annual Report"
+        title="Financial Information & Annual Report"
         breadcrumbs={[
           { label: "Investors", href: "/investors" },
           { label: "Financial Information" }
         ]}
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

@@ -45,6 +45,7 @@ export default async function NewspaperPublicationPage() {
           { label: "Investors", href: "/investors" },
           { label: "Newspaper Publication" }
         ]}
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

@@ -36,7 +36,7 @@ export default function ProductDetailsPage() {
         title={product.title}
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
         image="/images/about/Wealth Management.jpg"
-        mobileImage="/images/about/mobile banner/Wealth Management mb2.jpg"
+        mobileImage="/images/about/mobile banner/wealth management mobile_.jpg"
         height="h-[300px] md:h-[400px]"
         className="object-top"
       />

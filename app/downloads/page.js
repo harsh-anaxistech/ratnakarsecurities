@@ -142,6 +142,7 @@ export default function DownloadsPage() {
         title="Downloads"
         breadcrumbs={[{ label: "Downloads" }]}
         image="/images/about/AboutUs-Ratnakarsec.png"
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

@@ -41,9 +41,9 @@ export default function ProductDetailsPage() {
           { label: product.title }
         ]}
         image="/images/about/Derivatives f.jpg"
+        mobileImage="/images/about/mobile banner/Derivatives mobile.jpg"
         height="h-[300px] md:h-[400px]"
         imagePosition="object-right sm:object-center"
-
       />
 
       <Container className="mt-12">

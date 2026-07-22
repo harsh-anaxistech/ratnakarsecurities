@@ -13,6 +13,7 @@ export default function ProductsPage() {
         title="Our Products"
         breadcrumbs={[{ label: "Products" }]}
         image="/images/about/our product.jpg"
+        mobileImage="/images/about/mobile banner/product mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

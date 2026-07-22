@@ -70,6 +70,7 @@ export default function BoardOfDirectorsPage() {
           { label: "Board of Directors" },
         ]}
         image="/images/about/our product 1.jpg"
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

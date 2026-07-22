@@ -96,16 +96,17 @@ export default function ProductDetailsPage() {
   return (
     <main className="bg-[#f7f9fc] min-h-screen pb-12">
       {/* Top Banner Section */}
-     <HeroSection
-    title={product.title}
-    breadcrumbs={[
-      { label: "Products", href: "/products" },
-      { label: product.title }
-    ]}
-    image="/images/about/Mutual Funds.jpg"
-    height="h-[300px] md:h-[400px]"
-    imageClassName="object-top" // તમારા કમ્પોનન્ટ મુજબ જે પ્રોપ હોય તે વાપરો (દા.ત. className="object-top")
-/>
+      <HeroSection
+        title={product.title}
+        breadcrumbs={[
+          { label: "Products", href: "/products" },
+          { label: product.title }
+        ]}
+        image="/images/about/Mutual Funds.jpg"
+        mobileImage="/images/about/mobile banner/mutual fund mobile.jpg"
+        height="h-[300px] md:h-[400px]"
+        imageClassName="object-top"
+      />
 
       <Container className="mt-12">
         <div className="flex flex-col lg:flex-row gap-10">

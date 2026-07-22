@@ -17,6 +17,7 @@ export default function PrivacyPolicyPage() {
         title="Privacy Policy"
         breadcrumbs={[{ label: "Privacy Policy" }]}
         image="/images/about/our product 1.jpg"
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

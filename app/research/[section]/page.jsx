@@ -70,7 +70,9 @@ export default async function Page({ params }) {
         title={matchedSectionName.charAt(0).toUpperCase() + matchedSectionName.slice(1) + " Research"}
         breadcrumbs={[{ label: "Research", href: "/research" }, { label: matchedSectionName, href: `/research/${section}` }]}
         image="/images/about/research banner.jpg"
-        height="h-[300px] md:h-[400px]" />
+        mobileImage="/images/about/mobile banner/research mobile.jpg"
+        height="h-[300px] md:h-[400px]"
+      />
 
       <ResearchSectionClient
         section={section}

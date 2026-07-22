@@ -16,6 +16,7 @@ export default function RefundCancellationPage() {
         title="Refund & Cancellation"
         breadcrumbs={[{ label: "Refund & Cancellation" }]}
         image="/images/about/our product 1.jpg"
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

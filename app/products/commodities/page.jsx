@@ -35,9 +35,9 @@ export default function ProductDetailsPage() {
         title={product.title}
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
         image="/images/about/Commodities.png"
+        mobileImage="/images/about/mobile banner/Commodities mobile.jpg"
         height="h-[300px] md:h-[400px]"
         imagePosition="object-right sm:object-center"
-
       />
 
       <Container className="mt-12">

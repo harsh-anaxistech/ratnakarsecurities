@@ -30,6 +30,7 @@ export default async function AnnualReturnPage() {
           { label: "Investors", href: "/investors" },
           { label: "Annual Return" }
         ]}
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

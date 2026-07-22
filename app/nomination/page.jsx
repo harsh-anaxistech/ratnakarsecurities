@@ -16,6 +16,7 @@ export default function NominationPage() {
         title="Nomination"
         breadcrumbs={[{ label: "Nomination" }]}
         image="/images/about/nomination f.jpg"
+        mobileImage="/images/about/mobile banner/nomination mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

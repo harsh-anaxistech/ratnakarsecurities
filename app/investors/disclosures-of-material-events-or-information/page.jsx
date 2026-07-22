@@ -31,6 +31,7 @@ export default async function DisclosuresPage() {
           { label: "Investors", href: "/investors" },
           { label: "Disclosures of Material Events" }
         ]}
+        mobileImage="/images/about/mobile banner/investor mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
 

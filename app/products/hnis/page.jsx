@@ -36,10 +36,10 @@ export default function ProductDetailsPage() {
         title={product.title}
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
         image="/images/about/HNIs.jpg"
+        mobileImage="/images/about/mobile banner/HNIs mobile.jpg"
         height="h-[300px] md:h-[400px]"
         className="object-top"
         imagePosition="object-right sm:object-center"
-      // અથવા imageClassName="object-top" (તમારા પ્રોપ મુજબ)
       />
 
       <Container className="mt-12">
