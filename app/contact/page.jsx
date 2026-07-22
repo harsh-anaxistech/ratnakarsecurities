@@ -21,7 +21,9 @@ export default function ContactPage() {
         title="Contact Us"
         breadcrumbs={[{ label: "Contact Us" }]}
         image="/images/about/contact us f.jpg"
-        height="h-[300px] md:h-[400px]" />
+        mobileImage="/images/about/contact us mb.jpg"
+        height="h-[300px] md:h-[400px]" 
+      />
 
       {/* Main Content Area */}
       <section className="py-12 md:py-16">

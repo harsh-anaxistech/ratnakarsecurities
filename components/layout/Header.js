@@ -38,16 +38,6 @@ const NAV_LINKS = [
     ],
   },
   {
-    label: "Research",
-    href: "/research/company",
-    dropdown: [
-      { label: "Company", href: "/research/company", icon: "company", description: "Detailed company research reports" },
-      { label: "IPOs", href: "/research/ipos", icon: "ipos", description: "IPO analysis and recommendations" },
-      { label: "News", href: "/research/news", icon: "news", description: "Latest market news and updates" },
-      { label: "Announcements", href: "/research/announcements", icon: "announcements", description: "Important announcements and alerts" },
-    ],
-  },
-  {
     label: "Investors",
     href: "#",
     columns: [
@@ -68,6 +58,16 @@ const NAV_LINKS = [
   {
     label: "About Us",
     href: "/about"
+  },
+  {
+    label: "Research",
+    href: "/research/company",
+    dropdown: [
+      { label: "Company", href: "/research/company", icon: "company", description: "Detailed company research reports" },
+      { label: "IPOs", href: "/research/ipos", icon: "ipos", description: "IPO analysis and recommendations" },
+      { label: "News", href: "/research/news", icon: "news", description: "Latest market news and updates" },
+      { label: "Announcements", href: "/research/announcements", icon: "announcements", description: "Important announcements and alerts" },
+    ],
   },
   { label: "Contact Us", href: "/contact" },
 ];
@@ -99,6 +99,7 @@ function DropdownLink({ link, children, className }) {
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileQuickLinksOpen, setMobileQuickLinksOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState(null);
   const [mobileLoginOpen, setMobileLoginOpen] = useState(false);
   const [backofficeModalOpen, setBackofficeModalOpen] = useState(false);
@@ -110,6 +111,7 @@ export default function Header() {
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
     setMobileOpen(false);
+    setMobileQuickLinksOpen(false);
     setOpenAccordion(null);
     setMobileLoginOpen(false);
     setFloatingMobileModalOpen(false);
@@ -254,7 +256,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         className={cn(
-                          "flex h-full items-center gap-1 px-4 text-[17px] font-bold transition-colors border-b-2",
+                          "flex h-full items-center gap-1 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap",
                           isActive
                             ? "text-primary border-primary"
                             : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
@@ -295,21 +297,22 @@ export default function Header() {
               </nav>
 
               {/* Desktop Actions */}
-              <div className="hidden lg:flex items-center gap-2">
+              <div className="hidden lg:flex items-center gap-1.5 xl:gap-2">
                 <a href="https://twx.ratnakarsecurities.com:4433/twx/signin" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
+                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-5 py-2 whitespace-nowrap">
                     RE-KYC
                   </Button>
                 </a>
 
                 <a href="https://smartkyc.co.in/d/ratnakar" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
-                    OPEN DEMAT ACCOUNT                  </Button>
+                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-5 py-2 whitespace-nowrap">
+                    OPEN DEMAT ACCOUNT
+                  </Button>
                 </a>
 
                 {/* Login dropdown */}
                 <div className="group relative">
-                  <Button className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2">
+                  <Button className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-5 py-2 whitespace-nowrap">
                     LOGIN <ChevronDown className="h-3.5 w-3.5 ml-1 group-hover:rotate-180 transition-transform duration-200 inline" />
                   </Button>
                   <div className="absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-lg py-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
@@ -353,17 +356,60 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Hamburger */}
-              <button
-                onClick={() => setMobileOpen((p) => !p)}
-                aria-label={mobileOpen ? "Close menu" : "Open menu"}
-                aria-expanded={mobileOpen}
-                className="relative w-10 h-10 flex items-center justify-center rounded text-foreground hover:bg-muted transition-colors lg:hidden"
-              >
-                <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "rotate-45" : "-translate-y-2")} />
-                <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "opacity-0 scale-x-0" : "")} />
-                <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "-rotate-45" : "translate-y-2")} />
-              </button>
+              {/* Hamburger & Mobile Quick Icons */}
+              <div className="flex items-center gap-2 lg:hidden">
+                {/* Mobile Quick Links Button */}
+                <div className="relative">
+                  <button
+                    onClick={() => setMobileQuickLinksOpen((p) => !p)}
+                    aria-label="Quick links"
+                    className="w-9 h-9 flex items-center justify-center rounded-full bg-[#011628] text-white hover:bg-[#ea2830] transition-colors shadow-sm"
+                  >
+                    <Smartphone className="h-4 w-4" />
+                  </button>
+
+                  {/* Dropdown Popup Row in single line for Mobile */}
+                  {mobileQuickLinksOpen && (
+                    <div className="absolute right-0 top-full mt-2 z-50 flex items-center gap-2 p-2 bg-[#011628] border border-white/20 rounded-full shadow-2xl animate-in fade-in zoom-in duration-200">
+                      {[
+                        { Icon: Smartphone, title: "Mobile App", href: "#" },
+                        { Icon: Download, title: "Downloads", href: "/downloads" },
+                        { Icon: HelpCircle, title: "Help", href: "/contact" },
+                        { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
+                      ].map((item, index) => (
+                        <a
+                          key={index}
+                          href={item.href}
+                          onClick={(e) => {
+                            setMobileQuickLinksOpen(false);
+                            if (item.title === "Mobile App") {
+                              e.preventDefault();
+                              setFloatingMobileModalOpen(true);
+                            } else {
+                              handleTopNav(e, item.href);
+                            }
+                          }}
+                          className="flex items-center justify-center h-8 w-8 rounded-full bg-white/10 border border-white/20 text-white hover:bg-[#ea2830] hover:border-[#ea2830] transition-all duration-300"
+                          title={item.title}
+                        >
+                          <item.Icon className="h-4 w-4" />
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  onClick={() => setMobileOpen((p) => !p)}
+                  aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                  aria-expanded={mobileOpen}
+                  className="relative w-10 h-10 flex items-center justify-center rounded text-foreground hover:bg-muted transition-colors"
+                >
+                  <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "rotate-45" : "-translate-y-2")} />
+                  <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "opacity-0 scale-x-0" : "")} />
+                  <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "-rotate-45" : "translate-y-2")} />
+                </button>
+              </div>
             </div>
           </div>
         </div>

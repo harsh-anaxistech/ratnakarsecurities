@@ -75,12 +75,12 @@ export default async function NewspaperPublicationPage() {
               {groupedData.map((group) => (
                 <div key={group.financialYear} className="space-y-6">
                   {group.financialYear && (
-                    <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 text-center md:text-left">
+                    <h3 className="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 text-center">
                       Financial Year {group.financialYear}
                     </h3>
                   )}
                   
-                  <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+                  <div className="flex flex-wrap justify-center gap-6">
                     {group.files &&
                       group.files.map((file) => {
                         const { title, date } = parseCaption(file.caption);
@@ -91,7 +91,7 @@ export default async function NewspaperPublicationPage() {
                             href={fileUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group p-6 border border-gray-200 rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-[#EA2830]/10 hover:border-[#EA2830]/30 flex flex-col items-center text-center h-full"
+                            className="group p-6 border border-gray-200 rounded-2xl bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-[#EA2830]/10 hover:border-[#EA2830]/30 flex flex-col items-center text-center h-[260px] w-full sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] xl:w-[calc(20%-19.2px)] min-w-[240px] max-w-[280px]"
                           >
                             <div className="w-14 h-14 bg-[#EA2830] rounded-full flex items-center justify-center text-white mb-5 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
                               <FileText size={24} />

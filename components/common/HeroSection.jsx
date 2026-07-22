@@ -8,12 +8,24 @@ export default function HeroSection({
   title,
   breadcrumbs = [],
   image = "/images/about/our product 1.jpg",
+  mobileImage,
   height = "h-[400px]",
 }) {
   return (
     <section className={`relative ${height} flex items-center overflow-hidden`}>
       <div className="absolute inset-0">
-        <Image src={image} alt={`${title} Banner`} fill priority className="object-cover" />
+        {mobileImage ? (
+          <>
+            <div className="block md:hidden absolute inset-0">
+              <Image src={mobileImage} alt={`${title} Banner`} fill priority className="object-cover" />
+            </div>
+            <div className="hidden md:block absolute inset-0">
+              <Image src={image} alt={`${title} Banner`} fill priority className="object-cover" />
+            </div>
+          </>
+        ) : (
+          <Image src={image} alt={`${title} Banner`} fill priority className="object-cover" />
+        )}
       </div>
 
       <Container className="relative z-20 mt-auto pb-12">

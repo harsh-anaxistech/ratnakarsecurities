@@ -84,124 +84,13 @@ export default function Footer() {
 
   return (
     <footer style={{ background: "#011628", color: "#c8dff0" }}>
+      {/* 4 Column Main Footer Section */}
       <div className="pt-16 pb-10 border-b border-gray-500/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
 
-            {/* 1. પ્રથમ કૉલમ: પહેલા 6 પ્રોડક્ટ્સ અને તેની નીચે લોગો + એડ્રેસ */}
-            <div>
-              {/* પહેલા 6 પ્રોડક્ટ્સ */}
-              {FOOTER_LINKS["Products"] && (
-                <div className="mb-8">
-                  <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5" style={{ color: "#00aeee" }}>
-                    Products
-                  </h4>
-                  <ul className="space-y-2.5">
-                    {FOOTER_LINKS["Products"].slice(0, 6).map((l) => (
-                      <li key={l.label}>
-                        {l.target ? (
-                          <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[16px] hover:text-white transition-colors">
-                            {l.label}
-                          </a>
-                        ) : (
-                          <Link href={l.href} className="text-[16px] hover:text-white transition-colors">
-                            {l.label}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-
-            </div>
-
-            {/* 2. બીજી કૉલમ: બાકીના 6 પ્રોડક્ટ્સ */}
-            <div>
-
-              {FOOTER_LINKS["Products"] && FOOTER_LINKS["Products"].length > 6 && (
-
-                <div>
-                  <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5" style={{ color: "#00aeee" }}>
-                    Products
-                  </h4>
-
-                  <ul className="space-y-2.5">
-                    {FOOTER_LINKS["Products"].slice(6, 12).map((l) => (
-                      <li key={l.label}>
-                        {l.target ? (
-                          <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[16px] hover:text-white transition-colors">
-                            {l.label}
-                          </a>
-                        ) : (
-                          <Link href={l.href} className="text-[16px] hover:text-white transition-colors">
-                            {l.label}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* સોશિયલ મીડિયા લિંક્સ */}
-                  <div className="flex items-center gap-3 mt-8">
-                    {SOCIAL_LINKS.map((social) => {
-                      const Icon = social.icon;
-                      return (
-                        <a
-                          key={social.label}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={social.label}
-                          className="w-9 h-9 rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#00aeee] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
-                        >
-                          <Icon className="w-4 h-4" />
-                        </a>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* 3. બાકીની કૅટેગરીઝ (જેમ કે Quick Links, Company વગેરે) */}
-            {Object.entries(FOOTER_LINKS)
-              .filter(([heading]) => heading !== "Products")
-              .map(([heading, links]) => (
-                <div key={heading}>
-                  <h4 className="text-[16px] font-bold tracking-widest uppercase mb-5" style={{ color: "#00aeee" }}>
-                    {heading}
-                  </h4>
-                  <ul className="space-y-2.5">
-                    {links.map((l) => (
-                      <li key={l.label}>
-                        {l.target ? (
-                          <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[16px] hover:text-white transition-colors">
-                            {l.label}
-                          </a>
-                        ) : (
-                          <Link href={l.href} className="text-[16px] hover:text-white transition-colors">
-                            {l.label}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-
-          </div>
-        </div>
-      </div>
-
-      {/* 1. TOP FULL-WIDTH SECTION: લોગો, એડ્રેસ અને ઈમ્પોર્ટન્ટ લિંક્સ */}
-      <div className="py-6 border-b border-gray-500/30">
-        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-
-            {/* Logo */}
-            <div className="shrink-0">
+            {/* Column 1: Logo, Address, Social Icons */}
+            <div className="col-span-2 lg:col-span-1 space-y-5">
               <Link href="#" className="inline-block">
                 <div className="bg-white rounded-xl px-4 py-3 inline-flex items-center justify-center">
                   <Image
@@ -213,32 +102,140 @@ export default function Footer() {
                   />
                 </div>
               </Link>
+
+              <ul className="text-[14px] sm:text-[15px] leading-relaxed space-y-0.5" style={{ color: "#9fc8e0" }}>
+                <li><strong>Ratnakar Securities Ltd.</strong></li>
+                <li>304, Sankalp Square - 2,</li>
+                <li>Near Jalaram Mandir Crossing,</li>
+                <li>Ellisbridge, Ahmedabad - 380006</li>
+                <li>Contact No : <a href="tel:07949005200" className="hover:text-white transition-colors">079 - 49005200 / 01 / 02</a></li>
+              </ul>
+
+              <div className="flex items-center gap-3 pt-2">
+                {SOCIAL_LINKS.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="w-9 h-9 rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#00aeee] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Address */}
-            <ul className="text-[15px] sm:text-[16px] leading-relaxed space-y-0.5" style={{ color: "#9fc8e0" }}>
-              <li><strong>Ratnakar Securities Ltd.</strong></li>
-              <li>304, Sankalp Square - 2,</li>
-              <li>Near Jalaram Mandir Crossing,</li>
-              <li>Ellisbridge, Ahmedabad - 380006</li>
-              <li>Contact No : <a href="tel:07949005200" className="hover:text-white transition-colors">079 - 49005200 / 01 / 02</a></li>
-            </ul>
-            {/* Quick Important Links */}
-            <div className="text-[15px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1 lg:justify-end" style={{ color: "#9fc8e0" }}>
-              <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                Segregation Monitoring Collateral
-              </a>
-              <span>|</span>
-              <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                NSDL e Voting
-              </a>
-              <span>|</span>
-              <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                NSDL IDEAS Services
-              </a>
+            {/* Column 2: Products (Part 1) */}
+            <div className="col-span-1">
+              <h4 className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase mb-4 sm:mb-5" style={{ color: "#00aeee" }}>
+                Products
+              </h4>
+              <ul className="space-y-2 sm:space-y-2.5">
+                {[
+                  { label: "Equity", href: "/products/equity" },
+                  { label: "Derivatives", href: "/products/derivatives" },
+                  { label: "Mutual Funds", href: "/products/mutual-funds" },
+                  { label: "Commodities", href: "/products/commodities" },
+                  { label: "Wealth Management", href: "/products/wealth-management" },
+                  { label: "Bonds", href: "/products/bonds" },
+                ].map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className="text-[14px] sm:text-[16px] hover:text-white transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Products (Part 2) */}
+            <div className="col-span-1">
+              <h4 className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase mb-4 sm:mb-5" style={{ color: "#00aeee" }}>
+                Products
+              </h4>
+              <ul className="space-y-2 sm:space-y-2.5">
+                {[
+                  { label: "SLBs", href: "/products/slbs" },
+                  { label: "HNIs", href: "/products/hnis" },
+                  { label: "NRIs", href: "/products/nris" },
+                  { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", target: "_blank" },
+                ].map((l) => (
+                  <li key={l.label}>
+                    {l.target ? (
+                      <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[14px] sm:text-[16px] hover:text-white transition-colors">
+                        {l.label}
+                      </a>
+                    ) : (
+                      <Link href={l.href} className="text-[14px] sm:text-[16px] hover:text-white transition-colors">
+                        {l.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 4: About Us */}
+            <div className="col-span-2 lg:col-span-1">
+              <h4 className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase mb-4 sm:mb-5" style={{ color: "#00aeee" }}>
+                About Us
+              </h4>
+              <ul className="space-y-2 sm:space-y-2.5">
+                {FOOTER_LINKS["About Us"].map((l) => (
+                  <li key={l.label}>
+                    <Link href={l.href} className="text-[14px] sm:text-[16px] hover:text-white transition-colors">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
 
           </div>
+        </div>
+      </div>
+
+      {/* Useful Links Full-Width Horizontal Row & Important Links */}
+      <div className="py-6 border-b border-gray-500/30">
+        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-4">
+
+          {/* Useful Links Row */}
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <h4 className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase shrink-0" style={{ color: "#00aeee" }}>
+              Useful Links :
+            </h4>
+            <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px]" style={{ color: "#9fc8e0" }}>
+              {FOOTER_LINKS["Useful Links"].map((l, index) => (
+                <span key={l.label} className="flex items-center gap-3 sm:gap-4">
+                  <a href={l.href} target={l.target} rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    {l.label}
+                  </a>
+                  {index < FOOTER_LINKS["Useful Links"].length - 1 && <span className="opacity-40">|</span>}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Additional Quick Important Links */}
+          <div className="text-[14px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1" style={{ color: "#9fc8e0" }}>
+            <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              Segregation Monitoring Collateral
+            </a>
+            <span>|</span>
+            <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              NSDL e Voting
+            </a>
+            <span>|</span>
+            <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              NSDL IDEAS Services
+            </a>
+          </div>
+
         </div>
       </div>
 
@@ -262,7 +259,7 @@ export default function Footer() {
       </div>
 
       {/* Regulatory & Bottom bar */}
-      <div className="py-8 border-b border-[#00aeee]/15 text-base text-[#9fc8e0]">
+      <div className="py-8 border-b border-[#00aeee]/15 text-sm sm:text-base text-[#9fc8e0]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-2">
           <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-88</p>
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
@@ -313,17 +310,17 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-white py-5 text-sm text-black">
+      <div className="bg-white py-4 text-xs text-black">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
           <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
-          <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-4 justify-center sm:justify-end items-center">
-            <Link href="/privacy-policy" className="text-black hover:text-[#00aeee] transition-colors">Privacy Policy</Link>
-            <a href="/images/disclaimer.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors">Disclaimer</a>
-            <a href="/images/termsofuse.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors">Terms of Conditions</a>
-            <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors">Investor Complaint</a>
-            <Link href="/refund-and-cancellation" className="text-black hover:text-[#00aeee] transition-colors">Refund & Cancellation</Link>
+          <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-4 justify-center sm:justify-end items-center text-sm">
+            <Link href="/privacy-policy" className="text-black hover:text-[#00aeee] transition-colors font-medium">Privacy Policy</Link>
+            <a href="/images/disclaimer.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium">Disclaimer</a>
+            <a href="/images/termsofuse.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium">Terms of Conditions</a>
+            <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium">Investor Complaint</a>
+            <Link href="/refund-and-cancellation" className="text-black hover:text-[#00aeee] transition-colors font-medium">Refund & Cancellation</Link>
 
-            <span className="bg-white text-black px-2 py-1 rounded">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold text-black hover:text-[#00aeee] transition-colors">Anaxistech</a></span>
+            <span className="bg-white text-black px-2 py-0.5 rounded text-xs">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold italic text-black hover:text-[#00aeee] transition-colors">Anaxistech</a></span>
           </div>
         </div>
       </div>
