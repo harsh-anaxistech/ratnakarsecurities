@@ -40,7 +40,7 @@ export default function ProductDetailsPage() {
           { label: "Products", href: "/products" },
           { label: product.title }
         ]}
-        image="/images/about/Derivatives.jpg"
+        image="/images/about/Derivatives f.jpg"
         height="h-[300px] md:h-[400px]"
         imagePosition="object-right sm:object-center"
 
