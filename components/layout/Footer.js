@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import RiskDisclosureModal from "@/components/modals/RiskDisclosureModal";
 
 const FOOTER_LINKS = {
   Products: [
@@ -42,7 +43,7 @@ const SOCIAL_LINKS = [
   { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/ratnakar-securities", label: "LinkedIn" },
 ];
 
-const TAB_CONTENT = {
+const getTabContent = (onRiskDisclosureClick) => ({
   "ATTENTION INVESTORS": (
     <ul className="list-disc pl-5 space-y-2 text-sm" style={{ color: "#9fc8e0" }}>
       <li>Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system w.e.f. September 1, 2020.</li>
@@ -62,7 +63,7 @@ const TAB_CONTENT = {
         { label: "Investor Charter of Depository Participant", href: "https://www.ratnakarsecurities.com/static/investor-charter.aspx" },
         { label: "Investor Charter of Stock Broker", href: "https://www.ratnakarsecurities.com/files/Investor_Charter_Stock_Broker.pdf", target: "_blank" },
         { label: "Bank Account List", href: "https://www.ratnakarsecurities.com/files/Bank-Account-List.pdf", target: "_blank" },
-        { label: "Risk Disclosure on Derivatives", href: "#", onClick: (e) => { e.preventDefault(); alert("Risk Disclosure on Derivatives"); } },
+        { label: "Risk Disclosure on Derivatives", href: "#", onClick: (e) => { e.preventDefault(); onRiskDisclosureClick(); } },
         { label: "Details of Authorized Persons", href: "https://www.ratnakarsecurities.com/files/List-of-Authorised-Persons.pdf", target: "_blank" },
         { label: "Procedures for opening an account", href: "https://www.ratnakarsecurities.com/files/Procedures-for-opening-an-account,filing-a-complaint.pdf", target: "_blank" },
         { label: "Dealings between a Client and Stock Broker", href: "https://www.ratnakarsecurities.com/files/Requirements__relating_to_dealings_between_a_Client_and_Stock_Broker.pdf", target: "_blank" },
@@ -74,7 +75,7 @@ const TAB_CONTENT = {
             target={item.target}
             rel={item.target ? "noopener noreferrer" : undefined}
             onClick={item.onClick}
-            className="hover:text-white transition-colors"
+            className="hover:text-white transition-colors cursor-pointer"
           >
             {item.label}
           </a>
@@ -83,15 +84,17 @@ const TAB_CONTENT = {
       ))}
     </div>
   ),
-};
+});
 
 export default function Footer() {
   const [activeTab, setActiveTab] = useState("ATTENTION INVESTORS");
   const [isScoresModalOpen, setIsScoresModalOpen] = useState(false);
-  const tabs = Object.keys(TAB_CONTENT);
+  const [isRiskDisclosureModalOpen, setIsRiskDisclosureModalOpen] = useState(false);
+  const tabContent = getTabContent(() => setIsRiskDisclosureModalOpen(true));
+  const tabs = Object.keys(tabContent);
 
   useEffect(() => {
-    if (isScoresModalOpen) {
+    if (isScoresModalOpen || isRiskDisclosureModalOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -99,7 +102,7 @@ export default function Footer() {
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isScoresModalOpen]);
+  }, [isScoresModalOpen, isRiskDisclosureModalOpen]);
 
   return (
     <footer style={{ background: "#011628", color: "#c8dff0" }}>
@@ -273,7 +276,7 @@ export default function Footer() {
               </button>
             ))}
           </div>
-          <div>{TAB_CONTENT[activeTab]}</div>
+          <div>{tabContent[activeTab]}</div>
         </div>
       </div>
 
@@ -559,6 +562,12 @@ export default function Footer() {
           </div>
         </div>
       )}
+
+      {/* Risk Disclosure Modal */}
+      <RiskDisclosureModal
+        isOpen={isRiskDisclosureModalOpen}
+        onClose={() => setIsRiskDisclosureModalOpen(false)}
+      />
     </footer>
   );
 }

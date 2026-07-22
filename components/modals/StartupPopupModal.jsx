@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Star, Check, ArrowRight } from "lucide-react";
+import { X, Check, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { getActivePopup } from "@/services/popup";
 
@@ -131,16 +131,6 @@ export default function StartupPopupModal() {
           >
             <X size={15} strokeWidth={2.5} />
           </button>
-
-          {/* Badge Header: Gold Star Badge + Text */}
-          <div className="relative z-10 flex items-center gap-1.5 mb-1.5">
-            <div className="w-4 h-4 rounded-full bg-[#F59E0B] text-white flex items-center justify-center shadow-sm shrink-0">
-              <Star size={10} fill="white" strokeWidth={0} />
-            </div>
-            <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-white/95">
-              WEBSITE STARTUP ANNOUNCEMENT
-            </span>
-          </div>
 
           {/* Title & Image Grid */}
           <div className="relative z-10 flex items-center justify-between gap-2">
