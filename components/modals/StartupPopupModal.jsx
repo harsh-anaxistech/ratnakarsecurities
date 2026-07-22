@@ -1,0 +1,233 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { X, Star, Check, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { getActivePopup } from "@/services/popup";
+
+// Helper to format text with bold keywords if markdown-style **bold** or common financial terms are present
+const formatPointText = (text) => {
+  if (!text) return "";
+
+  // If text already contains **bold** markers
+  if (text.includes("**")) {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return (
+          <strong key={i} className="font-extrabold text-slate-900">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      return part;
+    });
+  }
+
+  // Auto-highlight key terms if plain text
+  const keywords = [
+    "Demat and Trading Account",
+    "Demat Account",
+    "Equity, Mutual Funds, Bonds",
+    "Mutual Funds",
+    "0 brokerage",
+    "Research Reports",
+  ];
+  for (const kw of keywords) {
+    if (text.includes(kw)) {
+      const parts = text.split(kw);
+      return (
+        <span key={kw}>
+          {parts[0]}
+          <strong className="font-extrabold text-slate-900">{kw}</strong>
+          {parts[1]}
+        </span>
+      );
+    }
+  }
+
+  return text;
+};
+
+export default function StartupPopupModal() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [popupData, setPopupData] = useState(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadPopup() {
+      const res = await getActivePopup();
+      if (!isMounted) return;
+
+      if (res && res.success && res.data && res.data.isShowPopup) {
+        setPopupData(res.data);
+        setIsOpen(true);
+      }
+    }
+
+    loadPopup();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  if (!isOpen || !popupData) return null;
+
+  const displayTitle = popupData.title || "Welcome to Ratnakar Securities";
+  const displayDesc =
+    popupData.description ||
+    "Discover smarter investment opportunities with Ratnakar Securities. Explore our range of financial products, expert market insights, and easy account opening process.";
+
+  const displayPoints =
+    Array.isArray(popupData.points) && popupData.points.length > 0
+      ? popupData.points
+      : [
+          "Open your Demat and Trading Account in just a few simple steps.",
+          "Explore Equity, Mutual Funds, Bonds, and other investment opportunities.",
+          "Get access to expert market insights and research reports.",
+        ];
+
+  const displayLinks =
+    Array.isArray(popupData.links) && popupData.links.length > 0
+      ? popupData.links
+      : popupData.link
+      ? [{ label: "Explore Now", url: popupData.link }]
+      : [
+          {
+            label: "TradeX (Play Store)",
+            url: "https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress",
+          },
+          {
+            label: "TradeX (Apple Store)",
+            url: "https://apps.apple.com/in/app/ratnakar-tradeexpress/id6742447581",
+          },
+        ];
+
+  return (
+    <div
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-sm animate-fade-in overflow-hidden"
+      onClick={handleClose}
+    >
+      <div
+        className="relative w-[92vw] max-w-[420px] max-h-[90vh] bg-white rounded-[24px] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden border border-slate-100 my-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Top Royal Blue Header Banner with iPhone Graphic */}
+        <div className="relative bg-gradient-to-r from-[#0B5ED7] via-[#0D6EFD] to-[#0A4BB7] px-5 py-4 text-white overflow-hidden select-none shrink-0 min-h-[90px] flex flex-col justify-between">
+          {/* Subtle Glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sky-400/20 via-transparent to-transparent pointer-events-none" />
+
+          {/* Close Button Top Right */}
+          <button
+            onClick={handleClose}
+            className="absolute top-3.5 right-3.5 z-20 w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+            aria-label="Close Announcement"
+          >
+            <X size={15} strokeWidth={2.5} />
+          </button>
+
+          {/* Badge Header: Gold Star Badge + Text */}
+          <div className="relative z-10 flex items-center gap-1.5 mb-1.5">
+            <div className="w-4 h-4 rounded-full bg-[#F59E0B] text-white flex items-center justify-center shadow-sm shrink-0">
+              <Star size={10} fill="white" strokeWidth={0} />
+            </div>
+            <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-white/95">
+              WEBSITE STARTUP ANNOUNCEMENT
+            </span>
+          </div>
+
+          {/* Title & Image Grid */}
+          <div className="relative z-10 flex items-center justify-between gap-2">
+            {/* Left Side: Main Title */}
+            <div className="max-w-[180px]">
+              <h3 className="text-sm sm:text-base font-extrabold text-white tracking-tight leading-tight">
+                {displayTitle.includes("Welcome to") ? (
+                  <>
+                    Welcome to
+                    <br />
+                    Ratnakar Securities
+                  </>
+                ) : (
+                  displayTitle
+                )}
+              </h3>
+              {/* Cyan Accent Line */}
+              <div className="w-8 h-[3px] bg-[#38BDF8] rounded-full mt-1.5 shadow-xs" />
+            </div>
+
+            {/* Right Side: Sleek iPhones Image */}
+            <div className="shrink-0 relative right-[-4px] top-[-2px] pointer-events-none">
+              <Image
+                src="/images/about/Stock trading on sleek iPhones.png"
+                alt="Stock trading on sleek iPhones"
+                width={105}
+                height={105}
+                className="w-[90px] sm:w-[105px] h-auto object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.3)]"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Modal Body */}
+        <div className="p-4 sm:p-5 space-y-3.5 bg-white overflow-y-auto flex-1 sidebar-scrollbar">
+          {/* Description */}
+          <p className="text-xs sm:text-[13px] text-[#475569] font-medium leading-relaxed">
+            {displayDesc}
+          </p>
+
+          {/* Highlights Light-Blue Box with SVG Checkmarks */}
+          {displayPoints && displayPoints.length > 0 && (
+            <div className="bg-[#F0F7FF] rounded-xl p-3.5 border border-[#E0EDFF] space-y-2.5">
+              {displayPoints.map((pt, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#334155]"
+                >
+                  {/* Blue Checkmark Circle */}
+                  <div className="w-4 h-4 rounded-full bg-[#0D6EFD] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                    <Check size={11} strokeWidth={3.5} />
+                  </div>
+                  <div className="leading-snug">{formatPointText(pt)}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Action Buttons Stack */}
+          <div className="space-y-2.5 pt-1">
+            {displayLinks.map((lnk, idx) => {
+              const isPrimary = idx === 0;
+
+              return (
+                <a
+                  key={idx}
+                  href={lnk.url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleClose}
+                  className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-[13px] transition-all duration-200 flex items-center justify-between shadow-xs active:scale-[0.99] ${
+                    isPrimary
+                      ? "bg-[#0D6EFD] hover:bg-[#0b5ed7] text-white shadow-blue-500/20 shadow-md"
+                      : "bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#0F172A] border border-[#E2E8F0]"
+                  }`}
+                >
+                  <span className="tracking-tight">
+                    {lnk.label || `Action ${idx + 1}`}
+                  </span>
+                  <ArrowRight size={16} className="shrink-0 ml-2" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
