@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
 import Container from "@/components/common/Container";
 import Form from "@/components/contact/form";
 import Table from "@/components/contact/table";
@@ -21,8 +19,8 @@ export default function ContactPage() {
         title="Contact Us"
         breadcrumbs={[{ label: "Contact Us" }]}
         image="/images/about/contact us f.jpg"
-        mobileImage="/images/about/contact us mb.jpg"
-        height="h-[300px] md:h-[400px]" 
+        mobileImage="/images/about/mobile banner/contact us mobile.jpg"
+        height="h-[300px] md:h-[400px]"
       />
 
       {/* Main Content Area */}

@@ -54,14 +54,25 @@ const TAB_CONTENT = {
     </ul>
   ),
   "INVESTOR CHARTER": (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm" style={{ color: "#9fc8e0" }}>
-      <Link href="#">NSE</Link>
-      <Link href="#">BSE</Link>
-      <Link href="#">NSDL</Link>
-      <Link href="#">Investor Charter of Depository Participant</Link>
-      <Link href="#">Investor Charter of Stock Broker</Link>
-      <Link href="#">Bank Account List</Link>
-      <Link href="#">Risk Disclosure on Derivatives</Link>
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" style={{ color: "#9fc8e0" }}>
+      {[
+        { label: "NSE", href: "#" },
+        { label: "BSE", href: "#" },
+        { label: "NSDL", href: "#" },
+        { label: "Investor Charter of Depository Participant", href: "#" },
+        { label: "Investor Charter of Stock Broker", href: "#" },
+        { label: "Bank Account List", href: "#" },
+        { label: "Risk Disclosure on Derivatives", href: "#" },
+        { label: "Details of Authorized Persons", href: "#" },
+        { label: "Procedures for opening an account", href: "#" },
+        { label: "Dealings between a Client and Stock Broker", href: "#" },
+        { label: "Attention Investors", href: "#" },
+      ].map((item, index, arr) => (
+        <span key={item.label} className="flex items-center gap-3">
+          <Link href={item.href} className="hover:text-white transition-colors">{item.label}</Link>
+          {index < arr.length - 1 && <span className="opacity-40">|</span>}
+        </span>
+      ))}
     </div>
   ),
 };
@@ -242,7 +253,7 @@ export default function Footer() {
       {/* 2. INVESTOR NOTICES (TABS) SECTION */}
       <div className="py-8 border-b border-[#00aeee]/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-5 text-xs font-bold tracking-wide uppercase">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-5 text-sm font-bold tracking-wide uppercase">
             {tabs.map((tab) => (
               <button
                 key={tab}

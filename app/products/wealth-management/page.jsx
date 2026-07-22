@@ -32,13 +32,14 @@ export default function ProductDetailsPage() {
 
   return (
     <main className="bg-[#f7f9fc] min-h-screen pb-12">
-  <HeroSection
-    title={product.title}
-    breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
-    image="/images/about/Wealth Management.jpg"
-    height="h-[300px] md:h-[400px]"
-    className="object-top" /* અથવા imageClassName="object-top" */
-/>
+      <HeroSection
+        title={product.title}
+        breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
+        image="/images/about/Wealth Management.jpg"
+        mobileImage="/images/about/mobile banner/Wealth Management mb2.jpg"
+        height="h-[300px] md:h-[400px]"
+        className="object-top"
+      />
 
       <Container className="mt-12">
         <div className="flex flex-col lg:flex-row gap-10">

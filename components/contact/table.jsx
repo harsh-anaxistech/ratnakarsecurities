@@ -11,7 +11,7 @@ export default function ContactDetailsSections() {
             Escalation Matrix
           </h2>
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
-            <table className="w-full min-w-[800px] border-collapse text-left text-base">
+            <table className="w-full min-w-[800px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-[#011628] border-b border-border text-white ">
                   <th className="p-4 border-r border-border">Details of</th>
@@ -22,7 +22,7 @@ export default function ContactDetailsSections() {
                   <th className="p-4">Working Hours</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 text-base text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
+              <tbody className="divide-y divide-gray-200 text-sm text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
                 <tr>
                   <td className="p-4 border-r border-border  ">
                     Customer care
@@ -145,7 +145,7 @@ export default function ContactDetailsSections() {
 
           {/* Subtext info and Regulatory Badges */}
           <div className="space-y-4 pt-2">
-            <p className="text-base  text-muted-foreground leading-relaxed">
+            <p className="text-sm  text-muted-foreground leading-relaxed">
               In absence of response/complaint not addressed to your
               satisfaction, you may lodge a complaint with SEBI at{" "}
               <a
@@ -176,7 +176,7 @@ export default function ContactDetailsSections() {
                 BSE
               </a>
               <a
-                href="https://www.epass.nsdl.com/complaints/websx"
+                href="https://nsdl.co.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 select-none h-11 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2 shadow-sm"
@@ -184,7 +184,7 @@ export default function ContactDetailsSections() {
                 NSDL
               </a>
             </div>
-            <p className="text-base  text-muted-foreground ">
+            <p className="text-sm  text-muted-foreground ">
               Please quote your Service Ticket / Complaint Ref No. while raising
               your complaint at SEBI SCORES / Exchange/ Depository portal
             </p>
@@ -197,7 +197,7 @@ export default function ContactDetailsSections() {
             Basic Details
           </h2>
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
-            <table className="w-full min-w-[800px] border-collapse text-left text-base">
+            <table className="w-full min-w-[800px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-[#011628] border-b border-border text-white ">
                   <th className="p-4 border-r border-border">
@@ -213,7 +213,7 @@ export default function ContactDetailsSections() {
                   <th className="p-4">Email id</th>
                 </tr>
               </thead>
-              <tbody className="text-base text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
+              <tbody className="text-sm text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
                 <tr>
                   <td className="p-4 border-r border-border  ">
                     Ratnakar Securities Pvt. Ltd.
@@ -249,7 +249,7 @@ export default function ContactDetailsSections() {
             Key Managerial Personnel
           </h2>
           <div className="overflow-x-auto border border-border rounded-sm  bg-white">
-            <table className="w-full min-w-[800px] border-collapse text-left text-base">
+            <table className="w-full min-w-[800px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-[#011628] border-b border-border text-white ">
                   <th className="p-4 w-16 border-r border-border text-center">
@@ -263,7 +263,7 @@ export default function ContactDetailsSections() {
                   <th className="p-4">Email id</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200 text-base text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
+              <tbody className="divide-y divide-gray-200 text-sm text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
                 {[
                   {
                     id: 1,
@@ -299,7 +299,7 @@ export default function ContactDetailsSections() {
                       {row.id}
                     </td>
                     <td className="p-4 border-r border-border  ">{row.name}</td>
-                    <td className="p-4 border-r border-border text-base   text-muted-foreground">
+                    <td className="p-4 border-r border-border text-sm   text-muted-foreground">
                       {row.role}
                     </td>
                     <td className="p-4 border-r border-border text-secondary whitespace-nowrap">
@@ -327,7 +327,7 @@ export default function ContactDetailsSections() {
             <h2 className="text-2xl md:text-3xl  text-center pb-3 ">
               RTA Details
             </h2>
-            <div className="text-base text-white space-y-1.5 leading-relaxed">
+            <div className="text-sm text-white space-y-1.5 leading-relaxed">
               <p className=" ">Cameo Corporate Services Limited</p>
               <p>#1, Subramanian Building,</p>
               <p>Club House Road, Chennai-600002.</p>
@@ -349,9 +349,9 @@ export default function ContactDetailsSections() {
               Investor Details
             </h2>
 
-            <div className="text-base text-white space-y-1.5 leading-relaxed">
+            <div className="text-sm text-white space-y-1.5 leading-relaxed">
               <p className=" ">Harshil Shah</p>
-              <p className="text-base text-white ">
+              <p className="text-sm text-white ">
                 Company Secretary and Compliance Officer
               </p>
               <p>304, Sankalp Square II,</p>

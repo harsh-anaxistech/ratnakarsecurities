@@ -20,7 +20,9 @@ const SERVICES = [
 export default function InvestmentServices() {
   return (
     <section className="relative overflow-hidden bg-[#f7f9fc] py-12">
-      <Container>
+
+
+      <Container className="relative z-10">
 
         {/* Header */}
         <div className="mb-12 text-center">
