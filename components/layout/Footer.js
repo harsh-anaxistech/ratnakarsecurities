@@ -283,7 +283,7 @@ export default function Footer() {
           <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-88</p>
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
           <p>Investor Grievance ID: <a href="mailto:investorgrievance@ratnakarsecurities.com" className="hover:text-white transition-colors underline">investorgrievance@ratnakarsecurities.com</a></p>
-          <div className="flex flex-wrap items-center gap-2 mt-4 text-xs font-bold">
+          <div className="flex flex-wrap items-center gap-2 mt-4 text-[13px] font-bold">
             <a
               href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf"
               target="_blank"
@@ -301,7 +301,7 @@ export default function Footer() {
               style={{ color: "#00aeee" }}
               className="underline cursor-pointer text-left hover:opacity-80 transition-opacity"
             >
-              To File A Complaint on SCORES Click Here
+              To File A Complaint on SCORES - Click Here
             </button>
 
             <span className="text-gray-400">|</span>
@@ -311,7 +311,7 @@ export default function Footer() {
               style={{ color: "#00aeee" }}
               className="underline hover:opacity-80 transition-opacity"
             >
-              For Nomination, Please Click Here
+              For Nomination, Please - Click Here
             </Link>
 
             <span className="text-gray-400">|</span>
@@ -323,7 +323,7 @@ export default function Footer() {
               style={{ color: "#00aeee" }}
               className="underline hover:opacity-80 transition-opacity"
             >
-              To Close Account, Please Click Here
+              To Close Account, Please - Click Here
             </a>
           </div>
         </div>
