@@ -126,16 +126,16 @@ export default function StartupPopupModal() {
           {/* Close Button Top Right */}
           <button
             onClick={handleClose}
-            className="absolute top-3.5 right-3.5 z-20 w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+            className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-white text-slate-700 hover:bg-slate-100 hover:text-slate-900 shadow-md border border-slate-100 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
             aria-label="Close Announcement"
           >
-            <X size={15} strokeWidth={2.5} />
+            <X size={16} strokeWidth={2.5} />
           </button>
 
           {/* Title & Image Grid */}
-          <div className="relative z-10 flex items-center justify-between gap-2">
+          <div className="relative z-10 flex items-center justify-between gap-2 pr-7">
             {/* Left Side: Main Title */}
-            <div className="max-w-[180px]">
+            <div className="max-w-[170px]">
               <h3 className="text-sm sm:text-base font-extrabold text-white tracking-tight leading-tight">
                 {displayTitle.includes("Welcome to") ? (
                   <>
@@ -152,13 +152,13 @@ export default function StartupPopupModal() {
             </div>
 
             {/* Right Side: Sleek iPhones Image */}
-            <div className="shrink-0 relative right-[-4px] top-[-2px] pointer-events-none">
+            <div className="shrink-0 relative right-1 top-1.5 pointer-events-none">
               <Image
                 src="/images/about/Stock trading on sleek iPhones.png"
                 alt="Stock trading on sleek iPhones"
                 width={105}
                 height={105}
-                className="w-[90px] sm:w-[105px] h-auto object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.3)]"
+                className="w-[85px] sm:w-[96px] h-auto object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.3)]"
                 priority
               />
             </div>
