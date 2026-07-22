@@ -42,6 +42,23 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* Live Map Section */}
+            <div className="bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] border border-black/10 overflow-hidden p-3 md:p-4">
+              <div className="relative w-full h-[250px] md:h-[320px] rounded-2xl overflow-hidden border border-gray-200 shadow-inner">
+                <iframe
+                  title="Ratnakar Securities Head Office Location Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.954274984285!2d72.5647!3d23.0254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f5cf9e1d87%3A0x6b6c1670f5e55e81!2sSankalp%20Square%202%2C%20Ellisbridge%2C%20Ahmedabad%2C%20Gujarat%20380006!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+
           </div>
         </Container>
       </section>
