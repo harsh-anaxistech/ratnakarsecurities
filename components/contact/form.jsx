@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
+import Input from "@/components/common/Input";
 import { submitContactForm } from "@/services/contact";
 
 /**
@@ -150,7 +151,7 @@ export default function ContactUsPage() {
 
         {/* Left Side: Address Details Panel */}
         <div
-          className="col-span-1 lg:col-span-5 flex flex-col justify-center p-4 sm:p-12 min-h-[420px] lg:min-h-[550px] select-none text-white"
+          className="col-span-1 lg:col-span-5 flex flex-col justify-center p-3.5 sm:p-12 min-h-[380px] lg:min-h-[550px] select-none text-white"
           style={{
             background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)"
           }}
@@ -200,7 +201,7 @@ export default function ContactUsPage() {
         </div>
 
         {/* Right Side: Form Inputs */}
-        <div className="col-span-1 lg:col-span-7 p-4 sm:p-10 lg:p-12 flex flex-col justify-between bg-slate-50">
+        <div className="col-span-1 lg:col-span-7 p-4 sm:p-8 lg:p-12 flex flex-col justify-between bg-slate-50">
           <div className="mb-6">
             <h2 className="text-3xl md:text-4xl font-serif text-foreground font-sans tracking-tight">
               Get In Touch
@@ -212,15 +213,15 @@ export default function ContactUsPage() {
 
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none">
+                <div className="relative flex items-center">
+                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
                     <User className="w-5 h-5" />
                   </div>
                   <select
                     name="department"
                     value={formData.department}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-10 text-sm sm:text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none appearance-none cursor-pointer font-medium"
+                    className="w-full h-12 pl-12 pr-10 text-sm sm:text-[15px] text-slate-800 bg-slate-50/50 border border-slate-200 focus:border-[#00aeee] rounded-xl outline-none focus:outline-none focus:ring-0 appearance-none cursor-pointer font-medium transition-colors"
                   >
                     <option value="" disabled>Department Name</option>
                     <option value="Accounts">Accounts</option>
@@ -232,7 +233,7 @@ export default function ContactUsPage() {
                     <option value="Others">Others</option>
                     <option value="Research">Research</option>
                   </select>
-                  <div className="absolute right-4 pointer-events-none text-slate-400">
+                  <div className="absolute right-4 pointer-events-none text-slate-400 z-10">
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </div>
@@ -245,17 +246,17 @@ export default function ContactUsPage() {
 
               {/* Name Input */}
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none">
+                <div className="relative flex items-center">
+                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
                     <User className="w-5 h-5" />
                   </div>
-                  <input
+                  <Input
                     type="text"
                     name="name"
                     placeholder="Name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none font-medium placeholder:text-slate-400"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
                   />
                 </div>
                 {errors.name && (
@@ -270,17 +271,17 @@ export default function ContactUsPage() {
 
               {/* Email Input */}
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none">
+                <div className="relative flex items-center">
+                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <input
+                  <Input
                     type="text"
                     name="email"
                     placeholder="Email ID"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none font-medium placeholder:text-slate-400"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
                   />
                 </div>
                 {errors.email && (
@@ -292,18 +293,18 @@ export default function ContactUsPage() {
 
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none">
+                <div className="relative flex items-center">
+                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
                     <Phone className="w-5 h-5" />
                   </div>
-                  <input
+                  <Input
                     type="tel"
                     name="phno"
                     placeholder="Mobile Number"
                     value={formData.phno}
                     onChange={handleChange}
                     maxLength={10}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none font-medium placeholder:text-slate-400"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
                   />
                 </div>
                 {errors.phno && (
@@ -316,17 +317,17 @@ export default function ContactUsPage() {
 
             {/* Subject Input */}
             <div className="flex flex-col gap-1">
-              <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
-                <div className="absolute left-4 text-slate-400 pointer-events-none">
+              <div className="relative flex items-center">
+                <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
                   <Info className="w-5 h-5" />
                 </div>
-                <input
+                <Input
                   type="text"
                   name="subject"
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none font-medium placeholder:text-slate-400"
+                  className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
                 />
               </div>
               {errors.subject && (
@@ -338,8 +339,8 @@ export default function ContactUsPage() {
 
             {/* Details Textarea */}
             <div className="flex flex-col gap-1">
-              <div className="relative flex items-start border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 min-h-[120px] transition-colors">
-                <div className="absolute left-4 top-3.5 text-slate-400 pointer-events-none">
+              <div className="relative flex items-start">
+                <div className="absolute left-4 top-3.5 text-slate-400 pointer-events-none z-10">
                   <FileText className="w-5 h-5" />
                 </div>
                 <textarea
@@ -348,7 +349,7 @@ export default function ContactUsPage() {
                   rows={4}
                   value={formData.details}
                   onChange={handleChange}
-                  className="w-full h-full pl-12 pr-4 py-3 text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none resize-none font-medium placeholder:text-slate-400"
+                  className="w-full pl-12 pr-4 py-3 text-[15px] text-slate-800 bg-slate-50/50 border border-slate-200 focus:border-[#00aeee] rounded-xl outline-none focus:outline-none focus:ring-0 resize-none font-medium placeholder:text-slate-400 transition-colors"
                 />
               </div>
               {errors.details && (
@@ -361,17 +362,17 @@ export default function ContactUsPage() {
             {/* Captcha Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center">
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none">
+                <div className="relative flex items-center">
+                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
                     <HelpCircle className="w-5 h-5" />
                   </div>
-                  <input
+                  <Input
                     type="text"
                     name="captcha"
                     placeholder="Enter Captcha"
                     value={formData.captcha}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-4 text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none font-medium placeholder:text-slate-400 uppercase placeholder:normal-case"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px] uppercase placeholder:normal-case"
                   />
                 </div>
                 {errors.captcha && (

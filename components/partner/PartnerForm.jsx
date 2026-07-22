@@ -5,6 +5,7 @@ import Image from "next/image";
 import { User, Mail, Phone, Calendar, MapPin, HelpCircle, RefreshCw } from "lucide-react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
+import Input from "@/components/common/Input";
 import { submitPartnerForm } from "@/services/contact";
 
 /**
@@ -244,19 +245,18 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Name Input */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
+                    <div className="relative flex items-center">
+                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
                         <User className="w-4 h-4" />
                       </div>
-                      <input
+                      <Input
                         type="text"
                         name="fullName"
                         placeholder="Name"
                         value={formData.fullName}
                         onChange={handleChange}
                         maxLength={100}
-                        className="w-full h-full pl-10 pr-3 text-sm text-gray-800 bg-transparent outline-none placeholder-gray-400 font-medium"
-                        required
+                        className="pl-10"
                       />
                     </div>
                     {errors.fullName && (
@@ -268,18 +268,17 @@ export default function PartnerForm() {
 
                   {/* Email ID Input */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
+                    <div className="relative flex items-center">
+                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
                         <Mail className="w-4 h-4" />
                       </div>
-                      <input
+                      <Input
                         type="email"
                         name="email"
                         placeholder="Email ID"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full h-full pl-10 pr-3 text-sm text-gray-800 bg-transparent outline-none placeholder-gray-400 font-medium"
-                        required
+                        className="pl-10"
                       />
                     </div>
                     {errors.email && (
@@ -294,19 +293,18 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Mobile Number Input */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
+                    <div className="relative flex items-center">
+                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
                         <Phone className="w-4 h-4" />
                       </div>
-                      <input
+                      <Input
                         type="tel"
                         name="phone"
                         placeholder="Mobile Number"
                         value={formData.phone}
                         onChange={handleChange}
                         maxLength={10}
-                        className="w-full h-full pl-10 pr-3 text-sm text-gray-800 bg-transparent outline-none placeholder-gray-400 font-medium"
-                        required
+                        className="pl-10"
                       />
                     </div>
                     {errors.phone && (
@@ -318,11 +316,11 @@ export default function PartnerForm() {
 
                   {/* Suitable Time Slot (Date & Time Selector) */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
+                    <div className="relative flex items-center">
+                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
                         <Calendar className="w-4 h-4" />
                       </div>
-                      <input
+                      <Input
                         type={timeslotInputType || (formData.timeslot ? "datetime-local" : "text")}
                         name="timeslot"
                         placeholder="Suitable Time Slot"
@@ -333,8 +331,7 @@ export default function PartnerForm() {
                         }}
                         onChange={handleChange}
                         min={new Date().toISOString().slice(0, 16)}
-                        className="w-full h-full pl-10 pr-3 text-sm text-gray-800 bg-transparent outline-none placeholder-gray-400 font-medium cursor-pointer"
-                        required
+                        className="pl-10 cursor-pointer"
                       />
                     </div>
                     {errors.timeslot && (
@@ -347,19 +344,18 @@ export default function PartnerForm() {
 
                 {/* Row 3: City Input */}
                 <div className="flex flex-col gap-1">
-                  <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
-                    <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
+                  <div className="relative flex items-center">
+                    <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
                       <MapPin className="w-4 h-4" />
                     </div>
-                    <input
+                    <Input
                       type="text"
                       name="city"
                       placeholder="City"
                       value={formData.city}
                       onChange={handleChange}
                       maxLength={100}
-                      className="w-full h-full pl-10 pr-3 text-sm text-gray-800 bg-transparent outline-none placeholder-gray-400 font-medium"
-                      required
+                      className="pl-10"
                     />
                   </div>
                   {errors.city && (
@@ -422,18 +418,17 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center pt-2">
                   {/* Enter Captcha Input */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
+                    <div className="relative flex items-center">
+                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
                         <HelpCircle className="w-4 h-4" />
                       </div>
-                      <input
+                      <Input
                         type="text"
                         name="captcha"
                         placeholder="Enter Captcha"
                         value={formData.captcha}
                         onChange={handleChange}
-                        className="w-full h-full pl-10 pr-3 text-sm text-gray-800 bg-transparent outline-none placeholder-gray-400 font-medium"
-                        required
+                        className="pl-10"
                       />
                     </div>
                     {errors.captcha && (

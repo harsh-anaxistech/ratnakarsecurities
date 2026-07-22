@@ -24,8 +24,8 @@ export default function ContactPage() {
       />
 
       {/* Main Content Area */}
-      <section className="py-12 md:py-16">
-        <Container>
+      <section className="py-5 md:py-16">
+        <Container className="px-3 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-6">
 
             {/* Contact Form Section */}
