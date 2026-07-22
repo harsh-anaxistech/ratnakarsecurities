@@ -332,12 +332,23 @@ export default function Footer() {
       <div className="bg-white py-4 text-xs text-black">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
           <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
-          <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-4 justify-center sm:justify-end items-center text-sm">
-            <Link href="/privacy-policy" className="text-black hover:text-[#00aeee] transition-colors font-medium">Privacy Policy</Link>
-            <a href="/images/disclaimer.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium">Disclaimer</a>
-            <a href="/images/termsofuse.pdf" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium">Terms of Conditions</a>
-            <a href="/images/investercompomplaint.docx" target="_blank" rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium">Investor Complaint</a>
-            <Link href="/refund-and-cancellation" className="text-black hover:text-[#00aeee] transition-colors font-medium">Refund & Cancellation</Link>
+          <div className="flex flex-wrap sm:flex-nowrap gap-y-1 justify-center sm:justify-end items-center text-[11px] sm:text-sm">
+            {[
+              { label: "Privacy Policy", href: "/privacy-policy", isLink: true },
+              { label: "Disclaimer", href: "/images/disclaimer.pdf", target: "_blank" },
+              { label: "Terms of Conditions", href: "/images/termsofuse.pdf", target: "_blank" },
+              { label: "Investor Complaint", href: "/images/investercompomplaint.docx", target: "_blank" },
+              { label: "Refund & Cancellation", href: "/refund-and-cancellation", isLink: true },
+            ].map((item, index, arr) => (
+              <span key={item.label} className="flex items-center">
+                {item.isLink ? (
+                  <Link href={item.href} className="text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2">{item.label}</Link>
+                ) : (
+                  <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2">{item.label}</a>
+                )}
+                {index < arr.length - 1 && <span className="text-gray-400 select-none">|</span>}
+              </span>
+            ))}
 
             <span className="bg-white text-black px-2 py-0.5 rounded text-xs">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold italic text-black hover:text-[#00aeee] transition-colors">Anaxistech</a></span>
           </div>

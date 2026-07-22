@@ -121,9 +121,14 @@ export default function ProductDetailsPage() {
               <div className="space-y-4">
                 {faqs.map((faq, idx) => (
                   <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
-                    <button onClick={() => toggleFAQ(idx)} className="w-full p-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-100">
-                      {faq.q}
-                      {openIndex === idx ? <Minus className="w-5 h-5 text-[#ea2830]" /> : <Plus className="w-5 h-5 text-[#ea2830]" />}
+                    <button
+                      onClick={() => toggleFAQ(idx)}
+                      className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
+                    >
+                      <span className="flex-1 min-w-0">{faq.q}</span>
+                      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10">
+                        {openIndex === idx ? <Minus className="w-4 h-4 text-[#ea2830]" /> : <Plus className="w-4 h-4 text-[#ea2830]" />}
+                      </span>
                     </button>
                     {openIndex === idx && <div className="px-5 pb-5 pt-0 text-[16px] text-slate-600 leading-relaxed">{faq.a}</div>}
                   </div>

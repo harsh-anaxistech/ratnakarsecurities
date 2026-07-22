@@ -127,10 +127,12 @@ export default function ProductDetailsPage() {
                     <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
                       <button
                         onClick={() => toggleFAQ(idx)}
-                        className="w-full p-5 text-left flex items-center justify-between font-bold text-slate-900 text-[18px] hover:bg-slate-100 transition-colors"
+                        className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
                       >
-                        {faq.q}
-                        {openIndex === idx ? <Minus className="w-5 h-5 text-[#ea2830]" /> : <Plus className="w-5 h-5 text-[#ea2830]" />}
+                        <span className="flex-1 min-w-0">{faq.q}</span>
+                        <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10">
+                          {openIndex === idx ? <Minus className="w-4 h-4 text-[#ea2830]" /> : <Plus className="w-4 h-4 text-[#ea2830]" />}
+                        </span>
                       </button>
                       {openIndex === idx && (
                         <div className="px-5 pb-5 pt-0 text-slate-600 text-[16px] leading-relaxed">
@@ -149,11 +151,11 @@ export default function ProductDetailsPage() {
               </div>
 
               {/* Button at the last */}
-              <div className="pt-8 border-t border-black/5">
-                <Link href="/contact">
+              <div className="pt-6 md:pt-8 border-t border-black/5">
+                <Link href="/contact" className="block w-full md:w-auto md:inline-block">
                   <Button
                     variant="contained"
-                    className="bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
+                    className="w-full md:w-auto bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
                   >
                     {product.buttonText}
                     <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />
