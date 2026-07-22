@@ -212,7 +212,7 @@ export default function ContactUsPage() {
 
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 rounded-xl bg-slate-50/50 h-12">
+                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
                   <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <User className="w-5 h-5" />
                   </div>
@@ -220,7 +220,7 @@ export default function ContactUsPage() {
                     name="department"
                     value={formData.department}
                     onChange={handleChange}
-                    className="w-full h-full pl-12 pr-10 text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none appearance-none cursor-pointer font-medium"
+                    className="w-full h-full pl-12 pr-10 text-sm sm:text-[15px] text-slate-800 bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-none appearance-none cursor-pointer font-medium"
                   >
                     <option value="" disabled>Department Name</option>
                     <option value="Accounts">Accounts</option>
@@ -245,7 +245,7 @@ export default function ContactUsPage() {
 
               {/* Name Input */}
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 rounded-xl bg-slate-50/50 h-12">
+                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
                   <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <User className="w-5 h-5" />
                   </div>
@@ -270,7 +270,7 @@ export default function ContactUsPage() {
 
               {/* Email Input */}
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 rounded-xl bg-slate-50/50 h-12">
+                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
                   <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <Mail className="w-5 h-5" />
                   </div>
@@ -292,7 +292,7 @@ export default function ContactUsPage() {
 
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 rounded-xl bg-slate-50/50 h-12">
+                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
                   <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <Phone className="w-5 h-5" />
                   </div>
@@ -316,7 +316,7 @@ export default function ContactUsPage() {
 
             {/* Subject Input */}
             <div className="flex flex-col gap-1">
-              <div className="relative flex items-center border border-slate-200 rounded-xl bg-slate-50/50 h-12">
+              <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
                 <div className="absolute left-4 text-slate-400 pointer-events-none">
                   <Info className="w-5 h-5" />
                 </div>
@@ -338,7 +338,7 @@ export default function ContactUsPage() {
 
             {/* Details Textarea */}
             <div className="flex flex-col gap-1">
-              <div className="relative flex items-start border border-slate-200 rounded-xl bg-slate-50/50 min-h-[120px]">
+              <div className="relative flex items-start border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 min-h-[120px] transition-colors">
                 <div className="absolute left-4 top-3.5 text-slate-400 pointer-events-none">
                   <FileText className="w-5 h-5" />
                 </div>
@@ -361,7 +361,7 @@ export default function ContactUsPage() {
             {/* Captcha Section */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center">
               <div className="flex flex-col gap-1">
-                <div className="relative flex items-center border border-slate-200 rounded-xl bg-slate-50/50 h-12">
+                <div className="relative flex items-center border border-slate-200 focus-within:border-[#00aeee] rounded-xl bg-slate-50/50 h-12 transition-colors">
                   <div className="absolute left-4 text-slate-400 pointer-events-none">
                     <HelpCircle className="w-5 h-5" />
                   </div>

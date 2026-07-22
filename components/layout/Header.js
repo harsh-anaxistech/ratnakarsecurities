@@ -322,7 +322,7 @@ export default function Header() {
                           <button
                             key={link.label}
                             onClick={() => setBackofficeModalOpen(true)}
-                            className="w-full text-left block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors"
+                            className="w-full text-left block rounded-lg px-4 py-3 text-sm text-foreground hover:bg-secondary-light transition-colors duration-200"
                           >
                             {link.label}
                           </button>
@@ -333,7 +333,7 @@ export default function Header() {
                           <button
                             key={link.label}
                             onClick={() => setChooseAppModalOpen(true)}
-                            className="w-full text-left block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors"
+                            className="w-full text-left block rounded-lg px-4 py-3 text-sm text-foreground hover:bg-secondary-light transition-colors duration-200"
                           >
                             {link.label}
                           </button>
@@ -341,13 +341,13 @@ export default function Header() {
                       }
                       if (link.external) {
                         return (
-                          <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                          <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="block rounded-lg px-4 py-3 text-sm text-foreground hover:bg-secondary-light transition-colors duration-200">
                             {link.label}
                           </a>
                         );
                       }
                       return (
-                        <Link key={link.href} href={link.href} className="block px-4 py-2.5 text-sm text-foreground hover:text-primary hover:bg-muted/50 transition-colors">
+                        <Link key={link.href} href={link.href} className="block rounded-lg px-4 py-3 text-sm text-foreground hover:bg-secondary-light transition-colors duration-200">
                           {link.label}
                         </Link>
                       );

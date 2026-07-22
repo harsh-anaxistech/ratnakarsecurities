@@ -12,13 +12,13 @@ export const metadata = generatePageMetadata({
 export default function PartnerWithUsPage() {
   return (
     <main className="bg-background min-h-screen">
-  
- <HeroSection
+      <HeroSection
         title="Partner With Us"
         breadcrumbs={[{ label: "Partner With Us" }]}
         image="/images/about/AboutUs-Ratnakarsec.png"
         mobileImage="/images/about/mobile banner/investor mobile.jpg"
-        height="h-[300px] md:h-[400px]" />
+        height="h-[300px] md:h-[400px]"
+      />
       {/* Form & Content Section */}
       <section className="py-6 md:py-12">
         <PartnerForm />

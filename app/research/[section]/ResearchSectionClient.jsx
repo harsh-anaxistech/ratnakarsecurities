@@ -303,7 +303,7 @@ export default function ResearchSectionClient({
                         setSearchTerm(e.target.value);
                         setCurrentPage(1);
                       }}
-                      className="w-full pl-10 pr-10 py-2 border border-border rounded-md text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all bg-muted/20 focus-visible:ring-2"
+                      className="w-full pl-10 pr-10 py-2 border border-border rounded-md text-sm placeholder:text-muted-foreground outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-[#00aeee] transition-all bg-muted/20"
                     />
                     {searchTerm && (
                       <button
@@ -335,7 +335,7 @@ export default function ResearchSectionClient({
                         setSelectedFY(e.target.value);
                         setCurrentPage(1);
                       }}
-                      className="bg-white border border-border rounded-md px-3 py-1.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary cursor-pointer hover:border-gray-400 transition-colors focus-visible:ring-2"
+                      className="bg-white border border-border rounded-md px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-[#00aeee] cursor-pointer hover:border-gray-400 transition-colors"
                     >
                       <option value="all">All Years</option>
                       {availableFYs.map((fy) => (
@@ -361,7 +361,7 @@ export default function ResearchSectionClient({
                         setSortBy(e.target.value);
                         setCurrentPage(1);
                       }}
-                      className="bg-white border border-border rounded-md px-3 py-1.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary cursor-pointer hover:border-gray-400 transition-colors focus-visible:ring-2"
+                      className="bg-white border border-border rounded-md px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-[#00aeee] cursor-pointer hover:border-gray-400 transition-colors"
                     >
                       <option value="date-desc">Date (Newest)</option>
                       <option value="date-asc">Date (Oldest)</option>

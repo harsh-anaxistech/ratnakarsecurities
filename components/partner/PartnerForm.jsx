@@ -244,7 +244,7 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Name Input */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] focus-within:ring-1 focus-within:ring-[#00aeee] rounded bg-white h-11 transition-colors relative">
+                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
                         <User className="w-4 h-4" />
                       </div>
@@ -268,7 +268,7 @@ export default function PartnerForm() {
 
                   {/* Email ID Input */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] focus-within:ring-1 focus-within:ring-[#00aeee] rounded bg-white h-11 transition-colors relative">
+                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
                         <Mail className="w-4 h-4" />
                       </div>
@@ -294,7 +294,7 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Mobile Number Input */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] focus-within:ring-1 focus-within:ring-[#00aeee] rounded bg-white h-11 transition-colors relative">
+                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
                         <Phone className="w-4 h-4" />
                       </div>
@@ -318,7 +318,7 @@ export default function PartnerForm() {
 
                   {/* Suitable Time Slot (Date & Time Selector) */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] focus-within:ring-1 focus-within:ring-[#00aeee] rounded bg-white h-11 transition-colors relative">
+                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
                         <Calendar className="w-4 h-4" />
                       </div>
@@ -347,7 +347,7 @@ export default function PartnerForm() {
 
                 {/* Row 3: City Input */}
                 <div className="flex flex-col gap-1">
-                  <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] focus-within:ring-1 focus-within:ring-[#00aeee] rounded bg-white h-11 transition-colors relative">
+                  <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
                     <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
                       <MapPin className="w-4 h-4" />
                     </div>
@@ -374,39 +374,39 @@ export default function PartnerForm() {
                   <label className="block text-xs font-semibold text-gray-700">
                     Interested to become
                   </label>
-                  <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-gray-700">
-                    <label className="flex items-center gap-2 cursor-pointer">
+                  <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
+                    <label className={`flex items-center gap-2 cursor-pointer ${formData.interested === "Sub-Broker" || formData.interested === "Sub broker" ? "text-slate-900 font-semibold" : "text-gray-600"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Sub-Broker"
                         checked={formData.interested === "Sub-Broker" || formData.interested === "Sub broker"}
                         onChange={handleChange}
-                        className="accent-[#00aeee] w-4 h-4"
+                        className="accent-black w-4 h-4 cursor-pointer"
                       />
                       <span>Sub broker</span>
                     </label>
 
-                    <label className="flex items-center gap-2 cursor-pointer">
+                    <label className={`flex items-center gap-2 cursor-pointer ${formData.interested === "Business associate" ? "text-slate-900 font-semibold" : "text-gray-600"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Business associate"
                         checked={formData.interested === "Business associate"}
                         onChange={handleChange}
-                        className="accent-[#00aeee] w-4 h-4"
+                        className="accent-black w-4 h-4 cursor-pointer"
                       />
                       <span>Business associate</span>
                     </label>
 
-                    <label className="flex items-center gap-2 cursor-pointer">
+                    <label className={`flex items-center gap-2 cursor-pointer ${formData.interested === "Authorized person" ? "text-slate-900 font-semibold" : "text-gray-600"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Authorized person"
                         checked={formData.interested === "Authorized person"}
                         onChange={handleChange}
-                        className="accent-[#00aeee] w-4 h-4"
+                        className="accent-black w-4 h-4 cursor-pointer"
                       />
                       <span>Authorized person</span>
                     </label>
@@ -422,7 +422,7 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center pt-2">
                   {/* Enter Captcha Input */}
                   <div className="flex flex-col gap-1">
-                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] focus-within:ring-1 focus-within:ring-[#00aeee] rounded bg-white h-11 transition-colors relative">
+                    <div className="flex items-center border border-gray-300 focus-within:border-[#00aeee] rounded bg-white h-11 transition-colors relative">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none">
                         <HelpCircle className="w-4 h-4" />
                       </div>
