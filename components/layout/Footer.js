@@ -56,20 +56,28 @@ const TAB_CONTENT = {
   "INVESTOR CHARTER": (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" style={{ color: "#9fc8e0" }}>
       {[
-        { label: "NSE", href: "#" },
-        { label: "BSE", href: "#" },
-        { label: "NSDL", href: "#" },
-        { label: "Investor Charter of Depository Participant", href: "#" },
-        { label: "Investor Charter of Stock Broker", href: "#" },
-        { label: "Bank Account List", href: "#" },
-        { label: "Risk Disclosure on Derivatives", href: "#" },
-        { label: "Details of Authorized Persons", href: "#" },
-        { label: "Procedures for opening an account", href: "#" },
-        { label: "Dealings between a Client and Stock Broker", href: "#" },
-        { label: "Attention Investors", href: "#" },
+        { label: "NSE", href: "https://www.nseindia.com/invest/investor-charter", target: "_blank" },
+        { label: "BSE", href: "https://www.bseindia.com/static/investors/investor_charter.aspx", target: "_blank" },
+        { label: "NSDL", href: "https://nsdl.co.in/publications/investor_charter.php", target: "_blank" },
+        { label: "Investor Charter of Depository Participant", href: "https://www.ratnakarsecurities.com/static/investor-charter.aspx" },
+        { label: "Investor Charter of Stock Broker", href: "https://www.ratnakarsecurities.com/files/Investor_Charter_Stock_Broker.pdf", target: "_blank" },
+        { label: "Bank Account List", href: "https://www.ratnakarsecurities.com/files/Bank-Account-List.pdf", target: "_blank" },
+        { label: "Risk Disclosure on Derivatives", href: "#", onClick: (e) => { e.preventDefault(); alert("Risk Disclosure on Derivatives"); } },
+        { label: "Details of Authorized Persons", href: "https://www.ratnakarsecurities.com/files/List-of-Authorised-Persons.pdf", target: "_blank" },
+        { label: "Procedures for opening an account", href: "https://www.ratnakarsecurities.com/files/Procedures-for-opening-an-account,filing-a-complaint.pdf", target: "_blank" },
+        { label: "Dealings between a Client and Stock Broker", href: "https://www.ratnakarsecurities.com/files/Requirements__relating_to_dealings_between_a_Client_and_Stock_Broker.pdf", target: "_blank" },
+        { label: "Attention Investors", href: "https://www.ratnakarsecurities.com/files/Attention-Investors.pdf", target: "_blank" },
       ].map((item, index, arr) => (
         <span key={item.label} className="flex items-center gap-3">
-          <Link href={item.href} className="hover:text-white transition-colors">{item.label}</Link>
+          <a
+            href={item.href}
+            target={item.target}
+            rel={item.target ? "noopener noreferrer" : undefined}
+            onClick={item.onClick}
+            className="hover:text-white transition-colors"
+          >
+            {item.label}
+          </a>
           {index < arr.length - 1 && <span className="opacity-40">|</span>}
         </span>
       ))}
@@ -274,7 +282,7 @@ export default function Footer() {
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-2">
           <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-88</p>
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
-          <p>Investor Grievance ID: investorgrievance@ratnakarsecurities.com</p>
+          <p>Investor Grievance ID: <a href="mailto:investorgrievance@ratnakarsecurities.com" className="hover:text-white transition-colors underline">investorgrievance@ratnakarsecurities.com</a></p>
           <div className="flex flex-wrap items-center gap-2 mt-4 text-xs font-bold">
             <a
               href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf"
