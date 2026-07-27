@@ -13,7 +13,7 @@ const MenuIcons = {
     commodities: getIcon("/images/icon/menu/commodities 1.svg", "Commodities"),
     "wealth-management": getIcon("/images/icon/menu/wealth managment 1.svg", "Wealth Management"),
     nri: getIcon("/images/icon/menu/NRIs 1.svg", "NRIs"),
-    slbs: getIcon("/images/icon/menu/SLBS 1.svg", "SLBS"),
+    slbs: getIcon("/images/icon/menu/SLBM 1.svg", "SLBM"),
     bonds: getIcon("/images/icon/menu/Bonds 1.svg", "Bonds"),
     users: getIcon("/images/icon/menu/board of directors 1.svg", "HNIs"),
     "investment-advisory": getIcon("/images/icon/menu/invesment 1.svg", "Investment Advisory"),

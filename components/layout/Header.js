@@ -31,7 +31,7 @@ const NAV_LINKS = [
       [
         { label: "Wealth Management", href: "/products/wealth-management", icon: "wealth-management", description: "Tailored wealth strategies." },
         { label: "NRIs", href: "/products/nris", icon: "nri", description: "NRI solutions for global Indians." },
-        { label: "SLBS", href: "/products/slbs", icon: "slbs", description: "Earn more from your idle stocks." },
+        { label: "SLBM", href: "/products/slbs", icon: "slbs", description: "Earn more from your idle stocks." },
         { label: "Bonds", href: "/products/bonds", icon: "bonds", description: "Build a safer portfolio with bonds." },
         { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", icon: "investment-advisory", description: "Investment advisory portfolios", external: true },
       ],

@@ -22,12 +22,12 @@ export default function ProductDetailsPage() {
   const toggleFAQ = (index) => setOpenIndex(openIndex === index ? null : index);
 
   const faqs = [
-    { q: "What is the Securities Lending & Borrowing Scheme (SLBS)?", a: "SLBS is a SEBI-regulated mechanism that allows investors to lend their eligible securities to borrowers for a specified period in exchange for lending fees while retaining ownership of the securities." },
-    { q: "Who can participate in SLBS?", a: "Eligible retail investors, High Net Worth Individuals (HNIs), institutional investors, and other qualified market participants can participate in SLBS, subject to applicable exchange and regulatory guidelines." },
+    { q: "What is the Securities Lending & Borrowing Scheme (SLBM)?", a: "SLBM is a SEBI-regulated mechanism that allows investors to lend their eligible securities to borrowers for a specified period in exchange for lending fees while retaining ownership of the securities." },
+    { q: "Who can participate in SLBM?", a: "Eligible retail investors, High Net Worth Individuals (HNIs), institutional investors, and other qualified market participants can participate in SLBM, subject to applicable exchange and regulatory guidelines." },
     { q: "Do I lose ownership of my shares after lending them?", a: "No. The securities are lent for a specified duration under the exchange-regulated framework. The lender retains beneficial ownership and receives the securities back upon completion of the lending period." },
-    { q: "How do I earn income through SLBS?", a: "You earn lending fees from borrowers who temporarily borrow your eligible securities. The fee is determined through the exchange mechanism based on market demand and supply." },
-    { q: "Is SLBS safe?", a: "SLBS operates through recognized stock exchanges and clearing corporations under SEBI regulations, providing a transparent and regulated framework." },
-    { q: "Which securities are eligible for SLBS?", a: "Only securities approved by the recognized stock exchanges for the Securities Lending & Borrowing Scheme are eligible for lending and borrowing." }
+    { q: "How do I earn income through SLBM?", a: "You earn lending fees from borrowers who temporarily borrow your eligible securities. The fee is determined through the exchange mechanism based on market demand and supply." },
+    { q: "Is SLBM safe?", a: "SLBM operates through recognized stock exchanges and clearing corporations under SEBI regulations, providing a transparent and regulated framework." },
+    { q: "Which securities are eligible for SLBM?", a: "Only securities approved by the recognized stock exchanges for the Securities Lending & Borrowing Scheme are eligible for lending and borrowing." }
   ];
 
   return (
@@ -53,24 +53,24 @@ export default function ProductDetailsPage() {
               </span>
               <h1 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h1>
               <p className="text-[16px] text-[#314158] leading-relaxed mb-6">
-                The Securities Lending & Borrowing Scheme (SLBS) is a SEBI-regulated mechanism that allows investors to lend their idle securities to borrowers for a specified period in exchange for lending fees. It enables investors to earn additional income from shares that would otherwise remain unused in their Demat accounts.
+                The Securities Lending & Borrowing Scheme (SLBM) is a SEBI-regulated mechanism that allows investors to lend their idle securities to borrowers for a specified period in exchange for lending fees. It enables investors to earn additional income from shares that would otherwise remain unused in their Demat accounts.
               </p>
               <p className="text-[16px] text-[#314158] leading-relaxed mb-6">
                 Investors retain ownership of their securities while generating an additional source of income, and borrowers gain temporary access to securities for purposes such as settlement obligations or short selling.
               </p>
               <p className="text-[16px] text-[#314158] leading-relaxed">
-                At Ratnakar Securities, we simplify the SLBS process by providing seamless access to the platform, expert guidance, and dedicated support to help you maximize returns from your long-term holdings.
+                At Ratnakar Securities, we simplify the SLBM process by providing seamless access to the platform, expert guidance, and dedicated support to help you maximize returns from your long-term holdings.
               </p>
             </div>
 
-            {/* SLBS Solutions */}
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">SLBS Solutions</h3>
+            {/* SLBM Solutions */}
+            <h3 className="text-2xl font-bold text-slate-900 mb-6">SLBM Solutions</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {[
                 { title: "Securities Lending", icon: ShieldCheck, desc: "Lend eligible securities held in your Demat account and earn fees without selling." },
                 { title: "Securities Borrowing", icon: TrendingUp, desc: "Borrow eligible securities for settlement obligations or short-selling strategies." },
                 { title: "Portfolio Income Enhancement", icon: PieChart, desc: "Generate an additional stream of income by lending idle shares." },
-                { title: "Online SLBS Transactions", icon: Zap, desc: "Access a secure online platform for transparent pricing and efficient execution." },
+                { title: "Online SLBM Transactions", icon: Zap, desc: "Access a secure online platform for transparent pricing and efficient execution." },
                 { title: "Research-Based Selection", icon: Target, desc: "Get guidance on eligible securities based on comprehensive market analysis." },
                 { title: "Dedicated Advisory", icon: BookOpen, desc: "Benefit from experts who guide you through the process and risk management." }
               ].map((item, i) => (
@@ -84,7 +84,7 @@ export default function ProductDetailsPage() {
 
             {/* Why Choose Us */}
             <div className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white mb-12">
-              <h3 className="text-xl font-bold mb-6">Why Choose SLBS with Ratnakar Securities?</h3>
+              <h3 className="text-xl font-bold mb-6">Why Choose SLBM with Ratnakar Securities?</h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {["Simple and hassle-free process.", "Research-backed recommendations.", "Dedicated advisory support.", "Secure online trading platform.", "Transparent, exchange-regulated transactions.", "Timely market insights."].map((b, i) => (
                   <li key={i} className="flex items-center gap-2 text-[16px]"><CheckCircle2 className="w-5 h-5" /> {b}</li>
@@ -98,7 +98,7 @@ export default function ProductDetailsPage() {
               <ol className="list-none space-y-1">
                 {[
                   "Open a Demat and Trading Account.",
-                  "Register for the SLBS facility.",
+                  "Register for the SLBM facility.",
                   "Ensure eligible securities are in your Demat account.",
                   "Select securities and place your request online.",
                   "Monitor your earnings via the dashboard."
@@ -139,7 +139,7 @@ export default function ProductDetailsPage() {
             {/* Disclaimer */}
             <div className="p-4 bg-orange-50 border border-orange-100 rounded-xl flex gap-3 text-[14px] text-slate-500">
               <AlertCircle className="w-5 h-5 text-orange-500 shrink-0" />
-              <p><strong>Disclaimer:</strong> SLBS is subject to SEBI regulations and market risks. Lending fees are not guaranteed. Please evaluate all risks before participating.</p>
+              <p><strong>Disclaimer:</strong> SLBM is subject to SEBI regulations and market risks. Lending fees are not guaranteed. Please evaluate all risks before participating.</p>
             </div>
           </div>
 
