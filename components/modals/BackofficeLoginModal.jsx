@@ -53,6 +53,9 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="backoffice-modal-title"
         className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
@@ -66,7 +69,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
         >
           {/* Left side content */}
           <div className="relative z-10 max-w-[60%]">
-            <h2 className="font-serif text-[16px] leading-snug text-white sm:text-[22px]">
+            <h2 id="backoffice-modal-title" className="font-serif text-[16px] leading-snug text-white sm:text-[22px]">
               Ratnakar&apos;s Online Portals <br />
               <span style={{ color: "#00aeee" }}>Back Office Logins</span>
             </h2>

@@ -10,16 +10,16 @@ export default function ContactDetailsSections() {
           <h2 className="text-3xl md:text-4xl font-serif  text-center  ">
             Escalation Matrix
           </h2>
-          <div className="overflow-x-auto border border-border rounded-sm  bg-white">
+          <div tabIndex="0" role="region" aria-label="Escalation Matrix Table" className="overflow-x-auto border border-border rounded-sm bg-white focus:ring-2 focus:ring-blue-600">
             <table className="w-full min-w-[800px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-[#011628] border-b border-border text-white ">
-                  <th className="p-4 border-r border-border">Details of</th>
-                  <th className="p-4 border-r border-border">Contact Person</th>
-                  <th className="p-4 border-r border-border">Address</th>
-                  <th className="p-4 border-r border-border">Contact No.</th>
-                  <th className="p-4 border-r border-border">Email Id</th>
-                  <th className="p-4">Working Hours</th>
+                  <th scope="col" className="p-4 border-r border-border">Details of</th>
+                  <th scope="col" className="p-4 border-r border-border">Contact Person</th>
+                  <th scope="col" className="p-4 border-r border-border">Address</th>
+                  <th scope="col" className="p-4 border-r border-border">Contact No.</th>
+                  <th scope="col" className="p-4 border-r border-border">Email Id</th>
+                  <th scope="col" className="p-4">Working Hours</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 text-sm text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">
@@ -196,21 +196,21 @@ export default function ContactDetailsSections() {
           <h2 className="text-3xl md:text-4xl font-serif text-center  ">
             Basic Details
           </h2>
-          <div className="overflow-x-auto border border-border rounded-sm  bg-white">
+          <div tabIndex="0" role="region" aria-label="Basic Details Table" className="overflow-x-auto border border-border rounded-sm bg-white focus:ring-2 focus:ring-blue-600">
             <table className="w-full min-w-[800px] border-collapse text-left text-sm">
               <thead>
                 <tr className="bg-[#011628] border-b border-border text-white ">
-                  <th className="p-4 border-r border-border">
+                  <th scope="col" className="p-4 border-r border-border">
                     Stock Broker Name
                   </th>
-                  <th className="p-4 border-r border-border">
+                  <th scope="col" className="p-4 border-r border-border">
                     Registration Number
                   </th>
-                  <th className="p-4 border-r border-border">
+                  <th scope="col" className="p-4 border-r border-border">
                     Registered Address
                   </th>
-                  <th className="p-4 border-r border-border">Contact Number</th>
-                  <th className="p-4">Email id</th>
+                  <th scope="col" className="p-4 border-r border-border">Contact Number</th>
+                  <th scope="col" className="p-4">Email id</th>
                 </tr>
               </thead>
               <tbody className="text-sm text-muted-foreground [&>tr:nth-child(even)]:bg-muted/50">

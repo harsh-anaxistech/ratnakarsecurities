@@ -171,6 +171,17 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setActiveDropdown(null);
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = (mobileOpen || floatingMobileModalOpen || chooseAppModalOpen) ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen, floatingMobileModalOpen, chooseAppModalOpen]);
@@ -194,6 +205,7 @@ export default function Header() {
   return (
     <>
       <header
+        role="banner"
         className={cn(
           "fixed inset-x-0 top-0 z-[999] flex flex-col transition-transform duration-300 ease-in-out",
           scrolled ? "shadow-md md:-translate-y-14" : "translate-y-0"
@@ -226,10 +238,11 @@ export default function Header() {
                       handleTopNav(e, item.href);
                     }
                   }}
-                  className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300"
+                  className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300 min-w-[36px] min-h-[36px]"
                   title={item.title}
+                  aria-label={item.title}
                 >
-                  <item.Icon className="h-5 w-5" />
+                  <item.Icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               ))}
 

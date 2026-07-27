@@ -67,15 +67,17 @@ export default function HeroBanner() {
                 href="https://smartkyc.co.in/d/ratnakar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center"
+                aria-label="Invest Now - Open a Demat and Trading Account with Ratnakar"
+                className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
               >
                 <span>Invest Now</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </a>
 
               <Link
                 href="/products"
-                className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center"
+                aria-label="Explore Our Products - View Equity, Mutual Funds, and Bonds"
+                className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
               >
                 <span>Explore Our Products</span>
               </Link>

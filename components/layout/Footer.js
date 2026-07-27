@@ -105,7 +105,7 @@ export default function Footer() {
   }, [isScoresModalOpen, isRiskDisclosureModalOpen]);
 
   return (
-    <footer style={{ background: "#011628", color: "#c8dff0" }}>
+    <footer role="contentinfo" style={{ background: "#011628", color: "#c8dff0" }}>
       {/* 4 Column Main Footer Section */}
       <div className="pt-16 pb-10 border-b border-gray-500/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
@@ -113,7 +113,7 @@ export default function Footer() {
 
             {/* Column 1: Logo, Address, Social Icons */}
             <div className="col-span-2 lg:col-span-1 space-y-5">
-              <Link href="#" className="inline-block">
+              <Link href="#" aria-label="Ratnakar Securities Footer Logo" className="inline-block">
                 <div className="bg-white rounded-xl px-4 py-3 inline-flex items-center justify-center">
                   <Image
                     src="/images/logo/RSL_logo.png"
@@ -143,9 +143,9 @@ export default function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="w-9 h-9 rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#00aeee] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
+                      className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#00aeee] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
                     >
-                      <Icon className="w-4 h-4" />
+                      <Icon className="w-4 h-4" aria-hidden="true" />
                     </a>
                   );
                 })}

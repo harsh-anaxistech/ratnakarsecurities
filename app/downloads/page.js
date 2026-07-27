@@ -320,10 +320,11 @@ export default function DownloadsPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         download
-                        className="group p-6 border border-gray-200 rounded-2xl bg-white shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-[#EA2830]/10 hover:border-[#EA2830]/30 flex flex-col items-center text-center h-full"
+                        aria-label={`Download document: ${fileTitle}`}
+                        className="group p-6 border border-gray-200 rounded-2xl bg-white shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-[#EA2830]/10 hover:border-[#EA2830]/30 flex flex-col items-center text-center h-full focus:ring-2 focus:ring-red-600"
                       >
                         <div className="w-14 h-14 bg-[#EA2830] rounded-full flex items-center justify-center text-white mb-5 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
-                          <FileText size={24} />
+                          <FileText size={24} aria-hidden="true" />
                         </div>
 
                         <h4 className="text-[16px] font-sans font-medium text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">

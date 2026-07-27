@@ -88,8 +88,12 @@
   box-sizing: border-box;
 }
 
+/* =====================================================
+   GIGW 3.0 & WCAG 2.2 Accessibility Rules
+   ===================================================== */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -101,83 +105,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h5, h6, .font-serif {
+h1, h2, h3, h4, h5, h6, .font-serif {
   font-family: var(--font-serif);
 }
 
-/* =====================================================
-   Skeleton Shimmer Animation
-   ===================================================== */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.skeleton {
-  background: linear-gradient(90deg, #f3f4f6 25%, #e9ecef 50%, #f3f4f6 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+*:focus-visible {
+  outline: 2px solid #2563eb !important;
+  outline-offset: 2px !important;
 }
 
 /* =====================================================
-   Fade-in & slide animations
+   Animations & Scrollbars
    ===================================================== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out both; }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out both;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.4s ease-out both;
-}
-
-/* =====================================================
-   Scrollbar
-   ===================================================== */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #f3f4f6;
-}
-::-webkit-scrollbar-thumb {
-  background: #ea2830;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #c41f26;
-}
-
-/* =====================================================
-   Focus styles
-   ===================================================== */
-:focus-visible {
-  outline: none;
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f3f4f6; }
+::-webkit-scrollbar-thumb { background: #ea2830; border-radius: 3px; }
 
 /* =====================================================
    Selection

@@ -23,20 +23,25 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
         <div
           className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
           onClick={handleClose}
+          onKeyDown={(e) => e.key === "Escape" && handleClose()}
         >
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="choose-app-modal-title"
             className="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors"
+              aria-label="Close Choose Your App dialog"
+              className="absolute top-4 right-4 text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors focus:ring-2 focus:ring-red-600"
             >
-              <X size={24} strokeWidth={3} />
+              <X size={24} strokeWidth={3} aria-hidden="true" />
             </button>
 
-            <h2 className="text-2xl font-bold text-center text-slate-900 mb-8">Choose Your App</h2>
+            <h2 id="choose-app-modal-title" className="text-2xl font-bold text-center text-slate-900 mb-8">Choose Your App</h2>
 
             <div className="flex flex-col sm:flex-row justify-center gap-8">
               {/* Option 1: Wealth Management */}

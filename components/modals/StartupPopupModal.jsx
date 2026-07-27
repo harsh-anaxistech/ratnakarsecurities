@@ -113,8 +113,12 @@ export default function StartupPopupModal() {
     <div
       className="fixed inset-0 z-[1000] flex items-center justify-center p-3 sm:p-4 bg-slate-950/70 backdrop-blur-sm animate-fade-in overflow-hidden"
       onClick={handleClose}
+      onKeyDown={(e) => e.key === "Escape" && handleClose()}
     >
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="startup-modal-title"
         className="relative w-[92vw] max-w-[420px] max-h-[90vh] bg-white rounded-[24px] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden border border-slate-100 my-auto"
         onClick={(e) => e.stopPropagation()}
       >
@@ -129,14 +133,14 @@ export default function StartupPopupModal() {
             className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-white text-slate-700 hover:bg-slate-100 hover:text-slate-900 shadow-md border border-slate-100 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
             aria-label="Close Announcement"
           >
-            <X size={16} strokeWidth={2.5} />
+            <X size={16} strokeWidth={2.5} aria-hidden="true" />
           </button>
 
           {/* Title & Image Grid */}
           <div className="relative z-10 flex items-center justify-between gap-2 pr-7">
             {/* Left Side: Main Title */}
             <div className="max-w-[170px]">
-              <h3 className="text-sm sm:text-base font-extrabold text-white tracking-tight leading-tight">
+              <h3 id="startup-modal-title" className="text-sm sm:text-base font-extrabold text-white tracking-tight leading-tight">
                 {displayTitle.includes("Welcome to") ? (
                   <>
                     Welcome to

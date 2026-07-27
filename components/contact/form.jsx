@@ -208,20 +208,39 @@ export default function ContactUsPage() {
             </h2>
           </div>
 
+          {/* Status Message Announcement */}
+          {statusMessage && (
+            <div
+              role="status"
+              aria-live="polite"
+              className={`p-4 rounded-xl text-sm font-semibold mb-4 ${
+                statusType === "success"
+                  ? "bg-green-50 text-green-800 border border-green-200"
+                  : "bg-red-50 text-red-800 border border-red-200"
+              }`}
+            >
+              {statusMessage}
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} noValidate className="space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
+                <label htmlFor="contact-department" className="sr-only">Department Name</label>
                 <div className="relative flex items-center">
                   <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <User className="w-5 h-5" />
+                    <User className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <select
+                    id="contact-department"
                     name="department"
                     value={formData.department}
                     onChange={handleChange}
-                    className="w-full h-12 pl-12 pr-10 text-sm sm:text-[15px] text-slate-800 bg-slate-50/50 border border-slate-200 focus:border-[#00aeee] rounded-xl outline-none focus:outline-none focus:ring-0 appearance-none cursor-pointer font-medium transition-colors"
+                    aria-invalid={!!errors.department}
+                    aria-describedby={errors.department ? "contact-department-error" : undefined}
+                    className="w-full h-12 pl-12 pr-10 text-sm sm:text-[15px] text-slate-800 bg-slate-50/50 border border-slate-300 focus:border-[#00aeee] rounded-xl outline-none appearance-none cursor-pointer font-medium transition-colors"
                   >
                     <option value="" disabled>Department Name</option>
                     <option value="Accounts">Accounts</option>
@@ -234,11 +253,11 @@ export default function ContactUsPage() {
                     <option value="Research">Research</option>
                   </select>
                   <div className="absolute right-4 pointer-events-none text-slate-400 z-10">
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4" aria-hidden="true" />
                   </div>
                 </div>
                 {errors.department && (
-                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                  <span id="contact-department-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
                     {errors.department}
                   </span>
                 )}
@@ -246,21 +265,26 @@ export default function ContactUsPage() {
 
               {/* Name Input */}
               <div className="flex flex-col gap-1">
+                <label htmlFor="contact-name" className="sr-only">Full Name</label>
                 <div className="relative flex items-center">
                   <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <User className="w-5 h-5" />
+                    <User className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <Input
+                    id="contact-name"
                     type="text"
                     name="name"
+                    autoComplete="name"
                     placeholder="Name"
                     value={formData.name}
                     onChange={handleChange}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "contact-name-error" : undefined}
                     className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
                   />
                 </div>
                 {errors.name && (
-                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                  <span id="contact-name-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
                     {errors.name}
                   </span>
                 )}
@@ -271,21 +295,26 @@ export default function ContactUsPage() {
 
               {/* Email Input */}
               <div className="flex flex-col gap-1">
+                <label htmlFor="contact-email" className="sr-only">Email Address</label>
                 <div className="relative flex items-center">
                   <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <Mail className="w-5 h-5" />
+                    <Mail className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <Input
-                    type="text"
+                    id="contact-email"
+                    type="email"
                     name="email"
+                    autoComplete="email"
                     placeholder="Email ID"
                     value={formData.email}
                     onChange={handleChange}
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? "contact-email-error" : undefined}
                     className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
                   />
                 </div>
                 {errors.email && (
-                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                  <span id="contact-email-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
                     {errors.email}
                   </span>
                 )}
@@ -293,22 +322,26 @@ export default function ContactUsPage() {
 
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
+                <label htmlFor="contact-phno" className="sr-only">Mobile Number</label>
                 <div className="relative flex items-center">
                   <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <Phone className="w-5 h-5" />
+                    <Phone className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <Input
+                    id="contact-phno"
                     type="tel"
                     name="phno"
+                    autoComplete="tel"
                     placeholder="Mobile Number"
                     value={formData.phno}
                     onChange={handleChange}
-                    maxLength={10}
+                    aria-invalid={!!errors.phno}
+                    aria-describedby={errors.phno ? "contact-phno-error" : undefined}
                     className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
                   />
                 </div>
                 {errors.phno && (
-                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
+                  <span id="contact-phno-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
                     {errors.phno}
                   </span>
                 )}
