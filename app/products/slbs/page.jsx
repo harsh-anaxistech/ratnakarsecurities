@@ -13,7 +13,7 @@ import Button from "@/components/common/Button";
 import { PRODUCTS_DATA } from "../data";
 
 export default function ProductDetailsPage() {
-  const slug = "slbs";
+  const slug = "slbm";
   const product = PRODUCTS_DATA.find((p) => p.slug === slug);
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -38,8 +38,8 @@ export default function ProductDetailsPage() {
           { label: "Products", href: "/products" },
           { label: product.title }
         ]}
-        image="/images/about/SLBs.jpg"
-        mobileImage="/images/about/mobile banner/SLBs mobile.jpg"
+        image="/images/about/SLBM.jpg"
+        mobileImage="/images/about/mobile banner/SLBM mobile.jpg"
         height="h-[300px] md:h-[400px]"
       />
       <Container className="mt-12">

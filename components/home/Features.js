@@ -12,7 +12,7 @@ const SERVICES = [
   { id: "service-commodities", icon: "/images/icon/menu/commodities 1.svg", title: "Commodities", desc: "Lucrative market trading providing effective risk management and hedging tools.", href: "/products/commodities" },
   { id: "service-nris", icon: "/images/icon/menu/company 1.svg", title: "NRIs", desc: "Comprehensive investment options for foreign nationals, backed by extensive research.", href: "/products/nris" },
   { id: "service-wealth", icon: "/images/icon/menu/invesment 1.svg", title: "Wealth Management", desc: "Managing and growing your wealth through every stage of your life.", href: "/products/wealth-management" },
-  { id: "service-slbs", icon: "/images/icon/menu/annual return 1.svg", title: "SLBs", desc: "Lend your stocks or borrow to increase liquidity and benefit from downturns.", href: "/products/slbs" },
+  { id: "service-slbm", icon: "/images/icon/menu/annual return 1.svg", title: "SLBM", desc: "Lend your stocks or borrow to increase liquidity and benefit from downturns.", href: "/products/slbm" },
   { id: "service-hnis", icon: "/images/icon/menu/leadership 1.svg", title: "HNIs", desc: "Tailormade investment solutions with a dedicated Relationship Manager for guidance.", href: "/products/hnis" },
   { id: "service-bonds", icon: "/images/icon/menu/Bonds 1.svg", title: "Fixed Income*", desc: "Fix your long-term wealth goals with our customized investment solutions, expert guidance, and stable performance.", href: "/products/bonds" },
 ];
@@ -37,8 +37,8 @@ export default function InvestmentServices() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {SERVICES.map((s) => (
-            <Link 
-              href={s.href} 
+            <Link
+              href={s.href}
               key={s.id}
               className="group bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[240px] block"
             >
@@ -52,14 +52,14 @@ export default function InvestmentServices() {
                     {s.desc}
                   </p>
                 </div>
-                
+
                 {/* Image Icon resized to 64px */}
                 <div className="flex-shrink-0 w-[64px] h-[64px] transition-transform duration-500 group-hover:scale-110">
-                  <Image 
-                    src={s.icon} 
-                    alt={s.title} 
-                    width={64} 
-                    height={64} 
+                  <Image
+                    src={s.icon}
+                    alt={s.title}
+                    width={64}
+                    height={64}
                     className="w-full h-full object-contain"
                   />
                 </div>

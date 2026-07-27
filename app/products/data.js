@@ -136,8 +136,8 @@ export const PRODUCTS_DATA = [
   },
   {
     id: "SLBM",
-    slug: "slbs",
-    title: "SLBs",
+    slug: "slbm",
+    title: "SLBM",
     iconPath: "/images/icon/menu/annual return 1.svg",
     tagline: "LEND",
     mainTitle: "Why let your stocks sit idle when they can earn ‘extra’?",

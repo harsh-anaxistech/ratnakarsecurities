@@ -14,7 +14,7 @@ const FOOTER_LINKS = {
     { label: "Commodities", href: "/products/commodities" },
     { label: "Wealth Management", href: "/products/wealth-management" },
     { label: "Bonds", href: "/products/bonds" },
-    { label: "SLBs", href: "/products/slbs" },
+    { label: "SLBM", href: "/products/slbm" },
     { label: "HNIs", href: "/products/hnis" },
     { label: "NRIs", href: "/products/nris" },
     { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", target: "_blank" },
@@ -182,7 +182,7 @@ export default function Footer() {
               </h4>
               <ul className="space-y-2 sm:space-y-2.5">
                 {[
-                  { label: "SLBs", href: "/products/slbs" },
+                  { label: "SLBM", href: "/products/slbm" },
                   { label: "HNIs", href: "/products/hnis" },
                   { label: "NRIs", href: "/products/nris" },
                   { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", target: "_blank" },
