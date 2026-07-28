@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -7,7 +7,7 @@ import { PRODUCTS_DATA } from "./data";
 
 export default function ProductsPage() {
   return (
-    <main className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       {/* Top Banner Section */}
       <HeroSection
         title="Our Products"
@@ -75,6 +75,6 @@ export default function ProductsPage() {
 
         </div>
       </section>
-    </main>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container";
+﻿import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -24,7 +24,7 @@ export default async function DisclosuresPage() {
   }
 
   return (
-    <main className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       <HeroSection 
         title="Disclosures of Material Events"
         breadcrumbs={[
@@ -101,6 +101,6 @@ export default async function DisclosuresPage() {
           )}
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

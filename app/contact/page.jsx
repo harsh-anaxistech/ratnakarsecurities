@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container";
+﻿import Container from "@/components/common/Container";
 import Form from "@/components/contact/form";
 import Table from "@/components/contact/table";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -13,7 +13,7 @@ export const metadata = generatePageMetadata({
 
 export default function ContactPage() {
   return (
-    <main className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       {/* Banner Section */}
       <HeroSection
         title="Contact Us"
@@ -60,6 +60,6 @@ export default function ContactPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

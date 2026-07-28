@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container";
+﻿import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -38,7 +38,7 @@ export default async function NewspaperPublicationPage() {
   }
 
   return (
-    <main className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       <HeroSection 
         title="Newspaper Publication"
         breadcrumbs={[
@@ -121,6 +121,6 @@ export default async function NewspaperPublicationPage() {
           )}
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

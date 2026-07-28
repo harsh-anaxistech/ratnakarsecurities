@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container";
+﻿import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { generatePageMetadata } from "@/constants/metadata";
 import { Phone, Mail, Briefcase } from "lucide-react";
@@ -47,7 +47,7 @@ const personnel = [
 
 export default function KeyManagerialPersonnelPage() {
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-16">
+    <div className="bg-[#f7f9fc] min-h-screen pb-16">
       <HeroSection
         title="Key Managerial Personnel"
         breadcrumbs={[
@@ -152,6 +152,6 @@ export default function KeyManagerialPersonnelPage() {
         </div>
 
       </Container>
-    </main>
+    </div>
   );
 }

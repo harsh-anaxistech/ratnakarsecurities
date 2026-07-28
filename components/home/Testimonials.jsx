@@ -176,7 +176,7 @@ export default function Testimonials() {
                       <p className="text-sm font-bold text-slate-900 group-hover:text-[#00aeee] transition-colors duration-300 truncate">
                         {t.name}
                       </p>
-                      <p className="text-xs font-semibold text-slate-400 mt-0.5 tracking-wide truncate">
+                      <p className="text-xs font-semibold text-slate-600 mt-0.5 tracking-wide truncate">
                         {t.role} {t.location && <><span className="text-slate-300 mx-1">•</span> {t.location}</>}
                       </p>
                     </div>

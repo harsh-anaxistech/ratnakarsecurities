@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -30,7 +30,7 @@ export default function ProductDetailsPage() {
   ];
 
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-12">
+    <div className="bg-[#f7f9fc] min-h-screen pb-12">
       <HeroSection
         title={product.title}
         breadcrumbs={[{ label: "Products", href: "/products" }, { label: product.title }]}
@@ -174,6 +174,6 @@ export default function ProductDetailsPage() {
           </aside>
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

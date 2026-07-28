@@ -345,11 +345,11 @@ export default function Footer() {
             ].map((item, index, arr) => (
               <span key={item.label} className="flex items-center">
                 {item.isLink ? (
-                  <Link href={item.href} className="text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2">{item.label}</Link>
+                  <Link href={item.href} className="text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
                 ) : (
-                  <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2">{item.label}</a>
+                  <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
                 )}
-                {index < arr.length - 1 && <span className="text-gray-400 select-none">|</span>}
+                {index < arr.length - 1 && <span className="text-gray-400 select-none" aria-hidden="true">|</span>}
               </span>
             ))}
 

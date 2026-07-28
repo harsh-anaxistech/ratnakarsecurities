@@ -1,10 +1,60 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { X, ExternalLink, Globe2, Landmark } from "lucide-react";
 import Image from "next/image";
 
 export default function BackofficeLoginModal({ isOpen, onClose }) {
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const modalElement = modalRef.current;
+    if (!modalElement) return;
+
+    const focusableElements = modalElement.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    const handleTabKey = (e) => {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleTabKey);
+    // Focus first element on mount
+    firstElement.focus();
+
+    return () => window.removeEventListener("keydown", handleTabKey);
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const loginOptions = [
@@ -53,6 +103,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
+        ref={modalRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="backoffice-modal-title"

@@ -1,9 +1,60 @@
 "use client";
 
+import React, { useEffect, useRef } from "react";
 import { X, Download, Globe } from "lucide-react";
 import Image from "next/image";
 
 export default function ChooseAppModal({ isOpen, onClose }) {
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const modalElement = modalRef.current;
+    if (!modalElement) return;
+
+    const focusableElements = modalElement.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    const handleTabKey = (e) => {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleTabKey);
+    // Focus first element on mount
+    firstElement.focus();
+
+    return () => window.removeEventListener("keydown", handleTabKey);
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const apps = [
@@ -46,6 +97,10 @@ export default function ChooseAppModal({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="choose-app-modal-title"
         className="relative w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden bg-white"
         onClick={(e) => e.stopPropagation()}
       >
@@ -56,9 +111,7 @@ export default function ChooseAppModal({ isOpen, onClose }) {
         >
           {/* Left side content */}
           <div className="relative z-10 max-w-[60%]">
-
-
-            <h2 className="text-[16px] sm:text-[22px] font-serif text-white leading-snug">
+            <h2 id="choose-app-modal-title" className="text-[16px] sm:text-[22px] font-serif text-white leading-snug">
               Ratnakar&apos;s Online Trading<br />
               Mobile App &ndash; <span style={{ color: "#00aeee" }}>TradeXpress</span>
             </h2>

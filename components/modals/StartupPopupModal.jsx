@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X, Check, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { getActivePopup } from "@/services/popup";
@@ -52,6 +52,7 @@ const formatPointText = (text) => {
 export default function StartupPopupModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [popupData, setPopupData] = useState(null);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -76,6 +77,54 @@ export default function StartupPopupModal() {
   const handleClose = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        handleClose();
+      }
+    };
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const modalElement = modalRef.current;
+    if (!modalElement) return;
+
+    const focusableElements = modalElement.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    const handleTabKey = (e) => {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleTabKey);
+    // Focus first element on mount
+    firstElement.focus();
+
+    return () => window.removeEventListener("keydown", handleTabKey);
+  }, [isOpen]);
 
   if (!isOpen || !popupData) return null;
 
@@ -116,6 +165,7 @@ export default function StartupPopupModal() {
       onKeyDown={(e) => e.key === "Escape" && handleClose()}
     >
       <div
+        ref={modalRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="startup-modal-title"

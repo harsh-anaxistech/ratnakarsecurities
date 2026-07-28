@@ -1,4 +1,4 @@
-"use client"; // Required for interactivity
+﻿"use client"; // Required for interactivity
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -94,7 +94,7 @@ export default function ProductDetailsPage() {
   ];
 
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-12">
+    <div className="bg-[#f7f9fc] min-h-screen pb-12">
       {/* Top Banner Section */}
       <HeroSection
         title={product.title}
@@ -283,6 +283,6 @@ export default function ProductDetailsPage() {
 
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

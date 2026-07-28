@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -55,7 +55,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       <HeroSection
         title="About Ratnakar"
         breadcrumbs={[{ label: "About Ratnakar" }]}
@@ -241,6 +241,6 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

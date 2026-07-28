@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -62,7 +62,7 @@ const GridSkeleton = () => (
 );
 
 const TableSkeleton = () => (
-  <div className="overflow-x-auto border border-border rounded-lg shadow-sm bg-white">
+  <div tabIndex="0" role="region" aria-label="Research Reports Skeleton Table" className="overflow-x-auto border border-border rounded-lg shadow-sm bg-white focus:ring-2 focus:ring-blue-600 focus:outline-none">
     <table className="w-full text-left border-collapse">
       <thead className="bg-[#011628] text-white">
         <tr>
@@ -283,7 +283,7 @@ export default function ResearchSectionClient({
             </aside>
 
             {/* ── REPORTS LISTING AREA ── */}
-            <main className="lg:col-span-3 min-h-[300px]">
+            <div className="lg:col-span-3 min-h-[300px]">
 
               {/* ── SEARCH, FILTERS & VIEW TOGGLE BAR ── */}
               <div className="bg-white border border-border rounded-lg p-4 md:p-6 mb-6 shadow-sm flex flex-col md:flex-row gap-4 justify-between items-stretch md:items-center">
@@ -577,7 +577,7 @@ export default function ResearchSectionClient({
               ) : (
                 /* ── TABLE VIEW ── */
                 <>
-                  <div className="overflow-x-auto border border-border rounded-lg shadow-sm bg-white mb-6">
+                  <div tabIndex="0" role="region" aria-label="Research Reports Table" className="overflow-x-auto border border-border rounded-lg shadow-sm bg-white mb-6 focus:ring-2 focus:ring-blue-600 focus:outline-none">
                     <table className="w-full text-left border-collapse min-w-[700px]">
                       <thead className="bg-[#011628] text-white">
                         <tr>
@@ -692,7 +692,7 @@ export default function ResearchSectionClient({
                   {renderPagination()}
                 </>
               )}
-            </main>
+            </div>
 
           </div>
         </Container>

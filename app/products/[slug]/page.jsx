@@ -22,7 +22,7 @@ export default function ProductDetailsPage({ params }) {
   }
 
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-20">
+    <div className="bg-[#f7f9fc] min-h-screen pb-20">
       {/* Top Banner Section with Niche Image */}
       <HeroSection
         title={product.title}
@@ -158,6 +158,6 @@ export default function ProductDetailsPage({ params }) {
 
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

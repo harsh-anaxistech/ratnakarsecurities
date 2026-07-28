@@ -10,16 +10,17 @@ export default function FloatingMobileTrading() {
         href="http://dnld.mobile.nowonline.in/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Start Mobile Trading – opens in a new tab"
         className="group flex items-center bg-[#ea2830] text-white p-4 rounded-2xl shadow-lg cursor-pointer transition-all duration-300 overflow-hidden hover:pr-6 hover:shadow-xl hover:shadow-[#ea2830]/20"
       >
         {/* વ્હાઇટ આઈકોન */}
-        <Smartphone className="w-6 h-6 flex-shrink-0 text-white" />
+        <Smartphone className="w-6 h-6 flex-shrink-0 text-white" aria-hidden="true" />
 
         {/* ટેક્સ્ટ - જે Hover પર ડાબી બાજુથી બહાર આવશે */}
-        <span className="max-w-0 opacity-0 group-hover:max-w-[200px] group-hover:opacity-100 transition-all duration-300 whitespace-nowrap overflow-hidden font-bold ml-0 group-hover:ml-3">
+        <span className="max-w-0 opacity-0 group-hover:max-w-[200px] group-hover:opacity-100 transition-all duration-300 whitespace-nowrap overflow-hidden font-bold ml-0 group-hover:ml-3" aria-hidden="true">
           Start Mobile Trading
         </span>
       </a>
     </div>
   );
-}
+}

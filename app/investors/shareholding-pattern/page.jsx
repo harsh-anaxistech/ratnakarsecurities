@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container";
+﻿import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -23,7 +23,7 @@ export default async function ShareholdingPatternPage() {
   }
 
   return (
-    <main className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       <HeroSection 
         title="Shareholding Pattern"
         breadcrumbs={[
@@ -100,6 +100,6 @@ export default async function ShareholdingPatternPage() {
           )}
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

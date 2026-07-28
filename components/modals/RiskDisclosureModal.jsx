@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { X } from "lucide-react";
 
 export default function RiskDisclosureModal({ isOpen, onClose }) {
+  const modalRef = useRef(null);
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -16,6 +18,42 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const modalElement = modalRef.current;
+    if (!modalElement) return;
+
+    const focusableElements = modalElement.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    const handleTabKey = (e) => {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleTabKey);
+    // Focus first element on mount
+    firstElement.focus();
+
+    return () => window.removeEventListener("keydown", handleTabKey);
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -26,6 +64,7 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
       role="dialog"
     >
       <div
+        ref={modalRef}
         className="relative w-full max-w-[440px] sm:max-w-[460px] bg-white rounded-[22px] shadow-2xl overflow-hidden border border-slate-100 transition-all duration-300 transform scale-100 my-auto"
         onClick={(e) => e.stopPropagation()}
       >

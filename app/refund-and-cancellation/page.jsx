@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container";
+﻿import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { generatePageMetadata } from "@/constants/metadata";
 
@@ -10,7 +10,7 @@ export const metadata = generatePageMetadata({
 
 export default function RefundCancellationPage() {
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-16">
+    <div className="bg-[#f7f9fc] min-h-screen pb-16">
       {/* Banner Section */}
       <HeroSection
         title="Refund & Cancellation"
@@ -53,6 +53,6 @@ export default function RefundCancellationPage() {
 
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

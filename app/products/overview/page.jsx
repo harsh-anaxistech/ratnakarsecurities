@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, CheckCircle2, ArrowRight } from "lucide-react";
@@ -29,7 +29,7 @@ export default function OverviewPage() {
   };
 
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-12">
+    <div className="bg-[#f7f9fc] min-h-screen pb-12">
       {/* Top Banner Section with Niche Image */}
       <HeroSection
         title="Products Overview"
@@ -136,6 +136,6 @@ export default function OverviewPage() {
 
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

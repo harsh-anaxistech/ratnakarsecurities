@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import HeroSection from "@/components/common/HeroSection";
@@ -243,7 +243,7 @@ export default function SipCalculatorPage() {
   const donut = getDonutChartData();
 
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-16">
+    <div className="bg-[#f7f9fc] min-h-screen pb-16">
       {/* Banner */}
       <HeroSection
         title="SIP Calculator"
@@ -539,13 +539,13 @@ export default function SipCalculatorPage() {
               <h3 className="text-xl font-bold font-serif text-[#012e54] mb-6">
                 Future Value Projections Over Time
               </h3>
-              <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <div tabIndex="0" role="region" aria-label="Future Value Projections Table" className="overflow-x-auto rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-600 focus:outline-none">
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-slate-50 border-b border-gray-200 text-xs md:text-sm font-bold text-[#012e54]">
-                      <th className="p-4">Duration</th>
-                      <th className="p-4">SIP Amount</th>
-                      <th className="p-4">Future Value (Proj.)</th>
+                      <th scope="col" className="p-4">Duration</th>
+                      <th scope="col" className="p-4">SIP Amount</th>
+                      <th scope="col" className="p-4">Future Value (Proj.)</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100 text-xs md:text-sm text-gray-700">
@@ -580,6 +580,6 @@ export default function SipCalculatorPage() {
 
         </div>
       </Container>
-    </main>
+    </div>
   );
 }

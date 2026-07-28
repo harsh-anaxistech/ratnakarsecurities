@@ -120,24 +120,24 @@ export default function PartnerForm() {
     if (!formData.email.trim()) {
       newErrors.email = "Email ID is required";
     } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = "Please enter a valid email address (e.g. name@example.com)";
     }
 
     // 3. Mobile number validation (exactly 10 digits)
     if (!formData.phone) {
       newErrors.phone = "Mobile number is required";
     } else if (formData.phone.length !== 10) {
-      newErrors.phone = "Mobile number must be exactly 10 digits";
+      newErrors.phone = "Please enter a valid 10-digit mobile number (e.g. 9876543210)";
     }
 
     // 4. Suitable Time Slot (Date & Time selection) validation
     if (!formData.timeslot.trim()) {
-      newErrors.timeslot = "Please select a suitable date and time slot";
+      newErrors.timeslot = "Please select a suitable date and time slot for our call";
     }
 
     // 5. City validation
     if (!formData.city.trim()) {
-      newErrors.city = "City is required";
+      newErrors.city = "City name is required (e.g. Ahmedabad)";
     }
 
     // 6. Interested option validation
@@ -149,7 +149,7 @@ export default function PartnerForm() {
     if (!formData.captcha.trim()) {
       newErrors.captcha = "Captcha code is required";
     } else if (formData.captcha.trim().toUpperCase() !== captchaVal.toUpperCase()) {
-      newErrors.captcha = "Invalid captcha code";
+      newErrors.captcha = "Invalid captcha code. Please enter the 6-character code shown on the right.";
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -245,22 +245,27 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Name Input */}
                   <div className="flex flex-col gap-1">
+                    <label htmlFor="partner-fullname" className="sr-only">Full Name</label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <User className="w-4 h-4" />
+                        <User className="w-4 h-4" aria-hidden="true" />
                       </div>
                       <Input
+                        id="partner-fullname"
                         type="text"
                         name="fullName"
+                        autoComplete="name"
                         placeholder="Name"
                         value={formData.fullName}
                         onChange={handleChange}
                         maxLength={100}
                         className="pl-10"
+                        aria-invalid={!!errors.fullName}
+                        aria-describedby={errors.fullName ? "partner-fullname-error" : undefined}
                       />
                     </div>
                     {errors.fullName && (
-                      <span className="text-red-500 text-xs font-semibold pl-1">
+                      <span id="partner-fullname-error" className="text-red-500 text-xs font-semibold pl-1">
                         {errors.fullName}
                       </span>
                     )}
@@ -268,21 +273,26 @@ export default function PartnerForm() {
 
                   {/* Email ID Input */}
                   <div className="flex flex-col gap-1">
+                    <label htmlFor="partner-email" className="sr-only">Email ID</label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <Mail className="w-4 h-4" />
+                        <Mail className="w-4 h-4" aria-hidden="true" />
                       </div>
                       <Input
+                        id="partner-email"
                         type="email"
                         name="email"
+                        autoComplete="email"
                         placeholder="Email ID"
                         value={formData.email}
                         onChange={handleChange}
                         className="pl-10"
+                        aria-invalid={!!errors.email}
+                        aria-describedby={errors.email ? "partner-email-error" : undefined}
                       />
                     </div>
                     {errors.email && (
-                      <span className="text-red-500 text-xs font-semibold pl-1">
+                      <span id="partner-email-error" className="text-red-500 text-xs font-semibold pl-1">
                         {errors.email}
                       </span>
                     )}
@@ -293,22 +303,27 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Mobile Number Input */}
                   <div className="flex flex-col gap-1">
+                    <label htmlFor="partner-phone" className="sr-only">Mobile Number</label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <Phone className="w-4 h-4" />
+                        <Phone className="w-4 h-4" aria-hidden="true" />
                       </div>
                       <Input
+                        id="partner-phone"
                         type="tel"
                         name="phone"
+                        autoComplete="tel"
                         placeholder="Mobile Number"
                         value={formData.phone}
                         onChange={handleChange}
                         maxLength={10}
                         className="pl-10"
+                        aria-invalid={!!errors.phone}
+                        aria-describedby={errors.phone ? "partner-phone-error" : undefined}
                       />
                     </div>
                     {errors.phone && (
-                      <span className="text-red-500 text-xs font-semibold pl-1">
+                      <span id="partner-phone-error" className="text-red-500 text-xs font-semibold pl-1">
                         {errors.phone}
                       </span>
                     )}
@@ -316,11 +331,13 @@ export default function PartnerForm() {
 
                   {/* Suitable Time Slot (Date & Time Selector) */}
                   <div className="flex flex-col gap-1">
+                    <label htmlFor="partner-timeslot" className="sr-only">Suitable Time Slot</label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <Calendar className="w-4 h-4" />
+                        <Calendar className="w-4 h-4" aria-hidden="true" />
                       </div>
                       <Input
+                        id="partner-timeslot"
                         type={timeslotInputType || (formData.timeslot ? "datetime-local" : "text")}
                         name="timeslot"
                         placeholder="Suitable Time Slot"
@@ -332,10 +349,12 @@ export default function PartnerForm() {
                         onChange={handleChange}
                         min={new Date().toISOString().slice(0, 16)}
                         className="pl-10 cursor-pointer"
+                        aria-invalid={!!errors.timeslot}
+                        aria-describedby={errors.timeslot ? "partner-timeslot-error" : undefined}
                       />
                     </div>
                     {errors.timeslot && (
-                      <span className="text-red-500 text-xs font-semibold pl-1">
+                      <span id="partner-timeslot-error" className="text-red-500 text-xs font-semibold pl-1">
                         {errors.timeslot}
                       </span>
                     )}
@@ -344,22 +363,27 @@ export default function PartnerForm() {
 
                 {/* Row 3: City Input */}
                 <div className="flex flex-col gap-1">
+                  <label htmlFor="partner-city" className="sr-only">City</label>
                   <div className="relative flex items-center">
                     <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                      <MapPin className="w-4 h-4" />
+                      <MapPin className="w-4 h-4" aria-hidden="true" />
                     </div>
                     <Input
+                      id="partner-city"
                       type="text"
                       name="city"
+                      autoComplete="address-level2"
                       placeholder="City"
                       value={formData.city}
                       onChange={handleChange}
                       maxLength={100}
                       className="pl-10"
+                      aria-invalid={!!errors.city}
+                      aria-describedby={errors.city ? "partner-city-error" : undefined}
                     />
                   </div>
                   {errors.city && (
-                    <span className="text-red-500 text-xs font-semibold pl-1">
+                    <span id="partner-city-error" className="text-red-500 text-xs font-semibold pl-1">
                       {errors.city}
                     </span>
                   )}
@@ -418,21 +442,25 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center pt-2">
                   {/* Enter Captcha Input */}
                   <div className="flex flex-col gap-1">
+                    <label htmlFor="partner-captcha" className="sr-only">Enter Captcha</label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <HelpCircle className="w-4 h-4" />
+                        <HelpCircle className="w-4 h-4" aria-hidden="true" />
                       </div>
                       <Input
+                        id="partner-captcha"
                         type="text"
                         name="captcha"
                         placeholder="Enter Captcha"
                         value={formData.captcha}
                         onChange={handleChange}
                         className="pl-10"
+                        aria-invalid={!!errors.captcha}
+                        aria-describedby={errors.captcha ? "partner-captcha-error" : undefined}
                       />
                     </div>
                     {errors.captcha && (
-                      <span className="text-red-500 text-xs font-semibold pl-1">
+                      <span id="partner-captcha-error" className="text-red-500 text-xs font-semibold pl-1">
                         {errors.captcha}
                       </span>
                     )}
@@ -456,7 +484,7 @@ export default function PartnerForm() {
                       title="Refresh Captcha"
                       className="w-11 h-11 border border-gray-300 hover:bg-gray-50 text-[#00aeee] rounded flex items-center justify-center transition-colors group"
                     >
-                      <RefreshCw className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
+                      <RefreshCw className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" aria-hidden="true" />
                     </button>
                   </div>
                 </div>
@@ -464,6 +492,8 @@ export default function PartnerForm() {
                 {/* Alert Box for Status Messages */}
                 {statusMessage && (
                   <div
+                    role="status"
+                    aria-live="polite"
                     className={`p-3.5 rounded text-xs sm:text-sm font-semibold ${statusType === "success"
                         ? "bg-green-50 text-green-700 border border-green-200"
                         : "bg-red-50 text-red-700 border border-red-200"

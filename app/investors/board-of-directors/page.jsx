@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container";
+﻿import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import Link from "next/link";
 import Image from "next/image";
@@ -62,7 +62,7 @@ export default function BoardOfDirectorsPage() {
   const independent = directors.filter((d) => d.type === "Independent");
 
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-16">
+    <div className="bg-[#f7f9fc] min-h-screen pb-16">
       <HeroSection
         title="Board of Directors"
         breadcrumbs={[
@@ -179,6 +179,6 @@ export default function BoardOfDirectorsPage() {
         </div>
 
       </Container>
-    </main>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import HeroSection from "@/components/common/HeroSection";
+﻿import HeroSection from "@/components/common/HeroSection";
 import PartnerForm from "@/components/partner/PartnerForm";
 import { generatePageMetadata } from "@/constants/metadata";
 
@@ -11,7 +11,7 @@ export const metadata = generatePageMetadata({
 
 export default function PartnerWithUsPage() {
   return (
-    <main className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       <HeroSection
         title="Partner With Us"
         breadcrumbs={[{ label: "Partner With Us" }]}
@@ -23,6 +23,6 @@ export default function PartnerWithUsPage() {
       <section className="py-6 md:py-12">
         <PartnerForm />
       </section>
-    </main>
+    </div>
   );
 }

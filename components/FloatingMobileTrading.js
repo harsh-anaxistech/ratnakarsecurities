@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { X, Briefcase, TrendingUp } from "lucide-react";
 
 export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose }) {
   const [internalOpen, setInternalOpen] = useState(false);
+  const modalRef = useRef(null);
 
   // If external control props are provided, use them; otherwise use internal state
   const isControlled = externalIsOpen !== undefined;
@@ -16,6 +17,54 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        handleClose();
+      }
+    };
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const modalElement = modalRef.current;
+    if (!modalElement) return;
+
+    const focusableElements = modalElement.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusableElements.length === 0) return;
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    const handleTabKey = (e) => {
+      if (e.key !== "Tab") return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleTabKey);
+    // Focus first element on mount
+    firstElement.focus();
+
+    return () => window.removeEventListener("keydown", handleTabKey);
+  }, [isOpen]);
+
   return (
     <>
       {/* Modal (Popup) */}
@@ -26,6 +75,7 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
           onKeyDown={(e) => e.key === "Escape" && handleClose()}
         >
           <div
+            ref={modalRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="choose-app-modal-title"
@@ -52,7 +102,7 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
                 className="flex flex-col items-center group"
               >
                 <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#00aeee] transition-all duration-300 mb-4">
-                  <Briefcase className="w-12 h-12 text-[#00aeee]" />
+                  <Briefcase className="w-12 h-12 text-[#00aeee]" aria-hidden="true" />
                 </div>
                 <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">WEALTH<br/>MANAGEMENT</span>
               </a>
@@ -65,7 +115,7 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
                 className="flex flex-col items-center group"
               >
                 <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#ea2830] transition-all duration-300 mb-4">
-                  <TrendingUp className="w-12 h-12 text-[#ea2830]" />
+                  <TrendingUp className="w-12 h-12 text-[#ea2830]" aria-hidden="true" />
                 </div>
                 <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">TRADE<br/>EXPRESS</span>
               </a>

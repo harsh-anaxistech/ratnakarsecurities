@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
                     <h3 className="text-base font-bold text-white group-hover:text-[#00aeee] transition-colors duration-300">
                       {r.title}
                     </h3>
-                    <p className="text-[14px] text-slate-400 leading-relaxed font-medium">
+                    <p className="text-[14px] text-slate-300 leading-relaxed font-medium">
                       {r.desc}
                     </p>
                   </div>

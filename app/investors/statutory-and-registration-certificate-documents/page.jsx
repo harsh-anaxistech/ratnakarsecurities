@@ -1,4 +1,4 @@
-import Container from "@/components/common/Container";
+﻿import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -27,7 +27,7 @@ export default async function StatutoryDocumentsPage() {
   const baseUrl = API_BASE_URL.replace(/\/api$/, "");
 
   return (
-    <main className="bg-background min-h-screen">
+    <div className="bg-background min-h-screen">
       <HeroSection 
         title="Statutory Documents"
         breadcrumbs={[
@@ -91,6 +91,6 @@ export default async function StatutoryDocumentsPage() {
           )}
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

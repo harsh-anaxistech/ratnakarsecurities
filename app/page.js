@@ -18,7 +18,7 @@ export const metadata = generatePageMetadata({
 
 export default function HomePage() {
   return (
-    <main>
+    <div>
       <HeroBanner />
       <StarBar />
       <Features />
@@ -30,6 +30,6 @@ export default function HomePage() {
       
       {/* તમારા મોબાઈલ ટ્રેડિંગ એપ્સનું ફ્લોટિંગ મોડલ બટન */}
       <FloatingMobileTrading /> 
-    </main>
+    </div>
   );
 }

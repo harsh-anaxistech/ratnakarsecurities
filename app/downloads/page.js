@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { ChevronRight, Download as DownloadIcon, FileText, FileBadge, Loader2 } from "lucide-react";
@@ -136,7 +136,7 @@ export default function DownloadsPage() {
     activeSection?.section_name || activeSection?.name || activeSection?.title || "Downloads";
 
   return (
-    <main className="w-full min-h-screen bg-background">
+    <div className="w-full min-h-screen bg-background">
       {/* Hero Banner */}
       <HeroSection
         title="Downloads"
@@ -344,6 +344,6 @@ export default function DownloadsPage() {
           </div>
         </Container>
       </div>
-    </main>
+    </div>
   );
 }

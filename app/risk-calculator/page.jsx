@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import HeroSection from "@/components/common/HeroSection";
@@ -197,7 +197,7 @@ export default function RiskCalculatorPage() {
   const allocation = result ? getAssetAllocation(result.riskCapacity, result.riskTolerance) : null;
 
   return (
-    <main className="bg-[#f7f9fc] min-h-screen pb-16">
+    <div className="bg-[#f7f9fc] min-h-screen pb-16">
       {/* Banner */}
       <HeroSection
         title="Risk Profile"
@@ -436,6 +436,6 @@ export default function RiskCalculatorPage() {
         </div>
       )}
 
-    </main>
+    </div>
   );
 }
