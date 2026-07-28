@@ -1,0 +1,47 @@
+================================================================================
+AUDIT VERIFICATION DETAIL: POINT #1 - NON-TEXT CONTENT ALTERNATIVES
+================================================================================
+- Parameter Number: 1
+- GIGW 3.0 Clause Reference: 5.2.1
+- WCAG 2.2 Success Criterion Reference: 1.1.1 (A)
+- Source Requirements File: 2026.03 Checklist / Recommendations Excel Sheet
+- Original Audit Status: PARTIALLY COMPLIANT
+- Current Audit Status: COMPLIANT (REMEDIATED)
+- Severity Level: MEDIUM
+
+--------------------------------------------------------------------------------
+REQUIREMENT INTERPRETATION:
+--------------------------------------------------------------------------------
+The website must satisfy the accessibility condition described under WCAG 1.1.1.
+Specifically: Non-Text Content Alternatives.
+
+--------------------------------------------------------------------------------
+ORIGINAL FINDING (WHY IT FAILED):
+--------------------------------------------------------------------------------
+Floating trading widget action icons and social media icons lacked text alternatives or aria-label attributes.
+
+--------------------------------------------------------------------------------
+IMPLEMENTED REMEDIATION & SOURCE CODE CHANGES:
+--------------------------------------------------------------------------------
+adding descriptive aria-label and setting aria-hidden='true' on decorative icons.
+
+Exact File and Code Locations:
+- Locations: components/layout/Header.js:L241-246, components/layout/Footer.js:L145-149, components/FloatingMobileTrading.js:L36-41
+- Code Snippet:
+  ```jsx
+  <a aria-label={social.label} ...> <Icon aria-hidden="true" /> </a>
+  ```
+
+--------------------------------------------------------------------------------
+TESTER SCREENSHOT & VERIFICATION INSTRUCTIONS:
+--------------------------------------------------------------------------------
+1. To inspect the code, open your text editor and view the file:
+   [Link to file](file:///components/layout/Header.js:L241-246)
+2. Locate the snippet shown above. Highlight this block of code and take a screenshot.
+3. In the browser, open Ratnakar Securities and use Chrome DevTools (F12) to inspect the DOM element.
+4. Verify that the element contains the required attributes (e.g. role='dialog', aria-label, etc.) and is focusable.
+5. Take a screenshot of the DOM panel for the final verification report.
+
+================================================================================
+VERIFICATION RESULT: 100% COMPLIANT
+================================================================================

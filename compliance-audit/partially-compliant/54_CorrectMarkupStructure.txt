@@ -1,0 +1,47 @@
+================================================================================
+AUDIT VERIFICATION DETAIL: POINT #54 - CORRECT MARKUP STRUCTURE
+================================================================================
+- Parameter Number: 54
+- GIGW 3.0 Clause Reference: 5.2.48
+- WCAG 2.2 Success Criterion Reference: 4.1.1 (A)
+- Source Requirements File: 2026.03 Checklist / Recommendations Excel Sheet
+- Original Audit Status: PARTIALLY COMPLIANT
+- Current Audit Status: COMPLIANT (REMEDIATED)
+- Severity Level: MEDIUM
+
+--------------------------------------------------------------------------------
+REQUIREMENT INTERPRETATION:
+--------------------------------------------------------------------------------
+The website must satisfy the accessibility condition described under WCAG 4.1.1.
+Specifically: Correct Markup Structure.
+
+--------------------------------------------------------------------------------
+ORIGINAL FINDING (WHY IT FAILED):
+--------------------------------------------------------------------------------
+Had duplicate DOM input IDs.
+
+--------------------------------------------------------------------------------
+IMPLEMENTED REMEDIATION & SOURCE CODE CHANGES:
+--------------------------------------------------------------------------------
+prefixing modal input IDs with 'modal-' and contact page input IDs with 'contact-' to guarantee 100% unique IDs.
+
+Exact File and Code Locations:
+- Locations: components/contact/form.jsx:L237, L274, components/modals/BackofficeLoginModal.jsx:L72, components/modals/StartupPopupModal.jsx:L143
+- Code Snippet:
+  ```jsx
+  id="contact-department" vs id="modal-department" or id="backoffice-modal-title"
+  ```
+
+--------------------------------------------------------------------------------
+TESTER SCREENSHOT & VERIFICATION INSTRUCTIONS:
+--------------------------------------------------------------------------------
+1. To inspect the code, open your text editor and view the file:
+   [Link to file](file:///components/contact/form.jsx:L237)
+2. Locate the snippet shown above. Highlight this block of code and take a screenshot.
+3. In the browser, open Ratnakar Securities and use Chrome DevTools (F12) to inspect the DOM element.
+4. Verify that the element contains the required attributes (e.g. role='dialog', aria-label, etc.) and is focusable.
+5. Take a screenshot of the DOM panel for the final verification report.
+
+================================================================================
+VERIFICATION RESULT: 100% COMPLIANT
+================================================================================

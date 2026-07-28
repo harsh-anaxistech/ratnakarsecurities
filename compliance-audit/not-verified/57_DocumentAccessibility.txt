@@ -1,0 +1,27 @@
+================================================================================
+AUDIT VERIFICATION DETAIL: POINT #57 - DOCUMENT ACCESSIBILITY (EPUB/OCR)
+================================================================================
+- Parameter Number: 57
+- GIGW 3.0 Clause Reference: Document Accessibility
+- WCAG 2.2 Success Criterion Reference: GIGW-DOC (Level N/A)
+- Source Requirements File: 2026.03 Checklist / Recommendations Excel Sheet
+- Original Audit Status: NOT VERIFIED
+- Current Audit Status: NOT VERIFIED
+- Severity Level: MEDIUM
+
+--------------------------------------------------------------------------------
+WHY IT IS NOT VERIFIED:
+--------------------------------------------------------------------------------
+The downloads and investors section of the website contain SEBI compliance filings, MOA/COI documents,
+and newspaper publications. These PDFs are static images or scanned document copies. We cannot programmatically
+verify document accessibility (OCR searchability, tagged headings, reading order metadata) purely from 
+the front-end codebase repository.
+
+--------------------------------------------------------------------------------
+TEST EVIDENCE REQUIRED TO MARK COMPLIANT:
+--------------------------------------------------------------------------------
+To achieve compliance, the user must run each PDF through Adobe Acrobat Pro Accessibility Checker 
+or PAC (PDF Accessibility Checker) to ensure:
+1. All scanned documents are OCR-enabled (searchable text).
+2. The documents have proper tagged headings (H1, H2) and alternative texts on figures.
+3. Language metadata is declared within the PDF.
