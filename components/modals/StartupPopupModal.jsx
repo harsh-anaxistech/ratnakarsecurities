@@ -58,12 +58,17 @@ export default function StartupPopupModal() {
     let isMounted = true;
 
     async function loadPopup() {
+      if (typeof window !== "undefined" && sessionStorage.getItem("welcomePopupSeen")) {
+        return;
+      }
+
       const res = await getActivePopup();
       if (!isMounted) return;
 
       if (res && res.success && res.data && res.data.isShowPopup) {
         setPopupData(res.data);
         setIsOpen(true);
+        sessionStorage.setItem("welcomePopupSeen", "true");
       }
     }
 
