@@ -10,11 +10,11 @@ Index | Parameter Heading | GIGW Ref | WCAG Ref | Level | Original Status | Curr
 4   | Audio Description for Pre-Recorded Video | 5.2.4    | 1.2.3    | A   | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - No pre-recorded videos hosted on the public websit...
 5   | Live Media Captions                 | 5.2.5    | 1.2.4    | AA  | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - There is no live media or webcasting broadcasted o...
 6   | Audio Description for Pre-Recorded Video (AA) | 5.2.6    | 1.2.5    | AA  | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - No pre-recorded videos hosted on the public websit...
-7   | Information and Structure           | 5.2.7    | 1.3.1    | A   | NON-COMPLIANT    | COMPLIANT    | app/layout.js:L45-49, components/contact/table.jsx:L15-23, components/layout/Header.js:L207-213, components/layout/Footer.js:L108
+7   | Information and Structure           | 5.2.7    | 1.3.1    | A   | NON-COMPLIANT    | COMPLIANT    | compliance-audit/done/07_InformationandStructure.txt, app/layout.js:L45-49, components/contact/table.jsx:L15-23, components/layout/Header.js:L207-213, components/layout/Footer.js:L108
 8   | Meaningful Reading Sequence         | 5.2.8    | 1.3.2    | A   | COMPLIANT        | COMPLIANT    | app/layout.js:L24-53
 9   | Non-Sensory Instructions            | 5.2.9    | 1.3.3    | A   | COMPLIANT        | COMPLIANT    | Not Applicable - Instructions do not rely solely on shape, size, or...
 10  | Orientation Flexibility             | 5.2.10   | 1.3.4    | AA  | COMPLIANT        | COMPLIANT    | app/globals.css
-11  | Input Purpose Identification        | 5.2.11   | 1.3.5    | AA  | NON-COMPLIANT    | COMPLIANT    | components/contact/form.jsx:L277, L307, L334
+11  | Input Purpose Identification        | 5.2.11   | 1.3.5    | AA  | NON-COMPLIANT    | COMPLIANT    | compliance-audit/done/11_InputPurposeIdentification.txt, components/contact/form.jsx:L277, L307, L334
 12  | Use of Colour                       | 5.2.12   | 1.4.1    | A   | PARTIALLY COMPLIANT | COMPLIANT    | components/contact/form.jsx:L241, L259-263
 13  | Audio Control                       | 5.2.13   | 1.4.2    | A   | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - There is no audio content that plays automatically...
 14  | Text Contrast                       | 5.2.14   | 1.4.3    | AA  | PARTIALLY COMPLIANT | COMPLIANT    | app/globals.css:L29, L68
@@ -23,14 +23,14 @@ Index | Parameter Heading | GIGW Ref | WCAG Ref | Level | Original Status | Curr
 17  | Content Reflow                      | 5.2.17   | 1.4.10   | AA  | PARTIALLY COMPLIANT | COMPLIANT    | components/contact/table.jsx:L13, L199
 18  | Non-Text Contrast                   | 5.2.18   | 1.4.11   | AA  | PARTIALLY COMPLIANT | COMPLIANT    | components/contact/form.jsx:L243
 19  | Text Spacing                        | 5.2.19   | 1.4.12   | AA  | COMPLIANT        | COMPLIANT    | app/globals.css
-20  | Hover and Focus Content             | 5.2.20   | 1.4.13   | AA  | NON-COMPLIANT    | COMPLIANT    | components/layout/Header.js:L173-182, components/modals/StartupPopupModal.jsx:L116, components/FloatingMobileTrading.js:L26
+20  | Hover and Focus Content             | 5.2.20   | 1.4.13   | AA  | NON-COMPLIANT    | COMPLIANT    | compliance-audit/done/20_HoverandFocusContent.txt, components/layout/Header.js:L173-182, components/modals/StartupPopupModal.jsx:L116, components/FloatingMobileTrading.js:L26
 21  | Keyboard Accessibility              | 5.2.21   | 2.1.1    | A   | PARTIALLY COMPLIANT | COMPLIANT    | components/FloatingMobileTrading.js:L36-40, components/layout/Header.js:L327-370
 22  | No Keyboard Trap                    | 5.2.22   | 2.1.2    | A   | COMPLIANT        | COMPLIANT    | components/modals/StartupPopupModal.jsx, components/modals/BackofficeLoginModal.jsx
 23  | Keyboard Shortcuts                  | 5.2.23   | 2.1.4    | A   | COMPLIANT        | COMPLIANT    | Not Applicable - No single-character keyboard shortcuts are registe...
 24  | Timing Adjustable                   | 5.2.24   | 2.2.1    | A   | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - The website does not contain any timed sessions or...
-25  | Pause, Stop, Hide Moving Content    | 5.2.25   | 2.2.2    | A   | NON-COMPLIANT    | COMPLIANT    | components/home/HeroBanner.js
+25  | Pause, Stop, Hide Moving Content    | 5.2.25   | 2.2.2    | A   | NON-COMPLIANT    | COMPLIANT    | compliance-audit/done/25_PauseStopHideMovingContent.txt, components/home/HeroBanner.js
 26  | Flashing Content Limits             | 5.2.26   | 2.3.1    | A   | COMPLIANT        | COMPLIANT    | Not Applicable - No flashing or blinking elements that exceed three...
-27  | Bypass Repeated Content             | 5.2.27   | 2.4.1    | A   | NON-COMPLIANT    | COMPLIANT    | app/layout.js:L25-30
+27  | Bypass Repeated Content             | 5.2.27   | 2.4.1    | A   | NON-COMPLIANT    | COMPLIANT    | compliance-audit/done/27_BypassRepeatedContent.txt, app/layout.js:L25-30
 28  | Focus Not Obscured (Minimum)        | N/A      | 2.4.11   | AA  | PARTIALLY COMPLIANT | COMPLIANT    | app/globals.css:L96
 29  | Descriptive Page and Screen Titles  | 5.2.28   | 2.4.2    | A   | COMPLIANT        | COMPLIANT    | app/layout.js:L19, constants/metadata.js
 30  | Logical Keyboard Focus Order        | 5.2.29   | 2.4.3    | A   | COMPLIANT        | COMPLIANT    | app/layout.js
@@ -58,7 +58,7 @@ Index | Parameter Heading | GIGW Ref | WCAG Ref | Level | Original Status | Curr
 52  | Redundant Entry                     | N/A      | 3.3.7    | A   | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - No multi-step input submission wizard exists where...
 53  | Accessible Authentication (Minimum) | N/A      | 3.3.8    | AA  | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - There is no login system, password entry, or authe...
 54  | Correct Markup Structure            | 5.2.48   | 4.1.1    | A   | PARTIALLY COMPLIANT | COMPLIANT    | components/contact/form.jsx:L237, L274, components/modals/BackofficeLoginModal.jsx:L72, components/modals/StartupPopupModal.jsx:L143
-55  | Accessible Name, Role, and State    | 5.2.49   | 4.1.2    | A   | NON-COMPLIANT    | COMPLIANT    | components/modals/StartupPopupModal.jsx:L119-121, components/modals/BackofficeLoginModal.jsx:L56-58, components/FloatingMobileTrading.js:L29-31
-56  | Programmatically Status Messages    | 5.2.50   | 4.1.3    | AA  | NON-COMPLIANT    | COMPLIANT    | components/contact/form.jsx:L212-224, L442-451
+55  | Accessible Name, Role, and State    | 5.2.49   | 4.1.2    | A   | NON-COMPLIANT    | COMPLIANT    | compliance-audit/done/55_AccessibleNameRoleandState.txt, components/modals/StartupPopupModal.jsx:L119-121, components/modals/BackofficeLoginModal.jsx:L56-58, components/FloatingMobileTrading.js:L29-31
+56  | Programmatically Status Messages    | 5.2.50   | 4.1.3    | AA  | NON-COMPLIANT    | COMPLIANT    | compliance-audit/done/56_ProgrammaticallyStatusMessages.txt, components/contact/form.jsx:L212-224, L442-451
 57  | Document Accessibility (ePUB/OCR)   | N/A      | GIGW-DOC | N/A | NOT VERIFIED     | NOT VERIFIED | public/images/*.pdf, external links
 58  | Video Alternatives (Audio description) | N/A      | GIGW-VID | N/A | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - No video content containing dialogue, instructions...
