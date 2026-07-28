@@ -32,7 +32,7 @@ const FOOTER_LINKS = {
     { label: "SEBI", href: "https://www.sebi.gov.in/", target: "_blank" },
     { label: "NSDL", href: "https://nsdl.co.in/", target: "_blank" },
     { label: "MCX", href: "https://www.mcxindia.com/home", target: "_blank" },
-    { label: "SCORES", href: "https://scores.gov.in/scores/Welcome.html", target: "_blank" },
+    { label: "SCORES", href: "https://scores.sebi.gov.in", target: "_blank" },
   ],
 };
 

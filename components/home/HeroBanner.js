@@ -99,7 +99,7 @@ export default function HeroBanner() {
               <a href="https://www.mcxindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">MCX</a>
               <span className="text-[#00aeee]/50">|</span>
 
-              <a href="https://scores.sebi.gov.in/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">SCORES</a>
+              <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">SCORES</a>
             </div>
           </div>
 
