@@ -50,7 +50,7 @@ export default function ProductDetailsPage() {
               <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
-              <h1 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h1>
+              <h2 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h2>
               <p className="text-[16px] text-[#314158] leading-relaxed mb-6">
                 Wealth Management is a comprehensive financial planning and investment solution designed to help individuals, families, and businesses preserve, grow, and transfer their wealth efficiently. It combines investment management, financial planning, tax-efficient strategies, risk management, retirement planning, and estate planning into a personalized approach that aligns with your financial goals and life aspirations.
               </p>

@@ -87,3 +87,8 @@ remediate all 20 unfulfilled accessibility issues in the codebase:
 [x] 20. Correct Markup Structure / Unique IDs (GIGW 5.2.48 / WCAG 4.1.1)
     - File: components/contact/form.jsx, components/modals/BackofficeLoginModal.jsx, components/modals/StartupPopupModal.jsx
     - Change: Prefixed input and dialog elements with unique namespaces (e.g. contact-email, backoffice-modal-title) to guarantee unique IDs.
+
+[x] 21. Images of Text (GIGW 5.2.16 / WCAG 1.4.5)
+    - File: app/globals.css, components/common/HeroSection.jsx
+    - Change: Verified all headers, buttons, and subpage titles style text programmatically using CSS. Added global styling guidelines to globals.css prohibiting images of text going forward.
+

@@ -49,7 +49,7 @@ export default function ProductDetailsPage() {
               <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
-              <h1 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h1>
+              <h2 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h2>
               <p className="text-[16px] text-[#314158] leading-relaxed mb-6">
                 Non-Resident Indians (NRIs) can continue to participate in India's growing economy by investing in a wide range of financial products. Whether your objective is long-term wealth creation, portfolio diversification, regular income, or maintaining financial ties with India, NRI investment opportunities provide a secure and regulated pathway to achieve your financial goals.
               </p>

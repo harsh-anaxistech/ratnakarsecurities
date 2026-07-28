@@ -134,3 +134,22 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   background: #ea2830;
   color: #ffffff;
 }
+
+/* ==========================================================================
+   WCAG 1.4.5 / GIGW 5.2.16 - IMAGES OF TEXT COMPLIANCE
+   - Always prefer styled HTML/CSS text over embedding text inside image assets
+     (like PNG/JPG/WebP files) for headings, subheadings, labels, or content.
+   - Text must remain adjustable (accessible, resizable, and customizable).
+   - Exemptions: Brand names, logos, and UI screenshots/device mockups.
+   - Stylistic CSS properties to utilize for content presentations:
+     - font-family (Poppins, serif)
+     - text-align (left, center, right, justify)
+     - font-size, font-weight, line-height, letter-spacing, text-transform
+   ========================================================================== */
+.css-styled-text {
+  font-family: var(--font-sans);
+  text-align: left;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+

@@ -51,7 +51,7 @@ export default function ProductDetailsPage() {
               <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
-              <h1 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h1>
+              <h2 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h2>
               <p className="text-[16px] text-[#314158] leading-relaxed mb-6">
                 High Net Worth Individuals (HNIs) require sophisticated financial solutions that go beyond traditional investing. HNI Services are designed to provide personalized wealth management, exclusive investment opportunities, strategic financial planning, and dedicated advisory support tailored to complex financial needs.
               </p>

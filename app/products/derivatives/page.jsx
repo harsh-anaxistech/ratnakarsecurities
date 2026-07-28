@@ -59,9 +59,9 @@ export default function ProductDetailsPage() {
               <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
-              <h1 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
+              <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
                 {product.mainTitle}
-              </h1>
+              </h2>
             </div>
 
             {/* Niche Content */}

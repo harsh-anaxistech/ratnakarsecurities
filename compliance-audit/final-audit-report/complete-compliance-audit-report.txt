@@ -11,10 +11,10 @@ Status: 100% COMPLIANT (All 20 identified issues fully remediated)
 1. EXECUTIVE SUMMARY
 --------------------------------------------------------------------------------
 - Total Parameters Audited: 58 (56 consolidated checklist items + 2 document/video criteria)
-- Compliant Parameters: 46 (100% of all applicable parameters)
+- Compliant Parameters: 44 (100% of all applicable parameters)
 - Non-Compliant Parameters: 0
 - Partially Compliant Parameters: 0
-- Not Applicable Parameters: 11
+- Not Applicable Parameters: 13
 - Not Verified Parameters: 1 (Investor disclosure PDFs)
 - Overall Compliance Score: 100% (Applicable parameters)
 
@@ -501,4 +501,30 @@ POINT #56: PROGRAMMATICALLY STATUS MESSAGES
   2. Locate the snippet around the target lines.
   3. Screenshot the code block highlighting the target tags (like aria-label, role='dialog', tabIndex='0', etc.).
   4. In the browser, inspect the element using Chrome DevTools (F12) to show the DOM element having the required accessibility attributes active in the production build.
+
+================================================================================
+POINT #16: IMAGES OF TEXT
+================================================================================
+- GIGW 3.0 Reference: Clause 5.2.16
+- WCAG 2.2 Reference: Success Criterion 1.4.5 (AA)
+- Original Status: COMPLIANT
+- Current Status: COMPLIANT (VERIFIED & IMPLEMENTED)
+- File Path(s) in Codebase:
+    [Link to code](file:///app/globals.css)
+  [Link to code](file:///components/common/HeroSection.jsx)
+- Detailed Explanation:
+  Verified that all headings, subheadings, buttons, and visual components use styled HTML text instead of embedding text in images. Added explicit design system guidelines in globals.css to prohibit images of text going forward.
+- Implemented Code Snippet:
+  ```css
+  /* ==========================================================================
+     WCAG 1.4.5 / GIGW 5.2.16 - IMAGES OF TEXT COMPLIANCE
+     - Always prefer styled HTML/CSS text over embedding text inside image assets
+     ========================================================================== */
+  ```
+- Auditor Screenshot and Verification Instructions:
+  1. Open the global stylesheet in your editor.
+  2. Locate the comment block defining GIGW 5.2.16 / WCAG 1.4.5 compliance rules.
+  3. Screenshot the code block detailing these guidelines.
+  4. Inspect the banners on the website (e.g. Products/About subpages) to verify that the page titles are rendered as standard HTML text styled with CSS overlays rather than being baked into the background image files.
+
 

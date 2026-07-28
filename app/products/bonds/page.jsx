@@ -50,7 +50,7 @@ export default function ProductDetailsPage() {
               <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
-              <h1 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h1>
+              <h2 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h2>
               <p className="text-[16px] text-[#314158] leading-relaxed mb-6">
                 Bonds are fixed-income investment instruments that allow investors to lend money to governments, public sector organizations, financial institutions, or corporations in exchange for regular interest payments and the return of the principal amount at maturity. They are considered one of the most reliable investment options for individuals seeking capital preservation, stable income, and portfolio diversification.
               </p>

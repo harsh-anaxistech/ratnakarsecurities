@@ -102,6 +102,10 @@ SUMMARY OF REMEDIATED CODEBASE CHANGES:
     - Status: RESOLVED
     - Code Changes: Prefixed modal input IDs with 'modal-' to guarantee 100% unique HTML IDs across all rendered DOM components.
 
+21. [Point #16 - Images of Text (GIGW 5.2.16 / WCAG 1.4.5)]
+    - Status: VERIFIED & COMPLIANT
+    - Code Changes: Verified that all subpage banners, card components, buttons, and headers overlay and style text dynamically using HTML/CSS (font-family, text-align, font-size, etc.) rather than embedding content inside image assets. Added design system guidelines and rules inside app/globals.css to restrict the usage of text-in-images going forward.
+
 ================================================================================
 PRODUCTION BUILD VERIFICATION:
 - Next.js Turbopack build executed successfully with 0 errors.

@@ -119,9 +119,9 @@ export default function ProductDetailsPage() {
               <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 Wealth Creation
               </span>
-              <h1 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-6">
+              <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-6">
                 Why Choose Mutual Funds?
-              </h1>
+              </h2>
               <p className="text-[16px] leading-relaxed mb-4 text-[#314158]">
                 Mutual Funds are one of the most convenient investment options for individuals looking to build long-term wealth. They allow investors to participate in professionally managed portfolios across equities, debt securities, hybrid assets, and money market instruments. Whether you are a first-time investor or an experienced market participant, mutual funds provide an investment solution tailored to your financial goals and risk appetite.
               </p>

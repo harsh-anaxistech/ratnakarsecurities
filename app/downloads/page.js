@@ -327,9 +327,9 @@ export default function DownloadsPage() {
                           <FileText size={24} aria-hidden="true" />
                         </div>
 
-                        <h4 className="text-[16px] font-sans font-medium text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">
+                        <h3 className="text-[16px] font-sans font-medium text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">
                           {fileTitle}
-                        </h4>
+                        </h3>
 
                         <div className="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gray-50 text-gray-600 text-sm font-semibold group-hover:bg-[#EA2830] group-hover:text-white transition-colors duration-300">
                           <DownloadIcon size={16} className="stroke-[2.5]" />

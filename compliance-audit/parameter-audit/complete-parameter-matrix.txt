@@ -19,7 +19,7 @@ Index | Parameter Heading | GIGW Ref | WCAG Ref | Level | Original Status | Curr
 13  | Audio Control                       | 5.2.13   | 1.4.2    | A   | NOT APPLICABLE   | NOT APPLICABLE | Not Applicable - There is no audio content that plays automatically...
 14  | Text Contrast                       | 5.2.14   | 1.4.3    | AA  | PARTIALLY COMPLIANT | COMPLIANT    | app/globals.css:L29, L68
 15  | Text Resize                         | 5.2.15   | 1.4.4    | AA  | COMPLIANT        | COMPLIANT    | app/globals.css
-16  | Images of Text                      | 5.2.16   | 1.4.5    | AA  | COMPLIANT        | COMPLIANT    | Not Applicable - No images of text are used for essential headings ...
+16  | Images of Text                      | 5.2.16   | 1.4.5    | AA  | COMPLIANT        | COMPLIANT    | compliance-audit/partially-compliant/16_ImagesOfText.txt, app/globals.css
 17  | Content Reflow                      | 5.2.17   | 1.4.10   | AA  | PARTIALLY COMPLIANT | COMPLIANT    | components/contact/table.jsx:L13, L199
 18  | Non-Text Contrast                   | 5.2.18   | 1.4.11   | AA  | PARTIALLY COMPLIANT | COMPLIANT    | components/contact/form.jsx:L243
 19  | Text Spacing                        | 5.2.19   | 1.4.12   | AA  | COMPLIANT        | COMPLIANT    | app/globals.css
