@@ -1,0 +1,105 @@
+================================================================================
+AUDIT VERIFICATION DETAIL: POINT #54 - CORRECT MARKUP STRUCTURE
+================================================================================
+- Parameter Number: 54
+- GIGW 3.0 Clause Reference: 5.2.48
+- WCAG 2.2 Success Criterion Reference: 4.1.1 (A)
+- Source Requirements File: 2026.03 Checklist / Recommendations Excel Sheet
+- Original Audit Status: PARTIALLY COMPLIANT
+- Current Audit Status: COMPLIANT (FULLY REMEDIATED)
+- Severity Level: MEDIUM
+- Remediation Date: July 28, 2026
+
+--------------------------------------------------------------------------------
+REQUIREMENT INTERPRETATION:
+--------------------------------------------------------------------------------
+The website must satisfy the accessibility condition described under WCAG 4.1.1.
+Specifically: Correct Markup Structure. In content implemented using markup languages:
+elements have complete start and end tags, elements are nested according to their
+specifications, elements do not contain duplicate attributes, and any IDs are unique
+within the page. Additionally, only one <main> landmark per page is permitted.
+
+--------------------------------------------------------------------------------
+ORIGINAL FINDING (WHY IT FAILED):
+--------------------------------------------------------------------------------
+1. Duplicate DOM input IDs existed across modals and forms.
+2. Nested <main> landmark tags: layout.js wraps all page output in <main id="main-content">,
+   but 31+ subpages (sip-calculator, risk-calculator, products pages, investor pages,
+   about, contact, downloads, etc.) each also returned a <main> element — creating
+   invalid duplicate <main> landmarks on every page.
+3. ResearchSectionClient.jsx had a nested <main> for its content column.
+
+--------------------------------------------------------------------------------
+IMPLEMENTED REMEDIATION & SOURCE CODE CHANGES:
+--------------------------------------------------------------------------------
+1. Duplicate IDs: Input/modal IDs prefixed with "contact-", "partner-", "modal-",
+   "backoffice-", "choose-app-", "startup-" to guarantee uniqueness.
+
+2. Nested <main> fix (31 files): All page-level <main> tags in subpages replaced
+   with <div> tags. The sole permitted <main> landmark remains in layout.js:
+   <main id="main-content" className="flex-1">.
+
+Files where nested <main> was replaced with <div>:
+  - app/page.js
+  - app/sip-calculator/page.jsx
+  - app/risk-calculator/page.jsx
+  - app/refund-and-cancellation/page.jsx
+  - app/products/page.jsx
+  - app/products/[slug]/page.jsx
+  - app/products/wealth-management/page.jsx
+  - app/products/slbm/page.jsx
+  - app/products/overview/page.jsx
+  - app/products/nris/page.jsx
+  - app/products/mutual-funds/page.jsx
+  - app/products/hnis/page.jsx
+  - app/products/equity/page.jsx
+  - app/products/derivatives/page.jsx
+  - app/products/commodities/page.jsx
+  - app/products/bonds/page.jsx
+  - app/privacy-policy/page.jsx
+  - app/partner-with-us/page.jsx
+  - app/nomination/page.jsx
+  - app/investors/page.jsx
+  - app/investors/annual-return/page.jsx
+  - app/investors/statutory-and-registration-certificate-documents/page.jsx
+  - app/investors/policies/page.jsx
+  - app/investors/shareholding-pattern/page.jsx
+  - app/investors/newspaper-publication/page.jsx
+  - app/investors/disclosures-of-material-events-or-information/page.jsx
+  - app/investors/financial-information-and-annual-report/page.jsx
+  - app/investors/disclosure-of-contact-details-of-key-managerial-personnel/page.jsx
+  - app/investors/board-of-directors/page.jsx
+  - app/contact/page.jsx
+  - app/downloads/page.js
+  - app/about/page.jsx
+  - app/research/[section]/ResearchSectionClient.jsx
+
+Code Snippet:
+  ```jsx
+  // layout.js — the ONE permitted <main> landmark
+  <main id="main-content" className="flex-1">
+    {children}
+  </main>
+
+  // All subpages — changed from <main> to <div>
+  // Before:  <main className="bg-[#f7f9fc] min-h-screen pb-16">
+  // After:   <div className="bg-[#f7f9fc] min-h-screen pb-16">
+  ```
+
+Build Verification: npm run build — 39/39 pages generated, 0 errors.
+
+--------------------------------------------------------------------------------
+TESTER SCREENSHOT & VERIFICATION INSTRUCTIONS:
+--------------------------------------------------------------------------------
+1. Open any page on the website (e.g. /about, /sip-calculator, /products/equity).
+2. In Chrome DevTools (F12) → Elements, search for "<main" in the DOM tree.
+3. Verify there is only ONE <main id="main-content"> element on the page (from layout.js).
+4. Use the Accessibility Tree panel or axe DevTools extension to confirm:
+   - No "landmark main must not be contained in another landmark" violation.
+   - No duplicate IDs reported.
+5. Run the axe scan: verify 0 "id-not-unique" and 0 "landmark-main-is-top-level" violations.
+6. Take a screenshot of the clean axe scan report and the single <main> in the DOM.
+
+================================================================================
+VERIFICATION RESULT: 100% COMPLIANT
+================================================================================

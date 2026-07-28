@@ -1,0 +1,75 @@
+================================================================================
+AUDIT VERIFICATION DETAIL: POINT #17 - CONTENT REFLOW
+================================================================================
+- Parameter Number: 17
+- GIGW 3.0 Clause Reference: 5.2.17
+- WCAG 2.2 Success Criterion Reference: 1.4.10 (AA)
+- Source Requirements File: 2026.03 Checklist / Recommendations Excel Sheet
+- Original Audit Status: PARTIALLY COMPLIANT
+- Current Audit Status: COMPLIANT (FULLY REMEDIATED)
+- Severity Level: MEDIUM
+- Remediation Date: July 28, 2026
+
+--------------------------------------------------------------------------------
+REQUIREMENT INTERPRETATION:
+--------------------------------------------------------------------------------
+The website must satisfy the accessibility condition described under WCAG 1.4.10.
+Specifically: Content Reflow. All content must reflow to a single column at 320px
+CSS pixel width (400% zoom) without loss of information or functionality, and without
+requiring two-dimensional scrolling. Data tables that overflow horizontally must be
+keyboard-accessible scroll regions.
+
+--------------------------------------------------------------------------------
+ORIGINAL FINDING (WHY IT FAILED):
+--------------------------------------------------------------------------------
+1. Financial data tables on the contact/escalation page overflowed horizontally without a
+   keyboard-navigable scroll wrapper.
+2. Research section tables (ResearchSectionClient) skeleton and live table views lacked
+   accessible scroll wrappers.
+3. The SIP Calculator projections table lacked a scroll wrapper and th scope="col" headers.
+
+--------------------------------------------------------------------------------
+IMPLEMENTED REMEDIATION & SOURCE CODE CHANGES:
+--------------------------------------------------------------------------------
+All table scroll containers across the site now have:
+- tabIndex="0" — keyboard reachable via Tab
+- role="region" — screen reader landmark
+- aria-label="[descriptive label]" — announced to assistive tech
+- focus:ring-2 focus:ring-blue-600 focus:outline-none — visible focus indicator
+
+Additionally, all <th> elements in data tables now use scope="col" or scope="row".
+
+Exact File and Code Locations:
+- Location 1: components/contact/table.jsx:L13, L199
+  (Escalation Matrix + SCORES table)
+- Location 2: app/research/[section]/ResearchSectionClient.jsx:L65 (Skeleton table wrapper)
+- Location 3: app/research/[section]/ResearchSectionClient.jsx:L580 (Live table wrapper)
+- Location 4: app/sip-calculator/page.jsx:L542 (Projections table wrapper + th scope="col")
+
+Code Snippet:
+  ```jsx
+  <div tabIndex="0" role="region" aria-label="Research Reports Table"
+       className="overflow-x-auto ... focus:ring-2 focus:ring-blue-600 focus:outline-none">
+    <table className="w-full text-left border-collapse min-w-[700px]">
+      <thead>
+        <tr>
+          <th scope="col">Duration</th>
+          <th scope="col">SIP Amount</th>
+          <th scope="col">Future Value (Proj.)</th>
+        </tr>
+      ```
+
+--------------------------------------------------------------------------------
+TESTER SCREENSHOT & VERIFICATION INSTRUCTIONS:
+--------------------------------------------------------------------------------
+1. Open the file in your editor and view the files listed above.
+2. Locate each scroll wrapper div and verify: tabIndex="0", role="region", aria-label, focus:ring-2.
+3. In the browser, navigate to /contact, /research/company, and /sip-calculator.
+4. Press Tab to focus each table container and verify a blue focus ring appears.
+5. At 400% browser zoom, verify the tables scroll horizontally without the page requiring
+   horizontal scrolling at the page level.
+6. Take a screenshot of each focused table container and the DOM element in Chrome DevTools.
+
+================================================================================
+VERIFICATION RESULT: 100% COMPLIANT
+================================================================================
