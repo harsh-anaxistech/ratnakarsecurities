@@ -15,7 +15,19 @@ import {
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
+import CustomSelect from "@/components/common/CustomSelect";
 import { submitContactForm } from "@/services/contact";
+
+const departmentOptions = [
+  { value: "Accounts", label: "Accounts" },
+  { value: "Trading", label: "Trading" },
+  { value: "Mutual Funds", label: "Mutual Funds" },
+  { value: "Demat", label: "Demat" },
+  { value: "New Account Opening", label: "New Account Opening" },
+  { value: "Technical", label: "Technical" },
+  { value: "Others", label: "Others" },
+  { value: "Research", label: "Research" },
+];
 
 /**
  * Contact Form Component
@@ -229,33 +241,17 @@ export default function ContactUsPage() {
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
                 <label htmlFor="contact-department" className="sr-only">Department Name</label>
-                <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <User className="w-5 h-5" aria-hidden="true" />
-                  </div>
-                  <select
-                    id="contact-department"
-                    name="department"
-                    value={formData.department}
-                    onChange={handleChange}
-                    aria-invalid={!!errors.department}
-                    aria-describedby={errors.department ? "contact-department-error" : undefined}
-                    className="w-full h-12 pl-12 pr-10 text-sm sm:text-[15px] text-slate-800 bg-slate-50/50 border border-slate-300 focus:border-[#00aeee] rounded-xl outline-none appearance-none cursor-pointer font-medium transition-colors"
-                  >
-                    <option value="" disabled>Department Name</option>
-                    <option value="Accounts">Accounts</option>
-                    <option value="Trading">Trading</option>
-                    <option value="Mutual Funds">Mutual Funds</option>
-                    <option value="Demat">Demat</option>
-                    <option value="New Account Opening">New Account Opening</option>
-                    <option value="Technical">Technical</option>
-                    <option value="Others">Others</option>
-                    <option value="Research">Research</option>
-                  </select>
-                  <div className="absolute right-4 pointer-events-none text-slate-400 z-10">
-                    <ChevronDown className="w-4 h-4" aria-hidden="true" />
-                  </div>
-                </div>
+                <CustomSelect
+                  id="contact-department"
+                  name="department"
+                  value={formData.department}
+                  onChange={handleChange}
+                  options={departmentOptions}
+                  placeholder="Department Name"
+                  icon={User}
+                  error={errors.department}
+                  ariaDescribedBy={errors.department ? "contact-department-error" : undefined}
+                />
                 {errors.department && (
                   <span id="contact-department-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
                     {errors.department}
