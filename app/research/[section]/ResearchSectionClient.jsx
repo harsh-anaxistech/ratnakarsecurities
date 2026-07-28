@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -303,7 +303,7 @@ export default function ResearchSectionClient({
                         setSearchTerm(e.target.value);
                         setCurrentPage(1);
                       }}
-                      className="w-full pl-10 pr-10 py-2 border border-border rounded-md text-sm placeholder:text-muted-foreground outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-[#00aeee] transition-all bg-muted/20"
+                      className="w-full pl-10 pr-10 py-2 border border-border rounded-md text-sm placeholder:text-muted-foreground outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-[#00aeee] transition-all bg-muted/20 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
                     />
                     {searchTerm && (
                       <button

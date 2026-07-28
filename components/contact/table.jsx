@@ -149,12 +149,12 @@ export default function ContactDetailsSections() {
               In absence of response/complaint not addressed to your
               satisfaction, you may lodge a complaint with SEBI at{" "}
               <a
-                href="https://scores.gov.in/scores/Welcome.html"
+                href="https://scores.sebi.gov.in/"
                 target="_blank"
                 rel="noreferrer"
                 className="text-secondary hover:underline "
               >
-                https://scores.gov.in/scores/Welcome.html
+                https://scores.sebi.gov.in/
               </a>{" "}
               or Exchange/Depository at
             </p>
@@ -186,7 +186,7 @@ export default function ContactDetailsSections() {
             </div>
             <p className="text-sm  text-muted-foreground ">
               Please quote your Service Ticket / Complaint Ref No. while raising
-              your complaint at SEBI SCORES / Exchange/ Depository portal
+              your complaint at SEBI SCORES / Exchange/ Depository portal.
             </p>
           </div>
         </div>

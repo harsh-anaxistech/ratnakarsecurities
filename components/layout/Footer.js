@@ -425,12 +425,12 @@ export default function Footer() {
                     </p>
 
                     <a
-                      href="https://scores.gov.in"
+                      href="https://scores.sebi.gov.in/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[#1a6eb5] underline hover:text-[#ea2830] transition-colors break-all font-medium"
                     >
-                      https://scores.gov.in
+                      https://scores.sebi.gov.in/
                     </a>
                   </div>
                 </li>
@@ -533,7 +533,7 @@ export default function Footer() {
                         <path d="m9 12 2 2 4-4" />
                       </svg>
 
-                      <span>Effective communication</span>
+                      <span>Transparency in grievance handling</span>
                     </li>
 
                     <li className="flex items-center gap-2">
@@ -553,7 +553,7 @@ export default function Footer() {
                         <path d="m9 12 2 2 4-4" />
                       </svg>
 
-                      <span>Speedy redressal of the grievances</span>
+                      <span>Speedy redressal of grievances</span>
                     </li>
                   </ul>
                 </li>
