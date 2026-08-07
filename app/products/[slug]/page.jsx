@@ -6,6 +6,18 @@ import HeroSection from "@/components/common/HeroSection";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import { PRODUCTS_DATA } from "../data";
+import { generatePageMetadata } from "@/constants/metadata";
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const product = PRODUCTS_DATA.find((p) => p.slug === slug);
+  if (!product) return {};
+  return generatePageMetadata({
+    title: `${product.title} | Ratnakar Securities`,
+    description: product.shortDescription || product.description1,
+    path: `/products/${slug}`,
+  });
+}
 
 export async function generateStaticParams() {
   return PRODUCTS_DATA.map((product) => ({

@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, CheckCircle2, ArrowRight } from "lucide-react";
@@ -6,6 +6,13 @@ import HeroSection from "@/components/common/HeroSection";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import { PRODUCTS_DATA } from "../data";
+import { generatePageMetadata } from "@/constants/metadata";
+
+export const metadata = generatePageMetadata({
+  title: "Products & Services Overview | Ratnakar Securities",
+  description: "Get a comprehensive overview of how Ratnakar Securities can help you manage and grow your wealth with advanced technology and research.",
+  path: "/products/overview",
+});
 
 export default function OverviewPage() {
   const content = {

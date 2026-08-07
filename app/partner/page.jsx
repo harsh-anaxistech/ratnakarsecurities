@@ -1,14 +1,5 @@
-"use client";
-
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 
 export default function PartnerRedirectPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace("/partner-with-us");
-  }, [router]);
-
-  return null;
+  redirect("/partner-with-us");
 }

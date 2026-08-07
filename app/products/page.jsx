@@ -1,9 +1,16 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import HeroSection from "@/components/common/HeroSection";
 import { PRODUCTS_DATA } from "./data";
+import { generatePageMetadata } from "@/constants/metadata";
+
+export const metadata = generatePageMetadata({
+  title: "Investment Products & Services | Ratnakar Securities",
+  description: "Explore our range of investment options including equities, derivatives, mutual funds, commodities, bonds, wealth management, and SLBM services.",
+  path: "/products",
+});
 
 export default function ProductsPage() {
   return (
