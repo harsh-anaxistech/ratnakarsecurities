@@ -1,8 +1,9 @@
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Investor Relations & Compliance | Ratnakar Securities",
-  description: "Access corporate policies, financial reports, disclosures, and investor relations documents for Ratnakar Securities Limited.",
+  title: "Investor Relations | Compliance, Disclosures & Corporate Policies | Ratnakar Securities",
+  description:
+    "Explore investor relations information, corporate governance, compliance documents, financial disclosures, policies, and regulatory updates from Ratnakar Securities.",
   path: "/investors",
 });
 

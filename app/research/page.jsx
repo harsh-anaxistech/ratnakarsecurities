@@ -2,11 +2,11 @@ import Link from "next/link";
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Research Reports & Market Insights | Ratnakar Securities",
-  description: "Stay ahead in the stock market with in-depth research reports, company updates, IPO reviews, and market insights from Ratnakar Securities.",
+  title: "Research Reports | Stock Market Insights & IPO Analysis | Ratnakar Securities",
+  description:
+    "Access expert stock market research reports, company analysis, IPO reviews, investment insights, and market updates from Ratnakar Securities to make informed investment decisions.",
   path: "/research",
 });
-
 export default function ResearchLanding() {
   return (
     <>
