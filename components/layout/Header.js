@@ -33,7 +33,6 @@ const NAV_LINKS = [
         { label: "NRIs", href: "/products/nris", icon: "nri", description: "NRI solutions for global Indians." },
         { label: "SLBM", href: "/products/slbm", icon: "slbm", description: "Earn more from your idle stocks." },
         { label: "Bonds", href: "/products/bonds", icon: "bonds", description: "Build a safer portfolio with bonds." },
-        { label: "Narnolia Investment Advisory Portfolios", href: "https://ratnakarsecurities.narnolia.in/", icon: "investment-advisory", description: "Investment advisory portfolios", external: true },
       ],
     ],
   },
@@ -76,7 +75,6 @@ const LOGIN_LINKS = [
   { label: "Ratnakar's Online Trading Mobile APP - TradeXpress", href: "#", isModal: true },
   { label: "Backoffice Login", href: "#", isButton: true },
   { label: "Mutual Fund Portfolio", href: "https://ratnakarsecurities.investwell.app/app/#/login", external: true },
-  { label: "Narnolia Investment Advisory Portfolio", href: "https://ratnakarsecurities.narnolia.in/", external: true },
 ];
 
 function DropdownLink({ link, children, className }) {
@@ -105,6 +103,7 @@ export default function Header() {
   const [backofficeModalOpen, setBackofficeModalOpen] = useState(false);
   const [floatingMobileModalOpen, setFloatingMobileModalOpen] = useState(false);
   const [chooseAppModalOpen, setChooseAppModalOpen] = useState(false);
+  const [desktopLoginOpen, setDesktopLoginOpen] = useState(false);
   const pathname = usePathname();
   const [prevPathname, setPrevPathname] = useState(pathname);
 
@@ -324,11 +323,11 @@ export default function Header() {
                 </a>
 
                 {/* Login dropdown */}
-                <div className="group relative">
-                  <Button className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-5 py-2 whitespace-nowrap">
-                    LOGIN <ChevronDown className="h-3.5 w-3.5 ml-1 group-hover:rotate-180 transition-transform duration-200 inline" />
+                <div className="relative" onMouseEnter={() => setDesktopLoginOpen(true)} onMouseLeave={() => setDesktopLoginOpen(false)}>
+                  <Button onClick={() => setDesktopLoginOpen((p) => !p)} className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-5 py-2 whitespace-nowrap">
+                    LOGIN <ChevronDown className={cn("h-3.5 w-3.5 ml-1 transition-transform duration-200 inline", desktopLoginOpen && "rotate-180")} />
                   </Button>
-                  <div className="absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-lg py-2 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
+                  <div className={cn("absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-lg py-2 transition-all duration-200 ease-out", desktopLoginOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1")}>
                     {LOGIN_LINKS.map((link) => {
                       if (link.isButton) {
                         return (
