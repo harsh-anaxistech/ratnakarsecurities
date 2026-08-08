@@ -1,8 +1,9 @@
 import { generatePageMetadata } from "@/constants/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Risk Profiling & Calculator | Ratnakar Securities",
-  description: "Assess your risk appetite and find the ideal investment profile with our Risk Profile Calculator. Plan your investments based on your capacity.",
+  title: "Risk Profile Calculator | Investment Risk Assessment | Ratnakar Securities",
+  description:
+    "Evaluate your investment risk tolerance with the Ratnakar Securities Risk Profile Calculator. Assess your risk appetite and choose investment strategies aligned with your financial goals.",
   path: "/risk-calculator",
 });
 
