@@ -51,6 +51,11 @@ const nextConfig = {
         destination: "/partner-with-us",
         permanent: true,
       },
+      {
+        source: "/static/investor-charter.aspx",
+        destination: "/static/investor-charter",
+        permanent: true,
+      },
     ];
   },
   compress: true,

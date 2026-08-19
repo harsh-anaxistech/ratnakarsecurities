@@ -25,8 +25,8 @@ const FOOTER_LINKS = {
     { label: "Milestone", href: "/about#journey" },
   ],
   "Useful Links": [
-    { label: "Broker Norms (NSE)", href: "https://www.ratnakarsecurities.com/files/brokernorms.pdf", target: "_blank" },
-    { label: "Broker Norms (BSE)", href: "https://www.ratnakarsecurities.com/files/brokernormsbse.pdf", target: "_blank" },
+    { label: "Broker Norms (NSE)", href: "https://api.ratnakarsecurities.com/uploads/Brokernorms.pdf", target: "_blank" },
+    { label: "Broker Norms (BSE)", href: "https://api.ratnakarsecurities.com/uploads/BrokernormsBSE.pdf", target: "_blank" },
     { label: "NSE", href: "https://www.nseindia.com/", target: "_blank" },
     { label: "BSE", href: "https://www.bseindia.com/", target: "_blank" },
     { label: "SEBI", href: "https://www.sebi.gov.in/", target: "_blank" },
@@ -37,8 +37,8 @@ const FOOTER_LINKS = {
 };
 
 const SOCIAL_LINKS = [
-  { icon: FaFacebookF, href: "https://bit.ly/3Qp6APj", label: "Facebook" },
-  { icon: FaXTwitter, href: "https://bit.ly/3ZYYotx", label: "Twitter" },
+  { icon: FaFacebookF, href: "https://www.facebook.com/ratnakarsecurities/", label: "Facebook" },
+  { icon: FaXTwitter, href: "https://twitter.com/RATNAKARGROUP", label: "Twitter" },
   { icon: FaInstagram, href: "https://instagram.com/ratnakar_securities_pvt_ltd?igshid=YmMyMTA2M2Y=", label: "Instagram" },
   { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/ratnakar-securities", label: "LinkedIn" },
 ];
@@ -55,19 +55,68 @@ const getTabContent = (onRiskDisclosureClick) => ({
     </ul>
   ),
   "INVESTOR CHARTER": (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm" style={{ color: "#9fc8e0" }}>
+    <div
+      className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm"
+      style={{ color: "#9fc8e0" }}
+    >
       {[
-        { label: "NSE", href: "https://www.nseindia.com/invest/investor-charter", target: "_blank" },
-        { label: "BSE", href: "https://www.bseindia.com/static/investors/investor_charter.aspx", target: "_blank" },
-        { label: "NSDL", href: "https://nsdl.co.in/publications/investor_charter.php", target: "_blank" },
-        { label: "Investor Charter of Depository Participant", href: "https://www.ratnakarsecurities.com/static/investor-charter.aspx" },
-        { label: "Investor Charter of Stock Broker", href: "https://www.ratnakarsecurities.com/files/Investor_Charter_Stock_Broker.pdf", target: "_blank" },
-        { label: "Bank Account List", href: "https://www.ratnakarsecurities.com/files/Bank-Account-List.pdf", target: "_blank" },
-        { label: "Risk Disclosure on Derivatives", href: "#", onClick: (e) => { e.preventDefault(); onRiskDisclosureClick(); } },
-        { label: "Details of Authorized Persons", href: "https://www.ratnakarsecurities.com/files/List-of-Authorised-Persons.pdf", target: "_blank" },
-        { label: "Procedures for opening an account", href: "https://www.ratnakarsecurities.com/files/Procedures-for-opening-an-account,filing-a-complaint.pdf", target: "_blank" },
-        { label: "Dealings between a Client and Stock Broker", href: "https://www.ratnakarsecurities.com/files/Requirements__relating_to_dealings_between_a_Client_and_Stock_Broker.pdf", target: "_blank" },
-        { label: "Attention Investors", href: "https://www.ratnakarsecurities.com/files/Attention-Investors.pdf", target: "_blank" },
+        {
+          label: "NSE",
+          href: "https://www.nseindia.com/invest/investor-charter",
+          target: "_blank",
+        },
+        {
+          label: "BSE",
+          href: "https://www.bseindia.com/static/investors/investor_charter.aspx",
+          target: "_blank",
+        },
+        {
+          label: "NSDL",
+          href: "https://nsdl.co.in/publications/investor_charter.php",
+          target: "_blank",
+        },
+        {
+          label: "Investor Charter of Depository Participant",
+          href: "/static/investor-charter",
+        },
+        {
+          label: "Investor Charter of Stock Broker",
+          href: "https://api.ratnakarsecurities.com/uploads/Investor_Charter_Stock_Broker.pdf",
+          target: "_blank",
+        },
+        {
+          label: "Bank Account List",
+          href: "https://api.ratnakarsecurities.com/uploads/Bank-Account-List.pdf",
+          target: "_blank",
+        },
+        {
+          label: "Risk Disclosure on Derivatives",
+          href: "#",
+          onClick: (e) => {
+            e.preventDefault();
+            onRiskDisclosureClick();
+          },
+        },
+        {
+          label: "Details of Authorized Persons",
+          href: "https://api.ratnakarsecurities.com/uploads/List-of-Authorised-Persons.pdf",
+          target: "_blank",
+        },
+        {
+          label: "Procedures for opening an account",
+          href: "https://api.ratnakarsecurities.com/uploads/Procedures-for-opening-an-account,filing-a-complaint.pdf",
+          target: "_blank",
+        },
+        {
+          label: "Dealings between a Client and Stock Broker",
+          href: "https://api.ratnakarsecurities.com/uploads/Requirements__relating_to_dealings_between_a_Client_and_Stock_Broker.pdf",
+          target: "_blank",
+        },
+        {
+          label: "Attention Investors",
+          href: "https://api.ratnakarsecurities.com/uploads/Attention-Investors.pdf",
+          target: "_blank",
+        },
       ].map((item, index, arr) => (
         <span key={item.label} className="flex items-center gap-3">
           <a
@@ -79,7 +128,10 @@ const getTabContent = (onRiskDisclosureClick) => ({
           >
             {item.label}
           </a>
-          {index < arr.length - 1 && <span className="opacity-40">|</span>}
+
+          {index < arr.length - 1 && (
+            <span className="opacity-40">|</span>
+          )}
         </span>
       ))}
     </div>
