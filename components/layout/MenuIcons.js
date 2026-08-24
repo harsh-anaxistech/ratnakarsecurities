@@ -34,6 +34,7 @@ const MenuIcons = {
     "newspaper-publication": getIcon("/images/icon/menu/newspaper publication 1.svg"),
     "annual-return": getIcon("/images/icon/menu/annual return 1.svg"),
     "material-events": getIcon("/images/icon/menu/discloser of material events 1.svg"),
+    "investor-grievance": getIcon("/images/icon/menu/policies 1.svg"),
 
     // ── About ──
     leadership: getIcon("/images/icon/menu/leadership 1.svg"),

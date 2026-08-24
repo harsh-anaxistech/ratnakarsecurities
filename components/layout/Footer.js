@@ -84,6 +84,10 @@ const getTabContent = (onRiskDisclosureClick) => ({
           href: "/investor-charter-stock-broker",
         },
         {
+          label: "Investor Grievance",
+          href: "/investor-grievance",
+        },
+        {
           label: "Bank Account List",
           href: "https://api.ratnakarsecurities.com/uploads/Bank-Account-List.pdf",
           target: "_blank",
@@ -351,50 +355,57 @@ export default function Footer() {
       {/* Regulatory & Bottom bar */}
       <div className="py-8 border-b border-[#00aeee]/15 text-sm sm:text-base text-[#9fc8e0]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-2">
-          <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-88</p>
+          <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-632-2021</p>
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
           <p>Investor Grievance ID: <a href="mailto:investorgrievance@ratnakarsecurities.com" className="hover:text-white transition-colors underline">investorgrievance@ratnakarsecurities.com</a></p>
-          <div className="flex flex-wrap items-center gap-2 mt-4 text-[13px] font-bold">
+          <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 mt-4 text-[14px] sm:text-[16px] leading-relaxed" style={{ color: "#9fc8e0" }}>
             <a
               href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#00aeee" }}
-              className="underline hover:opacity-80 transition-opacity"
+              className="underline hover:text-white transition-colors cursor-pointer"
             >
               Online Dispute Resolution Portal - SMART ODR
             </a>
 
-            <span className="text-gray-400">|</span>
+            <span className="opacity-40">|</span>
 
             <button
               onClick={() => setIsScoresModalOpen(true)}
-              style={{ color: "#00aeee" }}
-              className="underline cursor-pointer text-left hover:opacity-80 transition-opacity"
+              className="underline hover:text-white transition-colors cursor-pointer text-left"
             >
               To File A Complaint on SCORES - Click Here
             </button>
 
-            <span className="text-gray-400">|</span>
+            <span className="opacity-40">|</span>
 
             <Link
               href="/nomination"
-              style={{ color: "#00aeee" }}
-              className="underline hover:opacity-80 transition-opacity"
+              className="underline hover:text-white transition-colors cursor-pointer"
             >
               For Nomination, Please - Click Here
             </Link>
 
-            <span className="text-gray-400">|</span>
+            <span className="opacity-40">|</span>
 
             <a
               href="https://tradewebx1.ratnakarsecurities.com:9001/#/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#00aeee" }}
-              className="underline hover:opacity-80 transition-opacity"
+              className="underline hover:text-white transition-colors cursor-pointer"
             >
               To Close Account, Please - Click Here
+            </a>
+
+            <span className="opacity-40">|</span>
+
+            <a
+              href="https://investor.sebi.gov.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-white transition-colors cursor-pointer"
+            >
+              SEBI Investor Website
             </a>
           </div>
         </div>

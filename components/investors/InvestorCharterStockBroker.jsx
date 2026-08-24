@@ -2,20 +2,20 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { 
-  FileText, 
-  Download, 
-  Calendar, 
-  ShieldCheck, 
-  AlertCircle, 
-  ArrowLeft, 
-  RefreshCw, 
-  ExternalLink, 
-  ChevronDown, 
-  Building2, 
-  CheckCircle2, 
-  Clock, 
-  Scale, 
+import {
+  FileText,
+  Download,
+  Calendar,
+  ShieldCheck,
+  AlertCircle,
+  ArrowLeft,
+  RefreshCw,
+  ExternalLink,
+  ChevronDown,
+  Building2,
+  CheckCircle2,
+  Clock,
+  Scale,
   FileCheck2,
   Briefcase,
   Timer,
@@ -35,9 +35,9 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
     try {
       setLoading(true);
       setError(null);
-      
+
       const res = await getSebiComplaintsPublic(finyear);
-      
+
       if (res && res.success && res.data) {
         setData(res.data);
         setSelectedFinYear(res.data.selectedFinYear || finyear);
@@ -66,9 +66,9 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
   };
 
   // Extract primary consolidated PDF URL for the selected financial year
-  const activePdfUrl = 
-    data?.monthlyTrends?.find((t) => t.fileurl || t.FILEURL)?.fileurl || 
-    data?.monthlyTrends?.find((t) => t.fileurl || t.FILEURL)?.FILEURL || 
+  const activePdfUrl =
+    data?.monthlyTrends?.find((t) => t.fileurl || t.FILEURL)?.fileurl ||
+    data?.monthlyTrends?.find((t) => t.fileurl || t.FILEURL)?.FILEURL ||
     null;
 
   // Latest month data for Table 1 (Month-End status)
@@ -82,7 +82,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
   return (
     <div className="min-h-screen bg-[#f8fafc] text-gray-800 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
-        
+
         {/* Breadcrumb & Navigation Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-sm text-gray-500">
@@ -204,21 +204,19 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
           <div className="flex border-b border-gray-200 mt-8 gap-6 text-sm font-bold">
             <button
               onClick={() => setActiveTab("complaints")}
-              className={`pb-3 transition-colors relative cursor-pointer ${
-                activeTab === "complaints"
+              className={`pb-3 transition-colors relative cursor-pointer ${activeTab === "complaints"
                   ? "text-[#011628] border-b-2 border-[#ea2830]"
                   : "text-gray-500 hover:text-gray-800"
-              }`}
+                }`}
             >
               Complaints & Disposal Trends
             </button>
             <button
               onClick={() => setActiveTab("charter-details")}
-              className={`pb-3 transition-colors relative cursor-pointer ${
-                activeTab === "charter-details"
+              className={`pb-3 transition-colors relative cursor-pointer ${activeTab === "charter-details"
                   ? "text-[#011628] border-b-2 border-[#ea2830]"
                   : "text-gray-500 hover:text-gray-800"
-              }`}
+                }`}
             >
               Investor Charter Guidelines
             </button>
@@ -258,7 +256,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
         {/* Main Content Area */}
         {!loading && !error && activeTab === "complaints" && (
           <div className="space-y-10">
-            
+
             {/* Table 1: Data for the month ending (SEBI Mandated Source Breakdown) */}
             <section className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
               <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
@@ -567,7 +565,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
         {/* Tab 2: Investor Charter Informational Guidelines */}
         {activeTab === "charter-details" && (
           <div className="space-y-8">
-            
+
             {/* Vision & Mission */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
@@ -848,7 +846,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             <div>
               <h4 className="text-base font-bold text-white">Ratnakar Securities Limited</h4>
               <p className="text-xs text-[#9fc8e0] mt-0.5">
-                SEBI Registration No. of NSE &amp; BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-NSDL-66-88
+                SEBI Registration No. of NSE &amp; BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-632-2021
               </p>
             </div>
             <div className="flex flex-wrap gap-2 text-xs">

@@ -51,6 +51,7 @@ const NAV_LINKS = [
         { label: "Shareholding Pattern", href: "/investors/shareholding-pattern", icon: "shareholding-pattern", description: "Stock ownership distribution" },
         { label: "Newspaper Publication", href: "/investors/newspaper-publication", icon: "newspaper-publication", description: "News and announcements" },
         { label: "Material Events", href: "/investors/disclosures-of-material-events-or-information", icon: "material-events", description: "Important business updates" },
+        { label: "Investor Grievance", href: "/investor-grievance", icon: "investor-grievance", description: "Grievance redressal mechanism & escalation" },
       ],
     ],
   },
