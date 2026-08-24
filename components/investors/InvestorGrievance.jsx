@@ -459,21 +459,19 @@ export default function InvestorGrievance() {
               <div className="flex items-center p-1 bg-slate-200/70 rounded-xl shrink-0">
                 <button
                   onClick={() => setActiveGuideTab("grc")}
-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                    activeGuideTab === "grc"
-                      ? "bg-white text-[#011628] shadow-sm"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
+                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer ${activeGuideTab === "grc"
+                    ? "bg-white text-[#011628] shadow-sm"
+                    : "text-slate-600 hover:text-slate-900"
+                    }`}
                 >
                   1. Depository GRC Process
                 </button>
                 <button
                   onClick={() => setActiveGuideTab("arbitration")}
-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer ${
-                    activeGuideTab === "arbitration"
-                      ? "bg-white text-[#011628] shadow-sm"
-                      : "text-slate-600 hover:text-slate-900"
-                  }`}
+                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer ${activeGuideTab === "arbitration"
+                    ? "bg-white text-[#011628] shadow-sm"
+                    : "text-slate-600 hover:text-slate-900"
+                    }`}
                 >
                   2. Arbitration Proceedings
                 </button>
@@ -627,7 +625,7 @@ export default function InvestorGrievance() {
                 <div className="space-y-4 text-sm text-slate-600 font-medium">
                   <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
                     <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Investor Grievance Officer</p>
-                    <p className="font-bold text-slate-900 text-[15px] mt-0.5">Aditya Pancholi</p>
+                    <p className="font-bold text-slate-900 text-[15px] mt-0.5">Kushal Shah</p>
                     <p className="text-xs text-slate-500 font-semibold">Company Secretary & Compliance Officer</p>
                   </div>
 
@@ -690,11 +688,10 @@ export default function InvestorGrievance() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                    selectedCategory === cat
-                      ? "bg-[#011628] text-[#00aeee] shadow-xs"
-                      : "bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50 hover:text-slate-900"
-                  }`}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedCategory === cat
+                    ? "bg-[#011628] text-[#00aeee] shadow-xs"
+                    : "bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50 hover:text-slate-900"
+                    }`}
                 >
                   {cat}
                 </button>
