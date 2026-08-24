@@ -45,7 +45,7 @@ const SOCIAL_LINKS = [
 
 const getTabContent = (onRiskDisclosureClick) => ({
   "ATTENTION INVESTORS": (
-    <ul className="list-disc pl-5 space-y-2 text-sm" style={{ color: "#9fc8e0" }}>
+    <ul className="list-disc pl-5 space-y-2 text-[14px] sm:text-[16px] leading-relaxed" style={{ color: "#9fc8e0" }}>
       <li>Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system w.e.f. September 1, 2020.</li>
       <li>Update your mobile number & email Id with your stock broker/depository participant and receive OTP directly from depository on your email id and/or mobile number to create pledge.</li>
       <li>Pay 20% upfront margin of the transaction value to trade in cash market segment.</li>
@@ -56,7 +56,7 @@ const getTabContent = (onRiskDisclosureClick) => ({
   ),
   "INVESTOR CHARTER": (
     <div
-      className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm"
+      className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] leading-relaxed"
       style={{ color: "#9fc8e0" }}
     >
       {[
@@ -81,8 +81,7 @@ const getTabContent = (onRiskDisclosureClick) => ({
         },
         {
           label: "Investor Charter of Stock Broker",
-          href: "https://api.ratnakarsecurities.com/uploads/Investor_Charter_Stock_Broker.pdf",
-          target: "_blank",
+          href: "/investor-charter-stock-broker",
         },
         {
           label: "Bank Account List",
@@ -117,23 +116,40 @@ const getTabContent = (onRiskDisclosureClick) => ({
           href: "https://api.ratnakarsecurities.com/uploads/Attention-Investors.pdf",
           target: "_blank",
         },
-      ].map((item, index, arr) => (
-        <span key={item.label} className="flex items-center gap-3">
-          <a
-            href={item.href}
-            target={item.target}
-            rel={item.target ? "noopener noreferrer" : undefined}
-            onClick={item.onClick}
-            className="hover:text-white transition-colors cursor-pointer"
-          >
-            {item.label}
-          </a>
+        {
+          label: "Tariff Sheet for Demat Account",
+          href: "https://api.ratnakarsecurities.com/uploads/Tarrif.pdf",
+          target: "_blank",
+        },
+      ].map((item, index, arr) => {
+        const isInternal = item.href.startsWith("/") && !item.target;
+        return (
+          <span key={item.label} className="flex items-center gap-3">
+            {isInternal ? (
+              <Link
+                href={item.href}
+                className="hover:text-white transition-colors cursor-pointer"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                href={item.href}
+                target={item.target}
+                rel={item.target ? "noopener noreferrer" : undefined}
+                onClick={item.onClick}
+                className="hover:text-white transition-colors cursor-pointer"
+              >
+                {item.label}
+              </a>
+            )}
 
-          {index < arr.length - 1 && (
-            <span className="opacity-40">|</span>
-          )}
-        </span>
-      ))}
+            {index < arr.length - 1 && (
+              <span className="opacity-40">|</span>
+            )}
+          </span>
+        );
+      })}
     </div>
   ),
 });
@@ -316,7 +332,7 @@ export default function Footer() {
       {/* 2. INVESTOR NOTICES (TABS) SECTION */}
       <div className="py-8 border-b border-[#00aeee]/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-5 text-sm font-bold tracking-wide uppercase">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-5 text-[15px] sm:text-[17px] font-bold tracking-wide uppercase">
             {tabs.map((tab) => (
               <button
                 key={tab}
