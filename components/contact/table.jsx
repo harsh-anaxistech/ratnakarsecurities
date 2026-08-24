@@ -28,7 +28,7 @@ export default function ContactDetailsSections() {
                     Customer care
                   </td>
                   <td className="p-4 border-r border-border">
-                    Prerna Rajeshwari
+                    Rajeshwari
                   </td>
                   <td className="p-4 border-r border-border leading-relaxed">
                     304, Sankalp Square II,
@@ -350,7 +350,7 @@ export default function ContactDetailsSections() {
             </h2>
 
             <div className="text-sm text-white space-y-1.5 leading-relaxed">
-              <p className=" ">Harshil Pancholi</p>
+              <p className=" ">Aditya Pancholi</p>
               <p className="text-sm text-white ">
                 Company Secretary and Compliance Officer
               </p>
