@@ -639,10 +639,6 @@ export default function InvestorGrievance() {
                         <Phone className="w-3.5 h-3.5 text-[#ea2830] shrink-0" />
                         <span><strong>Phone:</strong> 079 4900 5200</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-[#ea2830] shrink-0" />
-                        <span><strong>Helpdesk:</strong> +91 79 4900 1100</span>
-                      </div>
                       <div className="flex items-center gap-2 sm:col-span-2">
                         <Mail className="w-3.5 h-3.5 text-[#ea2830] shrink-0" />
                         <span><strong>Grievance ID:</strong> <a href="mailto:investorgrievance@ratnakarsecurities.com" className="text-[#ea2830] hover:underline break-all">investorgrievance@ratnakarsecurities.com</a></span>
