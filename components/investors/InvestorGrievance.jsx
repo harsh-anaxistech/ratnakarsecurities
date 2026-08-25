@@ -626,7 +626,7 @@ export default function InvestorGrievance() {
                   <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
                     <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Investor Grievance Officer</p>
                     <p className="font-bold text-slate-900 text-[15px] mt-0.5">Kushal Shah</p>
-                    <p className="text-xs text-slate-500 font-semibold">Company Secretary & Compliance Officer</p>
+                    <p className="text-xs text-slate-500 font-semibold">Compliance Officer</p>
                   </div>
 
                   <div className="space-y-2 text-xs sm:text-sm">
