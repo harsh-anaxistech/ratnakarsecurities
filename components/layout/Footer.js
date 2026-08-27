@@ -328,6 +328,10 @@ export default function Footer() {
             <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               NSDL IDEAS Services
             </a>
+            <span>|</span>
+            <a href="https://api.ratnakarsecurities.com/uploads/Annexure-I_Advisory-for-KYC-updation-1.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              Advisory for KYC Updation
+            </a>
           </div>
 
         </div>
