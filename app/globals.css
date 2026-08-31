@@ -163,4 +163,23 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+/* =====================================================
+   Vertical Auto-Scrolling Marquee for Investor Notices
+   ===================================================== */
+@keyframes marqueeVertical {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-vertical {
+  animation: marqueeVertical 32s linear infinite;
+}
+
+.animate-marquee-vertical:hover {
+  animation-play-state: paused;
+}
 

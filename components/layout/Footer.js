@@ -43,127 +43,37 @@ const SOCIAL_LINKS = [
   { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/ratnakar-securities", label: "LinkedIn" },
 ];
 
-const getTabContent = (onRiskDisclosureClick) => ({
-  "ATTENTION INVESTORS": (
-    <ul className="list-disc pl-5 space-y-2 text-[14px] sm:text-[16px] leading-relaxed" style={{ color: "#9fc8e0" }}>
-      <li>Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system w.e.f. September 1, 2020.</li>
-      <li>Update your mobile number & email Id with your stock broker/depository participant and receive OTP directly from depository on your email id and/or mobile number to create pledge.</li>
-      <li>Pay 20% upfront margin of the transaction value to trade in cash market segment.</li>
-      <li>{"Investors may please refer to the Exchange's Frequently Asked Questions (FAQs) issued circular reference NSE/INSP/45191 dated July 31, 2020 and NSE/INSP/45534 dated August 31, 2020 and other circulars / guidelines issued from time to time in this regard."}</li>
-      <li>Check your Securities /MF/ Bonds in the consolidated account statement issued by NSDL/CDSL every month.</li>
-      <li className="font-semibold text-secondary pt-2">.......... Issued in the interest of Investors</li>
-    </ul>
-  ),
-  "INVESTOR CHARTER": (
-    <div
-      className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] leading-relaxed"
-      style={{ color: "#9fc8e0" }}
-    >
-      {[
-        {
-          label: "NSE",
-          href: "https://www.nseindia.com/invest/investor-charter",
-          target: "_blank",
-        },
-        {
-          label: "BSE",
-          href: "https://www.bseindia.com/static/investors/investor_charter.aspx",
-          target: "_blank",
-        },
-        {
-          label: "NSDL",
-          href: "https://nsdl.co.in/publications/investor_charter.php",
-          target: "_blank",
-        },
-        {
-          label: "Investor Charter of Depository Participant",
-          href: "/static/investor-charter",
-        },
-        {
-          label: "Investor Charter of Stock Broker",
-          href: "/investor-charter-stock-broker",
-        },
-        {
-          label: "Investor Grievance",
-          href: "/investor-grievance",
-        },
-        {
-          label: "Bank Account List",
-          href: "https://api.ratnakarsecurities.com/uploads/Bank-Account-List.pdf",
-          target: "_blank",
-        },
-        {
-          label: "Risk Disclosure on Derivatives",
-          href: "#",
-          onClick: (e) => {
-            e.preventDefault();
-            onRiskDisclosureClick();
-          },
-        },
-        {
-          label: "Details of Authorized Persons",
-          href: "https://api.ratnakarsecurities.com/uploads/List-of-Authorised-Persons.pdf",
-          target: "_blank",
-        },
-        {
-          label: "Procedures for opening an account",
-          href: "https://api.ratnakarsecurities.com/uploads/Procedures-for-opening-an-account,filing-a-complaint.pdf",
-          target: "_blank",
-        },
-        {
-          label: "Dealings between a Client and Stock Broker",
-          href: "https://api.ratnakarsecurities.com/uploads/Requirements__relating_to_dealings_between_a_Client_and_Stock_Broker.pdf",
-          target: "_blank",
-        },
-        {
-          label: "Attention Investors",
-          href: "https://api.ratnakarsecurities.com/uploads/Attention-Investors.pdf",
-          target: "_blank",
-        },
-        {
-          label: "Tariff Sheet for Demat Account",
-          href: "https://api.ratnakarsecurities.com/uploads/Tarrif.pdf",
-          target: "_blank",
-        },
-      ].map((item, index, arr) => {
-        const isInternal = item.href.startsWith("/") && !item.target;
-        return (
-          <span key={item.label} className="flex items-center gap-3">
-            {isInternal ? (
-              <Link
-                href={item.href}
-                className="hover:text-white transition-colors cursor-pointer"
-              >
-                {item.label}
-              </Link>
-            ) : (
-              <a
-                href={item.href}
-                target={item.target}
-                rel={item.target ? "noopener noreferrer" : undefined}
-                onClick={item.onClick}
-                className="hover:text-white transition-colors cursor-pointer"
-              >
-                {item.label}
-              </a>
-            )}
+const ATTENTION_INVESTOR_NOTICES = [
+  "Stock Brokers can accept securities as margin from clients only by way of pledge in the depository system w.e.f. September 1, 2020.",
+  "Update your mobile number & email Id with your stock broker/depository participant and receive OTP directly from depository on your email id and/or mobile number to create pledge.",
+  "Pay 20% upfront margin of the transaction value to trade in cash market segment.",
+  "Investors may please refer to the Exchange's Frequently Asked Questions (FAQs) issued circular reference NSE/INSP/45191 dated July 31, 2020 and NSE/INSP/45534 dated August 31, 2020 and other circulars / guidelines issued from time to time in this regard.",
+  "Check your Securities /MF/ Bonds in the consolidated account statement issued by NSDL/CDSL every month.",
+  "Prevent Unauthorized Transactions in your demat account --> Update your Mobile Number with your Depository Participant. Receive alerts on your Registered Mobile for all debit and other important transactions in your demat account directly from NSDL on the same day.................issued in the interest of investors.",
+  "No need to issue cheques by investors while subscribing to IPO. Just write the bank account number and sign in the application form to authorize your bank to make payment in case of allotment. No worries for refund as the money remains in investor's account",
+  "KYC is one time exercise while dealing in securities markets - once KYC is done through a SEBI registered intermediary (broker, DP, Mutual Fund etc.), you need not undergo the same process again when you approach another intermediary.",
+  ".......... Issued in the interest of Investors",
+];
 
-            {index < arr.length - 1 && (
-              <span className="opacity-40">|</span>
-            )}
-          </span>
-        );
-      })}
-    </div>
-  ),
-});
+const INVESTOR_CHARTER_LINKS = [
+  { label: "NSE", href: "https://www.nseindia.com/invest/investor-charter", target: "_blank" },
+  { label: "BSE", href: "https://www.bseindia.com/static/investors/investor_charter.aspx", target: "_blank" },
+  { label: "NSDL", href: "https://nsdl.co.in/publications/investor_charter.php", target: "_blank" },
+  { label: "Investor Charter of Depository Participant", href: "/static/investor-charter" },
+  { label: "Investor Charter of Stock Broker", href: "/investor-charter-stock-broker" },
+  { label: "Investor Grievance", href: "/investor-grievance" },
+  { label: "Bank Account List", href: "https://api.ratnakarsecurities.com/uploads/Bank-Account-List.pdf", target: "_blank" },
+  { label: "Risk Disclosure on Derivatives", href: "#", isRiskDisclosure: true },
+  { label: "Details of Authorized Persons", href: "https://api.ratnakarsecurities.com/uploads/List-of-Authorised-Persons.pdf", target: "_blank" },
+  { label: "Procedures for opening an account", href: "https://api.ratnakarsecurities.com/uploads/Procedures-for-opening-an-account,filing-a-complaint.pdf", target: "_blank" },
+  { label: "Dealings between a Client and Stock Broker", href: "https://api.ratnakarsecurities.com/uploads/Requirements__relating_to_dealings_between_a_Client_and_Stock_Broker.pdf", target: "_blank" },
+  { label: "Attention Investors", href: "https://api.ratnakarsecurities.com/uploads/Attention-Investors.pdf", target: "_blank" },
+  { label: "Tariff Sheet for Demat Account", href: "https://api.ratnakarsecurities.com/uploads/Tarrif.pdf", target: "_blank" },
+];
 
 export default function Footer() {
-  const [activeTab, setActiveTab] = useState("ATTENTION INVESTORS");
   const [isScoresModalOpen, setIsScoresModalOpen] = useState(false);
   const [isRiskDisclosureModalOpen, setIsRiskDisclosureModalOpen] = useState(false);
-  const tabContent = getTabContent(() => setIsRiskDisclosureModalOpen(true));
-  const tabs = Object.keys(tabContent);
 
   useEffect(() => {
     if (isScoresModalOpen || isRiskDisclosureModalOpen) {
@@ -337,22 +247,110 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* 2. INVESTOR NOTICES (TABS) SECTION */}
+      {/* 2. INVESTOR NOTICES & INVESTOR CHARTER SECTION */}
       <div className="py-8 border-b border-[#00aeee]/30">
-        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-5 text-[15px] sm:text-[17px] font-bold tracking-wide uppercase">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className="transition-colors hover:text-[#00aeee]"
-                style={{ color: activeTab === tab ? "#00aeee" : "#9fc8e0" }}
-              >
-                {tab}
-              </button>
-            ))}
+        <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-6">
+
+          {/* Section 1: ATTENTION INVESTORS with Vertical Auto-Scrolling */}
+          <div>
+            <h4 className="text-[15px] sm:text-[17px] font-bold tracking-wide uppercase mb-3" style={{ color: "#00aeee" }}>
+              ATTENTION INVESTORS
+            </h4>
+
+            {/* Vertical Auto-Scrolling Container without border/box */}
+            <div className="relative h-[150px] sm:h-[160px] overflow-hidden group">
+              {/* Gradient masks for smooth top & bottom edge fade matching footer background */}
+              <div
+                className="pointer-events-none absolute top-0 left-0 right-0 h-6 z-10"
+                style={{ background: "linear-gradient(to bottom, #011628, transparent)" }}
+                aria-hidden="true"
+              />
+              <div
+                className="pointer-events-none absolute bottom-0 left-0 right-0 h-6 z-10"
+                style={{ background: "linear-gradient(to top, #011628, transparent)" }}
+                aria-hidden="true"
+              />
+
+              {/* Scrolling Content Track */}
+              <div className="animate-marquee-vertical">
+                {/* 1st list */}
+                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2" style={{ color: "#9fc8e0" }}>
+                  {ATTENTION_INVESTOR_NOTICES.map((notice, idx) => (
+                    <li
+                      key={`notice-1-${idx}`}
+                      className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#00aeee] list-none -ml-5 pt-1" : ""}
+                    >
+                      {notice}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* 2nd duplicate list for continuous infinite loop */}
+                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2" style={{ color: "#9fc8e0" }}>
+                  {ATTENTION_INVESTOR_NOTICES.map((notice, idx) => (
+                    <li
+                      key={`notice-2-${idx}`}
+                      className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#00aeee] list-none -ml-5 pt-1" : ""}
+                    >
+                      {notice}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-          <div>{tabContent[activeTab]}</div>
+
+          {/* Section 2: INVESTOR CHARTER (One below another) */}
+          <div className="pt-2">
+            <h4 className="text-[15px] sm:text-[17px] font-bold tracking-wide uppercase mb-3" style={{ color: "#00aeee" }}>
+              INVESTOR CHARTER
+            </h4>
+            <div
+              className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] leading-relaxed"
+              style={{ color: "#9fc8e0" }}
+            >
+              {INVESTOR_CHARTER_LINKS.map((item, index, arr) => {
+                const isInternal = item.href.startsWith("/") && !item.target;
+                return (
+                  <span key={item.label} className="flex items-center gap-3">
+                    {item.isRiskDisclosure ? (
+                      <a
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsRiskDisclosureModalOpen(true);
+                        }}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
+                        {item.label}
+                      </a>
+                    ) : isInternal ? (
+                      <Link
+                        href={item.href}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        target={item.target}
+                        rel={item.target ? "noopener noreferrer" : undefined}
+                        className="hover:text-white transition-colors cursor-pointer"
+                      >
+                        {item.label}
+                      </a>
+                    )}
+
+                    {index < arr.length - 1 && (
+                      <span className="opacity-40">|</span>
+                    )}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -393,7 +391,7 @@ export default function Footer() {
             <span className="opacity-40">|</span>
 
             <a
-              href="https://tradewebx1.ratnakarsecurities.com:9001/#/"
+              href="https://twx.ratnakarsecurities.com:4433/twx/signin"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-white transition-colors cursor-pointer"
