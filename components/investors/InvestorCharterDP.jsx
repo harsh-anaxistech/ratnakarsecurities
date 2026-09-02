@@ -11,7 +11,6 @@ import {
   ArrowLeft,
   RefreshCw,
   ExternalLink,
-  ChevronDown,
   Building2,
   CheckCircle2,
   Clock,
@@ -1243,7 +1242,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       ))}
 
                       <div className="p-3 sm:p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                        The complaints/ grievances lodged directly with the Depository shall be resolved within <strong className="text-[#011628]">21 days</strong>.
+                        The arbitration process to be concluded by arbitrator(s) within <strong className="text-[#011628]">30 days</strong>, which is extendable by <strong className="text-[#011628]">30 days</strong>.
                       </div>
                     </div>
                   </div>
@@ -1662,85 +1661,36 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
       </DpModal>
 
 
-      {/* 10. Grievance Redressal Mechanism Modal (Diagram & Flowchart matching Image 2) */}
+      {/* 10. Grievance Redressal Mechanism Modal (Illustration Image) */}
       <DpModal
         isOpen={activeModal === "GRIEVANCE_FLOW"}
         onClose={() => setActiveModal(null)}
         title="Illustration of New Grievance Redressal System"
         subtitle="Para 5(2) of Investor Charter"
+        maxWidth="max-w-[840px]"
       >
-        <div className="space-y-5">
-          <p className="text-xs sm:text-sm text-gray-500 border-b border-gray-100 pb-3">
-            Structured process flow diagram and time limits for resolution through SEBI SCORES and SMART ODR
-          </p>
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
+            <p className="text-xs sm:text-sm text-gray-500">
+              Structured process flow diagram and time limits for resolution through SEBI SCORES and SMART ODR
+            </p>
+            <a
+              href="/images/para5.2ofInvestorchart.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1a6eb5] hover:underline shrink-0"
+            >
+              <span>Open Full Image</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
 
-          {/* Grievance Flowchart Diagram */}
-          <div className="space-y-4 max-w-3xl mx-auto py-2">
-            {/* Level 1 */}
-            <div className="bg-[#011628] text-white p-4 sm:p-5 rounded-2xl text-center shadow-md space-y-1">
-              <span className="text-[11px] font-bold uppercase tracking-widest text-[#00aeee]">Level 1</span>
-              <h4 className="text-base font-bold">Client Grievance initiated directly with Market Participant (DP)</h4>
-              <p className="text-xs text-slate-300">Time limit: DP endeavours to resolve within 21 calendar days</p>
-            </div>
-
-            <div className="flex justify-center">
-              <ChevronDown className="w-6 h-6 text-gray-400" />
-            </div>
-
-            {/* Level 2 */}
-            <div className="bg-[#1a6eb5] text-white p-4 sm:p-5 rounded-2xl text-center shadow-md space-y-1">
-              <span className="text-[11px] font-bold uppercase tracking-widest text-sky-200">Level 2</span>
-              <h4 className="text-base font-bold">Escalate through SEBI SCORES 2.0 Portal</h4>
-              <p className="text-xs text-blue-100">
-                Two-level review: First review by Designated Body (NSDL), Second review by SEBI
-              </p>
-            </div>
-
-            <div className="flex justify-center">
-              <ChevronDown className="w-6 h-6 text-gray-400" />
-            </div>
-
-            {/* Level 3: SMART ODR Portal */}
-            <div className="bg-[#ea2830] text-white p-5 rounded-2xl shadow-md space-y-3">
-              <div className="text-center space-y-1">
-                <span className="text-[11px] font-bold uppercase tracking-widest text-red-200">Level 3</span>
-                <h4 className="text-lg font-bold">SMART ODR Portal (Online Conciliation &amp; Arbitration)</h4>
-                <p className="text-xs text-red-100">
-                  If investor is not satisfied with response on SCORES or from DP, initiate dispute on SMART ODR
-                </p>
-              </div>
-
-              {/* Stages of ODR */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 text-slate-900 text-xs">
-                <div className="bg-white p-3.5 rounded-xl space-y-1">
-                  <strong className="text-[#011628] block">Stage 1: Review Process</strong>
-                  <p className="text-gray-600">MII reviews matter to resolve between DP and investor.</p>
-                  <span className="inline-block bg-blue-100 text-[#011628] font-bold px-2 py-0.5 rounded text-[10px]">Time limit: 21 days</span>
-                </div>
-
-                <div className="bg-white p-3.5 rounded-xl space-y-1">
-                  <strong className="text-[#011628] block">Stage 2: Conciliation</strong>
-                  <p className="text-gray-600">Conciliator endeavours for amicable settlement.</p>
-                  <span className="inline-block bg-blue-100 text-[#011628] font-bold px-2 py-0.5 rounded text-[10px]">21 days (ext. by 10 days)</span>
-                </div>
-
-                <div className="bg-white p-3.5 rounded-xl space-y-1">
-                  <strong className="text-[#011628] block">Stage 3: Arbitration</strong>
-                  <p className="text-gray-600">Arbitrator(s) conclude arbitral proceedings and award.</p>
-                  <span className="inline-block bg-blue-100 text-[#011628] font-bold px-2 py-0.5 rounded text-[10px]">30 days (ext. by 30 days)</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex justify-center">
-              <ChevronDown className="w-6 h-6 text-gray-400" />
-            </div>
-
-            {/* Courts */}
-            <div className="bg-gray-100 border border-gray-300 text-gray-800 p-3.5 rounded-2xl text-center space-y-0.5">
-              <h5 className="font-bold text-sm">Courts of Law</h5>
-              <p className="text-xs text-gray-600">If investor is not satisfied with the arbitration award, they may approach Court.</p>
-            </div>
+          <div className="flex justify-center bg-slate-50/60 p-2 sm:p-4 rounded-2xl border border-slate-200/80 shadow-2xs overflow-hidden">
+            <img
+              src="/images/para5.2ofInvestorchart.png"
+              alt="Para 5(2) of Investor Charter - Illustration of New Grievance Redressal System"
+              className="max-w-full h-auto object-contain rounded-xl border border-slate-200 shadow-xs"
+            />
           </div>
         </div>
       </DpModal>
