@@ -182,23 +182,23 @@ export default function ContactUsPage() {
           }}
         >
           <div>
-            <span className="text-secondary font-bold text-xs uppercase tracking-widest block mb-2">
+            <span className="text-cyan-300 font-bold text-xs uppercase tracking-widest block mb-2">
               Customer Support
             </span>
             <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-4 leading-tight">
               Reach Out to Ratnakar
             </h1>
-            <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-8">
+            <p className="text-slate-100 text-sm sm:text-base leading-relaxed mb-8">
               Have questions about trading accounts, mutual funds, or depository services? Fill out the form, and our specialized relationship team will get back to you promptly.
             </p>
 
-            <div className="space-y-6 pt-4 border-t border-white/10">
+            <div className="space-y-6 pt-4 border-t border-white/20">
               <div className="flex items-start gap-4">
-                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 text-white shrink-0" aria-hidden="true">
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/15 text-white shrink-0" aria-hidden="true">
                   <Phone className="w-5 h-5" />
                 </span>
                 <div>
-                  <h3 className="text-xs font-semibold text-white/60 uppercase tracking-wider">Phone Support</h3>
+                  <h3 className="text-xs font-bold text-cyan-200 uppercase tracking-wider">Phone Support</h3>
                   <a href="tel:+917949007900" className="text-white hover:text-cyan-300 font-bold text-base transition-colors">
                     +91 (079) 4900 7900
                   </a>
@@ -206,11 +206,11 @@ export default function ContactUsPage() {
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 text-white shrink-0" aria-hidden="true">
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/15 text-white shrink-0" aria-hidden="true">
                   <Mail className="w-5 h-5" />
                 </span>
                 <div>
-                  <h3 className="text-xs font-semibold text-white/60 uppercase tracking-wider">Email Us</h3>
+                  <h3 className="text-xs font-bold text-cyan-200 uppercase tracking-wider">Email Us</h3>
                   <a href="mailto:info@ratnakarsecurities.com" className="text-white hover:text-cyan-300 font-bold text-base transition-colors break-all">
                     info@ratnakarsecurities.com
                   </a>
@@ -226,8 +226,8 @@ export default function ContactUsPage() {
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
               Send Us a Message
             </h2>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1">
-              Fields marked with <span className="text-red-500 font-bold" aria-hidden="true">*</span> are required.
+            <p className="text-slate-700 text-xs sm:text-sm mt-1">
+              Fields marked with <span className="text-red-600 font-bold" aria-hidden="true">*</span> are required.
             </p>
           </div>
 
@@ -251,8 +251,8 @@ export default function ContactUsPage() {
 
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-department" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  Select Department <span className="text-red-500" aria-hidden="true">*</span>
+                <label htmlFor="contact-department" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                  Select Department <span className="text-red-600" aria-hidden="true">*</span>
                 </label>
                 <CustomSelect
                   id="contact-department"
@@ -274,11 +274,11 @@ export default function ContactUsPage() {
 
               {/* Name Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-name" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  Full Name <span className="text-red-500" aria-hidden="true">*</span>
+                <label htmlFor="contact-name" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                  Full Name <span className="text-red-600" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+                  <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
                     <User className="w-5 h-5" />
                   </div>
                   <Input
@@ -292,7 +292,7 @@ export default function ContactUsPage() {
                     aria-required="true"
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "contact-name-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                   />
                 </div>
                 {errors.name && (
@@ -307,11 +307,11 @@ export default function ContactUsPage() {
 
               {/* Email Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-email" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  Email Address <span className="text-red-500" aria-hidden="true">*</span>
+                <label htmlFor="contact-email" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                  Email Address <span className="text-red-600" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+                  <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
                     <Mail className="w-5 h-5" />
                   </div>
                   <Input
@@ -325,7 +325,7 @@ export default function ContactUsPage() {
                     aria-required="true"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "contact-email-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                   />
                 </div>
                 {errors.email && (
@@ -337,11 +337,11 @@ export default function ContactUsPage() {
 
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-phno" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                  Mobile Number <span className="text-red-500" aria-hidden="true">*</span>
+                <label htmlFor="contact-phno" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                  Mobile Number <span className="text-red-600" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+                  <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
                     <Phone className="w-5 h-5" />
                   </div>
                   <Input
@@ -355,7 +355,7 @@ export default function ContactUsPage() {
                     aria-required="true"
                     aria-invalid={!!errors.phno}
                     aria-describedby={errors.phno ? "contact-phno-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                   />
                 </div>
                 {errors.phno && (
@@ -368,11 +368,11 @@ export default function ContactUsPage() {
 
             {/* Subject Input */}
             <div className="flex flex-col gap-1">
-              <label htmlFor="contact-subject" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Subject <span className="text-red-500" aria-hidden="true">*</span>
+              <label htmlFor="contact-subject" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                Subject <span className="text-red-600" aria-hidden="true">*</span>
               </label>
               <div className="relative flex items-center">
-                <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+                <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
                   <Info className="w-5 h-5" />
                 </div>
                 <Input
@@ -385,7 +385,7 @@ export default function ContactUsPage() {
                   aria-required="true"
                   aria-invalid={!!errors.subject}
                   aria-describedby={errors.subject ? "contact-subject-error" : undefined}
-                  className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                 />
               </div>
               {errors.subject && (
@@ -397,11 +397,11 @@ export default function ContactUsPage() {
 
             {/* Details Textarea */}
             <div className="flex flex-col gap-1">
-              <label htmlFor="contact-details" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                Details & Specific Questions <span className="text-red-500" aria-hidden="true">*</span>
+              <label htmlFor="contact-details" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                Details & Specific Questions <span className="text-red-600" aria-hidden="true">*</span>
               </label>
               <div className="relative flex items-start">
-                <div className="absolute left-4 top-3.5 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+                <div className="absolute left-4 top-3.5 text-slate-600 pointer-events-none z-10" aria-hidden="true">
                   <FileText className="w-5 h-5" />
                 </div>
                 <textarea
@@ -414,7 +414,7 @@ export default function ContactUsPage() {
                   aria-required="true"
                   aria-invalid={!!errors.details}
                   aria-describedby={errors.details ? "contact-details-error" : undefined}
-                  className="w-full pl-12 pr-4 py-3 text-[15px] text-slate-800 bg-slate-50/70 border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl outline-none resize-none font-medium placeholder:text-slate-400 transition-colors"
+                  className="w-full pl-12 pr-4 py-3 text-[15px] text-slate-800 bg-slate-50/70 border border-[#767676] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40 rounded-xl outline-none resize-none font-medium placeholder:text-slate-600 transition-colors"
                 />
               </div>
               {errors.details && (

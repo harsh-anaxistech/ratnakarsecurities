@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import HeroSection from "@/components/common/HeroSection";
@@ -138,16 +138,17 @@ export default function RiskCalculatorPage() {
   const handleCalculate = (e) => {
     e.preventDefault();
     
-    // Check if all questions are answered
-    if (
-      answers.q1 === null ||
-      answers.q2 === null ||
-      answers.q3 === null ||
-      answers.q4 === null ||
-      answers.q5 === null ||
-      answers.q6 === null
-    ) {
-      setValidationError("Please answer all 6 questions to calculate your risk profile.");
+    // Check if all questions are answered with specific question guidance (WCAG 3.3.3)
+    const missingQuestions = [];
+    if (answers.q1 === null) missingQuestions.push("Question 1");
+    if (answers.q2 === null) missingQuestions.push("Question 2");
+    if (answers.q3 === null) missingQuestions.push("Question 3");
+    if (answers.q4 === null) missingQuestions.push("Question 4");
+    if (answers.q5 === null) missingQuestions.push("Question 5");
+    if (answers.q6 === null) missingQuestions.push("Question 6");
+
+    if (missingQuestions.length > 0) {
+      setValidationError(`Please answer all questions to calculate your risk profile. Unanswered: ${missingQuestions.join(", ")}.`);
       return;
     }
 

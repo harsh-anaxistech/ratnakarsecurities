@@ -319,3 +319,35 @@ input[type="search"]::-webkit-search-results-decoration {
 .animate-marquee-vertical:focus-within {
   animation-play-state: paused;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-vertical {
+    animation: none !important;
+  }
+}
+
+/* =====================================================
+   WCAG 2.4.1 / GIGW 5.2.27 - Bypass Blocks (Skip Link)
+   ===================================================== */
+.skip-link {
+  position: fixed;
+  top: -120px;
+  left: 1rem;
+  z-index: 999999;
+  background-color: #004b87;
+  color: #ffffff;
+  padding: 0.875rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  outline: 3px solid #facc15;
+  outline-offset: 2px;
+  transition: top 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1rem !important;
+}

@@ -78,7 +78,7 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
             ref={modalRef}
             role="dialog"
             aria-modal="true"
-            aria-labelledby="choose-app-modal-title"
+            aria-labelledby="floating-choose-app-modal-title"
             className="bg-white rounded-3xl p-8 max-w-lg w-full relative shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
@@ -91,7 +91,7 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
               <X size={24} strokeWidth={3} aria-hidden="true" />
             </button>
 
-            <h2 id="choose-app-modal-title" className="text-2xl font-bold text-center text-slate-900 mb-8">Choose Your App</h2>
+            <h2 id="floating-choose-app-modal-title" className="text-2xl font-bold text-center text-slate-900 mb-8">Choose Your App</h2>
 
             <div className="flex flex-col sm:flex-row justify-center gap-8">
               {/* Option 1: Wealth Management */}

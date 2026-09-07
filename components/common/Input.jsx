@@ -15,7 +15,7 @@ export const Input = React.forwardRef(({ className, type = "text", error, ...pro
     <input
       type={type}
       className={cn(
-        "w-full h-11 px-3.5 text-sm text-gray-800 bg-white border border-[#767676] rounded-lg shadow-none font-medium placeholder-gray-500 transition-colors",
+        "w-full h-11 px-3.5 text-sm text-gray-900 bg-white border border-[#767676] rounded-lg shadow-none font-medium placeholder:text-gray-600 transition-colors",
         "focus-visible:outline-2 focus-visible:outline-[#004b87] focus-visible:outline-offset-2",
         "focus:border-[#004b87]",
         error && "border-[#dc2626] focus:border-[#dc2626]",

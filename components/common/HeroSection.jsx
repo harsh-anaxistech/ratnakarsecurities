@@ -26,6 +26,8 @@ export default function HeroSection({
         ) : (
           <Image src={image} alt={`${title} Banner`} fill priority className="object-cover" />
         )}
+        {/* Dark overlay scrim to guarantee WCAG 1.4.3 text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#011628]/90 via-[#011628]/60 to-[#011628]/35" aria-hidden="true" />
       </div>
 
       <Container className="relative z-20 mt-auto pb-12">

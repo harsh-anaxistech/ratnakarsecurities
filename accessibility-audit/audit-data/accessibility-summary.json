@@ -1,0 +1,16 @@
+{
+  "totalCriteria": 58,
+  "compliant": 49,
+  "nonCompliant": 0,
+  "notApplicable": 7,
+  "requiresManualVerification": 2,
+  "totalRoutes": 40,
+  "totalComponents": 21,
+  "totalIssuesFound": 14,
+  "totalIssuesFixed": 14,
+  "criticalIssuesRemaining": 0,
+  "highIssuesRemaining": 0,
+  "mediumIssuesRemaining": 0,
+  "lowIssuesRemaining": 0,
+  "auditDate": "7 September 2026"
+}

@@ -147,7 +147,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
             onClick={onClose}
             className="absolute right-2.5 top-2.5 z-20 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full transition-all duration-200"
             style={{ background: "rgba(255,255,255,0.15)", color: "#fff" }}
-            aria-label="Close"
+            aria-label="Close backoffice login dialog"
           >
             <X size={16} strokeWidth={2.5} />
           </button>

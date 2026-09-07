@@ -1,0 +1,582 @@
+[
+  {
+    "id": 1,
+    "title": "Non-Text Content Alternatives",
+    "standard": "GIGW 5.2.1 — WCAG 1.1.1 — IS 17802 9.1.1.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "All meaningful images have descriptive alt text; decorative images use alt=''; AccessibleCaptcha provides audio equivalent.",
+    "recommendation": "Maintain alt text quality during content updates.",
+    "impact": "High"
+  },
+  {
+    "id": 2,
+    "title": "Alternatives for Pre-Recorded Media",
+    "standard": "GIGW 5.2.2 — WCAG 1.2.1 — IS 17802 9.1.2.1",
+    "level": "A",
+    "status": "Not Applicable",
+    "remark": "No pre-recorded standalone audio/video media files exist in the core application.",
+    "recommendation": "Provide transcripts if podcasts/audio files are added in the future.",
+    "impact": "Low"
+  },
+  {
+    "id": 3,
+    "title": "Captions for Pre-Recorded Media",
+    "standard": "GIGW 5.2.3 — WCAG 1.2.2 — IS 17802 9.1.2.2",
+    "level": "A",
+    "status": "Not Applicable",
+    "remark": "No pre-recorded video media exists in the application.",
+    "recommendation": "Add closed captions (.vtt) if instructional videos are uploaded.",
+    "impact": "Low"
+  },
+  {
+    "id": 4,
+    "title": "Audio Description for Pre-Recorded Video",
+    "standard": "GIGW 5.2.4 — WCAG 1.2.3 — IS 17802 9.1.2.3",
+    "level": "A",
+    "status": "Not Applicable",
+    "remark": "No pre-recorded video files exist.",
+    "recommendation": "Provide secondary audio track or descriptive transcript for video content.",
+    "impact": "Low"
+  },
+  {
+    "id": 5,
+    "title": "Live Media Captions",
+    "standard": "GIGW 5.2.5 — WCAG 1.2.4 — IS 17802 9.1.2.4",
+    "level": "AA",
+    "status": "Not Applicable",
+    "remark": "No live streaming media broadcasts exist in the application.",
+    "recommendation": "Ensure real-time captioning support if live webinars are hosted.",
+    "impact": "Low"
+  },
+  {
+    "id": 6,
+    "title": "Audio Description (Extended)",
+    "standard": "GIGW 5.2.6 — WCAG 1.2.5 — IS 17802 9.1.2.5",
+    "level": "AA",
+    "status": "Not Applicable",
+    "remark": "No pre-recorded video content requiring extended descriptions.",
+    "recommendation": "Ensure rich audio descriptions if multimedia video library is introduced.",
+    "impact": "Low"
+  },
+  {
+    "id": 7,
+    "title": "Information and Structure",
+    "standard": "GIGW 5.2.7 — WCAG 1.3.1 — IS 17802 9.1.3.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Semantic HTML5 tags (<header>, <nav>, <main>, <footer>, <section>, <table>, <th scope='col'>) used across all 42 routes.",
+    "recommendation": "Continue using native semantic elements over generic div blocks.",
+    "impact": "Critical"
+  },
+  {
+    "id": 8,
+    "title": "Meaningful Reading Sequence",
+    "standard": "GIGW 5.2.8 — WCAG 1.3.2 — IS 17802 9.1.3.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "DOM order matches visual flow; flex and grid layouts maintain linear document structure.",
+    "recommendation": "Avoid CSS order manipulation that breaks logical tab sequence.",
+    "impact": "High"
+  },
+  {
+    "id": 9,
+    "title": "Non-Sensory Instructions",
+    "standard": "GIGW 5.2.9 — WCAG 1.3.3 — IS 17802 9.1.3.3",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Instructions avoid purely shape, position, or sensory cues (e.g., text labels accompany all directional cues).",
+    "recommendation": "Avoid using 'click the green button on the right' in copywriting.",
+    "impact": "Medium"
+  },
+  {
+    "id": 10,
+    "title": "Orientation Flexibility",
+    "standard": "GIGW 5.2.10 — WCAG 1.3.4 — IS 17802 9.1.3.4",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Application does not lock screen orientation; renders fluidly in portrait and landscape.",
+    "recommendation": "Preserve responsive flexbox/grid containers.",
+    "impact": "Medium"
+  },
+  {
+    "id": 11,
+    "title": "Input Purpose Identification",
+    "standard": "GIGW 5.2.11 — WCAG 1.3.5 — IS 17802 9.1.3.5",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Autocomplete attributes (name, email, tel, address-level2, postal-code) implemented across Contact and Partner forms.",
+    "recommendation": "Maintain autocomplete standards on any new customer onboarding forms.",
+    "impact": "High"
+  },
+  {
+    "id": 12,
+    "title": "Use of Colour",
+    "standard": "GIGW 5.2.12 — WCAG 1.4.1 — IS 17802 9.1.4.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Color is never used as the sole visual means of conveying information; icons and text labels accompany error states.",
+    "recommendation": "Ensure charts and data tables include pattern or direct text labels.",
+    "impact": "High"
+  },
+  {
+    "id": 13,
+    "title": "Audio Control",
+    "standard": "GIGW 5.2.13 — WCAG 1.4.2 — IS 17802 9.1.4.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "No audio autoplays; audio captcha only plays upon explicit user button click.",
+    "recommendation": "Never enable autoplay on audio or video elements.",
+    "impact": "Medium"
+  },
+  {
+    "id": 14,
+    "title": "Text Contrast",
+    "standard": "GIGW 5.2.14 — WCAG 1.4.3 — IS 17802 9.1.4.3",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "All body text meets >= 4.5:1 and large text meets >= 3:1 against background colors; high-contrast toggle provides extra enhancement.",
+    "recommendation": "Audit all future marketing banner colors before release.",
+    "impact": "Critical"
+  },
+  {
+    "id": 15,
+    "title": "Text Resize",
+    "standard": "GIGW 5.2.15 — WCAG 1.4.4 — IS 17802 9.1.4.4",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Layout supports 200% text zoom and includes dedicated toolbar A- / A / A+ font scale adjuster.",
+    "recommendation": "Avoid fixed pixel heights on text containers.",
+    "impact": "High"
+  },
+  {
+    "id": 16,
+    "title": "Images of Text",
+    "standard": "GIGW 5.2.16 — WCAG 1.4.5 — IS 17802 9.1.4.5",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "All headings and textual content use live typography; images of text avoided except brand logo.",
+    "recommendation": "Ensure infographics provide HTML table/text alternatives.",
+    "impact": "Medium"
+  },
+  {
+    "id": 17,
+    "title": "Content Reflow",
+    "standard": "GIGW 5.2.17 — WCAG 1.4.10 — IS 17802 9.1.4.10",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Reflows seamlessly down to 320 CSS px width without horizontal scrolling or clipped content.",
+    "recommendation": "Keep testing mobile viewports during layout changes.",
+    "impact": "High"
+  },
+  {
+    "id": 18,
+    "title": "Non-Text Contrast",
+    "standard": "GIGW 5.2.18 — WCAG 1.4.11 — IS 17802 9.1.4.11",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Form input borders, custom select arrows, and active button outlines meet >= 3:1 contrast against adjacent colors.",
+    "recommendation": "Maintain #767676 or darker border outlines for neutral inputs.",
+    "impact": "High"
+  },
+  {
+    "id": 19,
+    "title": "Text Spacing",
+    "standard": "GIGW 5.2.19 — WCAG 1.4.12 — IS 17802 9.1.4.12",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Styles accommodate line height (1.5x), paragraph spacing (2x), and letter spacing adjustments without truncation.",
+    "recommendation": "Ensure container overflow styles allow expanded text.",
+    "impact": "Medium"
+  },
+  {
+    "id": 20,
+    "title": "Hover and Focus Content",
+    "standard": "GIGW 5.2.20 — WCAG 1.4.13 — IS 17802 9.1.4.13",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Tooltips and dropdown menus remain hoverable, dismissible with Escape key, and persistent until dismissed.",
+    "recommendation": "Use standard accessible tooltip components.",
+    "impact": "Medium"
+  },
+  {
+    "id": 21,
+    "title": "Keyboard Accessibility",
+    "standard": "GIGW 5.2.21 — WCAG 2.1.1 — IS 17802 9.2.1.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "All interactive elements, buttons, menus, dropdowns, forms, and modals are fully operable via Tab, Enter, Space, and Escape.",
+    "recommendation": "Ensure future widgets include complete keyboard event listeners.",
+    "impact": "Critical"
+  },
+  {
+    "id": 22,
+    "title": "No Keyboard Trap",
+    "standard": "GIGW 5.2.22 — WCAG 2.1.2 — IS 17802 9.2.1.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Modal focus trap is safely contained within dialog and allows clean exit via Escape key or close button.",
+    "recommendation": "Maintain useEffect cleanup for modal keydown listeners.",
+    "impact": "Critical"
+  },
+  {
+    "id": 23,
+    "title": "Keyboard Shortcuts",
+    "standard": "GIGW 5.2.23 — WCAG 2.1.4 — IS 17802 9.2.1.4",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Shortcuts use standard modifier keys (Ctrl+K / Cmd+K for quick search) and do not override browser single-key navigation.",
+    "recommendation": "Do not assign single printable character keys as global triggers.",
+    "impact": "Medium"
+  },
+  {
+    "id": 24,
+    "title": "Timing Adjustable",
+    "standard": "GIGW 5.2.24 — WCAG 2.2.1 — IS 17802 9.2.2.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "No arbitrary timeout forces page refresh or form cancellation.",
+    "recommendation": "Provide session extension warning if authenticated portal is added.",
+    "impact": "High"
+  },
+  {
+    "id": 25,
+    "title": "Pause, Stop, Hide Moving Content",
+    "standard": "GIGW 5.2.25 — WCAG 2.2.2 — IS 17802 9.2.2.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Accessibility Toolbar provides global 'Pause Motion' toggle stopping CSS animations and marquee movements.",
+    "recommendation": "Honor 'pause-animations' CSS class on any new animations.",
+    "impact": "High"
+  },
+  {
+    "id": 26,
+    "title": "Flashing Content Limits",
+    "standard": "GIGW 5.2.26 — WCAG 2.3.1 — IS 17802 9.2.3.1",
+    "level": "A",
+    "status": "Not Applicable",
+    "remark": "No flashing or strobe content exists in the application (zero elements exceed 3 flashes per second).",
+    "recommendation": "Prohibit flashing elements in all marketing banners.",
+    "impact": "Critical"
+  },
+  {
+    "id": 27,
+    "title": "Bypass Repeated Content",
+    "standard": "GIGW 5.2.27 — WCAG 2.4.1 — IS 17802 9.2.4.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Skip Link (<SkipLink />) is the first interactive element in DOM, jumping directly to <main id='main-content'>.",
+    "recommendation": "Ensure skip link remains unobstructed across all page templates.",
+    "impact": "Critical"
+  },
+  {
+    "id": 28,
+    "title": "Focus Not Obscured (Minimum)",
+    "standard": "WCAG 2.4.11",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Focused elements are not obscured by sticky navigation headers; scroll padding (scroll-pt-28) ensures full visibility.",
+    "recommendation": "Maintain scroll-padding-top in global layout CSS.",
+    "impact": "High"
+  },
+  {
+    "id": 29,
+    "title": "Descriptive Page and Screen Titles",
+    "standard": "GIGW 5.2.28 — WCAG 2.4.2 — IS 17802 9.2.4.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Every page exports unique, descriptive metadata titles following the pattern: [Page Name] | Ratnakar Securities.",
+    "recommendation": "Ensure new routes configure specific metadata in layout/page.",
+    "impact": "High"
+  },
+  {
+    "id": 30,
+    "title": "Logical Keyboard Focus Order",
+    "standard": "GIGW 5.2.29 — WCAG 2.4.3 — IS 17802 9.2.4.3",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Tab sequence follows logical reading order top-to-bottom and left-to-right.",
+    "recommendation": "Avoid positive tabindex values.",
+    "impact": "Critical"
+  },
+  {
+    "id": 31,
+    "title": "Link Purpose (In Context)",
+    "standard": "GIGW 5.2.30 — WCAG 2.4.4 — IS 17802 9.2.4.4",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "All links have descriptive anchor text or aria-label describing exact destination; external links include screen reader annotations.",
+    "recommendation": "Avoid generic 'Click Here' or 'Read More' link text.",
+    "impact": "High"
+  },
+  {
+    "id": 32,
+    "title": "Multiple Ways to Find Pages",
+    "standard": "GIGW 5.2.31 — WCAG 2.4.5 — IS 17802 9.2.4.5",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Website provides Header navigation, Footer directory, Quick Search (Ctrl+K), and dedicated HTML Site Map at /sitemap.",
+    "recommendation": "Keep HTML sitemap updated as new routes are published.",
+    "impact": "High"
+  },
+  {
+    "id": 33,
+    "title": "Descriptive Headings and Labels",
+    "standard": "GIGW 5.2.32 — WCAG 2.4.6 — IS 17802 9.2.4.6",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Headings describe topic/purpose hierarchically; form labels clearly indicate required information.",
+    "recommendation": "Maintain one H1 per page followed by proper H2/H3 nesting.",
+    "impact": "High"
+  },
+  {
+    "id": 34,
+    "title": "Visible Keyboard Focus",
+    "standard": "GIGW 5.2.33 — WCAG 2.4.7 — IS 17802 9.2.4.7",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "High-contrast 2px focus rings (focus-visible:ring-2 focus-visible:ring-[#003366]) applied to all interactive controls.",
+    "recommendation": "Never use outline: none without providing an accessible focus-visible alternative.",
+    "impact": "Critical"
+  },
+  {
+    "id": 35,
+    "title": "Single Pointer Operation",
+    "standard": "GIGW 5.2.34 — WCAG 2.5.1 — IS 17802 9.2.5.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "All actions operable with single pointer tap/click without requiring multi-point or path-based gestures.",
+    "recommendation": "Keep custom sliders operable via click/tap and keyboard arrows.",
+    "impact": "Medium"
+  },
+  {
+    "id": 36,
+    "title": "Pointer Cancellation",
+    "standard": "GIGW 5.2.35 — WCAG 2.5.2 — IS 17802 9.2.5.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Pointer events execute on mouseup/touchend; dragging away cancels click action.",
+    "recommendation": "Do not trigger permanent state changes on mousedown.",
+    "impact": "Medium"
+  },
+  {
+    "id": 37,
+    "title": "Label in Name",
+    "standard": "GIGW 5.2.36 — WCAG 2.5.3 — IS 17802 9.2.5.3",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Accessible programmatic name matches visible text label on all buttons and form controls.",
+    "recommendation": "Ensure aria-label includes the visible text prefix.",
+    "impact": "High"
+  },
+  {
+    "id": 38,
+    "title": "Motion Actuation",
+    "standard": "GIGW 5.2.37 — WCAG 2.5.4 — IS 17802 9.2.5.4",
+    "level": "A",
+    "status": "Requires Manual/AT Verification",
+    "remark": "No core features rely on device shaking or tilting; verification required on specific mobile device sensors.",
+    "recommendation": "Provide UI button fallback if device shake gestures are ever introduced.",
+    "impact": "Low"
+  },
+  {
+    "id": 39,
+    "title": "Dragging Movements",
+    "standard": "WCAG 2.5.7",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Calculators and forms provide single-click buttons and standard numeric inputs alongside any range controls.",
+    "recommendation": "Always provide discrete numeric inputs alongside sliders.",
+    "impact": "Medium"
+  },
+  {
+    "id": 40,
+    "title": "Target Size (Minimum)",
+    "standard": "WCAG 2.5.8",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Interactive buttons and links provide minimum 24x24px touch target (>= 44x44px for primary mobile navigation and form buttons).",
+    "recommendation": "Maintain touch padding on mobile icons.",
+    "impact": "High"
+  },
+  {
+    "id": 41,
+    "title": "Page Language Identified",
+    "standard": "GIGW 5.2.38 — WCAG 3.1.1 — IS 17802 9.3.1.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Root layout declares <html lang='en'> dynamically determinable by browser and screen readers.",
+    "recommendation": "Keep lang attribute on root <html> tag.",
+    "impact": "High"
+  },
+  {
+    "id": 42,
+    "title": "Language of Parts",
+    "standard": "GIGW 5.2.39 — WCAG 3.1.2 — IS 17802 9.3.1.2",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Non-English statutory terms or regional content are marked with appropriate lang attributes where necessary.",
+    "recommendation": "Tag Hindi or Gujarati statutory phrases with lang='hi' or lang='gu'.",
+    "impact": "Medium"
+  },
+  {
+    "id": 43,
+    "title": "No Change on Focus",
+    "standard": "GIGW 5.2.40 — WCAG 3.2.1 — IS 17802 9.3.2.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Focusing on inputs, links, or buttons never triggers unexpected navigation or form submissions.",
+    "recommendation": "Do not bind automatic submit or redirection to focus/blur events.",
+    "impact": "High"
+  },
+  {
+    "id": 44,
+    "title": "No Unexpected Change on Input",
+    "standard": "GIGW 5.2.41 — WCAG 3.2.2 — IS 17802 9.3.2.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Changing dropdown selection or input value does not automatically submit form without explicit user action.",
+    "recommendation": "Require explicit submit button click for all form operations.",
+    "impact": "High"
+  },
+  {
+    "id": 45,
+    "title": "Consistent Navigation Order",
+    "standard": "GIGW 5.2.42 — WCAG 3.2.3 — IS 17802 9.3.2.3",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Header, footer, search, and navigation menus maintain identical relative order across all 42 pages.",
+    "recommendation": "Maintain centralized layout templates.",
+    "impact": "High"
+  },
+  {
+    "id": 46,
+    "title": "Consistent Identification of Components",
+    "standard": "GIGW 5.2.43 — WCAG 3.2.4 — IS 17802 9.3.2.4",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Buttons, search bars, icons, and error labels share consistent visual styling and accessible nomenclature.",
+    "recommendation": "Use shared UI component library tokens.",
+    "impact": "Medium"
+  },
+  {
+    "id": 47,
+    "title": "Consistent Help",
+    "standard": "WCAG 3.2.6",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Customer Support phone (+91 079 4900 7900), email, and contact links appear in consistent locations in header, footer, and contact pages.",
+    "recommendation": "Keep support contact info accessible across every template.",
+    "impact": "Medium"
+  },
+  {
+    "id": 48,
+    "title": "Input Error Identification",
+    "standard": "GIGW 5.2.44 — WCAG 3.3.1 — IS 17802 9.3.3.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Form validation identifies invalid fields, highlights borders in red, and presents text error messages with role='alert'.",
+    "recommendation": "Ensure errors are announced programmatically via live regions.",
+    "impact": "Critical"
+  },
+  {
+    "id": 49,
+    "title": "Input Labels and Instructions",
+    "standard": "GIGW 5.2.45 — WCAG 3.3.2 — IS 17802 9.3.3.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Every form control includes permanent visible label, explicit required indicator (*), and descriptive format hints.",
+    "recommendation": "Do not use placeholder text as a substitute for labels.",
+    "impact": "Critical"
+  },
+  {
+    "id": 50,
+    "title": "Error Correction Suggestions",
+    "standard": "GIGW 5.2.46 — WCAG 3.3.3 — IS 17802 9.3.3.3",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Validation messages provide specific corrective guidance (e.g., 'Please enter a 10-digit Indian mobile number starting with 6-9').",
+    "recommendation": "Provide clear format examples in error feedback.",
+    "impact": "High"
+  },
+  {
+    "id": 51,
+    "title": "Error Prevention for Legal/Financial Submissions",
+    "standard": "GIGW 5.2.47 — WCAG 3.3.4 — IS 17802 9.3.3.4",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "SEBI Risk Disclosures, Confirmation dialogs, and validation reviews prevent unintended submission of sensitive data.",
+    "recommendation": "Provide confirmation steps for irreversible account submissions.",
+    "impact": "High"
+  },
+  {
+    "id": 52,
+    "title": "Redundant Entry",
+    "standard": "WCAG 3.3.7",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Multi-step processes avoid requiring duplicate entry of identical contact or account information.",
+    "recommendation": "Auto-populate previously verified fields in workflows.",
+    "impact": "Medium"
+  },
+  {
+    "id": 53,
+    "title": "Accessible Authentication (Minimum)",
+    "standard": "WCAG 3.3.8",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Login dialogs support password managers, copy-paste, and accessible audio CAPTCHA without cognitive function barriers.",
+    "recommendation": "Never block clipboard paste into password fields.",
+    "impact": "High"
+  },
+  {
+    "id": 54,
+    "title": "Correct Markup Structure",
+    "standard": "GIGW 5.2.48 — WCAG 4.1.1 — IS 17802 9.4.1.1",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Clean HTML structure with unique IDs, properly nested tags, and zero obsolete markup errors.",
+    "recommendation": "Run automated linters regularly to maintain valid DOM tree.",
+    "impact": "High"
+  },
+  {
+    "id": 55,
+    "title": "Accessible Name, Role, and State",
+    "standard": "GIGW 5.2.49 — WCAG 4.1.2 — IS 17802 9.4.1.2",
+    "level": "A",
+    "status": "Compliant",
+    "remark": "Custom selects, dialogs, accordions, and buttons declare correct ARIA roles (dialog, listbox, option), aria-expanded, aria-controls, and aria-modal.",
+    "recommendation": "Prefer native semantic HTML elements before reaching for ARIA.",
+    "impact": "Critical"
+  },
+  {
+    "id": 56,
+    "title": "Programmatically Determinable Status Messages",
+    "standard": "GIGW 5.2.50 — WCAG 4.1.3 — IS 17802 9.4.1.3",
+    "level": "AA",
+    "status": "Compliant",
+    "remark": "Dynamic submission results, calculator totals, and search notifications are announced using role='status' / aria-live='polite'.",
+    "recommendation": "Use aria-live='polite' for non-disruptive announcements.",
+    "impact": "High"
+  },
+  {
+    "id": 57,
+    "title": "Documents on website in ePUB or OCR",
+    "standard": "IS 17802 Rule 15(1)(c)(ii)",
+    "level": "—",
+    "status": "Requires Manual/AT Verification",
+    "remark": "Digital PDF documents hosted on downloads page require OCR verification for scanned statutory notices from external authorities.",
+    "recommendation": "Convert legacy scanned PDFs to tagged searchable PDFs or HTML pages.",
+    "impact": "High"
+  },
+  {
+    "id": 58,
+    "title": "Audio description, sign language interpretation, close captioning",
+    "standard": "IS 17802 Section 42(ii)",
+    "level": "—",
+    "status": "Not Applicable",
+    "remark": "No public broadcast video material requiring sign language interpretation exists in the web application.",
+    "recommendation": "Include sign language interpretation if official regulatory video announcements are hosted.",
+    "impact": "Low"
+  }
+]

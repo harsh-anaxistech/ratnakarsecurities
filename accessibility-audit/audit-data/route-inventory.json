@@ -1,0 +1,202 @@
+[
+  {
+    "path": "/",
+    "name": "Home Page",
+    "type": "Public"
+  },
+  {
+    "path": "/about",
+    "name": "About Us",
+    "type": "Public"
+  },
+  {
+    "path": "/contact",
+    "name": "Contact Us",
+    "type": "Public / Form"
+  },
+  {
+    "path": "/partner",
+    "name": "Partner Registration",
+    "type": "Public / Form"
+  },
+  {
+    "path": "/partner-with-us",
+    "name": "Partner With Us Overview",
+    "type": "Public"
+  },
+  {
+    "path": "/downloads",
+    "name": "Downloads & Forms",
+    "type": "Public / Documents"
+  },
+  {
+    "path": "/risk-calculator",
+    "name": "Risk Profile Calculator",
+    "type": "Interactive Tool"
+  },
+  {
+    "path": "/sip-calculator",
+    "name": "SIP Calculator",
+    "type": "Interactive Tool"
+  },
+  {
+    "path": "/accessibility-statement",
+    "name": "Accessibility Statement",
+    "type": "Public / Legal"
+  },
+  {
+    "path": "/sitemap",
+    "name": "HTML Site Map",
+    "type": "Navigation / Directory"
+  },
+  {
+    "path": "/privacy-policy",
+    "name": "Privacy Policy",
+    "type": "Public / Legal"
+  },
+  {
+    "path": "/refund-and-cancellation",
+    "name": "Refund & Cancellation",
+    "type": "Public / Legal"
+  },
+  {
+    "path": "/nomination",
+    "name": "Nomination Facility",
+    "type": "Public / Legal"
+  },
+  {
+    "path": "/investors",
+    "name": "Investor Relations Portal",
+    "type": "Investor Desk"
+  },
+  {
+    "path": "/investors/investor-grievance",
+    "name": "Investor Grievances & Matrix",
+    "type": "Regulatory / Table"
+  },
+  {
+    "path": "/investor-grievance",
+    "name": "Investor Grievance Redirection",
+    "type": "Regulatory"
+  },
+  {
+    "path": "/investor-charter-stock-broker",
+    "name": "Investor Charter Stock Broker",
+    "type": "Regulatory"
+  },
+  {
+    "path": "/static/investor-charter",
+    "name": "Static Investor Charter DP",
+    "type": "Regulatory"
+  },
+  {
+    "path": "/investors/board-of-directors",
+    "name": "Board of Directors",
+    "type": "Corporate"
+  },
+  {
+    "path": "/investors/annual-return",
+    "name": "Annual Returns",
+    "type": "Regulatory / Documents"
+  },
+  {
+    "path": "/investors/complaints-trends",
+    "name": "Monthly Complaints Trends",
+    "type": "Regulatory / Tables"
+  },
+  {
+    "path": "/investors/disclosure-of-contact-details-of-key-managerial-personnel",
+    "name": "KMP Contact Details",
+    "type": "Corporate / Directory"
+  },
+  {
+    "path": "/investors/disclosures-of-material-events-or-information",
+    "name": "Material Events Disclosures",
+    "type": "Regulatory"
+  },
+  {
+    "path": "/investors/financial-information-and-annual-report",
+    "name": "Financial Info & Reports",
+    "type": "Regulatory / Documents"
+  },
+  {
+    "path": "/investors/newspaper-publication",
+    "name": "Newspaper Publications",
+    "type": "Regulatory"
+  },
+  {
+    "path": "/investors/policies",
+    "name": "Company Policies",
+    "type": "Corporate / Legal"
+  },
+  {
+    "path": "/investors/shareholding-pattern",
+    "name": "Shareholding Patterns",
+    "type": "Regulatory"
+  },
+  {
+    "path": "/investors/statutory-and-registration-certificate-documents",
+    "name": "Statutory Certificates",
+    "type": "Regulatory / Documents"
+  },
+  {
+    "path": "/products",
+    "name": "Products Overview",
+    "type": "Products"
+  },
+  {
+    "path": "/products/overview",
+    "name": "Products Details",
+    "type": "Products"
+  },
+  {
+    "path": "/products/equity",
+    "name": "Equity Trading",
+    "type": "Products"
+  },
+  {
+    "path": "/products/derivatives",
+    "name": "Derivatives (F&O)",
+    "type": "Products"
+  },
+  {
+    "path": "/products/commodities",
+    "name": "Commodities Trading",
+    "type": "Products"
+  },
+  {
+    "path": "/products/mutual-funds",
+    "name": "Mutual Funds",
+    "type": "Products"
+  },
+  {
+    "path": "/products/bonds",
+    "name": "Bonds & Debentures",
+    "type": "Products"
+  },
+  {
+    "path": "/products/wealth-management",
+    "name": "Wealth Management",
+    "type": "Products"
+  },
+  {
+    "path": "/products/slbm",
+    "name": "SLBM Services",
+    "type": "Products"
+  },
+  {
+    "path": "/products/hnis",
+    "name": "HNI Desk",
+    "type": "Products"
+  },
+  {
+    "path": "/products/nris",
+    "name": "NRI Services",
+    "type": "Products"
+  },
+  {
+    "path": "/research",
+    "name": "Research & Reports",
+    "type": "Research"
+  }
+]

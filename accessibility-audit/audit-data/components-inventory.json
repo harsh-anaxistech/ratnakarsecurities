@@ -1,0 +1,107 @@
+[
+  {
+    "file": "app/layout.js",
+    "name": "RootLayout",
+    "desc": "HTML Lang, Skiplink, Landmarks (Header, Main, Footer)"
+  },
+  {
+    "file": "components/common/SkipLink.jsx",
+    "name": "SkipLink",
+    "desc": "Bypass Repeated Content (WCAG 2.4.1 / GIGW 5.2.27)"
+  },
+  {
+    "file": "components/common/AccessibilityToolbar.jsx",
+    "name": "AccessibilityToolbar",
+    "desc": "High Contrast toggle, text resizing (A-, A, A+), animation pausing"
+  },
+  {
+    "file": "components/common/AccessibleCaptcha.jsx",
+    "name": "AccessibleCaptcha",
+    "desc": "Audio CAPTCHA alternative, role=img, live refresh, clear instructions"
+  },
+  {
+    "file": "components/common/CustomSelect.jsx",
+    "name": "CustomSelect",
+    "desc": "Keyboard accessible listbox, aria-expanded, aria-activedescendant"
+  },
+  {
+    "file": "components/common/Input.jsx",
+    "name": "Input",
+    "desc": "Form input with visible focus rings, autocomplete, error binding"
+  },
+  {
+    "file": "components/common/HeroSection.jsx",
+    "name": "HeroSection",
+    "desc": "Semantic H1 heading, breadcrumbs landmark"
+  },
+  {
+    "file": "components/common/QuickSearchModal.jsx",
+    "name": "QuickSearchModal",
+    "desc": "Command palette with dialog semantics and keyboard navigation"
+  },
+  {
+    "file": "components/contact/form.jsx",
+    "name": "ContactUsPage Form",
+    "desc": "Accessible contact form, aria-invalid, aria-describedby errors"
+  },
+  {
+    "file": "components/contact/table.jsx",
+    "name": "Contact Table",
+    "desc": "Accessible directory table with scope=col/row headers"
+  },
+  {
+    "file": "components/partner/PartnerForm.jsx",
+    "name": "PartnerForm",
+    "desc": "Partner registration form with validation and associated labels"
+  },
+  {
+    "file": "components/investors/InvestorGrievance.jsx",
+    "name": "InvestorGrievance",
+    "desc": "SEBI Escalation Matrix table with scope attributes"
+  },
+  {
+    "file": "components/investors/InvestorCharterStockBroker.jsx",
+    "name": "InvestorCharterStockBroker",
+    "desc": "Structured rights and responsibilities disclosure"
+  },
+  {
+    "file": "components/investors/InvestorCharterDP.jsx",
+    "name": "InvestorCharterDP",
+    "desc": "Depository participant charter with semantic tables"
+  },
+  {
+    "file": "components/layout/Header.js",
+    "name": "Header",
+    "desc": "Sticky navigation, accessible mobile menu drawer, aria-current"
+  },
+  {
+    "file": "components/layout/Footer.js",
+    "name": "Footer",
+    "desc": "Footer landmark, structured legal links, high contrast text"
+  },
+  {
+    "file": "components/modals/RiskDisclosureModal.jsx",
+    "name": "RiskDisclosureModal",
+    "desc": "SEBI F&O Risk disclosure dialog with focus trap & Esc key"
+  },
+  {
+    "file": "components/modals/ChooseAppModal.jsx",
+    "name": "ChooseAppModal",
+    "desc": "Download mobile apps modal dialog"
+  },
+  {
+    "file": "components/modals/BackofficeLoginModal.jsx",
+    "name": "BackofficeLoginModal",
+    "desc": "Back office login options dialog"
+  },
+  {
+    "file": "components/modals/StartupPopupModal.jsx",
+    "name": "StartupPopupModal",
+    "desc": "Startup welcome announcement dialog"
+  },
+  {
+    "file": "components/FloatingMobileTrading.js",
+    "name": "FloatingMobileTrading",
+    "desc": "Accessible floating mobile app launcher"
+  }
+]

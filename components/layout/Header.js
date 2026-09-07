@@ -25,7 +25,7 @@ import { getResearchSections } from "@/services/research";
 import BackofficeLoginModal from "@/components/modals/BackofficeLoginModal";
 import ChooseAppModal from "@/components/modals/ChooseAppModal";
 import FloatingMobileTrading from "@/components/FloatingMobileTrading";
-import AccessibilityToolbar from "@/components/common/AccessibilityToolbar";
+
 import QuickSearchModal from "@/components/common/QuickSearchModal";
 
 const NAV_LINKS = [
@@ -90,21 +90,43 @@ const LOGIN_LINKS = [
   { label: "Mutual Fund Portfolio", href: "https://ratnakarsecurities.investwell.app/app/#/login", external: true },
 ];
 
-function DropdownLink({ link, children, className, onClick }) {
+function DropdownLink({ link, children, className, onClick, ...props }) {
   const iconSvg = link.icon ? MenuIcons[link.icon] : null;
   const content = (
     <div className="flex items-start gap-3">
       {iconSvg && <span className="flex h-8 w-8 shrink-0 items-center justify-center text-secondary mt-0.5" aria-hidden="true">{iconSvg}</span>}
       <div className="flex flex-col">
-        <span className="text-sm font-medium text-foreground">{children}</span>
-        {link.description && <span className="text-xs text-muted-foreground mt-0.5">{link.description}</span>}
+        <span className="text-sm font-semibold text-slate-800">{children}</span>
+        {link.description && <span className="text-xs text-slate-600 mt-0.5">{link.description}</span>}
       </div>
     </div>
   );
   if (link.external) {
-    return <a href={link.href} target="_blank" rel="noopener noreferrer" className={className} onClick={onClick}>{content}</a>;
+    return (
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        role="menuitem"
+        className={className}
+        onClick={onClick}
+        {...props}
+      >
+        {content}
+      </a>
+    );
   }
-  return <Link href={link.href} className={className} onClick={onClick}>{content}</Link>;
+  return (
+    <Link
+      href={link.href}
+      role="menuitem"
+      className={className}
+      onClick={onClick}
+      {...props}
+    >
+      {content}
+    </Link>
+  );
 }
 
 export default function Header() {
@@ -236,12 +258,90 @@ export default function Header() {
     }, 150);
   };
 
-  const handleNavKeyDown = (e, item) => {
+  const focusFirstItemInMenu = (menuId) => {
+    setTimeout(() => {
+      const menu = document.getElementById(menuId);
+      if (menu) {
+        const items = menu.querySelectorAll("a, button");
+        if (items.length > 0) items[0].focus();
+      }
+    }, 50);
+  };
+
+  const focusLastItemInMenu = (menuId) => {
+    setTimeout(() => {
+      const menu = document.getElementById(menuId);
+      if (menu) {
+        const items = menu.querySelectorAll("a, button");
+        if (items.length > 0) items[items.length - 1].focus();
+      }
+    }, 50);
+  };
+
+  const handleNavKeyDown = (e, item, index) => {
+    const menuId = `dropdown-menu-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
+    const topNavItems = Array.from(document.querySelectorAll("[data-topnav-item='true']"));
+
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      const nextIndex = (index + 1) % topNavItems.length;
+      topNavItems[nextIndex]?.focus();
+      return;
+    }
+
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      const prevIndex = (index - 1 + topNavItems.length) % topNavItems.length;
+      topNavItems[prevIndex]?.focus();
+      return;
+    }
+
     if (!hasSubmenu(item)) return;
 
     if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") {
       e.preventDefault();
-      setActiveDropdown(activeDropdown === item.label ? null : item.label);
+      setActiveDropdown(item.label);
+      focusFirstItemInMenu(menuId);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveDropdown(item.label);
+      focusLastItemInMenu(menuId);
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      setActiveDropdown(null);
+    }
+  };
+
+  const handleMenuKeyDown = (e, triggerButtonId) => {
+    const menu = e.currentTarget;
+    const items = Array.from(menu.querySelectorAll("a, button"));
+    const currentIndex = items.indexOf(document.activeElement);
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      const nextIndex = (currentIndex + 1) % items.length;
+      items[nextIndex]?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (currentIndex === 0) {
+        const trigger = document.getElementById(triggerButtonId);
+        trigger?.focus();
+      } else {
+        const prevIndex = (currentIndex - 1 + items.length) % items.length;
+        items[prevIndex]?.focus();
+      }
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      items[0]?.focus();
+    } else if (e.key === "End") {
+      e.preventDefault();
+      items[items.length - 1]?.focus();
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      setActiveDropdown(null);
+      setDesktopLoginOpen(false);
+      const trigger = document.getElementById(triggerButtonId);
+      trigger?.focus();
     }
   };
 
@@ -254,7 +354,7 @@ export default function Header() {
           scrolled ? "shadow-md md:-translate-y-14" : "translate-y-0"
         )}
       >
-        {/* ── GRADIENT RADIAL TOP HEADER (With Accessibility Toolbar & Quick Links) ── */}
+        {/* ── GRADIENT RADIAL TOP HEADER (With Quick Links) ── */}
         <div
           className="hidden md:flex h-14 w-full items-center border-b border-white/10"
           style={{
@@ -264,8 +364,6 @@ export default function Header() {
         >
           <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 w-full">
             <div className="flex h-14 items-center justify-between gap-4">
-              {/* Accessibility Controls */}
-              <AccessibilityToolbar onOpenSearch={() => setSearchModalOpen(true)} />
 
               {/* Top Quick Actions */}
               <div className="flex items-center gap-3">
@@ -320,11 +418,13 @@ export default function Header() {
                 />
               </Link>
 
-              {/* Desktop Nav with Full Keyboard Traversal */}
+              {/* Desktop Nav with Full Keyboard Traversal (WCAG 2.1.1 & GIGW 5.2.21) */}
               <nav className="hidden lg:flex h-full items-center" aria-label="Main Navigation">
-                {navLinks.map((item) => {
+                {navLinks.map((item, navIndex) => {
                   const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                   const isMenuOpen = activeDropdown === item.label;
+                  const menuId = `dropdown-menu-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
+                  const btnId = `nav-btn-${item.label.toLowerCase().replace(/\s+/g, "-")}`;
 
                   return (
                     <div
@@ -332,17 +432,31 @@ export default function Header() {
                       className="relative h-full flex items-center"
                       onMouseEnter={() => handleMouseEnterNav(item.label)}
                       onMouseLeave={handleMouseLeaveNav}
+                      onBlur={(e) => {
+                        if (!e.currentTarget.contains(e.relatedTarget)) {
+                          setActiveDropdown((cur) => (cur === item.label ? null : cur));
+                        }
+                      }}
                     >
                       {hasSubmenu(item) ? (
                         <button
                           type="button"
+                          id={btnId}
+                          data-topnav-item="true"
                           aria-haspopup="true"
                           aria-expanded={isMenuOpen}
-                          aria-controls={`dropdown-menu-${item.label.toLowerCase()}`}
-                          onKeyDown={(e) => handleNavKeyDown(e, item)}
-                          onClick={() => setActiveDropdown(isMenuOpen ? null : item.label)}
+                          aria-controls={menuId}
+                          onKeyDown={(e) => handleNavKeyDown(e, item, navIndex)}
+                          onClick={() => {
+                            if (isMenuOpen) {
+                              setActiveDropdown(null);
+                            } else {
+                              setActiveDropdown(item.label);
+                              focusFirstItemInMenu(menuId);
+                            }
+                          }}
                           className={cn(
-                            "flex h-full items-center gap-1.5 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:bg-slate-50",
+                            "flex h-full items-center gap-1.5 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-slate-50",
                             isActive || isMenuOpen
                               ? "text-primary border-primary"
                               : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
@@ -360,8 +474,22 @@ export default function Header() {
                       ) : (
                         <Link
                           href={item.href}
+                          id={btnId}
+                          data-topnav-item="true"
+                          onKeyDown={(e) => {
+                            const topNavItems = Array.from(document.querySelectorAll("[data-topnav-item='true']"));
+                            if (e.key === "ArrowRight") {
+                              e.preventDefault();
+                              const nextIndex = (navIndex + 1) % topNavItems.length;
+                              topNavItems[nextIndex]?.focus();
+                            } else if (e.key === "ArrowLeft") {
+                              e.preventDefault();
+                              const prevIndex = (navIndex - 1 + topNavItems.length) % topNavItems.length;
+                              topNavItems[prevIndex]?.focus();
+                            }
+                          }}
                           className={cn(
-                            "flex h-full items-center gap-1 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:bg-slate-50",
+                            "flex h-full items-center gap-1 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-slate-50",
                             isActive
                               ? "text-primary border-primary"
                               : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
@@ -374,22 +502,23 @@ export default function Header() {
                       {/* Multi-column dropdown */}
                       {item.columns && (
                         <div
-                          id={`dropdown-menu-${item.label.toLowerCase()}`}
+                          id={menuId}
                           role="menu"
                           aria-label={`${item.label} Menu`}
+                          onKeyDown={(e) => handleMenuKeyDown(e, btnId)}
                           className={cn(
                             "absolute left-0 top-full mt-0 z-50 w-[950px] grid grid-cols-2 gap-6 bg-white shadow-2xl border border-border rounded-b-xl p-6 transition-all duration-200 ease-out",
-                            isMenuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible pointer-events-none translate-y-1"
+                            isMenuOpen ? "opacity-100 visible translate-y-0 pointer-events-auto" : "opacity-0 invisible pointer-events-none translate-y-1"
                           )}
                         >
                           {item.columns.map((column, i) => (
-                            <div key={i} className="space-y-1.5">
+                            <div key={i} className="space-y-1.5" role="none">
                               {column.map((link) => (
                                 <DropdownLink
                                   key={link.label}
                                   link={link}
                                   onClick={() => setActiveDropdown(null)}
-                                  className="block rounded-lg px-4 py-3 hover:bg-slate-50 focus:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-colors duration-150"
+                                  className="block rounded-lg px-4 py-3 hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                                 >
                                   {link.label}
                                 </DropdownLink>
@@ -402,24 +531,27 @@ export default function Header() {
                       {/* Single column dropdown */}
                       {item.dropdown && (
                         <div
-                          id={`dropdown-menu-${item.label.toLowerCase()}`}
+                          id={menuId}
                           role="menu"
                           aria-label={`${item.label} Menu`}
+                          onKeyDown={(e) => handleMenuKeyDown(e, btnId)}
                           className={cn(
                             "absolute left-0 top-full mt-0 z-50 w-96 bg-white shadow-2xl border border-border rounded-b-xl p-3 transition-all duration-200 ease-out",
-                            isMenuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible pointer-events-none translate-y-1"
+                            isMenuOpen ? "opacity-100 visible translate-y-0 pointer-events-auto" : "opacity-0 invisible pointer-events-none translate-y-1"
                           )}
                         >
-                          {item.dropdown.map((link) => (
-                            <DropdownLink
-                              key={link.label}
-                              link={link}
-                              onClick={() => setActiveDropdown(null)}
-                              className="block rounded-lg px-4 py-3 hover:bg-slate-50 focus:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-colors duration-150"
-                            >
-                              {link.label}
-                            </DropdownLink>
-                          ))}
+                          <div className="space-y-1" role="none">
+                            {item.dropdown.map((link) => (
+                              <DropdownLink
+                                key={link.label}
+                                link={link}
+                                onClick={() => setActiveDropdown(null)}
+                                className="block rounded-lg px-4 py-3 hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
+                              >
+                                {link.label}
+                              </DropdownLink>
+                            ))}
+                          </div>
                         </div>
                       )}
                     </div>
@@ -435,7 +567,7 @@ export default function Header() {
                   onClick={() => setSearchModalOpen(true)}
                   aria-label="Search site (Press Ctrl+K)"
                   title="Search site (Ctrl+K)"
-                  className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:text-primary hover:bg-slate-100 border border-slate-200 transition-colors focus:ring-2 focus:ring-primary"
+                  className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:text-primary hover:bg-slate-100 border border-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   <Search className="w-4 h-4" aria-hidden="true" />
                 </button>
@@ -452,27 +584,53 @@ export default function Header() {
                   </Button>
                 </a>
 
-                {/* Login dropdown */}
+                {/* Login dropdown with full keyboard access */}
                 <div
                   className="relative"
                   onMouseEnter={() => setDesktopLoginOpen(true)}
                   onMouseLeave={() => setDesktopLoginOpen(false)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget)) {
+                      setDesktopLoginOpen(false);
+                    }
+                  }}
                 >
                   <Button
-                    onClick={() => setDesktopLoginOpen((p) => !p)}
+                    id="desktop-login-button"
+                    onClick={() => {
+                      if (desktopLoginOpen) {
+                        setDesktopLoginOpen(false);
+                      } else {
+                        setDesktopLoginOpen(true);
+                        focusFirstItemInMenu("desktop-login-menu");
+                      }
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") {
+                        e.preventDefault();
+                        setDesktopLoginOpen(true);
+                        focusFirstItemInMenu("desktop-login-menu");
+                      } else if (e.key === "Escape") {
+                        e.preventDefault();
+                        setDesktopLoginOpen(false);
+                      }
+                    }}
                     aria-expanded={desktopLoginOpen}
                     aria-haspopup="true"
+                    aria-controls="desktop-login-menu"
                     aria-label="Client & Backoffice Login Menu"
-                    className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap"
+                    className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   >
                     LOGIN <ChevronDown className={cn("h-3.5 w-3.5 ml-1 transition-transform duration-200 inline", desktopLoginOpen && "rotate-180")} aria-hidden="true" />
                   </Button>
                   <div
+                    id="desktop-login-menu"
                     role="menu"
                     aria-label="Login Options"
+                    onKeyDown={(e) => handleMenuKeyDown(e, "desktop-login-button")}
                     className={cn(
                       "absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-xl py-2 transition-all duration-200 ease-out",
-                      desktopLoginOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible pointer-events-none translate-y-1"
+                      desktopLoginOpen ? "opacity-100 visible translate-y-0 pointer-events-auto" : "opacity-0 invisible pointer-events-none translate-y-1"
                     )}
                   >
                     {LOGIN_LINKS.map((link) => {
@@ -485,7 +643,7 @@ export default function Header() {
                               setBackofficeModalOpen(true);
                               setDesktopLoginOpen(false);
                             }}
-                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus:outline-none transition-colors duration-150"
+                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                           >
                             {link.label}
                           </button>
@@ -500,7 +658,7 @@ export default function Header() {
                               setChooseAppModalOpen(true);
                               setDesktopLoginOpen(false);
                             }}
-                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus:outline-none transition-colors duration-150"
+                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                           >
                             {link.label}
                           </button>
@@ -514,7 +672,7 @@ export default function Header() {
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus:outline-none transition-colors duration-150"
+                            className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                           >
                             {link.label}
                           </a>
@@ -525,7 +683,7 @@ export default function Header() {
                           key={link.href}
                           role="menuitem"
                           href={link.href}
-                          className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus:outline-none transition-colors duration-150"
+                          className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                         >
                           {link.label}
                         </Link>
@@ -632,10 +790,7 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Mobile Accessibility Bar */}
-          <div className="bg-[#012441] px-4 py-2 border-b border-white/10">
-            <AccessibilityToolbar onOpenSearch={() => { setMobileOpen(false); setSearchModalOpen(true); }} />
-          </div>
+
 
           <nav className="flex-1 overflow-y-auto px-4 py-4" aria-label="Mobile navigation">
             <div className="flex flex-col gap-1">

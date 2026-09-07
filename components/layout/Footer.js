@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import { Play, Pause } from "lucide-react";
 import RiskDisclosureModal from "@/components/modals/RiskDisclosureModal";
 
 const FOOTER_LINKS = {
@@ -23,6 +24,8 @@ const FOOTER_LINKS = {
     { label: "Overview", href: "/about#overview" },
     { label: "Leadership", href: "/about#leadership" },
     { label: "Milestone", href: "/about#journey" },
+    { label: "HTML Site Map", href: "/sitemap" },
+    { label: "Accessibility Statement", href: "/accessibility-statement" },
   ],
   "Useful Links": [
     { label: "Broker Norms (NSE)", href: "https://api.ratnakarsecurities.com/uploads/Brokernorms.pdf", target: "_blank" },
@@ -33,6 +36,7 @@ const FOOTER_LINKS = {
     { label: "NSDL", href: "https://nsdl.co.in/", target: "_blank" },
     { label: "MCX", href: "https://www.mcxindia.com/home", target: "_blank" },
     { label: "SCORES", href: "https://scores.sebi.gov.in", target: "_blank" },
+    { label: "HTML Site Map", href: "/sitemap" },
   ],
 };
 
@@ -74,6 +78,7 @@ const INVESTOR_CHARTER_LINKS = [
 export default function Footer() {
   const [isScoresModalOpen, setIsScoresModalOpen] = useState(false);
   const [isRiskDisclosureModalOpen, setIsRiskDisclosureModalOpen] = useState(false);
+  const [isNoticePaused, setIsNoticePaused] = useState(false);
 
   useEffect(() => {
     if (isScoresModalOpen || isRiskDisclosureModalOpen) {
@@ -95,7 +100,7 @@ export default function Footer() {
 
             {/* Column 1: Logo, Address, Social Icons */}
             <div className="col-span-2 lg:col-span-1 space-y-5">
-              <Link href="#" aria-label="Ratnakar Securities Footer Logo" className="inline-block">
+              <Link href="/" aria-label="Ratnakar Securities Homepage" className="inline-block">
                 <div className="bg-white rounded-xl px-4 py-3 inline-flex items-center justify-center">
                   <Image
                     src="/images/logo/RSL_logo.png"
@@ -251,14 +256,39 @@ export default function Footer() {
       <div className="py-8 border-b border-[#00aeee]/30">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-6">
 
-          {/* Section 1: ATTENTION INVESTORS with Vertical Auto-Scrolling */}
+          {/* Section 1: ATTENTION INVESTORS with Vertical Auto-Scrolling and Pause/Play Control (WCAG 2.2.2 & GIGW 5.2.25) */}
           <div>
-            <h4 className="text-[15px] sm:text-[17px] font-bold tracking-wide uppercase mb-3" style={{ color: "#00aeee" }}>
-              ATTENTION INVESTORS
-            </h4>
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-[15px] sm:text-[17px] font-bold tracking-wide uppercase" style={{ color: "#00aeee" }}>
+                ATTENTION INVESTORS
+              </h4>
+              <button
+                type="button"
+                onClick={() => setIsNoticePaused((p) => !p)}
+                aria-label={isNoticePaused ? "Play Attention Investors ticker" : "Pause Attention Investors ticker"}
+                title={isNoticePaused ? "Play ticker" : "Pause ticker"}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+              >
+                {isNoticePaused ? (
+                  <>
+                    <Play className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
+                    <span>Resume</span>
+                  </>
+                ) : (
+                  <>
+                    <Pause className="w-3.5 h-3.5 fill-current" aria-hidden="true" />
+                    <span>Pause</span>
+                  </>
+                )}
+              </button>
+            </div>
 
             {/* Vertical Auto-Scrolling Container without border/box */}
-            <div className="relative h-[150px] sm:h-[160px] overflow-hidden group">
+            <div
+              className="relative h-[150px] sm:h-[160px] overflow-hidden group focus-within:ring-1 focus-within:ring-cyan-300 rounded-lg"
+              onMouseEnter={() => setIsNoticePaused(true)}
+              onMouseLeave={() => setIsNoticePaused(false)}
+            >
               {/* Gradient masks for smooth top & bottom edge fade matching footer background */}
               <div
                 className="pointer-events-none absolute top-0 left-0 right-0 h-6 z-10"
@@ -272,7 +302,12 @@ export default function Footer() {
               />
 
               {/* Scrolling Content Track */}
-              <div className="animate-marquee-vertical">
+              <div
+                className="animate-marquee-vertical"
+                style={{
+                  animationPlayState: isNoticePaused ? "paused" : "running",
+                }}
+              >
                 {/* 1st list */}
                 <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2" style={{ color: "#9fc8e0" }}>
                   {ATTENTION_INVESTOR_NOTICES.map((notice, idx) => (

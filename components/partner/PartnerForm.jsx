@@ -247,7 +247,7 @@ export default function PartnerForm() {
                         aria-required="true"
                         aria-invalid={!!errors.fullName}
                         aria-describedby={errors.fullName ? "partner-fullname-error" : undefined}
-                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                       />
                     </div>
                     {errors.fullName && (
@@ -276,7 +276,7 @@ export default function PartnerForm() {
                         aria-required="true"
                         aria-invalid={!!errors.email}
                         aria-describedby={errors.email ? "partner-email-error" : undefined}
-                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                       />
                     </div>
                     {errors.email && (
@@ -309,7 +309,7 @@ export default function PartnerForm() {
                         aria-required="true"
                         aria-invalid={!!errors.phone}
                         aria-describedby={errors.phone ? "partner-phone-error" : undefined}
-                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                       />
                     </div>
                     {errors.phone && (
@@ -342,7 +342,7 @@ export default function PartnerForm() {
                         aria-required="true"
                         aria-invalid={!!errors.timeslot}
                         aria-describedby={errors.timeslot ? "partner-timeslot-error" : undefined}
-                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] cursor-pointer focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] cursor-pointer focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                       />
                     </div>
                     {errors.timeslot && (
@@ -385,7 +385,7 @@ export default function PartnerForm() {
                 </div>
 
                 {/* Interested Option Group */}
-                <fieldset className="space-y-2 pt-1 border-t border-slate-200">
+                <fieldset className="space-y-2 pt-1 border-t border-[#767676]">
                   <legend className="block text-xs font-bold text-slate-700 uppercase tracking-wider pt-2">
                     Interested to become:
                   </legend>

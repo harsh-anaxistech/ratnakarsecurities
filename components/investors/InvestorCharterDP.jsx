@@ -66,7 +66,8 @@ function DpModal({ isOpen, onClose, title, subtitle, maxWidth = "max-w-[860px]",
       <div
         ref={modalRef}
         role="dialog"
-        aria-labelledby="modal-title"
+        aria-modal="true"
+        aria-labelledby="dp-charter-modal-title"
         className={`relative w-full ${maxWidth} bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100 transition-all duration-300 transform scale-100 my-auto max-h-[90vh] flex flex-col`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -78,7 +79,7 @@ function DpModal({ isOpen, onClose, title, subtitle, maxWidth = "max-w-[860px]",
                 {subtitle}
               </p>
             )}
-            <h2 id="modal-title" className="text-lg sm:text-xl font-bold text-white tracking-wide pr-6">
+            <h2 id="dp-charter-modal-title" className="text-lg sm:text-xl font-bold text-white tracking-wide pr-6">
               {title}
             </h2>
           </div>

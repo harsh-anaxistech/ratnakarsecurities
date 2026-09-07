@@ -60,11 +60,12 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/65 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto animate-in fade-in duration-200"
       onClick={onClose}
-      aria-modal="true"
-      role="dialog"
     >
       <div
         ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="risk-disclosure-modal-title"
         className="relative w-full max-w-[440px] sm:max-w-[460px] bg-white rounded-[22px] shadow-2xl overflow-hidden border border-slate-100 transition-all duration-300 transform scale-100 my-auto"
         onClick={(e) => e.stopPropagation()}
       >
@@ -135,7 +136,7 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
 
           {/* Modal Header Title */}
           <div className="relative z-10 text-center px-1">
-            <h2 className="text-base sm:text-lg font-black tracking-tight text-[#0052cc]">
+            <h2 id="risk-disclosure-modal-title" className="text-base sm:text-lg font-black tracking-tight text-[#0052cc]">
               RISK DISCLOSURES <span className="text-[#1e293b] font-extrabold">ON DERIVATIVES</span>
             </h2>
 

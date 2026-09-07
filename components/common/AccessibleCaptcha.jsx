@@ -69,7 +69,7 @@ export default function AccessibleCaptcha({
             Verification Code (CAPTCHA) <span className="text-red-500" aria-hidden="true">*</span>
           </label>
           <div className="relative flex items-center">
-            <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+            <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
               <HelpCircle className="w-5 h-5" />
             </div>
             <Input
@@ -83,7 +83,7 @@ export default function AccessibleCaptcha({
               aria-required="true"
               aria-invalid={!!error}
               aria-describedby={error ? `${id}-error` : `${id}-hint`}
-              className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] uppercase font-mono tracking-widest placeholder:normal-case placeholder:tracking-normal placeholder:font-sans focus:border-primary focus:ring-2 focus:ring-primary/20"
+              className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] uppercase font-mono tracking-widest placeholder:normal-case placeholder:tracking-normal placeholder:font-sans focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
             />
           </div>
           <p id={`${id}-hint`} className="sr-only">
@@ -95,7 +95,7 @@ export default function AccessibleCaptcha({
         <div className="flex items-center gap-2 self-end sm:self-auto sm:mt-5">
           {/* Visual Captcha Canvas / Box */}
           <div
-            className="w-36 h-12 bg-slate-100 border-2 border-slate-400 rounded-xl flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-black text-xl text-slate-800 relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f8fafc,#f8fafc_6px,#e2e8f0_6px,#e2e8f0_12px)]"
+            className="w-36 h-12 bg-slate-100 border-2 border-[#595959] rounded-xl flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-black text-xl text-slate-800 relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f8fafc,#f8fafc_6px,#e2e8f0_6px,#e2e8f0_12px)]"
             aria-label={`Visual Captcha: ${mounted ? captchaCode : "Loading"}`}
             role="img"
           >
@@ -117,7 +117,7 @@ export default function AccessibleCaptcha({
             className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-200 shrink-0 focus:ring-2 focus:ring-primary ${
               isSpeaking
                 ? "bg-primary text-white border-primary animate-pulse"
-                : "bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-700"
+                : "bg-slate-100 hover:bg-slate-200 border-[#767676] text-slate-700"
             }`}
           >
             <Volume2 className="w-5 h-5" aria-hidden="true" />
@@ -129,7 +129,7 @@ export default function AccessibleCaptcha({
             onClick={generateCode}
             aria-label="Generate new Captcha code"
             title="Refresh Captcha"
-            className="w-12 h-12 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-slate-700 rounded-xl flex items-center justify-center transition-all duration-200 group shrink-0 focus:ring-2 focus:ring-primary"
+            className="w-12 h-12 bg-slate-100 hover:bg-slate-200 border border-[#767676] text-slate-700 rounded-xl flex items-center justify-center transition-all duration-200 group shrink-0 focus:ring-2 focus:ring-[#004b87]"
           >
             <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-300" aria-hidden="true" />
           </button>
