@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import {
   Phone,
@@ -9,13 +9,13 @@ import {
   Info,
   FileText,
   HelpCircle,
-  RefreshCw,
   ChevronDown
 } from "lucide-react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
 import CustomSelect from "@/components/common/CustomSelect";
+import AccessibleCaptcha from "@/components/common/AccessibleCaptcha";
 import { submitContactForm } from "@/services/contact";
 
 const departmentOptions = [
@@ -24,13 +24,13 @@ const departmentOptions = [
   { value: "Mutual Funds", label: "Mutual Funds" },
   { value: "Demat", label: "Demat" },
   { value: "New Account Opening", label: "New Account Opening" },
-  { value: "Technical", label: "Technical" },
-  { value: "Others", label: "Others" },
-  { value: "Research", label: "Research" },
+  { value: "Technical", label: "Technical Support" },
+  { value: "Research", label: "Research & Advisory" },
+  { value: "Others", label: "General Inquiry" },
 ];
 
 /**
- * Contact Form Component
+ * Contact Form Component (WCAG 2.2 AA & GIGW 3.0 Compliant)
  */
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({
@@ -43,31 +43,20 @@ export default function ContactUsPage() {
     captcha: "",
   });
 
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
   const [errors, setErrors] = useState({});
-
-  const getRandomCaptcha = () => {
-    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let code = "";
-    for (let i = 0; i < 6; i++) {
-      code += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return code;
-  };
-
-  const [captchaVal, setCaptchaVal] = useState("");
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setCaptchaVal(getRandomCaptcha());
-    setIsMounted(true);
-  }, []);
-
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
   const [statusType, setStatusType] = useState(null);
 
-  const generateCaptcha = () => {
-    setCaptchaVal(getRandomCaptcha());
+  const fieldRefs = {
+    department: useRef(null),
+    name: useRef(null),
+    email: useRef(null),
+    phno: useRef(null),
+    subject: useRef(null),
+    details: useRef(null),
+    captcha: useRef(null),
   };
 
   const handleChange = (e) => {
@@ -76,7 +65,7 @@ export default function ContactUsPage() {
     if (name === "phno") {
       filteredValue = value.replace(/\D/g, "").slice(0, 10);
     }
-    setFormData({ ...formData, [name]: filteredValue });
+    setFormData((prev) => ({ ...prev, [name]: filteredValue }));
 
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -88,36 +77,61 @@ export default function ContactUsPage() {
     setStatusMessage(null);
 
     const newErrors = {};
-    if (!formData.department) newErrors.department = "Department name is required";
-    if (!formData.name.trim()) newErrors.name = "Name is required";
 
+    // 1. Department
+    if (!formData.department) {
+      newErrors.department = "Please select a department from the dropdown list (e.g., Accounts, Trading, Demat).";
+    }
+
+    // 2. Name
+    if (!formData.name.trim()) {
+      newErrors.name = "Please enter your full name (letters and spaces only).";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name is too short. Please enter at least 2 characters.";
+    }
+
+    // 3. Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
-      newErrors.email = "Email ID is required";
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = "Please enter your email address (e.g., yourname@example.com).";
+    } else if (!emailRegex.test(formData.email.trim())) {
+      newErrors.email = "Invalid email format. Please check for missing '@' or domain name (e.g., user@domain.com).";
     }
 
+    // 4. Mobile Number
+    const phoneRegex = /^[6-9]\d{9}$/;
     if (!formData.phno) {
-      newErrors.phno = "Mobile number is required";
-    } else if (formData.phno.length !== 10) {
-      newErrors.phno = "Please enter a valid 10-digit mobile number";
+      newErrors.phno = "Please enter your 10-digit mobile number.";
+    } else if (!phoneRegex.test(formData.phno)) {
+      newErrors.phno = "Invalid mobile number. Please enter a 10-digit Indian mobile number starting with 6, 7, 8, or 9 (e.g., 9876543210).";
     }
 
-    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
-    if (!formData.details.trim()) newErrors.details = "Details are required";
+    // 5. Subject
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Please enter the subject or purpose of your inquiry.";
+    }
 
+    // 6. Details
+    if (!formData.details.trim()) {
+      newErrors.details = "Please enter your message details or specific requirement.";
+    }
+
+    // 7. Captcha
     if (!formData.captcha.trim()) {
-      newErrors.captcha = "Captcha code is required";
-    } else if (formData.captcha.trim().toUpperCase() !== captchaVal.toUpperCase()) {
-      newErrors.captcha = "Invalid captcha code";
+      newErrors.captcha = "Please enter the 6-character security code shown in the image or use the audio button.";
+    } else if (formData.captcha.trim().toUpperCase() !== captchaAnswer.toUpperCase()) {
+      newErrors.captcha = "The entered captcha code does not match. Please verify the characters or click the audio icon.";
     }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      if (newErrors.captcha === "Invalid captcha code") {
-        setFormData((prev) => ({ ...prev, captcha: "" }));
-        generateCaptcha();
+
+      // Shift focus to the first invalid field (WCAG 3.3.1 / 3.3.3)
+      const firstErrorField = Object.keys(newErrors)[0];
+      const element = document.getElementById(`contact-${firstErrorField}`);
+      if (element) {
+        element.focus();
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
       }
       return;
     }
@@ -135,7 +149,7 @@ export default function ContactUsPage() {
         details: formData.details,
       });
 
-      setStatusMessage("Your inquiry has been submitted successfully! We will get back to you soon.");
+      setStatusMessage("Thank you! Your inquiry has been submitted successfully. Our team will contact you shortly.");
       setStatusType("success");
       setFormData({
         name: "",
@@ -147,10 +161,8 @@ export default function ContactUsPage() {
         captcha: "",
       });
       setErrors({});
-      generateCaptcha();
-    } catch (error) {
-      console.error("API submission error: ", error);
-      setStatusMessage("Failed to submit details. Please check if the backend API server is running at http://localhost:6010.");
+    } catch (err) {
+      setStatusMessage("Failed to submit your inquiry. Please check your network connection and try again.");
       setStatusType("error");
     } finally {
       setLoading(false);
@@ -158,77 +170,76 @@ export default function ContactUsPage() {
   };
 
   return (
-    <Container>
-      <div className="grid grid-cols-1 lg:grid-cols-12 w-full font-sans bg-white border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] rounded-3xl overflow-hidden mb-8 animate-fade-in">
+    <Container className="py-10 sm:py-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
 
-        {/* Left Side: Address Details Panel */}
+        {/* Left Side: Contact Information */}
         <div
-          className="col-span-1 lg:col-span-5 flex flex-col justify-center p-3.5 sm:p-12 min-h-[380px] lg:min-h-[550px] select-none text-white"
+          className="col-span-1 lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between"
           style={{
-            background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)"
+            background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
+            color: "#fff",
           }}
         >
-          <div className="z-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-8 shadow-xl max-w-sm w-full mx-auto space-y-6">
-            <div>
-              <span className="inline-block px-3 py-1 bg-white/20 text-white font-bold text-xs tracking-widest rounded-full uppercase mb-3">
-                Corporate Office
-              </span>
-              <h3 className="text-secondary text-xl sm:text-2xl font-bold font-sans tracking-tight">
-                Ratnakar Securities Ltd.
-              </h3>
-            </div>
+          <div>
+            <span className="text-secondary font-bold text-xs uppercase tracking-widest block mb-2">
+              Customer Support
+            </span>
+            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-4 leading-tight">
+              Reach Out to Ratnakar
+            </h1>
+            <p className="text-white/80 text-sm sm:text-base leading-relaxed mb-8">
+              Have questions about trading accounts, mutual funds, or depository services? Fill out the form, and our specialized relationship team will get back to you promptly.
+            </p>
 
-            <div className="text-white/95 text-sm sm:text-base space-y-2 font-medium leading-relaxed">
-              <p>304, Sankalp Square - 2,</p>
-              <p>Near Jalaram Mandir Crossing,</p>
-              <p>Ellisbridge, Ahmedabad - 380006</p>
-            </div>
-
-            <div className="space-y-4 pt-6 border-t border-white/15">
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-white">
+            <div className="space-y-6 pt-4 border-t border-white/10">
+              <div className="flex items-start gap-4">
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 text-white shrink-0" aria-hidden="true">
                   <Phone className="w-5 h-5" />
                 </span>
-                <a
-                  href="tel:07949005200"
-                  className="text-white hover:text-secondary font-bold text-sm sm:text-base transition-colors"
-                >
-                  079 - 49005200 / 01 / 02
-                </a>
+                <div>
+                  <h3 className="text-xs font-semibold text-white/60 uppercase tracking-wider">Phone Support</h3>
+                  <a href="tel:+917949007900" className="text-white hover:text-cyan-300 font-bold text-base transition-colors">
+                    +91 (079) 4900 7900
+                  </a>
+                </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-white">
+              <div className="flex items-start gap-4">
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 text-white shrink-0" aria-hidden="true">
                   <Mail className="w-5 h-5" />
                 </span>
-                <a
-                  href="mailto:info@ratnakarsecurities.com"
-                  className="text-white hover:text-secondary font-bold text-sm sm:text-base transition-colors break-all"
-                >
-                  info@ratnakarsecurities.com
-                </a>
+                <div>
+                  <h3 className="text-xs font-semibold text-white/60 uppercase tracking-wider">Email Us</h3>
+                  <a href="mailto:info@ratnakarsecurities.com" className="text-white hover:text-cyan-300 font-bold text-base transition-colors break-all">
+                    info@ratnakarsecurities.com
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Right Side: Form Inputs */}
-        <div className="col-span-1 lg:col-span-7 p-4 sm:p-8 lg:p-12 flex flex-col justify-between bg-slate-50">
+        <div className="col-span-1 lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
           <div className="mb-6">
-            <h2 className="text-3xl md:text-4xl font-serif text-foreground font-sans tracking-tight">
-              Get In Touch
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
+              Send Us a Message
             </h2>
+            <p className="text-slate-500 text-xs sm:text-sm mt-1">
+              Fields marked with <span className="text-red-500 font-bold" aria-hidden="true">*</span> are required.
+            </p>
           </div>
 
-          {/* Status Message Announcement */}
+          {/* Status Message Announcement (WCAG 4.1.3) */}
           {statusMessage && (
             <div
               role="status"
               aria-live="polite"
-              className={`p-4 rounded-xl text-sm font-semibold mb-4 ${
+              className={`p-4 rounded-xl text-sm font-semibold mb-6 ${
                 statusType === "success"
-                  ? "bg-green-50 text-green-800 border border-green-200"
-                  : "bg-red-50 text-red-800 border border-red-200"
+                  ? "bg-green-50 text-green-800 border-2 border-green-300"
+                  : "bg-red-50 text-red-800 border-2 border-red-300"
               }`}
             >
               {statusMessage}
@@ -240,48 +251,53 @@ export default function ContactUsPage() {
 
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-department" className="sr-only">Department Name</label>
+                <label htmlFor="contact-department" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  Select Department <span className="text-red-500" aria-hidden="true">*</span>
+                </label>
                 <CustomSelect
                   id="contact-department"
                   name="department"
                   value={formData.department}
                   onChange={handleChange}
                   options={departmentOptions}
-                  placeholder="Department Name"
+                  placeholder="Select Department"
                   icon={User}
                   error={errors.department}
                   ariaDescribedBy={errors.department ? "contact-department-error" : undefined}
                 />
                 {errors.department && (
-                  <span id="contact-department-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
-                    {errors.department}
+                  <span id="contact-department-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                    <span aria-hidden="true">⚠️</span> {errors.department}
                   </span>
                 )}
               </div>
 
               {/* Name Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-name" className="sr-only">Full Name</label>
+                <label htmlFor="contact-name" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  Full Name <span className="text-red-500" aria-hidden="true">*</span>
+                </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <User className="w-5 h-5" aria-hidden="true" />
+                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+                    <User className="w-5 h-5" />
                   </div>
                   <Input
                     id="contact-name"
                     type="text"
                     name="name"
                     autoComplete="name"
-                    placeholder="Name"
+                    placeholder="e.g. Rajesh Sharma"
                     value={formData.name}
                     onChange={handleChange}
+                    aria-required="true"
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "contact-name-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
                 {errors.name && (
-                  <span id="contact-name-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
-                    {errors.name}
+                  <span id="contact-name-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                    <span aria-hidden="true">⚠️</span> {errors.name}
                   </span>
                 )}
               </div>
@@ -291,54 +307,60 @@ export default function ContactUsPage() {
 
               {/* Email Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-email" className="sr-only">Email Address</label>
+                <label htmlFor="contact-email" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  Email Address <span className="text-red-500" aria-hidden="true">*</span>
+                </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <Mail className="w-5 h-5" aria-hidden="true" />
+                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+                    <Mail className="w-5 h-5" />
                   </div>
                   <Input
                     id="contact-email"
                     type="email"
                     name="email"
                     autoComplete="email"
-                    placeholder="Email ID"
+                    placeholder="e.g. rajesh@domain.com"
                     value={formData.email}
                     onChange={handleChange}
+                    aria-required="true"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "contact-email-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
                 {errors.email && (
-                  <span id="contact-email-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
-                    {errors.email}
+                  <span id="contact-email-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                    <span aria-hidden="true">⚠️</span> {errors.email}
                   </span>
                 )}
               </div>
 
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-phno" className="sr-only">Mobile Number</label>
+                <label htmlFor="contact-phno" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                  Mobile Number <span className="text-red-500" aria-hidden="true">*</span>
+                </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <Phone className="w-5 h-5" aria-hidden="true" />
+                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
+                    <Phone className="w-5 h-5" />
                   </div>
                   <Input
                     id="contact-phno"
                     type="tel"
                     name="phno"
                     autoComplete="tel"
-                    placeholder="Mobile Number"
+                    placeholder="10-digit number e.g. 9876543210"
                     value={formData.phno}
                     onChange={handleChange}
+                    aria-required="true"
                     aria-invalid={!!errors.phno}
                     aria-describedby={errors.phno ? "contact-phno-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
+                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
                 {errors.phno && (
-                  <span id="contact-phno-error" className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
-                    {errors.phno}
+                  <span id="contact-phno-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                    <span aria-hidden="true">⚠️</span> {errors.phno}
                   </span>
                 )}
               </div>
@@ -346,105 +368,71 @@ export default function ContactUsPage() {
 
             {/* Subject Input */}
             <div className="flex flex-col gap-1">
+              <label htmlFor="contact-subject" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                Subject <span className="text-red-500" aria-hidden="true">*</span>
+              </label>
               <div className="relative flex items-center">
-                <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
+                <div className="absolute left-4 text-slate-400 pointer-events-none z-10" aria-hidden="true">
                   <Info className="w-5 h-5" />
                 </div>
                 <Input
+                  id="contact-subject"
                   type="text"
                   name="subject"
-                  placeholder="Subject"
+                  placeholder="e.g. Trading Account Opening Inquiry"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px]"
+                  aria-required="true"
+                  aria-invalid={!!errors.subject}
+                  aria-describedby={errors.subject ? "contact-subject-error" : undefined}
+                  className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
               </div>
               {errors.subject && (
-                <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
-                  {errors.subject}
+                <span id="contact-subject-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span aria-hidden="true">⚠️</span> {errors.subject}
                 </span>
               )}
             </div>
 
             {/* Details Textarea */}
             <div className="flex flex-col gap-1">
+              <label htmlFor="contact-details" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                Details & Specific Questions <span className="text-red-500" aria-hidden="true">*</span>
+              </label>
               <div className="relative flex items-start">
-                <div className="absolute left-4 top-3.5 text-slate-400 pointer-events-none z-10">
+                <div className="absolute left-4 top-3.5 text-slate-400 pointer-events-none z-10" aria-hidden="true">
                   <FileText className="w-5 h-5" />
                 </div>
                 <textarea
+                  id="contact-details"
                   name="details"
-                  placeholder="Details"
+                  placeholder="Please describe your query in detail..."
                   rows={4}
                   value={formData.details}
                   onChange={handleChange}
-                  className="w-full pl-12 pr-4 py-3 text-[15px] text-slate-800 bg-slate-50/50 border border-slate-200 focus:border-[#00aeee] rounded-xl outline-none focus:outline-none focus:ring-0 resize-none font-medium placeholder:text-slate-400 transition-colors"
+                  aria-required="true"
+                  aria-invalid={!!errors.details}
+                  aria-describedby={errors.details ? "contact-details-error" : undefined}
+                  className="w-full pl-12 pr-4 py-3 text-[15px] text-slate-800 bg-slate-50/70 border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 rounded-xl outline-none resize-none font-medium placeholder:text-slate-400 transition-colors"
                 />
               </div>
               {errors.details && (
-                <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
-                  {errors.details}
+                <span id="contact-details-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span aria-hidden="true">⚠️</span> {errors.details}
                 </span>
               )}
             </div>
 
-            {/* Captcha Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center">
-              <div className="flex flex-col gap-1">
-                <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-400 pointer-events-none z-10">
-                    <HelpCircle className="w-5 h-5" />
-                  </div>
-                  <Input
-                    type="text"
-                    name="captcha"
-                    placeholder="Enter Captcha"
-                    value={formData.captcha}
-                    onChange={handleChange}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/50 text-[15px] uppercase placeholder:normal-case"
-                  />
-                </div>
-                {errors.captcha && (
-                  <span className="text-red-500 text-xs font-semibold pl-1 animate-fade-in">
-                    {errors.captcha}
-                  </span>
-                )}
-              </div>
-
-              {/* Captcha Display & Refresh */}
-              <div className="flex items-center gap-3">
-                <div className="flex-1 bg-muted border border-border rounded-xl h-12 flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-extrabold text-lg text-muted-foreground text-center relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f9fafb,#f9fafb_8px,#f3f4f6_8px,#f3f4f6_16px)]">
-                  <span className="relative z-10 text-gray-700 italic select-none">
-                    {isMounted ? captchaVal : "------"}
-                  </span>
-                  <div className="absolute inset-0 opacity-10 flex flex-col justify-around pointer-events-none">
-                    <div className="w-full h-[2px] bg-gray-900 -rotate-2"></div>
-                    <div className="w-full h-[2px] bg-gray-900 rotate-3"></div>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={generateCaptcha}
-                  title="Refresh Captcha"
-                  className="w-12 h-12 border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-xl flex items-center justify-center transition-colors group shrink-0"
-                >
-                  <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-300" />
-                </button>
-              </div>
-            </div>
-
-            {/* Alert Box */}
-            {statusMessage && (
-              <div
-                className={`p-4 rounded-xl text-sm font-semibold ${statusType === "success"
-                  ? "bg-green-50 text-success border border-success/20 animate-fade-in"
-                  : "bg-red-50 text-danger border border-danger/20 animate-fade-in"
-                  }`}
-              >
-                {statusMessage}
-              </div>
-            )}
+            {/* Accessible Audio CAPTCHA (WCAG 1.1.1 & GIGW 5.2.1) */}
+            <AccessibleCaptcha
+              id="contact-captcha"
+              name="captcha"
+              value={formData.captcha}
+              onChange={handleChange}
+              error={errors.captcha}
+              onCaptchaChange={(code) => setCaptchaAnswer(code)}
+            />
 
             {/* Submit Button */}
             <div className="pt-2">
@@ -452,9 +440,9 @@ export default function ContactUsPage() {
                 as="button"
                 type="submit"
                 loading={loading}
-                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none hover:bg-primary-dark focus-visible:ring-primary h-11 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2"
+                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
               >
-                Submit
+                Submit Inquiry
               </Button>
             </div>
           </form>

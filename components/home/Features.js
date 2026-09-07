@@ -19,17 +19,17 @@ const SERVICES = [
 
 export default function InvestmentServices() {
   return (
-    <section className="relative overflow-hidden bg-[#f7f9fc] py-12">
+    <section className="relative overflow-hidden bg-[#f7f9fc] py-12" aria-labelledby="features-heading">
 
 
       <Container className="relative z-10">
 
         {/* Header */}
         <div className="mb-12 text-center">
-          <div style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3">
+          <p style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
             Investment Opportunities
-          </div>
-          <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
+          </p>
+          <h2 id="features-heading" className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
             Every investment need. One trusted roof.
           </h2>
         </div>
@@ -70,7 +70,7 @@ export default function InvestmentServices() {
                 <span className="text-[14px] font-bold text-gray-700 group-hover:text-[#ea2830] transition-colors">
                   Learn More
                 </span>
-                <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-[#ea2830] transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-[#ea2830] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </div>
             </Link>
           ))}

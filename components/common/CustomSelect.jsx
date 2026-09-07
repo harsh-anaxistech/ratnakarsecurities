@@ -102,12 +102,12 @@ export default function CustomSelect({
         disabled={disabled}
         onClick={() => setIsOpen(!isOpen)}
         onKeyDown={handleKeyDown}
-        className={`w-full h-12 ${Icon ? "pl-12" : "pl-4"} pr-10 text-left text-sm sm:text-[15px] bg-slate-50/50 border transition-all duration-200 outline-none font-medium flex items-center justify-between cursor-pointer ${roundedClassName} ${
+        className={`w-full h-12 ${Icon ? "pl-12" : "pl-4"} pr-10 text-left text-sm sm:text-[15px] bg-slate-50/50 border transition-all duration-200 font-medium flex items-center justify-between cursor-pointer ${roundedClassName} ${
           isOpen
-            ? "border-[#00aeee] ring-2 ring-[#00aeee]/20 shadow-sm bg-white"
+            ? "border-[#004b87] ring-2 ring-[#004b87]/30 shadow-sm bg-white"
             : error
-            ? "border-red-500 focus:border-red-500"
-            : "border-slate-300 hover:border-slate-400 focus:border-[#00aeee]"
+            ? "border-[#dc2626] focus:border-[#dc2626]"
+            : "border-[#767676] hover:border-[#595959] focus:border-[#004b87]"
         } ${className}`}
       >
         {Icon && (

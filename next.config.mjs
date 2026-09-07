@@ -56,6 +56,36 @@ const nextConfig = {
         destination: "/static/investor-charter",
         permanent: true,
       },
+      {
+        source: "/static/contact-us.aspx",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/contact-us.aspx",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/products/products.aspx",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/about.aspx",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/downloads.aspx",
+        destination: "/downloads",
+        permanent: true,
+      },
+      {
+        source: "/investors.aspx",
+        destination: "/investors",
+        permanent: true,
+      },
     ];
   },
   compress: true,

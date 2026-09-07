@@ -40,14 +40,14 @@
 
   export default function InvestmentSteps() {
     return (
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-16 bg-white relative overflow-hidden" aria-labelledby="steps-heading">
         <Container>
           {/* Header */}
           <div className="mb-16 text-center relative z-10">
-            <div style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3">
+            <p style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
               Your Investment Journey
-            </div>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 leading-tight">
+            </p>
+            <h2 id="steps-heading" className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 leading-tight">
               From first step to first crore 
               <span className="relative inline-block mt-1">
                 we walk with you.
@@ -67,7 +67,7 @@
                     <IconComponent className={`w-7 h-7 ${step.iconColor} transition-transform duration-500 group-hover:scale-110`} strokeWidth={1.8} />
                     
                     {/* નાનો ડોટ */}
-                    <span className={`absolute top-0 right-0 w-3 h-3 rounded-full ${step.badgeColor} border-2 border-white shadow-sm`} />
+                    <span className={`absolute top-0 right-0 w-3 h-3 rounded-full ${step.badgeColor} border-2 border-white shadow-sm`} aria-hidden="true" />
                   </div>
 
                   {/* હેડિંગ */}

@@ -3,10 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-
-import { useState, useEffect } from "react";
-// Navu: X (Close icon) ane Briefcase icon import karya chhe
-import { ChevronDown, TrendingUp, Smartphone, Download, HelpCircle, Heart, Handshake, X, Briefcase, Globe } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import {
+  ChevronDown,
+  TrendingUp,
+  Smartphone,
+  Download,
+  HelpCircle,
+  Heart,
+  Handshake,
+  X,
+  Briefcase,
+  Globe,
+  Search
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
@@ -15,6 +25,8 @@ import { getResearchSections } from "@/services/research";
 import BackofficeLoginModal from "@/components/modals/BackofficeLoginModal";
 import ChooseAppModal from "@/components/modals/ChooseAppModal";
 import FloatingMobileTrading from "@/components/FloatingMobileTrading";
+import AccessibilityToolbar from "@/components/common/AccessibilityToolbar";
+import QuickSearchModal from "@/components/common/QuickSearchModal";
 
 const NAV_LINKS = [
   {
@@ -38,7 +50,7 @@ const NAV_LINKS = [
   },
   {
     label: "Investors",
-    href: "#",
+    href: "/investors",
     columns: [
       [
         { label: "Board of Directors", href: "/investors/board-of-directors", icon: "board-of-directors", description: "Meet our leadership team" },
@@ -78,11 +90,11 @@ const LOGIN_LINKS = [
   { label: "Mutual Fund Portfolio", href: "https://ratnakarsecurities.investwell.app/app/#/login", external: true },
 ];
 
-function DropdownLink({ link, children, className }) {
+function DropdownLink({ link, children, className, onClick }) {
   const iconSvg = link.icon ? MenuIcons[link.icon] : null;
   const content = (
     <div className="flex items-start gap-3">
-      {iconSvg && <span className="flex h-8 w-8 shrink-0 items-center justify-center text-secondary mt-0.5">{iconSvg}</span>}
+      {iconSvg && <span className="flex h-8 w-8 shrink-0 items-center justify-center text-secondary mt-0.5" aria-hidden="true">{iconSvg}</span>}
       <div className="flex flex-col">
         <span className="text-sm font-medium text-foreground">{children}</span>
         {link.description && <span className="text-xs text-muted-foreground mt-0.5">{link.description}</span>}
@@ -90,9 +102,9 @@ function DropdownLink({ link, children, className }) {
     </div>
   );
   if (link.external) {
-    return <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>{content}</a>;
+    return <a href={link.href} target="_blank" rel="noopener noreferrer" className={className} onClick={onClick}>{content}</a>;
   }
-  return <Link href={link.href} className={className}>{content}</Link>;
+  return <Link href={link.href} className={className} onClick={onClick}>{content}</Link>;
 }
 
 export default function Header() {
@@ -104,9 +116,13 @@ export default function Header() {
   const [backofficeModalOpen, setBackofficeModalOpen] = useState(false);
   const [floatingMobileModalOpen, setFloatingMobileModalOpen] = useState(false);
   const [chooseAppModalOpen, setChooseAppModalOpen] = useState(false);
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [desktopLoginOpen, setDesktopLoginOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
   const pathname = usePathname();
   const [prevPathname, setPrevPathname] = useState(pathname);
+  const dropdownTimeoutRef = useRef(null);
 
   if (pathname !== prevPathname) {
     setPrevPathname(pathname);
@@ -115,7 +131,9 @@ export default function Header() {
     setOpenAccordion(null);
     setMobileLoginOpen(false);
     setFloatingMobileModalOpen(false);
-    setChooseAppModalOpen(false); // Page change par modal close karva
+    setChooseAppModalOpen(false);
+    setActiveDropdown(null);
+    setDesktopLoginOpen(false);
   }
 
   const [navLinks, setNavLinks] = useState(NAV_LINKS);
@@ -158,7 +176,7 @@ export default function Header() {
           }
         }
       } catch (error) {
-        // API server may not be running in local dev - silently ignore
+        // API server may not be running in local dev
       }
     }
     loadResearchSections();
@@ -174,7 +192,12 @@ export default function Header() {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         setActiveDropdown(null);
+        setDesktopLoginOpen(false);
         setMobileOpen(false);
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchModalOpen((p) => !p);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -186,7 +209,7 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen, floatingMobileModalOpen, chooseAppModalOpen]);
 
-  const hasSubmenu = (item) => item.columns || item.dropdown;
+  const hasSubmenu = (item) => Boolean(item.columns || item.dropdown);
   const getSubLinks = (item) => {
     if (item.dropdown) return item.dropdown;
     if (item.columns) return item.columns.flat();
@@ -202,6 +225,26 @@ export default function Header() {
     }
   };
 
+  const handleMouseEnterNav = (label) => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeaveNav = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  };
+
+  const handleNavKeyDown = (e, item) => {
+    if (!hasSubmenu(item)) return;
+
+    if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") {
+      e.preventDefault();
+      setActiveDropdown(activeDropdown === item.label ? null : item.label);
+    }
+  };
+
   return (
     <>
       <header
@@ -211,7 +254,7 @@ export default function Header() {
           scrolled ? "shadow-md md:-translate-y-14" : "translate-y-0"
         )}
       >
-        {/* ── GRADIENT RADIAL TOP HEADER ── */}
+        {/* ── GRADIENT RADIAL TOP HEADER (With Accessibility Toolbar & Quick Links) ── */}
         <div
           className="hidden md:flex h-14 w-full items-center border-b border-white/10"
           style={{
@@ -220,72 +263,134 @@ export default function Header() {
           }}
         >
           <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 w-full">
-            <div className="flex h-14 items-center justify-end gap-4">
-              {[
-                { Icon: Smartphone, title: "Mobile App", href: "#" },
-                { Icon: Download, title: "Downloads", href: "/downloads" },
-                { Icon: HelpCircle, title: "Help", href: "/contact" },
-                { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
-              ].map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  onClick={(e) => {
-                    if (item.title === "Mobile App") {
-                      e.preventDefault();
-                      setFloatingMobileModalOpen(true);
-                    } else {
-                      handleTopNav(e, item.href);
-                    }
-                  }}
-                  className="flex items-center justify-center h-9 w-9 my-1.5 rounded-full bg-white/10 border border-white/20 text-white hover:bg-red-600 hover:border-red-600 hover:scale-110 hover:shadow-lg transition-all duration-300 min-w-[36px] min-h-[36px]"
-                  title={item.title}
-                  aria-label={item.title}
-                >
-                  <item.Icon className="h-5 w-5" aria-hidden="true" />
-                </a>
-              ))}
+            <div className="flex h-14 items-center justify-between gap-4">
+              {/* Accessibility Controls */}
+              <AccessibilityToolbar onOpenSearch={() => setSearchModalOpen(true)} />
 
+              {/* Top Quick Actions */}
+              <div className="flex items-center gap-3">
+                {[
+                  { Icon: Smartphone, title: "Mobile App", href: "#" },
+                  { Icon: Download, title: "Downloads Center", href: "/downloads" },
+                  { Icon: HelpCircle, title: "Customer Help", href: "/contact" },
+                  { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
+                ].map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.href}
+                    onClick={(e) => {
+                      if (item.title === "Mobile App") {
+                        e.preventDefault();
+                        setFloatingMobileModalOpen(true);
+                      } else {
+                        handleTopNav(e, item.href);
+                      }
+                    }}
+                    className="flex items-center justify-center h-8 w-8 my-1 rounded-full bg-white/10 border border-white/20 text-white hover:bg-primary hover:border-primary hover:scale-110 transition-all duration-300 min-w-[32px] min-h-[32px] focus:ring-2 focus:ring-white"
+                    title={item.title}
+                    aria-label={item.title}
+                  >
+                    <item.Icon className="h-4 w-4" aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
         {/* ── MAIN NAV ── */}
-        <div className="bg-white border-b border-gray-200 w-full">
+        <div className="bg-white border-b border-gray-200 w-full shadow-sm">
           <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between lg:h-[72px]">
 
-              {/* Logo */}
-              <Link href="/" aria-label="Ratnakar Securities – Home" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm">
-                <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={202} height={57} priority className="object-contain" />
+              {/* Logo with proper descriptive alt */}
+              <Link
+                href="/"
+                aria-label="Ratnakar Securities Limited – Navigate to Homepage"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+              >
+                <Image
+                  src="/images/logo/RSL_logo.png"
+                  alt="Graphic Ratnakar Securities Limited logo"
+                  width={202}
+                  height={57}
+                  priority
+                  className="object-contain"
+                />
               </Link>
 
-              {/* Desktop Nav */}
-              <nav className="hidden lg:flex h-full items-center">
+              {/* Desktop Nav with Full Keyboard Traversal */}
+              <nav className="hidden lg:flex h-full items-center" aria-label="Main Navigation">
                 {navLinks.map((item) => {
                   const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+                  const isMenuOpen = activeDropdown === item.label;
+
                   return (
-                    <div key={item.label} className="group relative h-full flex items-center">
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          "flex h-full items-center gap-1 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap",
-                          isActive
-                            ? "text-primary border-primary"
-                            : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
-                        )}
-                      >
-                        {item.label}
-                        {hasSubmenu(item) && <ChevronDown className="h-3.5 w-3.5 opacity-60 group-hover:rotate-180 transition-transform duration-200" />}
-                      </Link>
+                    <div
+                      key={item.label}
+                      className="relative h-full flex items-center"
+                      onMouseEnter={() => handleMouseEnterNav(item.label)}
+                      onMouseLeave={handleMouseLeaveNav}
+                    >
+                      {hasSubmenu(item) ? (
+                        <button
+                          type="button"
+                          aria-haspopup="true"
+                          aria-expanded={isMenuOpen}
+                          aria-controls={`dropdown-menu-${item.label.toLowerCase()}`}
+                          onKeyDown={(e) => handleNavKeyDown(e, item)}
+                          onClick={() => setActiveDropdown(isMenuOpen ? null : item.label)}
+                          className={cn(
+                            "flex h-full items-center gap-1.5 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:bg-slate-50",
+                            isActive || isMenuOpen
+                              ? "text-primary border-primary"
+                              : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
+                          )}
+                        >
+                          <span>{item.label}</span>
+                          <ChevronDown
+                            className={cn(
+                              "h-3.5 w-3.5 opacity-70 transition-transform duration-200",
+                              isMenuOpen && "rotate-180 text-primary"
+                            )}
+                            aria-hidden="true"
+                          />
+                        </button>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className={cn(
+                            "flex h-full items-center gap-1 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-primary focus:bg-slate-50",
+                            isActive
+                              ? "text-primary border-primary"
+                              : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
+                          )}
+                        >
+                          {item.label}
+                        </Link>
+                      )}
 
                       {/* Multi-column dropdown */}
                       {item.columns && (
-                        <div className="absolute left-0 top-full mt-0 z-50 w-[1000px] grid grid-cols-2 gap-8 bg-white shadow-2xl border border-border rounded-b-lg rounded-tr-lg p-6 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
+                        <div
+                          id={`dropdown-menu-${item.label.toLowerCase()}`}
+                          role="menu"
+                          aria-label={`${item.label} Menu`}
+                          className={cn(
+                            "absolute left-0 top-full mt-0 z-50 w-[950px] grid grid-cols-2 gap-6 bg-white shadow-2xl border border-border rounded-b-xl p-6 transition-all duration-200 ease-out",
+                            isMenuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible pointer-events-none translate-y-1"
+                          )}
+                        >
                           {item.columns.map((column, i) => (
-                            <div key={i} className="space-y-2">
+                            <div key={i} className="space-y-1.5">
                               {column.map((link) => (
-                                <DropdownLink key={link.label} link={link} className="block rounded-lg px-4 py-3 hover:bg-secondary-light transition-colors duration-200">
+                                <DropdownLink
+                                  key={link.label}
+                                  link={link}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className="block rounded-lg px-4 py-3 hover:bg-slate-50 focus:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-colors duration-150"
+                                >
                                   {link.label}
                                 </DropdownLink>
                               ))}
@@ -294,11 +399,24 @@ export default function Header() {
                         </div>
                       )}
 
-                      {/* Single dropdown */}
+                      {/* Single column dropdown */}
                       {item.dropdown && (
-                        <div className="absolute left-0 top-full mt-0 z-50 w-96 bg-white shadow-2xl border border-border rounded-b-lg rounded-tr-lg p-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 ease-out">
+                        <div
+                          id={`dropdown-menu-${item.label.toLowerCase()}`}
+                          role="menu"
+                          aria-label={`${item.label} Menu`}
+                          className={cn(
+                            "absolute left-0 top-full mt-0 z-50 w-96 bg-white shadow-2xl border border-border rounded-b-xl p-3 transition-all duration-200 ease-out",
+                            isMenuOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible pointer-events-none translate-y-1"
+                          )}
+                        >
                           {item.dropdown.map((link) => (
-                            <DropdownLink key={link.label} link={link} className="block rounded-lg px-4 py-3 hover:bg-secondary-light transition-colors duration-200">
+                            <DropdownLink
+                              key={link.label}
+                              link={link}
+                              onClick={() => setActiveDropdown(null)}
+                              className="block rounded-lg px-4 py-3 hover:bg-slate-50 focus:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-primary transition-colors duration-150"
+                            >
                               {link.label}
                             </DropdownLink>
                           ))}
@@ -309,33 +427,65 @@ export default function Header() {
                 })}
               </nav>
 
-              {/* Desktop Actions */}
+              {/* Desktop Actions & Login */}
               <div className="hidden lg:flex items-center gap-1.5 xl:gap-2">
+                {/* Quick Search Shortcut */}
+                <button
+                  type="button"
+                  onClick={() => setSearchModalOpen(true)}
+                  aria-label="Search site (Press Ctrl+K)"
+                  title="Search site (Ctrl+K)"
+                  className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:text-primary hover:bg-slate-100 border border-slate-200 transition-colors focus:ring-2 focus:ring-primary"
+                >
+                  <Search className="w-4 h-4" aria-hidden="true" />
+                </button>
+
                 <a href="https://twx.ratnakarsecurities.com:4433/twx/signin" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-5 py-2 whitespace-nowrap">
+                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap">
                     RE-KYC
                   </Button>
                 </a>
 
                 <a href="https://smartkyc.co.in/d/ratnakar" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-5 py-2 whitespace-nowrap">
-                    OPEN DEMAT ACCOUNT
+                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap">
+                    OPEN ACCOUNT
                   </Button>
                 </a>
 
                 {/* Login dropdown */}
-                <div className="relative" onMouseEnter={() => setDesktopLoginOpen(true)} onMouseLeave={() => setDesktopLoginOpen(false)}>
-                  <Button onClick={() => setDesktopLoginOpen((p) => !p)} className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-5 py-2 whitespace-nowrap">
-                    LOGIN <ChevronDown className={cn("h-3.5 w-3.5 ml-1 transition-transform duration-200 inline", desktopLoginOpen && "rotate-180")} />
+                <div
+                  className="relative"
+                  onMouseEnter={() => setDesktopLoginOpen(true)}
+                  onMouseLeave={() => setDesktopLoginOpen(false)}
+                >
+                  <Button
+                    onClick={() => setDesktopLoginOpen((p) => !p)}
+                    aria-expanded={desktopLoginOpen}
+                    aria-haspopup="true"
+                    aria-label="Client & Backoffice Login Menu"
+                    className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap"
+                  >
+                    LOGIN <ChevronDown className={cn("h-3.5 w-3.5 ml-1 transition-transform duration-200 inline", desktopLoginOpen && "rotate-180")} aria-hidden="true" />
                   </Button>
-                  <div className={cn("absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-lg py-2 transition-all duration-200 ease-out", desktopLoginOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-1")}>
+                  <div
+                    role="menu"
+                    aria-label="Login Options"
+                    className={cn(
+                      "absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-xl py-2 transition-all duration-200 ease-out",
+                      desktopLoginOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible pointer-events-none translate-y-1"
+                    )}
+                  >
                     {LOGIN_LINKS.map((link) => {
                       if (link.isButton) {
                         return (
                           <button
                             key={link.label}
-                            onClick={() => setBackofficeModalOpen(true)}
-                            className="w-full text-left block rounded-lg px-4 py-3 text-sm text-foreground hover:bg-secondary-light transition-colors duration-200"
+                            role="menuitem"
+                            onClick={() => {
+                              setBackofficeModalOpen(true);
+                              setDesktopLoginOpen(false);
+                            }}
+                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus:outline-none transition-colors duration-150"
                           >
                             {link.label}
                           </button>
@@ -345,8 +495,12 @@ export default function Header() {
                         return (
                           <button
                             key={link.label}
-                            onClick={() => setChooseAppModalOpen(true)}
-                            className="w-full text-left block rounded-lg px-4 py-3 text-sm text-foreground hover:bg-secondary-light transition-colors duration-200"
+                            role="menuitem"
+                            onClick={() => {
+                              setChooseAppModalOpen(true);
+                              setDesktopLoginOpen(false);
+                            }}
+                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus:outline-none transition-colors duration-150"
                           >
                             {link.label}
                           </button>
@@ -354,13 +508,25 @@ export default function Header() {
                       }
                       if (link.external) {
                         return (
-                          <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="block rounded-lg px-4 py-3 text-sm text-foreground hover:bg-secondary-light transition-colors duration-200">
+                          <a
+                            key={link.href}
+                            role="menuitem"
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus:outline-none transition-colors duration-150"
+                          >
                             {link.label}
                           </a>
                         );
                       }
                       return (
-                        <Link key={link.href} href={link.href} className="block rounded-lg px-4 py-3 text-sm text-foreground hover:bg-secondary-light transition-colors duration-200">
+                        <Link
+                          key={link.href}
+                          role="menuitem"
+                          href={link.href}
+                          className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus:outline-none transition-colors duration-150"
+                        >
                           {link.label}
                         </Link>
                       );
@@ -371,23 +537,33 @@ export default function Header() {
 
               {/* Hamburger & Mobile Quick Icons */}
               <div className="flex items-center gap-2 lg:hidden">
+                {/* Search Trigger for Mobile */}
+                <button
+                  type="button"
+                  onClick={() => setSearchModalOpen(true)}
+                  aria-label="Search site"
+                  className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors shadow-sm"
+                >
+                  <Search className="h-4 w-4" aria-hidden="true" />
+                </button>
+
                 {/* Mobile Quick Links Button */}
                 <div className="relative">
                   <button
                     onClick={() => setMobileQuickLinksOpen((p) => !p)}
-                    aria-label="Quick links"
+                    aria-label="Quick links menu"
+                    aria-expanded={mobileQuickLinksOpen}
                     className="w-9 h-9 flex items-center justify-center rounded-full bg-[#011628] text-white hover:bg-[#ea2830] transition-colors shadow-sm"
                   >
-                    <Smartphone className="h-4 w-4" />
+                    <Smartphone className="h-4 w-4" aria-hidden="true" />
                   </button>
 
-                  {/* Dropdown Popup Row in single line for Mobile */}
                   {mobileQuickLinksOpen && (
                     <div className="absolute right-0 top-full mt-2 z-50 flex items-center gap-2 p-2 bg-[#011628] border border-white/20 rounded-full shadow-2xl animate-in fade-in zoom-in duration-200">
                       {[
                         { Icon: Smartphone, title: "Mobile App", href: "#" },
-                        { Icon: Download, title: "Downloads", href: "/downloads" },
-                        { Icon: HelpCircle, title: "Help", href: "/contact" },
+                        { Icon: Download, title: "Downloads Center", href: "/downloads" },
+                        { Icon: HelpCircle, title: "Customer Help", href: "/contact" },
                         { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
                       ].map((item, index) => (
                         <a
@@ -404,8 +580,9 @@ export default function Header() {
                           }}
                           className="flex items-center justify-center h-8 w-8 rounded-full bg-white/10 border border-white/20 text-white hover:bg-[#ea2830] hover:border-[#ea2830] transition-all duration-300"
                           title={item.title}
+                          aria-label={item.title}
                         >
-                          <item.Icon className="h-4 w-4" />
+                          <item.Icon className="h-4 w-4" aria-hidden="true" />
                         </a>
                       ))}
                     </div>
@@ -414,8 +591,9 @@ export default function Header() {
 
                 <button
                   onClick={() => setMobileOpen((p) => !p)}
-                  aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                  aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
                   aria-expanded={mobileOpen}
+                  aria-controls="mobile-navigation-drawer"
                   className="relative w-10 h-10 flex items-center justify-center rounded text-foreground hover:bg-muted transition-colors"
                 >
                   <span className={cn("absolute h-0.5 w-6 bg-current rounded transition-all duration-300", mobileOpen ? "rotate-45" : "-translate-y-2")} />
@@ -431,20 +609,32 @@ export default function Header() {
       {/* Spacer */}
       <div className="h-16 md:h-[128px] w-full" aria-hidden="true" />
 
-      {/* Mobile Drawer */}
-      <div id="mobile-menu" className={cn("fixed inset-0 z-[1000] transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto" : "pointer-events-none")} aria-hidden={!mobileOpen}>
+      {/* Mobile Drawer with Accessibility Toolbar */}
+      <div
+        id="mobile-navigation-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile Navigation Drawer"
+        className={cn("fixed inset-0 z-[1000] transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto" : "pointer-events-none")}
+        aria-hidden={!mobileOpen}
+      >
         <div className={cn("absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300", mobileOpen ? "opacity-100" : "opacity-0")} onClick={() => setMobileOpen(false)} />
-        <div className={cn("absolute right-0 top-0 h-full w-full bg-white transition-transform duration-300 ease-in-out flex flex-col", mobileOpen ? "translate-x-0" : "translate-x-full")}>
+        <div className={cn("absolute right-0 top-0 h-full w-full max-w-sm bg-white transition-transform duration-300 ease-in-out flex flex-col shadow-2xl", mobileOpen ? "translate-x-0" : "translate-x-full")}>
           <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100" style={{ background: "#011628" }}>
             <Link href="/" onClick={() => setMobileOpen(false)}>
               <div className="bg-white rounded-lg p-2">
-                <Image src="/images/logo/RSL_logo.png" alt="Ratnakar Securities" width={120} height={35} className="object-contain" />
+                <Image src="/images/logo/RSL_logo.png" alt="Graphic Ratnakar Securities Limited logo" width={120} height={35} className="object-contain" />
               </div>
             </Link>
-            <button onClick={() => setMobileOpen(false)} aria-label="Close menu" className="w-9 h-9 flex items-center justify-center text-white/70 hover:text-white">
+            <button onClick={() => setMobileOpen(false)} aria-label="Close navigation menu" className="w-9 h-9 flex items-center justify-center text-white/70 hover:text-white">
               <span className="absolute h-0.5 w-5 bg-current rotate-45 rounded" />
               <span className="absolute h-0.5 w-5 bg-current -rotate-45 rounded" />
             </button>
+          </div>
+
+          {/* Mobile Accessibility Bar */}
+          <div className="bg-[#012441] px-4 py-2 border-b border-white/10">
+            <AccessibilityToolbar onOpenSearch={() => { setMobileOpen(false); setSearchModalOpen(true); }} />
           </div>
 
           <nav className="flex-1 overflow-y-auto px-4 py-4" aria-label="Mobile navigation">
@@ -459,10 +649,11 @@ export default function Header() {
                       <>
                         <button
                           onClick={() => { setOpenAccordion(isOpen ? null : item.label); setMobileLoginOpen(false); }}
+                          aria-expanded={isOpen}
                           className={cn("flex w-full items-center justify-between py-3 px-3 text-sm font-semibold rounded transition-colors", isActive ? "text-primary" : "text-foreground hover:bg-muted")}
                         >
                           <span>{item.label}</span>
-                          <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isOpen && "rotate-180")} />
+                          <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isOpen && "rotate-180")} aria-hidden="true" />
                         </button>
                         <div className={cn("overflow-hidden transition-all duration-300", isOpen ? "max-h-[1000px] pb-2" : "max-h-0")}>
                           <div className="flex flex-col gap-0.5 pl-3 pt-1">
@@ -486,10 +677,11 @@ export default function Header() {
               <div className="mt-2">
                 <button
                   onClick={() => { setMobileLoginOpen((p) => !p); setOpenAccordion(null); }}
+                  aria-expanded={mobileLoginOpen}
                   className="flex w-full items-center justify-between py-3 px-3 text-sm font-semibold rounded transition-colors text-foreground hover:bg-muted"
                 >
-                  <span>Login</span>
-                  <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", mobileLoginOpen && "rotate-180")} />
+                  <span>Client Login</span>
+                  <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", mobileLoginOpen && "rotate-180")} aria-hidden="true" />
                 </button>
                 <div className={cn("overflow-hidden transition-all duration-300", mobileLoginOpen ? "max-h-[300px] pb-2" : "max-h-0")}>
                   <div className="flex flex-col gap-0.5 pl-3 pt-1">
@@ -552,17 +744,11 @@ export default function Header() {
         </div>
       </div>
 
+      {/* Global Modals */}
+      <QuickSearchModal isOpen={searchModalOpen} onClose={() => setSearchModalOpen(false)} />
       <BackofficeLoginModal isOpen={backofficeModalOpen} onClose={() => setBackofficeModalOpen(false)} />
-
-      <FloatingMobileTrading
-        isOpen={floatingMobileModalOpen}
-        onClose={() => setFloatingMobileModalOpen(false)}
-      />
-
-      <ChooseAppModal
-        isOpen={chooseAppModalOpen}
-        onClose={() => setChooseAppModalOpen(false)}
-      />
+      <FloatingMobileTrading isOpen={floatingMobileModalOpen} onClose={() => setFloatingMobileModalOpen(false)} />
+      <ChooseAppModal isOpen={chooseAppModalOpen} onClose={() => setChooseAppModalOpen(false)} />
     </>
   );
 }

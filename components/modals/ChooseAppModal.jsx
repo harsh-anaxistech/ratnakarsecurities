@@ -123,7 +123,7 @@ export default function ChooseAppModal({ isOpen, onClose }) {
           {/* Right side clean image (No background layer overlay) */}
           <Image
             src="/images/about/Stock trading on sleek iPhones.png"
-            alt="Trading Phone Preview"
+            alt="Ratnakar TradeExpress mobile trading app displayed on iPhones"
             width={180}
             height={180}
             className="object-contain max-h-[160px] w-auto select-none"

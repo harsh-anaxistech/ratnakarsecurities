@@ -1,19 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { User, Mail, Phone, Calendar, MapPin, HelpCircle, RefreshCw } from "lucide-react";
+import { User, Mail, Phone, Calendar, MapPin, Briefcase } from "lucide-react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
+import AccessibleCaptcha from "@/components/common/AccessibleCaptcha";
 import { submitPartnerForm } from "@/services/contact";
 
 /**
- * PartnerForm Component
- *
- * Replicates the Partner With Us page layout matching reference design.
- * Features 2-column form grid, interactive Date & Time picker for Suitable Time Slot,
- * dynamic captcha verification, and REST API integration with detailed validation feedback.
+ * PartnerForm Component (WCAG 2.2 AA & GIGW 3.0 Compliant)
  */
 export default function PartnerForm() {
   const [formData, setFormData] = useState({
@@ -26,42 +23,20 @@ export default function PartnerForm() {
     captcha: "",
   });
 
+  const [captchaAnswer, setCaptchaAnswer] = useState("");
   const [timeslotInputType, setTimeslotInputType] = useState("text");
   const [errors, setErrors] = useState({});
-  const [captchaVal, setCaptchaVal] = useState("");
-  const [isMounted, setIsMounted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
-  const [statusType, setStatusType] = useState(null); // "success" | "error"
-
-  // Helper to generate a random 6-character captcha string
-  const getRandomCaptcha = () => {
-    const chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
-    let code = "";
-    for (let i = 0; i < 6; i++) {
-      code += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return code;
-  };
-
-  useEffect(() => {
-    setCaptchaVal(getRandomCaptcha());
-    setIsMounted(true);
-  }, []);
-
-  const generateCaptcha = () => {
-    setCaptchaVal(getRandomCaptcha());
-  };
+  const [statusType, setStatusType] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     let filteredValue = value;
 
     if (name === "phone") {
-      // Mobile number: digits only, max 10 digits
       filteredValue = value.replace(/\D/g, "").slice(0, 10);
     } else if (name === "fullName") {
-      // Name: max 100 characters
       filteredValue = value.slice(0, 100);
     }
 
@@ -73,13 +48,11 @@ export default function PartnerForm() {
       setFormData((prev) => ({ ...prev, [name]: filteredValue }));
     }
 
-    // Clear field error when user types
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
-  // Helper to format ISO datetime-local string to clean human readable format for backend submission
   const formatSubmissionDateTime = (dtStr) => {
     if (!dtStr) return "";
     if (!dtStr.includes("T")) return dtStr;
@@ -108,55 +81,55 @@ export default function PartnerForm() {
 
     const newErrors = {};
 
-    // 1. Full Name validation
+    // 1. Full Name
     if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full Name is required";
-    } else if (formData.fullName.length > 100) {
-      newErrors.fullName = "Full Name cannot exceed 100 characters";
+      newErrors.fullName = "Please enter your full name (e.g., Rajesh Sharma).";
+    } else if (formData.fullName.trim().length < 2) {
+      newErrors.fullName = "Name is too short. Please enter at least 2 characters.";
     }
 
-    // 2. Email validation
+    // 2. Email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
-      newErrors.email = "Email ID is required";
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address (e.g. name@example.com)";
+      newErrors.email = "Please enter your email address (e.g., partner@example.com).";
+    } else if (!emailRegex.test(formData.email.trim())) {
+      newErrors.email = "Invalid email format. Please check for missing '@' or domain (e.g., user@domain.com).";
     }
 
-    // 3. Mobile number validation (exactly 10 digits)
+    // 3. Phone
+    const phoneRegex = /^[6-9]\d{9}$/;
     if (!formData.phone) {
-      newErrors.phone = "Mobile number is required";
-    } else if (formData.phone.length !== 10) {
-      newErrors.phone = "Please enter a valid 10-digit mobile number (e.g. 9876543210)";
+      newErrors.phone = "Please enter your 10-digit mobile number.";
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = "Invalid mobile number. Please enter a 10-digit Indian mobile number starting with 6, 7, 8, or 9 (e.g., 9876543210).";
     }
 
-    // 4. Suitable Time Slot (Date & Time selection) validation
+    // 4. Timeslot
     if (!formData.timeslot.trim()) {
-      newErrors.timeslot = "Please select a suitable date and time slot for our call";
+      newErrors.timeslot = "Please select a preferred date and time slot for our partnership discussion call.";
     }
 
-    // 5. City validation
+    // 5. City
     if (!formData.city.trim()) {
-      newErrors.city = "City name is required (e.g. Ahmedabad)";
+      newErrors.city = "Please enter your city name (e.g., Ahmedabad, Surat, Mumbai).";
     }
 
-    // 6. Interested option validation
-    if (!formData.interested) {
-      newErrors.interested = "Please select an interest option";
-    }
-
-    // 7. Captcha validation
+    // 6. Captcha
     if (!formData.captcha.trim()) {
-      newErrors.captcha = "Captcha code is required";
-    } else if (formData.captcha.trim().toUpperCase() !== captchaVal.toUpperCase()) {
-      newErrors.captcha = "Invalid captcha code. Please enter the 6-character code shown on the right.";
+      newErrors.captcha = "Please enter the 6-character security code shown in the image or use the audio button.";
+    } else if (formData.captcha.trim().toUpperCase() !== captchaAnswer.toUpperCase()) {
+      newErrors.captcha = "The entered captcha code does not match. Please verify the characters or click the audio icon.";
     }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      if (newErrors.captcha === "Invalid captcha code") {
-        setFormData((prev) => ({ ...prev, captcha: "" }));
-        generateCaptcha();
+
+      // Shift focus to the first invalid field
+      const firstErrorField = Object.keys(newErrors)[0];
+      const element = document.getElementById(`partner-${firstErrorField.toLowerCase()}`);
+      if (element) {
+        element.focus();
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
       }
       return;
     }
@@ -164,19 +137,18 @@ export default function PartnerForm() {
     setErrors({});
     setLoading(true);
 
-    const formattedTimeSlot = formatSubmissionDateTime(formData.timeslot);
-
     try {
+      const formattedTimeslot = formatSubmissionDateTime(formData.timeslot);
       await submitPartnerForm({
-        fullName: formData.fullName,
+        name: formData.fullName,
         email: formData.email,
         phone: formData.phone,
+        suitable_timeslot: formattedTimeslot,
         city: formData.city,
-        timeslot: formattedTimeSlot,
-        interseted: formData.interested,
+        interested_to_become: formData.interested,
       });
 
-      setStatusMessage("Thank you! Your partner request has been submitted successfully. Our executive will contact you soon.");
+      setStatusMessage("Thank you! Your partnership inquiry has been received. Our institutional business team will connect with you at your chosen time slot.");
       setStatusType("success");
       setFormData({
         fullName: "",
@@ -187,13 +159,9 @@ export default function PartnerForm() {
         interested: "Sub-Broker",
         captcha: "",
       });
-      setTimeslotInputType("text");
-      generateCaptcha();
-    } catch (error) {
-      console.error("Partner form submission error:", error);
-      setStatusMessage(
-        error.message || "Submission failed. Please check your details and try again."
-      );
+      setErrors({});
+    } catch (err) {
+      setStatusMessage("Submission failed. Please check your internet connection and try again.");
       setStatusType("error");
     } finally {
       setLoading(false);
@@ -201,146 +169,169 @@ export default function PartnerForm() {
   };
 
   return (
-    <Container>
-      <div className="bg-white rounded-3xl border border-black/5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.06)] overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12">
-          {/* Left Column: Image Banner */}
-          <div className="col-span-1 lg:col-span-5 relative min-h-[350px] lg:min-h-[600px] bg-slate-100">
-            <Image
-              src="/images/partner_handshake.png"
-              alt="Partner With Us - Handshake"
-              fill
-              priority
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent lg:hidden" />
-          </div>
+    <div className="relative w-full bg-slate-50 py-10 sm:py-16">
+      <Container>
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12">
 
-          {/* Right Column: Content & Form */}
-          <div className="col-span-1 lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between">
-            <div>
-              {/* Header Title */}
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mb-1">
-                Partner With Us
-              </h2>
-
-              {/* Subtitle */}
-              <p className="text-[#00aeee] font-bold text-base sm:text-lg mb-4">
-                Business through partners is a key part of success.
-              </p>
-
-              {/* Description Paragraphs */}
-              <div className="text-gray-600 text-xs sm:text-sm leading-relaxed space-y-3 mb-8">
-                <p>
-                  Whatever your involvement in trading or the financial markets, you could benefit from a partnership with us. Partnership is a growing part of our business. Whether you are authorised to trade directly for your own clients or simply deliver educational advice, we could work with you to make your business more profitable, without straining your resources.
-                </p>
-                <p>
-                  To find the right partnership model for your needs, just fill the below information & our executive will be in touch with you.
+            {/* Left Column: Image Banner */}
+            <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-gradient-to-br from-[#011628] to-[#012e54] p-8 sm:p-12 flex flex-col justify-between text-white">
+              <div>
+                <span className="text-secondary font-bold text-xs uppercase tracking-widest block mb-2">
+                  Institutional Growth
+                </span>
+                <h2 className="text-3xl font-serif font-bold text-white mb-4">
+                  Partner With Ratnakar
+                </h2>
+                <p className="text-white/80 text-sm leading-relaxed mb-6">
+                  Expand your financial business with Gujarat&apos;s leading brokerage and wealth distribution firm. Get robust trading technology, dedicated research backoffice, and attractive revenue sharing models.
                 </p>
               </div>
 
-              {/* Partner Form */}
+              <div className="relative w-full h-48 sm:h-64 mt-4">
+                <Image
+                  src="/images/about/2444.png"
+                  alt="Ratnakar trading terminal and mobile application"
+                  fill
+                  className="object-contain object-bottom"
+                />
+              </div>
+            </div>
+
+            {/* Right Column: Interactive Form */}
+            <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12">
+              <div className="mb-6">
+                <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
+                  Partner With Us
+                </h1>
+                <p className="text-slate-500 text-xs sm:text-sm mt-1">
+                  Fields marked with <span className="text-red-500 font-bold" aria-hidden="true">*</span> are required.
+                </p>
+              </div>
+
+              {/* Status Message Announcement (WCAG 4.1.3) */}
+              {statusMessage && (
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className={`p-4 rounded-xl text-sm font-semibold mb-6 ${
+                    statusType === "success"
+                      ? "bg-green-50 text-green-800 border-2 border-green-300"
+                      : "bg-red-50 text-red-800 border-2 border-red-300"
+                  }`}
+                >
+                  {statusMessage}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                {/* Row 1: Name & Email ID */}
+                {/* Row 1: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Name Input */}
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-fullname" className="sr-only">Full Name</label>
+                    <label htmlFor="partner-fullname" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                      Full Name <span className="text-red-500" aria-hidden="true">*</span>
+                    </label>
                     <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <User className="w-4 h-4" aria-hidden="true" />
+                      <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                        <User className="w-4 h-4" />
                       </div>
                       <Input
                         id="partner-fullname"
                         type="text"
                         name="fullName"
                         autoComplete="name"
-                        placeholder="Name"
+                        placeholder="e.g. Amit Patel"
                         value={formData.fullName}
                         onChange={handleChange}
                         maxLength={100}
-                        className="pl-10"
+                        aria-required="true"
                         aria-invalid={!!errors.fullName}
                         aria-describedby={errors.fullName ? "partner-fullname-error" : undefined}
+                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
                     {errors.fullName && (
-                      <span id="partner-fullname-error" className="text-red-500 text-xs font-semibold pl-1">
-                        {errors.fullName}
+                      <span id="partner-fullname-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                        <span aria-hidden="true">⚠️</span> {errors.fullName}
                       </span>
                     )}
                   </div>
 
-                  {/* Email ID Input */}
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-email" className="sr-only">Email ID</label>
+                    <label htmlFor="partner-email" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                      Email Address <span className="text-red-500" aria-hidden="true">*</span>
+                    </label>
                     <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <Mail className="w-4 h-4" aria-hidden="true" />
+                      <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                        <Mail className="w-4 h-4" />
                       </div>
                       <Input
                         id="partner-email"
                         type="email"
                         name="email"
                         autoComplete="email"
-                        placeholder="Email ID"
+                        placeholder="e.g. amit@example.com"
                         value={formData.email}
                         onChange={handleChange}
-                        className="pl-10"
+                        aria-required="true"
                         aria-invalid={!!errors.email}
                         aria-describedby={errors.email ? "partner-email-error" : undefined}
+                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
                     {errors.email && (
-                      <span id="partner-email-error" className="text-red-500 text-xs font-semibold pl-1">
-                        {errors.email}
+                      <span id="partner-email-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                        <span aria-hidden="true">⚠️</span> {errors.email}
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Row 2: Mobile Number & Suitable Time Slot (Date & Time Picker) */}
+                {/* Row 2: Phone & Timeslot */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Mobile Number Input */}
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-phone" className="sr-only">Mobile Number</label>
+                    <label htmlFor="partner-phone" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                      Mobile Number <span className="text-red-500" aria-hidden="true">*</span>
+                    </label>
                     <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <Phone className="w-4 h-4" aria-hidden="true" />
+                      <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                        <Phone className="w-4 h-4" />
                       </div>
                       <Input
                         id="partner-phone"
                         type="tel"
                         name="phone"
                         autoComplete="tel"
-                        placeholder="Mobile Number"
+                        placeholder="10-digit number e.g. 9876543210"
                         value={formData.phone}
                         onChange={handleChange}
                         maxLength={10}
-                        className="pl-10"
+                        aria-required="true"
                         aria-invalid={!!errors.phone}
                         aria-describedby={errors.phone ? "partner-phone-error" : undefined}
+                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
                     {errors.phone && (
-                      <span id="partner-phone-error" className="text-red-500 text-xs font-semibold pl-1">
-                        {errors.phone}
+                      <span id="partner-phone-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                        <span aria-hidden="true">⚠️</span> {errors.phone}
                       </span>
                     )}
                   </div>
 
-                  {/* Suitable Time Slot (Date & Time Selector) */}
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-timeslot" className="sr-only">Suitable Time Slot</label>
+                    <label htmlFor="partner-timeslot" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                      Suitable Time Slot <span className="text-red-500" aria-hidden="true">*</span>
+                    </label>
                     <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <Calendar className="w-4 h-4" aria-hidden="true" />
+                      <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                        <Calendar className="w-4 h-4" />
                       </div>
                       <Input
                         id="partner-timeslot"
                         type={timeslotInputType || (formData.timeslot ? "datetime-local" : "text")}
                         name="timeslot"
-                        placeholder="Suitable Time Slot"
+                        placeholder="Select Date & Time"
                         value={formData.timeslot}
                         onFocus={() => setTimeslotInputType("datetime-local")}
                         onBlur={(e) => {
@@ -348,178 +339,122 @@ export default function PartnerForm() {
                         }}
                         onChange={handleChange}
                         min={new Date().toISOString().slice(0, 16)}
-                        className="pl-10 cursor-pointer"
+                        aria-required="true"
                         aria-invalid={!!errors.timeslot}
                         aria-describedby={errors.timeslot ? "partner-timeslot-error" : undefined}
+                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] cursor-pointer focus:border-primary focus:ring-2 focus:ring-primary/20"
                       />
                     </div>
                     {errors.timeslot && (
-                      <span id="partner-timeslot-error" className="text-red-500 text-xs font-semibold pl-1">
-                        {errors.timeslot}
+                      <span id="partner-timeslot-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                        <span aria-hidden="true">⚠️</span> {errors.timeslot}
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Row 3: City Input */}
+                {/* Row 3: City */}
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="partner-city" className="sr-only">City</label>
+                  <label htmlFor="partner-city" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                    City / Town <span className="text-red-500" aria-hidden="true">*</span>
+                  </label>
                   <div className="relative flex items-center">
-                    <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                      <MapPin className="w-4 h-4" aria-hidden="true" />
+                    <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                      <MapPin className="w-4 h-4" />
                     </div>
                     <Input
                       id="partner-city"
                       type="text"
                       name="city"
                       autoComplete="address-level2"
-                      placeholder="City"
+                      placeholder="e.g. Ahmedabad, Surat, Rajkot, Vadodara"
                       value={formData.city}
                       onChange={handleChange}
                       maxLength={100}
-                      className="pl-10"
+                      aria-required="true"
                       aria-invalid={!!errors.city}
                       aria-describedby={errors.city ? "partner-city-error" : undefined}
+                      className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
                   {errors.city && (
-                    <span id="partner-city-error" className="text-red-500 text-xs font-semibold pl-1">
-                      {errors.city}
+                    <span id="partner-city-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span aria-hidden="true">⚠️</span> {errors.city}
                     </span>
                   )}
                 </div>
 
-                {/* Interested to become Options */}
-                <div className="space-y-2 pt-1">
-                  <label className="block text-xs font-semibold text-gray-700">
-                    Interested to become
-                  </label>
+                {/* Interested Option Group */}
+                <fieldset className="space-y-2 pt-1 border-t border-slate-200">
+                  <legend className="block text-xs font-bold text-slate-700 uppercase tracking-wider pt-2">
+                    Interested to become:
+                  </legend>
                   <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
-                    <label className={`flex items-center gap-2 cursor-pointer ${formData.interested === "Sub-Broker" || formData.interested === "Sub broker" ? "text-slate-900 font-semibold" : "text-gray-600"}`}>
+                    <label className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-colors ${formData.interested === "Sub-Broker" ? "border-primary bg-red-50/50 text-slate-900 font-bold" : "border-slate-200 text-slate-700"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Sub-Broker"
-                        checked={formData.interested === "Sub-Broker" || formData.interested === "Sub broker"}
+                        checked={formData.interested === "Sub-Broker"}
                         onChange={handleChange}
-                        className="accent-black w-4 h-4 cursor-pointer"
+                        className="accent-primary w-4 h-4 cursor-pointer"
                       />
-                      <span>Sub broker</span>
+                      <span>Sub Broker / AP</span>
                     </label>
 
-                    <label className={`flex items-center gap-2 cursor-pointer ${formData.interested === "Business associate" ? "text-slate-900 font-semibold" : "text-gray-600"}`}>
+                    <label className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-colors ${formData.interested === "Business associate" ? "border-primary bg-red-50/50 text-slate-900 font-bold" : "border-slate-200 text-slate-700"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Business associate"
                         checked={formData.interested === "Business associate"}
                         onChange={handleChange}
-                        className="accent-black w-4 h-4 cursor-pointer"
+                        className="accent-primary w-4 h-4 cursor-pointer"
                       />
-                      <span>Business associate</span>
+                      <span>Business Associate</span>
                     </label>
 
-                    <label className={`flex items-center gap-2 cursor-pointer ${formData.interested === "Authorized person" ? "text-slate-900 font-semibold" : "text-gray-600"}`}>
+                    <label className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-colors ${formData.interested === "Authorized person" ? "border-primary bg-red-50/50 text-slate-900 font-bold" : "border-slate-200 text-slate-700"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Authorized person"
                         checked={formData.interested === "Authorized person"}
                         onChange={handleChange}
-                        className="accent-black w-4 h-4 cursor-pointer"
+                        className="accent-primary w-4 h-4 cursor-pointer"
                       />
-                      <span>Authorized person</span>
+                      <span>Authorized Person</span>
                     </label>
                   </div>
-                  {errors.interested && (
-                    <span className="text-red-500 text-xs font-semibold pl-1">
-                      {errors.interested}
-                    </span>
-                  )}
-                </div>
+                </fieldset>
 
-                {/* Captcha Section */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center pt-2">
-                  {/* Enter Captcha Input */}
-                  <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-captcha" className="sr-only">Enter Captcha</label>
-                    <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-gray-400 flex items-center justify-center pointer-events-none z-10">
-                        <HelpCircle className="w-4 h-4" aria-hidden="true" />
-                      </div>
-                      <Input
-                        id="partner-captcha"
-                        type="text"
-                        name="captcha"
-                        placeholder="Enter Captcha"
-                        value={formData.captcha}
-                        onChange={handleChange}
-                        className="pl-10"
-                        aria-invalid={!!errors.captcha}
-                        aria-describedby={errors.captcha ? "partner-captcha-error" : undefined}
-                      />
-                    </div>
-                    {errors.captcha && (
-                      <span id="partner-captcha-error" className="text-red-500 text-xs font-semibold pl-1">
-                        {errors.captcha}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Captcha Display & Refresh */}
-                  <div className="flex items-center gap-3">
-                    <div className="flex-1 bg-gray-100 border border-gray-300 rounded h-11 flex items-center justify-center select-none tracking-[0.3em] font-mono font-extrabold text-base text-gray-700 relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f9fafb,#f9fafb_8px,#f3f4f6_8px,#f3f4f6_16px)]">
-                      <span className="relative z-10 text-gray-800 italic select-none">
-                        {isMounted ? captchaVal : "------"}
-                      </span>
-                      <div className="absolute inset-0 opacity-15 flex flex-col justify-around pointer-events-none">
-                        <div className="w-full h-[2px] bg-gray-900 -rotate-3" />
-                        <div className="w-full h-[2px] bg-gray-900 rotate-2" />
-                      </div>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={generateCaptcha}
-                      title="Refresh Captcha"
-                      className="w-11 h-11 border border-gray-300 hover:bg-gray-50 text-[#00aeee] rounded flex items-center justify-center transition-colors group"
-                    >
-                      <RefreshCw className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" aria-hidden="true" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Alert Box for Status Messages */}
-                {statusMessage && (
-                  <div
-                    role="status"
-                    aria-live="polite"
-                    className={`p-3.5 rounded text-xs sm:text-sm font-semibold ${statusType === "success"
-                        ? "bg-green-50 text-green-700 border border-green-200"
-                        : "bg-red-50 text-red-700 border border-red-200"
-                      }`}
-                  >
-                    {statusMessage}
-                  </div>
-                )}
+                {/* Accessible Audio CAPTCHA (WCAG 1.1.1 & GIGW 5.2.1) */}
+                <AccessibleCaptcha
+                  id="partner-captcha"
+                  name="captcha"
+                  value={formData.captcha}
+                  onChange={handleChange}
+                  error={errors.captcha}
+                  onCaptchaChange={(code) => setCaptchaAnswer(code)}
+                />
 
                 {/* Submit Button */}
-                <div className="pt-3">
+                <div className="pt-2">
                   <Button
                     as="button"
                     type="submit"
-                    variant="contained"
                     loading={loading}
-                    className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none hover:bg-primary-dark focus-visible:ring-primary h-11 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg px-5 py-2"
+                    className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
                   >
-                    SUBMIT
+                    Submit Partnership Request
                   </Button>
                 </div>
               </form>
             </div>
+
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 }

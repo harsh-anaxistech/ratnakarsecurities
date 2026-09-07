@@ -37,10 +37,10 @@ const FOOTER_LINKS = {
 };
 
 const SOCIAL_LINKS = [
-  { icon: FaFacebookF, href: "https://www.facebook.com/ratnakarsecurities/", label: "Facebook" },
-  { icon: FaXTwitter, href: "https://twitter.com/RATNAKARGROUP", label: "Twitter" },
-  { icon: FaInstagram, href: "https://instagram.com/ratnakar_securities_pvt_ltd?igshid=YmMyMTA2M2Y=", label: "Instagram" },
-  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/ratnakar-securities", label: "LinkedIn" },
+  { icon: FaFacebookF, href: "https://www.facebook.com/ratnakarsecurities/", label: "Follow Ratnakar Securities on Facebook" },
+  { icon: FaXTwitter, href: "https://twitter.com/RATNAKARGROUP", label: "Follow Ratnakar Securities on X Twitter" },
+  { icon: FaInstagram, href: "https://instagram.com/ratnakar_securities_pvt_ltd?igshid=YmMyMTA2M2Y=", label: "Follow Ratnakar Securities on Instagram" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/ratnakar-securities", label: "Connect with Ratnakar Securities on LinkedIn" },
 ];
 
 const ATTENTION_INVESTOR_NOTICES = [
@@ -99,7 +99,7 @@ export default function Footer() {
                 <div className="bg-white rounded-xl px-4 py-3 inline-flex items-center justify-center">
                   <Image
                     src="/images/logo/RSL_logo.png"
-                    alt="Ratnakar Securities"
+                    alt="Graphic Ratnakar Securities Limited logo"
                     width={180}
                     height={50}
                     className="object-contain"
@@ -219,7 +219,7 @@ export default function Footer() {
                   <a href={l.href} target={l.target} rel="noopener noreferrer" className="hover:text-white transition-colors">
                     {l.label}
                   </a>
-                  {index < FOOTER_LINKS["Useful Links"].length - 1 && <span className="opacity-40">|</span>}
+                  {index < FOOTER_LINKS["Useful Links"].length - 1 && <span className="opacity-40" aria-hidden="true">|</span>}
                 </span>
               ))}
             </div>
@@ -230,15 +230,15 @@ export default function Footer() {
             <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               Segregation Monitoring Collateral
             </a>
-            <span>|</span>
+            <span aria-hidden="true">|</span>
             <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               NSDL e Voting
             </a>
-            <span>|</span>
+            <span aria-hidden="true">|</span>
             <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               NSDL IDEAS Services
             </a>
-            <span>|</span>
+            <span aria-hidden="true">|</span>
             <a href="https://api.ratnakarsecurities.com/uploads/Annexure-I_Advisory-for-KYC-updation-1.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               Advisory for KYC Updation
             </a>
@@ -343,7 +343,7 @@ export default function Footer() {
                     )}
 
                     {index < arr.length - 1 && (
-                      <span className="opacity-40">|</span>
+                      <span className="opacity-40" aria-hidden="true">|</span>
                     )}
                   </span>
                 );
@@ -370,7 +370,7 @@ export default function Footer() {
               Online Dispute Resolution Portal - SMART ODR
             </a>
 
-            <span className="opacity-40">|</span>
+            <span className="opacity-40" aria-hidden="true">|</span>
 
             <button
               onClick={() => setIsScoresModalOpen(true)}
@@ -379,7 +379,7 @@ export default function Footer() {
               To File A Complaint on SCORES - Click Here
             </button>
 
-            <span className="opacity-40">|</span>
+            <span className="opacity-40" aria-hidden="true">|</span>
 
             <Link
               href="/nomination"
@@ -388,7 +388,7 @@ export default function Footer() {
               For Nomination, Please - Click Here
             </Link>
 
-            <span className="opacity-40">|</span>
+            <span className="opacity-40" aria-hidden="true">|</span>
 
             <a
               href="https://twx.ratnakarsecurities.com:4433/twx/signin"
@@ -399,7 +399,7 @@ export default function Footer() {
               To Close Account, Please - Click Here
             </a>
 
-            <span className="opacity-40">|</span>
+            <span className="opacity-40" aria-hidden="true">|</span>
 
             <a
               href="https://investor.sebi.gov.in/"
@@ -423,6 +423,8 @@ export default function Footer() {
               { label: "Terms of Conditions", href: "/images/termsofuse.pdf", target: "_blank" },
               { label: "Investor Complaint", href: "/images/investercompomplaint.docx", target: "_blank" },
               { label: "Refund & Cancellation", href: "/refund-and-cancellation", isLink: true },
+              { label: "Accessibility Statement", href: "/accessibility-statement", isLink: true },
+              { label: "HTML Site Map", href: "/sitemap", isLink: true },
             ].map((item, index, arr) => (
               <span key={item.label} className="flex items-center">
                 {item.isLink ? (

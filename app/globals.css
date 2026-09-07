@@ -26,20 +26,16 @@
   --color-background: #ffffff;
   --color-foreground: #111827;
   --color-muted: #f4f5f7;
-  --color-muted-foreground: #6b7280;
-  --color-border: #e5e7eb;
+  --color-muted-foreground: #4b5563;
+  --color-border: #d1d5db;
   --color-card: #ffffff;
   --color-card-foreground: #111827;
 
   /* Status */
-  --color-success: #16a34a;
-  --color-warning: #d97706;
+  --color-success: #15803d;
+  --color-warning: #b45309;
   --color-danger: #dc2626;
-  --color-info: #0ea5e9;
-
-
-  /* --shadow-card: 4px 4px 12px 0 rgb(30 51 72 / 15%),
-                 0 16px 48px 0 rgb(112 144 176 / 30%); */
+  --color-info: #0284c7;
 
   --shadow-card: 4px 4px 12px 0 rgb(30 51 72 / 15%),
                  0 16px 48px 0 rgb(112 144 176 / 30%);                 
@@ -53,8 +49,8 @@
   --primary-dark: #c41f26;
   --primary-light: #ea28301f;
 
-  --secondary: #00aeee;
-  --secondary-dark: #0090c8;
+  --secondary: #0088c2;
+  --secondary-dark: #006da0;
   --secondary-light: #00aeed1f;
 
   /* Dark Brand Colors */
@@ -65,14 +61,14 @@
   --background: #ffffff;
   --foreground: #111827;
   --muted: #f4f5f7;
-  --muted-foreground: #6b7280;
-  --border: #e5e7eb;
+  --muted-foreground: #4b5563;
+  --border: #d1d5db;
   --card: #ffffff;
 
-  --success: #16a34a;
-  --warning: #d97706;
+  --success: #15803d;
+  --warning: #b45309;
   --danger: #dc2626;
-  --info: #0ea5e9;
+  --info: #0284c7;
 
   --radius: 0.5rem;
   --radius-lg: 0.75rem;
@@ -80,7 +76,133 @@
 }
 
 /* =====================================================
-   Base Styles
+   High Contrast Themes (WCAG 1.4.3 & 1.4.11 / GIGW 5.2.14 & 5.2.18)
+   ===================================================== */
+html.high-contrast-dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #111827;
+  --muted-foreground: #e5e7eb;
+  --border: #ffffff;
+  --card: #000000;
+  --primary: #ffff00;
+  --primary-dark: #ffd700;
+  --secondary: #00ffff;
+  color-scheme: dark;
+}
+
+html.high-contrast-dark body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast-dark a {
+  color: #00ffff !important;
+  text-decoration: underline !important;
+}
+
+html.high-contrast-dark h1,
+html.high-contrast-dark h2,
+html.high-contrast-dark h3,
+html.high-contrast-dark h4,
+html.high-contrast-dark h5,
+html.high-contrast-dark h6 {
+  color: #ffff00 !important;
+}
+
+html.high-contrast-dark button,
+html.high-contrast-dark input,
+html.high-contrast-dark select,
+html.high-contrast-dark textarea {
+  border-color: #ffffff !important;
+  background-color: #111827 !important;
+  color: #ffffff !important;
+}
+
+html.high-contrast-light {
+  --background: #ffffff;
+  --foreground: #000000;
+  --muted: #f3f4f6;
+  --muted-foreground: #111827;
+  --border: #000000;
+  --card: #ffffff;
+  --primary: #b91c1c;
+  --secondary: #0369a1;
+  color-scheme: light;
+}
+
+html.high-contrast-light body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+html.high-contrast-light a {
+  color: #002244 !important;
+  text-decoration: underline !important;
+  font-weight: 600;
+}
+
+html.high-contrast-light h1,
+html.high-contrast-light h2,
+html.high-contrast-light h3,
+html.high-contrast-light h4,
+html.high-contrast-light h5,
+html.high-contrast-light h6 {
+  color: #000000 !important;
+}
+
+html.high-contrast-light button,
+html.high-contrast-light input,
+html.high-contrast-light select,
+html.high-contrast-light textarea {
+  border-color: #000000 !important;
+  border-width: 2px !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* =====================================================
+   Font Size Scaling (WCAG 1.4.4 / GIGW 5.2.15)
+   ===================================================== */
+html.text-scale-sm {
+  font-size: 90% !important;
+}
+
+html.text-scale-base {
+  font-size: 100% !important;
+}
+
+html.text-scale-lg {
+  font-size: 110% !important;
+}
+
+html.text-scale-xl {
+  font-size: 120% !important;
+}
+
+/* =====================================================
+   Pause / Stop / Hide Moving Content (WCAG 2.2.2 / GIGW 5.2.25)
+   ===================================================== */
+html.pause-animations *,
+html.pause-animations *::before,
+html.pause-animations *::after {
+  animation-play-state: paused !important;
+  transition-duration: 0.001ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =====================================================
+   Base Styles & Enhanced Focus Outlines (WCAG 2.4.7 / 1.4.11)
    ===================================================== */
 *,
 *::before,
@@ -88,9 +210,6 @@
   box-sizing: border-box;
 }
 
-/* =====================================================
-   GIGW 3.0 & WCAG 2.2 Accessibility Rules
-   ===================================================== */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
@@ -110,8 +229,18 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 }
 
 *:focus-visible {
-  outline: 2px solid #2563eb !important;
+  outline: 2px solid #004b87 !important;
   outline-offset: 2px !important;
+}
+
+html.high-contrast-dark *:focus-visible {
+  outline: 3px solid #00ffff !important;
+  outline-offset: 3px !important;
+}
+
+html.high-contrast-light *:focus-visible {
+  outline: 3px solid #000000 !important;
+  outline-offset: 3px !important;
 }
 
 /* =====================================================
@@ -122,6 +251,12 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-fade-in-up { animation: fadeInUp 0.6s ease-out both; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in { animation: fadeIn 0.3s ease-out both; }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: #f3f4f6; }
@@ -137,20 +272,21 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
 /* ==========================================================================
    WCAG 1.4.5 / GIGW 5.2.16 - IMAGES OF TEXT COMPLIANCE
-   - Always prefer styled HTML/CSS text over embedding text inside image assets
-     (like PNG/JPG/WebP files) for headings, subheadings, labels, or content.
-   - Text must remain adjustable (accessible, resizable, and customizable).
-   - Exemptions: Brand names, logos, and UI screenshots/device mockups.
-   - Stylistic CSS properties to utilize for content presentations:
-     - font-family (Poppins, serif)
-     - text-align (left, center, right, justify)
-     - font-size, font-weight, line-height, letter-spacing, text-transform
    ========================================================================== */
 .css-styled-text {
   font-family: var(--font-sans);
   text-align: left;
   line-height: 1.6;
   font-size: 1rem;
+}
+
+/* Target Size Minimum 24x24px (WCAG 2.5.8) */
+.accessible-target {
+  min-width: 24px;
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Hide default webkit search clear/cancel button to prevent duplicate cross icons */
@@ -179,7 +315,7 @@ input[type="search"]::-webkit-search-results-decoration {
   animation: marqueeVertical 32s linear infinite;
 }
 
-.animate-marquee-vertical:hover {
+.animate-marquee-vertical:hover,
+.animate-marquee-vertical:focus-within {
   animation-play-state: paused;
 }
-

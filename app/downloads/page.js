@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { ChevronRight, Download as DownloadIcon, FileText, FileBadge, Loader2 } from "lucide-react";
 import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
@@ -202,6 +203,24 @@ export default function DownloadsPage() {
       {/* Main Content Area */}
       <div className="bg-white py-12">
         <Container>
+          {/* Accessible Documents & OCR Guidance Banner (Rule 15(1)(c)(ii)) */}
+          <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-blue-50/80 border border-blue-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary shrink-0 mt-0.5" aria-hidden="true">
+                <FileText className="w-4 h-4" />
+              </div>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <strong>Accessible Document Notice:</strong> Account opening kits, compliance forms, and regulatory documents on this page are provided in searchable, OCR-enabled PDF formats compatible with screen readers (NVDA, JAWS, VoiceOver).
+              </p>
+            </div>
+            <Link
+              href="/accessibility-statement"
+              className="text-xs font-bold text-secondary hover:text-primary whitespace-nowrap underline inline-flex items-center gap-1 shrink-0"
+            >
+              Accessibility Statement &rarr;
+            </Link>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
 
             {/* 2. Sidebar - Subheaders (Subsections) Updated Design (Desktop & Mobile) */}

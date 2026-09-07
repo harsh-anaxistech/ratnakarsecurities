@@ -45,11 +45,11 @@ export default function StatsBar() {
   const totalItems = stats.length;
 
   return (
-    <section className="py-8 md:py-12 bg-white w-full border-t border-b border-gray-100">
+    <section className="py-8 md:py-12 bg-white w-full border-t border-b border-gray-100" aria-label="Ratnakar Securities at a Glance">
       <div className="mx-auto max-w-[1360px] px-4 md:px-6">
         
         {/* મોબાઈલમાં 2 કોલમ ગ્રીડ (grid-cols-2) અને ડેસ્કટોપ પર ફ્લેક્સ રો */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:flex md:flex-wrap md:justify-between md:items-center md:gap-10">
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-8 md:flex md:flex-wrap md:justify-between md:items-center md:gap-10 list-none p-0 m-0">
           {stats.map((s, index) => {
             const isLast = index === totalItems - 1;
             const isOddTotal = totalItems % 2 !== 0;
@@ -60,33 +60,34 @@ export default function StatsBar() {
             const isRightMobile = !isCenteredMobile && index % 2 !== 0;
 
             return (
-              <div
+              <li
                 key={s.id}
+                aria-label={`${s.num}${s.suffix} ${s.label}`}
                 className={`flex items-center gap-3 md:gap-4 md:flex-1 md:min-w-[220px] w-full
                   ${isCenteredMobile ? "col-span-2 justify-center text-center flex-row" : ""}
                   ${isRightMobile ? "justify-start flex-row-reverse text-right" : "justify-start flex-row text-left"}
                   md:justify-start md:text-left md:flex-row`}
               >
                 
-                <div className="w-[3px] h-10 md:h-14 bg-[#ea2830] rounded-full flex-shrink-0" />
+                <div className="w-[3px] h-10 md:h-14 bg-[#ea2830] rounded-full flex-shrink-0" aria-hidden="true" />
                 
 <div className={`flex flex-col justify-center
   ${isRightMobile ? "items-end" : isCenteredMobile ? "items-center" : "items-start"} 
   md:items-start`}
 >
-  <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-[#ea2830] tracking-tight">
+  <p className="text-2xl sm:text-3xl md:text-4xl font-light text-[#ea2830] tracking-tight m-0" aria-hidden="true">
     <CountUp target={s.num} suffix={s.suffix} />
-  </h3>
+  </p>
   
-  <p className="text-xs sm:text-sm md:text-lg font-light text-slate-500 mt-0.5 md:mt-1 tracking-tight leading-tight md:whitespace-nowrap">
+  <p className="text-xs sm:text-sm md:text-lg font-light text-slate-500 mt-0.5 md:mt-1 tracking-tight leading-tight md:whitespace-nowrap m-0">
     {s.label}
   </p>
 </div>
 
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
       </div>
     </section>

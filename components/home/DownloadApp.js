@@ -16,7 +16,7 @@ export default function DownloadApp() {
             <div className="bg-white p-3 rounded-2xl inline-block shadow-lg">
               <img
                 src="/images/about/image (28).png"
-                alt="QR Code"
+                alt="QR Code to download Ratnakar TradeExpress mobile trading app"
                 className="w-32 h-32"
               />
             </div>
@@ -25,7 +25,7 @@ export default function DownloadApp() {
           <div className="flex-shrink-0">
             <img
               src="/images/about/Stock trading on sleek iPhones.png"
-              alt="Investment App"
+              alt="Ratnakar TradeExpress mobile trading app displayed on iPhones"
               className="w-64 md:w-70 object-contain drop-shadow-2xl"
             />
           </div>

@@ -35,6 +35,7 @@ export default function WhyChooseUs() {
   return (
     <section 
       className="relative overflow-hidden py-16"
+      aria-labelledby="why-choose-heading"
       style={{ 
         background: "radial-gradient(1200px 600px at 85% -10%, #1a6eb5 0%, #012e54 45%, #011628 100%)",
         color: "#fff"
@@ -45,13 +46,14 @@ export default function WhyChooseUs() {
           
           {/* Left Side */}
           <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-5">
-            <div 
+            <p 
               style={{ color: "#00aeee" }} 
               className="text-[14px] font-black tracking-widest uppercase"
+              aria-hidden="true"
             >
               Why Choose Ratnakar Securities
-            </div>
-            <h2 className="text-4xl md:text-5xl font-serif tracking-tight leading-[1.15] text-white">
+            </p>
+            <h2 id="why-choose-heading" className="text-4xl md:text-5xl font-serif tracking-tight leading-[1.15] text-white">
               Relationships first.<br />
               <span className="relative inline-block mt-1">
                 Returns follow.
@@ -77,7 +79,7 @@ export default function WhyChooseUs() {
                     className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105" 
                     style={{ background: "linear-gradient(135deg, #ea2830, #c41f26)" }}
                   >
-                    <IconComponent className="w-5 h-5 text-white" strokeWidth={2} />
+                    <IconComponent className="w-5 h-5 text-white" strokeWidth={2} aria-hidden="true" />
                   </div>
                   
                   <div className="space-y-1">

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -187,7 +187,7 @@ export default function AboutPage() {
             <div className="flex-1 relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden flex flex-col justify-end text-white">
               <Image
                 src="/images/about/22.jpg"
-                alt="Milestone"
+                alt="Ratnakar Securities milestone journey – team and office environment"
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover object-top transition-all duration-500"
@@ -236,7 +236,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-md">
-              <Image src="/images/about/digital-partnership-trust-concept_1048363-21037.avif" alt="Promise" fill className="object-cover" />
+              <Image src="/images/about/digital-partnership-trust-concept_1048363-21037.avif" alt="Illustration of digital partnership and trust representing Ratnakar Securities' commitment to clients" fill className="object-cover" />
             </div>
           </div>
         </Container>
