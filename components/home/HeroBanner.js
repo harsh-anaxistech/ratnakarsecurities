@@ -5,6 +5,15 @@ import Image from "next/image";
 import Container from "@/components/common/Container";
 import { ArrowRight, TrendingUp, BarChart3, PiggyBank, Wallet, UserCheck } from "lucide-react";
 
+/**
+ * Primary Home Page Hero Banner Component
+ * 
+ * Delivers the primary value proposition of Ratnakar Securities:
+ * - High-impact gradient background with accessible contrast ratios.
+ * - Primary CTAs: "Open Demat Account" and "Explore Products".
+ * - Key statistics and market trust badges (NSE, BSE, MCX, NSDL).
+ * - Floating UI metric cards with CSS keyframe drifts that respect `prefers-reduced-motion` and toolbar toggles.
+ */
 export default function HeroBanner() {
   return (
     <section

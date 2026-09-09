@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import HeroSection from "@/components/common/HeroSection";
@@ -7,6 +7,12 @@ import Container from "@/components/common/Container";
 // ==========================================
 // Provided Legacy Calculator Logic
 // ==========================================
+
+/**
+ * Formats numbers into Indian Lakhs/Crores numbering system (e.g. 10,00,000).
+ * @param {number|string} number
+ * @returns {string} Formatted number with commas
+ */
 function formatNumber(number) {
   var x = number.toString();
   var splitNo = x.split('.');
@@ -23,6 +29,11 @@ function formatNumber(number) {
   return res;
 }
 
+/**
+ * Formats monetary amounts into abbreviated Indian terms (K, Lac, Cr).
+ * @param {number|string} e
+ * @returns {string} Abbreviated string
+ */
 function formatKLC(e) {
   e = String(e).replace(/\,/g, '');
   e = parseInt(e, 10);
@@ -31,6 +42,11 @@ function formatKLC(e) {
   return ret;
 }
 
+/**
+ * Formats monetary amounts into full Indian terms (Thousand, Lakhs, Crore).
+ * @param {number|string} e
+ * @returns {string} Full text label
+ */
 function formatKLCFull(e) {
   e = String(e).replace(/\,/g, '');
   e = parseInt(e, 10);

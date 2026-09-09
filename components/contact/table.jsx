@@ -1,6 +1,16 @@
 import React from "react";
 import Container from "@/components/common/Container";
 
+/**
+ * Regulatory Contact Details & Escalation Matrix Tables Component
+ * 
+ * Renders SEBI-mandated compliance and grievance escalation hierarchy:
+ * - Level 1: Customer Care
+ * - Level 2: Head of Customer Care
+ * - Level 3: Compliance Officer
+ * - Level 4: CEO / Managing Director
+ * - Depository Participant branch contact details and SCORES/SMARTODR resolution flow.
+ */
 export default function ContactDetailsSections() {
   return (
     <Container>

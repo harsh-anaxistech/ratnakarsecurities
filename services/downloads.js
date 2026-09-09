@@ -1,8 +1,15 @@
+/**
+ * Downloads Service
+ * 
+ * Handles API operations for fetching statutory, account opening, KYC, and advisory
+ * downloadable forms and document hierarchies. Employs Next.js ISR (60s revalidation)
+ * with JSON deserialization fallbacks for resilience.
+ */
 import { API_BASE_URL } from "./config";
 
 /**
- * Fetch all download sections (headers) from the API.
- * @returns {Promise<Object>} The API response containing sections
+ * Fetch all download sections (top-level categories) from the backend API.
+ * @returns {Promise<Object>} The API response containing categories/headers list
  */
 export async function getDownloadSections() {
   const response = await fetch(`${API_BASE_URL}/downloads/sections`, {

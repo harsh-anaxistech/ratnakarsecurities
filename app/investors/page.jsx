@@ -7,6 +7,12 @@ export const metadata = generatePageMetadata({
   path: "/investors",
 });
 
+/**
+ * Investor Relations Portal Hub Page
+ * 
+ * Central root segment for corporate governance, statutory disclosures,
+ * annual reports, and SEBI compliance documentation.
+ */
 export default function Page() {
   return (
     <div className="py-20 flex items-center justify-center">

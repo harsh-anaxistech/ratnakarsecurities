@@ -18,6 +18,13 @@ const calculators = [
   },
 ];
 
+/**
+ * Financial Calculators Quick Access Section
+ * 
+ * Renders quick access cards for investment calculation tools:
+ * - SIP Calculator (Systematic Investment Plan growth projections)
+ * - Risk Appetite Calculator (Investor risk profiling)
+ */
 export default function CalculatorSection() {
   return (
     <section className="py-12 bg-slate-50/50">

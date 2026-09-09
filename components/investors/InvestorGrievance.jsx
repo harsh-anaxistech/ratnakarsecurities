@@ -227,6 +227,15 @@ const ARBITRATION_STEPS = [
   },
 ];
 
+/**
+ * Investor Grievance Redressal & Arbitration Guide Component
+ * 
+ * Comprehensive portal for investor complaints and dispute resolution:
+ * - Direct contact details for the designated Compliance Officer.
+ * - Step-by-step guidance for NSDL Grievance Redressal Committee (GRC).
+ * - Detailed workflow for initiating formal SEBI Arbitration proceedings.
+ * - Downloadable regulatory grievance reports and monthly DP complaint disclosures with live filtering.
+ */
 export default function InvestorGrievance() {
   const [activeGuideTab, setActiveGuideTab] = useState("grc"); // "grc" | "arbitration"
   const [selectedCategory, setSelectedCategory] = useState("All");

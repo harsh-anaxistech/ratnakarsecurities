@@ -18,6 +18,18 @@ const inter = Poppins({
 
 export const metadata = baseMetadata;
 
+/**
+ * Global Root Layout Component
+ * 
+ * Serves as the primary HTML wrapper for all App Router routes:
+ * - Font optimization using `next/font/google` (Poppins font family).
+ * - Schema.org JSON-LD structured data injection (`organizationSchema`, `websiteSchema`).
+ * - Accessible skip-link bypass for keyboard and screen reader accessibility.
+ * - Global site Header, main content area (`#main-content`), Footer, Floating Trading trigger, and Startup Popup modal.
+ * 
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Child route segments and pages
+ */
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>

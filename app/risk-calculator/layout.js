@@ -7,6 +7,14 @@ export const metadata = generatePageMetadata({
   path: "/risk-calculator",
 });
 
+/**
+ * Risk Calculator Layout
+ * 
+ * Exports canonical SEO metadata for the investor risk profile assessment tool.
+ * 
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ */
 export default function RiskCalculatorLayout({ children }) {
   return children;
 }

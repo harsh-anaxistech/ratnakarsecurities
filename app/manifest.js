@@ -1,5 +1,12 @@
-import { SITE } from "@/constants/site";
-
+/**
+ * Web Application Manifest Generator
+ * 
+ * Generates the dynamic `/manifest.webmanifest` configuration for Progressive Web App (PWA) installation:
+ * - Application branding (name, icons, theme colors).
+ * - Standalone display mode and Indian English locale configuration.
+ * 
+ * @returns {import('next').MetadataRoute.Manifest}
+ */
 export default function manifest() {
   return {
     name: SITE.name,

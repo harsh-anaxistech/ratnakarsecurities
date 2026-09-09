@@ -8,6 +8,11 @@ export const metadata = generatePageMetadata({
   path: "/investors/complaints-trends",
 });
 
+/**
+ * Stock Broker Complaints & Disposal Trends Route
+ * 
+ * Renders `InvestorCharterStockBroker` pre-selected to the "complaints" tab.
+ */
 export default function ComplaintsTrendsPage() {
   return <InvestorCharterStockBroker defaultTab="complaints" />;
 }

@@ -38,7 +38,16 @@
     },
   ];
 
-  export default function InvestmentSteps() {
+/**
+ * 4-Step Investment Onboarding Journey Component
+ * 
+ * Illustrates the client journey from initial KYC account creation to portfolio growth:
+ * 1. Open Account (Paperless KYC)
+ * 2. Meet Advisor (Relationship Manager alignment)
+ * 3. Build Portfolio (Asset allocation)
+ * 4. Track & Grow (Mobile app tracking & quarterly reviews)
+ */
+export default function InvestmentSteps() {
     return (
       <section className="py-16 bg-white relative overflow-hidden" aria-labelledby="steps-heading">
         <Container>

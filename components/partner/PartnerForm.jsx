@@ -10,7 +10,13 @@ import AccessibleCaptcha from "@/components/common/AccessibleCaptcha";
 import { submitPartnerForm } from "@/services/contact";
 
 /**
- * PartnerForm Component (WCAG 2.2 AA & GIGW 3.0 Compliant)
+ * Partner Franchise & Sub-Broker Lead Generation Form
+ * 
+ * Facilitates business partnership registrations (Sub-broker / Authorized Person / Franchise):
+ * - Strict client-side validation (10-digit Indian phone number, valid email, required fields).
+ * - Accessible visual/audio captcha integration.
+ * - Dispatches payload to backend `submitPartnerForm` endpoint.
+ * - WCAG 2.2 AA and GIGW 3.0 compliant error announcements.
  */
 export default function PartnerForm() {
   const [formData, setFormData] = useState({

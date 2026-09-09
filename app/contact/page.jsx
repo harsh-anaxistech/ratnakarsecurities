@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import Form from "@/components/contact/form";
 import Table from "@/components/contact/table";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -11,6 +11,12 @@ export const metadata = generatePageMetadata({
   path: "/",
 });
 
+/**
+ * Contact Us Page Component
+ * 
+ * Combines customer inquiry submission, geographical head office map,
+ * branch listings, and regulatory escalation tables into a single unified page.
+ */
 export default function ContactPage() {
   return (
     <div className="bg-background min-h-screen">

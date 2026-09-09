@@ -1,5 +1,11 @@
-import { SITE } from "@/constants/site";
-
+/**
+ * Dynamic XML Sitemap Generator
+ * 
+ * Generates the dynamic `/sitemap.xml` for search engine discovery:
+ * - Assigns crawl frequency and ranking priorities to top-level public pages.
+ * 
+ * @returns {import('next').MetadataRoute.Sitemap}
+ */
 export default function sitemap() {
   const baseUrl = SITE.url;
   const now = new Date();

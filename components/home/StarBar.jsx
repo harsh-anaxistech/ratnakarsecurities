@@ -8,6 +8,14 @@ const stats = [
   { id: 4, num: 200, suffix: "+", label: "Outlets & Dedicated Staff" },
 ];
 
+/**
+ * Animated Numerical Counter Helper
+ * Uses IntersectionObserver to trigger smooth cubic easing count-up animation when scrolled into viewport.
+ * 
+ * @param {Object} props
+ * @param {number} props.target - Final integer number to animate towards
+ * @param {string} props.suffix - String suffix (e.g. '+')
+ */
 function CountUp({ target, suffix }) {
   const [val, setVal] = useState(0);
   const ref = useRef(null);
@@ -41,6 +49,10 @@ function CountUp({ target, suffix }) {
   );
 }
 
+/**
+ * Key Statistics & Market Metrics Bar Component
+ * Displays verified corporate track record: Years of experience, active clients, city footprint, and branch network.
+ */
 export default function StatsBar() {
   const totalItems = stats.length;
 

@@ -49,6 +49,15 @@ const formatPointText = (text) => {
   return text;
 };
 
+/**
+ * Startup Advisory Announcement Popup Modal
+ * 
+ * Fetches and displays any active broadcast announcements or promotional advisories
+ * on initial page visit:
+ * - Queries `getActivePopup` service on mount.
+ * - Tracks user dismissal in browser session to avoid intrusive repeat displays.
+ * - Formats markdown-style bold tokens and key financial terminology.
+ */
 export default function StartupPopupModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [popupData, setPopupData] = useState(null);

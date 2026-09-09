@@ -5,8 +5,20 @@ import { Volume2, RefreshCw, HelpCircle } from "lucide-react";
 import Input from "@/components/common/Input";
 
 /**
- * Accessible CAPTCHA Component
- * Satisfies GIGW 3.0 5.2.1 & WCAG 2.2 1.1.1 (Non-Text Content - Audio mode for CAPTCHA)
+ * Accessible Visual & Audio CAPTCHA Component
+ * 
+ * Satisfies GIGW 3.0 (5.2.1) and WCAG 2.2 Level AA (1.1.1 Non-Text Content):
+ * - Canvas-based randomized distorted visual alphanumeric challenge (excludes ambiguous 0/O/1/I).
+ * - Web Speech API text-to-speech audio playback option for visually impaired users.
+ * - Refresh capability to generate fresh security codes.
+ * 
+ * @param {Object} props
+ * @param {string} props.value - Controlled input value typed by the user
+ * @param {(e: React.ChangeEvent<HTMLInputElement>) => void} props.onChange - Input change callback
+ * @param {string} [props.error] - Optional validation error message
+ * @param {string} [props.id="form-captcha"] - HTML input identifier
+ * @param {string} [props.name="captcha"] - HTML input form name
+ * @param {(code: string) => void} [props.onCaptchaChange] - Callback notifying parent of newly generated code
  */
 export default function AccessibleCaptcha({
   value,

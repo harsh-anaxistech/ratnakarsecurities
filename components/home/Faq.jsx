@@ -57,6 +57,13 @@ const faqs = [
   },
 ];
 
+/**
+ * Frequently Asked Questions (FAQ) Section Component
+ * 
+ * Interactive accordion for client inquiries, account opening, support, and security questions:
+ * - Single-item expandable state with toggle animation.
+ * - Accessible keyboard interaction and ARIA expanded state attributes.
+ */
 export default function FAQSection() {
   const [active, setActive] = useState(null);
 

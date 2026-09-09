@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -12,6 +12,12 @@ export const metadata = generatePageMetadata({
   path: "/investors/disclosures-of-material-events-or-information",
 });
 
+/**
+ * Disclosures of Material Events or Information Page Component
+ * 
+ * Fetches and displays statutory material event filings and public announcements
+ * via `getInvestorDocuments("Disclosures of material events or information")`.
+ */
 export default async function DisclosuresPage() {
   let groupedData = [];
   try {

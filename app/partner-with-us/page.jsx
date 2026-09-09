@@ -1,4 +1,4 @@
-﻿import HeroSection from "@/components/common/HeroSection";
+import HeroSection from "@/components/common/HeroSection";
 import PartnerForm from "@/components/partner/PartnerForm";
 import { generatePageMetadata } from "@/constants/metadata";
 
@@ -9,6 +9,11 @@ export const metadata = generatePageMetadata({
   path: "/partner-with-us",
 });
 
+/**
+ * Partner With Us Page Component
+ * 
+ * Landing page for prospective Sub-brokers, Remisiers, and Authorized Persons (APs).
+ */
 export default function PartnerWithUsPage() {
   return (
     <div className="bg-background min-h-screen">

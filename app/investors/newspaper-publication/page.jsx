@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -26,6 +26,12 @@ function parseCaption(caption) {
   return { title: caption, date: "" };
 }
 
+/**
+ * Newspaper Publication Statutory Disclosures Page Component
+ * 
+ * Fetches and displays public newspaper notices, quarterly financial notices,
+ * and AGM announcements via `getInvestorDocuments("Newspaper Publication")`.
+ */
 export default async function NewspaperPublicationPage() {
   let groupedData = [];
   try {

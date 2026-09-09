@@ -38,6 +38,14 @@ const FALLBACK_SECTIONS = [
   { SRNO: "1", section_name: "Trading & Demat", secname: "TradingDemat" },
 ];
 
+/**
+ * Downloads Center Page Component
+ * 
+ * Manages the interactive 3-tiered statutory and account-opening document repository:
+ * 1. Sections (Top-level categories e.g., Trading & Demat, Documents, New Updates).
+ * 2. Subsections (Nested categories).
+ * 3. Document Items (Downloadable PDF/Word documents with secure URL normalization).
+ */
 export default function DownloadsPage() {
   const [sections, setSections] = useState([]);
   const [activeSectionId, setActiveSectionId] = useState(null);

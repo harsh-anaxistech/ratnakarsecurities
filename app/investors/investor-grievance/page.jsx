@@ -8,6 +8,11 @@ export const metadata = generatePageMetadata({
   path: "/investors/investor-grievance",
 });
 
+/**
+ * Investor Grievance Sub-Route Component
+ * 
+ * Renders `InvestorGrievance` arbitration, GRC, and regulatory disclosure component.
+ */
 export default function InvestorsGrievanceSubPage() {
   return <InvestorGrievance />;
 }

@@ -4,6 +4,21 @@ import React, { useEffect, useRef } from "react";
 import { X, ExternalLink, Globe2, Landmark } from "lucide-react";
 import Image from "next/image";
 
+/**
+ * Backoffice & Trading Login Selection Modal
+ * 
+ * Provides centralized redirection to internal and external backoffice portals:
+ * - Client Backoffice (Ledger, Holding reports)
+ * - Partner / Sub-broker portal
+ * - Electronic Contract Note (ECN) system
+ * - DP Holding verification
+ * 
+ * Features keyboard focus trapping, Escape key dismiss, and backdrop overlay click dismiss.
+ * 
+ * @param {Object} props
+ * @param {boolean} props.isOpen - Visibility status
+ * @param {() => void} props.onClose - Dismissal handler
+ */
 export default function BackofficeLoginModal({ isOpen, onClose }) {
   const modalRef = useRef(null);
 

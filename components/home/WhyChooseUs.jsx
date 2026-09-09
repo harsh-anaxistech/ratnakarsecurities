@@ -31,6 +31,16 @@ const REASONS = [
   },
 ];
 
+/**
+ * Why Choose Us Section Component
+ * 
+ * Communicates the firm's core competitive differentiators:
+ * - Dedicated human relationship managers.
+ * - In-house actionable research.
+ * - Multi-exchange SEBI compliance and security.
+ * - Comprehensive financial product suite under one roof.
+ * - Specialist NRI & HNI advisory desks.
+ */
 export default function WhyChooseUs() {
   return (
     <section 

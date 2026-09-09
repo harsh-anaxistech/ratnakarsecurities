@@ -7,6 +7,11 @@ export const metadata = generatePageMetadata({
     "Access expert stock market research reports, company analysis, IPO reviews, investment insights, and market updates from Ratnakar Securities to make informed investment decisions.",
   path: "/research",
 });
+/**
+ * Research Portal Landing Page
+ * 
+ * Directory linking to Company Analysis, IPO Reviews, Daily News, and Corporate Announcements.
+ */
 export default function ResearchLanding() {
   return (
     <>

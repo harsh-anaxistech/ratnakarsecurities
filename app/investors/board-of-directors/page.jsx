@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import Link from "next/link";
 import Image from "next/image";
@@ -57,6 +57,12 @@ const directors = [
   },
 ];
 
+/**
+ * Board of Directors Corporate Governance Page Component
+ * 
+ * Displays verified biographies, designations (Executive, Non-Executive, Independent),
+ * and professional backgrounds of all members of the Board of Directors.
+ */
 export default function BoardOfDirectorsPage() {
   const executive = directors.filter((d) => d.type === "Executive");
   const independent = directors.filter((d) => d.type === "Independent");

@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -11,6 +11,13 @@ export const metadata = generatePageMetadata({
   path: "/investors/policies",
 });
 
+/**
+ * Corporate Policies & Regulatory Guidelines Page Component
+ * 
+ * Fetches and displays corporate compliance policies (PMLA, AML surveillance,
+ * Code of Conduct, Prevention of Sexual Harassment, Conflict of Interest)
+ * via `getInvestorDocuments("Policies")`.
+ */
 export default async function PoliciesPage() {
   let groupedData = [];
   try {

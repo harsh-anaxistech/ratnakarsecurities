@@ -206,6 +206,18 @@ const PARA_11_ITEMS = [
   { no: "22.", text: "A participant shall ensure that good corporate policies and corporate governance are in place." },
 ];
 
+/**
+ * Depository Participant (DP) Investor Charter & Grievance Trends Component
+ * 
+ * Implements SEBI Master Circular mandates for Depository Participants (NSDL / CDSL):
+ * - Investor Charter clauses, rights, obligations, dos & don'ts.
+ * - Interactive Annexure A & B modal popups for statutory footnotes and code of conduct.
+ * - Data tables for Data for the Month Ending, Monthly Complaint Trends, and Annual Trend History.
+ * - Dynamic financial year filtering via `getDpComplaintsPublic` API.
+ * 
+ * @param {Object} props
+ * @param {'complaints'|'charter-details'} [props.defaultTab='complaints'] - Active starting tab
+ */
 export default function InvestorCharterDP({ defaultTab = "complaints" }) {
   const [data, setData] = useState(null);
   const [selectedFinYear, setSelectedFinYear] = useState("");

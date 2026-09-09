@@ -1,7 +1,13 @@
+/**
+ * Research & Market Reports Service
+ * 
+ * Handles API operations for fetching research categories and downloadable analytical
+ * reports (fundamental analysis, technical picks, IPO notes, and market reviews).
+ */
 import { API_BASE_URL } from "./config";
 
 /**
- * Fetch all dynamic research sections from the API.
+ * Fetch all dynamic research sections from the backend API.
  * @returns {Promise<Object>} The API response containing sections array
  */
 export async function getResearchSections() {

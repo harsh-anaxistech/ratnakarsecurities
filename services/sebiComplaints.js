@@ -1,8 +1,15 @@
+/**
+ * Stock Broker SEBI Complaints Service
+ * 
+ * Manages fetching of monthly and annual investor grievance data for stock broking operations,
+ * fulfilling SEBI circular compliance mandates.
+ */
 import { API_BASE_URL } from "./config";
 
 /**
  * Fetch public SEBI complaints trends data (monthly & annual trends)
- * @param {string} [finyear] - Optional financial year filter (e.g., "2024-25", "2026-27")
+ * 
+ * @param {string} [finyear] - Optional financial year filter (e.g., "2024-25", "2025-26")
  * @returns {Promise<{success: boolean, message: string, data: any}>}
  */
 export async function getSebiComplaintsPublic(finyear = "") {

@@ -4,6 +4,15 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/**
+ * Next.js Framework Configuration
+ * 
+ * Configures:
+ * - Image optimization formats (AVIF, WebP) and remote host whitelist (Unsplash, UI Avatars, Ratnakar API, Localhost).
+ * - Content Security Policy (CSP) headers (upgrade-insecure-requests).
+ * - 301 Permanent Redirects preserving SEO equity from legacy .aspx URLs.
+ */
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   outputFileTracingRoot: __dirname,

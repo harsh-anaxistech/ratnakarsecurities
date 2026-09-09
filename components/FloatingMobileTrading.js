@@ -1,7 +1,20 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { X, Briefcase, TrendingUp } from "lucide-react";
 
+/**
+ * Floating Mobile Trading Modal / Trigger Component
+ * 
+ * Supports dual usage modes (controlled via props or uncontrolled internal state):
+ * - Displays quick selection between "Wealth Management" and "Trade Express" mobile apps.
+ * - Manages focus trapping, keyboard Escape handlers, and background backdrop clicks.
+ * - Links directly to official Google Play Store packages.
+ * 
+ * @param {Object} props
+ * @param {boolean} [props.isOpen] - Controlled visibility state
+ * @param {() => void} [props.onClose] - Controlled modal close callback
+ */
 export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose }) {
   const [internalOpen, setInternalOpen] = useState(false);
   const modalRef = useRef(null);

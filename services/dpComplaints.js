@@ -1,9 +1,16 @@
+/**
+ * Depository Participant (DP) Complaints Service
+ * 
+ * Manages fetching of monthly and annual investor grievance data for DP operations,
+ * fulfilling SEBI/NSDL/CDSL compliance disclosure mandates.
+ */
 import { API_BASE_URL } from "./config";
 
 /**
  * Fetch public DP complaints trends data (monthly & annual trends)
- * @param {string} [finyear] - Optional financial year filter (e.g., "2024-25", "2026-27")
- * @returns {Promise<{success: boolean, message: string, data: any}>}
+ * 
+ * @param {string} [finyear] - Optional financial year filter (e.g., "2024-25", "2025-26")
+ * @returns {Promise<{success: boolean, message: string, data: any}>} API response payload
  */
 export async function getDpComplaintsPublic(finyear = "") {
   try {

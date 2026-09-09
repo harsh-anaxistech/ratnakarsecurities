@@ -1,7 +1,13 @@
+/**
+ * Site Metadata & SEO Configuration
+ * 
+ * Provides base metadata configurations, OpenGraph, Twitter Cards, Googlebot directives,
+ * keywords, and dynamic page-level metadata generator helpers for Next.js App Router.
+ */
 import { SITE } from "./site";
 
 /**
- * Base metadata for the site
+ * Base metadata defaults applied across the site.
  */
 export const baseMetadata = {
   metadataBase: new URL(SITE.url),

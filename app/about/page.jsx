@@ -7,6 +7,14 @@ import { Home, Target, Laptop, BarChart3 } from "lucide-react";
 import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 
+/**
+ * About Us Page Component
+ * 
+ * Comprehensive company background, ethos, and leadership directory:
+ * - Hash fragment deep linking (`#overview`, `#leadership`, `#journey`).
+ * - Historical timeline milestone showcase (1994 incorporation to present day).
+ * - Key management and board executive profiles.
+ */
 export default function AboutPage() {
   const router = useRouter();
   useEffect(() => {

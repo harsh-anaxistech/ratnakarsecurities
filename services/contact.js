@@ -46,15 +46,17 @@ export async function submitContactForm(contactData) {
 
 /**
  * Submits partner with us form data to the backend API.
+ * Maps field name aliases (e.g., fullName/name, phone/phno, interseted/interest) for backend compatibility.
  * 
- * @param {Object} partnerData
- * @param {string} partnerData.fullName
- * @param {string} partnerData.email
- * @param {string} partnerData.phone
- * @param {string} partnerData.city
- * @param {string} partnerData.timeslot
- * @param {string} partnerData.interseted
- * @returns {Promise<Object>}
+ * @param {Object} partnerData - Partner inquiry form data
+ * @param {string} partnerData.fullName - Full name of the interested partner
+ * @param {string} partnerData.email - Business or personal email address
+ * @param {string} partnerData.phone - 10-digit mobile contact number
+ * @param {string} partnerData.city - City of residence/operation
+ * @param {string} partnerData.timeslot - Preferred callback time slot
+ * @param {string} partnerData.interseted - Chosen partnership domain/vertical
+ * @returns {Promise<Object>} Resolves with JSON response on success
+ * @throws {Error} Throws API error message or statusText on failure
  */
 export async function submitPartnerForm(partnerData) {
   const response = await fetch(`${API_BASE_URL}/contacts/partner`, {

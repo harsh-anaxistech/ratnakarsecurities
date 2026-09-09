@@ -28,6 +28,16 @@ import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 
 import QuickSearchModal from "@/components/common/QuickSearchModal";
 
+/**
+ * Main Application Header & Navigation Bar
+ * 
+ * Provides global navigation for desktop and mobile devices:
+ * - Multi-column mega menus for Products and Investor Relations.
+ * - Dynamic research sections loaded asynchronously from `getResearchSections` API.
+ * - Top utilities: Market updates, Trading/Backoffice login triggers, App download modal, Quick search.
+ * - Mobile responsive sliding navigation drawer with accordion submenus.
+ * - Accessible keyboard navigation and ARIA landmarks.
+ */
 const NAV_LINKS = [
   {
     label: "Products",

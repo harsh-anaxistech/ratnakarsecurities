@@ -25,6 +25,16 @@ export async function generateStaticParams() {
   }));
 }
 
+/**
+ * Dynamic Product Details Page Component
+ * 
+ * Renders individual product marketing and onboarding pages for each investment category:
+ * - Generates static routes at build time via `generateStaticParams`.
+ * - Resolves dynamic SEO metadata via `generateMetadata`.
+ * 
+ * @param {Object} props
+ * @param {{ slug: string }} props.params - Dynamic route slug parameter
+ */
 export default function ProductDetailsPage({ params }) {
   const { slug } = params;
   const product = PRODUCTS_DATA.find((p) => p.slug === slug);

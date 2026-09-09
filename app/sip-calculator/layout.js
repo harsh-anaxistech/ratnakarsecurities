@@ -7,6 +7,14 @@ export const metadata = generatePageMetadata({
   path: "/sip-calculator",
 });
 
+/**
+ * SIP Calculator Layout
+ * 
+ * Exports canonical SEO metadata for the Systematic Investment Plan returns calculator.
+ * 
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ */
 export default function SipCalculatorLayout({ children }) {
   return children;
 }

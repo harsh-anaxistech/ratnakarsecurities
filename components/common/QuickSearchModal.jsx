@@ -41,6 +41,19 @@ const SEARCH_ITEMS = [
   { title: "HTML Site Map", category: "Navigation", href: "/sitemap", icon: FileText, keywords: "sitemap all pages index overview links" },
 ];
 
+/**
+ * Global Quick Search Modal Component
+ * 
+ * Provides an instant-access search dialog indexing all major products, investor portals,
+ * statutory sections, research categories, and financial calculators:
+ * - Keyboard shortcuts (Ctrl+K / Cmd+K / /).
+ * - Arrow key navigation and Enter selection.
+ * - WCAG 2.2 focus trap and Escape dismissibility.
+ * 
+ * @param {Object} props
+ * @param {boolean} props.isOpen - Whether modal dialog is visible
+ * @param {() => void} props.onClose - Modal dismissal handler
+ */
 export default function QuickSearchModal({ isOpen, onClose }) {
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);

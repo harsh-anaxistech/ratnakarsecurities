@@ -7,6 +7,13 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
+/**
+ * Custom 404 Not Found Page Component
+ * 
+ * Renders when an unmapped route or invalid URL path is accessed:
+ * - Excludes itself from search engine indexing (`robots: { index: false, follow: false }`).
+ * - Provides immediate navigation action to return to the home page.
+ */
 export default function NotFound() {
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-white px-4">

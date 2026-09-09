@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -11,6 +11,12 @@ export const metadata = generatePageMetadata({
   path: "/investors/annual-return",
 });
 
+/**
+ * Annual Return (Form MGT-7) Disclosures Page Component
+ * 
+ * Fetches and displays statutory annual return filings submitted to the Registrar of Companies (ROC)
+ * via `getInvestorDocuments("Annual Return")`.
+ */
 export default async function AnnualReturnPage() {
   let groupedData = [];
   try {

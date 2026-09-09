@@ -1,6 +1,13 @@
 import React from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 
+/**
+ * Mobile App Download Banner Component
+ * 
+ * Showcases the "Ratnakar TradeExpress" mobile trading application:
+ * - Scannable QR code for instant mobile device installation.
+ * - Direct download links for Apple App Store (iOS) and Google Play Store (Android).
+ */
 export default function DownloadApp() {
   return (
     <section className="pt-12 px-4">

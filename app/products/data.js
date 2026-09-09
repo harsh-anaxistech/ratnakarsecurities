@@ -16,6 +16,20 @@ import {
   Lock
 } from "lucide-react";
 
+/**
+ * Centralized Investment Products Data Repository
+ * 
+ * Provides static content, benefits, features, icon mappings, and imagery for all 9 investment products:
+ * - Equities (`/products/equity`)
+ * - Derivatives (`/products/derivatives`)
+ * - Mutual Funds (`/products/mutual-funds`)
+ * - Commodities (`/products/commodities`)
+ * - Bonds & Fixed Income (`/products/bonds`)
+ * - Wealth Management (`/products/wealth-management`)
+ * - NRIs (`/products/nris`)
+ * - SLBM (`/products/slbm`)
+ * - HNIs (`/products/hnis`)
+ */
 export const PRODUCTS_DATA = [
   {
     id: "Equity",

@@ -6,6 +6,14 @@ export const metadata = generatePageMetadata({
   path: "/about",
 });
 
+/**
+ * About Us Segment Layout
+ * 
+ * Exports canonical SEO metadata and renders child page components.
+ * 
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ */
 export default function AboutLayout({ children }) {
   return children;
 }

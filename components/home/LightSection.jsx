@@ -3,6 +3,11 @@
 import Container from "@/components/common/Container";
 import { MessageSquare, ArrowRight } from "lucide-react";
 
+/**
+ * Financial Empowerment Section Component
+ * 
+ * Highlights personalized financial planning and research insight offerings.
+ */
 export default function LightSection() {
   return (
     <section className="py-20" style={{ background: "#f7f9fc" }}>

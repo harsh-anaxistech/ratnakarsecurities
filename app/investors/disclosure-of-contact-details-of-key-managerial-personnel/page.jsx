@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { generatePageMetadata } from "@/constants/metadata";
 import { Phone, Mail, Briefcase } from "lucide-react";
@@ -45,6 +45,13 @@ const personnel = [
   },
 ];
 
+/**
+ * Key Managerial Personnel (KMP) Disclosure Page Component
+ * 
+ * Statutory disclosure of corporate leadership contacts (Managing Director,
+ * Whole-Time Director, Chief Financial Officer, Company Secretary) in accordance
+ * with Companies Act and SEBI LODR Regulations.
+ */
 export default function KeyManagerialPersonnelPage() {
   return (
     <div className="bg-[#f7f9fc] min-h-screen pb-16">

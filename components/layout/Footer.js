@@ -7,6 +7,16 @@ import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/
 import { Play, Pause } from "lucide-react";
 import RiskDisclosureModal from "@/components/modals/RiskDisclosureModal";
 
+/**
+ * Global Application Footer Component
+ * 
+ * Contains all mandatory SEBI / exchange regulatory disclosures:
+ * - SEBI registration numbers (NSE, BSE, MCX, NSDL DP).
+ * - "Attention Investors" rotating notices ticker with pause/play accessibility controls.
+ * - SEBI Risk Disclosure on Derivatives popup modal trigger.
+ * - Categorized navigation links (Products, About Us, Useful Statutory Links, Social channels).
+ * - Registered corporate office details, compliance officer contact, and SMARTODR/SCORES links.
+ */
 const FOOTER_LINKS = {
   Products: [
     { label: "Equity", href: "/products/equity" },

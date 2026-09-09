@@ -18,6 +18,17 @@ export async function generateMetadata({ params }) {
   });
 }
 
+/**
+ * Dynamic Research Section Server Page Component
+ * 
+ * Pre-fetches research reports on the server side:
+ * - Resolves dynamic section name against backend `getResearchSections`.
+ * - Fetches initial report documents via `getResearchReports`.
+ * - Hydrates interactive client-side listing component `ResearchSectionClient`.
+ * 
+ * @param {Object} props
+ * @param {Promise<{ section: string }>} props.params
+ */
 export default async function Page({ params }) {
   const { section } = await params;
 

@@ -5,7 +5,26 @@ import { ChevronDown, Check } from "lucide-react";
 
 /**
  * CustomSelect Component
- * Replaces native HTML <select> with a fully customizable, rounded dropdown menu popover.
+ * 
+ * An accessible custom select dropdown component with:
+ * - Full WAI-ARIA combobox/listbox pattern support (aria-expanded, aria-haspopup, aria-controls).
+ * - Keyboard navigation (ArrowUp, ArrowDown, Enter, Space, Escape, Tab).
+ * - Outside click detection and auto-scroll to focused option.
+ * - Icon support, error states, and responsive styling.
+ * 
+ * @param {Object} props
+ * @param {string} [props.id] - Element identifier
+ * @param {string} [props.name] - Form field name
+ * @param {string} props.value - Selected option value
+ * @param {(e: { target: { name?: string, value: string } }) => void} props.onChange - Selection change callback
+ * @param {Array<{ value: string, label: string }>} props.options - List of selectable options
+ * @param {string} [props.placeholder="Select Option"] - Placeholder text when no value is selected
+ * @param {React.ComponentType} [props.icon] - Leading Lucide icon component
+ * @param {string|boolean} [props.error] - Error state or validation message
+ * @param {string} [props.className=""] - Outer wrapper class name
+ * @param {string} [props.roundedClassName="rounded-xl"] - Border radius style
+ * @param {boolean} [props.disabled=false] - Whether dropdown is disabled
+ * @param {string} [props.ariaDescribedBy] - ID of element describing field errors/hints
  */
 export default function CustomSelect({
   id,

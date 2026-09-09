@@ -1,9 +1,16 @@
+/**
+ * Startup Advisory Popup Service
+ * 
+ * Fetches active regulatory announcements, promotional alerts, or SEBI circular advisories
+ * displayed to users upon site visit.
+ */
 import { API_BASE_URL } from "./config";
 
 /**
  * Fetch dynamic active popup from the API.
- * Tries configured API_BASE_URL first, then falls back to http://localhost:6010/api/popup/active
- * @returns {Promise<Object>} The API response containing active popup data
+ * Tries configured API_BASE_URL first, then falls back to local endpoint.
+ * 
+ * @returns {Promise<Object|null>} The API response containing active popup data or null
  */
 export async function getActivePopup() {
   const urlsToTry = [

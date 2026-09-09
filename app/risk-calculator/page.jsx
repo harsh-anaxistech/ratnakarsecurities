@@ -8,6 +8,17 @@ import { Check, X, Shield, TrendingUp, AlertTriangle } from "lucide-react";
 // ==========================================
 // Provided Legacy Risk Profiling Logic
 // ==========================================
+/**
+ * Computes cumulative risk points and maps to risk capacity bucket.
+ * 
+ * Score Tiers:
+ * - 25 – 35 points: Low Risk Capacity (Capital preservation emphasis)
+ * - 40 – 55 points: Moderate Risk Capacity (Balanced hybrid portfolio)
+ * - 60 – 75 points: High Risk Capacity (Growth/Equity aggressive allocation)
+ * 
+ * @param {Array<number|string>} points - Points assigned to selected responses
+ * @returns {{ totalPoints: number, riskCapacity: string }}
+ */
 function calculateRiskProfile(points) {
   var totalPoints = 0;
   for (var i = 0; i < points.length; i++) {

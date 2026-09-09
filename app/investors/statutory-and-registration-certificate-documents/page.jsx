@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -13,6 +13,13 @@ export const metadata = generatePageMetadata({
   path: "/investors/statutory-and-registration-certificate-documents",
 });
 
+/**
+ * Statutory & Registration Certificates Disclosures Page Component
+ * 
+ * Fetches and displays SEBI broker registration certificates, exchange memberships
+ * (NSE, BSE, MCX, NSDL DP), and corporate incorporation filings
+ * via `getStatutoryDocuments` service.
+ */
 export default async function StatutoryDocumentsPage() {
   let documents = [];
   try {

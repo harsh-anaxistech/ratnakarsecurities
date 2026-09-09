@@ -24,6 +24,18 @@ import {
 } from "lucide-react";
 import { getSebiComplaintsPublic } from "@/services/sebiComplaints";
 
+/**
+ * Stock Broker Investor Charter & SEBI Grievance Trends Component
+ * 
+ * Displays SEBI-mandated stock broker disclosures:
+ * - Investor Charter: Vision, Mission, Service standards, Rights, Dos and Don'ts.
+ * - Investor Complaints Table 1: Current month-end status.
+ * - Table 2: Monthly complaint resolution trends.
+ * - Table 3: Annual historical complaint track record.
+ * 
+ * @param {Object} props
+ * @param {'complaints'|'charter-details'} [props.defaultTab='complaints'] - Initial view tab
+ */
 export default function InvestorCharterStockBroker({ defaultTab = "complaints" }) {
   const [data, setData] = useState(null);
   const [selectedFinYear, setSelectedFinYear] = useState("");

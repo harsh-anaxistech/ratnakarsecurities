@@ -7,6 +7,14 @@ export const metadata = generatePageMetadata({
   path: "/static/investor-charter",
 });
 
+/**
+ * Depository Participant Investor Charter Layout
+ * 
+ * Exports canonical SEO metadata for the DP Investor Charter.
+ * 
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ */
 export default function Layout({ children }) {
   return children;
 }

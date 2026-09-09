@@ -6,6 +6,14 @@ import { Quote, Star, Pause, Play, ChevronLeft, ChevronRight } from "lucide-reac
 import { getTestimonials } from "@/services/testimonials";
 import { API_BASE_URL } from "@/services/config";
 
+/**
+ * Client Testimonials Carousel Component
+ * 
+ * Displays verified client feedback and star ratings:
+ * - Fetches live testimonials dynamically via `getTestimonials` API with fallback default reviews.
+ * - Carousel with auto-advance, responsive multi-slide breakpoints, and keyboard controls.
+ * - Pause/Play toggle to satisfy accessibility standards for moving content.
+ */
 const FALLBACK_TESTIMONIALS = [
   {
     quote:

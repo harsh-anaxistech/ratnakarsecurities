@@ -14,6 +14,22 @@ import {
   Sliders
 } from "lucide-react";
 
+/**
+ * Accessibility Toolbar Component
+ * 
+ * Provides compliance with GIGW 3.0 (Guidelines for Indian Government Websites)
+ * and WCAG 2.2 AA standards:
+ * - High contrast toggle (Normal / Dark high-contrast / Light high-contrast)
+ * - Font scaling (A-, A, A+)
+ * - Animation toggle (Pause / Play CSS transitions & keyframes)
+ * - Quick Search dialog trigger
+ * - Direct links to Sitemap and Accessibility Statement
+ * 
+ * Preferences are synchronized to browser `localStorage` and applied to `document.documentElement`.
+ * 
+ * @param {Object} props
+ * @param {() => void} [props.onOpenSearch] - Callback to open the global quick search modal
+ */
 export default function AccessibilityToolbar({ onOpenSearch }) {
   const [contrastMode, setContrastMode] = useState("normal"); // "normal" | "dark" | "light"
   const [textScale, setTextScale] = useState("base"); // "sm" | "base" | "lg"

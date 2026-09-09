@@ -2,6 +2,16 @@
 
 import { useEffect } from "react";
 
+/**
+ * Global Root Error Boundary Component
+ * 
+ * Top-level fallback error handler wrapping the entire `<html>` and `<body>` tree
+ * when exceptions occur in the root layout itself.
+ * 
+ * @param {Object} props
+ * @param {Error & { digest?: string }} props.error - Runtime root layout error
+ * @param {() => void} props.reset - Recovery re-render trigger
+ */
 export default function GlobalError({ error, reset }) {
   useEffect(() => {
     console.error(error);

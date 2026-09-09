@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { generatePageMetadata } from "@/constants/metadata";
 
@@ -8,6 +8,12 @@ export const metadata = generatePageMetadata({
   path: "/refund-and-cancellation",
 });
 
+/**
+ * Refund & Cancellation Policy Page Component
+ * 
+ * Outlines statutory payment policies regarding account opening fees,
+ * onboarding processing timelines (10-day clause), and duplicate payment resolution.
+ */
 export default function RefundCancellationPage() {
   return (
     <div className="bg-[#f7f9fc] min-h-screen pb-16">

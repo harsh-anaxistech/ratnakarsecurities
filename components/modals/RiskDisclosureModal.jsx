@@ -3,6 +3,17 @@
 import React, { useEffect, useRef } from "react";
 import { X } from "lucide-react";
 
+/**
+ * SEBI Mandatory Risk Disclosure Modal (Derivatives Trading)
+ * 
+ * Displays the statutory SEBI risk disclosures regarding capital loss probability
+ * in Equity Derivatives (Futures and Options - F&O) trading in compliance with
+ * regulatory circulars.
+ * 
+ * @param {Object} props
+ * @param {boolean} props.isOpen - Whether disclosure popup is active
+ * @param {() => void} props.onClose - Modal dismissal handler
+ */
 export default function RiskDisclosureModal({ isOpen, onClose }) {
   const modalRef = useRef(null);
 

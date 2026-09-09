@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { Download, FileText, FileBadge } from "lucide-react";
 import { generatePageMetadata } from "@/constants/metadata";
@@ -11,6 +11,12 @@ export const metadata = generatePageMetadata({
   path: "/investors/financial-information-and-annual-report",
 });
 
+/**
+ * Financial Information & Annual Report Disclosures Page Component
+ * 
+ * Fetches and displays audited balance sheets, profit/loss accounts, and annual financial filings
+ * via `getInvestorDocuments("Financial Information and Annual Report")`.
+ */
 export default async function FinancialInformationPage() {
   let groupedData = [];
   try {

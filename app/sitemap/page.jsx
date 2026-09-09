@@ -97,6 +97,13 @@ const SITEMAP_SECTIONS = [
   },
 ];
 
+/**
+ * Accessible HTML Site Map Page Component
+ * 
+ * Provides an exhaustive hierarchical index of all site pages:
+ * - Products, Investor Relations, Research portals, Calculators, Legal & Compliance.
+ * - Supports WCAG 2.2 AA (Multiple Ways 2.4.5) and GIGW 3.0 standards.
+ */
 export default function SitemapPage() {
   return (
     <div className="min-h-screen bg-slate-50 py-10 sm:py-16">

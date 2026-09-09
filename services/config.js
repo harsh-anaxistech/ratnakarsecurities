@@ -1,16 +1,20 @@
 /**
- * API Configuration
+ * API Configuration Module
  * 
- * Centralized file for managing API base URLs and environment settings.
- * 
- * It dynamically selects the API base URL depending on the client-side environment variable:
- * - NEXT_PUBLIC_APP_ENV: 'local', 'stage' (or 'staging'), or 'production'
- * - NEXT_PUBLIC_API_URL: Direct URL override (takes highest precedence)
+ * Centralized service module for managing API base URLs and runtime environment configurations.
+ * Resolves the target backend endpoint based on environment priority:
+ * 1. `NEXT_PUBLIC_API_URL` (Direct environment override - highest priority)
+ * 2. `NEXT_PUBLIC_APP_ENV` ('local', 'stage'/'staging', 'prod'/'production')
+ * 3. Default fallback to local development URL (`http://localhost:6010/api`)
  */
 
-// Retrieve environment environment stage (defaults to 'local')
+// Active application environment identifier (defaults to 'local')
 const APP_ENV = process.env.NEXT_PUBLIC_APP_ENV || "local";
 
+/**
+ * Mapping of deployment environment keys to their respective API gateway endpoints.
+ * @type {Record<string, string>}
+ */
 const API_ENV_URLS = {
   local: "http://localhost:6010/api",
   stage: "https://api.ratnakarsecurities.com/api",
@@ -19,9 +23,13 @@ const API_ENV_URLS = {
   production: "https://api.ratnakarsecurities.com/api",
 };
 
-// Export the resolved API Base URL (highest priority is direct variable override)
+/**
+ * The resolved API Base URL used across all data-fetching services.
+ * @type {string}
+ */
 export const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
   API_ENV_URLS[APP_ENV.toLowerCase()] ||
   API_ENV_URLS.local;
+
 

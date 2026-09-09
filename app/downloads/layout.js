@@ -7,6 +7,14 @@ export const metadata = generatePageMetadata({
   path: "/downloads",
 });
 
+/**
+ * Downloads Section Layout
+ * 
+ * Exports canonical SEO metadata for the downloads resource center.
+ * 
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ */
 export default function DownloadsLayout({ children }) {
   return children;
 }

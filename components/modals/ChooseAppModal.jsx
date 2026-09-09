@@ -4,6 +4,19 @@ import React, { useEffect, useRef } from "react";
 import { X, Download, Globe } from "lucide-react";
 import Image from "next/image";
 
+/**
+ * Application Suite Chooser Modal Component
+ * 
+ * Presents downloads and web portals for the entire Ratnakar software ecosystem:
+ * - TradeExpress Mobile (iOS / Android)
+ * - Wealth Management Mobile App
+ * - Desktop EXE Trading Terminal (NSE/BSE/MCX ODIN / NOW based)
+ * - Web Browser Trading Portal
+ * 
+ * @param {Object} props
+ * @param {boolean} props.isOpen - Modal visibility flag
+ * @param {() => void} props.onClose - Modal close handler
+ */
 export default function ChooseAppModal({ isOpen, onClose }) {
   const modalRef = useRef(null);
 

@@ -1,3 +1,9 @@
+/**
+ * Menu Icons Mapping Module
+ * 
+ * Provides an icon dictionary mapping navigation keys to decorative SVG images
+ * for Mega Menu items across Products, Research, Investors, and About categories.
+ */
 import Image from "next/image";
 
 const getIcon = (src) => (

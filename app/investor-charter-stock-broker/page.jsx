@@ -8,6 +8,11 @@ export const metadata = generatePageMetadata({
   path: "/investor-charter-stock-broker",
 });
 
+/**
+ * Investor Charter of Stock Broker Route
+ * 
+ * Renders `InvestorCharterStockBroker` pre-selected to the "charter-details" tab.
+ */
 export default function InvestorCharterStockBrokerPage() {
   return <InvestorCharterStockBroker defaultTab="charter-details" />;
 }

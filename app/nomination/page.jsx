@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { generatePageMetadata } from "@/constants/metadata";
 
@@ -8,6 +8,13 @@ export const metadata = generatePageMetadata({
   path: "/nomination",
 });
 
+/**
+ * Trading & Demat Account Nomination Instructions Page
+ * 
+ * Provides instructions and downloadable forms for SEBI-mandated nomination compliance:
+ * - Annexure A: Format for adding nominee(s).
+ * - Annexure B: Formal opt-out declaration.
+ */
 export default function NominationPage() {
   return (
     <div className="bg-[#f7f9fc] min-h-screen pb-16">

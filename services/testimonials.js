@@ -1,3 +1,8 @@
+/**
+ * Testimonials Service
+ * 
+ * Fetches verified client reviews, ratings, and investor testimonials for the home page.
+ */
 import { API_BASE_URL } from "./config";
 
 /**

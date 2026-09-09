@@ -14,6 +14,12 @@ export const metadata = generatePageMetadata({
   path: "/products/overview",
 });
 
+/**
+ * Products & Financial Services Comprehensive Overview Page
+ * 
+ * Summarizes the entire exchange membership ecosystem, technology infrastructure,
+ * and wealth management methodology of Ratnakar Securities.
+ */
 export default function OverviewPage() {
   const content = {
     tagline: "OVERVIEW",

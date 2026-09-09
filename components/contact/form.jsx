@@ -30,7 +30,13 @@ const departmentOptions = [
 ];
 
 /**
- * Contact Form Component (WCAG 2.2 AA & GIGW 3.0 Compliant)
+ * Contact Us Inquiry Form Component
+ * 
+ * Manages customer inquiries across multiple departments (Accounts, Trading, Demat, Research, etc.):
+ * - Validates phone number length (10 digits), email syntax, and mandatory department selection.
+ * - Dynamic autofocus on the first invalid field upon form submission failure.
+ * - Audio and visual captcha validation.
+ * - Submits payload to `submitContactForm` service.
  */
 export default function ContactUsPage() {
   const [formData, setFormData] = useState({

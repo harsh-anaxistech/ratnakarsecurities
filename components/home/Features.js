@@ -17,6 +17,13 @@ const SERVICES = [
   { id: "service-bonds", icon: "/images/icon/menu/Bonds 1.svg", title: "Fixed Income*", desc: "Fix your long-term wealth goals with our customized investment solutions, expert guidance, and stable performance.", href: "/products/bonds" },
 ];
 
+/**
+ * Investment Services & Products Grid Component
+ * 
+ * Showcases the 9 core investment offerings of Ratnakar Securities:
+ * - Equity, Derivatives, Mutual Funds, Commodities, NRIs, Wealth Management, SLBM, HNIs, Fixed Income.
+ * - Interactive hover cards linking directly to detailed product breakdown pages.
+ */
 export default function InvestmentServices() {
   return (
     <section className="relative overflow-hidden bg-[#f7f9fc] py-12" aria-labelledby="features-heading">

@@ -1,8 +1,15 @@
+/**
+ * Investor Relations & Statutory Documents Service
+ * 
+ * Fetches public investor documents, policies, financial disclosures, shareholder patterns,
+ * board composition, and statutory SEBI certificates.
+ */
 import { API_BASE_URL } from "./config";
 
 /**
  * Fetch public investor documents for a specific section.
- * @param {string} sectionName - The section name (e.g., "Newspaper Publication")
+ * 
+ * @param {string} sectionName - The section name (e.g., "Newspaper Publication", "Shareholding Pattern")
  * @returns {Promise<Object>} The API response containing grouped and flat arrays
  */
 export async function getInvestorDocuments(sectionName) {

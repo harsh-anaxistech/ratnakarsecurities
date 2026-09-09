@@ -12,6 +12,12 @@ export const metadata = generatePageMetadata({
   path: "/products",
 });
 
+/**
+ * Products & Financial Services Catalog Hub Page
+ * 
+ * Displays the complete suite of Ratnakar Securities investment services
+ * rendered from the centralized `PRODUCTS_DATA` catalog.
+ */
 export default function ProductsPage() {
   return (
     <div className="bg-background min-h-screen">

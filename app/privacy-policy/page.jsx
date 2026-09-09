@@ -1,4 +1,4 @@
-﻿import Container from "@/components/common/Container";
+import Container from "@/components/common/Container";
 import HeroSection from "@/components/common/HeroSection";
 import { generatePageMetadata } from "@/constants/metadata";
 import { MapPin } from "lucide-react";
@@ -9,6 +9,12 @@ export const metadata = generatePageMetadata({
   path: "/privacy-policy",
 });
 
+/**
+ * Privacy Policy Page Component
+ * 
+ * Formal privacy disclosure detailing client data confidentiality,
+ * data security practices, and statutory compliance with SEBI and DP guidelines.
+ */
 export default function PrivacyPolicyPage() {
   return (
     <div className="bg-[#f7f9fc] min-h-screen pb-16">

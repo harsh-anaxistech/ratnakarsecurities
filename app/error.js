@@ -2,6 +2,17 @@
 
 import { useEffect } from "react";
 
+/**
+ * Route-Level Error Boundary Component
+ * 
+ * Catches runtime exceptions within nested App Router route segments:
+ * - Logs errors for telemetry/debugging.
+ * - Provides user-friendly recovery button invoking Next.js `reset()` callback.
+ * 
+ * @param {Object} props
+ * @param {Error & { digest?: string }} props.error - Runtime error instance
+ * @param {() => void} props.reset - Next.js state reset and re-render callback
+ */
 export default function Error({ error, reset }) {
   useEffect(() => {
     console.error(error);

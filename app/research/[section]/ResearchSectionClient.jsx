@@ -90,6 +90,22 @@ const TableSkeleton = () => (
   </div>
 );
 
+/**
+ * Interactive Research Reports Client Component
+ * 
+ * Provides interactive features for browsing and downloading equity research reports:
+ * - Live keyword search against title and description.
+ * - Indian Financial Year (FY) grouping and filtering.
+ * - View mode toggle between Responsive Cards Grid and Tabular List.
+ * - Date and Title sorting modes (date-desc, date-asc, name-asc, name-desc).
+ * - Pagination controls and skeleton loading states.
+ * 
+ * @param {Object} props
+ * @param {string} props.section - URL parameter segment
+ * @param {string} props.matchedSectionName - Resolved section category name
+ * @param {Array<Object>} [props.initialReports=[]] - Pre-fetched reports data
+ * @param {Array<Object>} [props.initialSections=[]] - Pre-fetched sections list
+ */
 export default function ResearchSectionClient({
   section,
   matchedSectionName,

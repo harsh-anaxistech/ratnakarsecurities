@@ -24,6 +24,15 @@ export const metadata = {
   description: "Ratnakar Securities Limited is committed to digital accessibility in accordance with SEBI circulars, GIGW 3.0, WCAG 2.2 Level AA, and the RPwD Act 2016.",
 };
 
+/**
+ * Digital Accessibility Statement Page Component
+ * 
+ * Formal compliance disclosure detailing adherence to:
+ * - Guidelines for Indian Government Websites (GIGW 3.0).
+ * - Web Content Accessibility Guidelines (WCAG 2.2 Level AA).
+ * - Rights of Persons with Disabilities (RPwD) Act 2016.
+ * - Assistive technologies support, keyboard navigation, color contrast standards, and accessibility feedback mechanism.
+ */
 export default function AccessibilityStatementPage() {
   return (
     <div className="min-h-screen bg-slate-50 py-10 sm:py-16">
