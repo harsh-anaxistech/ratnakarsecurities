@@ -7,7 +7,7 @@
 import Image from "next/image";
 
 const getIcon = (src) => (
-    <Image src={src} alt="" width={32} height={32} className="object-contain" aria-hidden="true" />
+    <Image src={encodeURI(src)} alt="" width={32} height={32} className="object-contain" aria-hidden="true" />
 );
 
 const MenuIcons = {

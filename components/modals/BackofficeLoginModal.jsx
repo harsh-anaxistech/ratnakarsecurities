@@ -149,7 +149,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
 
           {/* Right side image */}
           <Image
-            src="/images/about/Stock trading on sleek iPhones.png"
+            src={encodeURI("/images/about/Stock trading on sleek iPhones.png")}
             alt="Ratnakar Securities back office portal and trading app displayed on a smartphone"
             width={180}
             height={180}

@@ -234,11 +234,11 @@ export default function PartnerForm() {
                 {/* Row 1: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-fullname" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                      Full Name <span className="text-red-500" aria-hidden="true">*</span>
+                    <label htmlFor="partner-fullname" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                      Full Name <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                     </label>
                     <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                      <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
                         <User className="w-4 h-4" />
                       </div>
                       <Input
@@ -253,22 +253,22 @@ export default function PartnerForm() {
                         aria-required="true"
                         aria-invalid={!!errors.fullName}
                         aria-describedby={errors.fullName ? "partner-fullname-error" : undefined}
-                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+                        className="pl-10 h-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 placeholder:text-slate-600 focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                       />
                     </div>
                     {errors.fullName && (
-                      <span id="partner-fullname-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span id="partner-fullname-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                         <span aria-hidden="true">⚠️</span> {errors.fullName}
                       </span>
                     )}
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-email" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                      Email Address <span className="text-red-500" aria-hidden="true">*</span>
+                    <label htmlFor="partner-email" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                      Email Address <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                     </label>
                     <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                      <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
                         <Mail className="w-4 h-4" />
                       </div>
                       <Input
@@ -282,11 +282,11 @@ export default function PartnerForm() {
                         aria-required="true"
                         aria-invalid={!!errors.email}
                         aria-describedby={errors.email ? "partner-email-error" : undefined}
-                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+                        className="pl-10 h-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 placeholder:text-slate-600 focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                       />
                     </div>
                     {errors.email && (
-                      <span id="partner-email-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span id="partner-email-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                         <span aria-hidden="true">⚠️</span> {errors.email}
                       </span>
                     )}
@@ -296,11 +296,11 @@ export default function PartnerForm() {
                 {/* Row 2: Phone & Timeslot */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-phone" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                      Mobile Number <span className="text-red-500" aria-hidden="true">*</span>
+                    <label htmlFor="partner-phone" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                      Mobile Number <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                     </label>
                     <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                      <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
                         <Phone className="w-4 h-4" />
                       </div>
                       <Input
@@ -315,22 +315,22 @@ export default function PartnerForm() {
                         aria-required="true"
                         aria-invalid={!!errors.phone}
                         aria-describedby={errors.phone ? "partner-phone-error" : undefined}
-                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+                        className="pl-10 h-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 placeholder:text-slate-600 focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                       />
                     </div>
                     {errors.phone && (
-                      <span id="partner-phone-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span id="partner-phone-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                         <span aria-hidden="true">⚠️</span> {errors.phone}
                       </span>
                     )}
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label htmlFor="partner-timeslot" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                      Suitable Time Slot <span className="text-red-500" aria-hidden="true">*</span>
+                    <label htmlFor="partner-timeslot" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                      Suitable Time Slot <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                     </label>
                     <div className="relative flex items-center">
-                      <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                      <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
                         <Calendar className="w-4 h-4" />
                       </div>
                       <Input
@@ -348,11 +348,11 @@ export default function PartnerForm() {
                         aria-required="true"
                         aria-invalid={!!errors.timeslot}
                         aria-describedby={errors.timeslot ? "partner-timeslot-error" : undefined}
-                        className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] cursor-pointer focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+                        className="pl-10 h-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 cursor-pointer focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                       />
                     </div>
                     {errors.timeslot && (
-                      <span id="partner-timeslot-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span id="partner-timeslot-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                         <span aria-hidden="true">⚠️</span> {errors.timeslot}
                       </span>
                     )}
@@ -361,11 +361,11 @@ export default function PartnerForm() {
 
                 {/* Row 3: City */}
                 <div className="flex flex-col gap-1">
-                  <label htmlFor="partner-city" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-                    City / Town <span className="text-red-500" aria-hidden="true">*</span>
+                  <label htmlFor="partner-city" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                    City / Town <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                   </label>
                   <div className="relative flex items-center">
-                    <div className="absolute left-3.5 text-slate-400 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
+                    <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <Input
@@ -380,54 +380,54 @@ export default function PartnerForm() {
                       aria-required="true"
                       aria-invalid={!!errors.city}
                       aria-describedby={errors.city ? "partner-city-error" : undefined}
-                      className="pl-10 h-12 rounded-xl bg-slate-50/70 border border-slate-300 text-[15px] focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      className="pl-10 h-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 placeholder:text-slate-600 focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                     />
                   </div>
                   {errors.city && (
-                    <span id="partner-city-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                    <span id="partner-city-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                       <span aria-hidden="true">⚠️</span> {errors.city}
                     </span>
                   )}
                 </div>
 
                 {/* Interested Option Group */}
-                <fieldset className="space-y-2 pt-1 border-t border-[#767676]">
-                  <legend className="block text-xs font-bold text-slate-700 uppercase tracking-wider pt-2">
+                <fieldset className="space-y-2 pt-1 border-t border-slate-200">
+                  <legend className="block text-xs font-bold text-slate-900 uppercase tracking-wider pt-2">
                     Interested to become:
                   </legend>
                   <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm">
-                    <label className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-colors ${formData.interested === "Sub-Broker" ? "border-primary bg-red-50/50 text-slate-900 font-bold" : "border-slate-200 text-slate-700"}`}>
+                    <label className={`flex items-center gap-2 cursor-pointer p-2.5 rounded-lg border transition-colors ${formData.interested === "Sub-Broker" ? "border-[#004b87] bg-blue-50 text-slate-900 font-bold" : "border-slate-300 text-slate-800"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Sub-Broker"
                         checked={formData.interested === "Sub-Broker"}
                         onChange={handleChange}
-                        className="accent-primary w-4 h-4 cursor-pointer"
+                        className="accent-[#004b87] w-4 h-4 cursor-pointer"
                       />
                       <span>Sub Broker / AP</span>
                     </label>
 
-                    <label className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-colors ${formData.interested === "Business associate" ? "border-primary bg-red-50/50 text-slate-900 font-bold" : "border-slate-200 text-slate-700"}`}>
+                    <label className={`flex items-center gap-2 cursor-pointer p-2.5 rounded-lg border transition-colors ${formData.interested === "Business associate" ? "border-[#004b87] bg-blue-50 text-slate-900 font-bold" : "border-slate-300 text-slate-800"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Business associate"
                         checked={formData.interested === "Business associate"}
                         onChange={handleChange}
-                        className="accent-primary w-4 h-4 cursor-pointer"
+                        className="accent-[#004b87] w-4 h-4 cursor-pointer"
                       />
                       <span>Business Associate</span>
                     </label>
 
-                    <label className={`flex items-center gap-2 cursor-pointer p-2 rounded-lg border transition-colors ${formData.interested === "Authorized person" ? "border-primary bg-red-50/50 text-slate-900 font-bold" : "border-slate-200 text-slate-700"}`}>
+                    <label className={`flex items-center gap-2 cursor-pointer p-2.5 rounded-lg border transition-colors ${formData.interested === "Authorized person" ? "border-[#004b87] bg-blue-50 text-slate-900 font-bold" : "border-slate-300 text-slate-800"}`}>
                       <input
                         type="radio"
                         name="interested"
                         value="Authorized person"
                         checked={formData.interested === "Authorized person"}
                         onChange={handleChange}
-                        className="accent-primary w-4 h-4 cursor-pointer"
+                        className="accent-[#004b87] w-4 h-4 cursor-pointer"
                       />
                       <span>Authorized Person</span>
                     </label>

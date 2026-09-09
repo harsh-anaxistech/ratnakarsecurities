@@ -676,13 +676,17 @@ export default function InvestorGrievance() {
 
               {/* Search Bar */}
               <div className="relative w-full md:w-72 shrink-0">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <label htmlFor="grievance-disclosures-search" className="sr-only">
+                  Search regulatory statements and disclosures
+                </label>
+                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" />
                 <input
+                  id="grievance-disclosures-search"
                   type="text"
                   placeholder="Search disclosures..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#1a6eb5] transition-colors shadow-2xs font-medium"
+                  className="w-full pl-10 pr-4 py-2 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#1a6eb5] transition-colors shadow-2xs font-medium text-slate-900 placeholder:text-slate-600"
                 />
               </div>
             </div>

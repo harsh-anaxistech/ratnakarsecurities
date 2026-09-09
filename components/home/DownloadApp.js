@@ -22,7 +22,7 @@ export default function DownloadApp() {
             {/* Google Image QR Code */}
             <div className="bg-white p-3 rounded-2xl inline-block shadow-lg">
               <img
-                src="/images/about/image (28).png"
+                src={encodeURI("/images/about/image (28).png")}
                 alt="QR Code to download Ratnakar TradeExpress mobile trading app"
                 className="w-32 h-32"
               />
@@ -31,7 +31,7 @@ export default function DownloadApp() {
           {/* મિડલ સાઇડ: નવો સ્થાનિક ફોટો */}
           <div className="flex-shrink-0">
             <img
-              src="/images/about/Stock trading on sleek iPhones.png"
+              src={encodeURI("/images/about/Stock trading on sleek iPhones.png")}
               alt="Ratnakar TradeExpress mobile trading app displayed on iPhones"
               className="w-64 md:w-70 object-contain drop-shadow-2xl"
             />

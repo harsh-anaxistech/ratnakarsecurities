@@ -27,8 +27,9 @@ const calculators = [
  */
 export default function CalculatorSection() {
   return (
-    <section className="py-12 bg-slate-50/50">
+    <section className="py-12 bg-slate-50/50" aria-labelledby="calculators-heading">
       <Container>
+        <h2 id="calculators-heading" className="sr-only">Financial Calculators</h2>
         <div className="mx-auto flex max-w-4xl flex-col items-center justify-center gap-6 md:flex-row md:gap-8">
           {calculators.map((item) => (
             <Link

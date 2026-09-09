@@ -63,7 +63,7 @@ export default function InvestmentServices() {
                 {/* Image Icon resized to 64px */}
                 <div className="flex-shrink-0 w-[64px] h-[64px] transition-transform duration-500 group-hover:scale-110">
                   <Image
-                    src={s.icon}
+                    src={encodeURI(s.icon)}
                     alt={s.title}
                     width={64}
                     height={64}

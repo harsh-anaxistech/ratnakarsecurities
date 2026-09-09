@@ -322,16 +322,18 @@ export default function SipCalculatorPage() {
               {/* SIP Amount */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-semibold text-gray-700">
+                  <label htmlFor="sip-amount-input" className="text-sm font-semibold text-gray-800">
                     {frequency === "1" ? "Weekly" : frequency === "3" ? "Quarterly" : frequency === "4" ? "Half-Yearly" : "Monthly"} Investment (₹)
-                  </span>
+                  </label>
                   <div className="flex items-center gap-1">
-                    <span className="text-gray-400 font-medium">₹</span>
+                    <span className="text-gray-500 font-medium" aria-hidden="true">₹</span>
                     <input
+                      id="sip-amount-input"
                       type="number"
                       value={sipAmount}
+                      aria-label="SIP Investment Amount in Rupees"
                       onChange={(e) => setSipAmount(Math.max(0, parseInt(e.target.value) || 0))}
-                      className="w-28 text-right font-bold text-gray-900 border border-gray-300 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                      className="w-28 text-right font-bold text-gray-900 border border-gray-400 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                     />
                   </div>
                 </div>
@@ -342,10 +344,11 @@ export default function SipCalculatorPage() {
                     max="1000000"
                     step="500"
                     value={sipAmount}
+                    aria-label="SIP Investment Amount Slider"
                     onChange={(e) => setSipAmount(parseInt(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#ea2830]"
                   />
-                  <div className="flex justify-between text-[11px] text-gray-400 mt-1">
+                  <div className="flex justify-between text-[11px] text-gray-500 mt-1">
                     <span>₹ 500</span>
                     <span className="font-semibold text-primary">{formatKLC(sipAmount)}</span>
                     <span>₹ 10 Lac</span>
@@ -356,14 +359,16 @@ export default function SipCalculatorPage() {
               {/* Time Horizon */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-semibold text-gray-700">Time Horizon (Years)</span>
+                  <label htmlFor="time-horizon-input" className="text-sm font-semibold text-gray-800">Time Horizon (Years)</label>
                   <input
+                    id="time-horizon-input"
                     type="number"
                     value={timeHorizon}
                     min="1"
                     max="35"
+                    aria-label="Investment Time Horizon in Years"
                     onChange={(e) => setTimeHorizon(Math.min(35, Math.max(1, parseInt(e.target.value) || 1)))}
-                    className="w-16 text-right font-bold text-gray-900 border border-gray-300 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                    className="w-16 text-right font-bold text-gray-900 border border-gray-400 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                   />
                 </div>
                 <div className="relative pt-2">
@@ -373,10 +378,11 @@ export default function SipCalculatorPage() {
                     max="35"
                     step="1"
                     value={timeHorizon}
+                    aria-label="Time Horizon Slider in Years"
                     onChange={(e) => setTimeHorizon(parseInt(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#ea2830]"
                   />
-                  <div className="flex justify-between text-[11px] text-gray-400 mt-1">
+                  <div className="flex justify-between text-[11px] text-gray-500 mt-1">
                     <span>1 Yr</span>
                     <span className="font-semibold text-primary">{timeHorizon} Yrs</span>
                     <span>35 Yrs</span>
@@ -387,15 +393,17 @@ export default function SipCalculatorPage() {
               {/* Expected Return */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-semibold text-gray-700">Expected Return (p.a. %)</span>
+                  <label htmlFor="expected-return-input" className="text-sm font-semibold text-gray-800">Expected Return (p.a. %)</label>
                   <input
+                    id="expected-return-input"
                     type="number"
                     step="0.1"
                     value={expectedReturn}
                     min="1"
                     max="25"
+                    aria-label="Expected Annual Return Percentage"
                     onChange={(e) => setExpectedReturn(Math.min(25, Math.max(1, parseFloat(e.target.value) || 1)))}
-                    className="w-16 text-right font-bold text-gray-900 border border-gray-300 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                    className="w-16 text-right font-bold text-gray-900 border border-gray-400 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                   />
                 </div>
                 <div className="relative pt-2">
@@ -405,10 +413,11 @@ export default function SipCalculatorPage() {
                     max="25"
                     step="0.5"
                     value={expectedReturn}
+                    aria-label="Expected Return Slider in Percentage"
                     onChange={(e) => setExpectedReturn(parseFloat(e.target.value))}
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#ea2830]"
                   />
-                  <div className="flex justify-between text-[11px] text-gray-400 mt-1">
+                  <div className="flex justify-between text-[11px] text-gray-500 mt-1">
                     <span>1 %</span>
                     <span className="font-semibold text-primary">{expectedReturn}%</span>
                     <span>25 %</span>

@@ -183,41 +183,41 @@ export default function ContactUsPage() {
         <div
           className="col-span-1 lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between"
           style={{
-            background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
+            background: "linear-gradient(145deg, #012e54 0%, #011628 100%)",
             color: "#fff",
           }}
         >
           <div>
-            <span className="text-cyan-300 font-bold text-xs uppercase tracking-widest block mb-2">
+            <span className="inline-block px-3 py-1 rounded-full bg-white/20 text-white font-bold text-xs uppercase tracking-widest mb-3 border border-white/30 backdrop-blur-xs">
               Customer Support
             </span>
-            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-4 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-4 leading-tight">
               Reach Out to Ratnakar
-            </h1>
-            <p className="text-slate-100 text-sm sm:text-base leading-relaxed mb-8">
+            </h2>
+            <p className="text-white text-sm sm:text-base leading-relaxed mb-8">
               Have questions about trading accounts, mutual funds, or depository services? Fill out the form, and our specialized relationship team will get back to you promptly.
             </p>
 
-            <div className="space-y-6 pt-4 border-t border-white/20">
+            <div className="space-y-6 pt-4 border-t border-white/25">
               <div className="flex items-start gap-4">
-                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/15 text-white shrink-0" aria-hidden="true">
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/15 text-white border border-white/20 shrink-0" aria-hidden="true">
                   <Phone className="w-5 h-5" />
                 </span>
                 <div>
-                  <h3 className="text-xs font-bold text-cyan-200 uppercase tracking-wider">Phone Support</h3>
-                  <a href="tel:+917949007900" className="text-white hover:text-cyan-300 font-bold text-base transition-colors">
+                  <h3 className="text-xs font-bold text-white/90 uppercase tracking-wider">Phone Support</h3>
+                  <a href="tel:+917949007900" className="text-white hover:text-cyan-300 font-bold text-base transition-colors underline-offset-4 hover:underline">
                     +91 (079) 4900 7900
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/15 text-white shrink-0" aria-hidden="true">
+                <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/15 text-white border border-white/20 shrink-0" aria-hidden="true">
                   <Mail className="w-5 h-5" />
                 </span>
                 <div>
-                  <h3 className="text-xs font-bold text-cyan-200 uppercase tracking-wider">Email Us</h3>
-                  <a href="mailto:info@ratnakarsecurities.com" className="text-white hover:text-cyan-300 font-bold text-base transition-colors break-all">
+                  <h3 className="text-xs font-bold text-white/90 uppercase tracking-wider">Email Us</h3>
+                  <a href="mailto:info@ratnakarsecurities.com" className="text-white hover:text-cyan-300 font-bold text-base transition-colors break-all underline-offset-4 hover:underline">
                     info@ratnakarsecurities.com
                   </a>
                 </div>
@@ -229,11 +229,11 @@ export default function ContactUsPage() {
         {/* Right Side: Form Inputs */}
         <div className="col-span-1 lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between bg-white">
           <div className="mb-6">
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
+            <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
               Send Us a Message
-            </h2>
-            <p className="text-slate-700 text-xs sm:text-sm mt-1">
-              Fields marked with <span className="text-red-600 font-bold" aria-hidden="true">*</span> are required.
+            </h3>
+            <p className="text-slate-800 text-xs sm:text-sm mt-1">
+              Fields marked with <span className="text-[#b91c1c] font-bold" aria-hidden="true">*</span> are required.
             </p>
           </div>
 
@@ -244,8 +244,8 @@ export default function ContactUsPage() {
               aria-live="polite"
               className={`p-4 rounded-xl text-sm font-semibold mb-6 ${
                 statusType === "success"
-                  ? "bg-green-50 text-green-800 border-2 border-green-300"
-                  : "bg-red-50 text-red-800 border-2 border-red-300"
+                  ? "bg-green-50 text-green-900 border-2 border-green-400"
+                  : "bg-red-50 text-red-900 border-2 border-red-400"
               }`}
             >
               {statusMessage}
@@ -257,8 +257,8 @@ export default function ContactUsPage() {
 
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-department" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                  Select Department <span className="text-red-600" aria-hidden="true">*</span>
+                <label htmlFor="contact-department" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Select Department <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                 </label>
                 <CustomSelect
                   id="contact-department"
@@ -272,7 +272,7 @@ export default function ContactUsPage() {
                   ariaDescribedBy={errors.department ? "contact-department-error" : undefined}
                 />
                 {errors.department && (
-                  <span id="contact-department-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span id="contact-department-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                     <span aria-hidden="true">⚠️</span> {errors.department}
                   </span>
                 )}
@@ -280,11 +280,11 @@ export default function ContactUsPage() {
 
               {/* Name Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-name" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                  Full Name <span className="text-red-600" aria-hidden="true">*</span>
+                <label htmlFor="contact-name" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Full Name <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
+                  <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
                     <User className="w-5 h-5" />
                   </div>
                   <Input
@@ -298,11 +298,11 @@ export default function ContactUsPage() {
                     aria-required="true"
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? "contact-name-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+                    className="h-12 pl-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 placeholder:text-slate-600 focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                   />
                 </div>
                 {errors.name && (
-                  <span id="contact-name-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span id="contact-name-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                     <span aria-hidden="true">⚠️</span> {errors.name}
                   </span>
                 )}
@@ -313,11 +313,11 @@ export default function ContactUsPage() {
 
               {/* Email Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-email" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                  Email Address <span className="text-red-600" aria-hidden="true">*</span>
+                <label htmlFor="contact-email" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Email Address <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
+                  <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
                     <Mail className="w-5 h-5" />
                   </div>
                   <Input
@@ -331,11 +331,11 @@ export default function ContactUsPage() {
                     aria-required="true"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "contact-email-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+                    className="h-12 pl-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 placeholder:text-slate-600 focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                   />
                 </div>
                 {errors.email && (
-                  <span id="contact-email-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span id="contact-email-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                     <span aria-hidden="true">⚠️</span> {errors.email}
                   </span>
                 )}
@@ -343,11 +343,11 @@ export default function ContactUsPage() {
 
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
-                <label htmlFor="contact-phno" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                  Mobile Number <span className="text-red-600" aria-hidden="true">*</span>
+                <label htmlFor="contact-phno" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                  Mobile Number <span className="text-[#b91c1c]" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
-                  <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
+                  <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
                     <Phone className="w-5 h-5" />
                   </div>
                   <Input
@@ -361,11 +361,11 @@ export default function ContactUsPage() {
                     aria-required="true"
                     aria-invalid={!!errors.phno}
                     aria-describedby={errors.phno ? "contact-phno-error" : undefined}
-                    className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+                    className="h-12 pl-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 placeholder:text-slate-600 focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                   />
                 </div>
                 {errors.phno && (
-                  <span id="contact-phno-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span id="contact-phno-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                     <span aria-hidden="true">⚠️</span> {errors.phno}
                   </span>
                 )}
@@ -374,11 +374,11 @@ export default function ContactUsPage() {
 
             {/* Subject Input */}
             <div className="flex flex-col gap-1">
-              <label htmlFor="contact-subject" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                Subject <span className="text-red-600" aria-hidden="true">*</span>
+              <label htmlFor="contact-subject" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                Subject <span className="text-[#b91c1c]" aria-hidden="true">*</span>
               </label>
               <div className="relative flex items-center">
-                <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
+                <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
                   <Info className="w-5 h-5" />
                 </div>
                 <Input
@@ -391,11 +391,11 @@ export default function ContactUsPage() {
                   aria-required="true"
                   aria-invalid={!!errors.subject}
                   aria-describedby={errors.subject ? "contact-subject-error" : undefined}
-                  className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+                  className="h-12 pl-12 rounded-xl bg-white border border-[#767676] text-[15px] text-slate-900 placeholder:text-slate-600 focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
                 />
               </div>
               {errors.subject && (
-                <span id="contact-subject-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                <span id="contact-subject-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                   <span aria-hidden="true">⚠️</span> {errors.subject}
                 </span>
               )}
@@ -403,11 +403,11 @@ export default function ContactUsPage() {
 
             {/* Details Textarea */}
             <div className="flex flex-col gap-1">
-              <label htmlFor="contact-details" className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                Details & Specific Questions <span className="text-red-600" aria-hidden="true">*</span>
+              <label htmlFor="contact-details" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                Details & Specific Questions <span className="text-[#b91c1c]" aria-hidden="true">*</span>
               </label>
               <div className="relative flex items-start">
-                <div className="absolute left-4 top-3.5 text-slate-600 pointer-events-none z-10" aria-hidden="true">
+                <div className="absolute left-4 top-3.5 text-slate-700 pointer-events-none z-10" aria-hidden="true">
                   <FileText className="w-5 h-5" />
                 </div>
                 <textarea
@@ -420,11 +420,11 @@ export default function ContactUsPage() {
                   aria-required="true"
                   aria-invalid={!!errors.details}
                   aria-describedby={errors.details ? "contact-details-error" : undefined}
-                  className="w-full pl-12 pr-4 py-3 text-[15px] text-slate-800 bg-slate-50/70 border border-[#767676] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40 rounded-xl outline-none resize-none font-medium placeholder:text-slate-600 transition-colors"
+                  className="w-full pl-12 pr-4 py-3 text-[15px] text-slate-900 bg-white border border-[#767676] focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40 rounded-xl outline-none resize-none font-medium placeholder:text-slate-600 transition-colors"
                 />
               </div>
               {errors.details && (
-                <span id="contact-details-error" role="alert" className="text-red-600 text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                <span id="contact-details-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                   <span aria-hidden="true">⚠️</span> {errors.details}
                 </span>
               )}
@@ -446,7 +446,7 @@ export default function ContactUsPage() {
                 as="button"
                 type="submit"
                 loading={loading}
-                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
+                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-[#007cb0] hover:bg-[#006692] text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
               >
                 Submit Inquiry
               </Button>

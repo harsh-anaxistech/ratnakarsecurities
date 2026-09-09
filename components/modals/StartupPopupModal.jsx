@@ -222,7 +222,7 @@ export default function StartupPopupModal() {
             {/* Right Side: Sleek iPhones Image */}
             <div className="shrink-0 relative right-1 top-1.5 pointer-events-none">
               <Image
-                src="/images/about/Stock trading on sleek iPhones.png"
+                src={encodeURI("/images/about/Stock trading on sleek iPhones.png")}
                 alt="Stock trading on sleek iPhones"
                 width={105}
                 height={105}

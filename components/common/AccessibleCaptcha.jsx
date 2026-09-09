@@ -77,11 +77,11 @@ export default function AccessibleCaptcha({
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         {/* Captcha Input */}
         <div className="flex-1 flex flex-col gap-1">
-          <label htmlFor={id} className="text-xs font-bold text-slate-700 uppercase tracking-wider">
-            Verification Code (CAPTCHA) <span className="text-red-500" aria-hidden="true">*</span>
+          <label htmlFor={id} className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+            Verification Code (CAPTCHA) <span className="text-[#b91c1c]" aria-hidden="true">*</span>
           </label>
           <div className="relative flex items-center">
-            <div className="absolute left-4 text-slate-600 pointer-events-none z-10" aria-hidden="true">
+            <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
               <HelpCircle className="w-5 h-5" />
             </div>
             <Input
@@ -95,7 +95,7 @@ export default function AccessibleCaptcha({
               aria-required="true"
               aria-invalid={!!error}
               aria-describedby={error ? `${id}-error` : `${id}-hint`}
-              className="h-12 pl-12 rounded-xl bg-slate-50/70 border border-[#767676] text-[15px] uppercase font-mono tracking-widest placeholder:normal-case placeholder:tracking-normal placeholder:font-sans focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
+              className="h-12 pl-12 rounded-xl bg-white border border-[#767676] text-[15px] uppercase font-mono tracking-widest text-slate-900 placeholder:text-slate-600 placeholder:normal-case placeholder:tracking-normal placeholder:font-sans focus:border-[#004b87] focus:ring-2 focus:ring-[#004b87]/40"
             />
           </div>
           <p id={`${id}-hint`} className="sr-only">
