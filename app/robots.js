@@ -5,6 +5,8 @@
  * 
  * @returns {import('next').MetadataRoute.Robots}
  */
+import { SITE } from "@/constants/site";
+
 export default function robots() {
   return {
     rules: [

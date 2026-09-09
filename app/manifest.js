@@ -7,6 +7,8 @@
  * 
  * @returns {import('next').MetadataRoute.Manifest}
  */
+import { SITE } from "@/constants/site";
+
 export default function manifest() {
   return {
     name: SITE.name,

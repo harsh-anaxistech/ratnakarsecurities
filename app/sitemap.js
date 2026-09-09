@@ -6,6 +6,8 @@
  * 
  * @returns {import('next').MetadataRoute.Sitemap}
  */
+import { SITE } from "@/constants/site";
+
 export default function sitemap() {
   const baseUrl = SITE.url;
   const now = new Date();
