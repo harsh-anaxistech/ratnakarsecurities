@@ -408,7 +408,7 @@ export default function RiskCalculatorPage() {
                       <span>{allocation.equity}</span>
                     </div>
                     <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                      <div className="bg-[#ea2830] h-full rounded-full" style={{ width: allocation.equity }} />
+                      <div className="bg-[#c41f26] h-full rounded-full" style={{ width: allocation.equity }} />
                     </div>
                   </div>
                   <div>
@@ -417,7 +417,7 @@ export default function RiskCalculatorPage() {
                       <span>{allocation.debt}</span>
                     </div>
                     <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                      <div className="bg-[#00aeee] h-full rounded-full" style={{ width: allocation.debt }} />
+                      <div className="bg-[#006da0] h-full rounded-full" style={{ width: allocation.debt }} />
                     </div>
                   </div>
                   <div>

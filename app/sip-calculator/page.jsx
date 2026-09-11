@@ -430,7 +430,7 @@ export default function SipCalculatorPage() {
                 <button
                   type="button"
                   onClick={runCalculations}
-                  className="px-8 py-3 bg-[#00aeee] hover:bg-[#0090c8] text-white font-bold rounded-xl shadow hover:shadow-md transition-all duration-300 transform active:scale-[0.98] uppercase text-xs tracking-wider cursor-pointer"
+                  className="px-8 py-3 bg-[#006da0] hover:bg-[#004f7a] text-white font-bold rounded-xl shadow hover:shadow-md transition-all duration-300 transform active:scale-[0.98] uppercase text-xs tracking-wider cursor-pointer"
                 >
                   Calculate SIP
                 </button>

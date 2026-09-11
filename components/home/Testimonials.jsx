@@ -252,7 +252,7 @@ export default function Testimonials() {
                         {t.name}
                       </p>
                       <p className="text-xs font-semibold text-slate-600 mt-0.5 tracking-wide truncate">
-                        {t.role} {t.location && <><span className="text-slate-300 mx-1">•</span> {t.location}</>}
+                        {t.role} {t.location && <><span className="text-slate-500 mx-1" aria-hidden="true">•</span> {t.location}</>}
                       </p>
                     </div>
                   </div>

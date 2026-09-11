@@ -1145,7 +1145,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                               >
                                 relations@nsdl.com
                               </a>
-                              <span className="text-xs text-slate-400">/</span>
+                              <span className="text-xs text-slate-500 font-bold" aria-hidden="true">/</span>
                               <a
                                 href="mailto:complaints@cdslindia.com"
                                 className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[#1a6eb5] hover:underline bg-blue-50 px-2 py-1 rounded"
