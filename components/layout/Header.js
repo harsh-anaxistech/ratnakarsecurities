@@ -27,7 +27,6 @@ import ChooseAppModal from "@/components/modals/ChooseAppModal";
 import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 
 import QuickSearchModal from "@/components/common/QuickSearchModal";
-import AccessibilityToolbar from "@/components/common/AccessibilityToolbar";
 
 /**
  * Main Application Header & Navigation Bar
@@ -400,9 +399,6 @@ export default function Header() {
                   </a>
                 ))}
               </div>
-
-              {/* Top Right: Accessibility Controls */}
-              <AccessibilityToolbar onOpenSearch={() => setSearchModalOpen(true)} />
             </div>
           </div>
         </div>
