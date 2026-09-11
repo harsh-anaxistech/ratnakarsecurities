@@ -37,11 +37,9 @@ export default function NotFound() {
         </p>
 
         <div className="flex justify-center">
-          <Link href="/">
-            <Button variant="contained" color="primary" size="lg">
-              Back to Home
-            </Button>
-          </Link>
+          <Button as="link" href="/" variant="contained" color="primary" size="lg">
+            Back to Home
+          </Button>
         </div>
       </div>
     </div>

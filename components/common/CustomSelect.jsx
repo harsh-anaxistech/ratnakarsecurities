@@ -113,9 +113,11 @@ export default function CustomSelect({
       <button
         ref={triggerRef}
         type="button"
+        role="combobox"
         id={id}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
+        aria-controls={`${id}-listbox`}
         aria-invalid={!!error}
         aria-describedby={ariaDescribedBy}
         disabled={disabled}
@@ -152,15 +154,17 @@ export default function CustomSelect({
         <div
           className={`absolute left-0 right-0 top-[calc(100%+6px)] z-50 bg-white border border-slate-200 shadow-xl ${roundedClassName} overflow-hidden py-1.5 max-h-64 overflow-y-auto animate-in fade-in-50 zoom-in-95 duration-150`}
         >
-          {/* Header Placeholder Option matching screenshot style */}
-          <div
-            onClick={() => handleSelect("")}
-            className="px-4 py-2.5 text-slate-600 font-medium text-sm sm:text-[15px] bg-slate-100/70 border-b border-slate-100 cursor-pointer hover:bg-slate-100 transition-colors flex items-center justify-between"
-          >
-            <span>{placeholder}</span>
-          </div>
+          <ul id={`${id}-listbox`} role="listbox" tabIndex={-1} className="py-1">
+            {/* Header Placeholder Option */}
+            <li
+              role="option"
+              aria-selected={!value}
+              onClick={() => handleSelect("")}
+              className="px-4 py-2.5 text-slate-600 font-medium text-sm sm:text-[15px] bg-slate-100/70 border-b border-slate-100 cursor-pointer hover:bg-slate-100 transition-colors flex items-center justify-between"
+            >
+              <span>{placeholder}</span>
+            </li>
 
-          <ul role="listbox" tabIndex={-1} className="py-1">
             {options.map((option, index) => {
               const isSelected = value === option.value;
               const isFocused = focusedIndex === index;

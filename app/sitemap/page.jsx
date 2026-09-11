@@ -121,7 +121,7 @@ export default function SitemapPage() {
 
         {/* Page Title & Intro */}
         <header className="mb-12 max-w-3xl">
-          <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
+          <span className="text-[#c41f26] font-bold text-xs uppercase tracking-widest block mb-2">
             Navigation Index
           </span>
           <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#011628] mb-4">
@@ -166,7 +166,7 @@ export default function SitemapPage() {
                             className="group flex items-center justify-between text-sm font-medium text-slate-700 hover:text-primary transition-colors py-1 px-1 rounded"
                           >
                             <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
-                            <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-primary shrink-0" aria-label="(Opens in new tab)" />
+                            <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#c41f26] shrink-0" aria-label="(Opens in new tab)" />
                           </a>
                         ) : (
                           <Link
@@ -174,7 +174,7 @@ export default function SitemapPage() {
                             className="group flex items-center justify-between text-sm font-medium text-slate-700 hover:text-primary transition-colors py-1 px-1 rounded"
                           >
                             <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
-                            <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" aria-hidden="true" />
+                            <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#c41f26] group-hover:translate-x-1 transition-all shrink-0" aria-hidden="true" />
                           </Link>
                         )}
                       </li>

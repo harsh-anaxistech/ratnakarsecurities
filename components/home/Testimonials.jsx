@@ -46,7 +46,7 @@ function StarRating({ count }) {
   return (
     <div className="flex gap-1" aria-label={`Rating: ${validCount} out of 5 stars`}>
       {Array.from({ length: validCount }).map((_, i) => (
-        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" aria-hidden="true" />
+        <Star key={i} className="w-3.5 h-3.5 fill-amber-500 text-amber-600" aria-hidden="true" />
       ))}
     </div>
   );
@@ -89,7 +89,7 @@ function Avatar({ name, initials, profileImage }) {
   return (
     <div
       aria-hidden="true"
-      className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 bg-gradient-to-br from-[#00aeee]/20 to-[#00aeee]/10 text-[#00aeee] border border-[#00aeee]/20 shadow-sm"
+      className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 bg-gradient-to-br from-[#006da0]/20 to-[#006da0]/10 text-[#006da0] border border-[#006da0]/20 shadow-sm"
     >
       {displayInitials}
     </div>
@@ -159,7 +159,7 @@ export default function Testimonials() {
         {/* Header Section */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 relative z-10 max-w-full">
           <div className="max-w-2xl">
-            <span className="text-[14px] font-black tracking-widest uppercase mb-2 block text-primary">
+            <span className="text-[14px] font-black tracking-widest uppercase mb-2 block text-primary-dark">
               Words of Trust
             </span>
             <h2 className="text-3xl md:text-4xl font-serif tracking-tight leading-tight text-[#011628] mb-2">
@@ -228,11 +228,11 @@ export default function Testimonials() {
                 key={i}
                 className="w-full shrink-0 px-3 md:w-auto md:shrink md:px-0"
               >
-                <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-7 border border-slate-300 hover:border-[#00aeee]/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full relative group">
+                <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-7 border border-slate-300 hover:border-[#006da0]/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full relative group">
                   <div>
                     {/* Top Header inside Card */}
                     <div className="flex items-center justify-between mb-5">
-                      <div className="w-9 h-9 rounded-xl bg-[#00aeee]/10 border border-[#00aeee]/20 flex items-center justify-center text-secondary shrink-0 group-hover:bg-[#00aeee] group-hover:text-white transition-colors duration-300">
+                      <div className="w-9 h-9 rounded-xl bg-[#006da0]/10 border border-[#006da0]/20 flex items-center justify-center text-secondary shrink-0 group-hover:bg-[#006da0] group-hover:text-white transition-colors duration-300">
                         <Quote className="w-4 h-4" aria-hidden="true" />
                       </div>
                       <StarRating count={t.stars} />
@@ -248,7 +248,7 @@ export default function Testimonials() {
                   <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100 relative z-10">
                     <Avatar name={t.name} initials={t.initials} profileImage={t.profile_image} />
                     <div className="overflow-hidden">
-                      <p className="text-sm font-bold text-slate-900 group-hover:text-[#0088c2] transition-colors duration-300 truncate">
+                      <p className="text-sm font-bold text-slate-900 group-hover:text-[#006da0] transition-colors duration-300 truncate">
                         {t.name}
                       </p>
                       <p className="text-xs font-semibold text-slate-600 mt-0.5 tracking-wide truncate">

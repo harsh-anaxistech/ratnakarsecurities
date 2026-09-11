@@ -349,7 +349,7 @@ export default function RiskCalculatorPage() {
             <div className="p-6 md:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
               
               <div className="text-center pb-4 border-b border-gray-100">
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1">
+                <span className="text-xs font-bold text-slate-600 uppercase tracking-widest block mb-1">
                   Analysis Score
                 </span>
                 <h4 className="text-3xl font-extrabold text-[#012e54]">
@@ -359,30 +359,30 @@ export default function RiskCalculatorPage() {
 
               {/* Status Columns */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-[#00aeed1f]/20 border border-[#00aeee]/15 rounded-2xl p-4 text-center">
-                  <span className="text-xs font-bold text-[#00aeee] uppercase tracking-wide block mb-1">
+                <div className="bg-[#006da01f]/20 border border-[#006da0]/20 rounded-2xl p-4 text-center">
+                  <span className="text-xs font-bold text-[#006da0] uppercase tracking-wide block mb-1">
                     Risk Capacity
                   </span>
                   <h5 className={`text-xl font-extrabold ${
-                    result.riskCapacity === "High" ? "text-emerald-600" : result.riskCapacity === "Low" ? "text-[#ea2830]" : "text-[#012e54]"
+                    result.riskCapacity === "High" ? "text-emerald-700" : result.riskCapacity === "Low" ? "text-[#c41f26]" : "text-[#012e54]"
                   }`}>
                     {result.riskCapacity}
                   </h5>
-                  <p className="text-[10px] text-gray-500 mt-1">
+                  <p className="text-[10px] text-gray-600 mt-1">
                     Financial ability to take risk
                   </p>
                 </div>
 
                 <div className="bg-[#ea28301f]/20 border border-[#ea2830]/15 rounded-2xl p-4 text-center">
-                  <span className="text-xs font-bold text-[#ea2830] uppercase tracking-wide block mb-1">
+                  <span className="text-xs font-bold text-[#c41f26] uppercase tracking-wide block mb-1">
                     Risk Tolerance
                   </span>
                   <h5 className={`text-xl font-extrabold ${
-                    result.riskTolerance === "High" ? "text-emerald-600" : result.riskTolerance === "Low" ? "text-[#ea2830]" : "text-[#012e54]"
+                    result.riskTolerance === "High" ? "text-emerald-700" : result.riskTolerance === "Low" ? "text-[#c41f26]" : "text-[#012e54]"
                   }`}>
                     {result.riskTolerance}
                   </h5>
-                  <p className="text-[10px] text-gray-500 mt-1">
+                  <p className="text-[10px] text-gray-600 mt-1">
                     Psychological readiness for risk
                   </p>
                 </div>

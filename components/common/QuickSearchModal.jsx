@@ -128,7 +128,7 @@ export default function QuickSearchModal({ isOpen, onClose }) {
       >
         {/* Search Header Input */}
         <div className="flex items-center px-4 py-3.5 border-b border-slate-200 gap-3">
-          <Search className="w-5 h-5 text-slate-400 shrink-0" aria-hidden="true" />
+          <Search className="w-5 h-5 text-slate-600 shrink-0" aria-hidden="true" />
           <label htmlFor="quick-search-input" className="sr-only">Search pages, products, documents</label>
           <input
             id="quick-search-input"
@@ -140,13 +140,13 @@ export default function QuickSearchModal({ isOpen, onClose }) {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            className="flex-1 text-[16px] text-slate-900 placeholder:text-slate-400 bg-transparent outline-none"
+            className="flex-1 text-[16px] text-slate-900 placeholder:text-slate-500 bg-transparent outline-none"
           />
           <button
             type="button"
             onClick={onClose}
             aria-label="Close search dialog"
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
           >
             <X className="w-5 h-5" aria-hidden="true" />
           </button>
@@ -155,9 +155,9 @@ export default function QuickSearchModal({ isOpen, onClose }) {
         {/* Results List */}
         <div className="max-h-96 overflow-y-auto p-2" role="listbox" aria-label="Search results">
           {filteredItems.length === 0 ? (
-            <div className="p-8 text-center text-slate-500">
+            <div className="p-8 text-center text-slate-600">
               <p className="text-sm font-semibold">No results found for &ldquo;{query}&rdquo;</p>
-              <p className="text-xs text-slate-400 mt-1">Try searching for keywords like Equity, SIP, Grievance, or Charter.</p>
+              <p className="text-xs text-slate-600 mt-1">Try searching for keywords like Equity, SIP, Grievance, or Charter.</p>
             </div>
           ) : (
             filteredItems.map((item, idx) => {
@@ -191,7 +191,7 @@ export default function QuickSearchModal({ isOpen, onClose }) {
                       </p>
                       <span
                         className={`text-[11px] font-semibold uppercase tracking-wider ${
-                          isSelected ? "text-cyan-300" : "text-slate-400"
+                          isSelected ? "text-cyan-300" : "text-slate-600"
                         }`}
                       >
                         {item.category}
@@ -199,7 +199,7 @@ export default function QuickSearchModal({ isOpen, onClose }) {
                     </div>
                   </div>
                   <ArrowRight
-                    className={`w-4 h-4 ${isSelected ? "text-cyan-300 translate-x-1" : "text-slate-300"} transition-transform`}
+                    className={`w-4 h-4 ${isSelected ? "text-cyan-300 translate-x-1" : "text-slate-500"} transition-transform`}
                     aria-hidden="true"
                   />
                 </div>
@@ -209,13 +209,13 @@ export default function QuickSearchModal({ isOpen, onClose }) {
         </div>
 
         {/* Modal Footer Shortcuts */}
-        <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
+        <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
           <div className="flex items-center gap-3">
             <span><kbd className="px-1.5 py-0.5 bg-white border border-slate-300 rounded font-mono text-[10px]">↑</kbd> <kbd className="px-1.5 py-0.5 bg-white border border-slate-300 rounded font-mono text-[10px]">↓</kbd> Navigate</span>
             <span><kbd className="px-1.5 py-0.5 bg-white border border-slate-300 rounded font-mono text-[10px]">Enter</kbd> Open</span>
             <span><kbd className="px-1.5 py-0.5 bg-white border border-slate-300 rounded font-mono text-[10px]">Esc</kbd> Close</span>
           </div>
-          <span className="font-semibold text-[#0088c2]">Ratnakar Quick Finder</span>
+          <span className="font-semibold text-[#006da0]">Ratnakar Quick Finder</span>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 
@@ -11,7 +12,7 @@ import { Loader2 } from "lucide-react";
  * @param {boolean} fullWidth
  * @param {React.ReactNode} leftIcon
  * @param {React.ReactNode} rightIcon
- * @param {'button'|'a'} as - Render as button or anchor tag
+ * @param {'button'|'a'|'link'} as - Render as button, anchor, or Next.js Link tag
  */
 
 export default function Button({
@@ -44,7 +45,7 @@ export default function Button({
     },
     outlined: {
       primary:
-        "border border-primary text-primary bg-transparent hover:bg-primary hover:text-white focus-visible:ring-primary",
+        "border border-primary-dark text-primary-dark bg-transparent hover:bg-primary hover:text-white focus-visible:ring-primary",
       secondary:
         "border border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-white focus-visible:ring-secondary",
       muted:
@@ -86,7 +87,19 @@ export default function Button({
     </>
   );
 
-  if (as === "a") {
+  if (as === "link" || (as === "a" && href && href.startsWith("/") && !props.target)) {
+    return (
+      <Link
+        href={href || "/"}
+        className={classes}
+        {...props}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  if (as === "a" || (href && as !== "button")) {
     return (
       <a
         href={href}

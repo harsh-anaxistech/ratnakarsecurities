@@ -83,11 +83,11 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
           url: "https://twx.ratnakarsecurities.com:4433/twx/signin",
         },
       ],
-      cardBg: "rgba(0,174,238,0.03)",
-      borderHover: "#00aeee",
-      iconBg: "rgba(0,174,238,0.12)",
-      iconColor: "#00aeee",
-      btnBg: "#00aeee",
+      cardBg: "rgba(0,109,160,0.03)",
+      borderHover: "#006da0",
+      iconBg: "rgba(0,109,160,0.12)",
+      iconColor: "#006da0",
+      btnBg: "#006da0",
     },
     {
       title: "Tradenet Backoffice",
@@ -103,11 +103,11 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
           url: "https://tradenet2.ratnakarsecurities.com:8087/",
         },
       ],
-      cardBg: "rgba(61,220,132,0.03)",
-      borderHover: "#3DDC84",
-      iconBg: "rgba(61,220,132,0.12)",
-      iconColor: "#3DDC84",
-      btnBg: "#00b33c",
+      cardBg: "rgba(21,128,61,0.03)",
+      borderHover: "#15803d",
+      iconBg: "rgba(21,128,61,0.12)",
+      iconColor: "#15803d",
+      btnBg: "#15803d",
     },
   ];
 
@@ -203,7 +203,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
 
                     {/* Titles */}
                     <div>
-                      <p className="mb-0.5 text-[9px] font-bold uppercase tracking-widest text-gray-400">
+                      <p className="mb-0.5 text-[9px] font-bold uppercase tracking-widest text-gray-600">
                         {option.subtitle}
                       </p>
                       <p className="text-sm font-bold text-gray-900">{option.title}</p>

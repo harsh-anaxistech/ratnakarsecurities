@@ -238,12 +238,12 @@ export default function DownloadsPage() {
               </h2>
 
               {loadingSubsections ? (
-                <div className="py-8 text-center text-gray-400 bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hidden lg:block">
-                  <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2 text-[#EA2830]" />
-                  <span className="text-xs font-medium">Loading categories...</span>
+                <div className="py-8 text-center text-gray-600 bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hidden lg:block">
+                  <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2 text-[#c41f26]" />
+                  <span className="text-xs font-semibold">Loading categories...</span>
                 </div>
               ) : subsections.length === 0 ? (
-                <div className="text-xs text-gray-500 p-3 italic text-center bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hidden lg:block">
+                <div className="text-xs text-gray-600 p-3 italic text-center bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hidden lg:block">
                   No categories found
                 </div>
               ) : (
@@ -270,7 +270,7 @@ export default function DownloadsPage() {
                         >
                           <span>{subName}</span>
                           <ChevronRight
-                            className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? "text-[#EA2830] translate-x-1" : "text-slate-400"
+                            className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? "text-[#EA2830] translate-x-1" : "text-slate-500"
                               }`}
                             aria-hidden="true"
                           />
@@ -326,9 +326,9 @@ export default function DownloadsPage() {
                 </div>
               ) : items.length === 0 ? (
                 <div className="text-center py-20 bg-white border border-gray-100 rounded-2xl shadow-sm">
-                  <FileBadge className="mx-auto h-12 w-12 text-gray-300 mb-4" />
+                  <FileBadge className="mx-auto h-12 w-12 text-gray-400 mb-4" />
                   <h3 className="text-lg font-bold text-gray-900">No documents found</h3>
-                  <p className="text-gray-500 mt-2 font-medium">
+                  <p className="text-gray-600 mt-2 font-medium">
                     There are currently no documents available for this section.
                   </p>
                 </div>

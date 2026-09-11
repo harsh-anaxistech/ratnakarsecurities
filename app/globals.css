@@ -13,9 +13,9 @@
   --color-primary-dark: #c41f26;
   --color-primary-light: #ea28301f;
 
-  --color-secondary: #00aeee;
-  --color-secondary-dark: #0090c8;
-  --color-secondary-light: #00aeed1f;
+  --color-secondary: #006da0;
+  --color-secondary-dark: #004f7a;
+  --color-secondary-light: #006da01f;
 
   /* Dark Brand Colors */
   --color-light-blue: #012e54;
@@ -49,9 +49,9 @@
   --primary-dark: #c41f26;
   --primary-light: #ea28301f;
 
-  --secondary: #0088c2;
-  --secondary-dark: #006da0;
-  --secondary-light: #00aeed1f;
+  --secondary: #006da0;
+  --secondary-dark: #004f7a;
+  --secondary-light: #006da01f;
 
   /* Dark Brand Colors */
   --light-blue: #012e54;

@@ -87,7 +87,7 @@ export default function HeroBanner() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Invest Now - Open a Demat and Trading Account with Ratnakar"
-                className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
+                className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
               >
                 <span>Invest Now</span>
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />

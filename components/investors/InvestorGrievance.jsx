@@ -281,7 +281,7 @@ export default function InvestorGrievance() {
             <div className="flex items-center gap-2 text-sm text-slate-500">
               <Link
                 href="/"
-                className="inline-flex items-center font-semibold text-[#00aeee] hover:text-[#012e54] transition-colors"
+                className="inline-flex items-center font-semibold text-[#006da0] hover:text-[#012e54] transition-colors"
               >
                 <ArrowLeft className="w-4 h-4 mr-1.5" /> Home
               </Link>
@@ -303,7 +303,7 @@ export default function InvestorGrievance() {
           {/* Top Quick Escalation Cards (4 Channels) */}
           <div>
             <div className="text-center mb-8">
-              <span className="text-xs font-black tracking-widest uppercase text-[#ea2830] mb-2 block">
+              <span className="text-xs font-black tracking-widest uppercase text-[#c41f26] mb-2 block">
                 Direct Redressal Channels
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
@@ -342,9 +342,9 @@ export default function InvestorGrievance() {
 
               {/* Card 2: Designated Email */}
               <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-full h-1 bg-[#00aeee]" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-[#006da0]" />
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-[#00aeee]/10 text-[#0088c2] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-[#006da0]/10 text-[#006da0] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Mail className="w-6 h-6" />
                   </div>
                   <h3 className="font-bold text-slate-900 text-base mb-1.5">
@@ -359,10 +359,10 @@ export default function InvestorGrievance() {
                     <span className="font-mono text-slate-700 font-semibold truncate">relations@nsdl.com</span>
                     <button
                       onClick={() => copyToClipboard("relations@nsdl.com")}
-                      className="text-slate-400 hover:text-[#1a6eb5] p-1 cursor-pointer"
+                      className="text-slate-500 hover:text-[#1a6eb5] p-1 cursor-pointer"
                       title="Copy email"
                     >
-                      {copiedEmail === "relations@nsdl.com" ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                      {copiedEmail === "relations@nsdl.com" ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5" />}
                     </button>
                   </div>
                   <a
@@ -590,7 +590,7 @@ export default function InvestorGrievance() {
 
                 <div className="space-y-4 text-sm text-slate-600 font-medium">
                   <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                    <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Designated Officer</p>
+                    <p className="text-xs text-slate-600 font-bold uppercase tracking-wider">Designated Officer</p>
                     <p className="font-bold text-slate-900 text-[15px] mt-0.5">Ms. Khilona Behera</p>
                     <p className="text-xs text-slate-500 font-semibold">Deputy Vice President</p>
                   </div>
@@ -633,7 +633,7 @@ export default function InvestorGrievance() {
 
                 <div className="space-y-4 text-sm text-slate-600 font-medium">
                   <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                    <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">Investor Grievance Officer</p>
+                    <p className="text-xs text-slate-600 font-bold uppercase tracking-wider">Investor Grievance Officer</p>
                     <p className="font-bold text-slate-900 text-[15px] mt-0.5">Kushal Shah</p>
                     <p className="text-xs text-slate-500 font-semibold">Compliance Officer</p>
                   </div>
@@ -679,7 +679,7 @@ export default function InvestorGrievance() {
                 <label htmlFor="grievance-disclosures-search" className="sr-only">
                   Search regulatory statements and disclosures
                 </label>
-                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" />
+                <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" aria-hidden="true" />
                 <input
                   id="grievance-disclosures-search"
                   type="text"
@@ -724,7 +724,7 @@ export default function InvestorGrievance() {
                     {filteredReports.length > 0 ? (
                       filteredReports.map((report, idx) => (
                         <tr key={report.id} className="hover:bg-slate-50/80 transition-colors">
-                          <td className="p-4 text-center border-r border-slate-100 font-bold text-slate-400">
+                          <td className="p-4 text-center border-r border-slate-100 font-bold text-slate-600">
                             {idx + 1}
                           </td>
                           <td className="p-4 border-r border-slate-100">
@@ -753,7 +753,7 @@ export default function InvestorGrievance() {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={5} className="p-8 text-center text-slate-400 font-medium">
+                        <td colSpan={5} className="p-8 text-center text-slate-600 font-medium">
                           No reports match your current search criteria.
                         </td>
                       </tr>
@@ -767,7 +767,7 @@ export default function InvestorGrievance() {
           {/* Section 6: Related Important Investor Services */}
           <div>
             <div className="text-center mb-8">
-              <span className="text-xs font-black tracking-widest uppercase text-[#00aeee] mb-2 block">
+              <span className="text-xs font-black tracking-widest uppercase text-[#006da0] mb-2 block">
                 Direct Depository Services
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
@@ -781,13 +781,13 @@ export default function InvestorGrievance() {
                 href="https://nsdl.com/investor-services-email-and-income-updation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-[#00aeee]/40 transition-all flex flex-col justify-between group"
+                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-[#006da0]/40 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#00aeee] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#006da0] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#00aeee] transition-colors flex items-center justify-between">
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#006da0] transition-colors flex items-center justify-between">
                     <span>Email & Income Updation</span>
                     <ExternalLink className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100" />
                   </h3>
@@ -844,19 +844,46 @@ export default function InvestorGrievance() {
                 href="https://nsdl.com/investor-services-sms-alert"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-amber-400 transition-all flex flex-col justify-between group"
+                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-[#006da0]/40 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Bell className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#006da0] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <FileText className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-600 transition-colors flex items-center justify-between">
-                    <span>SMS Alert Facility</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100" />
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#006da0] transition-colors flex items-center justify-between">
+                    <span>Investor Charter (Stock Broker)</span>
+                    <ChevronRight className="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform" />
                   </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    Receive immediate mobile alerts for all debits and credits in demat account.
+                  <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                    Rights, responsibilities, and dispute resolution mechanism for trading activities.
                   </p>
+                </div>
+                <div className="text-[11px] font-bold text-[#006da0] flex items-center gap-1">
+                  <span>View Details</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
+
+              {/* Link 3: Escalation Matrix */}
+              <a
+                href="/escalation-matrix"
+                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-amber-200 transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <HelpCircle className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors flex items-center justify-between">
+                    <span>Internal Escalation Matrix</span>
+                    <ChevronRight className="w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform" />
+                  </h3>
+                  <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                    Contact points for customer care, head of DP/broking, and compliance officer.
+                  </p>
+                </div>
+                <div className="text-[11px] font-bold text-amber-700 flex items-center gap-1">
+                  <span>View Details</span>
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </div>
               </a>
             </div>

@@ -35,8 +35,8 @@ export default function CalculatorSection() {
             <Link
               key={item.title}
               href={item.href}
-              // Updated background gradient and shadows here
-              className="group w-full flex items-center gap-6 p-6 rounded-2xl bg-gradient-to-br from-[#00aeee] to-[#0088c2] shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500"
+              // Updated background gradient and shadows for WCAG 2.2 AA contrast compliance
+              className="group w-full flex items-center gap-6 p-6 rounded-2xl bg-gradient-to-br from-[#006da0] to-[#004f7a] shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500"
             >
               {/* Icon Container - સ્ક્વેર લુક */}
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-white to-blue-50 border border-slate-100 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md">

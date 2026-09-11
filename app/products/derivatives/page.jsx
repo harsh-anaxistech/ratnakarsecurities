@@ -1,4 +1,4 @@
-﻿"use client"; // Required for interactivity
+"use client"; // Required for interactivity
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -7,7 +7,6 @@ import { notFound } from "next/navigation";
 import { ChevronRight, CheckCircle2, ArrowRight, HelpCircle, AlertCircle, Plus, Minus } from "lucide-react";
 import HeroSection from "@/components/common/HeroSection";
 import Container from "@/components/common/Container";
-import Button from "@/components/common/Button";
 import { PRODUCTS_DATA } from "../data";
 
 export default function ProductDetailsPage() {
@@ -126,6 +125,10 @@ export default function ProductDetailsPage() {
                   {faqs.map((faq, idx) => (
                     <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
                       <button
+                        type="button"
+                        id={`faq-btn-${idx}`}
+                        aria-expanded={openIndex === idx}
+                        aria-controls={`faq-panel-${idx}`}
                         onClick={() => toggleFAQ(idx)}
                         className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
                       >
@@ -135,7 +138,12 @@ export default function ProductDetailsPage() {
                         </span>
                       </button>
                       {openIndex === idx && (
-                        <div className="px-5 pb-5 pt-0 text-slate-600 text-[16px] leading-relaxed">
+                        <div
+                          id={`faq-panel-${idx}`}
+                          role="region"
+                          aria-labelledby={`faq-btn-${idx}`}
+                          className="px-5 pb-5 pt-0 text-slate-600 text-[16px] leading-relaxed"
+                        >
                           {faq.a}
                         </div>
                       )}
@@ -152,14 +160,12 @@ export default function ProductDetailsPage() {
 
               {/* Button at the last */}
               <div className="pt-6 md:pt-8 border-t border-black/5">
-                <Link href="/contact" className="block w-full md:w-auto md:inline-block">
-                  <Button
-                    variant="contained"
-                    className="w-full md:w-auto bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
-                  >
-                    {product.buttonText}
-                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />
-                  </Button>
+                <Link
+                  href="/contact"
+                  className="w-full md:w-auto inline-flex bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  {product.buttonText}
+                  <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />
                 </Link>
               </div>
             </div>

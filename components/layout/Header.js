@@ -27,6 +27,7 @@ import ChooseAppModal from "@/components/modals/ChooseAppModal";
 import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 
 import QuickSearchModal from "@/components/common/QuickSearchModal";
+import AccessibilityToolbar from "@/components/common/AccessibilityToolbar";
 
 /**
  * Main Application Header & Navigation Bar
@@ -117,7 +118,6 @@ function DropdownLink({ link, children, className, onClick, ...props }) {
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
-        role="menuitem"
         className={className}
         onClick={onClick}
         {...props}
@@ -129,7 +129,6 @@ function DropdownLink({ link, children, className, onClick, ...props }) {
   return (
     <Link
       href={link.href}
-      role="menuitem"
       className={className}
       onClick={onClick}
       {...props}
@@ -401,6 +400,9 @@ export default function Header() {
                   </a>
                 ))}
               </div>
+
+              {/* Top Right: Accessibility Controls */}
+              <AccessibilityToolbar onOpenSearch={() => setSearchModalOpen(true)} />
             </div>
           </div>
         </div>
@@ -512,8 +514,7 @@ export default function Header() {
                       {item.columns && (
                         <div
                           id={menuId}
-                          role="menu"
-                          aria-label={`${item.label} Menu`}
+                          aria-label={`${item.label} Submenu`}
                           onKeyDown={(e) => handleMenuKeyDown(e, btnId)}
                           className={cn(
                             "absolute left-0 top-full mt-0 z-50 w-[950px] grid grid-cols-2 gap-6 bg-white shadow-2xl border border-border rounded-b-xl p-6 transition-all duration-200 ease-out",
@@ -521,7 +522,7 @@ export default function Header() {
                           )}
                         >
                           {item.columns.map((column, i) => (
-                            <div key={i} className="space-y-1.5" role="none">
+                            <div key={i} className="space-y-1.5">
                               {column.map((link) => (
                                 <DropdownLink
                                   key={link.label}
@@ -541,15 +542,14 @@ export default function Header() {
                       {item.dropdown && (
                         <div
                           id={menuId}
-                          role="menu"
-                          aria-label={`${item.label} Menu`}
+                          aria-label={`${item.label} Submenu`}
                           onKeyDown={(e) => handleMenuKeyDown(e, btnId)}
                           className={cn(
                             "absolute left-0 top-full mt-0 z-50 w-96 bg-white shadow-2xl border border-border rounded-b-xl p-3 transition-all duration-200 ease-out",
                             isMenuOpen ? "opacity-100 visible translate-y-0 pointer-events-auto" : "opacity-0 invisible pointer-events-none translate-y-1"
                           )}
                         >
-                          <div className="space-y-1" role="none">
+                          <div className="space-y-1">
                             {item.dropdown.map((link) => (
                               <DropdownLink
                                 key={link.label}
@@ -581,16 +581,22 @@ export default function Header() {
                   <Search className="w-4 h-4" aria-hidden="true" />
                 </button>
 
-                <a href="https://twx.ratnakarsecurities.com:4433/twx/signin" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap">
-                    RE-KYC
-                  </Button>
+                <a
+                  href="https://twx.ratnakarsecurities.com:4433/twx/signin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                >
+                  RE-KYC
                 </a>
 
-                <a href="https://smartkyc.co.in/d/ratnakar" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap">
-                    OPEN ACCOUNT
-                  </Button>
+                <a
+                  href="https://smartkyc.co.in/d/ratnakar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                >
+                  OPEN ACCOUNT
                 </a>
 
                 {/* Login dropdown with full keyboard access */}
@@ -634,7 +640,6 @@ export default function Header() {
                   </Button>
                   <div
                     id="desktop-login-menu"
-                    role="menu"
                     aria-label="Login Options"
                     onKeyDown={(e) => handleMenuKeyDown(e, "desktop-login-button")}
                     className={cn(
@@ -647,7 +652,7 @@ export default function Header() {
                         return (
                           <button
                             key={link.label}
-                            role="menuitem"
+                            type="button"
                             onClick={() => {
                               setBackofficeModalOpen(true);
                               setDesktopLoginOpen(false);
@@ -662,7 +667,7 @@ export default function Header() {
                         return (
                           <button
                             key={link.label}
-                            role="menuitem"
+                            type="button"
                             onClick={() => {
                               setChooseAppModalOpen(true);
                               setDesktopLoginOpen(false);
@@ -677,7 +682,6 @@ export default function Header() {
                         return (
                           <a
                             key={link.href}
-                            role="menuitem"
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -690,7 +694,6 @@ export default function Header() {
                       return (
                         <Link
                           key={link.href}
-                          role="menuitem"
                           href={link.href}
                           className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                         >
@@ -896,11 +899,23 @@ export default function Header() {
               </div>
 
               <div className="mt-4 flex flex-col gap-2">
-                <a href="https://twx.ratnakarsecurities.com:4433/twx/signin" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
-                  <Button className="w-full bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5">RE-KYC</Button>
+                <a
+                  href="https://twx.ratnakarsecurities.com:4433/twx/signin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full text-center inline-flex items-center justify-center bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                >
+                  RE-KYC
                 </a>
-                <a href="https://smartkyc.co.in/d/ratnakar" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
-                  <Button className="w-full bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5">OPEN AN ACCOUNT</Button>
+                <a
+                  href="https://smartkyc.co.in/d/ratnakar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="w-full text-center inline-flex items-center justify-center bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                >
+                  OPEN AN ACCOUNT
                 </a>
               </div>
             </div>

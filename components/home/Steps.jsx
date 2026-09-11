@@ -8,32 +8,32 @@
       Icon: UserPlus,
       title: "Open Your Account",
       desc: "Paperless KYC in minutes. Demat + trading account with NSDL, at zero opening cost.",
-      iconColor: "text-[#00aeee]",
-      badgeColor: "bg-[#ea2830]",
-      bgColor: "bg-[#00aeee]/10"
+      iconColor: "text-[#006da0]",
+      badgeColor: "bg-[#c41f26]",
+      bgColor: "bg-[#006da0]/10"
     },
     {
       Icon: Handshake,
       title: "Meet Your Advisor",
       desc: "A dedicated relationship manager understands your goals, income and risk appetite.",
-      iconColor: "text-[#ea2830]",
-      badgeColor: "bg-[#00aeee]",
+      iconColor: "text-[#c41f26]",
+      badgeColor: "bg-[#0088c2]",
       bgColor: "bg-[#ea2830]/10"
     },
     {
       Icon: PieChart,
       title: "Build Your Portfolio",
       desc: "Invest across equity, funds, commodities and bonds — matched to your plan, not the market noise.",
-      iconColor: "text-[#00aeee]",
-      badgeColor: "bg-[#ea2830]",
-      bgColor: "bg-[#00aeee]/10"
+      iconColor: "text-[#006da0]",
+      badgeColor: "bg-[#c41f26]",
+      bgColor: "bg-[#006da0]/10"
     },
     {
       Icon: LineChart,
       title: "Track & Grow",
       desc: "Monitor everything on our app, review quarterly with your RM, and stay the course. Rest assured.",
-      iconColor: "text-[#ea2830]",
-      badgeColor: "bg-[#00aeee]",
+      iconColor: "text-[#c41f26]",
+      badgeColor: "bg-[#0088c2]",
       bgColor: "bg-[#ea2830]/10"
     },
   ];
@@ -53,7 +53,7 @@ export default function InvestmentSteps() {
         <Container>
           {/* Header */}
           <div className="mb-16 text-center relative z-10">
-            <p style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
+            <p style={{ color: "#c41f26" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
               Your Investment Journey
             </p>
             <h2 id="steps-heading" className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 leading-tight">
@@ -80,12 +80,12 @@ export default function InvestmentSteps() {
                   </div>
 
                   {/* હેડિંગ */}
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#00aeee] transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#006da0] transition-colors duration-300">
                     {step.title}
                   </h3>
                   
                   {/* ડિસ્ક્રિપ્શન */}
-                  <p className="text-[15px] text-slate-500 leading-relaxed font-medium max-w-[260px]">
+                  <p className="text-[15px] text-slate-600 leading-relaxed font-medium max-w-[260px]">
                     {step.desc}
                   </p>
                 </div>

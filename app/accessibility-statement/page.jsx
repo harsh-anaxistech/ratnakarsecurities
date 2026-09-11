@@ -329,7 +329,7 @@ export default function AccessibilityStatementPage() {
               <div className="mt-8 pt-6 border-t border-white/10">
                 <Link
                   href="/contact"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white font-bold text-sm shadow-md transition-transform"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white font-bold text-sm shadow-md transition-transform"
                 >
                   <span>Submit Online Feedback</span>
                 </Link>
@@ -354,7 +354,7 @@ export default function AccessibilityStatementPage() {
                     className="flex items-center justify-between text-slate-800 hover:text-primary font-semibold py-1.5 px-2 rounded hover:bg-slate-50 transition-colors"
                   >
                     <span>SEBI SCORES Portal</span>
-                    <ExternalLink className="w-4 h-4 text-slate-400" aria-label="(Opens in new tab)" />
+                    <ExternalLink className="w-4 h-4 text-slate-500" aria-label="(Opens in new tab)" />
                   </a>
                 </li>
                 <li>
@@ -365,7 +365,7 @@ export default function AccessibilityStatementPage() {
                     className="flex items-center justify-between text-slate-800 hover:text-primary font-semibold py-1.5 px-2 rounded hover:bg-slate-50 transition-colors"
                   >
                     <span>SEBI SMART ODR Portal</span>
-                    <ExternalLink className="w-4 h-4 text-slate-400" aria-label="(Opens in new tab)" />
+                    <ExternalLink className="w-4 h-4 text-slate-500" aria-label="(Opens in new tab)" />
                   </a>
                 </li>
                 <li>
@@ -374,7 +374,7 @@ export default function AccessibilityStatementPage() {
                     className="flex items-center justify-between text-slate-800 hover:text-primary font-semibold py-1.5 px-2 rounded hover:bg-slate-50 transition-colors"
                   >
                     <span>RSL Grievance Escalation Matrix</span>
-                    <ChevronRight className="w-4 h-4 text-slate-400" aria-hidden="true" />
+                    <ChevronRight className="w-4 h-4 text-slate-500" aria-hidden="true" />
                   </Link>
                 </li>
               </ul>

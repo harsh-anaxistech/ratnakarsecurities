@@ -158,7 +158,7 @@ function calculateSIP(params) {
     months: duration.months,
     installments: totinstallment,
     graph: [
-      { title: 'Investment', value: investment, color: '#00aeee' },
+      { title: 'Investment', value: investment, color: '#006da0' },
       { title: 'Earnings', value: earnings, color: '#ea2830' }
     ]
   };
@@ -447,40 +447,40 @@ export default function SipCalculatorPage() {
                 {/* Visual Cards */}
                 <div className="grid grid-cols-3 gap-3 md:gap-4">
                   {/* Card 1: Investment */}
-                  <div className="bg-[#00aeed1f] border border-[#00aeee]/10 rounded-2xl p-4 text-center shadow-sm">
-                    <span className="text-[11px] md:text-xs font-bold text-[#00aeee] uppercase tracking-wide block mb-1">
+                  <div className="bg-[#006da01f] border border-[#006da0]/15 rounded-2xl p-4 text-center shadow-sm">
+                    <span className="text-[11px] md:text-xs font-bold text-[#006da0] uppercase tracking-wide block mb-1">
                       Invested Amount
                     </span>
                     <h4 className="text-sm md:text-lg font-bold text-[#012e54] break-all">
                       ₹{results.investment}
                     </h4>
-                    <span className="text-[10px] md:text-xs font-semibold text-gray-500 block mt-1">
+                    <span className="text-[10px] md:text-xs font-semibold text-slate-600 block mt-1">
                       ({formatKLC(results.investmentRaw)})
                     </span>
                   </div>
 
                   {/* Card 2: Wealth Gain */}
                   <div className="bg-[#ea28301f] border border-[#ea2830]/10 rounded-2xl p-4 text-center shadow-sm">
-                    <span className="text-[11px] md:text-xs font-bold text-[#ea2830] uppercase tracking-wide block mb-1">
+                    <span className="text-[11px] md:text-xs font-bold text-[#c41f26] uppercase tracking-wide block mb-1">
                       Wealth Gain
                     </span>
-                    <h4 className="text-sm md:text-lg font-bold text-[#ea2830] break-all">
+                    <h4 className="text-sm md:text-lg font-bold text-[#c41f26] break-all">
                       ₹{results.earnings}
                     </h4>
-                    <span className="text-[10px] md:text-xs font-semibold text-gray-500 block mt-1">
+                    <span className="text-[10px] md:text-xs font-semibold text-slate-600 block mt-1">
                       ({formatKLC(results.earningsRaw)})
                     </span>
                   </div>
 
                   {/* Card 3: Future Value */}
                   <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-center shadow-sm">
-                    <span className="text-[11px] md:text-xs font-bold text-emerald-600 uppercase tracking-wide block mb-1">
+                    <span className="text-[11px] md:text-xs font-bold text-emerald-700 uppercase tracking-wide block mb-1">
                       Expected Value
                     </span>
                     <h4 className="text-sm md:text-lg font-bold text-[#012e54] break-all">
                       ₹{results.futureValue}
                     </h4>
-                    <span className="text-[10px] md:text-xs font-semibold text-gray-500 block mt-1">
+                    <span className="text-[10px] md:text-xs font-semibold text-slate-600 block mt-1">
                       ({formatKLC(results.futureValueRaw)})
                     </span>
                   </div>
@@ -515,7 +515,7 @@ export default function SipCalculatorPage() {
                         cy="50"
                         r="35"
                         fill="transparent"
-                        stroke="#00aeee"
+                        stroke="#006da0"
                         strokeWidth="15"
                         strokeDasharray={donut.strokeDasharray}
                         strokeDashoffset={0}
@@ -523,7 +523,7 @@ export default function SipCalculatorPage() {
                     </svg>
                     {/* Inner Content */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                      <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">
                         Total Value
                       </span>
                       <span className="text-base font-bold text-[#012e54]">
@@ -536,7 +536,7 @@ export default function SipCalculatorPage() {
                   <div className="space-y-4 w-full max-w-[200px]">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-4 h-4 rounded-full bg-[#00aeee] block"></span>
+                        <span className="w-4 h-4 rounded-full bg-[#006da0] block"></span>
                         <span className="text-sm font-bold text-[#012e54]">Investment</span>
                       </div>
                       <span className="text-sm font-bold text-[#012e54]">{donut.invPercent}%</span>

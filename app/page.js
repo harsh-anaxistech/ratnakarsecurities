@@ -4,7 +4,6 @@ import StarBar from "@/components/home/StarBar";
 import Features from "@/components/home/Features";
 import Steps from "@/components/home/Steps";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
-import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 import { generatePageMetadata } from "@/constants/metadata";
 import DownloadApp from "@/components/home/DownloadApp";
 import CalculatorSection from "@/components/home/Calculator";
@@ -27,7 +26,6 @@ export const metadata = generatePageMetadata({
  * 6. DownloadApp - Mobile app QR code & App Store links.
  * 7. Testimonials - Dynamic client reviews carousel.
  * 8. CalculatorSection - Direct links to SIP and Risk calculators.
- * 9. FloatingMobileTrading - Quick access app trigger.
  */
 export default function HomePage() {
   return (
@@ -40,9 +38,6 @@ export default function HomePage() {
       <DownloadApp />
       <Testimonials />
       <CalculatorSection />
-      
-      {/* તમારા મોબાઈલ ટ્રેડિંગ એપ્સનું ફ્લોટિંગ મોડલ બટન */}
-      <FloatingMobileTrading /> 
     </div>
   );
 }

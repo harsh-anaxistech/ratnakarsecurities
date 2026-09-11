@@ -27,7 +27,7 @@ export default function LightSection() {
             <p className="text-sm text-muted-foreground mb-4" style={{ color: "#666" }}>
               Build a roadmap that fits your goals, risk appetite, and timeline.
             </p>
-            <a href="/plans" className="inline-flex items-center gap-1 text-primary font-medium hover:underline">
+            <a href="/plans" className="inline-flex items-center gap-1 text-[#c41f26] font-semibold hover:underline">
               Learn more <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -37,7 +37,7 @@ export default function LightSection() {
             <p className="text-sm text-muted-foreground mb-4" style={{ color: "#666" }}>
               Stay ahead with market analysis, research reports, and timely alerts.
             </p>
-            <a href="/insights" className="inline-flex items-center gap-1 text-primary font-medium hover:underline">
+            <a href="/insights" className="inline-flex items-center gap-1 text-[#c41f26] font-semibold hover:underline">
               Explore insights <ArrowRight className="w-4 h-4" />
             </a>
           </div>

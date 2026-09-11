@@ -35,7 +35,7 @@ export default function ProductsPage() {
 
           {/* Header */}
           <div className="mb-12 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#ea2830]">
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#c41f26]">
               Investment Opportunities
             </div>
             <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -54,10 +54,10 @@ export default function ProductsPage() {
                 {/* Content: Title/Desc Left, Image Icon Right */}
                 <div className="flex justify-between items-start gap-4 mb-4">
                   <div className="flex-1">
-                    <h3 className="text-[20px] font-bold text-[#ea2830] mb-3 group-hover:text-[#00aeee] transition-colors duration-300">
+                    <h3 className="text-[20px] font-bold text-[#c41f26] mb-3 group-hover:text-[#006da0] transition-colors duration-300">
                       {product.title}
                     </h3>
-                    <p className="text-[15px] text-gray-500 leading-relaxed font-medium">
+                    <p className="text-[15px] text-gray-600 leading-relaxed font-medium">
                       {product.shortDescription}
                     </p>
                   </div>
@@ -77,10 +77,10 @@ export default function ProductsPage() {
 
                 {/* Bottom Section with Arrow */}
                 <div className="mt-auto pt-4 border-t border-gray-200 flex items-center justify-between">
-                  <span className="text-[14px] font-bold text-gray-700 group-hover:text-[#ea2830] transition-colors">
+                  <span className="text-[14px] font-bold text-gray-700 group-hover:text-[#c41f26] transition-colors">
                     Learn More
                   </span>
-                  <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-[#ea2830] transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-[#c41f26] transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </Link>
             ))}

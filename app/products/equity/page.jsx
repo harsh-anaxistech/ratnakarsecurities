@@ -1,4 +1,4 @@
-﻿"use client"; // Add this at the very top of your file for client-side interactivity
+"use client"; // Add this at the very top of your file for client-side interactivity
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 import { ChevronRight, CheckCircle2, ArrowRight, HelpCircle, AlertCircle, Plus, Minus } from "lucide-react";
 import HeroSection from "@/components/common/HeroSection";
 import Container from "@/components/common/Container";
-import Button from "@/components/common/Button";
 import { PRODUCTS_DATA } from "../data";
 
 export default function ProductDetailsPage() {
@@ -105,7 +104,7 @@ export default function ProductDetailsPage() {
               </div>
 
               <h3 className="text-[18px] font-bold text-slate-900 mb-6">Why Invest in Equities with Ratnakar Securities?</h3>
-              <div className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl shadow-md text-white mb-8">
+              <div className="bg-gradient-to-br from-[#006da0] to-[#012e54] p-8 rounded-2xl shadow-md text-white mb-8">
                 <ul className="space-y-4">
                   {[
                     "Research-backed stock recommendations.",
@@ -134,6 +133,10 @@ export default function ProductDetailsPage() {
                 ].map((faq, i) => (
                   <div key={i} className="bg-slate-50 rounded-xl border border-black/5 overflow-hidden">
                     <button
+                      type="button"
+                      id={`equity-faq-btn-${i}`}
+                      aria-expanded={openIndex === i}
+                      aria-controls={`equity-faq-panel-${i}`}
                       onClick={() => toggleFAQ(i)}
                       className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 font-bold text-slate-900"
                     >
@@ -141,7 +144,12 @@ export default function ProductDetailsPage() {
                       {openIndex === i ? <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10"><Minus className="w-4 h-4 text-[#ea2830]" /></span> : <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10"><Plus className="w-4 h-4 text-[#ea2830]" /></span>}
                     </button>
                     {openIndex === i && (
-                      <div className="px-6 pb-6 pt-0 text-[16px] text-[#314158] leading-relaxed animate-in fade-in slide-in-from-top-2 duration-200">
+                      <div
+                        id={`equity-faq-panel-${i}`}
+                        role="region"
+                        aria-labelledby={`equity-faq-btn-${i}`}
+                        className="px-6 pb-6 pt-0 text-[16px] text-[#314158] leading-relaxed animate-in fade-in slide-in-from-top-2 duration-200"
+                      >
                         {faq.a}
                       </div>
                     )}
@@ -155,10 +163,11 @@ export default function ProductDetailsPage() {
               </div>
 
               <div className="pt-8 border-t border-black/5">
-                <Link href="/contact" className="block">
-                  <Button variant="contained" className="w-full sm:w-auto bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg flex items-center justify-center gap-2">
-                    {product.buttonText} <ArrowRight className="w-5 h-5" />
-                  </Button>
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto inline-flex bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  {product.buttonText} <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
             </div>

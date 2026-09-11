@@ -61,7 +61,6 @@ function DpModal({ isOpen, onClose, title, subtitle, maxWidth = "max-w-[860px]",
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-xs p-3 sm:p-4 overflow-y-auto animate-in fade-in duration-200"
       onClick={onClose}
-      aria-modal="true"
     >
       <div
         ref={modalRef}
@@ -99,7 +98,7 @@ function DpModal({ isOpen, onClose, title, subtitle, maxWidth = "max-w-[860px]",
 
         {/* Modal Footer */}
         <div className="px-6 py-4 border-t border-slate-100 bg-slate-50 flex items-center justify-between shrink-0">
-          <span className="text-xs text-slate-400 font-medium">Ratnakar Securities Limited • DP Compliance</span>
+          <span className="text-xs text-slate-600 font-semibold">Ratnakar Securities Limited • DP Compliance</span>
           <button
             onClick={onClose}
             className="px-5 py-2 bg-[#011628] hover:bg-[#1a6eb5] text-white font-semibold text-sm rounded-xl shadow-xs transition-all cursor-pointer"
@@ -285,7 +284,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
           <div className="flex items-center gap-2 text-sm text-gray-500">
             <Link
               href="/"
-              className="inline-flex items-center font-semibold text-[#00aeee] hover:text-[#012e54] transition-colors"
+              className="inline-flex items-center font-semibold text-[#006da0] hover:text-[#012e54] transition-colors"
             >
               <ArrowLeft className="w-4 h-4 mr-1.5" /> Home
             </Link>
@@ -345,7 +344,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
         {/* Loading Spinner / Skeleton */}
         {loading && (
           <div className="bg-white rounded-3xl p-16 text-center border border-gray-200 shadow-sm space-y-4">
-            <RefreshCw className="w-10 h-10 text-[#00aeee] animate-spin mx-auto" />
+            <RefreshCw className="w-10 h-10 text-[#006da0] animate-spin mx-auto" />
             <div>
               <p className="text-base font-bold text-gray-900">Loading DP Complaints Trend Data...</p>
               <p className="text-xs text-gray-500 mt-1">Retrieving official monthly and annual disposal statistics</p>
@@ -383,7 +382,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
               <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee]"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#006da0]"></span>
                     <h2 className="text-lg sm:text-xl font-bold text-[#011628]">
                       Data for the Month Ending {latestMonthName}
                     </h2>
@@ -439,7 +438,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                     aria-label="Refresh complaints data"
                     className="p-2.5 rounded-2xl border border-gray-300 bg-white hover:bg-gray-50 text-gray-600 transition shadow-2xs disabled:opacity-50 cursor-pointer"
                   >
-                    <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-[#00aeee]" : ""}`} />
+                    <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-[#006da0]" : ""}`} />
                   </button>
 
                   {/* Download Official SEBI / DP Consolidated PDF */}
@@ -519,8 +518,8 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <td className="px-5 py-3.5 font-semibold text-gray-900 border-r border-gray-100">{row.source}</td>
                         <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{row.carried}</td>
                         <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{row.received}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100">{row.resolved}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-amber-600 border-r border-gray-100">{row.pendingLt3}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-emerald-700 border-r border-gray-100">{row.resolved}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-amber-700 border-r border-gray-100">{row.pendingLt3}</td>
                         <td className="px-4 py-3.5 text-center font-bold text-gray-500 border-r border-gray-100">{row.pendingGt3}</td>
                         <td className="px-4 py-3.5 text-center text-gray-600">{row.avgTime}</td>
                       </tr>
@@ -605,8 +604,8 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                             <td className="px-5 py-3.5 font-semibold text-gray-900 border-r border-gray-100">{monthName}</td>
                             <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{carried}</td>
                             <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{received}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100">{resolved}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-amber-600 border-r border-gray-100">{pending}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-emerald-700 border-r border-gray-100">{resolved}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-amber-700 border-r border-gray-100">{pending}</td>
                             <td className="px-4 py-3.5 text-center text-gray-600 border-r border-gray-100">{avgTime !== "" ? avgTime : "-"}</td>
                             <td className="px-4 py-3.5 text-center">
                               {fileUrl ? (
@@ -620,7 +619,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                                   <FileText className="w-3.5 h-3.5" /> PDF
                                 </a>
                               ) : (
-                                <span className="text-xs text-gray-400 font-medium">-</span>
+                                <span className="text-xs text-gray-600 font-medium">-</span>
                               )}
                             </td>
                           </tr>
@@ -628,10 +627,10 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       })
                     ) : (
                       <tr>
-                        <td colSpan={8} className="px-4 py-12 text-center text-gray-400">
-                          <FileText className="w-10 h-10 text-gray-300 mx-auto mb-2" />
-                          <p className="font-semibold text-gray-700">No complaint records found</p>
-                          <p className="text-xs text-gray-400 mt-1">No monthly disposal statistics filed for FY {selectedFinYear}.</p>
+                        <td colSpan={8} className="px-4 py-12 text-center text-gray-600">
+                          <FileText className="w-10 h-10 text-gray-400 mx-auto mb-2" />
+                          <p className="font-semibold text-gray-800">No complaint records found</p>
+                          <p className="text-xs text-gray-600 mt-1">No monthly disposal statistics filed for FY {selectedFinYear}.</p>
                         </td>
                       </tr>
                     )}
@@ -656,8 +655,8 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <td className="px-4 py-4 text-center font-black text-amber-700 border-r border-gray-200">
                           {data.monthlyGrandTotal?.pending ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center text-gray-400 border-r border-gray-200">-</td>
-                        <td className="px-4 py-4 text-center text-gray-400">-</td>
+                        <td className="px-4 py-4 text-center text-gray-600 border-r border-gray-200">-</td>
+                        <td className="px-4 py-4 text-center text-gray-600">-</td>
                       </tr>
                     </tfoot>
                   )}
@@ -669,7 +668,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
             <section className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
               <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee]"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#006da0]"></span>
                   <h2 className="text-lg sm:text-xl font-bold text-[#011628]">
                     Trend of Annual Disposal of Complaints
                   </h2>
@@ -706,17 +705,17 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                             <td className="px-6 py-3.5 font-bold text-gray-900 border-r border-gray-100">{year}</td>
                             <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{carried}</td>
                             <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{received}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100">{resolved}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-amber-600">{pending}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-emerald-700 border-r border-gray-100">{resolved}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-amber-700">{pending}</td>
                           </tr>
                         );
                       })
                     ) : (
                       <tr>
-                        <td colSpan={6} className="px-4 py-12 text-center text-gray-400">
-                          <FileText className="w-10 h-10 text-gray-300 mx-auto mb-2" />
-                          <p className="font-semibold text-gray-700">No annual records available</p>
-                          <p className="text-xs text-gray-400 mt-1">No historical annual trend statistics filed yet.</p>
+                        <td colSpan={6} className="px-4 py-12 text-center text-gray-600">
+                          <FileText className="w-10 h-10 text-gray-400 mx-auto mb-2" />
+                          <p className="font-semibold text-gray-800">No annual records available</p>
+                          <p className="text-xs text-gray-600 mt-1">No historical annual trend statistics filed yet.</p>
                         </td>
                       </tr>
                     )}
@@ -925,7 +924,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                 <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
                   <div className="p-5 bg-slate-50 border-b border-slate-100">
                     <h4 className="text-base font-bold text-[#011628] flex items-start sm:items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#00aeee] shrink-0 mt-1 sm:mt-0" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#006da0] shrink-0 mt-1 sm:mt-0" />
                       <span>(2) Depositories provide special services like pledge, hypothecation, internet-based services etc. in addition to their core services and these include:</span>
                     </h4>
                   </div>
@@ -1017,38 +1016,38 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                             <div className="flex flex-wrap gap-2 pt-1">
                               <button
                                 onClick={() => setActiveModal("EO")}
-                                className="px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>a. E-account opening<sup>4</sup></span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#00aeee]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
                               </button>
                               <button
                                 onClick={() => setActiveModal("OIFE")}
-                                className="px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>b. Online instructions for execution<sup>5</sup> (SPEED-e)</span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#00aeee]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
                               </button>
                               <button
                                 onClick={() => setActiveModal("DG")}
-                                className="px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>c. e-DIS / Demat Gateway<sup>6</sup></span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#00aeee]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
                               </button>
                               <button
                                 onClick={() => setActiveModal("ECAS")}
-                                className="px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>d. e-CAS facility<sup>7</sup></span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#00aeee]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
                               </button>
                               <button
                                 onClick={() => setActiveModal("MS")}
-                                className="px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>e. Miscellaneous services<sup>8</sup></span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#00aeee]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
                               </button>
                             </div>
                           </td>

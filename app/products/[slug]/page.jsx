@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { ChevronRight, CheckCircle2, ArrowRight } from "lucide-react";
 import HeroSection from "@/components/common/HeroSection";
 import Container from "@/components/common/Container";
-import Button from "@/components/common/Button";
 import { PRODUCTS_DATA } from "../data";
 import { generatePageMetadata } from "@/constants/metadata";
 
@@ -107,14 +106,12 @@ export default function ProductDetailsPage({ params }) {
 
             {/* Button at the last */}
             <div className="pt-8 border-t border-black/5">
-              <Link href="/contact">
-                <Button
-                  variant="contained"
-                  className="bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-lg py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
-                >
-                  {product.buttonText}
-                  <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1.5 transition-transform" />
-                </Button>
+              <Link
+                href="/contact"
+                className="inline-flex bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-lg py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                {product.buttonText}
+                <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </div>
 

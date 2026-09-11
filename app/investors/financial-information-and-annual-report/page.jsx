@@ -43,22 +43,22 @@ export default async function FinancialInformationPage() {
       <section className="py-12 bg-[#f7f9fc]">
         <Container>
           <div className="mb-12 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "rgb(234, 40, 48)" }}>
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "#c41f26" }}>
               Investors
             </div>
             <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">
-              Financial Information and Annual Report
+              Financial Information & Annual Report
             </h2>
             <p className="text-[16px] text-gray-700 max-w-3xl mx-auto font-medium">
-              Access and download our latest financial statements and annual reports.
+              Access and download audited financial statements, annual reports, and investor presentation documents.
             </p>
           </div>
           
           {groupedData.length === 0 ? (
             <div className="text-center py-20 bg-white border border-gray-100 rounded-2xl shadow-sm">
-              <FileBadge className="mx-auto h-12 w-12 text-gray-300 mb-4" />
-              <h3 className="text-lg font-bold text-gray-900">No financial information found</h3>
-              <p className="text-gray-500 mt-2 font-medium">
+              <FileBadge className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+              <h3 className="text-lg font-bold text-gray-900">No financial reports found</h3>
+              <p className="text-gray-600 mt-2 font-medium">
                 There are currently no financial documents available for viewing.
               </p>
             </div>

@@ -1,0 +1,1484 @@
+[
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 53,
+    "type": "cyan/secondary",
+    "line": "<div className=\"inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-secondary text-xs font-bold uppercase tracking-wider mb-4\">"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 85,
+    "type": "tint-text",
+    "line": "<CheckCircle2 className=\"w-5 h-5 text-emerald-600 shrink-0 mt-0.5\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 95,
+    "type": "tint-text",
+    "line": "<CheckCircle2 className=\"w-5 h-5 text-emerald-600 shrink-0 mt-0.5\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 105,
+    "type": "tint-text",
+    "line": "<CheckCircle2 className=\"w-5 h-5 text-emerald-600 shrink-0 mt-0.5\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 115,
+    "type": "tint-text",
+    "line": "<CheckCircle2 className=\"w-5 h-5 text-emerald-600 shrink-0 mt-0.5\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 141,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-secondary shrink-0\">"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 154,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-secondary shrink-0\">"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 167,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-secondary shrink-0\">"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 180,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-secondary shrink-0\">"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 193,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-secondary shrink-0\">"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 332,
+    "type": "cyan/secondary",
+    "line": "className=\"w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white font-bold text-sm shadow-md transition-transform\""
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 357,
+    "type": "light-gray-text",
+    "line": "<ExternalLink className=\"w-4 h-4 text-slate-400\" aria-label=\"(Opens in new tab)\" />"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 368,
+    "type": "light-gray-text",
+    "line": "<ExternalLink className=\"w-4 h-4 text-slate-400\" aria-label=\"(Opens in new tab)\" />"
+  },
+  {
+    "rel": "app\\accessibility-statement\\page.jsx",
+    "lineNum": 377,
+    "type": "light-gray-text",
+    "line": "<ChevronRight className=\"w-4 h-4 text-slate-400\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "app\\downloads\\page.js",
+    "lineNum": 217,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary shrink-0 mt-0.5\" aria-hidden=\"true\">"
+  },
+  {
+    "rel": "app\\downloads\\page.js",
+    "lineNum": 226,
+    "type": "cyan/secondary",
+    "line": "className=\"text-xs font-bold text-secondary hover:text-primary whitespace-nowrap underline inline-flex items-center gap-1 shrink-0\""
+  },
+  {
+    "rel": "app\\downloads\\page.js",
+    "lineNum": 241,
+    "type": "light-gray-text",
+    "line": "<div className=\"py-8 text-center text-gray-400 bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hidden lg:block\">"
+  },
+  {
+    "rel": "app\\downloads\\page.js",
+    "lineNum": 273,
+    "type": "light-gray-text",
+    "line": "className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? \"text-[#EA2830] translate-x-1\" : \"text-slate-400\""
+  },
+  {
+    "rel": "app\\downloads\\page.js",
+    "lineNum": 329,
+    "type": "light-gray-text",
+    "line": "<FileBadge className=\"mx-auto h-12 w-12 text-gray-300 mb-4\" />"
+  },
+  {
+    "rel": "app\\global-error.js",
+    "lineNum": 25,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-slate-300 text-sm mb-6\">An unexpected error occurred while rendering the page.</p>"
+  },
+  {
+    "rel": "app\\globals.css",
+    "lineNum": 16,
+    "type": "cyan/secondary",
+    "line": "--color-secondary: #00aeee;"
+  },
+  {
+    "rel": "app\\investors\\annual-return\\page.jsx",
+    "lineNum": 59,
+    "type": "light-gray-text",
+    "line": "<FileBadge className=\"mx-auto h-12 w-12 text-gray-300 mb-4\" />"
+  },
+  {
+    "rel": "app\\investors\\disclosures-of-material-events-or-information\\page.jsx",
+    "lineNum": 60,
+    "type": "light-gray-text",
+    "line": "<FileBadge className=\"mx-auto h-12 w-12 text-gray-300 mb-4\" />"
+  },
+  {
+    "rel": "app\\investors\\financial-information-and-annual-report\\page.jsx",
+    "lineNum": 59,
+    "type": "light-gray-text",
+    "line": "<FileBadge className=\"mx-auto h-12 w-12 text-gray-300 mb-4\" />"
+  },
+  {
+    "rel": "app\\investors\\newspaper-publication\\page.jsx",
+    "lineNum": 74,
+    "type": "light-gray-text",
+    "line": "<FileBadge className=\"mx-auto h-12 w-12 text-gray-300 mb-4\" />"
+  },
+  {
+    "rel": "app\\investors\\policies\\page.jsx",
+    "lineNum": 60,
+    "type": "light-gray-text",
+    "line": "<FileBadge className=\"mx-auto h-12 w-12 text-gray-300 mb-4\" />"
+  },
+  {
+    "rel": "app\\investors\\shareholding-pattern\\page.jsx",
+    "lineNum": 59,
+    "type": "light-gray-text",
+    "line": "<FileBadge className=\"mx-auto h-12 w-12 text-gray-300 mb-4\" />"
+  },
+  {
+    "rel": "app\\investors\\statutory-and-registration-certificate-documents\\page.jsx",
+    "lineNum": 64,
+    "type": "light-gray-text",
+    "line": "<FileBadge className=\"mx-auto h-12 w-12 text-gray-300 mb-4\" />"
+  },
+  {
+    "rel": "app\\nomination\\page.jsx",
+    "lineNum": 47,
+    "type": "cyan/secondary",
+    "line": "style={{ color: \"#00aeee\" }}"
+  },
+  {
+    "rel": "app\\products\\commodities\\page.jsx",
+    "lineNum": 78,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white\">"
+  },
+  {
+    "rel": "app\\products\\commodities\\page.jsx",
+    "lineNum": 86,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white\">"
+  },
+  {
+    "rel": "app\\products\\commodities\\page.jsx",
+    "lineNum": 108,
+    "type": "cyan/secondary",
+    "line": "<div className=\"mb-12 bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl\">"
+  },
+  {
+    "rel": "app\\products\\equity\\page.jsx",
+    "lineNum": 107,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl shadow-md text-white mb-8\">"
+  },
+  {
+    "rel": "app\\products\\hnis\\page.jsx",
+    "lineNum": 84,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white\">"
+  },
+  {
+    "rel": "app\\products\\hnis\\page.jsx",
+    "lineNum": 92,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white\">"
+  },
+  {
+    "rel": "app\\products\\mutual-funds\\page.jsx",
+    "lineNum": 147,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl shadow-lg border border-black/5 text-white\">"
+  },
+  {
+    "rel": "app\\products\\mutual-funds\\page.jsx",
+    "lineNum": 160,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl shadow-lg border border-black/5 text-white\">"
+  },
+  {
+    "rel": "app\\products\\nris\\page.jsx",
+    "lineNum": 85,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white\">"
+  },
+  {
+    "rel": "app\\products\\nris\\page.jsx",
+    "lineNum": 93,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white\">"
+  },
+  {
+    "rel": "app\\products\\page.jsx",
+    "lineNum": 57,
+    "type": "cyan/secondary",
+    "line": "<h3 className=\"text-[20px] font-bold text-[#ea2830] mb-3 group-hover:text-[#00aeee] transition-colors duration-300\">"
+  },
+  {
+    "rel": "app\\products\\slbm\\page.jsx",
+    "lineNum": 86,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white mb-12\">"
+  },
+  {
+    "rel": "app\\products\\wealth-management\\page.jsx",
+    "lineNum": 86,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white\">"
+  },
+  {
+    "rel": "app\\products\\wealth-management\\page.jsx",
+    "lineNum": 94,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 70,
+    "type": "light-gray-text",
+    "line": "<th key={h} scope=\"col\" className=\"px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 322,
+    "type": "cyan/secondary",
+    "line": "className=\"w-full pl-10 pr-10 py-2 border border-border rounded-md text-sm placeholder:text-muted-foreground outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-[#00aeee] transition-all bg-muted/20 [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden\""
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 354,
+    "type": "cyan/secondary",
+    "line": "className=\"bg-white border border-border rounded-md px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-[#00aeee] cursor-pointer hover:border-gray-400 transition-colors\""
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 380,
+    "type": "cyan/secondary",
+    "line": "className=\"bg-white border border-border rounded-md px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm font-semibold outline-none focus:outline-none focus-visible:outline-none focus:ring-0 focus:border-[#00aeee] cursor-pointer hover:border-gray-400 transition-colors\""
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 491,
+    "type": "light-gray-text",
+    "line": "<div className=\"text-gray-400 mb-4 bg-muted p-4 rounded-full\" aria-hidden=\"true\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 507,
+    "type": "light-gray-text",
+    "line": "<div className=\"text-gray-400 mb-4 bg-muted p-4 rounded-full\" aria-hidden=\"true\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 600,
+    "type": "light-gray-text",
+    "line": "<th scope=\"col\" className=\"px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300 w-16\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 603,
+    "type": "light-gray-text",
+    "line": "<th scope=\"col\" className=\"px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 613,
+    "type": "light-gray-text",
+    "line": "<th scope=\"col\" className=\"px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 616,
+    "type": "light-gray-text",
+    "line": "<th scope=\"col\" className=\"px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 626,
+    "type": "light-gray-text",
+    "line": "<th scope=\"col\" className=\"px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 636,
+    "type": "light-gray-text",
+    "line": "<th scope=\"col\" className=\"px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300\">"
+  },
+  {
+    "rel": "app\\research\\[section]\\ResearchSectionClient.jsx",
+    "lineNum": 639,
+    "type": "light-gray-text",
+    "line": "<th scope=\"col\" className=\"px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300 text-right\">"
+  },
+  {
+    "rel": "app\\risk-calculator\\page.jsx",
+    "lineNum": 335,
+    "type": "cyan/secondary",
+    "line": "<Shield className=\"w-6 h-6 text-[#00aeee]\" />"
+  },
+  {
+    "rel": "app\\risk-calculator\\page.jsx",
+    "lineNum": 352,
+    "type": "light-gray-text",
+    "line": "<span className=\"text-xs font-bold text-gray-400 uppercase tracking-widest block mb-1\">"
+  },
+  {
+    "rel": "app\\risk-calculator\\page.jsx",
+    "lineNum": 362,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-[#00aeed1f]/20 border border-[#00aeee]/15 rounded-2xl p-4 text-center\">"
+  },
+  {
+    "rel": "app\\risk-calculator\\page.jsx",
+    "lineNum": 363,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-xs font-bold text-[#00aeee] uppercase tracking-wide block mb-1\">"
+  },
+  {
+    "rel": "app\\risk-calculator\\page.jsx",
+    "lineNum": 367,
+    "type": "tint-text",
+    "line": "result.riskCapacity === \"High\" ? \"text-emerald-600\" : result.riskCapacity === \"Low\" ? \"text-[#ea2830]\" : \"text-[#012e54]\""
+  },
+  {
+    "rel": "app\\risk-calculator\\page.jsx",
+    "lineNum": 381,
+    "type": "tint-text",
+    "line": "result.riskTolerance === \"High\" ? \"text-emerald-600\" : result.riskTolerance === \"Low\" ? \"text-[#ea2830]\" : \"text-[#012e54]\""
+  },
+  {
+    "rel": "app\\risk-calculator\\page.jsx",
+    "lineNum": 420,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-[#00aeee] h-full rounded-full\" style={{ width: allocation.debt }} />"
+  },
+  {
+    "rel": "app\\sip-calculator\\page.jsx",
+    "lineNum": 161,
+    "type": "cyan/secondary",
+    "line": "{ title: 'Investment', value: investment, color: '#00aeee' },"
+  },
+  {
+    "rel": "app\\sip-calculator\\page.jsx",
+    "lineNum": 433,
+    "type": "cyan/secondary",
+    "line": "className=\"px-8 py-3 bg-[#00aeee] hover:bg-[#0090c8] text-white font-bold rounded-xl shadow hover:shadow-md transition-all duration-300 transform active:scale-[0.98] uppercase text-xs tracking-wider cursor-pointer\""
+  },
+  {
+    "rel": "app\\sip-calculator\\page.jsx",
+    "lineNum": 450,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-[#00aeed1f] border border-[#00aeee]/10 rounded-2xl p-4 text-center shadow-sm\">"
+  },
+  {
+    "rel": "app\\sip-calculator\\page.jsx",
+    "lineNum": 451,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-[11px] md:text-xs font-bold text-[#00aeee] uppercase tracking-wide block mb-1\">"
+  },
+  {
+    "rel": "app\\sip-calculator\\page.jsx",
+    "lineNum": 477,
+    "type": "tint-text",
+    "line": "<span className=\"text-[11px] md:text-xs font-bold text-emerald-600 uppercase tracking-wide block mb-1\">"
+  },
+  {
+    "rel": "app\\sip-calculator\\page.jsx",
+    "lineNum": 518,
+    "type": "cyan/secondary",
+    "line": "stroke=\"#00aeee\""
+  },
+  {
+    "rel": "app\\sip-calculator\\page.jsx",
+    "lineNum": 526,
+    "type": "light-gray-text",
+    "line": "<span className=\"text-[10px] font-bold text-gray-400 uppercase tracking-widest\">"
+  },
+  {
+    "rel": "app\\sip-calculator\\page.jsx",
+    "lineNum": 539,
+    "type": "cyan/secondary",
+    "line": "<span className=\"w-4 h-4 rounded-full bg-[#00aeee] block\"></span>"
+  },
+  {
+    "rel": "app\\sitemap\\page.jsx",
+    "lineNum": 147,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-secondary shrink-0\">"
+  },
+  {
+    "rel": "app\\sitemap\\page.jsx",
+    "lineNum": 169,
+    "type": "light-gray-text",
+    "line": "<ExternalLink className=\"w-3.5 h-3.5 text-slate-400 group-hover:text-primary shrink-0\" aria-label=\"(Opens in new tab)\" />"
+  },
+  {
+    "rel": "app\\sitemap\\page.jsx",
+    "lineNum": 177,
+    "type": "light-gray-text",
+    "line": "<ArrowRight className=\"w-3.5 h-3.5 text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "components\\common\\Button.js",
+    "lineNum": 42,
+    "type": "cyan/secondary",
+    "line": "\"bg-secondary text-white hover:bg-secondary-dark focus-visible:ring-secondary\","
+  },
+  {
+    "rel": "components\\common\\Button.js",
+    "lineNum": 50,
+    "type": "cyan/secondary",
+    "line": "\"border border-secondary text-secondary bg-transparent hover:bg-secondary hover:text-white focus-visible:ring-secondary\","
+  },
+  {
+    "rel": "components\\common\\QuickSearchModal.jsx",
+    "lineNum": 131,
+    "type": "light-gray-text",
+    "line": "<Search className=\"w-5 h-5 text-slate-400 shrink-0\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "components\\common\\QuickSearchModal.jsx",
+    "lineNum": 143,
+    "type": "light-gray-text",
+    "line": "className=\"flex-1 text-[16px] text-slate-900 placeholder:text-slate-400 bg-transparent outline-none\""
+  },
+  {
+    "rel": "components\\common\\QuickSearchModal.jsx",
+    "lineNum": 143,
+    "type": "placeholder-contrast",
+    "line": "className=\"flex-1 text-[16px] text-slate-900 placeholder:text-slate-400 bg-transparent outline-none\""
+  },
+  {
+    "rel": "components\\common\\QuickSearchModal.jsx",
+    "lineNum": 149,
+    "type": "light-gray-text",
+    "line": "className=\"w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors\""
+  },
+  {
+    "rel": "components\\common\\QuickSearchModal.jsx",
+    "lineNum": 160,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-xs text-slate-400 mt-1\">Try searching for keywords like Equity, SIP, Grievance, or Charter.</p>"
+  },
+  {
+    "rel": "components\\common\\QuickSearchModal.jsx",
+    "lineNum": 194,
+    "type": "light-gray-text",
+    "line": "isSelected ? \"text-cyan-300\" : \"text-slate-400\""
+  },
+  {
+    "rel": "components\\common\\QuickSearchModal.jsx",
+    "lineNum": 202,
+    "type": "light-gray-text",
+    "line": "className={`w-4 h-4 ${isSelected ? \"text-cyan-300 translate-x-1\" : \"text-slate-300\"} transition-transform`}"
+  },
+  {
+    "rel": "components\\FloatingMobileTrading.js",
+    "lineNum": 117,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#00aeee] transition-all duration-300 mb-4\">"
+  },
+  {
+    "rel": "components\\FloatingMobileTrading.js",
+    "lineNum": 118,
+    "type": "cyan/secondary",
+    "line": "<Briefcase className=\"w-12 h-12 text-[#00aeee]\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "components\\home\\Calculator.js",
+    "lineNum": 39,
+    "type": "cyan/secondary",
+    "line": "className=\"group w-full flex items-center gap-6 p-6 rounded-2xl bg-gradient-to-br from-[#00aeee] to-[#0088c2] shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500\""
+  },
+  {
+    "rel": "components\\home\\DownloadApp.js",
+    "lineNum": 14,
+    "type": "cyan/secondary",
+    "line": "<div className=\"max-w-6xl mx-auto bg-gradient-to-r from-[#ea2830] to-[#00aeee] rounded-3xl p-8 md:p-8  text-white\">"
+  },
+  {
+    "rel": "components\\home\\DownloadApp.js",
+    "lineNum": 45,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-[10px] uppercase font-bold text-gray-400\">Download on the</p>"
+  },
+  {
+    "rel": "components\\home\\DownloadApp.js",
+    "lineNum": 53,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-[10px] uppercase font-bold text-gray-400\">Get it on</p>"
+  },
+  {
+    "rel": "components\\home\\Features.js",
+    "lineNum": 55,
+    "type": "cyan/secondary",
+    "line": "<h3 className=\"text-[20px] font-bold text-[#ea2830] mb-3 group-hover:text-[#00aeee] transition-colors duration-300\">"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 59,
+    "type": "cyan/secondary",
+    "line": "<div className=\"absolute top-1/2 -translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-[#00aeee]/10 rounded-full blur-[140px] animate-pulse duration-[8000ms] pointer-events-none z-0 hidden lg:block\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 68,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-[#00aeee] text-[14px] font-bold tracking-wider uppercase block\">"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 73,
+    "type": "cyan/secondary",
+    "line": "<span className=\"bg-gradient-to-r from-[#00aeee] to-[#008cc3] bg-clip-text text-transparent\">"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 90,
+    "type": "cyan/secondary",
+    "line": "className=\"flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white\""
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 107,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-[#00aeee]/50\" aria-hidden=\"true\">|</span>"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 110,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-[#00aeee]/50\" aria-hidden=\"true\">|</span>"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 113,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-[#00aeee]/50\" aria-hidden=\"true\">|</span>"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 116,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-[#00aeee]/50\" aria-hidden=\"true\">|</span>"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 119,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-[#00aeee]/50\" aria-hidden=\"true\">|</span>"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 153,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0\">"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 171,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0\">"
+  },
+  {
+    "rel": "components\\home\\HeroBanner.js",
+    "lineNum": 189,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0\">"
+  },
+  {
+    "rel": "components\\home\\Steps.jsx",
+    "lineNum": 11,
+    "type": "cyan/secondary",
+    "line": "iconColor: \"text-[#00aeee]\","
+  },
+  {
+    "rel": "components\\home\\Steps.jsx",
+    "lineNum": 13,
+    "type": "cyan/secondary",
+    "line": "bgColor: \"bg-[#00aeee]/10\""
+  },
+  {
+    "rel": "components\\home\\Steps.jsx",
+    "lineNum": 20,
+    "type": "cyan/secondary",
+    "line": "badgeColor: \"bg-[#00aeee]\","
+  },
+  {
+    "rel": "components\\home\\Steps.jsx",
+    "lineNum": 27,
+    "type": "cyan/secondary",
+    "line": "iconColor: \"text-[#00aeee]\","
+  },
+  {
+    "rel": "components\\home\\Steps.jsx",
+    "lineNum": 29,
+    "type": "cyan/secondary",
+    "line": "bgColor: \"bg-[#00aeee]/10\""
+  },
+  {
+    "rel": "components\\home\\Steps.jsx",
+    "lineNum": 36,
+    "type": "cyan/secondary",
+    "line": "badgeColor: \"bg-[#00aeee]\","
+  },
+  {
+    "rel": "components\\home\\Steps.jsx",
+    "lineNum": 83,
+    "type": "cyan/secondary",
+    "line": "<h3 className=\"text-lg font-bold text-slate-900 mb-2 group-hover:text-[#00aeee] transition-colors duration-300\">"
+  },
+  {
+    "rel": "components\\home\\Testimonials.jsx",
+    "lineNum": 92,
+    "type": "cyan/secondary",
+    "line": "className=\"w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 bg-gradient-to-br from-[#00aeee]/20 to-[#00aeee]/10 text-[#00aeee] border border-[#00aeee]/20 shadow-sm\""
+  },
+  {
+    "rel": "components\\home\\Testimonials.jsx",
+    "lineNum": 231,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-white/95 backdrop-blur-xl rounded-2xl p-7 border border-slate-300 hover:border-[#00aeee]/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full relative group\">"
+  },
+  {
+    "rel": "components\\home\\Testimonials.jsx",
+    "lineNum": 235,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-9 h-9 rounded-xl bg-[#00aeee]/10 border border-[#00aeee]/20 flex items-center justify-center text-secondary shrink-0 group-hover:bg-[#00aeee] group-hover:text-white transition-colors duration-300\">"
+  },
+  {
+    "rel": "components\\home\\Testimonials.jsx",
+    "lineNum": 255,
+    "type": "light-gray-text",
+    "line": "{t.role} {t.location && <><span className=\"text-slate-300 mx-1\">•</span> {t.location}</>}"
+  },
+  {
+    "rel": "components\\home\\WhyChooseUs.jsx",
+    "lineNum": 60,
+    "type": "cyan/secondary",
+    "line": "style={{ color: \"#00aeee\" }}"
+  },
+  {
+    "rel": "components\\home\\WhyChooseUs.jsx",
+    "lineNum": 72,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-[16px] leading-relaxed text-slate-300 font-medium\">"
+  },
+  {
+    "rel": "components\\home\\WhyChooseUs.jsx",
+    "lineNum": 96,
+    "type": "cyan/secondary",
+    "line": "<h3 className=\"text-base font-bold text-white group-hover:text-[#00aeee] transition-colors duration-300\">"
+  },
+  {
+    "rel": "components\\home\\WhyChooseUs.jsx",
+    "lineNum": 99,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-[14px] text-slate-300 leading-relaxed font-medium\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 77,
+    "type": "cyan/secondary",
+    "line": "<p className=\"text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#00aeee] mb-1\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 101,
+    "type": "light-gray-text",
+    "line": "<span className=\"text-xs text-slate-400 font-medium\">Ratnakar Securities Limited • DP Compliance</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 287,
+    "type": "cyan/secondary",
+    "line": "className=\"inline-flex items-center font-semibold text-[#00aeee] hover:text-[#012e54] transition-colors\""
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 305,
+    "type": "cyan/secondary",
+    "line": "<span className=\"inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#00aeee] px-3.5 py-1.5 rounded-full shadow-xs border border-[#00aeee]/20\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 306,
+    "type": "cyan/secondary",
+    "line": "<ShieldCheck className=\"w-3.5 h-3.5 text-[#00aeee]\" /> SEBI Regulatory Compliance"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 347,
+    "type": "cyan/secondary",
+    "line": "<RefreshCw className=\"w-10 h-10 text-[#00aeee] animate-spin mx-auto\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 385,
+    "type": "cyan/secondary",
+    "line": "<span className=\"w-2.5 h-2.5 rounded-full bg-[#00aeee]\"></span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 441,
+    "type": "cyan/secondary",
+    "line": "<RefreshCw className={`w-4 h-4 ${loading ? \"animate-spin text-[#00aeee]\" : \"\"}`} />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 463,
+    "type": "cyan/secondary",
+    "line": "<Download className=\"w-4 h-4 text-[#00aeee]\" /> Official DP PDF"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 521,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100\">{row.resolved}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 522,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-amber-600 border-r border-gray-100\">{row.pendingLt3}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 607,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100\">{resolved}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 608,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-amber-600 border-r border-gray-100\">{pending}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 622,
+    "type": "light-gray-text",
+    "line": "<span className=\"text-xs text-gray-400 font-medium\">-</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 630,
+    "type": "light-gray-text",
+    "line": "<td colSpan={8} className=\"px-4 py-12 text-center text-gray-400\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 631,
+    "type": "light-gray-text",
+    "line": "<FileText className=\"w-10 h-10 text-gray-300 mx-auto mb-2\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 633,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-xs text-gray-400 mt-1\">No monthly disposal statistics filed for FY {selectedFinYear}.</p>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 658,
+    "type": "light-gray-text",
+    "line": "<td className=\"px-4 py-4 text-center text-gray-400 border-r border-gray-200\">-</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 659,
+    "type": "light-gray-text",
+    "line": "<td className=\"px-4 py-4 text-center text-gray-400\">-</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 671,
+    "type": "cyan/secondary",
+    "line": "<span className=\"w-2.5 h-2.5 rounded-full bg-[#00aeee]\"></span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 708,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100\">{resolved}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 709,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-amber-600\">{pending}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 715,
+    "type": "light-gray-text",
+    "line": "<td colSpan={6} className=\"px-4 py-12 text-center text-gray-400\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 716,
+    "type": "light-gray-text",
+    "line": "<FileText className=\"w-10 h-10 text-gray-300 mx-auto mb-2\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 718,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-xs text-gray-400 mt-1\">No historical annual trend statistics filed yet.</p>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 817,
+    "type": "cyan/secondary",
+    "line": "<div className=\"absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#011628] via-[#1a6eb5] to-[#00aeee]\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 927,
+    "type": "cyan/secondary",
+    "line": "<span className=\"w-2.5 h-2.5 rounded-full bg-[#00aeee] shrink-0 mt-1 sm:mt-0\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1019,
+    "type": "cyan/secondary",
+    "line": "className=\"px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5\""
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1022,
+    "type": "cyan/secondary",
+    "line": "<ArrowUpRight className=\"w-3.5 h-3.5 text-[#00aeee]\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1026,
+    "type": "cyan/secondary",
+    "line": "className=\"px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5\""
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1029,
+    "type": "cyan/secondary",
+    "line": "<ArrowUpRight className=\"w-3.5 h-3.5 text-[#00aeee]\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1033,
+    "type": "cyan/secondary",
+    "line": "className=\"px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5\""
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1036,
+    "type": "cyan/secondary",
+    "line": "<ArrowUpRight className=\"w-3.5 h-3.5 text-[#00aeee]\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1040,
+    "type": "cyan/secondary",
+    "line": "className=\"px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5\""
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1043,
+    "type": "cyan/secondary",
+    "line": "<ArrowUpRight className=\"w-3.5 h-3.5 text-[#00aeee]\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1047,
+    "type": "cyan/secondary",
+    "line": "className=\"px-3.5 py-2 bg-[#00aeee]/10 hover:bg-[#00aeee]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#00aeee]/30 cursor-pointer flex items-center gap-1.5\""
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1050,
+    "type": "cyan/secondary",
+    "line": "<ArrowUpRight className=\"w-3.5 h-3.5 text-[#00aeee]\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1148,
+    "type": "light-gray-text",
+    "line": "<span className=\"text-xs text-slate-400\">/</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1520,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-r from-[#011628] to-[#012e54] text-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#00aeee]/20 space-y-3\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterDP.jsx",
+    "lineNum": 1534,
+    "type": "cyan/secondary",
+    "line": "className=\"bg-[#00aeee] hover:bg-[#0098d0] text-[#011628] font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 cursor-pointer\""
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 103,
+    "type": "cyan/secondary",
+    "line": "className=\"inline-flex items-center font-semibold text-[#00aeee] hover:text-[#012e54] transition-colors\""
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 119,
+    "type": "cyan/secondary",
+    "line": "<span className=\"inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#00aeee] px-3.5 py-1.5 rounded-full shadow-xs border border-[#00aeee]/20\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 120,
+    "type": "cyan/secondary",
+    "line": "<ShieldCheck className=\"w-3.5 h-3.5 text-[#00aeee]\" /> SEBI Regulatory Compliance"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 133,
+    "type": "cyan/secondary",
+    "line": "<Building2 className=\"w-7 h-7 text-[#00aeee]\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 187,
+    "type": "cyan/secondary",
+    "line": "<RefreshCw className={`w-4 h-4 ${loading ? \"animate-spin text-[#00aeee]\" : \"\"}`} />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 209,
+    "type": "cyan/secondary",
+    "line": "<Download className=\"w-4 h-4 text-[#00aeee]\" /> Official Charter PDF"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 241,
+    "type": "cyan/secondary",
+    "line": "<RefreshCw className=\"w-10 h-10 text-[#00aeee] animate-spin mx-auto\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 277,
+    "type": "cyan/secondary",
+    "line": "<span className=\"w-2.5 h-2.5 rounded-full bg-[#00aeee]\"></span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 345,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100\">{row.resolved}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 346,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-amber-600 border-r border-gray-100\">{row.pendingLt3}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 431,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100\">{resolved}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 432,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-amber-600 border-r border-gray-100\">{pending}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 446,
+    "type": "light-gray-text",
+    "line": "<span className=\"text-xs text-gray-400 font-medium\">-</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 454,
+    "type": "light-gray-text",
+    "line": "<td colSpan={8} className=\"px-4 py-12 text-center text-gray-400\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 455,
+    "type": "light-gray-text",
+    "line": "<FileText className=\"w-10 h-10 text-gray-300 mx-auto mb-2\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 457,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-xs text-gray-400 mt-1\">No monthly disposal statistics filed for FY {selectedFinYear}.</p>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 482,
+    "type": "light-gray-text",
+    "line": "<td className=\"px-4 py-4 text-center text-gray-400 border-r border-gray-200\">-</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 483,
+    "type": "light-gray-text",
+    "line": "<td className=\"px-4 py-4 text-center text-gray-400\">-</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 495,
+    "type": "cyan/secondary",
+    "line": "<span className=\"w-2.5 h-2.5 rounded-full bg-[#00aeee]\"></span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 532,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-emerald-600 border-r border-gray-100\">{resolved}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 533,
+    "type": "tint-text",
+    "line": "<td className=\"px-4 py-3.5 text-center font-bold text-amber-600\">{pending}</td>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 539,
+    "type": "light-gray-text",
+    "line": "<td colSpan={6} className=\"px-4 py-12 text-center text-gray-400\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 540,
+    "type": "light-gray-text",
+    "line": "<FileText className=\"w-10 h-10 text-gray-300 mx-auto mb-2\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 542,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-xs text-gray-400 mt-1\">No historical annual trend statistics filed yet.</p>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 594,
+    "type": "cyan/secondary",
+    "line": "<div className=\"flex items-center gap-3 text-[#00aeee]\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 608,
+    "type": "cyan/secondary",
+    "line": "<Briefcase className=\"w-5 h-5 text-[#00aeee]\" /> Details of Business Transacted by Stock Broker"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 625,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-2 h-2 rounded-full bg-[#00aeee] mt-2 shrink-0\"></div>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 641,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-2 h-2 rounded-full bg-[#00aeee] mt-2 shrink-0\"></div>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 657,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-2 h-2 rounded-full bg-[#00aeee] mt-2 shrink-0\"></div>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 766,
+    "type": "tint-text",
+    "line": "<FileCheck2 className=\"w-5 h-5 text-emerald-600\" /> Rights of Investors"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 779,
+    "type": "tint-text",
+    "line": "<AlertCircle className=\"w-5 h-5 text-amber-600\" /> Responsibilities of Investors"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 796,
+    "type": "tint-text",
+    "line": "<Check className=\"w-5 h-5 text-emerald-600 stroke-[3]\" /> DOs for Investors"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 800,
+    "type": "tint-text",
+    "line": "<span className=\"text-emerald-600 font-bold\">•</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 804,
+    "type": "tint-text",
+    "line": "<span className=\"text-emerald-600 font-bold\">•</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 808,
+    "type": "tint-text",
+    "line": "<span className=\"text-emerald-600 font-bold\">•</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 812,
+    "type": "tint-text",
+    "line": "<span className=\"text-emerald-600 font-bold\">•</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 816,
+    "type": "tint-text",
+    "line": "<span className=\"text-emerald-600 font-bold\">•</span>"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 856,
+    "type": "cyan/secondary",
+    "line": "<div className=\"bg-gradient-to-r from-[#011628] to-[#012e54] text-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#00aeee]/20 space-y-3\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorCharterStockBroker.jsx",
+    "lineNum": 870,
+    "type": "cyan/secondary",
+    "line": "className=\"bg-[#00aeee] hover:bg-[#0098d0] text-[#011628] font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1\""
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 284,
+    "type": "cyan/secondary",
+    "line": "className=\"inline-flex items-center font-semibold text-[#00aeee] hover:text-[#012e54] transition-colors\""
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 297,
+    "type": "cyan/secondary",
+    "line": "<span className=\"inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#00aeee] px-3.5 py-1.5 rounded-full shadow-xs border border-[#00aeee]/20\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 298,
+    "type": "cyan/secondary",
+    "line": "<ShieldCheck className=\"w-3.5 h-3.5 text-[#00aeee]\" /> NSDL & SEBI Redressal Framework"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 345,
+    "type": "cyan/secondary",
+    "line": "<div className=\"absolute top-0 left-0 w-full h-1 bg-[#00aeee]\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 347,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-12 h-12 rounded-xl bg-[#00aeee]/10 text-[#0088c2] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 362,
+    "type": "light-gray-text",
+    "line": "className=\"text-slate-400 hover:text-[#1a6eb5] p-1 cursor-pointer\""
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 365,
+    "type": "tint-text",
+    "line": "{copiedEmail === \"relations@nsdl.com\" ? <Check className=\"w-3.5 h-3.5 text-emerald-600\" /> : <Copy className=\"w-3.5 h-3.5\" />}"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 593,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-xs text-slate-400 font-bold uppercase tracking-wider\">Designated Officer</p>"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 636,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-xs text-slate-400 font-bold uppercase tracking-wider\">Investor Grievance Officer</p>"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 682,
+    "type": "light-gray-text",
+    "line": "<Search className=\"w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2\" aria-hidden=\"true\" />"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 701,
+    "type": "cyan/secondary",
+    "line": "? \"bg-[#011628] text-[#00aeee] shadow-xs\""
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 727,
+    "type": "light-gray-text",
+    "line": "<td className=\"p-4 text-center border-r border-slate-100 font-bold text-slate-400\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 756,
+    "type": "light-gray-text",
+    "line": "<td colSpan={5} className=\"p-8 text-center text-slate-400 font-medium\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 770,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-xs font-black tracking-widest uppercase text-[#00aeee] mb-2 block\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 784,
+    "type": "cyan/secondary",
+    "line": "className=\"bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-[#00aeee]/40 transition-all flex flex-col justify-between group\""
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 787,
+    "type": "cyan/secondary",
+    "line": "<div className=\"w-10 h-10 rounded-xl bg-sky-50 text-[#00aeee] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 790,
+    "type": "cyan/secondary",
+    "line": "<h3 className=\"font-bold text-slate-900 text-sm mb-1 group-hover:text-[#00aeee] transition-colors flex items-center justify-between\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 850,
+    "type": "tint-text",
+    "line": "<div className=\"w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform\">"
+  },
+  {
+    "rel": "components\\investors\\InvestorGrievance.jsx",
+    "lineNum": 853,
+    "type": "tint-text",
+    "line": "<h3 className=\"font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-600 transition-colors flex items-center justify-between\">"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 146,
+    "type": "cyan/secondary",
+    "line": "className=\"w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#00aeee] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md\""
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 162,
+    "type": "cyan/secondary",
+    "line": "style={{ color: \"#00aeee\" }}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 198,
+    "type": "cyan/secondary",
+    "line": "style={{ color: \"#00aeee\" }}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 231,
+    "type": "cyan/secondary",
+    "line": "style={{ color: \"#00aeee\" }}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 282,
+    "type": "cyan/secondary",
+    "line": "<div className=\"py-8 border-b border-[#00aeee]/30\">"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 291,
+    "type": "cyan/secondary",
+    "line": "style={{ color: \"#00aeee\" }}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 347,
+    "type": "cyan/secondary",
+    "line": "className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? \"font-semibold text-[#00aeee] list-none -ml-5 pt-1\" : \"\"}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 359,
+    "type": "cyan/secondary",
+    "line": "className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? \"font-semibold text-[#00aeee] list-none -ml-5 pt-1\" : \"\"}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 374,
+    "type": "cyan/secondary",
+    "line": "style={{ color: \"#00aeee\" }}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 430,
+    "type": "cyan/secondary",
+    "line": "<div className=\"py-8 border-b border-[#00aeee]/15 text-sm sm:text-base text-[#9fc8e0]\">"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 514,
+    "type": "cyan/secondary",
+    "line": "<Link href={item.href} className=\"text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block\">{item.label}</Link>"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 516,
+    "type": "cyan/secondary",
+    "line": "<a href={item.href} target={item.target} rel=\"noopener noreferrer\" className=\"text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block\">{item.label}</a>"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 518,
+    "type": "light-gray-text",
+    "line": "{index < arr.length - 1 && <span className=\"text-gray-400 select-none\" aria-hidden=\"true\">|</span>}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 522,
+    "type": "cyan/secondary",
+    "line": "<li className=\"bg-white text-black px-2 py-0.5 rounded text-xs list-none\">Developed by <a href=\"https://anaxistech.com/\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"font-semibold italic text-black hover:text-[#00aeee] transition-colors\">Anaxistech</a></li>"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 552,
+    "type": "cyan/secondary",
+    "line": "style={{ color: \"#00aeee\" }}"
+  },
+  {
+    "rel": "components\\layout\\Footer.js",
+    "lineNum": 564,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-[#00aeee] text-base font-black\">✕</span>"
+  },
+  {
+    "rel": "components\\layout\\Header.js",
+    "lineNum": 108,
+    "type": "cyan/secondary",
+    "line": "{iconSvg && <span className=\"flex h-8 w-8 shrink-0 items-center justify-center text-secondary mt-0.5\" aria-hidden=\"true\">{iconSvg}</span>}"
+  },
+  {
+    "rel": "components\\layout\\Header.js",
+    "lineNum": 588,
+    "type": "cyan/secondary",
+    "line": "className=\"inline-flex items-center justify-center bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2\""
+  },
+  {
+    "rel": "components\\layout\\Header.js",
+    "lineNum": 597,
+    "type": "cyan/secondary",
+    "line": "className=\"inline-flex items-center justify-center bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2\""
+  },
+  {
+    "rel": "components\\layout\\Header.js",
+    "lineNum": 907,
+    "type": "cyan/secondary",
+    "line": "className=\"w-full text-center inline-flex items-center justify-center bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2\""
+  },
+  {
+    "rel": "components\\layout\\Header.js",
+    "lineNum": 916,
+    "type": "cyan/secondary",
+    "line": "className=\"w-full text-center inline-flex items-center justify-center bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2\""
+  },
+  {
+    "rel": "components\\modals\\BackofficeLoginModal.jsx",
+    "lineNum": 87,
+    "type": "cyan/secondary",
+    "line": "borderHover: \"#00aeee\","
+  },
+  {
+    "rel": "components\\modals\\BackofficeLoginModal.jsx",
+    "lineNum": 89,
+    "type": "cyan/secondary",
+    "line": "iconColor: \"#00aeee\","
+  },
+  {
+    "rel": "components\\modals\\BackofficeLoginModal.jsx",
+    "lineNum": 90,
+    "type": "cyan/secondary",
+    "line": "btnBg: \"#00aeee\","
+  },
+  {
+    "rel": "components\\modals\\BackofficeLoginModal.jsx",
+    "lineNum": 140,
+    "type": "cyan/secondary",
+    "line": "<span style={{ color: \"#00aeee\" }}>Back Office Logins</span>"
+  },
+  {
+    "rel": "components\\modals\\BackofficeLoginModal.jsx",
+    "lineNum": 206,
+    "type": "light-gray-text",
+    "line": "<p className=\"mb-0.5 text-[9px] font-bold uppercase tracking-widest text-gray-400\">"
+  },
+  {
+    "rel": "components\\modals\\ChooseAppModal.jsx",
+    "lineNum": 95,
+    "type": "cyan/secondary",
+    "line": "borderHover: \"#00aeee\","
+  },
+  {
+    "rel": "components\\modals\\ChooseAppModal.jsx",
+    "lineNum": 97,
+    "type": "cyan/secondary",
+    "line": "btnBg: \"#00aeee\","
+  },
+  {
+    "rel": "components\\modals\\ChooseAppModal.jsx",
+    "lineNum": 129,
+    "type": "cyan/secondary",
+    "line": "Mobile App &ndash; <span style={{ color: \"#00aeee\" }}>TradeXpress</span>"
+  },
+  {
+    "rel": "components\\modals\\ChooseAppModal.jsx",
+    "lineNum": 189,
+    "type": "light-gray-text",
+    "line": "<p className=\"text-[9px] font-bold tracking-widest uppercase text-gray-400 mb-0.5\">"
+  },
+  {
+    "rel": "components\\partner\\PartnerForm.jsx",
+    "lineNum": 186,
+    "type": "cyan/secondary",
+    "line": "<span className=\"text-secondary font-bold text-xs uppercase tracking-widest block mb-2\">"
+  },
+  {
+    "rel": "components\\partner\\PartnerForm.jsx",
+    "lineNum": 453,
+    "type": "cyan/secondary",
+    "line": "className=\"inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg\""
+  }
+]

@@ -44,8 +44,7 @@ export default function NominationPage() {
                 href="https://api.ratnakarsecurities.com/uploads/files/for-nomination-form.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "#00aeee" }}
-                className="font-medium underline hover:opacity-80 transition-opacity"
+                className="font-semibold text-[#006da0] hover:text-[#004f7a] underline transition-colors"
               >
                 Click here
               </a>{" "}

@@ -93,32 +93,31 @@ export default function FAQSection() {
               key={index}
               className="h-fit overflow-hidden rounded-lg bg-white shadow-card transition-all duration-300"
             >
-              <button
-                id={`faq-btn-${index}`}
-                onClick={() => toggle(index)}
-                aria-expanded={active === index}
-                aria-controls={`faq-panel-${index}`}
-                className="flex w-full items-center justify-between gap-4 p-6 text-left"
-              >
-                <span
-                  role="heading"
-                  aria-level="3"
-                  className="flex-1 text-xl font-medium text-foreground"
+              <h3 className="m-0 p-0 text-xl font-medium text-foreground">
+                <button
+                  type="button"
+                  id={`faq-btn-${index}`}
+                  onClick={() => toggle(index)}
+                  aria-expanded={active === index}
+                  aria-controls={`faq-panel-${index}`}
+                  className="flex w-full items-center justify-between gap-4 p-6 text-left"
                 >
-                  {faq.question}
-                </span>
+                  <span className="flex-1">
+                    {faq.question}
+                  </span>
 
-                <div
-                  className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white transition-all duration-300"
-                  aria-hidden="true"
-                >
-                  {active === index ? (
-                    <Minus className="h-5 w-5 text-foreground" />
-                  ) : (
-                    <Plus className="h-5 w-5 text-foreground" />
-                  )}
-                </div>
-              </button>
+                  <div
+                    className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white transition-all duration-300"
+                    aria-hidden="true"
+                  >
+                    {active === index ? (
+                      <Minus className="h-5 w-5 text-foreground" />
+                    ) : (
+                      <Plus className="h-5 w-5 text-foreground" />
+                    )}
+                  </div>
+                </button>
+              </h3>
 
               <div
                 id={`faq-panel-${index}`}

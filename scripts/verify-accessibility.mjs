@@ -121,6 +121,45 @@ const nextConfigContent = fs.readFileSync(path.join(rootDir, "next.config.mjs"),
 assert(nextConfigContent.includes("/static/contact-us.aspx"), "next.config.mjs redirects /static/contact-us.aspx to /contact");
 assert(nextConfigContent.includes("/products/products.aspx"), "next.config.mjs redirects /products/products.aspx to /products");
 
+// 9. Correct Markup Structure & ARIA Hierarchy (GIGW 3.0 5.2.48 / WCAG 2.2 4.1.1)
+console.log("\n--- 9. Correct Markup Structure & ARIA Hierarchy (GIGW 5.2.48 / WCAG 4.1.1) ---");
+
+// Check for nested buttons inside links across all JS/JSX files
+let nestedButtonFound = false;
+let orphanedMenuitemFound = false;
+let invalidRoleNoneFound = false;
+
+codeFiles.forEach((file) => {
+  if (file.includes("scripts") || file.includes("test")) return;
+  const content = fs.readFileSync(file, "utf8");
+
+  if (content.match(/<Link[^>]*>[\s\n]*<Button/i) || content.match(/<a[^>]*>[\s\n]*<Button/i)) {
+    console.error(`  ❌ Invalid nested Button in link found in: ${file}`);
+    nestedButtonFound = true;
+  }
+  if (content.includes('role="menuitem"')) {
+    console.error(`  ❌ Invalid role="menuitem" found in: ${file}`);
+    orphanedMenuitemFound = true;
+  }
+  if (content.includes('role="none"') || content.includes('role="presentation"')) {
+    console.error(`  ❌ Invalid role="none"/"presentation" found in: ${file}`);
+    invalidRoleNoneFound = true;
+  }
+});
+
+assert(!nestedButtonFound, "Zero occurrences of Button nested inside <a> or <Link> across all components & pages");
+assert(!orphanedMenuitemFound, "Zero occurrences of improper role='menuitem' on standard site navigation");
+assert(!invalidRoleNoneFound, "Zero occurrences of invalid role='none'/'presentation' wrappers");
+
+const faqContent = fs.readFileSync(path.join(rootDir, "components/home/Faq.jsx"), "utf8");
+assert(faqContent.includes("<h3") && faqContent.includes("<button"), "Faq.jsx uses semantic <h3> wrapping <button> for accordions");
+
+const selectContent = fs.readFileSync(path.join(rootDir, "components/common/CustomSelect.jsx"), "utf8");
+assert(selectContent.includes("aria-controls="), "CustomSelect.jsx binds aria-controls to listbox");
+
+const homePageContent = fs.readFileSync(path.join(rootDir, "app/page.js"), "utf8");
+assert(!homePageContent.includes("<FloatingMobileTrading"), "app/page.js does not render duplicate FloatingMobileTrading instance");
+
 console.log("\n=================================================");
 console.log(`📊 ACCESSIBILITY VERIFICATION RESULT: ${passCount} PASSED, ${failCount} FAILED`);
 console.log("=================================================");
@@ -128,6 +167,6 @@ console.log("=================================================");
 if (failCount > 0) {
   process.exit(1);
 } else {
-  console.log("🎉 ALL DIGITAL ACCESSIBILITY CRITERIA VALIDATED SUCCESSFULLY!\n");
+  console.log("🎉 ALL DIGITAL ACCESSIBILITY & MARKUP STRUCTURE CRITERIA VALIDATED SUCCESSFULLY!\n");
   process.exit(0);
 }

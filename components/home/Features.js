@@ -33,7 +33,7 @@ export default function InvestmentServices() {
 
         {/* Header */}
         <div className="mb-12 text-center">
-          <p style={{ color: "#ea2830" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
+          <p style={{ color: "#c41f26" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
             Investment Opportunities
           </p>
           <h2 id="features-heading" className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -52,10 +52,10 @@ export default function InvestmentServices() {
               {/* Content */}
               <div className="flex justify-between items-start gap-4 mb-4">
                 <div className="flex-1">
-                  <h3 className="text-[20px] font-bold text-[#ea2830] mb-3 group-hover:text-[#00aeee] transition-colors duration-300">
+                  <h3 className="text-[20px] font-bold text-[#ea2830] mb-3 group-hover:text-[#006da0] transition-colors duration-300">
                     {s.title}
                   </h3>
-                  <p className="text-[15px] text-gray-500 leading-relaxed font-medium">
+                  <p className="text-[15px] text-gray-600 leading-relaxed font-medium">
                     {s.desc}
                   </p>
                 </div>

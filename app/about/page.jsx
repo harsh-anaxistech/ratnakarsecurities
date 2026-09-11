@@ -76,7 +76,7 @@ export default function AboutPage() {
       <section id="overview" className="py-12 bg-[#f7f9fc]">
         <Container>
           <div className="mb-10 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#EA2830]">
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#c41f26]">
               About Ratnakar Securities
             </div>
             <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black mb-6">
@@ -163,7 +163,7 @@ export default function AboutPage() {
                 {/* Text Content */}
                 <div className="p-8 w-full flex flex-col justify-center">
                   <h3 className="text-2xl font-bold text-black mb-1">{leader.name}</h3>
-                  <p className="text-[#EA2830] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
+                  <p className="text-[#c41f26] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
                   <div className="text-[#314158] leading-relaxed text-[15px] italic">
                     <p>“{leader.desc}”</p>
                   </div>
@@ -219,7 +219,7 @@ export default function AboutPage() {
                     : "bg-gray-100 border-gray-300 hover:bg-gray-200"
                     }`}
                 >
-                  <div className={`font-black text-lg ${active === index ? "text-red-600" : "text-gray-500"}`}>
+                  <div className={`font-black text-lg ${active === index ? "text-red-600" : "text-gray-600"}`}>
                     {item.year}
                   </div>
                   <div className="font-semibold text-gray-800 text-sm">{item.title}</div>

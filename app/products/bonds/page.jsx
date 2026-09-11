@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -106,6 +106,10 @@ export default function ProductDetailsPage() {
                 {faqs.map((faq, idx) => (
                   <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
                     <button
+                      type="button"
+                      id={`bonds-faq-btn-${idx}`}
+                      aria-expanded={openIndex === idx}
+                      aria-controls={`bonds-faq-panel-${idx}`}
                       onClick={() => toggleFAQ(idx)}
                       className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
                     >
@@ -114,7 +118,16 @@ export default function ProductDetailsPage() {
                         {openIndex === idx ? <Minus className="w-4 h-4 text-[#ea2830]" /> : <Plus className="w-4 h-4 text-[#ea2830]" />}
                       </span>
                     </button>
-                    {openIndex === idx && <div className="px-5 pb-5 pt-0 text-[16px] text-slate-600 leading-relaxed">{faq.a}</div>}
+                    {openIndex === idx && (
+                      <div
+                        id={`bonds-faq-panel-${idx}`}
+                        role="region"
+                        aria-labelledby={`bonds-faq-btn-${idx}`}
+                        className="px-5 pb-5 pt-0 text-[16px] text-slate-600 leading-relaxed"
+                      >
+                        {faq.a}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

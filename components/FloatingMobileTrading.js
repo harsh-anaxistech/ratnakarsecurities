@@ -99,7 +99,7 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
             <button
               onClick={handleClose}
               aria-label="Close Choose Your App dialog"
-              className="absolute top-4 right-4 text-red-500 hover:bg-red-50 p-2 rounded-full transition-colors focus:ring-2 focus:ring-red-600"
+              className="absolute top-4 right-4 text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors focus:ring-2 focus:ring-red-600"
             >
               <X size={24} strokeWidth={3} aria-hidden="true" />
             </button>
@@ -114,8 +114,8 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
                 rel="noopener noreferrer"
                 className="flex flex-col items-center group"
               >
-                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#00aeee] transition-all duration-300 mb-4">
-                  <Briefcase className="w-12 h-12 text-[#00aeee]" aria-hidden="true" />
+                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#006da0] transition-all duration-300 mb-4">
+                  <Briefcase className="w-12 h-12 text-[#006da0]" aria-hidden="true" />
                 </div>
                 <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">WEALTH<br/>MANAGEMENT</span>
               </a>
@@ -127,8 +127,8 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
                 rel="noopener noreferrer"
                 className="flex flex-col items-center group"
               >
-                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#ea2830] transition-all duration-300 mb-4">
-                  <TrendingUp className="w-12 h-12 text-[#ea2830]" aria-hidden="true" />
+                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#c41f26] transition-all duration-300 mb-4">
+                  <TrendingUp className="w-12 h-12 text-[#c41f26]" aria-hidden="true" />
                 </div>
                 <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">TRADE<br/>EXPRESS</span>
               </a>

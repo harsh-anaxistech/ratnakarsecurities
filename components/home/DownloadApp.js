@@ -11,7 +11,7 @@ import { FaApple, FaGooglePlay } from "react-icons/fa";
 export default function DownloadApp() {
   return (
     <section className="pt-12 px-4">
-      <div className="max-w-6xl mx-auto bg-gradient-to-r from-[#ea2830] to-[#00aeee] rounded-3xl p-8 md:p-8  text-white">
+      <div className="max-w-6xl mx-auto bg-gradient-to-r from-[#c41f26] via-[#1a6eb5] to-[#004b87] rounded-3xl p-8 md:p-8 text-white">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
           {/* લેફ્ટ સાઇડ: કન્ટેન્ટ */}

@@ -450,7 +450,7 @@ export default function PartnerForm() {
                     as="button"
                     type="submit"
                     loading={loading}
-                    className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-gradient-to-br from-[#00aeee] to-[#0088c2] hover:opacity-95 text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
+                    className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
                   >
                     Submit Partnership Request
                   </Button>

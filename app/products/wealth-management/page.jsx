@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -83,7 +83,7 @@ export default function ProductDetailsPage() {
 
             {/* Benefits & Why Us */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white">
+              <div className="bg-gradient-to-br from-[#006da0] to-[#012e54] p-8 rounded-2xl text-white">
                 <h3 className="text-xl font-bold mb-4">Key Benefits</h3>
                 <ul className="space-y-3">
                   {["Personalized investment strategies.", "Professional portfolio diversification.", "Comprehensive financial planning.", "Long-term wealth creation.", "Continuous portfolio monitoring."].map((b, i) => (
@@ -91,7 +91,7 @@ export default function ProductDetailsPage() {
                   ))}
                 </ul>
               </div>
-              <div className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white">
+              <div className="bg-gradient-to-br from-[#006da0] to-[#012e54] p-8 rounded-2xl text-white">
                 <h3 className="text-xl font-bold mb-4">Why Ratnakar Securities?</h3>
                 <ul className="space-y-3">
                   {["Personalized advisory services.", "Dedicated Relationship Manager.", "Research-driven recommendations.", "Diversified investment opportunities.", "Advanced digital platform."].map((b, i) => (
@@ -122,6 +122,10 @@ export default function ProductDetailsPage() {
                 {faqs.map((faq, idx) => (
                   <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
                     <button
+                      type="button"
+                      id={`wm-faq-btn-${idx}`}
+                      aria-expanded={openIndex === idx}
+                      aria-controls={`wm-faq-panel-${idx}`}
                       onClick={() => toggleFAQ(idx)}
                       className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
                     >
@@ -130,7 +134,16 @@ export default function ProductDetailsPage() {
                         {openIndex === idx ? <Minus className="w-4 h-4 text-[#ea2830]" /> : <Plus className="w-4 h-4 text-[#ea2830]" />}
                       </span>
                     </button>
-                    {openIndex === idx && <div className="px-5 pb-5 pt-0 text-[16px] text-slate-600 leading-relaxed">{faq.a}</div>}
+                    {openIndex === idx && (
+                      <div
+                        id={`wm-faq-panel-${idx}`}
+                        role="region"
+                        aria-labelledby={`wm-faq-btn-${idx}`}
+                        className="px-5 pb-5 pt-0 text-[16px] text-slate-600 leading-relaxed"
+                      >
+                        {faq.a}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

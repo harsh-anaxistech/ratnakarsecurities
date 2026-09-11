@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -75,7 +75,7 @@ export default function ProductDetailsPage() {
 
             {/* Benefits & Why Us (Gradient Backgrounds) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white">
+              <div className="bg-gradient-to-br from-[#006da0] to-[#012e54] p-8 rounded-2xl text-white">
                 <h3 className="text-xl font-bold mb-4">Key Benefits</h3>
                 <ul className="space-y-3">
                   {["Diversifies your portfolio.", "Hedge against inflation.", "Benefit from global trends.", "Effective risk management.", "High market liquidity.", "Transparent price discovery."].map((b, i) => (
@@ -83,7 +83,7 @@ export default function ProductDetailsPage() {
                   ))}
                 </ul>
               </div>
-              <div className="bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl text-white">
+              <div className="bg-gradient-to-br from-[#006da0] to-[#012e54] p-8 rounded-2xl text-white">
                 <h3 className="text-xl font-bold mb-4">Why Ratnakar Securities?</h3>
                 <ul className="space-y-3">
                   {["Access to MCX and NCDEX.", "Expert trading recommendations.", "Dedicated advisory support.", "Advanced trading platform.", "Secure & fast execution.", "Daily market analysis."].map((b, i) => (
@@ -105,7 +105,7 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* How to Start & FAQ */}
-            <div className="mb-12 bg-gradient-to-br from-[#00aeee] to-[#0088c2] p-8 rounded-2xl">
+            <div className="mb-12 bg-gradient-to-br from-[#006da0] to-[#012e54] p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-white mb-6">How to Start Commodity Trading</h3>
               <ol className="list-decimal list-inside space-y-2 text-[16px] text-[#ffffff]">
                 <li>Open your Trading and Demat Account with Ratnakar Securities.</li>
@@ -122,6 +122,10 @@ export default function ProductDetailsPage() {
                 {faqs.map((faq, idx) => (
                   <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
                     <button
+                      type="button"
+                      id={`commodities-faq-btn-${idx}`}
+                      aria-expanded={openIndex === idx}
+                      aria-controls={`commodities-faq-panel-${idx}`}
                       onClick={() => toggleFAQ(idx)}
                       className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
                     >
@@ -130,7 +134,16 @@ export default function ProductDetailsPage() {
                         {openIndex === idx ? <Minus className="w-4 h-4 text-[#ea2830]" /> : <Plus className="w-4 h-4 text-[#ea2830]" />}
                       </span>
                     </button>
-                    {openIndex === idx && <div className="px-5 pb-5 pt-0 text-[16px] text-slate-600">{faq.a}</div>}
+                    {openIndex === idx && (
+                      <div
+                        id={`commodities-faq-panel-${idx}`}
+                        role="region"
+                        aria-labelledby={`commodities-faq-btn-${idx}`}
+                        className="px-5 pb-5 pt-0 text-[16px] text-slate-600"
+                      >
+                        {faq.a}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

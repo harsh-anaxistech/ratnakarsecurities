@@ -143,7 +143,7 @@ export default function Footer() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={social.label}
-                          className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#00aeee] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
+                          className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#0088c2] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
                         >
                           <Icon className="w-4 h-4" aria-hidden="true" />
                         </a>
@@ -511,15 +511,15 @@ export default function Footer() {
               ].map((item, index, arr) => (
                 <li key={item.label} className="flex items-center">
                   {item.isLink ? (
-                    <Link href={item.href} className="text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
+                    <Link href={item.href} className="text-black hover:text-[#006da0] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
                   ) : (
-                    <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-black hover:text-[#00aeee] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
+                    <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-black hover:text-[#006da0] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
                   )}
                   {index < arr.length - 1 && <span className="text-gray-400 select-none" aria-hidden="true">|</span>}
                 </li>
               ))}
 
-              <li className="bg-white text-black px-2 py-0.5 rounded text-xs list-none">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold italic text-black hover:text-[#00aeee] transition-colors">Anaxistech</a></li>
+              <li className="bg-white text-black px-2 py-0.5 rounded text-xs list-none">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold italic text-black hover:text-[#006da0] transition-colors">Anaxistech</a></li>
             </ul>
           </nav>
         </div>
@@ -631,7 +631,7 @@ export default function Footer() {
                       (item) => (
                         <span
                           key={item}
-                          className="bg-red-50 text-[#ea2830] border border-red-100 py-1 px-3 rounded-lg text-xs font-bold"
+                          className="bg-red-50 text-[#c41f26] border border-red-100 py-1 px-3 rounded-lg text-xs font-bold"
                         >
                           {item}
                         </span>
