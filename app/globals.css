@@ -351,3 +351,34 @@ input[type="search"]::-webkit-search-results-decoration {
 .skip-link:focus-visible {
   top: 1rem !important;
 }
+
+/* =====================================================
+   Footer High Contrast Compliance (WCAG 1.4.3 & 1.4.6 - Level AAA)
+   Guarantees all text and links inside dark footer container pass contrast checks (>= 7.0:1)
+   ===================================================== */
+footer.bg-\[\#011628\],
+footer[style*="#011628"] {
+  background-color: #011628 !important;
+  color: #f1f5f9 !important;
+}
+
+footer.bg-\[\#011628\] a,
+footer[style*="#011628"] a,
+footer.bg-\[\#011628\] button:not(.bg-white *),
+footer.bg-\[\#011628\] li,
+footer.bg-\[\#011628\] p,
+footer.bg-\[\#011628\] span:not(.text-\[\#7dd3fc\]):not(.bg-white *) {
+  color: #f1f5f9;
+}
+
+footer.bg-\[\#011628\] a:hover,
+footer.bg-\[\#011628\] a:focus,
+footer.bg-\[\#011628\] a:focus-visible,
+footer[style*="#011628"] a:hover,
+footer[style*="#011628"] a:focus,
+footer[style*="#011628"] a:focus-visible,
+footer.bg-\[\#011628\] button:hover,
+footer.bg-\[\#011628\] button:focus-visible {
+  color: #ffffff !important;
+}
+

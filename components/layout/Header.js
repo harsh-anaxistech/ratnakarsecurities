@@ -581,6 +581,7 @@ export default function Header() {
                   href="https://twx.ratnakarsecurities.com:4433/twx/signin"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ backgroundColor: "#004f7a" }}
                   className="inline-flex items-center justify-center bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-sm"
                 >
                   RE-KYC
@@ -590,6 +591,7 @@ export default function Header() {
                   href="https://smartkyc.co.in/d/ratnakar"
                   target="_blank"
                   rel="noopener noreferrer"
+                  style={{ backgroundColor: "#004f7a" }}
                   className="inline-flex items-center justify-center bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-sm"
                 >
                   OPEN ACCOUNT
@@ -630,7 +632,8 @@ export default function Header() {
                     aria-haspopup="true"
                     aria-controls="desktop-login-menu"
                     aria-label="Client & Backoffice Login Menu"
-                    className="bg-[#c41f26] bg-gradient-to-br from-[#c41f26] to-[#a7181e] hover:bg-[#a7181e] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
+                    style={{ backgroundColor: "#a7181e" }}
+                    className="bg-[#a7181e] bg-gradient-to-br from-[#a7181e] to-[#881014] hover:bg-[#881014] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
                   >
                     LOGIN <ChevronDown className={cn("h-3.5 w-3.5 ml-1 transition-transform duration-200 inline", desktopLoginOpen && "rotate-180")} aria-hidden="true" />
                   </Button>
@@ -900,6 +903,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
+                  style={{ backgroundColor: "#004f7a" }}
                   className="w-full text-center inline-flex items-center justify-center bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-sm"
                 >
                   RE-KYC
@@ -909,6 +913,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
+                  style={{ backgroundColor: "#004f7a" }}
                   className="w-full text-center inline-flex items-center justify-center bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-sm"
                 >
                   OPEN AN ACCOUNT

@@ -124,12 +124,12 @@ export default function Footer() {
                 </div>
               </Link>
 
-              <ul className="text-[14px] sm:text-[15px] leading-relaxed space-y-0.5 text-slate-100">
+              <ul className="text-[14px] sm:text-[15px] leading-relaxed space-y-0.5 text-[#f1f5f9]">
                 <li><strong className="text-white">Ratnakar Securities Ltd.</strong></li>
-                <li>304, Sankalp Square - 2,</li>
-                <li>Near Jalaram Mandir Crossing,</li>
-                <li>Ellisbridge, Ahmedabad - 380006</li>
-                <li>Contact No : <a href="tel:07949005200" className="hover:text-white text-[#7dd3fc] transition-colors font-medium">079 - 49005200 / 01 / 02</a></li>
+                <li className="text-[#f1f5f9]">304, Sankalp Square - 2,</li>
+                <li className="text-[#f1f5f9]">Near Jalaram Mandir Crossing,</li>
+                <li className="text-[#f1f5f9]">Ellisbridge, Ahmedabad - 380006</li>
+                <li className="text-[#f1f5f9]">Contact No : <a href="tel:07949005200" className="hover:text-white text-[#7dd3fc] transition-colors font-medium">079 - 49005200 / 01 / 02</a></li>
               </ul>
 
               <nav aria-label="Social Media Links">
@@ -171,14 +171,14 @@ export default function Footer() {
                           href={l.href}
                           target={l.target}
                           rel="noopener noreferrer"
-                          className="text-[14px] sm:text-[16px] text-slate-100 hover:text-white transition-colors"
+                          className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white transition-colors inline-block"
                         >
                           {l.label}
                         </a>
                       ) : (
                         <Link
                           href={l.href}
-                          className="text-[14px] sm:text-[16px] text-slate-100 hover:text-white transition-colors"
+                          className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white transition-colors inline-block"
                         >
                           {l.label}
                         </Link>
@@ -203,7 +203,7 @@ export default function Footer() {
                     <li key={l.label}>
                       <Link
                         href={l.href}
-                        className="text-[14px] sm:text-[16px] text-slate-100 hover:text-white transition-colors"
+                        className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white transition-colors inline-block"
                       >
                         {l.label}
                       </Link>
@@ -230,10 +230,10 @@ export default function Footer() {
               Useful Links :
             </h3>
             <nav aria-labelledby="footer-useful-links-heading">
-              <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] list-none p-0 m-0 text-slate-100">
+              <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] list-none p-0 m-0 text-[#f1f5f9]">
                 {FOOTER_LINKS["Useful Links"].map((l, index) => (
                   <li key={l.label} className="flex items-center gap-3 sm:gap-4">
-                    <a href={l.href} target={l.target} rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
                       {l.label}
                     </a>
                     {index < FOOTER_LINKS["Useful Links"].length - 1 && <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>}
@@ -245,27 +245,27 @@ export default function Footer() {
 
           {/* Additional Quick Important Links */}
           <nav aria-label="Important Regulatory Portals">
-            <ul className="text-[14px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1 list-none p-0 m-0 text-slate-100">
+            <ul className="text-[14px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1 list-none p-0 m-0 text-[#f1f5f9]">
               <li className="flex items-center gap-3">
-                <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
                   Segregation Monitoring Collateral
                 </a>
                 <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li className="flex items-center gap-3">
-                <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
                   NSDL e Voting
                 </a>
                 <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li className="flex items-center gap-3">
-                <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
                   NSDL IDEAS Services
                 </a>
                 <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li>
-                <a href="https://api.ratnakarsecurities.com/uploads/Annexure-I_Advisory-for-KYC-updation-1.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a href="https://api.ratnakarsecurities.com/uploads/Annexure-I_Advisory-for-KYC-updation-1.pdf" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
                   Advisory for KYC Updation
                 </a>
               </li>
@@ -336,11 +336,11 @@ export default function Footer() {
                 }}
               >
                 {/* 1st list */}
-                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2 text-slate-100">
+                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2 text-[#f1f5f9]">
                   {ATTENTION_INVESTOR_NOTICES.map((notice, idx) => (
                     <li
                       key={`notice-1-${idx}`}
-                      className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#7dd3fc] list-none -ml-5 pt-1" : ""}
+                      className={`text-[#f1f5f9] ${idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#7dd3fc] list-none -ml-5 pt-1" : ""}`}
                     >
                       {notice}
                     </li>
@@ -348,11 +348,11 @@ export default function Footer() {
                 </ul>
 
                 {/* 2nd duplicate list for continuous infinite loop (hidden from screen reader to avoid redundant announcement) */}
-                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2 text-slate-100" aria-hidden="true">
+                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2 text-[#f1f5f9]" aria-hidden="true">
                   {ATTENTION_INVESTOR_NOTICES.map((notice, idx) => (
                     <li
                       key={`notice-2-${idx}`}
-                      className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#7dd3fc] list-none -ml-5 pt-1" : ""}
+                      className={`text-[#f1f5f9] ${idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#7dd3fc] list-none -ml-5 pt-1" : ""}`}
                     >
                       {notice}
                     </li>
@@ -372,7 +372,7 @@ export default function Footer() {
             </h3>
             <nav aria-labelledby="footer-investor-charter-heading">
               <ul
-                className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] leading-relaxed list-none p-0 m-0 text-slate-100"
+                className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] leading-relaxed list-none p-0 m-0 text-[#f1f5f9]"
               >
                 {INVESTOR_CHARTER_LINKS.map((item, index, arr) => {
                   const isInternal = item.href.startsWith("/") && !item.target;
@@ -385,14 +385,14 @@ export default function Footer() {
                             e.preventDefault();
                             setIsRiskDisclosureModalOpen(true);
                           }}
-                          className="hover:text-white transition-colors cursor-pointer"
+                          className="text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
                         >
                           {item.label}
                         </a>
                       ) : isInternal ? (
                         <Link
                           href={item.href}
-                          className="hover:text-white transition-colors cursor-pointer"
+                          className="text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
                         >
                           {item.label}
                         </Link>
@@ -401,7 +401,7 @@ export default function Footer() {
                           href={item.href}
                           target={item.target}
                           rel={item.target ? "noopener noreferrer" : undefined}
-                          className="hover:text-white transition-colors cursor-pointer"
+                          className="text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
                         >
                           {item.label}
                         </a>
@@ -421,20 +421,20 @@ export default function Footer() {
       </div>
 
       {/* Regulatory & Bottom bar */}
-      <div className="py-8 border-b border-[#00aeee]/15 text-sm sm:text-base text-slate-100 bg-[#011628]">
+      <div className="py-8 border-b border-[#00aeee]/15 text-sm sm:text-base text-[#f1f5f9] bg-[#011628]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-2">
           <h3 className="sr-only">Regulatory Registrations and Redressal Portals</h3>
-          <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-632-2021</p>
-          <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
-          <p>Investor Grievance ID: <a href="mailto:investorgrievance@ratnakarsecurities.com" className="hover:text-white text-[#7dd3fc] transition-colors underline font-medium">investorgrievance@ratnakarsecurities.com</a></p>
+          <p className="text-[#f1f5f9]">Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-632-2021</p>
+          <p className="text-[#f1f5f9]">Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
+          <p className="text-[#f1f5f9]">Investor Grievance ID: <a href="mailto:investorgrievance@ratnakarsecurities.com" className="hover:text-white text-[#7dd3fc] transition-colors underline font-medium">investorgrievance@ratnakarsecurities.com</a></p>
           <nav aria-label="Investor Redressal and Regulatory Portals">
-            <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 mt-4 text-[14px] sm:text-[16px] leading-relaxed list-none p-0 m-0 text-slate-100">
+            <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 mt-4 text-[14px] sm:text-[16px] leading-relaxed list-none p-0 m-0 text-[#f1f5f9]">
               <li className="flex items-center gap-3">
                 <a
                   href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-white transition-colors cursor-pointer"
+                  className="underline text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
                 >
                   Online Dispute Resolution Portal - SMART ODR
                 </a>
@@ -445,7 +445,7 @@ export default function Footer() {
                 <button
                   type="button"
                   onClick={() => setIsScoresModalOpen(true)}
-                  className="underline hover:text-white transition-colors cursor-pointer text-left"
+                  className="underline text-[#f1f5f9] hover:text-white transition-colors cursor-pointer text-left"
                 >
                   To File A Complaint on SCORES - Click Here
                 </button>
@@ -455,7 +455,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Link
                   href="/nomination"
-                  className="underline hover:text-white transition-colors cursor-pointer"
+                  className="underline text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
                 >
                   For Nomination, Please - Click Here
                 </Link>
@@ -467,7 +467,7 @@ export default function Footer() {
                   href="https://twx.ratnakarsecurities.com:4433/twx/signin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-white transition-colors cursor-pointer"
+                  className="underline text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
                 >
                   To Close Account, Please - Click Here
                 </a>
@@ -479,7 +479,7 @@ export default function Footer() {
                   href="https://investor.sebi.gov.in/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline hover:text-white transition-colors cursor-pointer"
+                  className="underline text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
                 >
                   SEBI Investor Website
                 </a>
@@ -489,9 +489,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-white py-4 text-xs text-slate-900" style={{ backgroundColor: "#ffffff" }}>
+      <div className="bg-white py-4 text-xs text-slate-900 border-t border-slate-200" style={{ backgroundColor: "#ffffff", color: "#0f172a" }}>
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <span className="text-slate-900 font-medium">© 2026 Ratnakar Securities Limited. All rights reserved.</span>
+          <span className="text-slate-900 font-medium" style={{ color: "#0f172a" }}>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
           <nav aria-label="Legal Disclosures and Policies">
             <ul className="flex flex-wrap sm:flex-nowrap gap-y-1 justify-center sm:justify-end items-center text-[11px] sm:text-sm list-none p-0 m-0">
               {[
@@ -505,15 +505,15 @@ export default function Footer() {
               ].map((item, index, arr) => (
                 <li key={item.label} className="flex items-center">
                   {item.isLink ? (
-                    <Link href={item.href} className="text-slate-900 hover:text-[#006da0] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
+                    <Link href={item.href} style={{ color: "#0f172a" }} className="text-slate-900 hover:text-[#014d73] transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
                   ) : (
-                    <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-slate-900 hover:text-[#006da0] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
+                    <a href={item.href} target={item.target} rel="noopener noreferrer" style={{ color: "#0f172a" }} className="text-slate-900 hover:text-[#014d73] transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
                   )}
-                  {index < arr.length - 1 && <span className="text-slate-400 select-none" aria-hidden="true">|</span>}
+                  {index < arr.length - 1 && <span className="text-slate-600 select-none mx-0.5" aria-hidden="true" style={{ color: "#475569" }}>|</span>}
                 </li>
               ))}
 
-              <li className="bg-white text-slate-900 px-2 py-0.5 rounded text-xs list-none">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold italic text-slate-900 hover:text-[#006da0] transition-colors">Anaxistech</a></li>
+              <li className="text-slate-900 px-2 py-0.5 rounded text-xs list-none" style={{ color: "#0f172a" }}>Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#0f172a" }} className="font-bold underline italic text-slate-900 hover:text-[#014d73] transition-colors">Anaxistech</a></li>
             </ul>
           </nav>
         </div>

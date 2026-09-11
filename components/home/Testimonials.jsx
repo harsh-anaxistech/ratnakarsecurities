@@ -89,7 +89,8 @@ function Avatar({ name, initials, profileImage }) {
   return (
     <div
       aria-hidden="true"
-      className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 bg-gradient-to-br from-[#004f7a] to-[#012e54] text-white border border-[#012e54]/20 shadow-sm"
+      style={{ backgroundColor: "#012e54" }}
+      className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 bg-[#012e54] bg-gradient-to-br from-[#004f7a] to-[#012e54] text-white border border-[#012e54]/20 shadow-sm"
     >
       {displayInitials}
     </div>

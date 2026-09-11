@@ -12,7 +12,10 @@ export default function HeroSection({
   height = "h-[400px]",
 }) {
   return (
-    <section className={`relative ${height} flex items-center overflow-hidden`}>
+    <section 
+      className={`relative ${height} flex items-center overflow-hidden bg-[#011628] text-white`}
+      style={{ backgroundColor: "#011628", color: "#ffffff" }}
+    >
       <div className="absolute inset-0">
         {mobileImage ? (
           <>
@@ -34,16 +37,16 @@ export default function HeroSection({
         <nav aria-label="Breadcrumbs" className="mb-4">
           <ol className="flex items-center gap-2 text-sm text-white font-medium">
             <li>
-              <Link href="/" className="flex items-center gap-1.5 text-white hover:text-cyan-300 transition drop-shadow-sm">
+              <Link href="/" className="flex items-center gap-1.5 text-white hover:text-[#7dd3fc] transition drop-shadow-sm">
                 <Home size={16} aria-hidden="true" /> <span>Home</span>
               </Link>
             </li>
             {breadcrumbs.map((b, i) => (
               <React.Fragment key={i}>
-                <span className="text-white/80 font-bold" aria-hidden="true">/</span>
+                <span className="text-white font-bold select-none" aria-hidden="true">/</span>
                 {b.href ? (
                   <li className="font-semibold text-white drop-shadow-sm">
-                    <Link href={b.href} className="hover:text-cyan-300 transition">{b.label}</Link>
+                    <Link href={b.href} className="text-white hover:text-[#7dd3fc] transition">{b.label}</Link>
                   </li>
                 ) : (
                   <li className="font-semibold text-white drop-shadow-sm" aria-current="page">{b.label}</li>
@@ -52,7 +55,7 @@ export default function HeroSection({
             ))}
           </ol>
         </nav>
-        <h1 className="text-3xl md:text-5xl font-serif font-bold text-white tracking-tight drop-shadow-md">{title}</h1>
+        <h1 className="text-3xl md:text-5xl font-serif font-bold text-white tracking-tight drop-shadow-md" style={{ color: "#ffffff" }}>{title}</h1>
       </Container>
     </section>
   );

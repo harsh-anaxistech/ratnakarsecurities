@@ -106,11 +106,11 @@ const SITEMAP_SECTIONS = [
  */
 export default function SitemapPage() {
   return (
-    <div className="min-h-screen bg-slate-50 py-10 sm:py-16">
+    <div className="min-h-screen bg-slate-50 py-10 sm:py-16" style={{ backgroundColor: "#f8fafc" }}>
       <Container>
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+          <ol className="flex items-center gap-2 text-xs font-semibold text-slate-600">
             <li>
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             </li>
@@ -121,13 +121,13 @@ export default function SitemapPage() {
 
         {/* Page Title & Intro */}
         <header className="mb-12 max-w-3xl">
-          <span className="text-[#c41f26] font-bold text-xs uppercase tracking-widest block mb-2">
+          <span className="text-[#a7181e] font-bold text-xs uppercase tracking-widest block mb-2" style={{ color: "#a7181e" }}>
             Navigation Index
           </span>
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#011628] mb-4">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#011628] mb-4" style={{ color: "#011628" }}>
             HTML Site Map
           </h1>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-700 text-sm sm:text-base leading-relaxed" style={{ color: "#334155" }}>
             Welcome to the Ratnakar Securities Site Map. Use this page to quickly locate and navigate to all sections, investment products, research reports, investor documents, and regulatory disclosures available on our digital platform.
           </p>
         </header>
@@ -140,6 +140,7 @@ export default function SitemapPage() {
               <section
                 key={section.title}
                 className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+                style={{ backgroundColor: "#ffffff" }}
                 aria-labelledby={`sitemap-section-${section.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <div>
@@ -150,6 +151,7 @@ export default function SitemapPage() {
                     <h2
                       id={`sitemap-section-${section.title.toLowerCase().replace(/\s+/g, "-")}`}
                       className="text-lg font-bold text-[#012e54]"
+                      style={{ color: "#012e54" }}
                     >
                       {section.title}
                     </h2>
@@ -166,7 +168,7 @@ export default function SitemapPage() {
                             className="group flex items-center justify-between text-sm font-medium text-slate-700 hover:text-primary transition-colors py-1 px-1 rounded"
                           >
                             <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
-                            <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#c41f26] shrink-0" aria-label="(Opens in new tab)" />
+                            <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#a7181e] shrink-0" aria-label="(Opens in new tab)" />
                           </a>
                         ) : (
                           <Link
@@ -174,7 +176,7 @@ export default function SitemapPage() {
                             className="group flex items-center justify-between text-sm font-medium text-slate-700 hover:text-primary transition-colors py-1 px-1 rounded"
                           >
                             <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
-                            <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#c41f26] group-hover:translate-x-1 transition-all shrink-0" aria-hidden="true" />
+                            <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#a7181e] group-hover:translate-x-1 transition-all shrink-0" aria-hidden="true" />
                           </Link>
                         )}
                       </li>

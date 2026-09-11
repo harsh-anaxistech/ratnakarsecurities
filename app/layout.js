@@ -33,7 +33,7 @@ export const metadata = baseMetadata;
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased bg-background text-foreground">
+      <body className="min-h-full flex flex-col antialiased bg-background text-foreground" style={{ backgroundColor: "#ffffff", color: "#111827" }}>
         {/* Accessible Skip Link (WCAG 2.4.1 / GIGW 5.2.27) */}
         <SkipLink />
 
