@@ -9,14 +9,14 @@
       title: "Open Your Account",
       desc: "Paperless KYC in minutes. Demat + trading account with NSDL, at zero opening cost.",
       iconColor: "text-[#006da0]",
-      badgeColor: "bg-[#c41f26]",
+      badgeColor: "bg-[#a7181e]",
       bgColor: "bg-[#006da0]/10"
     },
     {
       Icon: Handshake,
       title: "Meet Your Advisor",
       desc: "A dedicated relationship manager understands your goals, income and risk appetite.",
-      iconColor: "text-[#c41f26]",
+      iconColor: "text-[#a7181e]",
       badgeColor: "bg-[#0088c2]",
       bgColor: "bg-[#ea2830]/10"
     },
@@ -25,14 +25,14 @@
       title: "Build Your Portfolio",
       desc: "Invest across equity, funds, commodities and bonds — matched to your plan, not the market noise.",
       iconColor: "text-[#006da0]",
-      badgeColor: "bg-[#c41f26]",
+      badgeColor: "bg-[#a7181e]",
       bgColor: "bg-[#006da0]/10"
     },
     {
       Icon: LineChart,
       title: "Track & Grow",
       desc: "Monitor everything on our app, review quarterly with your RM, and stay the course. Rest assured.",
-      iconColor: "text-[#c41f26]",
+      iconColor: "text-[#a7181e]",
       badgeColor: "bg-[#0088c2]",
       bgColor: "bg-[#ea2830]/10"
     },
@@ -53,7 +53,7 @@ export default function InvestmentSteps() {
         <Container>
           {/* Header */}
           <div className="mb-16 text-center relative z-10">
-            <p style={{ color: "#c41f26" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
+            <p style={{ color: "#a7181e" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
               Your Investment Journey
             </p>
             <h2 id="steps-heading" className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 leading-tight">

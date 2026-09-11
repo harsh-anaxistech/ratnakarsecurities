@@ -303,7 +303,7 @@ export default function InvestorGrievance() {
           {/* Top Quick Escalation Cards (4 Channels) */}
           <div>
             <div className="text-center mb-8">
-              <span className="text-xs font-black tracking-widest uppercase text-[#c41f26] mb-2 block">
+              <span className="text-xs font-black tracking-widest uppercase text-[#a7181e] mb-2 block">
                 Direct Redressal Channels
               </span>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
@@ -336,7 +336,7 @@ export default function InvestorGrievance() {
                   className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#1a6eb5] hover:bg-[#011628] text-white text-xs font-bold rounded-xl transition-colors shadow-xs"
                 >
                   <span>Post to NSDL</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#004f7a]" aria-hidden="true" />
                 </a>
               </div>
 
@@ -789,7 +789,7 @@ export default function InvestorGrievance() {
                   </div>
                   <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#006da0] transition-colors flex items-center justify-between">
                     <span>Email & Income Updation</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100" />
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#006da0]" aria-hidden="true" />
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed">
                     Update your registered email address and annual income criteria seamlessly.
@@ -810,7 +810,7 @@ export default function InvestorGrievance() {
                   </div>
                   <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#1a6eb5] transition-colors flex items-center justify-between">
                     <span>Nominee Updation</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100" />
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#1a6eb5]" aria-hidden="true" />
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed">
                     Add or modify nominee details in your demat account for security.
@@ -831,7 +831,7 @@ export default function InvestorGrievance() {
                   </div>
                   <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#ea2830] transition-colors flex items-center justify-between">
                     <span>NSDL Speed-e Mobile App</span>
-                    <ExternalLink className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100" />
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#ea2830]" aria-hidden="true" />
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed">
                     Execute and monitor demat transfer instructions securely from your phone.

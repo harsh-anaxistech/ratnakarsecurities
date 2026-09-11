@@ -119,16 +119,19 @@ export default function ChooseAppModal({ isOpen, onClose }) {
       >
         {/* BLUE HEADER */}
         <div
-          className="relative px-6 pt-6 pb-5 overflow-hidden flex items-center justify-between"
-          style={{ background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)" }}
+          className="relative px-6 pt-6 pb-5 overflow-hidden flex items-center justify-between bg-[#012e54]"
+          style={{
+            backgroundColor: "#012e54",
+            backgroundImage: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)"
+          }}
         >
           {/* Left side content */}
           <div className="relative z-10 max-w-[60%]">
             <h2 id="choose-app-modal-title" className="text-[16px] sm:text-[22px] font-serif text-white leading-snug">
               Ratnakar&apos;s Online Trading<br />
-              Mobile App &ndash; <span style={{ color: "#00aeee" }}>TradeXpress</span>
+              Mobile App &ndash; <span className="text-[#7dd3fc]">TradeXpress</span>
             </h2>
-            <p className="text-[12px] mt-1 leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>
+            <p className="text-[12px] mt-1 leading-relaxed text-slate-200">
               Choose your platform and download our app to start trading anywhere.
             </p>
           </div>

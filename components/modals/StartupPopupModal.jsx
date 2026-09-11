@@ -187,7 +187,10 @@ export default function StartupPopupModal() {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Royal Blue Header Banner with iPhone Graphic */}
-        <div className="relative bg-gradient-to-r from-[#0B5ED7] via-[#0D6EFD] to-[#0A4BB7] px-5 py-4 text-white overflow-hidden select-none shrink-0 min-h-[90px] flex flex-col justify-between">
+        <div 
+          className="relative bg-[#0B5ED7] bg-gradient-to-r from-[#0B5ED7] via-[#0D6EFD] to-[#0A4BB7] px-5 py-4 text-white overflow-hidden select-none shrink-0 min-h-[90px] flex flex-col justify-between"
+          style={{ backgroundColor: "#0B5ED7" }}
+        >
           {/* Subtle Glow */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sky-400/20 via-transparent to-transparent pointer-events-none" />
 
@@ -216,7 +219,7 @@ export default function StartupPopupModal() {
                 )}
               </h3>
               {/* Cyan Accent Line */}
-              <div className="w-8 h-[3px] bg-[#38BDF8] rounded-full mt-1.5 shadow-xs" />
+              <div className="w-8 h-[3px] bg-[#7dd3fc] rounded-full mt-1.5 shadow-xs" />
             </div>
 
             {/* Right Side: Sleek iPhones Image */}

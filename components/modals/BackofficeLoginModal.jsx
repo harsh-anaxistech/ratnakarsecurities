@@ -127,9 +127,10 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
       >
         {/* BLUE HEADER */}
         <div
-          className="relative flex items-center justify-between overflow-hidden px-6 pb-5 pt-6"
+          className="relative flex items-center justify-between overflow-hidden px-6 pb-5 pt-6 bg-[#012e54]"
           style={{
-            background:
+            backgroundColor: "#012e54",
+            backgroundImage:
               "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
           }}
         >
@@ -137,11 +138,10 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
           <div className="relative z-10 max-w-[60%]">
             <h2 id="backoffice-modal-title" className="font-serif text-[16px] leading-snug text-white sm:text-[22px]">
               Ratnakar&apos;s Online Portals <br />
-              <span style={{ color: "#00aeee" }}>Back Office Logins</span>
+              <span className="text-[#7dd3fc]">Back Office Logins</span>
             </h2>
             <p
-              className="mt-1 text-[12px] leading-relaxed"
-              style={{ color: "rgba(255,255,255,0.75)" }}
+              className="mt-1 text-[12px] leading-relaxed text-slate-200"
             >
               Access your back office portals and manage your trading accounts seamlessly.
             </p>

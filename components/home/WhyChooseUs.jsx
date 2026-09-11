@@ -44,11 +44,12 @@ const REASONS = [
 export default function WhyChooseUs() {
   return (
     <section 
-      className="relative overflow-hidden py-16"
+      className="relative overflow-hidden py-16 bg-[#012e54]"
       aria-labelledby="why-choose-heading"
       style={{ 
-        background: "radial-gradient(1200px 600px at 85% -10%, #1a6eb5 0%, #012e54 45%, #011628 100%)",
-        color: "#fff"
+        backgroundColor: "#012e54",
+        backgroundImage: "radial-gradient(1200px 600px at 85% -10%, #1a6eb5 0%, #012e54 45%, #011628 100%)",
+        color: "#ffffff"
       }}
     >
       <Container>
@@ -57,8 +58,7 @@ export default function WhyChooseUs() {
           {/* Left Side */}
           <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-5">
             <p 
-              style={{ color: "#00aeee" }} 
-              className="text-[14px] font-black tracking-widest uppercase"
+              className="text-[#7dd3fc] text-[14px] font-black tracking-widest uppercase"
               aria-hidden="true"
             >
               Why Choose Ratnakar Securities
@@ -69,7 +69,10 @@ export default function WhyChooseUs() {
                 Returns follow.
               </span>
             </h2>
-            <p className="text-[16px] leading-relaxed text-slate-300 font-medium">
+            <p 
+              className="text-[16px] leading-relaxed text-white font-medium"
+              style={{ color: "#ffffff" }}
+            >
               For 25 years, families across Gujarat and beyond have trusted us with their savings — because we treat every rupee like our own.
             </p>
           </div>
@@ -81,9 +84,10 @@ export default function WhyChooseUs() {
               return (
                 <div 
                   key={r.title} 
-                  className={`flex gap-4 p-5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 ${
+                  className={`flex gap-4 p-5 bg-[#021f38] border border-white/20 rounded-2xl group transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#03294c] ${
                     idx === 4 ? "sm:col-span-2" : ""
                   }`}
+                  style={{ backgroundColor: "#021f38", color: "#ffffff" }}
                 >
                   <div 
                     className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105" 
@@ -93,10 +97,10 @@ export default function WhyChooseUs() {
                   </div>
                   
                   <div className="space-y-1">
-                    <h3 className="text-base font-bold text-white group-hover:text-[#00aeee] transition-colors duration-300">
+                    <h3 className="text-base font-bold text-white group-hover:text-[#7dd3fc] transition-colors duration-300" style={{ color: "#ffffff" }}>
                       {r.title}
                     </h3>
-                    <p className="text-[14px] text-slate-300 leading-relaxed font-medium">
+                    <p className="text-[14px] text-white leading-relaxed font-normal" style={{ color: "#ffffff" }}>
                       {r.desc}
                     </p>
                   </div>

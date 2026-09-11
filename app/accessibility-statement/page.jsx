@@ -277,9 +277,10 @@ export default function AccessibilityStatementPage() {
 
             {/* Accessibility Coordinator Contact Box */}
             <div
-              className="rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between"
+              className="rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col justify-between bg-[#012e54]"
               style={{
-                background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
+                backgroundColor: "#012e54",
+                backgroundImage: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
               }}
             >
               <div>

@@ -89,7 +89,7 @@ function Avatar({ name, initials, profileImage }) {
   return (
     <div
       aria-hidden="true"
-      className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 bg-gradient-to-br from-[#006da0]/20 to-[#006da0]/10 text-[#006da0] border border-[#006da0]/20 shadow-sm"
+      className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs flex-shrink-0 bg-gradient-to-br from-[#004f7a] to-[#012e54] text-white border border-[#012e54]/20 shadow-sm"
     >
       {displayInitials}
     </div>
@@ -248,7 +248,7 @@ export default function Testimonials() {
                   <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100 relative z-10">
                     <Avatar name={t.name} initials={t.initials} profileImage={t.profile_image} />
                     <div className="overflow-hidden">
-                      <p className="text-sm font-bold text-slate-900 group-hover:text-[#006da0] transition-colors duration-300 truncate">
+                      <p className="text-sm font-bold text-slate-900 group-hover:text-[#005a9c] transition-colors duration-300 truncate">
                         {t.name}
                       </p>
                       <p className="text-xs font-semibold text-slate-600 mt-0.5 tracking-wide truncate">

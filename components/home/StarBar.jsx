@@ -81,17 +81,17 @@ export default function StatsBar() {
                   md:justify-start md:text-left md:flex-row`}
               >
                 
-                <div className="w-[3px] h-10 md:h-14 bg-[#ea2830] rounded-full flex-shrink-0" aria-hidden="true" />
+                <div className="w-[3px] h-10 md:h-14 bg-[#a7181e] rounded-full flex-shrink-0" aria-hidden="true" />
                 
 <div className={`flex flex-col justify-center
   ${isRightMobile ? "items-end" : isCenteredMobile ? "items-center" : "items-start"} 
   md:items-start`}
 >
-  <p className="text-2xl sm:text-3xl md:text-4xl font-light text-[#ea2830] tracking-tight m-0" aria-hidden="true">
+  <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#a7181e] tracking-tight m-0" aria-hidden="true">
     <CountUp target={s.num} suffix={s.suffix} />
   </p>
   
-  <p className="text-xs sm:text-sm md:text-lg font-light text-slate-500 mt-0.5 md:mt-1 tracking-tight leading-tight md:whitespace-nowrap m-0">
+  <p className="text-xs sm:text-sm md:text-base font-medium text-slate-700 mt-0.5 md:mt-1 tracking-tight leading-tight md:whitespace-nowrap m-0">
     {s.label}
   </p>
 </div>

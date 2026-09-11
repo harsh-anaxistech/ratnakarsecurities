@@ -513,8 +513,8 @@ export default function Header() {
                           aria-label={`${item.label} Submenu`}
                           onKeyDown={(e) => handleMenuKeyDown(e, btnId)}
                           className={cn(
-                            "absolute left-0 top-full mt-0 z-50 w-[950px] grid grid-cols-2 gap-6 bg-white shadow-2xl border border-border rounded-b-xl p-6 transition-all duration-200 ease-out",
-                            isMenuOpen ? "opacity-100 visible translate-y-0 pointer-events-auto" : "opacity-0 invisible pointer-events-none translate-y-1"
+                            "absolute left-0 top-full mt-0 z-50 w-[950px] gap-6 bg-white shadow-2xl border border-border rounded-b-xl p-6 transition-all duration-200 ease-out",
+                            isMenuOpen ? "grid grid-cols-2 opacity-100 visible translate-y-0 pointer-events-auto" : "hidden opacity-0 invisible pointer-events-none translate-y-1"
                           )}
                         >
                           {item.columns.map((column, i) => (
@@ -542,7 +542,7 @@ export default function Header() {
                           onKeyDown={(e) => handleMenuKeyDown(e, btnId)}
                           className={cn(
                             "absolute left-0 top-full mt-0 z-50 w-96 bg-white shadow-2xl border border-border rounded-b-xl p-3 transition-all duration-200 ease-out",
-                            isMenuOpen ? "opacity-100 visible translate-y-0 pointer-events-auto" : "opacity-0 invisible pointer-events-none translate-y-1"
+                            isMenuOpen ? "block opacity-100 visible translate-y-0 pointer-events-auto" : "hidden opacity-0 invisible pointer-events-none translate-y-1"
                           )}
                         >
                           <div className="space-y-1">
@@ -581,7 +581,7 @@ export default function Header() {
                   href="https://twx.ratnakarsecurities.com:4433/twx/signin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-sm"
                 >
                   RE-KYC
                 </a>
@@ -590,7 +590,7 @@ export default function Header() {
                   href="https://smartkyc.co.in/d/ratnakar"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-sm"
                 >
                   OPEN ACCOUNT
                 </a>
@@ -630,7 +630,7 @@ export default function Header() {
                     aria-haspopup="true"
                     aria-controls="desktop-login-menu"
                     aria-label="Client & Backoffice Login Menu"
-                    className="bg-gradient-to-br from-[#ea2830] to-[#c41f26] hover:opacity-95 text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                    className="bg-[#c41f26] bg-gradient-to-br from-[#c41f26] to-[#a7181e] hover:bg-[#a7181e] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
                   >
                     LOGIN <ChevronDown className={cn("h-3.5 w-3.5 ml-1 transition-transform duration-200 inline", desktopLoginOpen && "rotate-180")} aria-hidden="true" />
                   </Button>
@@ -640,7 +640,7 @@ export default function Header() {
                     onKeyDown={(e) => handleMenuKeyDown(e, "desktop-login-button")}
                     className={cn(
                       "absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-xl py-2 transition-all duration-200 ease-out",
-                      desktopLoginOpen ? "opacity-100 visible translate-y-0 pointer-events-auto" : "opacity-0 invisible pointer-events-none translate-y-1"
+                      desktopLoginOpen ? "block opacity-100 visible translate-y-0 pointer-events-auto" : "hidden opacity-0 invisible pointer-events-none translate-y-1"
                     )}
                   >
                     {LOGIN_LINKS.map((link) => {
@@ -781,7 +781,7 @@ export default function Header() {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile Navigation Drawer"
-        className={cn("fixed inset-0 z-[1000] transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto" : "pointer-events-none")}
+        className={cn("fixed inset-0 z-[1000] transition-all duration-300 lg:hidden", mobileOpen ? "pointer-events-auto block" : "pointer-events-none hidden")}
         aria-hidden={!mobileOpen}
       >
         <div className={cn("absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300", mobileOpen ? "opacity-100" : "opacity-0")} onClick={() => setMobileOpen(false)} />
@@ -900,7 +900,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="w-full text-center inline-flex items-center justify-center bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  className="w-full text-center inline-flex items-center justify-center bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-sm"
                 >
                   RE-KYC
                 </a>
@@ -909,7 +909,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="w-full text-center inline-flex items-center justify-center bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                  className="w-full text-center inline-flex items-center justify-center bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-sm font-bold rounded-lg py-2.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 shadow-sm"
                 >
                   OPEN AN ACCOUNT
                 </a>

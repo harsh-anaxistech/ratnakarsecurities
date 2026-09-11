@@ -35,29 +35,39 @@ export default function CalculatorSection() {
             <Link
               key={item.title}
               href={item.href}
-              // Updated background gradient and shadows for WCAG 2.2 AA contrast compliance
-              className="group w-full flex items-center gap-6 p-6 rounded-2xl bg-gradient-to-br from-[#006da0] to-[#004f7a] shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500"
+              style={{ backgroundColor: "#004f7a" }}
+              className="group w-full flex items-center gap-6 p-6 rounded-2xl bg-[#004f7a] bg-gradient-to-br from-[#006da0] to-[#004f7a] shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500"
             >
               {/* Icon Container - સ્ક્વેર લુક */}
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-white to-blue-50 border border-slate-100 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md">
                 <Image
                   src={item.icon}
-                  alt={item.title}
+                  alt=""
+                  aria-hidden="true"
                   width={32}
                   height={32}
                   className="object-contain"
                 />
               </div>
 
-              {/* Text Content - Updated colors for readability on blue background */}
+              {/* Text Content - Explicit white styling for guaranteed AAA contrast */}
               <div>
-                <h3 className="text-lg font-bold text-white transition-colors duration-300">
+                <h3 
+                  className="text-lg font-bold text-white transition-colors duration-300"
+                  style={{ color: "#ffffff" }}
+                >
                   {item.title}
                 </h3>
-                <p className="text-[14px] text-blue-100 font-medium mt-0.5 mb-2">
+                <p 
+                  className="text-[14px] font-medium mt-0.5 mb-2 text-white"
+                  style={{ color: "#ffffff" }}
+                >
                   {item.subtitle}
                 </p>
-                <span className="inline-flex items-center text-xs font-bold text-white transition-transform duration-300 group-hover:translate-x-1 uppercase tracking-wider">
+                <span 
+                  className="inline-flex items-center text-xs font-bold text-white transition-transform duration-300 group-hover:translate-x-1 uppercase tracking-wider"
+                  style={{ color: "#ffffff" }}
+                >
                   Calculate Now &rarr;
                 </span>
               </div>

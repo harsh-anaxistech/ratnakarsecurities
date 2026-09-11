@@ -333,7 +333,13 @@ export default function ContactDetailsSections() {
         {/* --- BOTTOM SECTION: RTA DETAILS & INVESTOR DETAILS Cards --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* RTA Details Block */}
-          <div className="border border-slate-700 rounded-2xl p-6 md:p-8 text-center space-y-4 text-white shadow-xl" style={{ background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)" }}>
+          <div 
+            className="border border-slate-700 rounded-2xl p-6 md:p-8 text-center space-y-4 text-white shadow-xl bg-[#012e54]" 
+            style={{ 
+              backgroundColor: "#012e54",
+              backgroundImage: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)" 
+            }}
+          >
             <h2 className="text-2xl md:text-3xl text-center pb-2 font-bold text-white">
               RTA Details
             </h2>
@@ -354,7 +360,13 @@ export default function ContactDetailsSections() {
           </div>
 
           {/* Investor Details Block */}
-          <div className="border border-slate-700 rounded-2xl p-6 md:p-8 text-center space-y-4 text-white shadow-xl" style={{ background: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)" }}>
+          <div 
+            className="border border-slate-700 rounded-2xl p-6 md:p-8 text-center space-y-4 text-white shadow-xl bg-[#012e54]" 
+            style={{ 
+              backgroundColor: "#012e54",
+              backgroundImage: "radial-gradient(1200px 600px at 85% -10%, rgb(26, 110, 181) 0%, rgb(1, 46, 84) 45%, rgb(1, 22, 40) 100%)" 
+            }}
+          >
             <h2 className="text-2xl md:text-3xl text-center pb-2 font-bold text-white">
               Investor Details
             </h2>

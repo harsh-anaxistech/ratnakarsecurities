@@ -33,7 +33,7 @@ export default function InvestmentServices() {
 
         {/* Header */}
         <div className="mb-12 text-center">
-          <p style={{ color: "#c41f26" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
+          <p style={{ color: "#a7181e" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
             Investment Opportunities
           </p>
           <h2 id="features-heading" className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -52,10 +52,10 @@ export default function InvestmentServices() {
               {/* Content */}
               <div className="flex justify-between items-start gap-4 mb-4">
                 <div className="flex-1">
-                  <h3 className="text-[20px] font-bold text-[#ea2830] mb-3 group-hover:text-[#006da0] transition-colors duration-300">
+                  <h3 className="text-[20px] font-bold text-[#a7181e] mb-3 group-hover:text-[#005a9c] transition-colors duration-300">
                     {s.title}
                   </h3>
-                  <p className="text-[15px] text-gray-600 leading-relaxed font-medium">
+                  <p className="text-[15px] text-slate-700 leading-relaxed font-medium">
                     {s.desc}
                   </p>
                 </div>
@@ -64,7 +64,8 @@ export default function InvestmentServices() {
                 <div className="flex-shrink-0 w-[64px] h-[64px] transition-transform duration-500 group-hover:scale-110">
                   <Image
                     src={encodeURI(s.icon)}
-                    alt={s.title}
+                    alt=""
+                    aria-hidden="true"
                     width={64}
                     height={64}
                     className="w-full h-full object-contain"
@@ -74,10 +75,10 @@ export default function InvestmentServices() {
 
               {/* Bottom Section with Arrow */}
               <div className="mt-auto pt-4 border-t border-gray-200 flex items-center justify-between">
-                <span className="text-[14px] font-bold text-gray-700 group-hover:text-[#ea2830] transition-colors">
+                <span className="text-[14px] font-bold text-slate-800 group-hover:text-[#a7181e] transition-colors">
                   Learn More
                 </span>
-                <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-[#ea2830] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+                <ArrowRight className="w-4 h-4 text-slate-800 group-hover:text-[#a7181e] transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </div>
             </Link>
           ))}

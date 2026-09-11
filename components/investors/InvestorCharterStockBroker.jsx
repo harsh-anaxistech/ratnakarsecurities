@@ -136,7 +136,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#011628] tracking-tight">
                     Investor Charter & Complaints Disposal Trends
                   </h1>
-                  <p className="text-xs sm:text-sm font-semibold text-[#c41f26] uppercase tracking-wider mt-0.5">
+                  <p className="text-xs sm:text-sm font-semibold text-[#a7181e] uppercase tracking-wider mt-0.5">
                     Stock Broker Division • Ratnakar Securities Ltd.
                   </p>
                 </div>

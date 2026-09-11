@@ -18,10 +18,11 @@ export default function HeroBanner() {
   return (
     <section
       style={{
-        background: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
-        color: "#fff"
+        backgroundColor: "#012e54",
+        backgroundImage: "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
+        color: "#ffffff"
       }}
-      className="relative overflow-hidden w-full min-h-[550px] lg:min-h-[660px] flex items-center pt-8 sm:pt-12 lg:py-0"
+      className="relative overflow-hidden w-full min-h-[550px] lg:min-h-[660px] flex items-center pt-8 sm:pt-12 lg:py-0 bg-[#012e54]"
       aria-label="Maximize Your Wealth Hero Section"
     >
       {/* ── CUSTOM FLOATING ANIMATIONS STYLE ── */}
@@ -65,18 +66,21 @@ export default function HeroBanner() {
           <div className="lg:col-span-6 space-y-4 sm:space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left pt-4 sm:py-6">
 
             <div className="space-y-2 sm:space-y-3 w-full">
-              <span className="text-[#00aeee] text-[14px] font-bold tracking-wider uppercase block">
+              <span className="text-[#7dd3fc] text-[14px] font-bold tracking-wider uppercase block">
                 Maximize Your Wealth.
               </span>
               <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-serif text-white tracking-tight leading-[1.15]">
                 Trade Smarter. <br />
-                <span className="bg-gradient-to-r from-[#00aeee] to-[#008cc3] bg-clip-text text-transparent">
+                <span className="text-[#7dd3fc]">
                   Invest Better.
                 </span>
               </h1>
             </div>
 
-            <p className="text-white/90 text-sm sm:text-lg max-w-xl leading-relaxed mx-auto lg:mx-0">
+            <p
+              className="text-white text-sm sm:text-lg max-w-xl leading-relaxed mx-auto lg:mx-0 font-normal"
+              style={{ color: "#ffffff" }}
+            >
               Your pathway to prosperity where we navigate the realms of Equity, Mutual Funds, IPOs, and more. Trust in us for a journey of smart investments and financial growth.
             </p>
 
@@ -87,7 +91,7 @@ export default function HeroBanner() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Invest Now - Open a Demat and Trading Account with Ratnakar"
-                className="flex items-center justify-center gap-2.5 bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
+                className="flex items-center justify-center gap-2.5 bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
               >
                 <span>Invest Now</span>
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -96,29 +100,29 @@ export default function HeroBanner() {
               <Link
                 href="/products"
                 aria-label="Explore Our Products - View Equity, Mutual Funds, and Bonds"
-                className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
+                className="flex items-center justify-center gap-2 bg-[#022340]/80 hover:bg-[#022340] text-white border border-white/40 text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
               >
                 <span>Explore Our Products</span>
               </Link>
             </div>
             {/* 🏛️ MARKET & REGULATORY ENTITIES CONTENT */}
-            <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 text-white/80 text-[12px] sm:text-sm font-bold tracking-widest uppercase">
-              <a href="https://www.nseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">NSE</a>
-              <span className="text-[#00aeee]/50" aria-hidden="true">|</span>
+            <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 text-white text-[12px] sm:text-sm font-bold tracking-widest uppercase">
+              <a href="https://www.nseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">NSE</a>
+              <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://www.bseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">BSE</a>
-              <span className="text-[#00aeee]/50" aria-hidden="true">|</span>
+              <a href="https://www.bseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">BSE</a>
+              <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://www.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">SEBI</a>
-              <span className="text-[#00aeee]/50" aria-hidden="true">|</span>
+              <a href="https://www.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">SEBI</a>
+              <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://nsdl.co.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">NSDL</a>
-              <span className="text-[#00aeee]/50" aria-hidden="true">|</span>
+              <a href="https://nsdl.co.in" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">NSDL</a>
+              <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://www.mcxindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">MCX</a>
-              <span className="text-[#00aeee]/50" aria-hidden="true">|</span>
+              <a href="https://www.mcxindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">MCX</a>
+              <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">SCORES</a>
+              <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">SCORES</a>
             </div>
           </div>
 
@@ -149,7 +153,7 @@ export default function HeroBanner() {
 
             {/* ── FLOATING GLASSMORPHIC BADGES ── */}
             <div className="absolute top-[10%] left-[0%] sm:left-[8%] lg:left-[10%] z-20 float-anim-1 scale-[0.90] sm:scale-100 origin-left">
-              <div className="flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-2 sm:p-2.5 shadow-xl hover:bg-white/20 transition-all duration-300">
+              <div className="flex items-center gap-2 backdrop-blur-md bg-[#021f38]/90 border border-white/20 rounded-xl p-2 sm:p-2.5 shadow-xl hover:bg-[#021f38] transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0">
                   <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300" aria-hidden="true" />
                 </div>
@@ -158,7 +162,7 @@ export default function HeroBanner() {
             </div>
 
             <div className="absolute top-[34%] left-[-4%] sm:left-[0%] lg:left-[3%] z-20 float-anim-2 scale-[0.90] sm:scale-100 origin-left">
-              <div className="flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-white/20 transition-all duration-300">
+              <div className="flex items-center gap-2 backdrop-blur-md bg-[#021f38]/90 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-[#021f38] transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center shrink-0">
                   <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300" aria-hidden="true" />
                 </div>
@@ -167,7 +171,7 @@ export default function HeroBanner() {
             </div>
 
             <div className="absolute bottom-[10%] left-[-4%] sm:left-[2%] lg:left-[5%] z-20 float-anim-3 scale-[0.90] sm:scale-100 origin-left">
-              <div className="flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-white/20 transition-all duration-300">
+              <div className="flex items-center gap-2 backdrop-blur-md bg-[#021f38]/90 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-[#021f38] transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0">
                   <PiggyBank className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300" aria-hidden="true" />
                 </div>
@@ -176,7 +180,7 @@ export default function HeroBanner() {
             </div>
 
             <div className="absolute top-[18%] right-[-4%] sm:right-[10%] lg:right-[3%] z-20 float-anim-2 scale-[0.90] sm:scale-100 origin-right">
-              <div className="flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-white/20 transition-all duration-300">
+              <div className="flex items-center gap-2 backdrop-blur-md bg-[#021f38]/90 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-[#021f38] transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg flex items-center justify-center shrink-0">
                   <Wallet className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300" aria-hidden="true" />
                 </div>
@@ -185,7 +189,7 @@ export default function HeroBanner() {
             </div>
 
             <div className="absolute bottom-[20%] right-[-6%] sm:right-[6%] lg:right-[10%] z-20 float-anim-1 scale-[0.90] sm:scale-100 origin-right">
-              <div className="flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-white/20 transition-all duration-300">
+              <div className="flex items-center gap-2 backdrop-blur-md bg-[#021f38]/90 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-[#021f38] transition-all duration-300">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0">
                   <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300" aria-hidden="true" />
                 </div>

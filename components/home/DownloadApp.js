@@ -10,14 +10,21 @@ import { FaApple, FaGooglePlay } from "react-icons/fa";
  */
 export default function DownloadApp() {
   return (
-    <section className="pt-12 px-4">
-      <div className="max-w-6xl mx-auto bg-gradient-to-r from-[#c41f26] via-[#1a6eb5] to-[#004b87] rounded-3xl p-8 md:p-8 text-white">
+    <section className="pt-12 px-4" aria-label="Mobile App Download Section">
+      <div 
+        className="max-w-6xl mx-auto rounded-3xl p-8 md:p-8 text-white shadow-2xl overflow-hidden bg-[#012e54]"
+        style={{ 
+          backgroundColor: "#012e54",
+          backgroundImage: "linear-gradient(135deg, #a7181e 0%, #004b87 45%, #012e54 100%)",
+          color: "#ffffff"
+        }}
+      >
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
           {/* લેફ્ટ સાઇડ: કન્ટેન્ટ */}
           <div className="text-center md:text-left flex-1">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Download Our App</h2>
-            <p className="text-blue-100 text-lg mb-8">Trade seamlessly on the go with our professional mobile platform.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" style={{ color: "#ffffff" }}>Download Our App</h2>
+            <p className="text-cyan-100 text-lg mb-8 font-medium" style={{ color: "#cffafe" }}>Trade seamlessly on the go with our professional mobile platform.</p>
 
             {/* Google Image QR Code */}
             <div className="bg-white p-3 rounded-2xl inline-block shadow-lg">
@@ -39,19 +46,33 @@ export default function DownloadApp() {
 
           {/* રાઈટ સાઇડ: બટન્સ */}
           <div className="flex flex-col items-center md:items-stretch gap-4 w-full md:w-auto">
-            <a href="https://apps.apple.com/in/app/ratnakar-tradeexpress/id1281205603" className="flex items-center gap-4 bg-black text-white px-6 py-4 rounded-2xl hover:bg-gray-800 transition-all border border-gray-700 w-[250px] md:w-auto">
-              <FaApple className="w-10 h-10" />
+            <a 
+              href="https://apps.apple.com/in/app/ratnakar-tradeexpress/id1281205603" 
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download Ratnakar TradeExpress on the Apple App Store"
+              className="flex items-center gap-4 text-white px-6 py-4 rounded-2xl hover:bg-slate-900 transition-all border border-slate-700 w-[250px] md:w-auto shadow-lg"
+              style={{ backgroundColor: "#000000", color: "#ffffff" }}
+            >
+              <FaApple className="w-10 h-10 text-white shrink-0" aria-hidden="true" />
               <div className="text-left">
-                <p className="text-[10px] uppercase font-bold text-gray-400">Download on the</p>
-                <p className="text-xl font-semibold">App Store</p>
+                <span className="text-xs uppercase font-bold text-white tracking-wider block" style={{ color: "#ffffff" }}>Download on the</span>
+                <span className="text-xl font-bold text-white block" style={{ color: "#ffffff" }}>App Store</span>
               </div>
             </a>
 
-            <a href="https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress" className="flex items-center gap-4 bg-black text-white px-6 py-4 rounded-2xl hover:bg-gray-800 transition-all border border-gray-700 w-[250px] md:w-auto">
-              <FaGooglePlay className="w-9 h-9 text-green-400" />
+            <a 
+              href="https://play.google.com/store/apps/details?id=com.wave.ratnakartradeexpress" 
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Get Ratnakar TradeExpress on Google Play Store"
+              className="flex items-center gap-4 text-white px-6 py-4 rounded-2xl hover:bg-slate-900 transition-all border border-slate-700 w-[250px] md:w-auto shadow-lg"
+              style={{ backgroundColor: "#000000", color: "#ffffff" }}
+            >
+              <FaGooglePlay className="w-9 h-9 text-green-400 shrink-0" aria-hidden="true" />
               <div className="text-left">
-                <p className="text-[10px] uppercase font-bold text-gray-400">Get it on</p>
-                <p className="text-xl font-semibold">Google Play</p>
+                <span className="text-xs uppercase font-bold text-white tracking-wider block" style={{ color: "#ffffff" }}>Get it on</span>
+                <span className="text-xl font-bold text-white block" style={{ color: "#ffffff" }}>Google Play</span>
               </div>
             </a>
           </div>

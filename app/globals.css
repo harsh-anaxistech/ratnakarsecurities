@@ -10,7 +10,7 @@
 
   /* Brand Colors */
   --color-primary: #ea2830;
-  --color-primary-dark: #c41f26;
+  --color-primary-dark: #a7181e;
   --color-primary-light: #ea28301f;
 
   --color-secondary: #006da0;
@@ -46,7 +46,7 @@
    ===================================================== */
 :root {
   --primary: #ea2830;
-  --primary-dark: #c41f26;
+  --primary-dark: #a7181e;
   --primary-light: #ea28301f;
 
   --secondary: #006da0;

@@ -102,11 +102,11 @@ export default function Footer() {
   }, [isScoresModalOpen, isRiskDisclosureModalOpen]);
 
   return (
-    <footer aria-labelledby="footer-main-heading" style={{ background: "#011628", color: "#c8dff0" }}>
+    <footer aria-labelledby="footer-main-heading" style={{ backgroundColor: "#011628", color: "#f1f5f9" }} className="bg-[#011628] text-slate-100">
       <h2 id="footer-main-heading" className="sr-only">Footer Information & Statutory Disclosures</h2>
 
       {/* 4 Column Main Footer Section */}
-      <div className="pt-16 pb-10 border-b border-gray-500/30">
+      <div className="pt-16 pb-10 border-b border-slate-700/50 bg-[#011628]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
 
@@ -124,12 +124,12 @@ export default function Footer() {
                 </div>
               </Link>
 
-              <ul className="text-[14px] sm:text-[15px] leading-relaxed space-y-0.5" style={{ color: "#9fc8e0" }}>
-                <li><strong>Ratnakar Securities Ltd.</strong></li>
+              <ul className="text-[14px] sm:text-[15px] leading-relaxed space-y-0.5 text-slate-100">
+                <li><strong className="text-white">Ratnakar Securities Ltd.</strong></li>
                 <li>304, Sankalp Square - 2,</li>
                 <li>Near Jalaram Mandir Crossing,</li>
                 <li>Ellisbridge, Ahmedabad - 380006</li>
-                <li>Contact No : <a href="tel:07949005200" className="hover:text-white transition-colors">079 - 49005200 / 01 / 02</a></li>
+                <li>Contact No : <a href="tel:07949005200" className="hover:text-white text-[#7dd3fc] transition-colors font-medium">079 - 49005200 / 01 / 02</a></li>
               </ul>
 
               <nav aria-label="Social Media Links">
@@ -143,7 +143,7 @@ export default function Footer() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={social.label}
-                          className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-[#13304a] text-[#9fc8e0] hover:bg-[#0088c2] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
+                          className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-[#13304a] text-[#7dd3fc] hover:bg-[#0088c2] hover:text-white flex items-center justify-center transition-all duration-300 shadow-md"
                         >
                           <Icon className="w-4 h-4" aria-hidden="true" />
                         </a>
@@ -158,8 +158,7 @@ export default function Footer() {
             <div className="col-span-2">
               <h3
                 id="footer-products-heading"
-                className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase mb-4 sm:mb-5"
-                style={{ color: "#00aeee" }}
+                className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase mb-4 sm:mb-5 text-[#7dd3fc]"
               >
                 Products
               </h3>
@@ -172,14 +171,14 @@ export default function Footer() {
                           href={l.href}
                           target={l.target}
                           rel="noopener noreferrer"
-                          className="text-[14px] sm:text-[16px] hover:text-white transition-colors"
+                          className="text-[14px] sm:text-[16px] text-slate-100 hover:text-white transition-colors"
                         >
                           {l.label}
                         </a>
                       ) : (
                         <Link
                           href={l.href}
-                          className="text-[14px] sm:text-[16px] hover:text-white transition-colors"
+                          className="text-[14px] sm:text-[16px] text-slate-100 hover:text-white transition-colors"
                         >
                           {l.label}
                         </Link>
@@ -194,8 +193,7 @@ export default function Footer() {
             <div className="col-span-2 lg:col-span-1">
               <h3
                 id="footer-about-heading"
-                className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase mb-4 sm:mb-5"
-                style={{ color: "#00aeee" }}
+                className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase mb-4 sm:mb-5 text-[#7dd3fc]"
               >
                 About Us
               </h3>
@@ -205,7 +203,7 @@ export default function Footer() {
                     <li key={l.label}>
                       <Link
                         href={l.href}
-                        className="text-[14px] sm:text-[16px] hover:text-white transition-colors"
+                        className="text-[14px] sm:text-[16px] text-slate-100 hover:text-white transition-colors"
                       >
                         {l.label}
                       </Link>
@@ -220,26 +218,25 @@ export default function Footer() {
       </div>
 
       {/* Useful Links Full-Width Horizontal Row & Important Links */}
-      <div className="py-6 border-b border-gray-500/30">
+      <div className="py-6 border-b border-slate-700/50 bg-[#011628]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-4">
 
           {/* Useful Links Row */}
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <h3
               id="footer-useful-links-heading"
-              className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase shrink-0"
-              style={{ color: "#00aeee" }}
+              className="text-[15px] sm:text-[16px] font-bold tracking-widest uppercase shrink-0 text-[#7dd3fc]"
             >
               Useful Links :
             </h3>
             <nav aria-labelledby="footer-useful-links-heading">
-              <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] list-none p-0 m-0" style={{ color: "#9fc8e0" }}>
+              <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] list-none p-0 m-0 text-slate-100">
                 {FOOTER_LINKS["Useful Links"].map((l, index) => (
                   <li key={l.label} className="flex items-center gap-3 sm:gap-4">
                     <a href={l.href} target={l.target} rel="noopener noreferrer" className="hover:text-white transition-colors">
                       {l.label}
                     </a>
-                    {index < FOOTER_LINKS["Useful Links"].length - 1 && <span className="opacity-40" aria-hidden="true">|</span>}
+                    {index < FOOTER_LINKS["Useful Links"].length - 1 && <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>}
                   </li>
                 ))}
               </ul>
@@ -248,24 +245,24 @@ export default function Footer() {
 
           {/* Additional Quick Important Links */}
           <nav aria-label="Important Regulatory Portals">
-            <ul className="text-[14px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1 list-none p-0 m-0" style={{ color: "#9fc8e0" }}>
+            <ul className="text-[14px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1 list-none p-0 m-0 text-slate-100">
               <li className="flex items-center gap-3">
                 <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   Segregation Monitoring Collateral
                 </a>
-                <span className="opacity-40" aria-hidden="true">|</span>
+                <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li className="flex items-center gap-3">
                 <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   NSDL e Voting
                 </a>
-                <span className="opacity-40" aria-hidden="true">|</span>
+                <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li className="flex items-center gap-3">
                 <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   NSDL IDEAS Services
                 </a>
-                <span className="opacity-40" aria-hidden="true">|</span>
+                <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li>
                 <a href="https://api.ratnakarsecurities.com/uploads/Annexure-I_Advisory-for-KYC-updation-1.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
@@ -279,7 +276,7 @@ export default function Footer() {
       </div>
 
       {/* 2. INVESTOR NOTICES & INVESTOR CHARTER SECTION */}
-      <div className="py-8 border-b border-[#00aeee]/30">
+      <div className="py-8 border-b border-[#00aeee]/30 bg-[#011628]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-6">
 
           {/* Section 1: ATTENTION INVESTORS with Vertical Auto-Scrolling and Pause/Play Control (WCAG 2.2.2 & GIGW 5.2.25) */}
@@ -287,8 +284,7 @@ export default function Footer() {
             <div className="flex items-center justify-between mb-3">
               <h3
                 id="footer-attention-investors-heading"
-                className="text-[15px] sm:text-[17px] font-bold tracking-wide uppercase"
-                style={{ color: "#00aeee" }}
+                className="text-[15px] sm:text-[17px] font-bold tracking-wide uppercase text-[#7dd3fc]"
               >
                 ATTENTION INVESTORS
               </h3>
@@ -340,11 +336,11 @@ export default function Footer() {
                 }}
               >
                 {/* 1st list */}
-                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2" style={{ color: "#9fc8e0" }}>
+                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2 text-slate-100">
                   {ATTENTION_INVESTOR_NOTICES.map((notice, idx) => (
                     <li
                       key={`notice-1-${idx}`}
-                      className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#00aeee] list-none -ml-5 pt-1" : ""}
+                      className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#7dd3fc] list-none -ml-5 pt-1" : ""}
                     >
                       {notice}
                     </li>
@@ -352,11 +348,11 @@ export default function Footer() {
                 </ul>
 
                 {/* 2nd duplicate list for continuous infinite loop (hidden from screen reader to avoid redundant announcement) */}
-                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2" style={{ color: "#9fc8e0" }} aria-hidden="true">
+                <ul className="list-disc pl-5 space-y-2 text-[13.5px] sm:text-[15px] leading-relaxed pb-2 text-slate-100" aria-hidden="true">
                   {ATTENTION_INVESTOR_NOTICES.map((notice, idx) => (
                     <li
                       key={`notice-2-${idx}`}
-                      className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#00aeee] list-none -ml-5 pt-1" : ""}
+                      className={idx === ATTENTION_INVESTOR_NOTICES.length - 1 ? "font-semibold text-[#7dd3fc] list-none -ml-5 pt-1" : ""}
                     >
                       {notice}
                     </li>
@@ -370,15 +366,13 @@ export default function Footer() {
           <div className="pt-2">
             <h3
               id="footer-investor-charter-heading"
-              className="text-[15px] sm:text-[17px] font-bold tracking-wide uppercase mb-3"
-              style={{ color: "#00aeee" }}
+              className="text-[15px] sm:text-[17px] font-bold tracking-wide uppercase mb-3 text-[#7dd3fc]"
             >
               INVESTOR CHARTER
             </h3>
             <nav aria-labelledby="footer-investor-charter-heading">
               <ul
-                className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] leading-relaxed list-none p-0 m-0"
-                style={{ color: "#9fc8e0" }}
+                className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] leading-relaxed list-none p-0 m-0 text-slate-100"
               >
                 {INVESTOR_CHARTER_LINKS.map((item, index, arr) => {
                   const isInternal = item.href.startsWith("/") && !item.target;
@@ -414,7 +408,7 @@ export default function Footer() {
                       )}
 
                       {index < arr.length - 1 && (
-                        <span className="opacity-40" aria-hidden="true">|</span>
+                        <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
                       )}
                     </li>
                   );
@@ -427,14 +421,14 @@ export default function Footer() {
       </div>
 
       {/* Regulatory & Bottom bar */}
-      <div className="py-8 border-b border-[#00aeee]/15 text-sm sm:text-base text-[#9fc8e0]">
+      <div className="py-8 border-b border-[#00aeee]/15 text-sm sm:text-base text-slate-100 bg-[#011628]">
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 space-y-2">
           <h3 className="sr-only">Regulatory Registrations and Redressal Portals</h3>
           <p>Ratnakar Securities Pvt. Ltd.: SEBI Registration No. of NSE, BSE : INZ000191735 | SEBI Registration No. of NSDL : IN-DP-632-2021</p>
           <p>Ratnakar Commodities Pvt. Ltd : SEBI Registration No. of MCX : INZ000024138</p>
-          <p>Investor Grievance ID: <a href="mailto:investorgrievance@ratnakarsecurities.com" className="hover:text-white transition-colors underline">investorgrievance@ratnakarsecurities.com</a></p>
+          <p>Investor Grievance ID: <a href="mailto:investorgrievance@ratnakarsecurities.com" className="hover:text-white text-[#7dd3fc] transition-colors underline font-medium">investorgrievance@ratnakarsecurities.com</a></p>
           <nav aria-label="Investor Redressal and Regulatory Portals">
-            <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 mt-4 text-[14px] sm:text-[16px] leading-relaxed list-none p-0 m-0" style={{ color: "#9fc8e0" }}>
+            <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 mt-4 text-[14px] sm:text-[16px] leading-relaxed list-none p-0 m-0 text-slate-100">
               <li className="flex items-center gap-3">
                 <a
                   href="https://api.ratnakarsecurities.com/uploads/files/Ratnakar-Securities-Smart-ODR.pdf"
@@ -444,7 +438,7 @@ export default function Footer() {
                 >
                   Online Dispute Resolution Portal - SMART ODR
                 </a>
-                <span className="opacity-40" aria-hidden="true">|</span>
+                <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
 
               <li className="flex items-center gap-3">
@@ -455,7 +449,7 @@ export default function Footer() {
                 >
                   To File A Complaint on SCORES - Click Here
                 </button>
-                <span className="opacity-40" aria-hidden="true">|</span>
+                <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
 
               <li className="flex items-center gap-3">
@@ -465,7 +459,7 @@ export default function Footer() {
                 >
                   For Nomination, Please - Click Here
                 </Link>
-                <span className="opacity-40" aria-hidden="true">|</span>
+                <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
 
               <li className="flex items-center gap-3">
@@ -477,7 +471,7 @@ export default function Footer() {
                 >
                   To Close Account, Please - Click Here
                 </a>
-                <span className="opacity-40" aria-hidden="true">|</span>
+                <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
 
               <li>
@@ -495,9 +489,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="bg-white py-4 text-xs text-black">
+      <div className="bg-white py-4 text-xs text-slate-900" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <span>© 2026 Ratnakar Securities Limited. All rights reserved.</span>
+          <span className="text-slate-900 font-medium">© 2026 Ratnakar Securities Limited. All rights reserved.</span>
           <nav aria-label="Legal Disclosures and Policies">
             <ul className="flex flex-wrap sm:flex-nowrap gap-y-1 justify-center sm:justify-end items-center text-[11px] sm:text-sm list-none p-0 m-0">
               {[
@@ -511,15 +505,15 @@ export default function Footer() {
               ].map((item, index, arr) => (
                 <li key={item.label} className="flex items-center">
                   {item.isLink ? (
-                    <Link href={item.href} className="text-black hover:text-[#006da0] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
+                    <Link href={item.href} className="text-slate-900 hover:text-[#006da0] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
                   ) : (
-                    <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-black hover:text-[#006da0] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
+                    <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-slate-900 hover:text-[#006da0] transition-colors font-medium px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
                   )}
-                  {index < arr.length - 1 && <span className="text-gray-400 select-none" aria-hidden="true">|</span>}
+                  {index < arr.length - 1 && <span className="text-slate-400 select-none" aria-hidden="true">|</span>}
                 </li>
               ))}
 
-              <li className="bg-white text-black px-2 py-0.5 rounded text-xs list-none">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold italic text-black hover:text-[#006da0] transition-colors">Anaxistech</a></li>
+              <li className="bg-white text-slate-900 px-2 py-0.5 rounded text-xs list-none">Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-semibold italic text-slate-900 hover:text-[#006da0] transition-colors">Anaxistech</a></li>
             </ul>
           </nav>
         </div>
@@ -537,9 +531,10 @@ export default function Footer() {
           >
             {/* Header */}
             <div
-              className="px-6 py-6 sm:px-8 sm:py-7 relative flex items-center justify-between"
+              className="px-6 py-6 sm:px-8 sm:py-7 relative flex items-center justify-between bg-[#012e54]"
               style={{
-                background:
+                backgroundColor: "#012e54",
+                backgroundImage:
                   "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
               }}
             >
