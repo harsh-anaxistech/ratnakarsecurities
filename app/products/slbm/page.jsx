@@ -10,6 +10,7 @@ import {
 import HeroSection from "@/components/common/HeroSection";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
+import ProductSidebar from "@/components/common/ProductSidebar";
 import { PRODUCTS_DATA } from "../data";
 
 export default function ProductDetailsPage() {
@@ -48,7 +49,7 @@ export default function ProductDetailsPage() {
           <div className="w-full lg:w-[70%] bg-white rounded-2xl shadow-sm border border-black/5 p-5 md:p-10">
             {/* Intro */}
             <div className="mb-10 pb-8 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h2>
@@ -83,11 +84,18 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* Why Choose Us */}
-            <div className="bg-gradient-to-br from-[#006da0] to-[#012e54] p-8 rounded-2xl text-white mb-12">
-              <h3 className="text-xl font-bold mb-6">Why Choose SLBM with Ratnakar Securities?</h3>
+            <div 
+              className="bg-[#012e54] p-8 rounded-2xl text-white mb-12"
+              style={{
+                backgroundColor: "#012e54",
+                backgroundImage: "linear-gradient(to bottom right, #006da0, #012e54)",
+                color: "#ffffff"
+              }}
+            >
+              <h3 className="text-xl font-bold mb-6 text-white">Why Choose SLBM with Ratnakar Securities?</h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {["Simple and hassle-free process.", "Research-backed recommendations.", "Dedicated advisory support.", "Secure online trading platform.", "Transparent, exchange-regulated transactions.", "Timely market insights."].map((b, i) => (
-                  <li key={i} className="flex items-center gap-2 text-[16px]"><CheckCircle2 className="w-5 h-5" /> {b}</li>
+                  <li key={i} className="flex items-center gap-2 text-[16px]"><CheckCircle2 className="w-5 h-5 text-white" /> {b}</li>
                 ))}
               </ul>
             </div>
@@ -157,35 +165,7 @@ export default function ProductDetailsPage() {
           </div>
 
           {/* RIGHT SIDE: ALL PRODUCTS SIDEBAR */}
-          <aside className="w-full lg:w-[30%] space-y-8">
-            <div className="rounded-2xl shadow-lg p-6 sticky top-[100px]" style={{ background: "linear-gradient(180deg, #2a689b 0%, #1e4b75 100%)", color: "rgb(255, 255, 255)" }}>
-              <h3 className="text-xl font-bold font-serif text-white mb-6 pb-4 border-b border-white/20 uppercase tracking-wide">
-                Investment Options
-              </h3>
-              <ul className="space-y-3">
-                {PRODUCTS_DATA.map((item) => {
-                  const isActive = item.slug === slug;
-                  return (
-                    <li key={item.id}>
-                      <Link
-                        href={`/products/${item.slug}`}
-                        className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 group font-bold text-[16px] ${isActive
-                          ? "bg-white text-[#ea2830] border-l-[3px] border-[#ea2830] shadow-md"
-                          : "bg-white/10 text-white border-l-[3px] border-transparent hover:bg-white hover:text-[#ea2830]"
-                          }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span>{item.title}</span>
-                        </div>
-                        <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-[#ea2830] translate-x-1" : "text-white/60 group-hover:translate-x-1 group-hover:text-[#ea2830]"
-                          }`} />
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </aside>
+          <ProductSidebar currentSlug={slug} />
         </div>
       </Container>
     </div>

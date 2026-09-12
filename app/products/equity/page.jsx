@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight, CheckCircle2, ArrowRight, HelpCircle, AlertCircle, Plus, Minus } from "lucide-react";
 import HeroSection from "@/components/common/HeroSection";
 import Container from "@/components/common/Container";
+import ProductSidebar from "@/components/common/ProductSidebar";
 import { PRODUCTS_DATA } from "../data";
 
 export default function ProductDetailsPage() {
@@ -44,7 +45,7 @@ export default function ProductDetailsPage() {
           {/* LEFT SIDE: MAIN CONTENT */}
           <div className="w-full lg:w-[70%] bg-white rounded-2xl shadow-sm border border-black/5 p-4 md:p-8">
             <div className="mb-8 pb-6 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -104,7 +105,14 @@ export default function ProductDetailsPage() {
               </div>
 
               <h3 className="text-[18px] font-bold text-slate-900 mb-6">Why Invest in Equities with Ratnakar Securities?</h3>
-              <div className="bg-gradient-to-br from-[#006da0] to-[#012e54] p-8 rounded-2xl shadow-md text-white mb-8">
+              <div 
+                className="bg-[#012e54] p-8 rounded-2xl shadow-md text-white mb-8"
+                style={{
+                  backgroundColor: "#012e54",
+                  backgroundImage: "linear-gradient(to bottom right, #006da0, #012e54)",
+                  color: "#ffffff"
+                }}
+              >
                 <ul className="space-y-4">
                   {[
                     "Research-backed stock recommendations.",
@@ -174,35 +182,7 @@ export default function ProductDetailsPage() {
           </div>
 
           {/* RIGHT SIDE: ALL PRODUCTS SIDEBAR */}
-          <aside className="w-full lg:w-[30%] space-y-8">
-            <div className="rounded-2xl shadow-lg p-6 sticky top-[100px]" style={{ background: "linear-gradient(180deg, #2a689b 0%, #1e4b75 100%)", color: "rgb(255, 255, 255)" }}>
-              <h3 className="text-xl font-bold font-serif text-white mb-6 pb-4 border-b border-white/20 uppercase tracking-wide">
-                Investment Options
-              </h3>
-              <ul className="space-y-3">
-                {PRODUCTS_DATA.map((item) => {
-                  const isActive = item.slug === slug;
-                  return (
-                    <li key={item.id}>
-                      <Link
-                        href={`/products/${item.slug}`}
-                        className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 group font-bold text-[16px] ${isActive
-                          ? "bg-white text-[#ea2830] border-l-[3px] border-[#ea2830] shadow-md"
-                          : "bg-white/10 text-white border-l-[3px] border-transparent hover:bg-white hover:text-[#ea2830]"
-                          }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span>{item.title}</span>
-                        </div>
-                        <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-[#ea2830] translate-x-1" : "text-white/60 group-hover:translate-x-1 group-hover:text-[#ea2830]"
-                          }`} />
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </aside>
+          <ProductSidebar currentSlug={slug} />
         </div>
       </Container>
     </div>

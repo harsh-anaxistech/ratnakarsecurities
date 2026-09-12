@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronRight, CheckCircle2, ArrowRight, HelpCircle, AlertCircle, Plus, Minus } from "lucide-react";
+import { CheckCircle2, ArrowRight, HelpCircle, AlertCircle, Plus, Minus } from "lucide-react";
 import HeroSection from "@/components/common/HeroSection";
 import Container from "@/components/common/Container";
+import ProductSidebar from "@/components/common/ProductSidebar";
 import { PRODUCTS_DATA } from "../data";
 
 export default function ProductDetailsPage() {
@@ -55,7 +56,7 @@ export default function ProductDetailsPage() {
 
             {/* Top Title & Tagline */}
             <div className="mb-8 pb-6 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#ea2830] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -65,17 +66,17 @@ export default function ProductDetailsPage() {
 
             {/* Niche Content */}
             <div className="max-w-none mb-12">
-              <p className="text-[16px] leading-relaxed mb-6 text-[#314158]">
+              <p className="text-[16px] leading-relaxed mb-6 text-slate-800">
                 {product.description1}
               </p>
 
               {product.description2.split('\n').map((line, i) => (
-                <p key={i} className="text-[16px] leading-relaxed mb-5 text-[#314158]">
+                <p key={i} className="text-[16px] leading-relaxed mb-5 text-slate-800">
                   {line}
                 </p>
               ))}
 
-              <div className="mt-10 bg-slate-50 rounded-2xl p-8 border border-black/5">
+              <div className="mt-10 bg-slate-50 rounded-2xl p-8 border border-slate-200">
                 <h3 className="text-xl font-bold text-slate-900 mb-6">
                   {product.featuresTitle}
                 </h3>
@@ -85,7 +86,7 @@ export default function ProductDetailsPage() {
                       <div className="mt-1 bg-[#ea2830]/10 p-1.5 rounded-full text-[#ea2830] shrink-0">
                         <CheckCircle2 className="w-4 h-4" />
                       </div>
-                      <span className="text-[16px] text-[#314158] font-medium leading-relaxed">
+                      <span className="text-[16px] text-slate-900 font-medium leading-relaxed">
                         {feature}
                       </span>
                     </li>
@@ -99,19 +100,19 @@ export default function ProductDetailsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
                     <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300" />
-                    <span className="text-[16px] text-[#314158] leading-relaxed">Leverage to amplify returns</span>
+                    <span className="text-[16px] text-slate-800 leading-relaxed">Leverage to amplify returns</span>
                   </div>
                   <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
                     <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300" />
-                    <span className="text-[16px] text-[#314158] leading-relaxed">Hedging against market volatility</span>
+                    <span className="text-[16px] text-slate-800 leading-relaxed">Hedging against market volatility</span>
                   </div>
                   <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
                     <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300" />
-                    <span className="text-[16px] text-[#314158] leading-relaxed">Diversify across asset classes</span>
+                    <span className="text-[16px] text-slate-800 leading-relaxed">Diversify across asset classes</span>
                   </div>
                   <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
                     <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300" />
-                    <span className="text-[16px] text-[#314158] leading-relaxed">Access multiple markets from one platform</span>
+                    <span className="text-[16px] text-slate-800 leading-relaxed">Access multiple markets from one platform</span>
                   </div>
                 </div>
               </div>
@@ -174,35 +175,7 @@ export default function ProductDetailsPage() {
           {/* ==========================================
               RIGHT SIDE: ALL PRODUCTS SIDEBAR
           ========================================== */}
-          <aside className="w-full lg:w-[30%] space-y-8">
-            <div className="rounded-2xl shadow-lg p-6 sticky top-[100px]" style={{ background: "linear-gradient(180deg, #2a689b 0%, #1e4b75 100%)", color: "rgb(255, 255, 255)" }}>
-              <h3 className="text-xl font-bold font-serif text-white mb-6 pb-4 border-b border-white/20 uppercase tracking-wide">
-                Investment Options
-              </h3>
-              <ul className="space-y-3">
-                {PRODUCTS_DATA.map((item) => {
-                  const isActive = item.slug === slug;
-                  return (
-                    <li key={item.id}>
-                      <Link
-                        href={`/products/${item.slug}`}
-                        className={`flex items-center justify-between p-4 rounded-xl transition-all duration-300 group font-bold text-[16px] ${isActive
-                          ? "bg-white text-[#ea2830] border-l-[3px] border-[#ea2830] shadow-md"
-                          : "bg-white/10 text-white border-l-[3px] border-transparent hover:bg-white hover:text-[#ea2830]"
-                          }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <span>{item.title}</span>
-                        </div>
-                        <ChevronRight className={`w-5 h-5 transform transition-transform ${isActive ? "text-[#ea2830] translate-x-1" : "text-white/60 group-hover:translate-x-1 group-hover:text-[#ea2830]"
-                          }`} />
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          </aside>
+          <ProductSidebar currentSlug={slug} />
         </div>
       </Container>
     </div>

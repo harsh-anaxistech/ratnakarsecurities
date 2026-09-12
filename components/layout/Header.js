@@ -465,15 +465,15 @@ export default function Header() {
                           className={cn(
                             "flex h-full items-center gap-1.5 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-slate-50",
                             isActive || isMenuOpen
-                              ? "text-primary border-primary"
-                              : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
+                              ? "text-[#b91c1c] border-[#b91c1c]"
+                              : "text-gray-700 border-transparent hover:text-[#b91c1c] hover:border-[#b91c1c]"
                           )}
                         >
                           <span>{item.label}</span>
                           <ChevronDown
                             className={cn(
                               "h-3.5 w-3.5 opacity-70 transition-transform duration-200",
-                              isMenuOpen && "rotate-180 text-primary"
+                              isMenuOpen && "rotate-180 text-[#b91c1c]"
                             )}
                             aria-hidden="true"
                           />
@@ -498,8 +498,8 @@ export default function Header() {
                           className={cn(
                             "flex h-full items-center gap-1 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-slate-50",
                             isActive
-                              ? "text-primary border-primary"
-                              : "text-gray-700 border-transparent hover:text-primary hover:border-primary"
+                              ? "text-[#b91c1c] border-[#b91c1c]"
+                              : "text-gray-700 border-transparent hover:text-[#b91c1c] hover:border-[#b91c1c]"
                           )}
                         >
                           {item.label}
@@ -816,7 +816,7 @@ export default function Header() {
                         <button
                           onClick={() => { setOpenAccordion(isOpen ? null : item.label); setMobileLoginOpen(false); }}
                           aria-expanded={isOpen}
-                          className={cn("flex w-full items-center justify-between py-3 px-3 text-sm font-semibold rounded transition-colors", isActive ? "text-primary" : "text-foreground hover:bg-muted")}
+                          className={cn("flex w-full items-center justify-between py-3 px-3 text-sm font-semibold rounded transition-colors", isActive ? "text-[#b91c1c]" : "text-foreground hover:bg-muted")}
                         >
                           <span>{item.label}</span>
                           <ChevronDown className={cn("h-4 w-4 transition-transform duration-200", isOpen && "rotate-180")} aria-hidden="true" />
@@ -824,7 +824,7 @@ export default function Header() {
                         <div className={cn("overflow-hidden transition-all duration-300", isOpen ? "max-h-[1000px] pb-2" : "max-h-0")}>
                           <div className="flex flex-col gap-0.5 pl-3 pt-1">
                             {subLinks.map((link) => (
-                              <DropdownLink key={link.label} link={link} className={cn("block py-2 px-3 text-sm rounded transition-colors", pathname === link.href ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground hover:bg-muted")} onClick={() => setMobileOpen(false)}>
+                              <DropdownLink key={link.label} link={link} className={cn("block py-2 px-3 text-sm rounded transition-colors", pathname === link.href ? "text-[#b91c1c] font-semibold" : "text-muted-foreground hover:text-foreground hover:bg-muted")} onClick={() => setMobileOpen(false)}>
                                 {link.label}
                               </DropdownLink>
                             ))}
@@ -832,7 +832,7 @@ export default function Header() {
                         </div>
                       </>
                     ) : (
-                      <Link href={item.href} onClick={() => setMobileOpen(false)} className={cn("block py-3 px-3 text-sm font-semibold rounded transition-colors", isActive ? "text-primary" : "text-foreground hover:bg-muted")}>
+                      <Link href={item.href} onClick={() => setMobileOpen(false)} className={cn("block py-3 px-3 text-sm font-semibold rounded transition-colors", isActive ? "text-[#b91c1c]" : "text-foreground hover:bg-muted")}>
                         {item.label}
                       </Link>
                     )}
