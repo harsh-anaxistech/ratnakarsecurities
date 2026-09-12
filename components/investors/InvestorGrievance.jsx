@@ -294,8 +294,8 @@ export default function InvestorGrievance() {
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#00aeee] px-3.5 py-1.5 rounded-full shadow-xs border border-[#00aeee]/20">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#00aeee]" /> NSDL & SEBI Redressal Framework
+              <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#006da0] px-3.5 py-1.5 rounded-full shadow-xs border border-[#006da0]/20">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#006da0]" /> NSDL & SEBI Redressal Framework
               </span>
             </div>
           </div>
@@ -377,9 +377,9 @@ export default function InvestorGrievance() {
 
               {/* Card 3: SEBI SCORES 2.0 */}
               <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-full h-1 bg-[#ea2830]" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-[#c41f26]" />
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-[#ea2830]/10 text-[#ea2830] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-[#c41f26]/10 text-[#c41f26] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Scale className="w-6 h-6" />
                   </div>
                   <h3 className="font-bold text-slate-900 text-base mb-1.5">
@@ -393,7 +393,7 @@ export default function InvestorGrievance() {
                   href="https://scores.sebi.gov.in/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#ea2830] hover:bg-[#c91e25] text-white text-xs font-bold rounded-xl transition-colors shadow-xs"
+                  className="inline-flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-[#c41f26] hover:bg-[#c91e25] text-white text-xs font-bold rounded-xl transition-colors shadow-xs"
                 >
                   <span>File on SCORES</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -526,8 +526,8 @@ export default function InvestorGrievance() {
             {/* Guide Content: Arbitration */}
             {activeGuideTab === "arbitration" && (
               <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-8 space-y-6">
-                <div className="flex items-start gap-4 p-4 bg-[#ea2830]/5 rounded-2xl border border-[#ea2830]/15">
-                  <div className="w-10 h-10 rounded-xl bg-[#ea2830]/10 text-[#ea2830] flex items-center justify-center shrink-0">
+                <div className="flex items-start gap-4 p-4 bg-[#c41f26]/5 rounded-2xl border border-[#c41f26]/15">
+                  <div className="w-10 h-10 rounded-xl bg-[#c41f26]/10 text-[#c41f26] flex items-center justify-center shrink-0">
                     <Scale className="w-5 h-5" />
                   </div>
                   <div>
@@ -535,7 +535,7 @@ export default function InvestorGrievance() {
                       Statutory Arbitration Proceedings
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                      If an investor is not satisfied with the GRC decision, they can opt for Arbitration proceedings under the Depository Byelaws & Business Rules. The arbitration reference is concluded by issuing an arbitral award within <strong className="text-[#ea2830]">4 months</strong> from appointing the arbitrator(s).
+                      If an investor is not satisfied with the GRC decision, they can opt for Arbitration proceedings under the Depository Byelaws & Business Rules. The arbitration reference is concluded by issuing an arbitral award within <strong className="text-[#c41f26]">4 months</strong> from appointing the arbitrator(s).
                     </p>
                   </div>
                 </div>
@@ -544,9 +544,9 @@ export default function InvestorGrievance() {
                   {ARBITRATION_STEPS.map((item) => (
                     <div
                       key={item.step}
-                      className="p-4 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-[#ea2830]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
+                      className="p-4 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-[#c41f26]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
                     >
-                      <span className="w-7 h-7 rounded-lg bg-[#ea2830] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs">
+                      <span className="w-7 h-7 rounded-lg bg-[#c41f26] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs">
                         {item.step}
                       </span>
                       <div className="space-y-1">
@@ -620,14 +620,14 @@ export default function InvestorGrievance() {
 
               {/* Ratnakar Securities DP & Broker Contact Card */}
               <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-8 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-2 h-full bg-[#ea2830]" />
+                <div className="absolute top-0 left-0 w-2 h-full bg-[#c41f26]" />
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-[#ea2830]/10 text-[#ea2830] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-[#c41f26]/10 text-[#c41f26] flex items-center justify-center shrink-0">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-lg">Ratnakar Securities Limited</h3>
-                    <p className="text-xs font-semibold text-[#ea2830] uppercase tracking-wide">Stock Broker & Depository Participant (DP)</p>
+                    <p className="text-xs font-semibold text-[#c41f26] uppercase tracking-wide">Stock Broker & Depository Participant (DP)</p>
                   </div>
                 </div>
 
@@ -645,12 +645,12 @@ export default function InvestorGrievance() {
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
                       <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-[#ea2830] shrink-0" />
+                        <Phone className="w-3.5 h-3.5 text-[#c41f26] shrink-0" />
                         <span><strong>Phone:</strong> 079 4900 5200</span>
                       </div>
                       <div className="flex items-center gap-2 sm:col-span-2">
-                        <Mail className="w-3.5 h-3.5 text-[#ea2830] shrink-0" />
-                        <span><strong>Grievance ID:</strong> <a href="mailto:investorgrievance@ratnakarsecurities.com" className="text-[#ea2830] hover:underline break-all">investorgrievance@ratnakarsecurities.com</a></span>
+                        <Mail className="w-3.5 h-3.5 text-[#c41f26] shrink-0" />
+                        <span><strong>Grievance ID:</strong> <a href="mailto:investorgrievance@ratnakarsecurities.com" className="text-[#c41f26] hover:underline break-all">investorgrievance@ratnakarsecurities.com</a></span>
                       </div>
                     </div>
                   </div>
@@ -663,7 +663,7 @@ export default function InvestorGrievance() {
           <div className="space-y-6">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 pb-4">
               <div>
-                <span className="text-xs font-black tracking-widest uppercase text-[#ea2830] mb-1 block">
+                <span className="text-xs font-black tracking-widest uppercase text-[#c41f26] mb-1 block">
                   Public Disclosures & Reports
                 </span>
                 <h2 className="text-2xl font-serif font-bold text-[#011628]">
@@ -698,7 +698,7 @@ export default function InvestorGrievance() {
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedCategory === cat
-                    ? "bg-[#011628] text-[#00aeee] shadow-xs"
+                    ? "bg-[#011628] text-[#006da0] shadow-xs"
                     : "bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50 hover:text-slate-900"
                     }`}
                 >
@@ -823,15 +823,15 @@ export default function InvestorGrievance() {
                 href="https://nsdl.com/investor-services-Speede-mobile-app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-[#ea2830]/40 transition-all flex flex-col justify-between group"
+                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-[#c41f26]/40 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-red-50 text-[#ea2830] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-red-50 text-[#c41f26] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <Smartphone className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#ea2830] transition-colors flex items-center justify-between">
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#c41f26] transition-colors flex items-center justify-between">
                     <span>NSDL Speed-e Mobile App</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#ea2830]" aria-hidden="true" />
+                    <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#c41f26]" aria-hidden="true" />
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed">
                     Execute and monitor demat transfer instructions securely from your phone.

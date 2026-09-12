@@ -45,7 +45,7 @@ export default function ProductDetailsPage() {
           {/* LEFT SIDE: MAIN CONTENT */}
           <div className="w-full lg:w-[70%] bg-white rounded-2xl shadow-sm border border-black/5 p-4 md:p-8">
             <div className="mb-8 pb-6 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -76,7 +76,7 @@ export default function ProductDetailsPage() {
                   const [title, desc] = item.split(" – ");
                   return (
                     <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5" />
                       <span className="text-[16px] text-[#314158] leading-relaxed">
                         <strong className="font-bold text-slate-900">{title}</strong> — {desc}
                       </span>
@@ -98,7 +98,7 @@ export default function ProductDetailsPage() {
                   "Access to real-time market information and research."
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5">
-                    <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0" />
                     <span className="text-[16px] text-[#314158]">{item}</span>
                   </div>
                 ))}
@@ -148,8 +148,8 @@ export default function ProductDetailsPage() {
                       onClick={() => toggleFAQ(i)}
                       className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 font-bold text-slate-900"
                     >
-                      <span className="flex items-center gap-2 flex-1 min-w-0"><HelpCircle className="w-5 h-5 text-[#ea2830] shrink-0" />{faq.q}</span>
-                      {openIndex === i ? <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10"><Minus className="w-4 h-4 text-[#ea2830]" /></span> : <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10"><Plus className="w-4 h-4 text-[#ea2830]" /></span>}
+                      <span className="flex items-center gap-2 flex-1 min-w-0"><HelpCircle className="w-5 h-5 text-[#c41f26] shrink-0" />{faq.q}</span>
+                      {openIndex === i ? <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#c41f26]/10"><Minus className="w-4 h-4 text-[#c41f26]" /></span> : <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#c41f26]/10"><Plus className="w-4 h-4 text-[#c41f26]" /></span>}
                     </button>
                     {openIndex === i && (
                       <div
@@ -173,7 +173,7 @@ export default function ProductDetailsPage() {
               <div className="pt-8 border-t border-black/5">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="w-full sm:w-auto inline-flex bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   {product.buttonText} <ArrowRight className="w-5 h-5" />
                 </Link>

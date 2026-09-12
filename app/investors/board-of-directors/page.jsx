@@ -84,7 +84,7 @@ export default function BoardOfDirectorsPage() {
 
         {/* Intro */}
         <div className="text-center mb-12">
-          <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#ea2830]">
+          <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#c41f26]">
             Our Leadership
           </div>
           <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">
@@ -98,8 +98,8 @@ export default function BoardOfDirectorsPage() {
         {/* Executive Directors */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 rounded-lg bg-[#ea2830]/10 flex items-center justify-center">
-              <UserCheck className="w-4 h-4 text-[#ea2830]" />
+            <div className="w-8 h-8 rounded-lg bg-[#c41f26]/10 flex items-center justify-center">
+              <UserCheck className="w-4 h-4 text-[#c41f26]" />
             </div>
             <h3 className="text-xl font-bold text-slate-800 uppercase tracking-wide">Executive Directors</h3>
             <div className="flex-1 h-px bg-black/10 ml-2" />
@@ -124,14 +124,14 @@ export default function BoardOfDirectorsPage() {
                   ) : (
                     <div
                       className="w-16 h-16 rounded-xl flex items-center justify-center text-white font-bold text-lg shrink-0"
-                      style={{ background: "linear-gradient(135deg, #ea2830, #c41f26)" }}
+                      style={{ background: "linear-gradient(135deg, #c41f26, #c41f26)" }}
                     >
                       {member.initials}
                     </div>
                   )}
                   <div>
                     <h2 className="text-xl font-bold text-slate-900">{member.name}</h2>
-                    <p className="text-[#ea2830] font-semibold text-sm uppercase tracking-wider mt-1">
+                    <p className="text-[#c41f26] font-semibold text-sm uppercase tracking-wider mt-1">
                       {member.designation}
                     </p>
                   </div>

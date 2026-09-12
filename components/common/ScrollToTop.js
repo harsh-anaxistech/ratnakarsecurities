@@ -11,7 +11,7 @@ export default function FloatingMobileTrading() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Start Mobile Trading – opens in a new tab"
-        className="group flex items-center bg-[#ea2830] text-white p-4 rounded-2xl shadow-lg cursor-pointer transition-all duration-300 overflow-hidden hover:pr-6 hover:shadow-xl hover:shadow-[#ea2830]/20"
+        className="group flex items-center bg-[#c41f26] text-white p-4 rounded-2xl shadow-lg cursor-pointer transition-all duration-300 overflow-hidden hover:pr-6 hover:shadow-xl hover:shadow-[#c41f26]/20"
       >
         {/* વ્હાઇટ આઈકોન */}
         <Smartphone className="w-6 h-6 flex-shrink-0 text-white" aria-hidden="true" />

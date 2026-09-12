@@ -248,7 +248,7 @@ export default function RiskCalculatorPage() {
                     key={q.id}
                     className={`bg-slate-50/70 border rounded-2xl p-5 md:p-6 transition-all duration-300 ${
                       isSelected
-                        ? "border-[#ea2830]/20 shadow-[0_4px_20px_rgba(234,40,48,0.02)] bg-white"
+                        ? "border-[#c41f26]/20 shadow-[0_4px_20px_rgba(234,40,48,0.02)] bg-white"
                         : "border-black/5"
                     }`}
                   >
@@ -269,7 +269,7 @@ export default function RiskCalculatorPage() {
                             onClick={() => handleSelectOption(q.key, optValue)}
                             className={`w-full flex items-center justify-between p-3.5 rounded-xl border text-left text-xs md:text-sm font-medium transition-all duration-300 ${
                               active
-                                ? "bg-[#ea2830]/5 border-[#ea2830] text-[#ea2830] font-semibold"
+                                ? "bg-[#c41f26]/5 border-[#c41f26] text-[#c41f26] font-semibold"
                                 : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300"
                             }`}
                           >
@@ -277,7 +277,7 @@ export default function RiskCalculatorPage() {
                             <div
                               className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-all ${
                                 active
-                                  ? "border-[#ea2830] bg-[#ea2830]"
+                                  ? "border-[#c41f26] bg-[#c41f26]"
                                   : "border-gray-300 bg-white"
                               }`}
                             >
@@ -304,7 +304,7 @@ export default function RiskCalculatorPage() {
             <div className="text-center pt-4">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform active:scale-95 uppercase tracking-wide cursor-pointer"
+                className="inline-flex items-center justify-center bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform active:scale-95 uppercase tracking-wide cursor-pointer"
               >
                 Calculate Risk Profile
               </button>
@@ -332,7 +332,7 @@ export default function RiskCalculatorPage() {
             {/* Modal Header */}
             <div className="bg-[#012e54] text-white px-6 py-5 flex justify-between items-center">
               <div className="flex items-center gap-2.5">
-                <Shield className="w-6 h-6 text-[#00aeee]" />
+                <Shield className="w-6 h-6 text-[#006da0]" />
                 <h3 className="text-lg md:text-xl font-bold font-serif">
                   Your Risk Profile Analysis
                 </h3>
@@ -373,7 +373,7 @@ export default function RiskCalculatorPage() {
                   </p>
                 </div>
 
-                <div className="bg-[#ea28301f]/20 border border-[#ea2830]/15 rounded-2xl p-4 text-center">
+                <div className="bg-[#c41f261f]/20 border border-[#c41f26]/15 rounded-2xl p-4 text-center">
                   <span className="text-xs font-bold text-[#c41f26] uppercase tracking-wide block mb-1">
                     Risk Tolerance
                   </span>
@@ -391,7 +391,7 @@ export default function RiskCalculatorPage() {
               {/* Suggested Asset Allocation Section */}
               <div className="bg-slate-50 rounded-2xl p-5 border border-gray-100 space-y-4">
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-[#ea2830]" />
+                  <TrendingUp className="w-5 h-5 text-[#c41f26]" />
                   <h6 className="text-base font-bold text-[#012e54] font-serif">
                     Suggested Asset Allocation ({allocation.type})
                   </h6>

@@ -67,7 +67,7 @@ const TableSkeleton = () => (
       <thead className="bg-[#011628] text-white">
         <tr>
           {["S.No", "Document Title", "Category", "Financial Year", "Release Date", "Format", "Action"].map((h) => (
-            <th key={h} scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300">
+            <th key={h} scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-slate-600">
               {h}
             </th>
           ))}
@@ -488,7 +488,7 @@ export default function ResearchSectionClient({
               ) : initialReports.length === 0 ? (
                 /* Original Empty State (Backend down / no files) */
                 <div className="flex flex-col items-center justify-center py-16 px-6 bg-white border border-border rounded-lg text-center shadow-sm max-w-xl mx-auto my-4 hover:shadow-md transition-shadow">
-                  <div className="text-gray-400 mb-4 bg-muted p-4 rounded-full" aria-hidden="true">
+                  <div className="text-slate-600 mb-4 bg-muted p-4 rounded-full" aria-hidden="true">
                     <FileText className="h-12 w-12 text-muted-foreground/60" />
                   </div>
                   <h3 className="text-xl font-extrabold text-light-blue mb-2">
@@ -504,7 +504,7 @@ export default function ResearchSectionClient({
               ) : filteredReports.length === 0 ? (
                 /* Dynamic Search Empty State */
                 <div className="flex flex-col items-center justify-center py-16 px-6 bg-white border border-border rounded-lg text-center shadow-sm max-w-xl mx-auto my-4">
-                  <div className="text-gray-400 mb-4 bg-muted p-4 rounded-full" aria-hidden="true">
+                  <div className="text-slate-600 mb-4 bg-muted p-4 rounded-full" aria-hidden="true">
                     <Search className="h-12 w-12 text-muted-foreground/60" />
                   </div>
                   <h3 className="text-xl font-extrabold text-light-blue mb-2">
@@ -597,10 +597,10 @@ export default function ResearchSectionClient({
                     <table className="w-full text-left border-collapse min-w-[700px]">
                       <thead className="bg-[#011628] text-white">
                         <tr>
-                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300 w-16">
+                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-slate-200 w-16">
                             S.No
                           </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300">
+                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-slate-200">
                             <button
                               type="button"
                               onClick={() => handleSortHeader("name")}
@@ -610,10 +610,10 @@ export default function ResearchSectionClient({
                               <ArrowUpDown size={14} className="opacity-75" aria-hidden="true" />
                             </button>
                           </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300">
+                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-slate-200">
                             Category
                           </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300">
+                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-slate-200">
                             <button
                               type="button"
                               onClick={() => handleSortHeader("fy")}
@@ -623,7 +623,7 @@ export default function ResearchSectionClient({
                               <ArrowUpDown size={14} className="opacity-75" aria-hidden="true" />
                             </button>
                           </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300">
+                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-slate-200">
                             <button
                               type="button"
                               onClick={() => handleSortHeader("date")}
@@ -633,10 +633,10 @@ export default function ResearchSectionClient({
                               <ArrowUpDown size={14} className="opacity-75" aria-hidden="true" />
                             </button>
                           </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300">
+                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-slate-200">
                             Format
                           </th>
-                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-gray-300 text-right">
+                          <th scope="col" className="px-6 py-4 text-xs font-extrabold tracking-wider uppercase text-slate-200 text-right">
                             Action
                           </th>
                         </tr>

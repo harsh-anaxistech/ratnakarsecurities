@@ -57,7 +57,7 @@ export default function HeroBanner() {
       `}} />
 
       {/* ── BACKGROUND AMBIENT GLOW ── */}
-      <div className="absolute top-1/2 -translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-[#00aeee]/10 rounded-full blur-[140px] animate-pulse duration-[8000ms] pointer-events-none z-0 hidden lg:block" aria-hidden="true" />
+      <div className="absolute top-1/2 -translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-[#006da0]/10 rounded-full blur-[140px] animate-pulse duration-[8000ms] pointer-events-none z-0 hidden lg:block" aria-hidden="true" />
 
       <Container className="relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 items-center">
@@ -154,7 +154,7 @@ export default function HeroBanner() {
             {/* ── FLOATING GLASSMORPHIC BADGES ── */}
             <div className="absolute top-[10%] left-[0%] sm:left-[8%] lg:left-[10%] z-20 float-anim-1 scale-[0.90] sm:scale-100 origin-left">
               <div className="flex items-center gap-2 backdrop-blur-md bg-[#021f38]/90 border border-white/20 rounded-xl p-2 sm:p-2.5 shadow-xl hover:bg-[#021f38] transition-all duration-300">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#006da0]/30 rounded-lg flex items-center justify-center shrink-0">
                   <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300" aria-hidden="true" />
                 </div>
                 <span className="text-[13px] sm:text-sm font-bold tracking-wide pr-1 text-white">Equity</span>
@@ -172,7 +172,7 @@ export default function HeroBanner() {
 
             <div className="absolute bottom-[10%] left-[-4%] sm:left-[2%] lg:left-[5%] z-20 float-anim-3 scale-[0.90] sm:scale-100 origin-left">
               <div className="flex items-center gap-2 backdrop-blur-md bg-[#021f38]/90 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-[#021f38] transition-all duration-300">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#006da0]/30 rounded-lg flex items-center justify-center shrink-0">
                   <PiggyBank className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300" aria-hidden="true" />
                 </div>
                 <span className="text-[13px] sm:text-sm font-bold tracking-wide pr-1 leading-tight text-white">Mutual Fund<br />Distribution</span>
@@ -190,7 +190,7 @@ export default function HeroBanner() {
 
             <div className="absolute bottom-[20%] right-[-6%] sm:right-[6%] lg:right-[10%] z-20 float-anim-1 scale-[0.90] sm:scale-100 origin-right">
               <div className="flex items-center gap-2 backdrop-blur-md bg-[#021f38]/90 border border-white/20 rounded-xl p-2.5 sm:p-3 shadow-xl hover:bg-[#021f38] transition-all duration-300">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#00aeee]/30 rounded-lg flex items-center justify-center shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#006da0]/30 rounded-lg flex items-center justify-center shrink-0">
                   <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300" aria-hidden="true" />
                 </div>
                 <span className="text-[13px] sm:text-sm font-bold tracking-wide pr-1 leading-tight text-white">Investment<br />Advisory</span>

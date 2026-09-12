@@ -116,8 +116,8 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#00aeee] px-3.5 py-1.5 rounded-full shadow-xs border border-[#00aeee]/20">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#00aeee]" /> SEBI Regulatory Compliance
+            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#006da0] px-3.5 py-1.5 rounded-full shadow-xs border border-[#006da0]/20">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#006da0]" /> SEBI Regulatory Compliance
             </span>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             <div className="space-y-3 max-w-3xl">
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-[#011628] text-white rounded-2xl shadow-md">
-                  <Building2 className="w-7 h-7 text-[#00aeee]" />
+                  <Building2 className="w-7 h-7 text-[#006da0]" />
                 </div>
                 <div>
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#011628] tracking-tight">
@@ -194,7 +194,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Download SEBI Complaints PDF"
-                  className="inline-flex items-center gap-2 bg-[#ea2830] hover:bg-[#c91f27] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
+                  className="inline-flex items-center gap-2 bg-[#c41f26] hover:bg-[#c91f27] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
                 >
                   <Download className="w-4 h-4 stroke-[2.5]" /> Download SEBI PDF
                 </a>
@@ -206,7 +206,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                   aria-label="Download Official Stock Broker Charter PDF"
                   className="inline-flex items-center gap-2 bg-[#011628] hover:bg-[#13304a] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
                 >
-                  <Download className="w-4 h-4 text-[#00aeee]" /> Official Charter PDF
+                  <Download className="w-4 h-4 text-[#006da0]" /> Official Charter PDF
                 </a>
               )}
             </div>
@@ -217,7 +217,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             <button
               onClick={() => setActiveTab("complaints")}
               className={`pb-3 transition-colors relative cursor-pointer ${activeTab === "complaints"
-                  ? "text-[#011628] border-b-2 border-[#ea2830]"
+                  ? "text-[#011628] border-b-2 border-[#c41f26]"
                   : "text-gray-500 hover:text-gray-800"
                 }`}
             >
@@ -226,7 +226,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             <button
               onClick={() => setActiveTab("charter-details")}
               className={`pb-3 transition-colors relative cursor-pointer ${activeTab === "charter-details"
-                  ? "text-[#011628] border-b-2 border-[#ea2830]"
+                  ? "text-[#011628] border-b-2 border-[#c41f26]"
                   : "text-gray-500 hover:text-gray-800"
                 }`}
             >
@@ -258,7 +258,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             </div>
             <button
               onClick={() => fetchTrends(selectedFinYear)}
-              className="px-6 py-2.5 bg-[#ea2830] text-white font-bold rounded-xl text-sm hover:bg-[#c91f27] transition shadow-xs"
+              className="px-6 py-2.5 bg-[#c41f26] text-white font-bold rounded-xl text-sm hover:bg-[#c91f27] transition shadow-xs"
             >
               Retry
             </button>
@@ -381,7 +381,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
               <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#ea2830]"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#c41f26]"></span>
                     <h2 className="text-lg sm:text-xl font-bold text-[#011628]">
                       Trend of Monthly Disposal of Complaints
                     </h2>
@@ -438,7 +438,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   aria-label={`Download PDF report for ${monthName}`}
-                                  className="inline-flex items-center justify-center text-xs font-bold text-[#ea2830] hover:text-[#011628] bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg transition gap-1.5"
+                                  className="inline-flex items-center justify-center text-xs font-bold text-[#c41f26] hover:text-[#011628] bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg transition gap-1.5"
                                 >
                                   <FileText className="w-3.5 h-3.5" /> PDF
                                 </a>
@@ -452,7 +452,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                     ) : (
                       <tr>
                         <td colSpan={8} className="px-4 py-12 text-center text-gray-600">
-                          <FileText className="w-10 h-10 text-gray-400 mx-auto mb-2" />
+                          <FileText className="w-10 h-10 text-slate-600 mx-auto mb-2" />
                           <p className="font-semibold text-gray-800">No complaint records found</p>
                           <p className="text-xs text-gray-600 mt-1">No monthly disposal statistics filed for FY {selectedFinYear}.</p>
                         </td>
@@ -537,7 +537,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                     ) : (
                       <tr>
                         <td colSpan={6} className="px-4 py-12 text-center text-gray-600">
-                          <FileText className="w-10 h-10 text-gray-400 mx-auto mb-2" />
+                          <FileText className="w-10 h-10 text-slate-600 mx-auto mb-2" />
                           <p className="font-semibold text-gray-800">No annual records available</p>
                           <p className="text-xs text-gray-600 mt-1">No historical annual trend statistics filed yet.</p>
                         </td>
@@ -581,7 +581,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             {/* Vision & Mission */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                <div className="flex items-center gap-3 text-[#ea2830]">
+                <div className="flex items-center gap-3 text-[#c41f26]">
                   <Scale className="w-6 h-6" />
                   <h3 className="text-xl font-bold text-[#011628]">Vision of Stock Broker</h3>
                 </div>
@@ -614,7 +614,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-gray-700">
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#ea2830] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#c41f26] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">Cash / Equity Segment</h4>
                     <p className="text-xs text-gray-600 mt-0.5">Execution of equity buy/sell orders across NSE &amp; BSE with electronic contract notes.</p>
@@ -630,7 +630,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#ea2830] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#c41f26] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">Currency &amp; Commodity</h4>
                     <p className="text-xs text-gray-600 mt-0.5">Trading on MCX and currency derivatives for hedging and investment.</p>
@@ -646,7 +646,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#ea2830] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#c41f26] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">SLBM (Securities Lending)</h4>
                     <p className="text-xs text-gray-600 mt-0.5">Lending and borrowing of eligible securities for additional yield.</p>
@@ -667,7 +667,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
               <div className="border-b border-gray-200 pb-4">
                 <h3 className="text-xl font-bold text-[#011628] flex items-center gap-2">
-                  <Timer className="w-5 h-5 text-[#ea2830]" /> Standard Timelines for Service Delivery
+                  <Timer className="w-5 h-5 text-[#c41f26]" /> Standard Timelines for Service Delivery
                 </h3>
                 <p className="text-xs text-gray-500 mt-1">
                   SEBI mandated turnaround times (TAT) for various client operations
@@ -707,7 +707,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
               <div className="border-b border-gray-200 pb-4">
                 <h3 className="text-xl font-bold text-[#011628] flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-[#ea2830]" /> Grievance Redressal Mechanism &amp; Escalation Matrix
+                  <Clock className="w-5 h-5 text-[#c41f26]" /> Grievance Redressal Mechanism &amp; Escalation Matrix
                 </h3>
                 <p className="text-xs text-gray-500 mt-1">
                   In case of any query or complaint, investors can follow the structured resolution hierarchy:
@@ -730,7 +730,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                   </span>
                   <h4 className="text-base font-bold text-gray-900">Compliance Officer</h4>
                   <p className="text-xs text-gray-600">If unresolved in 7 working days, escalate directly to the compliance department.</p>
-                  <a href="mailto:investorgrievance@ratnakarsecurities.com" className="text-xs font-semibold text-[#ea2830] underline break-all block">
+                  <a href="mailto:investorgrievance@ratnakarsecurities.com" className="text-xs font-semibold text-[#c41f26] underline break-all block">
                     investorgrievance@ratnakarsecurities.com
                   </a>
                 </div>
@@ -853,7 +853,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
         )}
 
         {/* Regulatory Footer Information Box */}
-        <div className="bg-gradient-to-r from-[#011628] to-[#012e54] text-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#00aeee]/20 space-y-3">
+        <div className="bg-gradient-to-r from-[#011628] to-[#012e54] text-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#006da0]/20 space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h4 className="text-base font-bold text-white">Ratnakar Securities Limited</h4>
@@ -867,7 +867,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SEBI SCORES 2.0 Portal"
-                className="bg-[#00aeee] hover:bg-[#0098d0] text-[#011628] font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1"
+                className="bg-[#006da0] hover:bg-[#0098d0] text-[#011628] font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1"
               >
                 SCORES 2.0 <ExternalLink className="w-3 h-3" />
               </a>

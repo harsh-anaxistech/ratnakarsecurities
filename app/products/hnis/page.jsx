@@ -49,7 +49,7 @@ export default function ProductDetailsPage() {
           <div className="w-full lg:w-[70%] bg-white rounded-2xl shadow-sm border border-black/5 p-5 md:p-10">
             {/* Intro */}
             <div className="mb-10 pb-8 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h2>
@@ -72,8 +72,8 @@ export default function ProductDetailsPage() {
                 { title: "Equity & Capital Markets", icon: TrendingUp, desc: "Carefully researched equity opportunities with access to expert recommendations." },
                 { title: "Estate & Succession Planning", icon: BookOpen, desc: "Plan the smooth transfer of wealth across generations with comprehensive strategies." }
               ].map((item, i) => (
-                <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-black/5 hover:border-[#ea2830]/30 transition-all">
-                  <item.icon className="w-8 h-8 text-[#ea2830] mb-4" />
+                <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-black/5 hover:border-[#c41f26]/30 transition-all">
+                  <item.icon className="w-8 h-8 text-[#c41f26] mb-4" />
                   <h4 className="font-bold text-slate-900 mb-2">{item.title}</h4>
                   <p className="text-[16px] text-slate-700">{item.desc}</p>
                 </div>
@@ -117,7 +117,7 @@ export default function ProductDetailsPage() {
             {/* FAQs */}
             <div className="mb-12">
               <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <HelpCircle className="w-6 h-6 text-[#ea2830]" /> FAQs
+                <HelpCircle className="w-6 h-6 text-[#c41f26]" /> FAQs
               </h3>
               <div className="space-y-4">
                 {faqs.map((faq, idx) => (
@@ -131,8 +131,8 @@ export default function ProductDetailsPage() {
                       className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
                     >
                       <span className="flex-1 min-w-0">{faq.q}</span>
-                      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10">
-                        {openIndex === idx ? <Minus className="w-4 h-4 text-[#ea2830]" /> : <Plus className="w-4 h-4 text-[#ea2830]" />}
+                      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#c41f26]/10">
+                        {openIndex === idx ? <Minus className="w-4 h-4 text-[#c41f26]" /> : <Plus className="w-4 h-4 text-[#c41f26]" />}
                       </span>
                     </button>
                     {openIndex === idx && (

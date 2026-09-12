@@ -298,7 +298,7 @@ export default function AccessibilityStatementPage() {
                   <div className="flex items-start gap-3">
                     <Phone className="w-5 h-5 text-cyan-300 shrink-0 mt-0.5" aria-hidden="true" />
                     <div>
-                      <span className="text-xs text-white/60 block">Helpline Number</span>
+                      <span className="text-xs text-slate-200 block">Helpline Number</span>
                       <a href="tel:+917949007900" className="text-white font-bold hover:text-cyan-300 transition-colors">
                         +91 (079) 4900 7900
                       </a>
@@ -308,7 +308,7 @@ export default function AccessibilityStatementPage() {
                   <div className="flex items-start gap-3">
                     <Mail className="w-5 h-5 text-cyan-300 shrink-0 mt-0.5" aria-hidden="true" />
                     <div>
-                      <span className="text-xs text-white/60 block">Compliance Email</span>
+                      <span className="text-xs text-slate-200 block">Compliance Email</span>
                       <a href="mailto:compliance@ratnakarsecurities.com" className="text-white font-bold hover:text-cyan-300 transition-colors break-all">
                         compliance@ratnakarsecurities.com
                       </a>
@@ -318,7 +318,7 @@ export default function AccessibilityStatementPage() {
                   <div className="flex items-start gap-3">
                     <Mail className="w-5 h-5 text-cyan-300 shrink-0 mt-0.5" aria-hidden="true" />
                     <div>
-                      <span className="text-xs text-white/60 block">General Support Email</span>
+                      <span className="text-xs text-slate-200 block">General Support Email</span>
                       <a href="mailto:info@ratnakarsecurities.com" className="text-white font-bold hover:text-cyan-300 transition-colors break-all">
                         info@ratnakarsecurities.com
                       </a>

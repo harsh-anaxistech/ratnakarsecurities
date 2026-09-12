@@ -116,7 +116,7 @@ export default function ProductDetailsPage() {
 
             {/* 1. Header & Intro */}
             <div className="mb-10 pb-8 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-6">
@@ -135,8 +135,8 @@ export default function ProductDetailsPage() {
               <h3 className="text-[18px] font-bold text-slate-900 mb-6">Benefits of Investing in Mutual Funds</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {benefits.map((benefit, idx) => (
-                  <div key={idx} className="group flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
-                    <CircleCheck className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300 group-hover:fill-[#ea2830] group-hover:text-white" />
+                  <div key={idx} className="group flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
+                    <CircleCheck className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300 group-hover:fill-[#c41f26] group-hover:text-white" />
                     <span className="text-[16px] text-[#314158] leading-relaxed group-hover:text-black transition-colors">{benefit}</span>
                   </div>
                 ))}
@@ -191,7 +191,7 @@ export default function ProductDetailsPage() {
                 <h3 className="text-[18px] font-bold text-slate-900 mb-6">Investment Options</h3>
                 <div className="flex flex-wrap gap-2">
                   {investmentOptions.map((opt, idx) => (
-                    <span key={idx} className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-full text-[16px] font-medium shadow-sm hover:border-[#ea2830]/50 hover:text-[#ea2830] transition-colors cursor-default">
+                    <span key={idx} className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-full text-[16px] font-medium shadow-sm hover:border-[#c41f26]/50 hover:text-[#c41f26] transition-colors cursor-default">
                       {opt}
                     </span>
                   ))}
@@ -203,10 +203,10 @@ export default function ProductDetailsPage() {
                 <div className="space-y-4">
                   {steps.map((step, idx) => (
                     <div key={idx} className="group flex items-center gap-4 cursor-default">
-                      <div className="w-8 h-8 rounded-full bg-[#ea2830] text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                      <div className="w-8 h-8 rounded-full bg-[#c41f26] text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md group-hover:scale-110 transition-transform">
                         {idx + 1}
                       </div>
-                      <span className="text-[16px] font-medium text-[#314158] group-hover:text-[#ea2830] transition-colors">{step}</span>
+                      <span className="text-[16px] font-medium text-[#314158] group-hover:text-[#c41f26] transition-colors">{step}</span>
                     </div>
                   ))}
                 </div>
@@ -216,7 +216,7 @@ export default function ProductDetailsPage() {
             {/* 6. FAQs Section with Accordion */}
             <div className="mb-10">
               <h3 className="text-[18px] font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <HelpCircle className="w-6 h-6 text-[#ea2830]" />
+                <HelpCircle className="w-6 h-6 text-[#c41f26]" />
                 Frequently Asked Questions
               </h3>
               <div className="space-y-4">
@@ -231,8 +231,8 @@ export default function ProductDetailsPage() {
                       className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
                     >
                       <span className="flex-1 min-w-0">{faq.q}</span>
-                      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10">
-                        {openIndex === idx ? <Minus className="w-4 h-4 text-[#ea2830]" /> : <Plus className="w-4 h-4 text-[#ea2830]" />}
+                      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#c41f26]/10">
+                        {openIndex === idx ? <Minus className="w-4 h-4 text-[#c41f26]" /> : <Plus className="w-4 h-4 text-[#c41f26]" />}
                       </span>
                     </button>
                     {openIndex === idx && (
@@ -262,7 +262,7 @@ export default function ProductDetailsPage() {
             <div className="pt-6 md:pt-8 border-t border-black/5">
               <Link
                 href="/contact"
-                className="w-full md:w-auto inline-flex bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="w-full md:w-auto inline-flex bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 Start Your Investment Journey
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />

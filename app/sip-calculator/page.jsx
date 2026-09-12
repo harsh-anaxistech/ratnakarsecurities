@@ -159,7 +159,7 @@ function calculateSIP(params) {
     installments: totinstallment,
     graph: [
       { title: 'Investment', value: investment, color: '#006da0' },
-      { title: 'Earnings', value: earnings, color: '#ea2830' }
+      { title: 'Earnings', value: earnings, color: '#c41f26' }
     ]
   };
 }
@@ -309,7 +309,7 @@ export default function SipCalculatorPage() {
                       onClick={() => setFrequency(freq.val)}
                       className={`py-2 px-1 text-xs md:text-sm font-bold rounded-lg border transition-all ${
                         frequency === freq.val
-                          ? "bg-[#ea2830] border-[#ea2830] text-white shadow-md"
+                          ? "bg-[#c41f26] border-[#c41f26] text-white shadow-md"
                           : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300"
                       }`}
                     >
@@ -346,7 +346,7 @@ export default function SipCalculatorPage() {
                     value={sipAmount}
                     aria-label="SIP Investment Amount Slider"
                     onChange={(e) => setSipAmount(parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#ea2830]"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c41f26]"
                   />
                   <div className="flex justify-between text-[11px] text-gray-500 mt-1">
                     <span>₹ 500</span>
@@ -380,7 +380,7 @@ export default function SipCalculatorPage() {
                     value={timeHorizon}
                     aria-label="Time Horizon Slider in Years"
                     onChange={(e) => setTimeHorizon(parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#ea2830]"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c41f26]"
                   />
                   <div className="flex justify-between text-[11px] text-gray-500 mt-1">
                     <span>1 Yr</span>
@@ -415,7 +415,7 @@ export default function SipCalculatorPage() {
                     value={expectedReturn}
                     aria-label="Expected Return Slider in Percentage"
                     onChange={(e) => setExpectedReturn(parseFloat(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#ea2830]"
+                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c41f26]"
                   />
                   <div className="flex justify-between text-[11px] text-gray-500 mt-1">
                     <span>1 %</span>
@@ -460,7 +460,7 @@ export default function SipCalculatorPage() {
                   </div>
 
                   {/* Card 2: Wealth Gain */}
-                  <div className="bg-[#ea28301f] border border-[#ea2830]/10 rounded-2xl p-4 text-center shadow-sm">
+                  <div className="bg-[#c41f261f] border border-[#c41f26]/10 rounded-2xl p-4 text-center shadow-sm">
                     <span className="text-[11px] md:text-xs font-bold text-[#c41f26] uppercase tracking-wide block mb-1">
                       Wealth Gain
                     </span>
@@ -506,7 +506,7 @@ export default function SipCalculatorPage() {
                         cy="50"
                         r="35"
                         fill="transparent"
-                        stroke="#ea2830"
+                        stroke="#c41f26"
                         strokeWidth="15"
                       />
                       {/* Investment Circle (Blue, overlay segment) */}
@@ -543,7 +543,7 @@ export default function SipCalculatorPage() {
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-4 h-4 rounded-full bg-[#ea2830] block"></span>
+                        <span className="w-4 h-4 rounded-full bg-[#c41f26] block"></span>
                         <span className="text-sm font-bold text-[#012e54]">Earnings</span>
                       </div>
                       <span className="text-sm font-bold text-[#012e54]">{donut.earnPercent}%</span>

@@ -56,7 +56,7 @@ export default async function AnnualReturnPage() {
           
           {groupedData.length === 0 ? (
             <div className="text-center py-20 bg-white border border-gray-100 rounded-2xl shadow-sm">
-              <FileBadge className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+              <FileBadge className="mx-auto h-12 w-12 text-slate-600 mb-4" />
               <h3 className="text-lg font-bold text-gray-900">No annual returns found</h3>
               <p className="text-gray-600 mt-2 font-medium">
                 There are currently no annual returns available for viewing.

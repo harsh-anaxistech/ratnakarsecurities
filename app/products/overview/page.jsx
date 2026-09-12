@@ -65,7 +65,7 @@ export default function OverviewPage() {
 
             {/* Top Title & Tagline */}
             <div className="mb-8 pb-6 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {content.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -102,7 +102,7 @@ export default function OverviewPage() {
                         className="mt-1 p-1.5 rounded-full shrink-0"
                         style={{ backgroundColor: "#fee2e2", color: "#a7181e" }}
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#ea2830]" aria-hidden="true" />
+                        <CheckCircle2 className="w-4 h-4 text-[#c41f26]" aria-hidden="true" />
                       </div>
                       <span
                         className="text-[16px] font-medium leading-relaxed"
@@ -120,7 +120,7 @@ export default function OverviewPage() {
             <div className="pt-8 border-t border-black/5">
               <Link
                 href="/contact"
-                className="inline-flex bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="inline-flex bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 {content.buttonText}
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />

@@ -18,7 +18,7 @@
       desc: "A dedicated relationship manager understands your goals, income and risk appetite.",
       iconColor: "text-[#a7181e]",
       badgeColor: "bg-[#0088c2]",
-      bgColor: "bg-[#ea2830]/10"
+      bgColor: "bg-[#c41f26]/10"
     },
     {
       Icon: PieChart,
@@ -34,7 +34,7 @@
       desc: "Monitor everything on our app, review quarterly with your RM, and stay the course. Rest assured.",
       iconColor: "text-[#a7181e]",
       badgeColor: "bg-[#0088c2]",
-      bgColor: "bg-[#ea2830]/10"
+      bgColor: "bg-[#c41f26]/10"
     },
   ];
 

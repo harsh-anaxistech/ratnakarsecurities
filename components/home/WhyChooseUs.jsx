@@ -91,7 +91,7 @@ export default function WhyChooseUs() {
                 >
                   <div 
                     className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105" 
-                    style={{ background: "linear-gradient(135deg, #ea2830, #c41f26)" }}
+                    style={{ background: "linear-gradient(135deg, #c41f26, #c41f26)" }}
                   >
                     <IconComponent className="w-5 h-5 text-white" strokeWidth={2} aria-hidden="true" />
                   </div>

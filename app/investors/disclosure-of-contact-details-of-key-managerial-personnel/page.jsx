@@ -70,7 +70,7 @@ export default function KeyManagerialPersonnelPage() {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="text-[13px] font-black tracking-widest uppercase mb-3 text-[#ea2830]">
+          <div className="text-[13px] font-black tracking-widest uppercase mb-3 text-[#c41f26]">
             Investor Disclosure
           </div>
           <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">
@@ -95,7 +95,7 @@ export default function KeyManagerialPersonnelPage() {
               <div className="p-6">
                 {/* Avatar + Name */}
                 <div className="flex items-start gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm shrink-0 bg-[#ea2830] shadow-sm">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm shrink-0 bg-[#c41f26] shadow-sm">
                     {person.initials}
                   </div>
                   <div>

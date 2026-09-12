@@ -56,7 +56,7 @@ export default function ProductDetailsPage() {
 
             {/* Top Title & Tagline */}
             <div className="mb-8 pb-6 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#ea2830]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -93,7 +93,7 @@ export default function ProductDetailsPage() {
                         className="mt-1 p-1.5 rounded-full shrink-0"
                         style={{ backgroundColor: "#fee2e2", color: "#a7181e" }}
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#ea2830]" aria-hidden="true" />
+                        <CheckCircle2 className="w-4 h-4 text-[#c41f26]" aria-hidden="true" />
                       </div>
                       <span
                         className="text-[16px] font-medium leading-relaxed"
@@ -110,20 +110,20 @@ export default function ProductDetailsPage() {
               <div className="mt-8 mb-12">
                 <h3 className="text-xl font-bold text-slate-900 mb-6">Benefits of Trading Derivatives</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
-                    <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300" />
+                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
+                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300" />
                     <span className="text-[16px] text-slate-800 leading-relaxed">Leverage to amplify returns</span>
                   </div>
-                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
-                    <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300" />
+                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
+                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300" />
                     <span className="text-[16px] text-slate-800 leading-relaxed">Hedging against market volatility</span>
                   </div>
-                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
-                    <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300" />
+                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
+                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300" />
                     <span className="text-[16px] text-slate-800 leading-relaxed">Diversify across asset classes</span>
                   </div>
-                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#ea2830]/30 transition-all cursor-default">
-                    <CheckCircle2 className="w-5 h-5 text-[#ea2830] shrink-0 mt-0.5 transition-all duration-300" />
+                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
+                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300" />
                     <span className="text-[16px] text-slate-800 leading-relaxed">Access multiple markets from one platform</span>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export default function ProductDetailsPage() {
               {/* FAQ Section */}
               <div className="mb-12">
                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                  <HelpCircle className="w-6 h-6 text-[#ea2830]" /> Frequently Asked Questions
+                  <HelpCircle className="w-6 h-6 text-[#c41f26]" /> Frequently Asked Questions
                 </h3>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
@@ -146,8 +146,8 @@ export default function ProductDetailsPage() {
                         className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
                       >
                         <span className="flex-1 min-w-0">{faq.q}</span>
-                        <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#ea2830]/10">
-                          {openIndex === idx ? <Minus className="w-4 h-4 text-[#ea2830]" /> : <Plus className="w-4 h-4 text-[#ea2830]" />}
+                        <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#c41f26]/10">
+                          {openIndex === idx ? <Minus className="w-4 h-4 text-[#c41f26]" /> : <Plus className="w-4 h-4 text-[#c41f26]" />}
                         </span>
                       </button>
                       {openIndex === idx && (
@@ -175,7 +175,7 @@ export default function ProductDetailsPage() {
               <div className="pt-6 md:pt-8 border-t border-black/5">
                 <Link
                   href="/contact"
-                  className="w-full md:w-auto inline-flex bg-[#ea2830] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="w-full md:w-auto inline-flex bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
                   {product.buttonText}
                   <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />

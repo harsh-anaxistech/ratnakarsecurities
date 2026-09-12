@@ -722,7 +722,7 @@ export default function Header() {
                     onClick={() => setMobileQuickLinksOpen((p) => !p)}
                     aria-label="Quick links menu"
                     aria-expanded={mobileQuickLinksOpen}
-                    className="w-9 h-9 flex items-center justify-center rounded-full bg-[#011628] text-white hover:bg-[#ea2830] transition-colors shadow-sm"
+                    className="w-9 h-9 flex items-center justify-center rounded-full bg-[#011628] text-white hover:bg-[#c41f26] transition-colors shadow-sm"
                   >
                     <Smartphone className="h-4 w-4" aria-hidden="true" />
                   </button>
@@ -747,7 +747,7 @@ export default function Header() {
                               handleTopNav(e, item.href);
                             }
                           }}
-                          className="flex items-center justify-center h-8 w-8 rounded-full bg-white/10 border border-white/20 text-white hover:bg-[#ea2830] hover:border-[#ea2830] transition-all duration-300"
+                          className="flex items-center justify-center h-8 w-8 rounded-full bg-white/10 border border-white/20 text-white hover:bg-[#c41f26] hover:border-[#c41f26] transition-all duration-300"
                           title={item.title}
                           aria-label={item.title}
                         >
