@@ -70,10 +70,10 @@ export default function KeyManagerialPersonnelPage() {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="text-[13px] font-black tracking-widest uppercase mb-3 text-[#c41f26]">
+          <div className="text-[13px] font-black tracking-widest uppercase mb-3 text-[#a7181e]">
             Investor Disclosure
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-950 leading-tight mb-4">
             Contact Details of Key Managerial Personnel
           </h2>
           <p className="text-[16px] text-[#314158] max-w-2xl mx-auto leading-relaxed">
@@ -95,7 +95,7 @@ export default function KeyManagerialPersonnelPage() {
               <div className="p-6">
                 {/* Avatar + Name */}
                 <div className="flex items-start gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm shrink-0 bg-[#c41f26] shadow-sm">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm shrink-0 bg-[#a7181e] shadow-sm">
                     {person.initials}
                   </div>
                   <div>

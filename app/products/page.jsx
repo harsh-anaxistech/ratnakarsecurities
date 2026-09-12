@@ -35,10 +35,13 @@ export default function ProductsPage() {
 
           {/* Header */}
           <div className="mb-12 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#c41f26]">
+            <div 
+              className="text-[14px] font-black tracking-widest uppercase mb-3"
+              style={{ color: "#a7181e" }}
+            >
               Investment Opportunities
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 leading-tight" style={{ color: "#0f172a" }}>
               Every investment need. One trusted roof.
             </h2>
           </div>
@@ -49,21 +52,24 @@ export default function ProductsPage() {
               <Link
                 href={`/products/${product.slug}`}
                 key={product.id}
-                className="group bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[240px] block"
+                className="group bg-white border border-slate-200 rounded-xl p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[240px] block shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e]"
+                style={{ backgroundColor: "#ffffff" }}
               >
                 {/* Content: Title/Desc Left, Image Icon Right */}
                 <div className="flex justify-between items-start gap-4 mb-4">
                   <div className="flex-1">
-                    <h3 className="text-[20px] font-bold text-[#c41f26] mb-3 group-hover:text-[#006da0] transition-colors duration-300">
+                    <h3 
+                      className="text-[20px] font-bold mb-3 transition-colors duration-300"
+                      style={{ color: "#a7181e" }}
+                    >
                       {product.title}
                     </h3>
-                    <p className="text-[15px] text-gray-600 leading-relaxed font-medium">
+                    <p className="text-[15px] leading-relaxed font-medium" style={{ color: "#334155" }}>
                       {product.shortDescription}
                     </p>
                   </div>
 
                   {/* Image Icon resized to 64px from public folder */}
-                  {/* ખાતરી કરો કે data.js માં iconPath આ રીતે સેટ કરેલ છે: "/images/icon/menu/Equity1.svg" */}
                   <div className="flex-shrink-0 w-[64px] h-[64px] transition-transform duration-500 group-hover:scale-110">
                     <Image
                       src={product.iconPath}
@@ -76,11 +82,11 @@ export default function ProductsPage() {
                 </div>
 
                 {/* Bottom Section with Arrow */}
-                <div className="mt-auto pt-4 border-t border-gray-200 flex items-center justify-between">
-                  <span className="text-[14px] font-bold text-gray-700 group-hover:text-[#c41f26] transition-colors">
+                <div className="mt-auto pt-4 border-t border-slate-200 flex items-center justify-between">
+                  <span className="text-[14px] font-bold transition-colors" style={{ color: "#1e293b" }}>
                     Learn More
                   </span>
-                  <ArrowRight className="w-4 h-4 text-gray-700 group-hover:text-[#c41f26] transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" style={{ color: "#a7181e" }} aria-hidden="true" />
                 </div>
               </Link>
             ))}

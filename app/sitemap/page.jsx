@@ -168,7 +168,7 @@ export default function SitemapPage() {
                             className="group flex items-center justify-between text-sm font-medium text-slate-700 hover:text-primary transition-colors py-1 px-1 rounded"
                           >
                             <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
-                            <ExternalLink className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#a7181e] shrink-0" aria-label="(Opens in new tab)" />
+                            <ExternalLink className="w-3.5 h-3.5 text-slate-600 group-hover:text-[#a7181e] shrink-0" aria-label="(Opens in new tab)" />
                           </a>
                         ) : (
                           <Link
@@ -176,7 +176,7 @@ export default function SitemapPage() {
                             className="group flex items-center justify-between text-sm font-medium text-slate-700 hover:text-primary transition-colors py-1 px-1 rounded"
                           >
                             <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
-                            <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-[#a7181e] group-hover:translate-x-1 transition-all shrink-0" aria-hidden="true" />
+                            <ArrowRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-[#a7181e] group-hover:translate-x-1 transition-all shrink-0" aria-hidden="true" />
                           </Link>
                         )}
                       </li>

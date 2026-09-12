@@ -210,8 +210,8 @@ export default function PartnerForm() {
                 <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
                   Partner With Us
                 </h1>
-                <p className="text-slate-500 text-xs sm:text-sm mt-1">
-                  Fields marked with <span className="text-red-500 font-bold" aria-hidden="true">*</span> are required.
+                <p className="text-slate-600 text-xs sm:text-sm mt-1">
+                  Fields marked with <span className="text-[#991b1b] font-bold" aria-hidden="true">*</span> are required.
                 </p>
               </div>
 
@@ -222,8 +222,8 @@ export default function PartnerForm() {
                   aria-live="polite"
                   className={`p-4 rounded-xl text-sm font-semibold mb-6 ${
                     statusType === "success"
-                      ? "bg-green-50 text-green-800 border-2 border-green-300"
-                      : "bg-red-50 text-red-800 border-2 border-red-300"
+                      ? "bg-green-50 text-green-900 border-2 border-green-400"
+                      : "bg-red-50 text-red-900 border-2 border-red-400"
                   }`}
                 >
                   {statusMessage}
@@ -235,7 +235,7 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1">
                     <label htmlFor="partner-fullname" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                      Full Name <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                      Full Name <span className="text-[#991b1b]" aria-hidden="true">*</span>
                     </label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
@@ -257,7 +257,7 @@ export default function PartnerForm() {
                       />
                     </div>
                     {errors.fullName && (
-                      <span id="partner-fullname-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span id="partner-fullname-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                         <span aria-hidden="true">⚠️</span> {errors.fullName}
                       </span>
                     )}
@@ -265,7 +265,7 @@ export default function PartnerForm() {
 
                   <div className="flex flex-col gap-1">
                     <label htmlFor="partner-email" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                      Email Address <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                      Email Address <span className="text-[#991b1b]" aria-hidden="true">*</span>
                     </label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
@@ -286,7 +286,7 @@ export default function PartnerForm() {
                       />
                     </div>
                     {errors.email && (
-                      <span id="partner-email-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span id="partner-email-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                         <span aria-hidden="true">⚠️</span> {errors.email}
                       </span>
                     )}
@@ -297,7 +297,7 @@ export default function PartnerForm() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-1">
                     <label htmlFor="partner-phone" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                      Mobile Number <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                      Mobile Number <span className="text-[#991b1b]" aria-hidden="true">*</span>
                     </label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
@@ -319,7 +319,7 @@ export default function PartnerForm() {
                       />
                     </div>
                     {errors.phone && (
-                      <span id="partner-phone-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span id="partner-phone-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                         <span aria-hidden="true">⚠️</span> {errors.phone}
                       </span>
                     )}
@@ -327,7 +327,7 @@ export default function PartnerForm() {
 
                   <div className="flex flex-col gap-1">
                     <label htmlFor="partner-timeslot" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                      Suitable Time Slot <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                      Suitable Time Slot <span className="text-[#991b1b]" aria-hidden="true">*</span>
                     </label>
                     <div className="relative flex items-center">
                       <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
@@ -352,7 +352,7 @@ export default function PartnerForm() {
                       />
                     </div>
                     {errors.timeslot && (
-                      <span id="partner-timeslot-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                      <span id="partner-timeslot-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                         <span aria-hidden="true">⚠️</span> {errors.timeslot}
                       </span>
                     )}
@@ -362,7 +362,7 @@ export default function PartnerForm() {
                 {/* Row 3: City */}
                 <div className="flex flex-col gap-1">
                   <label htmlFor="partner-city" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                    City / Town <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                    City / Town <span className="text-[#991b1b]" aria-hidden="true">*</span>
                   </label>
                   <div className="relative flex items-center">
                     <div className="absolute left-3.5 text-slate-700 flex items-center justify-center pointer-events-none z-10" aria-hidden="true">
@@ -384,7 +384,7 @@ export default function PartnerForm() {
                     />
                   </div>
                   {errors.city && (
-                    <span id="partner-city-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                    <span id="partner-city-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                       <span aria-hidden="true">⚠️</span> {errors.city}
                     </span>
                   )}
@@ -450,7 +450,7 @@ export default function PartnerForm() {
                     as="button"
                     type="submit"
                     loading={loading}
-                    className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-gradient-to-br from-[#0088c2] to-[#006da0] hover:opacity-95 text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
+                    className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-[#004f7a] hover:bg-[#003d5e] text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
                   >
                     Submit Partnership Request
                   </Button>

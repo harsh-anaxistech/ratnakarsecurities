@@ -44,10 +44,10 @@ export default async function DisclosuresPage() {
       <section className="py-12 bg-[#f7f9fc]">
         <Container>
           <div className="mb-12 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "#c41f26" }}>
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "#a7181e" }}>
               Investors
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-950 leading-tight mb-4">
               Disclosures under Regulation 30 of LODR
             </h2>
             <p className="text-[16px] text-gray-700 max-w-3xl mx-auto font-medium">

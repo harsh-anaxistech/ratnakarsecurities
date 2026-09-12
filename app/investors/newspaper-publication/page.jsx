@@ -58,10 +58,10 @@ export default async function NewspaperPublicationPage() {
       <section className="py-12 bg-[#f7f9fc]">
         <Container>
           <div className="mb-12 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "#c41f26" }}>
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3" style={{ color: "#a7181e" }}>
               Investors
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-950 leading-tight mb-4">
               Newspaper Publication
             </h2>
             <p className="text-[16px] text-gray-700 max-w-3xl mx-auto font-medium">
@@ -108,7 +108,7 @@ export default async function NewspaperPublicationPage() {
                               {title}
                             </h4>
                             {date && (
-                              <p className="text-[13px] font-semibold text-gray-500 mb-6 group-hover:text-gray-700 transition-colors duration-300">
+                              <p className="text-[13px] font-semibold text-slate-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">
                                 {date}
                               </p>
                             )}

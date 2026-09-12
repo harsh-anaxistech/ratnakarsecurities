@@ -33,11 +33,11 @@ export default function NominationPage() {
 
           <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 mb-2">Nomination</h2>
 
-          <h3 className="text-xl font-bold text-[#c41f26] mb-6">
+          <h3 className="text-xl font-bold text-[#a7181e] mb-6">
             Please follow the following steps for the Nomination.
           </h3>
 
-          <ul className="list-disc pl-6 space-y-4 text-[16px] text-[#314158] leading-relaxed marker:text-[#c41f26]">
+          <ul className="list-disc pl-6 space-y-4 text-[16px] text-[#314158] leading-relaxed marker:text-[#a7181e]">
             <li>
               Please{" "}
               <a

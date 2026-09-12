@@ -159,7 +159,7 @@ function calculateSIP(params) {
     installments: totinstallment,
     graph: [
       { title: 'Investment', value: investment, color: '#006da0' },
-      { title: 'Earnings', value: earnings, color: '#c41f26' }
+      { title: 'Earnings', value: earnings, color: '#a7181e' }
     ]
   };
 }
@@ -279,7 +279,7 @@ export default function SipCalculatorPage() {
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#012e54] mb-3">
               Wealth Projection & SIP Estimator
             </h2>
-            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+            <p className="text-slate-700 text-sm md:text-base leading-relaxed" style={{ color: "#334155" }}>
               Calculate the future value of your Systematic Investment Plan (SIP) instantly. Choose your frequency, set the horizon, adjust expected annual return rates, and visualize your wealth growth.
             </p>
           </div>
@@ -289,11 +289,14 @@ export default function SipCalculatorPage() {
             {/* ==========================================
                 LEFT COLUMN: INPUT CONTROLS
             ========================================== */}
-            <div className="lg:col-span-6 space-y-6 bg-slate-50/80 p-6 md:p-8 rounded-2xl border border-gray-100">
+            <div 
+              className="lg:col-span-6 space-y-6 p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm"
+              style={{ backgroundColor: "#f8fafc" }}
+            >
               
               {/* Frequency */}
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2.5">
+                <label className="block text-sm font-semibold text-slate-900 mb-2.5" style={{ color: "#0f172a" }}>
                   Investment Frequency
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -309,8 +312,8 @@ export default function SipCalculatorPage() {
                       onClick={() => setFrequency(freq.val)}
                       className={`py-2 px-1 text-xs md:text-sm font-bold rounded-lg border transition-all ${
                         frequency === freq.val
-                          ? "bg-[#c41f26] border-[#c41f26] text-white shadow-md"
-                          : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300"
+                          ? "bg-[#a7181e] border-[#a7181e] text-white shadow-md"
+                          : "bg-white border-slate-300 text-slate-800 hover:bg-slate-50 hover:border-slate-400"
                       }`}
                     >
                       {freq.label}
@@ -322,18 +325,18 @@ export default function SipCalculatorPage() {
               {/* SIP Amount */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label htmlFor="sip-amount-input" className="text-sm font-semibold text-gray-800">
+                  <label htmlFor="sip-amount-input" className="text-sm font-semibold text-slate-900" style={{ color: "#0f172a" }}>
                     {frequency === "1" ? "Weekly" : frequency === "3" ? "Quarterly" : frequency === "4" ? "Half-Yearly" : "Monthly"} Investment (₹)
                   </label>
                   <div className="flex items-center gap-1">
-                    <span className="text-gray-500 font-medium" aria-hidden="true">₹</span>
+                    <span className="font-medium text-slate-700" style={{ color: "#334155" }} aria-hidden="true">₹</span>
                     <input
                       id="sip-amount-input"
                       type="number"
                       value={sipAmount}
                       aria-label="SIP Investment Amount in Rupees"
                       onChange={(e) => setSipAmount(Math.max(0, parseInt(e.target.value) || 0))}
-                      className="w-28 text-right font-bold text-gray-900 border border-gray-400 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                      className="w-28 text-right font-bold text-slate-900 bg-white border border-slate-400 rounded-lg px-2.5 py-1 text-sm focus:border-[#004f7a] focus:ring-1 focus:ring-[#004f7a] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -346,11 +349,11 @@ export default function SipCalculatorPage() {
                     value={sipAmount}
                     aria-label="SIP Investment Amount Slider"
                     onChange={(e) => setSipAmount(parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c41f26]"
+                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#a7181e]"
                   />
-                  <div className="flex justify-between text-[11px] text-gray-500 mt-1">
+                  <div className="flex justify-between text-[11px] text-slate-700 mt-1" style={{ color: "#334155" }}>
                     <span>₹ 500</span>
-                    <span className="font-semibold text-primary">{formatKLC(sipAmount)}</span>
+                    <span className="font-bold text-[#a7181e]">{formatKLC(sipAmount)}</span>
                     <span>₹ 10 Lac</span>
                   </div>
                 </div>
@@ -359,7 +362,7 @@ export default function SipCalculatorPage() {
               {/* Time Horizon */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label htmlFor="time-horizon-input" className="text-sm font-semibold text-gray-800">Time Horizon (Years)</label>
+                  <label htmlFor="time-horizon-input" className="text-sm font-semibold text-slate-900" style={{ color: "#0f172a" }}>Time Horizon (Years)</label>
                   <input
                     id="time-horizon-input"
                     type="number"
@@ -368,7 +371,7 @@ export default function SipCalculatorPage() {
                     max="35"
                     aria-label="Investment Time Horizon in Years"
                     onChange={(e) => setTimeHorizon(Math.min(35, Math.max(1, parseInt(e.target.value) || 1)))}
-                    className="w-16 text-right font-bold text-gray-900 border border-gray-400 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                    className="w-16 text-right font-bold text-slate-900 bg-white border border-slate-400 rounded-lg px-2.5 py-1 text-sm focus:border-[#004f7a] focus:ring-1 focus:ring-[#004f7a] focus:outline-none"
                   />
                 </div>
                 <div className="relative pt-2">
@@ -380,11 +383,11 @@ export default function SipCalculatorPage() {
                     value={timeHorizon}
                     aria-label="Time Horizon Slider in Years"
                     onChange={(e) => setTimeHorizon(parseInt(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c41f26]"
+                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#a7181e]"
                   />
-                  <div className="flex justify-between text-[11px] text-gray-500 mt-1">
+                  <div className="flex justify-between text-[11px] text-slate-700 mt-1" style={{ color: "#334155" }}>
                     <span>1 Yr</span>
-                    <span className="font-semibold text-primary">{timeHorizon} Yrs</span>
+                    <span className="font-bold text-[#a7181e]">{timeHorizon} Yrs</span>
                     <span>35 Yrs</span>
                   </div>
                 </div>
@@ -393,7 +396,7 @@ export default function SipCalculatorPage() {
               {/* Expected Return */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <label htmlFor="expected-return-input" className="text-sm font-semibold text-gray-800">Expected Return (p.a. %)</label>
+                  <label htmlFor="expected-return-input" className="text-sm font-semibold text-slate-900" style={{ color: "#0f172a" }}>Expected Return (p.a. %)</label>
                   <input
                     id="expected-return-input"
                     type="number"
@@ -403,7 +406,7 @@ export default function SipCalculatorPage() {
                     max="25"
                     aria-label="Expected Annual Return Percentage"
                     onChange={(e) => setExpectedReturn(Math.min(25, Math.max(1, parseFloat(e.target.value) || 1)))}
-                    className="w-16 text-right font-bold text-gray-900 border border-gray-400 rounded-lg px-2.5 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                    className="w-16 text-right font-bold text-slate-900 bg-white border border-slate-400 rounded-lg px-2.5 py-1 text-sm focus:border-[#004f7a] focus:ring-1 focus:ring-[#004f7a] focus:outline-none"
                   />
                 </div>
                 <div className="relative pt-2">
@@ -415,11 +418,11 @@ export default function SipCalculatorPage() {
                     value={expectedReturn}
                     aria-label="Expected Return Slider in Percentage"
                     onChange={(e) => setExpectedReturn(parseFloat(e.target.value))}
-                    className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c41f26]"
+                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#a7181e]"
                   />
-                  <div className="flex justify-between text-[11px] text-gray-500 mt-1">
+                  <div className="flex justify-between text-[11px] text-slate-700 mt-1" style={{ color: "#334155" }}>
                     <span>1 %</span>
-                    <span className="font-semibold text-primary">{expectedReturn}%</span>
+                    <span className="font-bold text-[#a7181e]">{expectedReturn}%</span>
                     <span>25 %</span>
                   </div>
                 </div>
@@ -430,7 +433,7 @@ export default function SipCalculatorPage() {
                 <button
                   type="button"
                   onClick={runCalculations}
-                  className="px-8 py-3 bg-[#006da0] hover:bg-[#004f7a] text-white font-bold rounded-xl shadow hover:shadow-md transition-all duration-300 transform active:scale-[0.98] uppercase text-xs tracking-wider cursor-pointer"
+                  className="px-8 py-3 bg-[#004f7a] hover:bg-[#003d5e] text-white font-bold rounded-xl shadow hover:shadow-md transition-all duration-300 transform active:scale-[0.98] uppercase text-xs tracking-wider cursor-pointer"
                 >
                   Calculate SIP
                 </button>
@@ -447,47 +450,59 @@ export default function SipCalculatorPage() {
                 {/* Visual Cards */}
                 <div className="grid grid-cols-3 gap-3 md:gap-4">
                   {/* Card 1: Investment */}
-                  <div className="bg-[#006da01f] border border-[#006da0]/15 rounded-2xl p-4 text-center shadow-sm">
-                    <span className="text-[11px] md:text-xs font-bold text-[#006da0] uppercase tracking-wide block mb-1">
+                  <div 
+                    className="border border-blue-200 rounded-2xl p-4 text-center shadow-sm"
+                    style={{ backgroundColor: "#f0f7ff" }}
+                  >
+                    <span className="text-[11px] md:text-xs font-bold uppercase tracking-wide block mb-1" style={{ color: "#004f7a" }}>
                       Invested Amount
                     </span>
                     <h4 className="text-sm md:text-lg font-bold text-[#012e54] break-all">
                       ₹{results.investment}
                     </h4>
-                    <span className="text-[10px] md:text-xs font-semibold text-slate-600 block mt-1">
+                    <span className="text-[10px] md:text-xs font-semibold text-slate-700 block mt-1" style={{ color: "#334155" }}>
                       ({formatKLC(results.investmentRaw)})
                     </span>
                   </div>
 
                   {/* Card 2: Wealth Gain */}
-                  <div className="bg-[#c41f261f] border border-[#c41f26]/10 rounded-2xl p-4 text-center shadow-sm">
-                    <span className="text-[11px] md:text-xs font-bold text-[#c41f26] uppercase tracking-wide block mb-1">
+                  <div 
+                    className="border border-red-200 rounded-2xl p-4 text-center shadow-sm"
+                    style={{ backgroundColor: "#fff5f5" }}
+                  >
+                    <span className="text-[11px] md:text-xs font-bold uppercase tracking-wide block mb-1" style={{ color: "#a7181e" }}>
                       Wealth Gain
                     </span>
-                    <h4 className="text-sm md:text-lg font-bold text-[#c41f26] break-all">
+                    <h4 className="text-sm md:text-lg font-bold text-[#a7181e] break-all">
                       ₹{results.earnings}
                     </h4>
-                    <span className="text-[10px] md:text-xs font-semibold text-slate-600 block mt-1">
+                    <span className="text-[10px] md:text-xs font-semibold text-slate-700 block mt-1" style={{ color: "#334155" }}>
                       ({formatKLC(results.earningsRaw)})
                     </span>
                   </div>
 
                   {/* Card 3: Future Value */}
-                  <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-center shadow-sm">
-                    <span className="text-[11px] md:text-xs font-bold text-emerald-700 uppercase tracking-wide block mb-1">
+                  <div 
+                    className="border border-emerald-200 rounded-2xl p-4 text-center shadow-sm"
+                    style={{ backgroundColor: "#f0fdf4" }}
+                  >
+                    <span className="text-[11px] md:text-xs font-bold text-emerald-900 uppercase tracking-wide block mb-1">
                       Expected Value
                     </span>
                     <h4 className="text-sm md:text-lg font-bold text-[#012e54] break-all">
                       ₹{results.futureValue}
                     </h4>
-                    <span className="text-[10px] md:text-xs font-semibold text-slate-600 block mt-1">
+                    <span className="text-[10px] md:text-xs font-semibold text-slate-700 block mt-1" style={{ color: "#334155" }}>
                       ({formatKLC(results.futureValueRaw)})
                     </span>
                   </div>
                 </div>
 
                 {/* Donut Chart and Legend */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-12 bg-slate-50 p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm">
+                <div 
+                  className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-12 p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm"
+                  style={{ backgroundColor: "#f8fafc" }}
+                >
                   {/* SVG Donut */}
                   <div className="relative w-40 h-40 shrink-0">
                     <svg viewBox="0 0 100 100" className="w-full h-full transform -rotate-90">
@@ -497,7 +512,7 @@ export default function SipCalculatorPage() {
                         cy="50"
                         r="35"
                         fill="transparent"
-                        stroke="#f3f4f6"
+                        stroke="#e2e8f0"
                         strokeWidth="15"
                       />
                       {/* Earnings Circle (Red, base layer) */}
@@ -506,7 +521,7 @@ export default function SipCalculatorPage() {
                         cy="50"
                         r="35"
                         fill="transparent"
-                        stroke="#c41f26"
+                        stroke="#a7181e"
                         strokeWidth="15"
                       />
                       {/* Investment Circle (Blue, overlay segment) */}
@@ -515,7 +530,7 @@ export default function SipCalculatorPage() {
                         cy="50"
                         r="35"
                         fill="transparent"
-                        stroke="#006da0"
+                        stroke="#004f7a"
                         strokeWidth="15"
                         strokeDasharray={donut.strokeDasharray}
                         strokeDashoffset={0}
@@ -523,7 +538,7 @@ export default function SipCalculatorPage() {
                     </svg>
                     {/* Inner Content */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                      <span className="text-[10px] font-bold text-slate-600 uppercase tracking-widest">
+                      <span className="text-[10px] font-bold text-slate-700 uppercase tracking-widest" style={{ color: "#334155" }}>
                         Total Value
                       </span>
                       <span className="text-base font-bold text-[#012e54]">
@@ -536,14 +551,14 @@ export default function SipCalculatorPage() {
                   <div className="space-y-4 w-full max-w-[200px]">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-4 h-4 rounded-full bg-[#006da0] block"></span>
+                        <span className="w-4 h-4 rounded-full bg-[#004f7a] block"></span>
                         <span className="text-sm font-bold text-[#012e54]">Investment</span>
                       </div>
                       <span className="text-sm font-bold text-[#012e54]">{donut.invPercent}%</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-4 h-4 rounded-full bg-[#c41f26] block"></span>
+                        <span className="w-4 h-4 rounded-full bg-[#a7181e] block"></span>
                         <span className="text-sm font-bold text-[#012e54]">Earnings</span>
                       </div>
                       <span className="text-sm font-bold text-[#012e54]">{donut.earnPercent}%</span>

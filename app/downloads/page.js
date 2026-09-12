@@ -180,7 +180,7 @@ export default function DownloadsPage() {
         <Container>
           <div className="flex gap-2 overflow-x-auto py-1 scrollbar-none">
             {loadingSections ? (
-              <div className="flex items-center gap-4 py-4 text-sm text-gray-500 font-medium">
+              <div className="flex items-center gap-4 py-4 text-sm text-slate-600 font-medium">
                 <Loader2 className="w-4 h-4 animate-spin text-red-600" />
                 <span>Loading sections...</span>
               </div>
@@ -233,13 +233,13 @@ export default function DownloadsPage() {
 
             {/* 2. Sidebar - Subheaders (Subsections) Updated Design (Desktop & Mobile) */}
             <aside className="lg:col-span-1 space-y-4">
-              <h2 className="hidden lg:block text-[13px] font-bold text-slate-500 uppercase tracking-widest mb-3 px-1">
+              <h2 className="hidden lg:block text-[13px] font-bold text-slate-600 uppercase tracking-widest mb-3 px-1">
                 Categories
               </h2>
 
               {loadingSubsections ? (
                 <div className="py-8 text-center text-gray-600 bg-white rounded-2xl border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hidden lg:block">
-                  <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2 text-[#c41f26]" />
+                  <Loader2 className="w-5 h-5 animate-spin mx-auto mb-2 text-[#a7181e]" />
                   <span className="text-xs font-semibold">Loading categories...</span>
                 </div>
               ) : subsections.length === 0 ? (
@@ -270,7 +270,7 @@ export default function DownloadsPage() {
                         >
                           <span>{subName}</span>
                           <ChevronRight
-                            className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? "text-[#EA2830] translate-x-1" : "text-slate-500"
+                            className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? "text-[#EA2830] translate-x-1" : "text-slate-600"
                               }`}
                             aria-hidden="true"
                           />

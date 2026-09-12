@@ -36,7 +36,7 @@ export default function InvestmentServices() {
           <p style={{ color: "#a7181e" }} className="text-[14px] font-black tracking-widest uppercase mb-3" aria-hidden="true">
             Investment Opportunities
           </p>
-          <h2 id="features-heading" className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
+          <h2 id="features-heading" className="text-3xl md:text-4xl font-serif tracking-tight leading-tight" style={{ color: "#0f172a" }}>
             Every investment need. One trusted roof.
           </h2>
         </div>
@@ -47,7 +47,8 @@ export default function InvestmentServices() {
             <Link
               href={s.href}
               key={s.id}
-              className="group bg-white border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[240px] block"
+              className="group bg-white border border-slate-200 rounded-xl p-6 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl relative overflow-hidden flex flex-col justify-between min-h-[240px] block shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e]"
+              style={{ backgroundColor: "#ffffff" }}
             >
               {/* Content */}
               <div className="flex justify-between items-start gap-4 mb-4">

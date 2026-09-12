@@ -127,8 +127,8 @@ export default function FloatingMobileTrading({ isOpen: externalIsOpen, onClose 
                 rel="noopener noreferrer"
                 className="flex flex-col items-center group"
               >
-                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#c41f26] transition-all duration-300 mb-4">
-                  <TrendingUp className="w-12 h-12 text-[#c41f26]" aria-hidden="true" />
+                <div className="w-32 h-32 rounded-full border-2 border-slate-100 flex items-center justify-center bg-white shadow-lg group-hover:border-[#a7181e] transition-all duration-300 mb-4">
+                  <TrendingUp className="w-12 h-12 text-[#a7181e]" aria-hidden="true" />
                 </div>
                 <span className="text-sm font-bold text-slate-800 text-center uppercase tracking-wider">TRADE<br/>EXPRESS</span>
               </a>

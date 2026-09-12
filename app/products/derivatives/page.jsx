@@ -56,7 +56,10 @@ export default function ProductDetailsPage() {
 
             {/* Top Title & Tagline */}
             <div className="mb-8 pb-6 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span 
+                className="inline-block px-3 py-1 font-bold text-xs tracking-widest rounded-full uppercase mb-4"
+                style={{ backgroundColor: "#fee2e2", color: "#780d12" }}
+              >
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
@@ -93,7 +96,7 @@ export default function ProductDetailsPage() {
                         className="mt-1 p-1.5 rounded-full shrink-0"
                         style={{ backgroundColor: "#fee2e2", color: "#a7181e" }}
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#c41f26]" aria-hidden="true" />
+                        <CheckCircle2 className="w-4 h-4 text-[#a7181e]" aria-hidden="true" />
                       </div>
                       <span
                         className="text-[16px] font-medium leading-relaxed"
@@ -110,21 +113,33 @@ export default function ProductDetailsPage() {
               <div className="mt-8 mb-12">
                 <h3 className="text-xl font-bold text-slate-900 mb-6">Benefits of Trading Derivatives</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
-                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300" />
-                    <span className="text-[16px] text-slate-800 leading-relaxed">Leverage to amplify returns</span>
+                  <div 
+                    className="flex items-start gap-3 p-4 rounded-xl border border-black/5 hover:border-[#a7181e]/30 transition-all cursor-default"
+                    style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5 transition-all duration-300" aria-hidden="true" />
+                    <span className="text-[16px] font-medium leading-relaxed" style={{ color: "#0f172a" }}>Leverage to amplify returns</span>
                   </div>
-                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
-                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300" />
-                    <span className="text-[16px] text-slate-800 leading-relaxed">Hedging against market volatility</span>
+                  <div 
+                    className="flex items-start gap-3 p-4 rounded-xl border border-black/5 hover:border-[#a7181e]/30 transition-all cursor-default"
+                    style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5 transition-all duration-300" aria-hidden="true" />
+                    <span className="text-[16px] font-medium leading-relaxed" style={{ color: "#0f172a" }}>Hedging against market volatility</span>
                   </div>
-                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
-                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300" />
-                    <span className="text-[16px] text-slate-800 leading-relaxed">Diversify across asset classes</span>
+                  <div 
+                    className="flex items-start gap-3 p-4 rounded-xl border border-black/5 hover:border-[#a7181e]/30 transition-all cursor-default"
+                    style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5 transition-all duration-300" aria-hidden="true" />
+                    <span className="text-[16px] font-medium leading-relaxed" style={{ color: "#0f172a" }}>Diversify across asset classes</span>
                   </div>
-                  <div className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
-                    <CheckCircle2 className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300" />
-                    <span className="text-[16px] text-slate-800 leading-relaxed">Access multiple markets from one platform</span>
+                  <div 
+                    className="flex items-start gap-3 p-4 rounded-xl border border-black/5 hover:border-[#a7181e]/30 transition-all cursor-default"
+                    style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5 transition-all duration-300" aria-hidden="true" />
+                    <span className="text-[16px] font-medium leading-relaxed" style={{ color: "#0f172a" }}>Access multiple markets from one platform</span>
                   </div>
                 </div>
               </div>
@@ -132,22 +147,34 @@ export default function ProductDetailsPage() {
               {/* FAQ Section */}
               <div className="mb-12">
                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                  <HelpCircle className="w-6 h-6 text-[#c41f26]" /> Frequently Asked Questions
+                  <HelpCircle className="w-6 h-6 text-[#a7181e]" aria-hidden="true" /> Frequently Asked Questions
                 </h3>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
-                    <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
+                    <div 
+                      key={idx} 
+                      className="rounded-xl border border-black/5 overflow-hidden"
+                      style={{ backgroundColor: "#f8fafc" }}
+                    >
                       <button
                         type="button"
                         id={`faq-btn-${idx}`}
                         aria-expanded={openIndex === idx}
                         aria-controls={`faq-panel-${idx}`}
                         onClick={() => toggleFAQ(idx)}
-                        className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
+                        className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
+                        style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
                       >
-                        <span className="flex-1 min-w-0">{faq.q}</span>
-                        <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#c41f26]/10">
-                          {openIndex === idx ? <Minus className="w-4 h-4 text-[#c41f26]" /> : <Plus className="w-4 h-4 text-[#c41f26]" />}
+                        <span className="flex-1 min-w-0" style={{ color: "#0f172a" }}>{faq.q}</span>
+                        <span 
+                          className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full"
+                          style={{ backgroundColor: "#fee2e2" }}
+                        >
+                          {openIndex === idx ? (
+                            <Minus className="w-4 h-4 text-[#a7181e]" aria-hidden="true" />
+                          ) : (
+                            <Plus className="w-4 h-4 text-[#a7181e]" aria-hidden="true" />
+                          )}
                         </span>
                       </button>
                       {openIndex === idx && (
@@ -155,7 +182,8 @@ export default function ProductDetailsPage() {
                           id={`faq-panel-${idx}`}
                           role="region"
                           aria-labelledby={`faq-btn-${idx}`}
-                          className="px-5 pb-5 pt-0 text-slate-600 text-[16px] leading-relaxed"
+                          className="px-5 pb-5 pt-0 text-[16px] leading-relaxed"
+                          style={{ backgroundColor: "#f8fafc", color: "#1e293b" }}
                         >
                           {faq.a}
                         </div>
@@ -166,19 +194,25 @@ export default function ProductDetailsPage() {
               </div>
 
               {/* Disclaimer */}
-              <div className="mb-8 p-4 bg-orange-50/50 border border-orange-100 rounded-xl flex gap-3 items-start">
-                <AlertCircle className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
-                <p className="text-[16px] text-slate-500 leading-relaxed"><strong>Disclaimer:</strong> Derivatives trading involves substantial market risk. Please read all risk disclosure documents carefully before trading. Past performance is not indicative of future results.</p>
+              <div 
+                className="mb-8 p-4 rounded-xl flex gap-3 items-start border border-amber-200"
+                style={{ backgroundColor: "#fffbeb", color: "#1e293b" }}
+              >
+                <AlertCircle className="w-5 h-5 text-[#b45309] shrink-0 mt-0.5" aria-hidden="true" />
+                <p className="text-[16px] leading-relaxed" style={{ color: "#1e293b" }}>
+                  <strong style={{ color: "#0f172a" }}>Disclaimer:</strong> Derivatives trading involves substantial market risk. Please read all risk disclosure documents carefully before trading. Past performance is not indicative of future results.
+                </p>
               </div>
 
               {/* Button at the last */}
               <div className="pt-6 md:pt-8 border-t border-black/5">
                 <Link
                   href="/contact"
-                  className="w-full md:w-auto inline-flex bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  className="w-full md:w-auto inline-flex text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-all hover:brightness-110 hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
                 >
                   {product.buttonText}
-                  <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />
+                  <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" aria-hidden="true" />
                 </Link>
               </div>
             </div>

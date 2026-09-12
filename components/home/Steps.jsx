@@ -8,33 +8,37 @@
       Icon: UserPlus,
       title: "Open Your Account",
       desc: "Paperless KYC in minutes. Demat + trading account with NSDL, at zero opening cost.",
-      iconColor: "text-[#006da0]",
+      iconColor: "text-[#004f7a]",
       badgeColor: "bg-[#a7181e]",
-      bgColor: "bg-[#006da0]/10"
+      bgColor: "bg-[#e6f4fa]",
+      style: { backgroundColor: "#e6f4fa" }
     },
     {
       Icon: Handshake,
       title: "Meet Your Advisor",
       desc: "A dedicated relationship manager understands your goals, income and risk appetite.",
       iconColor: "text-[#a7181e]",
-      badgeColor: "bg-[#0088c2]",
-      bgColor: "bg-[#c41f26]/10"
+      badgeColor: "bg-[#004f7a]",
+      bgColor: "bg-[#fee2e2]",
+      style: { backgroundColor: "#fee2e2" }
     },
     {
       Icon: PieChart,
       title: "Build Your Portfolio",
       desc: "Invest across equity, funds, commodities and bonds — matched to your plan, not the market noise.",
-      iconColor: "text-[#006da0]",
+      iconColor: "text-[#004f7a]",
       badgeColor: "bg-[#a7181e]",
-      bgColor: "bg-[#006da0]/10"
+      bgColor: "bg-[#e6f4fa]",
+      style: { backgroundColor: "#e6f4fa" }
     },
     {
       Icon: LineChart,
       title: "Track & Grow",
       desc: "Monitor everything on our app, review quarterly with your RM, and stay the course. Rest assured.",
       iconColor: "text-[#a7181e]",
-      badgeColor: "bg-[#0088c2]",
-      bgColor: "bg-[#c41f26]/10"
+      badgeColor: "bg-[#004f7a]",
+      bgColor: "bg-[#fee2e2]",
+      style: { backgroundColor: "#fee2e2" }
     },
   ];
 
@@ -71,21 +75,24 @@ export default function InvestmentSteps() {
               return (
                 <div key={idx} className="text-center px-4 group flex flex-col items-center">
                   
-                  {/* આઈકોન બોક્સ સાઈઝ નાની કરી (w-16 h-16) */}
-                  <div className={`w-16 h-16 rounded-full mb-6 flex items-center justify-center relative border border-slate-100 shadow-sm transition-all duration-500 group-hover:scale-110 ${step.bgColor}`}>
+                  {/* Icon Box */}
+                  <div 
+                    className="w-16 h-16 rounded-full mb-6 flex items-center justify-center relative border border-slate-200 shadow-sm transition-all duration-500 group-hover:scale-110"
+                    style={step.style}
+                  >
                     <IconComponent className={`w-7 h-7 ${step.iconColor} transition-transform duration-500 group-hover:scale-110`} strokeWidth={1.8} />
                     
-                    {/* નાનો ડોટ */}
+                    {/* Badge Dot */}
                     <span className={`absolute top-0 right-0 w-3 h-3 rounded-full ${step.badgeColor} border-2 border-white shadow-sm`} aria-hidden="true" />
                   </div>
 
-                  {/* હેડિંગ */}
-                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#006da0] transition-colors duration-300">
+                  {/* Heading */}
+                  <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#004f7a] transition-colors duration-300">
                     {step.title}
                   </h3>
                   
-                  {/* ડિસ્ક્રિપ્શન */}
-                  <p className="text-[15px] text-slate-600 leading-relaxed font-medium max-w-[260px]">
+                  {/* Description */}
+                  <p className="text-[15px] text-slate-700 leading-relaxed font-medium max-w-[260px]" style={{ color: "#334155" }}>
                     {step.desc}
                   </p>
                 </div>

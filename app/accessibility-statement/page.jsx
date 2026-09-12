@@ -39,7 +39,7 @@ export default function AccessibilityStatementPage() {
       <Container>
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 text-xs font-semibold text-slate-500">
+          <ol className="flex items-center gap-2 text-xs font-semibold text-slate-600">
             <li>
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             </li>
@@ -355,7 +355,7 @@ export default function AccessibilityStatementPage() {
                     className="flex items-center justify-between text-slate-800 hover:text-primary font-semibold py-1.5 px-2 rounded hover:bg-slate-50 transition-colors"
                   >
                     <span>SEBI SCORES Portal</span>
-                    <ExternalLink className="w-4 h-4 text-slate-500" aria-label="(Opens in new tab)" />
+                    <ExternalLink className="w-4 h-4 text-slate-600" aria-label="(Opens in new tab)" />
                   </a>
                 </li>
                 <li>
@@ -366,7 +366,7 @@ export default function AccessibilityStatementPage() {
                     className="flex items-center justify-between text-slate-800 hover:text-primary font-semibold py-1.5 px-2 rounded hover:bg-slate-50 transition-colors"
                   >
                     <span>SEBI SMART ODR Portal</span>
-                    <ExternalLink className="w-4 h-4 text-slate-500" aria-label="(Opens in new tab)" />
+                    <ExternalLink className="w-4 h-4 text-slate-600" aria-label="(Opens in new tab)" />
                   </a>
                 </li>
                 <li>
@@ -375,7 +375,7 @@ export default function AccessibilityStatementPage() {
                     className="flex items-center justify-between text-slate-800 hover:text-primary font-semibold py-1.5 px-2 rounded hover:bg-slate-50 transition-colors"
                   >
                     <span>RSL Grievance Escalation Matrix</span>
-                    <ChevronRight className="w-4 h-4 text-slate-500" aria-hidden="true" />
+                    <ChevronRight className="w-4 h-4 text-slate-600" aria-hidden="true" />
                   </Link>
                 </li>
               </ul>

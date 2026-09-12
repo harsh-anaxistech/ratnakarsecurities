@@ -231,7 +231,7 @@ export default function RiskCalculatorPage() {
             <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#012e54] mb-3">
               Understand Your Investor Persona
             </h2>
-            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
+            <p className="text-slate-700 text-sm md:text-base leading-relaxed" style={{ color: "#334155" }}>
               Every successful investment journey begins by understanding your risk appetite. Answer the 6 questions below to evaluate both your financial **Risk Capacity** and psychological **Risk Tolerance**.
             </p>
           </div>
@@ -246,11 +246,8 @@ export default function RiskCalculatorPage() {
                 return (
                   <div
                     key={q.id}
-                    className={`bg-slate-50/70 border rounded-2xl p-5 md:p-6 transition-all duration-300 ${
-                      isSelected
-                        ? "border-[#c41f26]/20 shadow-[0_4px_20px_rgba(234,40,48,0.02)] bg-white"
-                        : "border-black/5"
-                    }`}
+                    className="border border-slate-200 rounded-2xl p-5 md:p-6 transition-all duration-300 shadow-sm"
+                    style={{ backgroundColor: isSelected ? "#ffffff" : "#f8fafc" }}
                   >
                     {/* Question Title */}
                     <h3 className="text-[15px] md:text-[16px] font-bold text-[#012e54] leading-snug mb-5 min-h-[48px]">
@@ -267,21 +264,22 @@ export default function RiskCalculatorPage() {
                             key={oIdx}
                             type="button"
                             onClick={() => handleSelectOption(q.key, optValue)}
-                            className={`w-full flex items-center justify-between p-3.5 rounded-xl border text-left text-xs md:text-sm font-medium transition-all duration-300 ${
-                              active
-                                ? "bg-[#c41f26]/5 border-[#c41f26] text-[#c41f26] font-semibold"
-                                : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300"
-                            }`}
+                            style={{
+                              backgroundColor: active ? "#fee2e2" : "#ffffff",
+                              borderColor: active ? "#a7181e" : "#cbd5e1",
+                              color: active ? "#7f1d1d" : "#1e293b",
+                            }}
+                            className="w-full flex items-center justify-between p-3.5 rounded-xl border text-left text-xs md:text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e]"
                           >
                             <span className="pr-2">{opt.text}</span>
                             <div
-                              className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-all ${
-                                active
-                                  ? "border-[#c41f26] bg-[#c41f26]"
-                                  : "border-gray-300 bg-white"
-                              }`}
+                              className="w-5 h-5 rounded-full border flex items-center justify-center shrink-0 transition-all"
+                              style={{
+                                borderColor: active ? "#a7181e" : "#94a3b8",
+                                backgroundColor: active ? "#a7181e" : "#ffffff",
+                              }}
                             >
-                              {active && <Check className="w-3.5 h-3.5 text-white" />}
+                              {active && <Check className="w-3.5 h-3.5 text-white" aria-hidden="true" />}
                             </div>
                           </button>
                         );
@@ -294,8 +292,11 @@ export default function RiskCalculatorPage() {
 
             {/* Error Message */}
             {validationError && (
-              <div className="flex items-center gap-2 text-danger bg-danger/5 border border-danger/10 rounded-xl p-4 max-w-xl mx-auto text-sm font-semibold">
-                <AlertTriangle className="w-5 h-5 shrink-0" />
+              <div 
+                className="flex items-center gap-2 border border-red-200 rounded-xl p-4 max-w-xl mx-auto text-sm font-bold shadow-sm"
+                style={{ backgroundColor: "#fff5f5", color: "#991b1b" }}
+              >
+                <AlertTriangle className="w-5 h-5 shrink-0" aria-hidden="true" />
                 <span>{validationError}</span>
               </div>
             )}
@@ -304,7 +305,8 @@ export default function RiskCalculatorPage() {
             <div className="text-center pt-4">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform active:scale-95 uppercase tracking-wide cursor-pointer"
+                className="inline-flex items-center justify-center text-white font-bold text-[16px] py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform active:scale-95 uppercase tracking-wide cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] focus-visible:ring-offset-2"
+                style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
               >
                 Calculate Risk Profile
               </button>
@@ -330,15 +332,16 @@ export default function RiskCalculatorPage() {
           <div className="relative bg-white w-full max-w-2xl rounded-3xl shadow-2xl border border-black/5 overflow-hidden animate-fade-in-up">
             
             {/* Modal Header */}
-            <div className="bg-[#012e54] text-white px-6 py-5 flex justify-between items-center">
+            <div className="bg-[#012e54] text-white px-6 py-5 flex justify-between items-center" style={{ backgroundColor: "#012e54", color: "#ffffff" }}>
               <div className="flex items-center gap-2.5">
-                <Shield className="w-6 h-6 text-[#006da0]" />
-                <h3 className="text-lg md:text-xl font-bold font-serif">
+                <Shield className="w-6 h-6 text-[#7dd3fc]" aria-hidden="true" />
+                <h3 className="text-lg md:text-xl font-bold font-serif text-white">
                   Your Risk Profile Analysis
                 </h3>
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
+                aria-label="Close Analysis Modal"
                 className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
@@ -349,7 +352,7 @@ export default function RiskCalculatorPage() {
             <div className="p-6 md:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
               
               <div className="text-center pb-4 border-b border-gray-100">
-                <span className="text-xs font-bold text-slate-600 uppercase tracking-widest block mb-1">
+                <span className="text-xs font-bold text-slate-700 uppercase tracking-widest block mb-1" style={{ color: "#334155" }}>
                   Analysis Score
                 </span>
                 <h4 className="text-3xl font-extrabold text-[#012e54]">
@@ -359,74 +362,83 @@ export default function RiskCalculatorPage() {
 
               {/* Status Columns */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-[#006da01f]/20 border border-[#006da0]/20 rounded-2xl p-4 text-center">
-                  <span className="text-xs font-bold text-[#006da0] uppercase tracking-wide block mb-1">
+                <div 
+                  className="border border-blue-200 rounded-2xl p-4 text-center shadow-sm"
+                  style={{ backgroundColor: "#f0f7ff" }}
+                >
+                  <span className="text-xs font-bold uppercase tracking-wide block mb-1" style={{ color: "#004f7a" }}>
                     Risk Capacity
                   </span>
                   <h5 className={`text-xl font-extrabold ${
-                    result.riskCapacity === "High" ? "text-emerald-700" : result.riskCapacity === "Low" ? "text-[#c41f26]" : "text-[#012e54]"
+                    result.riskCapacity === "High" ? "text-emerald-800" : result.riskCapacity === "Low" ? "text-[#a7181e]" : "text-[#012e54]"
                   }`}>
                     {result.riskCapacity}
                   </h5>
-                  <p className="text-[10px] text-gray-600 mt-1">
+                  <p className="text-[10px] text-slate-700 mt-1" style={{ color: "#334155" }}>
                     Financial ability to take risk
                   </p>
                 </div>
 
-                <div className="bg-[#c41f261f]/20 border border-[#c41f26]/15 rounded-2xl p-4 text-center">
-                  <span className="text-xs font-bold text-[#c41f26] uppercase tracking-wide block mb-1">
+                <div 
+                  className="border border-red-200 rounded-2xl p-4 text-center shadow-sm"
+                  style={{ backgroundColor: "#fff5f5" }}
+                >
+                  <span className="text-xs font-bold uppercase tracking-wide block mb-1" style={{ color: "#a7181e" }}>
                     Risk Tolerance
                   </span>
                   <h5 className={`text-xl font-extrabold ${
-                    result.riskTolerance === "High" ? "text-emerald-700" : result.riskTolerance === "Low" ? "text-[#c41f26]" : "text-[#012e54]"
+                    result.riskTolerance === "High" ? "text-emerald-800" : result.riskTolerance === "Low" ? "text-[#a7181e]" : "text-[#012e54]"
                   }`}>
                     {result.riskTolerance}
                   </h5>
-                  <p className="text-[10px] text-gray-600 mt-1">
+                  <p className="text-[10px] text-slate-700 mt-1" style={{ color: "#334155" }}>
                     Psychological readiness for risk
                   </p>
                 </div>
               </div>
 
               {/* Suggested Asset Allocation Section */}
-              <div className="bg-slate-50 rounded-2xl p-5 border border-gray-100 space-y-4">
+              <div 
+                className="rounded-2xl p-5 border border-slate-200 space-y-4 shadow-sm"
+                style={{ backgroundColor: "#f8fafc" }}
+              >
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-[#c41f26]" />
+                  <TrendingUp className="w-5 h-5 text-[#a7181e]" aria-hidden="true" />
                   <h6 className="text-base font-bold text-[#012e54] font-serif">
                     Suggested Asset Allocation ({allocation.type})
                   </h6>
                 </div>
-                <p className="text-gray-600 text-xs md:text-sm leading-relaxed">
+                <p className="text-slate-700 text-xs md:text-sm leading-relaxed" style={{ color: "#334155" }}>
                   {allocation.desc}
                 </p>
 
                 {/* Progress Indicators */}
                 <div className="space-y-3 pt-2">
                   <div>
-                    <div className="flex justify-between text-xs font-bold text-gray-700 mb-1">
+                    <div className="flex justify-between text-xs font-bold text-slate-900 mb-1" style={{ color: "#0f172a" }}>
                       <span>Equity Mutual Funds</span>
                       <span>{allocation.equity}</span>
                     </div>
-                    <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                      <div className="bg-[#c41f26] h-full rounded-full" style={{ width: allocation.equity }} />
+                    <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                      <div className="bg-[#a7181e] h-full rounded-full" style={{ width: allocation.equity }} />
                     </div>
                   </div>
                   <div>
-                    <div className="flex justify-between text-xs font-bold text-gray-700 mb-1">
+                    <div className="flex justify-between text-xs font-bold text-slate-900 mb-1" style={{ color: "#0f172a" }}>
                       <span>Debt Mutual Funds / Fixed Income</span>
                       <span>{allocation.debt}</span>
                     </div>
-                    <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                      <div className="bg-[#006da0] h-full rounded-full" style={{ width: allocation.debt }} />
+                    <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                      <div className="bg-[#004f7a] h-full rounded-full" style={{ width: allocation.debt }} />
                     </div>
                   </div>
                   <div>
-                    <div className="flex justify-between text-xs font-bold text-gray-700 mb-1">
+                    <div className="flex justify-between text-xs font-bold text-slate-900 mb-1" style={{ color: "#0f172a" }}>
                       <span>Gold / Liquid Funds</span>
                       <span>{allocation.gold}</span>
                     </div>
-                    <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-                      <div className="bg-yellow-500 h-full rounded-full" style={{ width: allocation.gold }} />
+                    <div className="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                      <div className="bg-amber-600 h-full rounded-full" style={{ width: allocation.gold }} />
                     </div>
                   </div>
                 </div>
@@ -437,7 +449,8 @@ export default function RiskCalculatorPage() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="bg-[#012e54] hover:bg-[#012441] text-white text-sm font-bold py-3 px-8 rounded-xl transition-all uppercase tracking-wide cursor-pointer"
+                  className="bg-[#004f7a] hover:bg-[#003d5e] text-white text-sm font-bold py-3 px-8 rounded-xl transition-all uppercase tracking-wide cursor-pointer"
+                  style={{ backgroundColor: "#004f7a", color: "#ffffff" }}
                 >
                   Close & Continue
                 </button>

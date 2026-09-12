@@ -31,7 +31,7 @@ export default function RefundCancellationPage() {
         <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-10 md:p-12 space-y-6 max-w-4xl mx-auto">
 
           <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 mb-2">Refund & Cancellation</h2>
-          <h3 className="text-xl font-bold text-[#c41f26] mb-6">At Ratnakar, We Care!</h3>
+          <h3 className="text-xl font-bold text-[#a7181e] mb-6">At Ratnakar, We Care!</h3>
 
           <p className="text-[16px] text-[#314158] leading-relaxed">
             The Refund & Cancellation policy for all payments made towards account opening or any other services using any mode of payment shall stand as under:

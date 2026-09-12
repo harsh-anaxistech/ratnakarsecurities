@@ -83,11 +83,11 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
           url: "https://twx.ratnakarsecurities.com:4433/twx/signin",
         },
       ],
-      cardBg: "rgba(0,109,160,0.03)",
-      borderHover: "#006da0",
-      iconBg: "rgba(0,109,160,0.12)",
-      iconColor: "#006da0",
-      btnBg: "#006da0",
+      cardBg: "rgba(0,79,122,0.04)",
+      borderHover: "#004f7a",
+      iconBg: "rgba(0,79,122,0.12)",
+      iconColor: "#004f7a",
+      btnBg: "#004f7a",
     },
     {
       title: "Tradenet Backoffice",
@@ -103,18 +103,18 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
           url: "https://tradenet2.ratnakarsecurities.com:8087/",
         },
       ],
-      cardBg: "rgba(21,128,61,0.03)",
-      borderHover: "#15803d",
-      iconBg: "rgba(21,128,61,0.12)",
-      iconColor: "#15803d",
-      btnBg: "#15803d",
+      cardBg: "rgba(22,101,52,0.04)",
+      borderHover: "#166534",
+      iconBg: "rgba(22,101,52,0.12)",
+      iconColor: "#166534",
+      btnBg: "#166534",
     },
   ];
 
   return (
     <div
-      className="fixed inset-0 z-[1000] flex items-center justify-center p-4"
-      style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)" }}
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
       onClick={onClose}
     >
       <div
@@ -123,6 +123,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
         aria-modal="true"
         aria-labelledby="backoffice-modal-title"
         className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl"
+        style={{ backgroundColor: "#ffffff" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* BLUE HEADER */}
@@ -141,7 +142,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
               <span className="text-[#7dd3fc]">Back Office Logins</span>
             </h2>
             <p
-              className="mt-1 text-[12px] leading-relaxed text-slate-200"
+              className="mt-1 text-[12px] leading-relaxed text-slate-100 font-medium"
             >
               Access your back office portals and manage your trading accounts seamlessly.
             </p>
@@ -160,8 +161,8 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute right-2.5 top-2.5 z-20 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full transition-all duration-200"
-            style={{ background: "rgba(255,255,255,0.15)", color: "#fff" }}
+            className="absolute right-2.5 top-2.5 z-20 flex h-7 w-7 cursor-pointer items-center justify-center rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            style={{ background: "rgba(255,255,255,0.2)", color: "#fff" }}
             aria-label="Close backoffice login dialog"
           >
             <X size={16} strokeWidth={2.5} />
@@ -169,7 +170,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
         </div>
 
         {/* WHITE BODY */}
-        <div className="bg-white p-5 sm:p-6">
+        <div className="bg-white p-5 sm:p-6" style={{ backgroundColor: "#ffffff" }}>
           <div className="flex flex-col gap-3.5 sm:flex-row">
             {loginOptions.map((option) => {
               const Icon = option.icon;
@@ -178,7 +179,7 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
                 <div
                   key={option.title}
                   className="flex flex-1 flex-col items-center justify-between gap-3 rounded-2xl border-2 p-4 text-center transition-all duration-200"
-                  style={{ borderColor: "#f0f0f0", background: "#fff" }}
+                  style={{ borderColor: "#e2e8f0", background: "#ffffff" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = option.borderHover;
                     e.currentTarget.style.background = option.cardBg;
@@ -186,8 +187,8 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
                     e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.06)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "#f0f0f0";
-                    e.currentTarget.style.background = "#fff";
+                    e.currentTarget.style.borderColor = "#e2e8f0";
+                    e.currentTarget.style.background = "#ffffff";
                     e.currentTarget.style.transform = "translateY(0)";
                     e.currentTarget.style.boxShadow = "none";
                   }}
@@ -203,10 +204,10 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
 
                     {/* Titles */}
                     <div>
-                      <p className="mb-0.5 text-[9px] font-bold uppercase tracking-widest text-gray-600">
+                      <p className="mb-0.5 text-[10px] font-bold uppercase tracking-widest text-slate-700">
                         {option.subtitle}
                       </p>
-                      <p className="text-sm font-bold text-gray-900">{option.title}</p>
+                      <p className="text-sm font-bold text-slate-900">{option.title}</p>
                     </div>
                   </div>
 
@@ -218,10 +219,10 @@ export default function BackofficeLoginModal({ isOpen, onClose }) {
                         href={login.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 rounded-full px-4 py-1.5 shadow-sm transition-all duration-150 hover:opacity-90"
+                        className="flex items-center gap-1.5 rounded-full px-4 py-1.5 shadow-xs transition-all duration-150 hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004f7a]"
                         style={{ background: option.btnBg }}
                       >
-                        <span className="text-[11px] font-semibold text-white">
+                        <span className="text-[11px] font-bold text-white">
                           {login.name}
                         </span>
                         <ExternalLink style={{ width: "11px", height: "11px", color: "#fff" }} />

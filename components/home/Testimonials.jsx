@@ -166,7 +166,7 @@ export default function Testimonials() {
             <h2 className="text-3xl md:text-4xl font-serif tracking-tight leading-tight text-[#011628] mb-2">
               Hear From Our Investors
             </h2>
-            <p className="text-slate-600 text-sm md:text-base font-normal max-w-lg">
+            <p className="text-slate-700 text-sm md:text-base font-normal max-w-lg" style={{ color: "#334155" }}>
               Discover how our tailored research and financial expertise empower long-term growth.
             </p>
           </div>
@@ -187,7 +187,7 @@ export default function Testimonials() {
                 </>
               ) : (
                 <>
-                  <Pause className="w-3.5 h-3.5 text-slate-600" aria-hidden="true" />
+                  <Pause className="w-3.5 h-3.5 text-slate-700" aria-hidden="true" />
                   <span>Pause</span>
                 </>
               )}
@@ -229,31 +229,37 @@ export default function Testimonials() {
                 key={i}
                 className="w-full shrink-0 px-3 md:w-auto md:shrink md:px-0"
               >
-                <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-7 border border-slate-300 hover:border-[#006da0]/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full relative group">
+                <div 
+                  className="rounded-2xl p-7 border border-slate-300 hover:border-[#004f7a]/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full relative group"
+                  style={{ backgroundColor: "#ffffff" }}
+                >
                   <div>
                     {/* Top Header inside Card */}
                     <div className="flex items-center justify-between mb-5">
-                      <div className="w-9 h-9 rounded-xl bg-[#006da0]/10 border border-[#006da0]/20 flex items-center justify-center text-secondary shrink-0 group-hover:bg-[#006da0] group-hover:text-white transition-colors duration-300">
+                      <div 
+                        className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border border-blue-200 transition-colors duration-300"
+                        style={{ backgroundColor: "#e6f4fa", color: "#004f7a" }}
+                      >
                         <Quote className="w-4 h-4" aria-hidden="true" />
                       </div>
                       <StarRating count={t.stars} />
                     </div>
 
                     {/* Testimonial Message */}
-                    <p className="text-[15px] leading-relaxed text-slate-700 font-medium mb-8">
+                    <p className="text-[15px] leading-relaxed text-slate-700 font-medium mb-8" style={{ color: "#334155" }}>
                       &ldquo;{t.quote}&rdquo;
                     </p>
                   </div>
 
                   {/* Customer Info */}
-                  <div className="flex items-center gap-3.5 pt-4 border-t border-slate-100 relative z-10">
+                  <div className="flex items-center gap-3.5 pt-4 border-t border-slate-200 relative z-10">
                     <Avatar name={t.name} initials={t.initials} profileImage={t.profile_image} />
                     <div className="overflow-hidden">
-                      <p className="text-sm font-bold text-slate-900 group-hover:text-[#005a9c] transition-colors duration-300 truncate">
+                      <p className="text-sm font-bold text-slate-900 group-hover:text-[#004f7a] transition-colors duration-300 truncate">
                         {t.name}
                       </p>
-                      <p className="text-xs font-semibold text-slate-600 mt-0.5 tracking-wide truncate">
-                        {t.role} {t.location && <><span className="text-slate-500 mx-1" aria-hidden="true">•</span> {t.location}</>}
+                      <p className="text-xs font-semibold text-slate-700 mt-0.5 tracking-wide truncate" style={{ color: "#334155" }}>
+                        {t.role} {t.location && <><span className="text-slate-600 mx-1" aria-hidden="true">•</span> {t.location}</>}
                       </p>
                     </div>
                   </div>

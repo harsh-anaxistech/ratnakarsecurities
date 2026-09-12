@@ -186,10 +186,10 @@ export default function StartupPopupModal() {
         className="relative w-[92vw] max-w-[420px] max-h-[90vh] bg-white rounded-[24px] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden border border-slate-100 my-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Top Royal Blue Header Banner with iPhone Graphic */}
+        {/* Top Header Banner with iPhone Graphic */}
         <div 
-          className="relative bg-[#0B5ED7] bg-gradient-to-r from-[#0B5ED7] via-[#0D6EFD] to-[#0A4BB7] px-5 py-4 text-white overflow-hidden select-none shrink-0 min-h-[90px] flex flex-col justify-between"
-          style={{ backgroundColor: "#0B5ED7" }}
+          className="relative bg-[#004f7a] bg-gradient-to-r from-[#004f7a] via-[#005a8c] to-[#003859] px-5 py-4 text-white overflow-hidden select-none shrink-0 min-h-[90px] flex flex-col justify-between"
+          style={{ backgroundColor: "#004f7a" }}
         >
           {/* Subtle Glow */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sky-400/20 via-transparent to-transparent pointer-events-none" />
@@ -197,7 +197,7 @@ export default function StartupPopupModal() {
           {/* Close Button Top Right */}
           <button
             onClick={handleClose}
-            className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-white text-slate-700 hover:bg-slate-100 hover:text-slate-900 shadow-md border border-slate-100 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+            className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-white text-slate-800 hover:bg-slate-100 hover:text-slate-950 shadow-md border border-slate-100 flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             aria-label="Close Announcement"
           >
             <X size={16} strokeWidth={2.5} aria-hidden="true" />
@@ -237,22 +237,22 @@ export default function StartupPopupModal() {
         </div>
 
         {/* Modal Body */}
-        <div className="p-4 sm:p-5 space-y-3.5 bg-white overflow-y-auto flex-1 sidebar-scrollbar">
+        <div className="p-4 sm:p-5 space-y-3.5 bg-white overflow-y-auto flex-1 sidebar-scrollbar" style={{ backgroundColor: "#ffffff" }}>
           {/* Description */}
-          <p className="text-xs sm:text-[13px] text-[#475569] font-medium leading-relaxed">
+          <p className="text-xs sm:text-[13px] text-[#334155] font-medium leading-relaxed">
             {displayDesc}
           </p>
 
           {/* Highlights Light-Blue Box with SVG Checkmarks */}
           {displayPoints && displayPoints.length > 0 && (
-            <div className="bg-[#F0F7FF] rounded-xl p-3.5 border border-[#E0EDFF] space-y-2.5">
+            <div className="bg-[#F0F7FF] rounded-xl p-3.5 border border-[#cce3fc] space-y-2.5" style={{ backgroundColor: "#f0f7ff" }}>
               {displayPoints.map((pt, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#334155]"
+                  className="flex items-start gap-2.5 text-xs sm:text-[13px] text-[#1e293b]"
                 >
                   {/* Blue Checkmark Circle */}
-                  <div className="w-4 h-4 rounded-full bg-[#0D6EFD] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <div className="w-4 h-4 rounded-full bg-[#004f7a] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs" style={{ backgroundColor: "#004f7a" }}>
                     <Check size={11} strokeWidth={3.5} />
                   </div>
                   <div className="leading-snug">{formatPointText(pt)}</div>
@@ -273,11 +273,12 @@ export default function StartupPopupModal() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleClose}
-                  className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-[13px] transition-all duration-200 flex items-center justify-between shadow-xs active:scale-[0.99] ${
+                  className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs sm:text-[13px] transition-all duration-200 flex items-center justify-between shadow-xs active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004f7a] ${
                     isPrimary
-                      ? "bg-[#0D6EFD] hover:bg-[#0b5ed7] text-white shadow-blue-500/20 shadow-md"
-                      : "bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#0F172A] border border-[#E2E8F0]"
+                      ? "bg-[#004f7a] hover:bg-[#003d5e] text-white shadow-md"
+                      : "bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#0F172A] border border-[#cbd5e1]"
                   }`}
+                  style={isPrimary ? { backgroundColor: "#004f7a", color: "#ffffff" } : { backgroundColor: "#f8fafc", color: "#0f172a" }}
                 >
                   <span className="tracking-tight">
                     {lnk.label || `Action ${idx + 1}`}

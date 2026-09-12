@@ -74,7 +74,7 @@ function DpModal({ isOpen, onClose, title, subtitle, maxWidth = "max-w-[860px]",
         <div className="relative pt-6 px-6 pb-5 border-b border-slate-100 flex items-center justify-between shrink-0 bg-[#011628]">
           <div>
             {subtitle && (
-              <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#006da0] mb-1">
+              <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#004f7a] mb-1">
                 {subtitle}
               </p>
             )}
@@ -281,10 +281,10 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
 
         {/* Breadcrumb & Navigation Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-sm text-slate-600">
             <Link
               href="/"
-              className="inline-flex items-center font-semibold text-[#006da0] hover:text-[#012e54] transition-colors"
+              className="inline-flex items-center font-semibold text-[#004f7a] hover:text-[#012e54] transition-colors"
             >
               <ArrowLeft className="w-4 h-4 mr-1.5" /> Home
             </Link>
@@ -302,8 +302,8 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#006da0] px-3.5 py-1.5 rounded-full shadow-xs border border-[#006da0]/20">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#006da0]" /> SEBI Regulatory Compliance
+            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#004f7a] px-3.5 py-1.5 rounded-full shadow-xs border border-[#bae6fd]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#004f7a]" /> SEBI Regulatory Compliance
             </span>
           </div>
         </div>
@@ -323,8 +323,8 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
             <button
               onClick={() => setActiveTab("complaints")}
               className={`pb-3 transition-colors relative cursor-pointer ${activeTab === "complaints"
-                ? "text-[#011628] border-b-2 border-[#c41f26]"
-                : "text-gray-500 hover:text-gray-800"
+                ? "text-[#011628] border-b-2 border-[#a7181e]"
+                : "text-slate-600 hover:text-gray-800"
                 }`}
             >
               Complaints & Disposal Trends
@@ -332,8 +332,8 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
             <button
               onClick={() => setActiveTab("charter-details")}
               className={`pb-3 transition-colors relative cursor-pointer ${activeTab === "charter-details"
-                ? "text-[#011628] border-b-2 border-[#c41f26]"
-                : "text-gray-500 hover:text-gray-800"
+                ? "text-[#011628] border-b-2 border-[#a7181e]"
+                : "text-slate-600 hover:text-gray-800"
                 }`}
             >
               Investor Charter Guidelines
@@ -344,10 +344,10 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
         {/* Loading Spinner / Skeleton */}
         {loading && (
           <div className="bg-white rounded-3xl p-16 text-center border border-gray-200 shadow-sm space-y-4">
-            <RefreshCw className="w-10 h-10 text-[#006da0] animate-spin mx-auto" />
+            <RefreshCw className="w-10 h-10 text-[#004f7a] animate-spin mx-auto" />
             <div>
               <p className="text-base font-bold text-gray-900">Loading DP Complaints Trend Data...</p>
-              <p className="text-xs text-gray-500 mt-1">Retrieving official monthly and annual disposal statistics</p>
+              <p className="text-xs text-slate-600 mt-1">Retrieving official monthly and annual disposal statistics</p>
             </div>
           </div>
         )}
@@ -355,16 +355,16 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
         {/* Error State */}
         {error && !loading && (
           <div className="bg-red-50/80 border border-red-200 rounded-3xl p-8 text-center space-y-4 shadow-sm">
-            <div className="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto">
+            <div className="w-12 h-12 bg-[#fee2e2] text-[#991b1b] rounded-2xl flex items-center justify-center mx-auto">
               <AlertCircle className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-red-900">Unable to load complaints trend data</h3>
-              <p className="text-sm text-red-700 mt-1 max-w-md mx-auto">{error}</p>
+              <h3 className="text-lg font-bold text-red-950">Unable to load complaints trend data</h3>
+              <p className="text-sm text-slate-800 mt-1 max-w-md mx-auto">{error}</p>
             </div>
             <button
               onClick={() => fetchTrends(selectedFinYear)}
-              className="px-6 py-2.5 bg-[#c41f26] text-white font-bold rounded-xl text-sm hover:bg-[#c91f27] transition shadow-xs cursor-pointer"
+              className="px-6 py-2.5 bg-[#a7181e] text-white font-bold rounded-xl text-sm hover:bg-[#8e1419] transition shadow-xs cursor-pointer"
             >
               Retry
             </button>
@@ -382,7 +382,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
               <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#006da0]"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#004f7a]"></span>
                     <h2 className="text-lg sm:text-xl font-bold text-[#011628]">
                       Data for the Month Ending {latestMonthName}
                     </h2>
@@ -392,7 +392,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-slate-600 mt-1">
                     SEBI Prescribed Format: Status of complaints received by the Depository Participant categorized by source
                   </p>
                 </div>
@@ -401,7 +401,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                 <div className="flex flex-wrap items-center gap-3 sm:gap-4 shrink-0">
                   {/* Financial Year Dropdown */}
                   <div className="flex items-center bg-gray-50 hover:bg-gray-100/80 rounded-2xl px-4 py-2 border border-gray-300 transition shadow-2xs">
-                    <Calendar className="w-4 h-4 text-gray-500 mr-2 shrink-0" />
+                    <Calendar className="w-4 h-4 text-slate-600 mr-2 shrink-0" />
                     <label
                       htmlFor="finyear-select-dp"
                       className="text-xs font-bold text-gray-600 uppercase tracking-wider mr-2 shrink-0"
@@ -426,7 +426,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                           <option value={selectedFinYear || "Current"}>{selectedFinYear || "Current"}</option>
                         )}
                       </select>
-                      <ChevronDown className="w-3.5 h-3.5 text-gray-500 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      <ChevronDown className="w-3.5 h-3.5 text-slate-600 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
                   </div>
 
@@ -438,7 +438,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                     aria-label="Refresh complaints data"
                     className="p-2.5 rounded-2xl border border-gray-300 bg-white hover:bg-gray-50 text-gray-600 transition shadow-2xs disabled:opacity-50 cursor-pointer"
                   >
-                    <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-[#006da0]" : ""}`} />
+                    <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-[#004f7a]" : ""}`} />
                   </button>
 
                   {/* Download Official SEBI / DP Consolidated PDF */}
@@ -448,7 +448,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="Download SEBI Complaints PDF"
-                      className="inline-flex items-center gap-2 bg-[#c41f26] hover:bg-[#c91f27] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
+                      className="inline-flex items-center gap-2 bg-[#a7181e] hover:bg-[#8e1419] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
                     >
                       <Download className="w-4 h-4 stroke-[2.5]" /> Download SEBI PDF
                     </a>
@@ -460,7 +460,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       aria-label="Download Official DP Charter PDF"
                       className="inline-flex items-center gap-2 bg-[#011628] hover:bg-[#13304a] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
                     >
-                      <Download className="w-4 h-4 text-[#006da0]" /> Official DP PDF
+                      <Download className="w-4 h-4 text-[#004f7a]" /> Official DP PDF
                     </a>
                   )}
                 </div>
@@ -514,13 +514,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       }
                     ].map((row) => (
                       <tr key={row.sn} className="hover:bg-blue-50/40 transition-colors">
-                        <td className="px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100">{row.sn}</td>
+                        <td className="px-4 py-3.5 text-center font-medium text-slate-600 border-r border-gray-100">{row.sn}</td>
                         <td className="px-5 py-3.5 font-semibold text-gray-900 border-r border-gray-100">{row.source}</td>
                         <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{row.carried}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{row.received}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-emerald-700 border-r border-gray-100">{row.resolved}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-[#004f7a] border-r border-gray-100">{row.received}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-[#166534] border-r border-gray-100">{row.resolved}</td>
                         <td className="px-4 py-3.5 text-center font-bold text-amber-700 border-r border-gray-100">{row.pendingLt3}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-gray-500 border-r border-gray-100">{row.pendingGt3}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-slate-600 border-r border-gray-100">{row.pendingGt3}</td>
                         <td className="px-4 py-3.5 text-center text-gray-600">{row.avgTime}</td>
                       </tr>
                     ))}
@@ -533,16 +533,16 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       <td className="px-4 py-4 text-center font-black border-r border-gray-200">
                         {latestMonthRecord ? (latestMonthRecord.carried_forward ?? 0) : 0}
                       </td>
-                      <td className="px-4 py-4 text-center font-black text-blue-700 border-r border-gray-200">
+                      <td className="px-4 py-4 text-center font-black text-[#004f7a] border-r border-gray-200">
                         {latestMonthRecord ? (latestMonthRecord.received ?? 0) : 0}
                       </td>
-                      <td className="px-4 py-4 text-center font-black text-emerald-700 border-r border-gray-200">
+                      <td className="px-4 py-4 text-center font-black text-[#166534] border-r border-gray-200">
                         {latestMonthRecord ? (latestMonthRecord.resolved ?? 0) : 0}
                       </td>
                       <td className="px-4 py-4 text-center font-black text-amber-700 border-r border-gray-200">
                         {latestMonthRecord ? (latestMonthRecord.pending ?? 0) : 0}
                       </td>
-                      <td className="px-4 py-4 text-center font-black text-gray-500 border-r border-gray-200">0</td>
+                      <td className="px-4 py-4 text-center font-black text-slate-600 border-r border-gray-200">0</td>
                       <td className="px-4 py-4 text-center text-gray-600">
                         {latestMonthRecord ? (latestMonthRecord.avg_resolution_time || "-") : "-"}
                       </td>
@@ -557,7 +557,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
               <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#c41f26]"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#a7181e]"></span>
                     <h2 className="text-lg sm:text-xl font-bold text-[#011628]">
                       Trend of Monthly Disposal of Complaints
                     </h2>
@@ -567,7 +567,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-slate-600 mt-1">
                     Month-wise complaint status received against the Depository Participant for the selected financial year
                   </p>
                 </div>
@@ -600,11 +600,11 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
 
                         return (
                           <tr key={row.srno || row.SRNO || idx} className="hover:bg-blue-50/40 transition-colors">
-                            <td className="px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100">{idx + 1}</td>
+                            <td className="px-4 py-3.5 text-center font-medium text-slate-600 border-r border-gray-100">{idx + 1}</td>
                             <td className="px-5 py-3.5 font-semibold text-gray-900 border-r border-gray-100">{monthName}</td>
                             <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{carried}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{received}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-emerald-700 border-r border-gray-100">{resolved}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#004f7a] border-r border-gray-100">{received}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#166534] border-r border-gray-100">{resolved}</td>
                             <td className="px-4 py-3.5 text-center font-bold text-amber-700 border-r border-gray-100">{pending}</td>
                             <td className="px-4 py-3.5 text-center text-gray-600 border-r border-gray-100">{avgTime !== "" ? avgTime : "-"}</td>
                             <td className="px-4 py-3.5 text-center">
@@ -614,7 +614,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   aria-label={`Download PDF report for ${monthName}`}
-                                  className="inline-flex items-center justify-center text-xs font-bold text-[#c41f26] hover:text-[#011628] bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg transition gap-1.5"
+                                  className="inline-flex items-center justify-center text-xs font-bold text-[#a7181e] hover:text-[#011628] bg-red-50 hover:bg-[#fee2e2] px-3 py-1.5 rounded-lg transition gap-1.5"
                                 >
                                   <FileText className="w-3.5 h-3.5" /> PDF
                                 </a>
@@ -646,10 +646,10 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <td className="px-4 py-4 text-center font-black border-r border-gray-200">
                           {data.monthlyGrandTotal?.carried_forward ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-blue-700 border-r border-gray-200">
+                        <td className="px-4 py-4 text-center font-black text-[#004f7a] border-r border-gray-200">
                           {data.monthlyGrandTotal?.received ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-emerald-700 border-r border-gray-200">
+                        <td className="px-4 py-4 text-center font-black text-[#166534] border-r border-gray-200">
                           {data.monthlyGrandTotal?.resolved ?? 0}
                         </td>
                         <td className="px-4 py-4 text-center font-black text-amber-700 border-r border-gray-200">
@@ -668,12 +668,12 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
             <section className="bg-white rounded-3xl shadow-sm border border-gray-200 overflow-hidden">
               <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#006da0]"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#004f7a]"></span>
                   <h2 className="text-lg sm:text-xl font-bold text-[#011628]">
                     Trend of Annual Disposal of Complaints
                   </h2>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-600 mt-1">
                   Year-on-year historical complaint disposal overview across financial years
                 </p>
               </div>
@@ -701,11 +701,11 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
 
                         return (
                           <tr key={row.sn || row.year || idx} className="hover:bg-blue-50/40 transition-colors">
-                            <td className="px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100">{idx + 1}</td>
+                            <td className="px-4 py-3.5 text-center font-medium text-slate-600 border-r border-gray-100">{idx + 1}</td>
                             <td className="px-6 py-3.5 font-bold text-gray-900 border-r border-gray-100">{year}</td>
                             <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{carried}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{received}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-emerald-700 border-r border-gray-100">{resolved}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#004f7a] border-r border-gray-100">{received}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#166534] border-r border-gray-100">{resolved}</td>
                             <td className="px-4 py-3.5 text-center font-bold text-amber-700">{pending}</td>
                           </tr>
                         );
@@ -731,10 +731,10 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <td className="px-4 py-4 text-center font-black border-r border-gray-200">
                           {data.annualGrandTotal?.carried_forward ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-blue-700 border-r border-gray-200">
+                        <td className="px-4 py-4 text-center font-black text-[#004f7a] border-r border-gray-200">
                           {data.annualGrandTotal?.received ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-emerald-700 border-r border-gray-200">
+                        <td className="px-4 py-4 text-center font-black text-[#166534] border-r border-gray-200">
                           {data.annualGrandTotal?.resolved ?? 0}
                         </td>
                         <td className="px-4 py-4 text-center font-black text-amber-700">
@@ -786,24 +786,24 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
 
                 {/* Mission Card */}
                 <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs p-7 sm:p-8 relative overflow-hidden group hover:shadow-md transition-all duration-300">
-                  <div className="absolute top-0 left-0 w-2 h-full bg-[#c41f26]" />
+                  <div className="absolute top-0 left-0 w-2 h-full bg-[#a7181e]" />
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#c41f26]/10 flex items-center justify-center text-[#c41f26] shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-[#fee2e2] flex items-center justify-center text-[#a7181e] shrink-0">
                       <Award className="w-6 h-6" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-[#011628] mb-2">Mission</h3>
                       <ul className="space-y-3 text-[14px] text-slate-600 leading-relaxed font-medium">
                         <li className="flex items-start gap-2.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#c41f26] shrink-0 mt-2" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#a7181e] shrink-0 mt-2" />
                           <span>To hold securities of investors in dematerialised form and facilitate its transfer, while ensuring safekeeping of securities and protecting interest of investors.</span>
                         </li>
                         <li className="flex items-start gap-2.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#c41f26] shrink-0 mt-2" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#a7181e] shrink-0 mt-2" />
                           <span>To provide timely and accurate information to investors with regard to their holding and transfer of securities held by them.</span>
                         </li>
                         <li className="flex items-start gap-2.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#c41f26] shrink-0 mt-2" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#a7181e] shrink-0 mt-2" />
                           <span>To provide the highest standards of investor education, investor awareness and timely services so as to enhance Investor Protection and create awareness about Investor Rights.</span>
                         </li>
                       </ul>
@@ -852,7 +852,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       <span className="w-2.5 h-2.5 rounded-full bg-[#1a6eb5]" />
                       (1) Basic Services
                     </h4>
-                    <span className="text-xs text-slate-500 font-medium">Mandatory Processing Timelines</span>
+                    <span className="text-xs text-slate-600 font-medium">Mandatory Processing Timelines</span>
                   </div>
 
                   <div className="overflow-x-auto">
@@ -905,12 +905,12 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                           <td className="p-4 border-r border-slate-100 font-bold text-[#011628]">Settlement Instruction</td>
                           <td className="p-4 space-y-2">
                             <p className="text-slate-700">
-                              For <strong className="text-[#011628]">T+1 day settlements</strong>, Participants shall accept instructions from the Clients, in physical form up to <strong className="text-[#c41f26]">4:00 p.m.</strong> (in case of electronic instructions up to <strong className="text-[#c41f26]">6:00 p.m.</strong>) on <strong>T day</strong> for pay-in of securities.
+                              For <strong className="text-[#011628]">T+1 day settlements</strong>, Participants shall accept instructions from the Clients, in physical form up to <strong className="text-[#a7181e]">4:00 p.m.</strong> (in case of electronic instructions up to <strong className="text-[#a7181e]">6:00 p.m.</strong>) on <strong>T day</strong> for pay-in of securities.
                             </p>
                             <p className="text-slate-700">
-                              For <strong className="text-[#011628]">T+0-day settlements</strong>, Participants shall accept EPI instructions from the clients, till <strong className="text-[#c41f26]">11:00 AM on T day</strong>.
+                              For <strong className="text-[#011628]">T+0-day settlements</strong>, Participants shall accept EPI instructions from the clients, till <strong className="text-[#a7181e]">11:00 AM on T day</strong>.
                             </p>
-                            <span className="inline-block text-[11px] font-semibold text-slate-500 bg-slate-200/60 px-2 py-0.5 rounded">
+                            <span className="inline-block text-[11px] font-semibold text-slate-600 bg-slate-200/60 px-2 py-0.5 rounded">
                               Note: &apos;T&apos; refers to &apos;Trade Day&apos;
                             </span>
                           </td>
@@ -924,7 +924,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                 <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
                   <div className="p-5 bg-slate-50 border-b border-slate-100">
                     <h4 className="text-base font-bold text-[#011628] flex items-start sm:items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#006da0] shrink-0 mt-1 sm:mt-0" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#004f7a] shrink-0 mt-1 sm:mt-0" />
                       <span>(2) Depositories provide special services like pledge, hypothecation, internet-based services etc. in addition to their core services and these include:</span>
                     </h4>
                   </div>
@@ -955,7 +955,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                                   <span className="text-xs font-bold text-[#1a6eb5] block">
                                     (1) Basic Services Demat Account (BSDA)<sup>1</sup>
                                   </span>
-                                  <span className="text-[11px] text-slate-500">Nil AMC up to ₹4 Lakhs • Max ₹100 up to ₹10 Lakhs</span>
+                                  <span className="text-[11px] text-slate-600">Nil AMC up to ₹4 Lakhs • Max ₹100 up to ₹10 Lakhs</span>
                                 </div>
                                 <ArrowUpRight className="w-4 h-4 text-[#1a6eb5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                               </button>
@@ -969,7 +969,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                                   <span className="text-xs font-bold text-[#1a6eb5] block">
                                     (2) Transposition cum dematerialization<sup>2</sup>
                                   </span>
-                                  <span className="text-[11px] text-slate-500">Dematerialisation with order of names adjustment</span>
+                                  <span className="text-[11px] text-slate-600">Dematerialisation with order of names adjustment</span>
                                 </div>
                                 <ArrowUpRight className="w-4 h-4 text-[#1a6eb5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                               </button>
@@ -983,7 +983,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                                   <span className="text-xs font-bold text-[#1a6eb5] block">
                                     (3) Linkages with Clearing System<sup>3</sup>
                                   </span>
-                                  <span className="text-[11px] text-slate-500">Actual delivery to and from clearing system</span>
+                                  <span className="text-[11px] text-slate-600">Actual delivery to and from clearing system</span>
                                 </div>
                                 <ArrowUpRight className="w-4 h-4 text-[#1a6eb5] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                               </button>
@@ -1016,38 +1016,38 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                             <div className="flex flex-wrap gap-2 pt-1">
                               <button
                                 onClick={() => setActiveModal("EO")}
-                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#f0f7ff] hover:bg-[#e0f2fe] text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#bae6fd] cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>a. E-account opening<sup>4</sup></span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#004f7a]" />
                               </button>
                               <button
                                 onClick={() => setActiveModal("OIFE")}
-                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#f0f7ff] hover:bg-[#e0f2fe] text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#bae6fd] cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>b. Online instructions for execution<sup>5</sup> (SPEED-e)</span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#004f7a]" />
                               </button>
                               <button
                                 onClick={() => setActiveModal("DG")}
-                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#f0f7ff] hover:bg-[#e0f2fe] text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#bae6fd] cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>c. e-DIS / Demat Gateway<sup>6</sup></span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#004f7a]" />
                               </button>
                               <button
                                 onClick={() => setActiveModal("ECAS")}
-                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#f0f7ff] hover:bg-[#e0f2fe] text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#bae6fd] cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>d. e-CAS facility<sup>7</sup></span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#004f7a]" />
                               </button>
                               <button
                                 onClick={() => setActiveModal("MS")}
-                                className="px-3.5 py-2 bg-[#006da0]/10 hover:bg-[#006da0]/20 text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#006da0]/30 cursor-pointer flex items-center gap-1.5"
+                                className="px-3.5 py-2 bg-[#f0f7ff] hover:bg-[#e0f2fe] text-[#012e54] rounded-xl text-xs font-bold transition-all border border-[#bae6fd] cursor-pointer flex items-center gap-1.5"
                               >
                                 <span>e. Miscellaneous services<sup>8</sup></span>
-                                <ArrowUpRight className="w-3.5 h-3.5 text-[#006da0]" />
+                                <ArrowUpRight className="w-3.5 h-3.5 text-[#004f7a]" />
                               </button>
                             </div>
                           </td>
@@ -1070,7 +1070,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                   {/* (1) The Process of investor grievance redressal */}
                   <div>
                     <h4 className="text-base sm:text-lg font-bold text-[#011628] flex items-center gap-2 mb-2">
-                      <AlertCircle className="w-5 h-5 text-[#c41f26]" />
+                      <AlertCircle className="w-5 h-5 text-[#a7181e]" />
                       (1) The Process of investor grievance redressal
                     </h4>
                     <p className="text-sm text-slate-600">
@@ -1145,7 +1145,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                               >
                                 relations@nsdl.com
                               </a>
-                              <span className="text-xs text-slate-500 font-bold" aria-hidden="true">/</span>
+                              <span className="text-xs text-slate-600 font-bold" aria-hidden="true">/</span>
                               <a
                                 href="mailto:complaints@cdslindia.com"
                                 className="inline-flex items-center gap-1 text-xs font-mono font-bold text-[#1a6eb5] hover:underline bg-blue-50 px-2 py-1 rounded"
@@ -1162,12 +1162,12 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       <div className="border border-slate-200/80 rounded-2xl p-4 sm:p-5 bg-white space-y-3">
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                           <div className="flex items-center gap-2">
-                            <span className="w-6 h-6 rounded-md bg-[#c41f26] text-white flex items-center justify-center text-xs font-bold shrink-0">b</span>
+                            <span className="w-6 h-6 rounded-md bg-[#a7181e] text-white flex items-center justify-center text-xs font-bold shrink-0">b</span>
                             <h6 className="font-bold text-slate-900 text-sm sm:text-base">
                               Offline Mode
                               <button
                                 onClick={() => setActiveModal("OFFLINE_MODE")}
-                                className="inline-block ml-1 text-[#c41f26] font-black hover:underline cursor-pointer"
+                                className="inline-block ml-1 text-[#a7181e] font-black hover:underline cursor-pointer"
                                 title="View Offline Mode Details"
                               >
                                 <sup>9</sup>
@@ -1225,7 +1225,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                   {/* Section 3: Steps to be followed in ODR */}
                   <div className="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-white space-y-5 shadow-2xs">
                     <div className="flex items-center gap-2.5 border-b border-slate-100 pb-3">
-                      <span className="w-7 h-7 rounded-lg bg-[#c41f26] text-white flex items-center justify-center text-xs font-bold">3</span>
+                      <span className="w-7 h-7 rounded-lg bg-[#a7181e] text-white flex items-center justify-center text-xs font-bold">3</span>
                       <h5 className="font-bold text-[#011628] text-base sm:text-lg">
                         Steps to be followed in ODR for Review, Conciliation and Arbitration
                       </h5>
@@ -1269,13 +1269,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                           <button
                             type="button"
                             onClick={() => setActiveModal("GRIEVANCE_FLOW")}
-                            className="text-[#c41f26] font-black hover:underline cursor-pointer"
+                            className="text-[#a7181e] font-black hover:underline cursor-pointer"
                             title="View Annexure B Flowchart"
                           >
                             <sup>10</sup>
                           </button>
                         </h4>
-                        <p className="text-xs text-slate-500 mt-0.5">
+                        <p className="text-xs text-slate-600 mt-0.5">
                           The flow-chart of New Grievance Redressal System.
                         </p>
                       </div>
@@ -1328,7 +1328,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                             </ul>
                           </td>
                           <td className="p-5 align-top text-xs sm:text-sm text-slate-700 leading-relaxed">
-                            Client will have a right to transfer all its securities to any other Participant of its choice <strong className="text-[#011628]">without any charges</strong> for the transfer within <strong className="text-[#c41f26]">30 days</strong> from the date of intimation by way of letter/email.
+                            Client will have a right to transfer all its securities to any other Participant of its choice <strong className="text-[#011628]">without any charges</strong> for the transfer within <strong className="text-[#a7181e]">30 days</strong> from the date of intimation by way of letter/email.
                           </td>
                         </tr>
                       </tbody>
@@ -1344,7 +1344,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                 <div className="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-white hover:border-[#1a6eb5]/40 transition-colors shadow-2xs space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="space-y-1">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#c41f26]">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#a7181e]">
                         Para 7 of Investor Charter
                       </span>
                       <h4 className="text-base sm:text-lg font-bold text-[#011628] flex items-center gap-2">
@@ -1352,13 +1352,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <button
                           type="button"
                           onClick={() => setActiveModal("PARA_7")}
-                          className="text-[#c41f26] font-black hover:underline cursor-pointer"
+                          className="text-[#a7181e] font-black hover:underline cursor-pointer"
                           title="View Para 7 Dos and Don'ts Details"
                         >
                           <sup>11</sup>
                         </button>
                       </h4>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-slate-600">
                         The comprehensive guidelines for investors to be followed while dealing with Depository Participants.
                       </p>
                     </div>
@@ -1386,13 +1386,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <button
                           type="button"
                           onClick={() => setActiveModal("PARA_8")}
-                          className="text-[#c41f26] font-black hover:underline cursor-pointer"
+                          className="text-[#a7181e] font-black hover:underline cursor-pointer"
                           title="View Para 8 Rights Details"
                         >
                           <sup>12</sup>
                         </button>
                       </h4>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-slate-600">
                         Statutory rights guaranteed to beneficial owners under SEBI regulations.
                       </p>
                     </div>
@@ -1408,25 +1408,25 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                 </div>
 
                 {/* Para 9 of Investor Charter */}
-                <div className="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-white hover:border-[#c41f26]/40 transition-colors shadow-2xs space-y-3">
+                <div className="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-white hover:border-[#a7181e]/40 transition-colors shadow-2xs space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="space-y-1">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#c41f26]">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#a7181e]">
                         Para 9 of Investor Charter
                       </span>
                       <h4 className="text-base sm:text-lg font-bold text-[#011628] flex items-center gap-2">
-                        <FileCheck2 className="w-5 h-5 text-[#c41f26]" />
+                        <FileCheck2 className="w-5 h-5 text-[#a7181e]" />
                         <span>Responsibilities of Investors</span>
                         <button
                           type="button"
                           onClick={() => setActiveModal("PARA_9")}
-                          className="text-[#c41f26] font-black hover:underline cursor-pointer"
+                          className="text-[#a7181e] font-black hover:underline cursor-pointer"
                           title="View Para 9 Responsibilities Details"
                         >
                           <sup>13</sup>
                         </button>
                       </h4>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-slate-600">
                         Safeguards, verification obligations, and responsibilities expected from every investor.
                       </p>
                     </div>
@@ -1454,13 +1454,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <button
                           type="button"
                           onClick={() => setActiveModal("PARA_10")}
-                          className="text-[#c41f26] font-black hover:underline cursor-pointer"
+                          className="text-[#a7181e] font-black hover:underline cursor-pointer"
                           title="View Para 10 Code of Conduct"
                         >
                           <sup>14</sup>
                         </button>
                       </h4>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-slate-600">
                         Part D of Third Schedule of SEBI (Depositories and Participants) Regulations, 2018.
                       </p>
                     </div>
@@ -1476,25 +1476,25 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                 </div>
 
                 {/* Para 11 of Investor Charter */}
-                <div className="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-white hover:border-[#c41f26]/40 transition-colors shadow-2xs space-y-3">
+                <div className="border border-slate-200 rounded-2xl p-5 sm:p-6 bg-white hover:border-[#a7181e]/40 transition-colors shadow-2xs space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="space-y-1">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#c41f26]">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#a7181e]">
                         Para 11 of Investor Charter
                       </span>
                       <h4 className="text-base sm:text-lg font-bold text-[#011628] flex items-center gap-2">
-                        <ShieldCheck className="w-5 h-5 text-[#c41f26]" />
+                        <ShieldCheck className="w-5 h-5 text-[#a7181e]" />
                         <span>Code of Conduct for Depository Participants (DPs)</span>
                         <button
                           type="button"
                           onClick={() => setActiveModal("PARA_11")}
-                          className="text-[#c41f26] font-black hover:underline cursor-pointer"
+                          className="text-[#a7181e] font-black hover:underline cursor-pointer"
                           title="View Para 11 Code of Conduct"
                         >
                           <sup>15</sup>
                         </button>
                       </h4>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-slate-600">
                         Part A of Third Schedule of SEBI (Depositories and Participants) Regulations, 2018.
                       </p>
                     </div>
@@ -1517,7 +1517,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
         )}
 
         {/* Regulatory Footer Information Box */}
-        <div className="bg-gradient-to-r from-[#011628] to-[#012e54] text-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#006da0]/20 space-y-3">
+        <div className="bg-gradient-to-r from-[#011628] to-[#012e54] text-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#bae6fd] space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h4 className="text-base font-bold text-white">Ratnakar Securities Limited</h4>
@@ -1531,7 +1531,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SEBI SCORES 2.0 Portal"
-                className="bg-[#006da0] hover:bg-[#0098d0] text-[#011628] font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 cursor-pointer"
+                className="bg-[#004f7a] hover:bg-[#0098d0] text-[#011628] font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 cursor-pointer"
               >
                 SCORES 2.0 <ExternalLink className="w-3 h-3" />
               </a>
@@ -1568,8 +1568,8 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
           <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
             <h5 className="font-bold text-[#011628] text-xs uppercase tracking-wider">SEBI Prescribed AMC Fee Structure:</h5>
             <ul className="list-disc pl-5 text-xs sm:text-sm space-y-1 text-slate-600">
-              <li><strong>Holding value up to Rs. 4 Lakhs (Debt + Other than debt combined):</strong> <span className="text-emerald-700 font-bold">NIL (No AMC levied)</span></li>
-              <li><strong>Holding value more than Rs. 4 Lakhs up to Rs. 10 Lakhs:</strong> <span className="text-blue-700 font-bold">AMC not exceeding Rs. 100</span></li>
+              <li><strong>Holding value up to Rs. 4 Lakhs (Debt + Other than debt combined):</strong> <span className="text-[#166534] font-bold">NIL (No AMC levied)</span></li>
+              <li><strong>Holding value more than Rs. 4 Lakhs up to Rs. 10 Lakhs:</strong> <span className="text-[#004f7a] font-bold">AMC not exceeding Rs. 100</span></li>
             </ul>
           </div>
         </div>
@@ -1684,7 +1684,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
       >
         <div className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
-            <p className="text-xs sm:text-sm text-gray-500">
+            <p className="text-xs sm:text-sm text-slate-600">
               Structured process flow diagram and time limits for resolution through SEBI SCORES and SMART ODR
             </p>
             <a
@@ -1717,14 +1717,14 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
       >
         <div className="space-y-6 text-slate-700 text-xs sm:text-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-slate-600">
               Standardized format &amp; guidelines for lodging physical queries or grievances with the Depository Participant
             </p>
             <a
               href="https://api.ratnakarsecurities.com/uploads/Query_Complaint_Form_Depository_Services.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#c41f26] hover:bg-[#c91f27] text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-2xs transition shrink-0"
+              className="inline-flex items-center gap-1.5 bg-[#a7181e] hover:bg-[#8e1419] text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-2xs transition shrink-0"
             >
               <Download className="w-3.5 h-3.5" /> Download Official Policy PDF
             </a>
@@ -1837,13 +1837,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
         maxWidth="max-w-[900px]"
       >
         <div className="space-y-4">
-          <div className="bg-red-50 border border-red-200 rounded-xl p-3.5 text-xs text-red-900 leading-relaxed">
+          <div className="bg-red-50 border border-red-200 rounded-xl p-3.5 text-xs text-red-950 leading-relaxed">
             <strong>Investor Obligations &amp; Safeguards:</strong> Demat account holders must maintain vigilant oversight of transactions, DIS custody, and account credentials.
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-700">
             {PARA_9_ITEMS.map((item) => (
               <div key={item.no} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
-                <span className="font-bold text-[#c41f26] text-xs block">{item.no}</span>
+                <span className="font-bold text-[#a7181e] text-xs block">{item.no}</span>
                 <p className="leading-relaxed">{item.text}</p>
               </div>
             ))}
@@ -1890,7 +1890,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {PARA_11_ITEMS.map((item) => (
               <div key={item.no} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 flex items-start gap-2.5">
-                <span className="font-bold text-[#c41f26] shrink-0 mt-0.5">{item.no}</span>
+                <span className="font-bold text-[#a7181e] shrink-0 mt-0.5">{item.no}</span>
                 <span className="leading-relaxed">{item.text}</span>
               </div>
             ))}

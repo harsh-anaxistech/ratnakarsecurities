@@ -78,7 +78,7 @@ export default function AccessibleCaptcha({
         {/* Captcha Input */}
         <div className="flex-1 flex flex-col gap-1">
           <label htmlFor={id} className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-            Verification Code (CAPTCHA) <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+            Verification Code (CAPTCHA) <span className="text-[#991b1b]" aria-hidden="true">*</span>
           </label>
           <div className="relative flex items-center">
             <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
@@ -153,7 +153,7 @@ export default function AccessibleCaptcha({
         <span
           id={`${id}-error`}
           role="alert"
-          className="text-red-600 text-xs font-bold pl-1 flex items-center gap-1 animate-fade-in"
+          className="text-[#991b1b] text-xs font-bold pl-1 flex items-center gap-1 animate-fade-in"
         >
           <span aria-hidden="true">⚠️</span> {error}
         </span>

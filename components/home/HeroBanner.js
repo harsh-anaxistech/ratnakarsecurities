@@ -57,7 +57,7 @@ export default function HeroBanner() {
       `}} />
 
       {/* ── BACKGROUND AMBIENT GLOW ── */}
-      <div className="absolute top-1/2 -translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-[#006da0]/10 rounded-full blur-[140px] animate-pulse duration-[8000ms] pointer-events-none z-0 hidden lg:block" aria-hidden="true" />
+      <div className="absolute top-1/2 -translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-[#f0f7ff] rounded-full blur-[140px] animate-pulse duration-[8000ms] pointer-events-none z-0 hidden lg:block" aria-hidden="true" />
 
       <Container className="relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-2 lg:gap-4 items-center">

@@ -49,20 +49,23 @@ export default function ProductDetailsPage() {
           <div className="w-full lg:w-[70%] bg-white rounded-2xl shadow-sm border border-black/5 p-5 md:p-10">
             {/* Intro */}
             <div className="mb-10 pb-8 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span 
+                className="inline-block px-3 py-1 font-bold text-xs tracking-widest rounded-full uppercase mb-4"
+                style={{ backgroundColor: "#fee2e2", color: "#7f1d1d" }}
+              >
                 {product.tagline}
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif text-black mb-6">{product.mainTitle}</h2>
-              <p className="text-[16px] text-[#314158] leading-relaxed mb-6">
+              <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-6" style={{ color: "#0f172a" }}>{product.mainTitle}</h2>
+              <p className="text-[16px] text-slate-700 leading-relaxed mb-6" style={{ color: "#334155" }}>
                 High Net Worth Individuals (HNIs) require sophisticated financial solutions that go beyond traditional investing. HNI Services are designed to provide personalized wealth management, exclusive investment opportunities, strategic financial planning, and dedicated advisory support tailored to complex financial needs.
               </p>
-              <p className="text-[16px] text-[#314158] leading-relaxed">
+              <p className="text-[16px] text-slate-700 leading-relaxed" style={{ color: "#334155" }}>
                 At Ratnakar Securities, we offer comprehensive HNI Services backed by experienced relationship managers, research-driven investment strategies, and premium financial solutions designed to help you achieve long-term financial success.
               </p>
             </div>
 
             {/* HNI Investment Solutions */}
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">HNI Investment Solutions</h3>
+            <h3 className="text-2xl font-bold text-slate-900 mb-6" style={{ color: "#0f172a" }}>HNI Investment Solutions</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {[
                 { title: "Dedicated Relationship Manager", icon: Users, desc: "Personalized assistance from an experienced manager who understands your specific objectives." },
@@ -72,10 +75,14 @@ export default function ProductDetailsPage() {
                 { title: "Equity & Capital Markets", icon: TrendingUp, desc: "Carefully researched equity opportunities with access to expert recommendations." },
                 { title: "Estate & Succession Planning", icon: BookOpen, desc: "Plan the smooth transfer of wealth across generations with comprehensive strategies." }
               ].map((item, i) => (
-                <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-black/5 hover:border-[#c41f26]/30 transition-all">
-                  <item.icon className="w-8 h-8 text-[#c41f26] mb-4" />
-                  <h4 className="font-bold text-slate-900 mb-2">{item.title}</h4>
-                  <p className="text-[16px] text-slate-700">{item.desc}</p>
+                <div 
+                  key={i} 
+                  className="p-6 rounded-2xl border border-slate-200 hover:border-[#a7181e]/30 transition-all shadow-sm"
+                  style={{ backgroundColor: "#f8fafc" }}
+                >
+                  <item.icon className="w-8 h-8 text-[#a7181e] mb-4" aria-hidden="true" />
+                  <h4 className="font-bold text-slate-900 mb-2" style={{ color: "#0f172a" }}>{item.title}</h4>
+                  <p className="text-[16px] text-slate-700 leading-relaxed" style={{ color: "#334155" }}>{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -83,7 +90,7 @@ export default function ProductDetailsPage() {
             {/* Benefits & Why Us */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
               <div 
-                className="bg-[#012e54] p-8 rounded-2xl text-white"
+                className="bg-[#012e54] p-8 rounded-2xl text-white shadow-md border border-black/5"
                 style={{
                   backgroundColor: "#012e54",
                   backgroundImage: "linear-gradient(to bottom right, #006da0, #012e54)",
@@ -93,12 +100,12 @@ export default function ProductDetailsPage() {
                 <h3 className="text-xl font-bold mb-4 text-white">Key Benefits</h3>
                 <ul className="space-y-3">
                   {["Personalized investment strategies.", "Dedicated Relationship Manager.", "Access to exclusive opportunities.", "Professional risk management.", "Tax-efficient planning."].map((b, i) => (
-                    <li key={i} className="flex items-center gap-2 text-[16px]"><CheckCircle2 className="w-5 h-5 text-white" /> {b}</li>
+                    <li key={i} className="flex items-center gap-2 text-[16px] text-white"><CheckCircle2 className="w-5 h-5 text-white shrink-0" aria-hidden="true" /> {b}</li>
                   ))}
                 </ul>
               </div>
               <div 
-                className="bg-[#012e54] p-8 rounded-2xl text-white"
+                className="bg-[#012e54] p-8 rounded-2xl text-white shadow-md border border-black/5"
                 style={{
                   backgroundColor: "#012e54",
                   backgroundImage: "linear-gradient(to bottom right, #006da0, #012e54)",
@@ -108,7 +115,7 @@ export default function ProductDetailsPage() {
                 <h3 className="text-xl font-bold mb-4 text-white">Why Ratnakar Securities?</h3>
                 <ul className="space-y-3">
                   {["Expert relationship management.", "Research-backed recommendations.", "Premium and exclusive products.", "Goal-oriented management.", "Secure digital platform."].map((b, i) => (
-                    <li key={i} className="flex items-center gap-2 text-[16px]"><CheckCircle2 className="w-5 h-5 text-white" /> {b}</li>
+                    <li key={i} className="flex items-center gap-2 text-[16px] text-white"><CheckCircle2 className="w-5 h-5 text-white shrink-0" aria-hidden="true" /> {b}</li>
                   ))}
                 </ul>
               </div>
@@ -116,23 +123,31 @@ export default function ProductDetailsPage() {
 
             {/* FAQs */}
             <div className="mb-12">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <HelpCircle className="w-6 h-6 text-[#c41f26]" /> FAQs
+              <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2" style={{ color: "#0f172a" }}>
+                <HelpCircle className="w-6 h-6 text-[#a7181e]" aria-hidden="true" /> FAQs
               </h3>
               <div className="space-y-4">
                 {faqs.map((faq, idx) => (
-                  <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
+                  <div 
+                    key={idx} 
+                    className="rounded-xl border border-slate-200 overflow-hidden shadow-sm"
+                    style={{ backgroundColor: "#f8fafc" }}
+                  >
                     <button
                       type="button"
                       id={`hnis-faq-btn-${idx}`}
                       aria-expanded={openIndex === idx}
                       aria-controls={`hnis-faq-panel-${idx}`}
                       onClick={() => toggleFAQ(idx)}
-                      className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
+                      className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e]"
+                      style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
                     >
-                      <span className="flex-1 min-w-0">{faq.q}</span>
-                      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#c41f26]/10">
-                        {openIndex === idx ? <Minus className="w-4 h-4 text-[#c41f26]" /> : <Plus className="w-4 h-4 text-[#c41f26]" />}
+                      <span className="flex-1 min-w-0" style={{ color: "#0f172a" }}>{faq.q}</span>
+                      <span 
+                        className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full"
+                        style={{ backgroundColor: "#fee2e2" }}
+                      >
+                        {openIndex === idx ? <Minus className="w-4 h-4 text-[#a7181e]" aria-hidden="true" /> : <Plus className="w-4 h-4 text-[#a7181e]" aria-hidden="true" />}
                       </span>
                     </button>
                     {openIndex === idx && (
@@ -140,7 +155,8 @@ export default function ProductDetailsPage() {
                         id={`hnis-faq-panel-${idx}`}
                         role="region"
                         aria-labelledby={`hnis-faq-btn-${idx}`}
-                        className="px-5 pb-5 pt-0 text-[16px] text-slate-600 leading-relaxed"
+                        className="px-5 pb-5 pt-0 text-[16px] leading-relaxed"
+                        style={{ backgroundColor: "#f8fafc", color: "#334155" }}
                       >
                         {faq.a}
                       </div>
@@ -151,9 +167,25 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* Disclaimer */}
-            <div className="p-4 bg-orange-50 border border-orange-100 rounded-xl flex gap-3 text-[14px] text-slate-500">
-              <AlertCircle className="w-5 h-5 text-orange-500 shrink-0" />
-              <p><strong>Disclaimer:</strong> Investments are subject to market risks. HNI Services do not guarantee returns or protect against losses. Investors should evaluate their financial goals and risk tolerance before investing.</p>
+            <div 
+              className="p-4 border border-amber-200 rounded-xl flex gap-3 text-[14px] leading-relaxed mb-8 shadow-sm"
+              style={{ backgroundColor: "#fffcf7", color: "#334155" }}
+            >
+              <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" aria-hidden="true" />
+              <p style={{ color: "#334155" }}>
+                <strong className="font-bold text-slate-900" style={{ color: "#0f172a" }}>Disclaimer:</strong> Investments are subject to market risks. HNI Services do not guarantee returns or protect against losses. Investors should evaluate their financial goals and risk tolerance before investing.
+              </p>
+            </div>
+
+            {/* CTA Link */}
+            <div className="pt-8 border-t border-black/5">
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] focus-visible:ring-offset-2"
+                style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
+              >
+                {product.buttonText || "Consult Our HNI Advisors"} <ArrowRight className="w-5 h-5" aria-hidden="true" />
+              </Link>
             </div>
           </div>
 

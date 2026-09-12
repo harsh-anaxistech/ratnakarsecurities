@@ -116,16 +116,19 @@ export default function ProductDetailsPage() {
 
             {/* 1. Header & Intro */}
             <div className="mb-10 pb-8 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span
+                className="inline-block px-3 py-1 bg-[#fee2e2] text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4"
+                style={{ backgroundColor: "#fee2e2", color: "#7f1d1d" }}
+              >
                 {product.tagline}
               </span>
               <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-6">
                 Why Choose Mutual Funds?
               </h2>
-              <p className="text-[16px] leading-relaxed mb-4 text-[#314158]">
+              <p className="text-[16px] leading-relaxed mb-4 text-[#1e293b]">
                 Mutual Funds are one of the most convenient investment options for individuals looking to build long-term wealth. They allow investors to participate in professionally managed portfolios across equities, debt securities, hybrid assets, and money market instruments. Whether you are a first-time investor or an experienced market participant, mutual funds provide an investment solution tailored to your financial goals and risk appetite.
               </p>
-              <p className="text-[16px] leading-relaxed text-[#314158] font-medium">
+              <p className="text-[16px] leading-relaxed text-[#1e293b] font-medium">
                 Our experienced advisors help you identify the right investment strategy based on your financial objectives, investment horizon, and risk profile.
               </p>
             </div>
@@ -135,9 +138,18 @@ export default function ProductDetailsPage() {
               <h3 className="text-[18px] font-bold text-slate-900 mb-6">Benefits of Investing in Mutual Funds</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {benefits.map((benefit, idx) => (
-                  <div key={idx} className="group flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-black/5 hover:border-[#c41f26]/30 transition-all cursor-default">
-                    <CircleCheck className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5 transition-all duration-300 group-hover:fill-[#c41f26] group-hover:text-white" />
-                    <span className="text-[16px] text-[#314158] leading-relaxed group-hover:text-black transition-colors">{benefit}</span>
+                  <div
+                    key={idx}
+                    className="group flex items-start gap-3 bg-[#f8fafc] p-4 rounded-xl border border-black/5 hover:border-[#a7181e]/30 transition-all cursor-default"
+                    style={{ backgroundColor: "#f8fafc" }}
+                  >
+                    <CircleCheck className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5 transition-all duration-300 group-hover:fill-[#a7181e] group-hover:text-white" />
+                    <span
+                      className="text-[16px] text-slate-800 leading-relaxed group-hover:text-black transition-colors"
+                      style={{ color: "#1e293b" }}
+                    >
+                      {benefit}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -191,7 +203,11 @@ export default function ProductDetailsPage() {
                 <h3 className="text-[18px] font-bold text-slate-900 mb-6">Investment Options</h3>
                 <div className="flex flex-wrap gap-2">
                   {investmentOptions.map((opt, idx) => (
-                    <span key={idx} className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-full text-[16px] font-medium shadow-sm hover:border-[#c41f26]/50 hover:text-[#c41f26] transition-colors cursor-default">
+                    <span
+                      key={idx}
+                      className="bg-white border border-slate-200 text-slate-800 px-4 py-2 rounded-full text-[16px] font-medium shadow-sm hover:border-[#a7181e]/50 hover:text-[#a7181e] transition-colors cursor-default"
+                      style={{ backgroundColor: "#ffffff", color: "#1e293b" }}
+                    >
                       {opt}
                     </span>
                   ))}
@@ -203,10 +219,18 @@ export default function ProductDetailsPage() {
                 <div className="space-y-4">
                   {steps.map((step, idx) => (
                     <div key={idx} className="group flex items-center gap-4 cursor-default">
-                      <div className="w-8 h-8 rounded-full bg-[#c41f26] text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md group-hover:scale-110 transition-transform">
+                      <div
+                        className="w-8 h-8 rounded-full bg-[#a7181e] text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-md group-hover:scale-110 transition-transform"
+                        style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
+                      >
                         {idx + 1}
                       </div>
-                      <span className="text-[16px] font-medium text-[#314158] group-hover:text-[#c41f26] transition-colors">{step}</span>
+                      <span
+                        className="text-[16px] font-medium text-slate-800 group-hover:text-[#a7181e] transition-colors"
+                        style={{ color: "#1e293b" }}
+                      >
+                        {step}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -216,23 +240,35 @@ export default function ProductDetailsPage() {
             {/* 6. FAQs Section with Accordion */}
             <div className="mb-10">
               <h3 className="text-[18px] font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <HelpCircle className="w-6 h-6 text-[#c41f26]" />
+                <HelpCircle className="w-6 h-6 text-[#a7181e]" />
                 Frequently Asked Questions
               </h3>
               <div className="space-y-4">
                 {faqs.map((faq, idx) => (
-                  <div key={idx} className="rounded-xl border border-black/5 bg-slate-50 overflow-hidden">
+                  <div
+                    key={idx}
+                    className="rounded-xl border border-black/5 bg-[#f8fafc] overflow-hidden"
+                    style={{ backgroundColor: "#f8fafc" }}
+                  >
                     <button
                       type="button"
                       id={`mf-faq-btn-${idx}`}
                       aria-expanded={openIndex === idx}
                       aria-controls={`mf-faq-panel-${idx}`}
                       onClick={() => toggleFAQ(idx)}
-                      className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] hover:bg-slate-100 transition-colors"
+                      className="w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 font-bold text-slate-900 text-[15px] md:text-[17px] bg-[#f8fafc] hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e]"
+                      style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
                     >
-                      <span className="flex-1 min-w-0">{faq.q}</span>
-                      <span className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#c41f26]/10">
-                        {openIndex === idx ? <Minus className="w-4 h-4 text-[#c41f26]" /> : <Plus className="w-4 h-4 text-[#c41f26]" />}
+                      <span className="flex-1 min-w-0" style={{ color: "#0f172a" }}>{faq.q}</span>
+                      <span
+                        className="shrink-0 w-7 h-7 flex items-center justify-center rounded-full bg-[#fee2e2]"
+                        style={{ backgroundColor: "rgba(167, 24, 30, 0.1)" }}
+                      >
+                        {openIndex === idx ? (
+                          <Minus className="w-4 h-4 text-[#a7181e]" />
+                        ) : (
+                          <Plus className="w-4 h-4 text-[#a7181e]" />
+                        )}
                       </span>
                     </button>
                     {openIndex === idx && (
@@ -240,7 +276,8 @@ export default function ProductDetailsPage() {
                         id={`mf-faq-panel-${idx}`}
                         role="region"
                         aria-labelledby={`mf-faq-btn-${idx}`}
-                        className="px-5 pb-5 pt-0 text-slate-600 text-[16px] leading-relaxed"
+                        className="px-5 pb-5 pt-0 text-slate-700 text-[16px] leading-relaxed bg-[#f8fafc]"
+                        style={{ backgroundColor: "#f8fafc", color: "#334155" }}
                       >
                         {faq.a}
                       </div>
@@ -251,10 +288,13 @@ export default function ProductDetailsPage() {
             </div>
 
             {/* 7. Disclaimer */}
-            <div className="mb-8 p-4 bg-orange-50/50 border border-orange-100 rounded-xl flex gap-3 items-start">
-              <AlertCircle className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
-              <p className="text-[16px] text-slate-500 leading-relaxed">
-                <strong>Disclaimer:</strong> Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns.
+            <div
+              className="mb-8 p-4 bg-[#fffcf7] border border-amber-200 rounded-xl flex gap-3 items-start"
+              style={{ backgroundColor: "#fffcf7" }}
+            >
+              <AlertCircle className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
+              <p className="text-[16px] text-slate-700 leading-relaxed" style={{ color: "#334155" }}>
+                <strong className="text-slate-900">Disclaimer:</strong> Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. Past performance is not indicative of future returns.
               </p>
             </div>
 
@@ -262,7 +302,8 @@ export default function ProductDetailsPage() {
             <div className="pt-6 md:pt-8 border-t border-black/5">
               <Link
                 href="/contact"
-                className="w-full md:w-auto inline-flex bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="w-full md:w-auto inline-flex bg-[#a7181e] hover:bg-[#8e1419] text-white font-bold text-[15px] md:text-[16px] py-3.5 md:py-4 px-6 md:px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] focus-visible:ring-offset-2"
+                style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
               >
                 Start Your Investment Journey
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />

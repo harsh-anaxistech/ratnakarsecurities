@@ -575,7 +575,7 @@ export default function Footer() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5"
+                    className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <path d="m9 12 2 2 4-4" />
@@ -590,7 +590,7 @@ export default function Footer() {
                       href="https://scores.sebi.gov.in/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1a6eb5] underline hover:text-[#c41f26] transition-colors break-all font-medium"
+                      className="text-[#1a6eb5] underline hover:text-[#a7181e] transition-colors break-all font-medium"
                     >
                       https://scores.sebi.gov.in/
                     </a>
@@ -610,7 +610,7 @@ export default function Footer() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5"
+                      className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5"
                     >
                       <circle cx="12" cy="12" r="10" />
                       <path d="m9 12 2 2 4-4" />
@@ -626,7 +626,7 @@ export default function Footer() {
                       (item) => (
                         <span
                           key={item}
-                          className="bg-red-50 text-[#c41f26] border border-red-100 py-1 px-3 rounded-lg text-xs font-bold"
+                          className="bg-red-50 text-[#a7181e] border border-red-100 py-1 px-3 rounded-lg text-xs font-bold"
                         >
                           {item}
                         </span>
@@ -648,7 +648,7 @@ export default function Footer() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="w-5 h-5 text-[#c41f26] shrink-0 mt-0.5"
+                      className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5"
                     >
                       <circle cx="12" cy="12" r="10" />
                       <path d="m9 12 2 2 4-4" />

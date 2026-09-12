@@ -1,0 +1,578 @@
+{
+  "app\\about\\page.jsx": [
+    {
+      "file": "app\\about\\page.jsx",
+      "lineNum": 82,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black mb-6\">"
+    },
+    {
+      "file": "app\\about\\page.jsx",
+      "lineNum": 122,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-4xl text-black mb-6\">About Our Leadership</h2>"
+    },
+    {
+      "file": "app\\about\\page.jsx",
+      "lineNum": 165,
+      "type": "text-black",
+      "snippet": "<h3 className=\"text-2xl font-bold text-black mb-1\">{leader.name}</h3>"
+    }
+  ],
+  "app\\accessibility-statement\\page.jsx": [
+    {
+      "file": "app\\accessibility-statement\\page.jsx",
+      "lineNum": 42,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ol className=\"flex items-center gap-2 text-xs font-semibold text-slate-500\">"
+    },
+    {
+      "file": "app\\accessibility-statement\\page.jsx",
+      "lineNum": 358,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ExternalLink className=\"w-4 h-4 text-slate-500\" aria-label=\"(Opens in new tab)\" />"
+    },
+    {
+      "file": "app\\accessibility-statement\\page.jsx",
+      "lineNum": 369,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ExternalLink className=\"w-4 h-4 text-slate-500\" aria-label=\"(Opens in new tab)\" />"
+    },
+    {
+      "file": "app\\accessibility-statement\\page.jsx",
+      "lineNum": 378,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ChevronRight className=\"w-4 h-4 text-slate-500\" aria-hidden=\"true\" />"
+    }
+  ],
+  "app\\downloads\\page.js": [
+    {
+      "file": "app\\downloads\\page.js",
+      "lineNum": 168,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    },
+    {
+      "file": "app\\downloads\\page.js",
+      "lineNum": 183,
+      "type": "low-contrast-gray-text",
+      "snippet": "<div className=\"flex items-center gap-4 py-4 text-sm text-gray-500 font-medium\">"
+    },
+    {
+      "file": "app\\downloads\\page.js",
+      "lineNum": 236,
+      "type": "low-contrast-gray-text",
+      "snippet": "<h2 className=\"hidden lg:block text-[13px] font-bold text-slate-500 uppercase tracking-widest mb-3 px-1\">"
+    },
+    {
+      "file": "app\\downloads\\page.js",
+      "lineNum": 273,
+      "type": "low-contrast-gray-text",
+      "snippet": "className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? \"text-[#EA2830] translate-x-1\" : \"text-slate-500\""
+    }
+  ],
+  "app\\investors\\annual-return\\page.jsx": [
+    {
+      "file": "app\\investors\\annual-return\\page.jsx",
+      "lineNum": 49,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    }
+  ],
+  "app\\investors\\board-of-directors\\page.jsx": [
+    {
+      "file": "app\\investors\\board-of-directors\\page.jsx",
+      "lineNum": 90,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    }
+  ],
+  "app\\investors\\disclosure-of-contact-details-of-key-managerial-personnel\\page.jsx": [
+    {
+      "file": "app\\investors\\disclosure-of-contact-details-of-key-managerial-personnel\\page.jsx",
+      "lineNum": 76,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    }
+  ],
+  "app\\investors\\disclosures-of-material-events-or-information\\page.jsx": [
+    {
+      "file": "app\\investors\\disclosures-of-material-events-or-information\\page.jsx",
+      "lineNum": 50,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    }
+  ],
+  "app\\investors\\financial-information-and-annual-report\\page.jsx": [
+    {
+      "file": "app\\investors\\financial-information-and-annual-report\\page.jsx",
+      "lineNum": 49,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    }
+  ],
+  "app\\investors\\newspaper-publication\\page.jsx": [
+    {
+      "file": "app\\investors\\newspaper-publication\\page.jsx",
+      "lineNum": 64,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    },
+    {
+      "file": "app\\investors\\newspaper-publication\\page.jsx",
+      "lineNum": 111,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-[13px] font-semibold text-gray-500 mb-6 group-hover:text-gray-700 transition-colors duration-300\">"
+    }
+  ],
+  "app\\investors\\policies\\page.jsx": [
+    {
+      "file": "app\\investors\\policies\\page.jsx",
+      "lineNum": 50,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    }
+  ],
+  "app\\investors\\shareholding-pattern\\page.jsx": [
+    {
+      "file": "app\\investors\\shareholding-pattern\\page.jsx",
+      "lineNum": 49,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    }
+  ],
+  "app\\investors\\statutory-and-registration-certificate-documents\\page.jsx": [
+    {
+      "file": "app\\investors\\statutory-and-registration-certificate-documents\\page.jsx",
+      "lineNum": 54,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-4\">"
+    }
+  ],
+  "app\\products\\commodities\\page.jsx": [
+    {
+      "file": "app\\products\\commodities\\page.jsx",
+      "lineNum": 50,
+      "type": "red-900-text",
+      "snippet": "className=\"inline-block px-3 py-1 bg-[#fee2e2] text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4 border border-[#"
+    }
+  ],
+  "app\\products\\derivatives\\page.jsx": [
+    {
+      "file": "app\\products\\derivatives\\page.jsx",
+      "lineNum": 65,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight\">"
+    }
+  ],
+  "app\\products\\mutual-funds\\page.jsx": [
+    {
+      "file": "app\\products\\mutual-funds\\page.jsx",
+      "lineNum": 120,
+      "type": "red-900-text",
+      "snippet": "className=\"inline-block px-3 py-1 bg-[#fee2e2] text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4\""
+    },
+    {
+      "file": "app\\products\\mutual-funds\\page.jsx",
+      "lineNum": 125,
+      "type": "text-black",
+      "snippet": "<h2 className=\"text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight mb-6\">"
+    },
+    {
+      "file": "app\\products\\mutual-funds\\page.jsx",
+      "lineNum": 148,
+      "type": "text-black",
+      "snippet": "className=\"text-[16px] text-slate-800 leading-relaxed group-hover:text-black transition-colors\""
+    }
+  ],
+  "app\\products\\slbm\\page.jsx": [
+    {
+      "file": "app\\products\\slbm\\page.jsx",
+      "lineNum": 55,
+      "type": "red-900-text",
+      "snippet": "className=\"inline-block px-3 py-1 bg-[#fee2e2] text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4 border border-[#"
+    }
+  ],
+  "app\\sitemap\\page.jsx": [
+    {
+      "file": "app\\sitemap\\page.jsx",
+      "lineNum": 171,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ExternalLink className=\"w-3.5 h-3.5 text-slate-500 group-hover:text-[#a7181e] shrink-0\" aria-label=\"(Opens in new tab)\" />"
+    },
+    {
+      "file": "app\\sitemap\\page.jsx",
+      "lineNum": 179,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ArrowRight className=\"w-3.5 h-3.5 text-slate-500 group-hover:text-[#a7181e] group-hover:translate-x-1 transition-all shrink-0\" aria-hidden="
+    }
+  ],
+  "components\\contact\\form.jsx": [
+    {
+      "file": "components\\contact\\form.jsx",
+      "lineNum": 248,
+      "type": "red-900-text",
+      "snippet": ": \"bg-red-50 text-red-900 border-2 border-red-400\""
+    }
+  ],
+  "components\\home\\Testimonials.jsx": [
+    {
+      "file": "components\\home\\Testimonials.jsx",
+      "lineNum": 262,
+      "type": "low-contrast-gray-text",
+      "snippet": "{t.role} {t.location && <><span className=\"text-slate-500 mx-1\" aria-hidden=\"true\">•</span> {t.location}</>}"
+    }
+  ],
+  "components\\investors\\InvestorCharterDP.jsx": [
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 284,
+      "type": "low-contrast-gray-text",
+      "snippet": "<div className=\"flex items-center gap-2 text-sm text-gray-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 327,
+      "type": "low-contrast-gray-text",
+      "snippet": ": \"text-gray-500 hover:text-gray-800\""
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 336,
+      "type": "low-contrast-gray-text",
+      "snippet": ": \"text-gray-500 hover:text-gray-800\""
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 350,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-gray-500 mt-1\">Retrieving official monthly and annual disposal statistics</p>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 362,
+      "type": "red-900-text",
+      "snippet": "<h3 className=\"text-lg font-bold text-red-900\">Unable to load complaints trend data</h3>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 363,
+      "type": "red-700-text",
+      "snippet": "<p className=\"text-sm text-red-700 mt-1 max-w-md mx-auto\">{error}</p>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 395,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-gray-500 mt-1\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 404,
+      "type": "low-contrast-gray-text",
+      "snippet": "<Calendar className=\"w-4 h-4 text-gray-500 mr-2 shrink-0\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 429,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ChevronDown className=\"w-3.5 h-3.5 text-gray-500 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 517,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100\">{row.sn}</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 523,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-3.5 text-center font-bold text-gray-500 border-r border-gray-100\">{row.pendingGt3}</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 545,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-4 text-center font-black text-gray-500 border-r border-gray-200\">0</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 570,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-gray-500 mt-1\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 603,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100\">{idx + 1}</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 676,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-gray-500 mt-1\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 704,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100\">{idx + 1}</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 855,
+      "type": "low-contrast-gray-text",
+      "snippet": "<span className=\"text-xs text-slate-500 font-medium\">Mandatory Processing Timelines</span>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 913,
+      "type": "low-contrast-gray-text",
+      "snippet": "<span className=\"inline-block text-[11px] font-semibold text-slate-500 bg-slate-200/60 px-2 py-0.5 rounded\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 958,
+      "type": "low-contrast-gray-text",
+      "snippet": "<span className=\"text-[11px] text-slate-500\">Nil AMC up to ₹4 Lakhs • Max ₹100 up to ₹10 Lakhs</span>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 972,
+      "type": "low-contrast-gray-text",
+      "snippet": "<span className=\"text-[11px] text-slate-500\">Dematerialisation with order of names adjustment</span>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 986,
+      "type": "low-contrast-gray-text",
+      "snippet": "<span className=\"text-[11px] text-slate-500\">Actual delivery to and from clearing system</span>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1148,
+      "type": "low-contrast-gray-text",
+      "snippet": "<span className=\"text-xs text-slate-500 font-bold\" aria-hidden=\"true\">/</span>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1278,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500 mt-0.5\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1361,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1395,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1429,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1463,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1497,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1687,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs sm:text-sm text-gray-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1720,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterDP.jsx",
+      "lineNum": 1840,
+      "type": "red-900-text",
+      "snippet": "<div className=\"bg-red-50 border border-red-200 rounded-xl p-3.5 text-xs text-red-900 leading-relaxed\">"
+    }
+  ],
+  "components\\investors\\InvestorCharterStockBroker.jsx": [
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 100,
+      "type": "low-contrast-gray-text",
+      "snippet": "<div className=\"flex items-center gap-2 text-sm text-gray-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 153,
+      "type": "low-contrast-gray-text",
+      "snippet": "<Calendar className=\"w-4 h-4 text-gray-500 mr-2 shrink-0\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 175,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ChevronDown className=\"w-3.5 h-3.5 text-gray-500 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 289,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-gray-500 mt-1\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 343,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100\">{row.sn}</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 349,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-3.5 text-center font-bold text-gray-500 border-r border-gray-100\">{row.pendingGt3}</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 371,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-4 text-center font-black text-gray-500 border-r border-gray-200\">0</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 396,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-gray-500 mt-1\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 429,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100\">{idx + 1}</td>"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 502,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-gray-500 mt-1\">"
+    },
+    {
+      "file": "components\\investors\\InvestorCharterStockBroker.jsx",
+      "lineNum": 530,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100\">{idx + 1}</td>"
+    }
+  ],
+  "components\\investors\\InvestorGrievance.jsx": [
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 281,
+      "type": "low-contrast-gray-text",
+      "snippet": "<div className=\"flex items-center gap-2 text-sm text-slate-500\">"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 339,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ExternalLink className=\"w-3.5 h-3.5 text-slate-500 group-hover:text-[#004f7a]\" aria-hidden=\"true\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 362,
+      "type": "low-contrast-gray-text",
+      "snippet": "className=\"text-slate-500 hover:text-[#1a6eb5] p-1 cursor-pointer\""
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 463,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs sm:text-sm text-slate-500 mt-1\">"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 596,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500 font-semibold\">Deputy Vice President</p>"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 683,
+      "type": "low-contrast-gray-text",
+      "snippet": "<Search className=\"w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2\" aria-hidden=\"true\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 739,
+      "type": "low-contrast-gray-text",
+      "snippet": "<td className=\"p-4 border-r border-slate-100 text-slate-500 font-semibold whitespace-nowrap\">"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 793,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ExternalLink className=\"w-3.5 h-3.5 text-slate-500 group-hover:text-[#006da0]\" aria-hidden=\"true\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 795,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500 leading-relaxed\">"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 814,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ExternalLink className=\"w-3.5 h-3.5 text-slate-500 group-hover:text-[#1a6eb5]\" aria-hidden=\"true\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 816,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500 leading-relaxed\">"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 881,
+      "type": "low-contrast-gray-text",
+      "snippet": "<ChevronRight className=\"w-4 h-4 text-slate-500 group-hover:translate-x-0.5 transition-transform\" />"
+    },
+    {
+      "file": "components\\investors\\InvestorGrievance.jsx",
+      "lineNum": 883,
+      "type": "low-contrast-gray-text",
+      "snippet": "<p className=\"text-xs text-slate-500 leading-relaxed mb-4\">"
+    }
+  ],
+  "components\\layout\\Footer.js": [
+    {
+      "file": "components\\layout\\Footer.js",
+      "lineNum": 559,
+      "type": "cyan-text",
+      "snippet": "<span className=\"text-[#00aeee] text-base font-black\">✕</span>"
+    }
+  ],
+  "components\\partner\\PartnerForm.jsx": [
+    {
+      "file": "components\\partner\\PartnerForm.jsx",
+      "lineNum": 226,
+      "type": "red-900-text",
+      "snippet": ": \"bg-red-50 text-red-900 border-2 border-red-400\""
+    }
+  ]
+}

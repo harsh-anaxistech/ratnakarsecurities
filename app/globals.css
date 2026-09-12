@@ -9,9 +9,9 @@
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
   /* Brand Colors */
-  --color-primary: #c41f26;
+  --color-primary: #a7181e;
   --color-primary-dark: #a7181e;
-  --color-primary-light: #c41f261f;
+  --color-primary-light: #a7181e1f;
 
   --color-secondary: #006da0;
   --color-secondary-dark: #004f7a;
@@ -45,9 +45,9 @@
    CSS Custom Properties
    ===================================================== */
 :root {
-  --primary: #c41f26;
+  --primary: #a7181e;
   --primary-dark: #a7181e;
-  --primary-light: #c41f261f;
+  --primary-light: #a7181e1f;
 
   --secondary: #006da0;
   --secondary-dark: #004f7a;
@@ -126,7 +126,7 @@ html.high-contrast-light {
   --muted-foreground: #111827;
   --border: #000000;
   --card: #ffffff;
-  --primary: #b91c1c;
+  --primary: #991b1b;
   --secondary: #0369a1;
   color-scheme: light;
 }
@@ -256,7 +256,7 @@ textarea::placeholder {
    Accessible Status & Text Utility Classes (WCAG 1.4.3)
    ===================================================== */
 .text-accessible-primary {
-  color: #c41f26 !important;
+  color: #a7181e !important;
 }
 
 .text-accessible-secondary {
@@ -288,13 +288,13 @@ textarea::placeholder {
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: #f3f4f6; }
-::-webkit-scrollbar-thumb { background: #c41f26; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #a7181e; border-radius: 3px; }
 
 /* =====================================================
    Selection
    ===================================================== */
 ::selection {
-  background: #c41f26;
+  background: #a7181e;
   color: #ffffff;
 }
 

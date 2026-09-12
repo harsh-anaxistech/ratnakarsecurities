@@ -233,7 +233,7 @@ export default function ContactUsPage() {
               Send Us a Message
             </h3>
             <p className="text-slate-800 text-xs sm:text-sm mt-1">
-              Fields marked with <span className="text-[#b91c1c] font-bold" aria-hidden="true">*</span> are required.
+              Fields marked with <span className="text-[#991b1b] font-bold" aria-hidden="true">*</span> are required.
             </p>
           </div>
 
@@ -258,7 +258,7 @@ export default function ContactUsPage() {
               {/* Department Selector */}
               <div className="flex flex-col gap-1">
                 <label htmlFor="contact-department" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                  Select Department <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                  Select Department <span className="text-[#991b1b]" aria-hidden="true">*</span>
                 </label>
                 <CustomSelect
                   id="contact-department"
@@ -272,7 +272,7 @@ export default function ContactUsPage() {
                   ariaDescribedBy={errors.department ? "contact-department-error" : undefined}
                 />
                 {errors.department && (
-                  <span id="contact-department-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span id="contact-department-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                     <span aria-hidden="true">⚠️</span> {errors.department}
                   </span>
                 )}
@@ -281,7 +281,7 @@ export default function ContactUsPage() {
               {/* Name Input */}
               <div className="flex flex-col gap-1">
                 <label htmlFor="contact-name" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                  Full Name <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                  Full Name <span className="text-[#991b1b]" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
                   <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
@@ -302,7 +302,7 @@ export default function ContactUsPage() {
                   />
                 </div>
                 {errors.name && (
-                  <span id="contact-name-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span id="contact-name-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                     <span aria-hidden="true">⚠️</span> {errors.name}
                   </span>
                 )}
@@ -314,7 +314,7 @@ export default function ContactUsPage() {
               {/* Email Input */}
               <div className="flex flex-col gap-1">
                 <label htmlFor="contact-email" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                  Email Address <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                  Email Address <span className="text-[#991b1b]" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
                   <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
@@ -335,7 +335,7 @@ export default function ContactUsPage() {
                   />
                 </div>
                 {errors.email && (
-                  <span id="contact-email-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span id="contact-email-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                     <span aria-hidden="true">⚠️</span> {errors.email}
                   </span>
                 )}
@@ -344,7 +344,7 @@ export default function ContactUsPage() {
               {/* Mobile Number Input */}
               <div className="flex flex-col gap-1">
                 <label htmlFor="contact-phno" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                  Mobile Number <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                  Mobile Number <span className="text-[#991b1b]" aria-hidden="true">*</span>
                 </label>
                 <div className="relative flex items-center">
                   <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
@@ -365,7 +365,7 @@ export default function ContactUsPage() {
                   />
                 </div>
                 {errors.phno && (
-                  <span id="contact-phno-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                  <span id="contact-phno-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                     <span aria-hidden="true">⚠️</span> {errors.phno}
                   </span>
                 )}
@@ -375,7 +375,7 @@ export default function ContactUsPage() {
             {/* Subject Input */}
             <div className="flex flex-col gap-1">
               <label htmlFor="contact-subject" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                Subject <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                Subject <span className="text-[#991b1b]" aria-hidden="true">*</span>
               </label>
               <div className="relative flex items-center">
                 <div className="absolute left-4 text-slate-700 pointer-events-none z-10" aria-hidden="true">
@@ -395,7 +395,7 @@ export default function ContactUsPage() {
                 />
               </div>
               {errors.subject && (
-                <span id="contact-subject-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                <span id="contact-subject-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                   <span aria-hidden="true">⚠️</span> {errors.subject}
                 </span>
               )}
@@ -404,7 +404,7 @@ export default function ContactUsPage() {
             {/* Details Textarea */}
             <div className="flex flex-col gap-1">
               <label htmlFor="contact-details" className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                Details & Specific Questions <span className="text-[#b91c1c]" aria-hidden="true">*</span>
+                Details & Specific Questions <span className="text-[#991b1b]" aria-hidden="true">*</span>
               </label>
               <div className="relative flex items-start">
                 <div className="absolute left-4 top-3.5 text-slate-700 pointer-events-none z-10" aria-hidden="true">
@@ -424,7 +424,7 @@ export default function ContactUsPage() {
                 />
               </div>
               {errors.details && (
-                <span id="contact-details-error" role="alert" className="text-[#b91c1c] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
+                <span id="contact-details-error" role="alert" className="text-[#991b1b] text-xs font-bold pl-1 animate-fade-in flex items-center gap-1">
                   <span aria-hidden="true">⚠️</span> {errors.details}
                 </span>
               )}
@@ -446,7 +446,7 @@ export default function ContactUsPage() {
                 as="button"
                 type="submit"
                 loading={loading}
-                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-[#007cb0] hover:bg-[#006692] text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
+                className="inline-flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 select-none h-12 bg-[#004f7a] hover:bg-[#003d5e] text-white text-base font-bold rounded-xl px-8 py-3 shadow-lg"
               >
                 Submit Inquiry
               </Button>

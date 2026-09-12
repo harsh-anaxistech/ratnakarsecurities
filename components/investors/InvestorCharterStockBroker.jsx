@@ -97,7 +97,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
 
         {/* Breadcrumb & Navigation Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-sm text-slate-600">
             <Link
               href="/"
               className="inline-flex items-center font-semibold text-[#006da0] hover:text-[#012e54] transition-colors"
@@ -116,7 +116,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#006da0] px-3.5 py-1.5 rounded-full shadow-xs border border-[#006da0]/20">
+            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#006da0] px-3.5 py-1.5 rounded-full shadow-xs border border-[#bae6fd]">
               <ShieldCheck className="w-3.5 h-3.5 text-[#006da0]" /> SEBI Regulatory Compliance
             </span>
           </div>
@@ -150,7 +150,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 shrink-0">
               {/* Financial Year Dropdown */}
               <div className="flex items-center bg-gray-50 hover:bg-gray-100/80 rounded-2xl px-4 py-2.5 border border-gray-300 transition shadow-2xs">
-                <Calendar className="w-4 h-4 text-gray-500 mr-2 shrink-0" />
+                <Calendar className="w-4 h-4 text-slate-600 mr-2 shrink-0" />
                 <label htmlFor="finyear-select" className="text-xs font-bold text-gray-600 uppercase tracking-wider mr-2 shrink-0">
                   FY:
                 </label>
@@ -172,7 +172,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                       <option value={selectedFinYear || "Current"}>{selectedFinYear || "Current"}</option>
                     )}
                   </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-gray-500 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-600 absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -194,7 +194,8 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Download SEBI Complaints PDF"
-                  className="inline-flex items-center gap-2 bg-[#c41f26] hover:bg-[#c91f27] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
+                  className="inline-flex items-center gap-2 bg-[#a7181e] hover:bg-[#8e1419] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e]"
+                  style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
                 >
                   <Download className="w-4 h-4 stroke-[2.5]" /> Download SEBI PDF
                 </a>
@@ -204,9 +205,9 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Download Official Stock Broker Charter PDF"
-                  className="inline-flex items-center gap-2 bg-[#011628] hover:bg-[#13304a] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
+                  className="inline-flex items-center gap-2 bg-[#011628] hover:bg-[#13304a] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
-                  <Download className="w-4 h-4 text-[#006da0]" /> Official Charter PDF
+                  <Download className="w-4 h-4 text-[#7dd3fc]" /> Official Charter PDF
                 </a>
               )}
             </div>
@@ -216,18 +217,18 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
           <div className="flex border-b border-gray-200 mt-8 gap-6 text-sm font-bold">
             <button
               onClick={() => setActiveTab("complaints")}
-              className={`pb-3 transition-colors relative cursor-pointer ${activeTab === "complaints"
-                  ? "text-[#011628] border-b-2 border-[#c41f26]"
-                  : "text-gray-500 hover:text-gray-800"
+              className={`pb-3 transition-colors relative cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] ${activeTab === "complaints"
+                  ? "text-[#011628] border-b-2 border-[#a7181e]"
+                  : "text-slate-600 hover:text-slate-900"
                 }`}
             >
               Complaints & Disposal Trends
             </button>
             <button
               onClick={() => setActiveTab("charter-details")}
-              className={`pb-3 transition-colors relative cursor-pointer ${activeTab === "charter-details"
-                  ? "text-[#011628] border-b-2 border-[#c41f26]"
-                  : "text-gray-500 hover:text-gray-800"
+              className={`pb-3 transition-colors relative cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] ${activeTab === "charter-details"
+                  ? "text-[#011628] border-b-2 border-[#a7181e]"
+                  : "text-slate-600 hover:text-slate-900"
                 }`}
             >
               Investor Charter Guidelines
@@ -237,28 +238,29 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
 
         {/* Loading Spinner / Skeleton */}
         {loading && (
-          <div className="bg-white rounded-3xl p-16 text-center border border-gray-200 shadow-sm space-y-4">
-            <RefreshCw className="w-10 h-10 text-[#006da0] animate-spin mx-auto" />
+          <div className="bg-white rounded-3xl p-16 text-center border border-gray-200 shadow-sm space-y-4" style={{ backgroundColor: "#ffffff" }}>
+            <RefreshCw className="w-10 h-10 text-[#004f7a] animate-spin mx-auto" />
             <div>
               <p className="text-base font-bold text-gray-900">Loading SEBI Complaints Trend Data...</p>
-              <p className="text-xs text-gray-500 mt-1">Retrieving official monthly and annual disposal statistics</p>
+              <p className="text-xs text-slate-700 mt-1">Retrieving official monthly and annual disposal statistics</p>
             </div>
           </div>
         )}
 
         {/* Error State */}
         {error && !loading && (
-          <div className="bg-red-50/80 border border-red-200 rounded-3xl p-8 text-center space-y-4 shadow-sm">
-            <div className="w-12 h-12 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto">
+          <div className="bg-red-50/80 border border-red-200 rounded-3xl p-8 text-center space-y-4 shadow-sm" style={{ backgroundColor: "#fff5f5" }}>
+            <div className="w-12 h-12 bg-red-100 text-[#991b1b] rounded-2xl flex items-center justify-center mx-auto" style={{ backgroundColor: "#fee2e2" }}>
               <AlertCircle className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-red-900">Unable to load complaints trend data</h3>
-              <p className="text-sm text-red-700 mt-1 max-w-md mx-auto">{error}</p>
+              <h3 className="text-lg font-bold text-red-950">Unable to load complaints trend data</h3>
+              <p className="text-sm text-slate-800 mt-1 max-w-md mx-auto">{error}</p>
             </div>
             <button
               onClick={() => fetchTrends(selectedFinYear)}
-              className="px-6 py-2.5 bg-[#c41f26] text-white font-bold rounded-xl text-sm hover:bg-[#c91f27] transition shadow-xs"
+              className="px-6 py-2.5 bg-[#a7181e] text-white font-bold rounded-xl text-sm hover:bg-[#8e1419] transition shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e]"
+              style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
             >
               Retry
             </button>
@@ -284,7 +286,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-slate-600 mt-1">
                     SEBI Prescribed Format: Status of complaints received by the Stock Broker categorized by source
                   </p>
                 </div>
@@ -338,13 +340,13 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                       }
                     ].map((row) => (
                       <tr key={row.sn} className="hover:bg-blue-50/40 transition-colors">
-                        <td className="px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100">{row.sn}</td>
+                        <td className="px-4 py-3.5 text-center font-medium text-slate-600 border-r border-gray-100">{row.sn}</td>
                         <td className="px-5 py-3.5 font-semibold text-gray-900 border-r border-gray-100">{row.source}</td>
                         <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{row.carried}</td>
                         <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{row.received}</td>
                         <td className="px-4 py-3.5 text-center font-bold text-emerald-700 border-r border-gray-100">{row.resolved}</td>
                         <td className="px-4 py-3.5 text-center font-bold text-amber-700 border-r border-gray-100">{row.pendingLt3}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-gray-500 border-r border-gray-100">{row.pendingGt3}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-slate-600 border-r border-gray-100">{row.pendingGt3}</td>
                         <td className="px-4 py-3.5 text-center text-gray-600">{row.avgTime}</td>
                       </tr>
                     ))}
@@ -366,7 +368,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                       <td className="px-4 py-4 text-center font-black text-amber-700 border-r border-gray-200">
                         {latestMonthRecord ? (latestMonthRecord.pending ?? 0) : 0}
                       </td>
-                      <td className="px-4 py-4 text-center font-black text-gray-500 border-r border-gray-200">0</td>
+                      <td className="px-4 py-4 text-center font-black text-slate-600 border-r border-gray-200">0</td>
                       <td className="px-4 py-4 text-center text-gray-600">
                         {latestMonthRecord ? (latestMonthRecord.avg_resolution_time || "-") : "-"}
                       </td>
@@ -381,7 +383,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
               <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#c41f26]"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#a7181e]"></span>
                     <h2 className="text-lg sm:text-xl font-bold text-[#011628]">
                       Trend of Monthly Disposal of Complaints
                     </h2>
@@ -391,7 +393,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-slate-600 mt-1">
                     Month-wise complaint status received against the Stock Broker for the selected financial year
                   </p>
                 </div>
@@ -424,7 +426,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
 
                         return (
                           <tr key={row.srno || row.SRNO || idx} className="hover:bg-blue-50/40 transition-colors">
-                            <td className="px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100">{idx + 1}</td>
+                            <td className="px-4 py-3.5 text-center font-medium text-slate-600 border-r border-gray-100">{idx + 1}</td>
                             <td className="px-5 py-3.5 font-semibold text-gray-900 border-r border-gray-100">{monthName}</td>
                             <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{carried}</td>
                             <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{received}</td>
@@ -438,7 +440,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   aria-label={`Download PDF report for ${monthName}`}
-                                  className="inline-flex items-center justify-center text-xs font-bold text-[#c41f26] hover:text-[#011628] bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg transition gap-1.5"
+                                  className="inline-flex items-center justify-center text-xs font-bold text-[#a7181e] hover:text-[#011628] bg-red-50 hover:bg-red-100 px-3 py-1.5 rounded-lg transition gap-1.5"
                                 >
                                   <FileText className="w-3.5 h-3.5" /> PDF
                                 </a>
@@ -497,7 +499,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                     Trend of Annual Disposal of Complaints
                   </h2>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-600 mt-1">
                   Year-on-year historical complaint disposal overview across financial years
                 </p>
               </div>
@@ -525,7 +527,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
 
                         return (
                           <tr key={row.sn || row.year || idx} className="hover:bg-blue-50/40 transition-colors">
-                            <td className="px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100">{idx + 1}</td>
+                            <td className="px-4 py-3.5 text-center font-medium text-slate-600 border-r border-gray-100">{idx + 1}</td>
                             <td className="px-6 py-3.5 font-bold text-gray-900 border-r border-gray-100">{year}</td>
                             <td className="px-4 py-3.5 text-center font-medium text-gray-700 border-r border-gray-100">{carried}</td>
                             <td className="px-4 py-3.5 text-center font-bold text-blue-600 border-r border-gray-100">{received}</td>
@@ -580,102 +582,102 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
 
             {/* Vision & Mission */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                <div className="flex items-center gap-3 text-[#c41f26]">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3" style={{ backgroundColor: "#ffffff" }}>
+                <div className="flex items-center gap-3 text-[#a7181e]">
                   <Scale className="w-6 h-6" />
                   <h3 className="text-xl font-bold text-[#011628]">Vision of Stock Broker</h3>
                 </div>
-                <p className="text-sm text-gray-700 leading-relaxed">
+                <p className="text-sm text-slate-700 leading-relaxed">
                   To facilitate investors to trade and invest with complete transparency, high standards of service, best execution practices, and to foster sustainable wealth creation while safeguarding investor interests at all times.
                 </p>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                <div className="flex items-center gap-3 text-[#006da0]">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-3" style={{ backgroundColor: "#ffffff" }}>
+                <div className="flex items-center gap-3 text-[#004f7a]">
                   <CheckCircle2 className="w-6 h-6" />
                   <h3 className="text-xl font-bold text-[#011628]">Mission of Stock Broker</h3>
                 </div>
-                <p className="text-sm text-gray-700 leading-relaxed">
+                <p className="text-sm text-slate-700 leading-relaxed">
                   To provide timely services, execution of orders with highest diligence, transparent reporting, seamless digital account opening, and prompt redressal of investor grievances strictly in line with SEBI &amp; Exchange directives.
                 </p>
               </div>
             </div>
 
             {/* Details of Business Transacted by Stock Broker */}
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6" style={{ backgroundColor: "#ffffff" }}>
               <div className="border-b border-gray-200 pb-4">
                 <h3 className="text-xl font-bold text-[#011628] flex items-center gap-2">
-                  <Briefcase className="w-5 h-5 text-[#006da0]" /> Details of Business Transacted by Stock Broker
+                  <Briefcase className="w-5 h-5 text-[#004f7a]" /> Details of Business Transacted by Stock Broker
                 </h3>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-700 mt-1 font-medium">
                   Scope of financial market operations and product facilities offered to clients
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-gray-700">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-slate-700">
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#c41f26] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#a7181e] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">Cash / Equity Segment</h4>
-                    <p className="text-xs text-gray-600 mt-0.5">Execution of equity buy/sell orders across NSE &amp; BSE with electronic contract notes.</p>
+                    <p className="text-xs text-slate-700 mt-0.5">Execution of equity buy/sell orders across NSE &amp; BSE with electronic contract notes.</p>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#006da0] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#004f7a] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">Derivatives (F&amp;O)</h4>
-                    <p className="text-xs text-gray-600 mt-0.5">Trading in Equity &amp; Index Futures and Options with real-time risk management.</p>
+                    <p className="text-xs text-slate-700 mt-0.5">Trading in Equity &amp; Index Futures and Options with real-time risk management.</p>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#c41f26] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#a7181e] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">Currency &amp; Commodity</h4>
-                    <p className="text-xs text-gray-600 mt-0.5">Trading on MCX and currency derivatives for hedging and investment.</p>
+                    <p className="text-xs text-slate-700 mt-0.5">Trading on MCX and currency derivatives for hedging and investment.</p>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#006da0] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#004f7a] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">Mutual Funds &amp; SIPs</h4>
-                    <p className="text-xs text-gray-600 mt-0.5">Direct and regular mutual fund transaction routing through exchange infrastructure.</p>
+                    <p className="text-xs text-slate-700 mt-0.5">Direct and regular mutual fund transaction routing through exchange infrastructure.</p>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#c41f26] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#a7181e] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">SLBM (Securities Lending)</h4>
-                    <p className="text-xs text-gray-600 mt-0.5">Lending and borrowing of eligible securities for additional yield.</p>
+                    <p className="text-xs text-slate-700 mt-0.5">Lending and borrowing of eligible securities for additional yield.</p>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#006da0] mt-2 shrink-0"></div>
+                  <div className="w-2 h-2 rounded-full bg-[#004f7a] mt-2 shrink-0"></div>
                   <div>
                     <h4 className="font-bold text-gray-900">Primary Markets / IPOs</h4>
-                    <p className="text-xs text-gray-600 mt-0.5">Online IPO bidding, debt issues, and Sovereign Gold Bonds (SGB) facilitation.</p>
+                    <p className="text-xs text-slate-700 mt-0.5">Online IPO bidding, debt issues, and Sovereign Gold Bonds (SGB) facilitation.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Standard Timelines for Services */}
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6" style={{ backgroundColor: "#ffffff" }}>
               <div className="border-b border-gray-200 pb-4">
                 <h3 className="text-xl font-bold text-[#011628] flex items-center gap-2">
-                  <Timer className="w-5 h-5 text-[#c41f26]" /> Standard Timelines for Service Delivery
+                  <Timer className="w-5 h-5 text-[#a7181e]" /> Standard Timelines for Service Delivery
                 </h3>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-700 mt-1 font-medium">
                   SEBI mandated turnaround times (TAT) for various client operations
                 </p>
               </div>
 
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm text-gray-700 border-collapse">
+                <table className="w-full text-left text-sm text-slate-800 border-collapse">
                   <thead className="bg-[#011628] text-white text-xs font-semibold uppercase tracking-wider">
                     <tr>
                       <th scope="col" className="px-4 py-3.5 text-center w-14 border-r border-gray-700">S.No.</th>
@@ -693,9 +695,9 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                       { sn: 6, activity: "Resolution of Client Grievances", tat: "Within 30 calendar days from receipt of grievance" },
                     ].map((item) => (
                       <tr key={item.sn} className="hover:bg-blue-50/40 transition-colors">
-                        <td className="px-4 py-3.5 text-center font-medium text-gray-500 border-r border-gray-100">{item.sn}</td>
+                        <td className="px-4 py-3.5 text-center font-medium text-slate-700 border-r border-gray-100">{item.sn}</td>
                         <td className="px-6 py-3.5 font-semibold text-gray-900 border-r border-gray-100">{item.activity}</td>
-                        <td className="px-6 py-3.5 font-medium text-blue-700">{item.tat}</td>
+                        <td className="px-6 py-3.5 font-bold text-[#004f7a]">{item.tat}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -704,55 +706,55 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             </div>
 
             {/* Grievance Redressal Mechanism & Escalation Matrix */}
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6">
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-6" style={{ backgroundColor: "#ffffff" }}>
               <div className="border-b border-gray-200 pb-4">
                 <h3 className="text-xl font-bold text-[#011628] flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-[#c41f26]" /> Grievance Redressal Mechanism &amp; Escalation Matrix
+                  <Clock className="w-5 h-5 text-[#a7181e]" /> Grievance Redressal Mechanism &amp; Escalation Matrix
                 </h3>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-700 mt-1 font-medium">
                   In case of any query or complaint, investors can follow the structured resolution hierarchy:
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-2">
-                  <span className="text-xs font-black bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md uppercase">
+                  <span className="text-xs font-black bg-blue-100 text-[#004f7a] px-2.5 py-1 rounded-md uppercase">
                     Level 1 - Support Desk
                   </span>
                   <h4 className="text-base font-bold text-gray-900">Customer Support</h4>
-                  <p className="text-xs text-gray-600">Contact customer service via phone or email for initial query redressal.</p>
+                  <p className="text-xs text-slate-700">Contact customer service via phone or email for initial query redressal.</p>
                   <p className="text-xs font-semibold text-[#011628]">Tel: 079 - 49005200</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-2">
-                  <span className="text-xs font-black bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md uppercase">
+                  <span className="text-xs font-black bg-blue-100 text-[#004f7a] px-2.5 py-1 rounded-md uppercase">
                     Level 2 - Grievance Cell
                   </span>
                   <h4 className="text-base font-bold text-gray-900">Compliance Officer</h4>
-                  <p className="text-xs text-gray-600">If unresolved in 7 working days, escalate directly to the compliance department.</p>
-                  <a href="mailto:investorgrievance@ratnakarsecurities.com" className="text-xs font-semibold text-[#c41f26] underline break-all block">
+                  <p className="text-xs text-slate-700">If unresolved in 7 working days, escalate directly to the compliance department.</p>
+                  <a href="mailto:investorgrievance@ratnakarsecurities.com" className="text-xs font-bold text-[#a7181e] underline break-all block">
                     investorgrievance@ratnakarsecurities.com
                   </a>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-2">
-                  <span className="text-xs font-black bg-red-100 text-red-800 px-2.5 py-1 rounded-md uppercase">
+                  <span className="text-xs font-black bg-[#fee2e2] text-[#991b1b] px-2.5 py-1 rounded-md uppercase" style={{ backgroundColor: "#fee2e2" }}>
                     Level 3 - SEBI SCORES
                   </span>
                   <h4 className="text-base font-bold text-gray-900">SCORES 2.0 Portal</h4>
-                  <p className="text-xs text-gray-600">Lodge complaint directly on SEBI online grievance redressal system.</p>
-                  <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-blue-600 hover:underline inline-flex items-center gap-1">
+                  <p className="text-xs text-slate-700">Lodge complaint directly on SEBI online grievance redressal system.</p>
+                  <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-[#004f7a] hover:underline inline-flex items-center gap-1">
                     scores.sebi.gov.in <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-gray-50 border border-gray-200 space-y-2">
-                  <span className="text-xs font-black bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-md uppercase">
+                  <span className="text-xs font-black bg-emerald-100 text-[#166534] px-2.5 py-1 rounded-md uppercase">
                     Level 4 - SMART ODR
                   </span>
                   <h4 className="text-base font-bold text-gray-900">Online Dispute Portal</h4>
-                  <p className="text-xs text-gray-600">Online Dispute Resolution Portal for conciliation and online arbitration.</p>
-                  <a href="https://smartodr.in" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-emerald-700 hover:underline inline-flex items-center gap-1">
+                  <p className="text-xs text-slate-700">Online Dispute Resolution Portal for conciliation and online arbitration.</p>
+                  <a href="https://smartodr.in" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-[#166534] hover:underline inline-flex items-center gap-1">
                     smartodr.in <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -761,11 +763,11 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
 
             {/* Rights & Responsibilities */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-4">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-4" style={{ backgroundColor: "#ffffff" }}>
                 <h3 className="text-lg font-bold text-[#011628] flex items-center gap-2">
-                  <FileCheck2 className="w-5 h-5 text-emerald-700" /> Rights of Investors
+                  <FileCheck2 className="w-5 h-5 text-[#166534]" /> Rights of Investors
                 </h3>
-                <ul className="space-y-2.5 text-sm text-gray-700 list-disc pl-5">
+                <ul className="space-y-2.5 text-sm text-slate-700 list-disc pl-5">
                   <li>Receive transparent copy of Client Registration Documents (KYC/Rights &amp; Obligations).</li>
                   <li>Receive contract notes within 24 hours of execution of trades.</li>
                   <li>Receive funds and securities within prescribed SEBI settlement timelines.</li>
@@ -774,11 +776,11 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                 </ul>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-4">
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm space-y-4" style={{ backgroundColor: "#ffffff" }}>
                 <h3 className="text-lg font-bold text-[#011628] flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5 text-amber-700" /> Responsibilities of Investors
+                  <AlertCircle className="w-5 h-5 text-[#991b1b]" /> Responsibilities of Investors
                 </h3>
-                <ul className="space-y-2.5 text-sm text-gray-700 list-disc pl-5">
+                <ul className="space-y-2.5 text-sm text-slate-700 list-disc pl-5">
                   <li>Always verify broker credentials, SEBI registration number, and official bank accounts.</li>
                   <li>Provide correct PAN, mobile number, and email ID for all official communications.</li>
                   <li>Never share login credentials, MPIN, or trading passwords with anyone.</li>
@@ -791,58 +793,58 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             {/* SEBI Prescribed DOs and DON'Ts for Investors */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* DOs */}
-              <div className="bg-emerald-50/60 border border-emerald-200 p-6 sm:p-8 rounded-3xl shadow-sm space-y-4">
-                <h3 className="text-lg font-bold text-emerald-900 flex items-center gap-2">
-                  <Check className="w-5 h-5 text-emerald-600 stroke-[3]" /> DOs for Investors
+              <div className="bg-emerald-50/60 border border-emerald-200 p-6 sm:p-8 rounded-3xl shadow-sm space-y-4" style={{ backgroundColor: "#f0fdf4" }}>
+                <h3 className="text-lg font-bold text-emerald-950 flex items-center gap-2">
+                  <Check className="w-5 h-5 text-[#166534] stroke-[3]" /> DOs for Investors
                 </h3>
                 <ul className="space-y-2.5 text-sm text-emerald-950">
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 font-bold">•</span>
+                    <span className="text-[#166534] font-bold">•</span>
                     <span>Deal only with SEBI registered stock brokers and verify authorized person credentials on exchange websites.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 font-bold">•</span>
+                    <span className="text-[#166534] font-bold">•</span>
                     <span>Always ensure your mobile number and email ID are updated with the broker and depository for trade alerts.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 font-bold">•</span>
+                    <span className="text-[#166534] font-bold">•</span>
                     <span>Transfer funds only to designated client bank accounts declared by the Stock Broker.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 font-bold">•</span>
+                    <span className="text-[#166534] font-bold">•</span>
                     <span>Verify contract notes received via email and reconcile with monthly depository statement of accounts.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-emerald-600 font-bold">•</span>
+                    <span className="text-[#166534] font-bold">•</span>
                     <span>Pay 20% upfront margin of the transaction value before placing orders in the cash market segment.</span>
                   </li>
                 </ul>
               </div>
 
               {/* DON'Ts */}
-              <div className="bg-red-50/60 border border-red-200 p-6 sm:p-8 rounded-3xl shadow-sm space-y-4">
-                <h3 className="text-lg font-bold text-red-900 flex items-center gap-2">
-                  <XCircle className="w-5 h-5 text-red-600 stroke-[2.5]" /> DON&apos;Ts for Investors
+              <div className="bg-red-50/60 border border-red-200 p-6 sm:p-8 rounded-3xl shadow-sm space-y-4" style={{ backgroundColor: "#fff5f5" }}>
+                <h3 className="text-lg font-bold text-red-950 flex items-center gap-2">
+                  <XCircle className="w-5 h-5 text-[#a7181e] stroke-[2.5]" /> DON&apos;Ts for Investors
                 </h3>
                 <ul className="space-y-2.5 text-sm text-red-950">
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 font-bold">•</span>
+                    <span className="text-[#a7181e] font-bold">•</span>
                     <span>Do not share password, MPIN, OTP, or trading terminal credentials with anyone, including employees.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 font-bold">•</span>
+                    <span className="text-[#a7181e] font-bold">•</span>
                     <span>Do not sign blank Delivery Instruction Slips (DIS) or transfer forms.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 font-bold">•</span>
+                    <span className="text-[#a7181e] font-bold">•</span>
                     <span>Do not transfer funds to personal bank accounts of any employees or associates.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 font-bold">•</span>
+                    <span className="text-[#a7181e] font-bold">•</span>
                     <span>Do not fall prey to guaranteed, fixed, or unrealistic returns offered by unauthorized advisors.</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-600 font-bold">•</span>
+                    <span className="text-[#a7181e] font-bold">•</span>
                     <span>Do not leave cash balances idle; opt for regular monthly or quarterly account settlements.</span>
                   </li>
                 </ul>
@@ -853,7 +855,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
         )}
 
         {/* Regulatory Footer Information Box */}
-        <div className="bg-gradient-to-r from-[#011628] to-[#012e54] text-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#006da0]/20 space-y-3">
+        <div className="bg-gradient-to-r from-[#011628] to-[#012e54] text-white p-6 sm:p-8 rounded-3xl shadow-sm border border-[#bae6fd] space-y-3" style={{ backgroundColor: "#011628" }}>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h4 className="text-base font-bold text-white">Ratnakar Securities Limited</h4>
@@ -867,7 +869,8 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SEBI SCORES 2.0 Portal"
-                className="bg-[#006da0] hover:bg-[#0098d0] text-[#011628] font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1"
+                className="bg-white hover:bg-slate-100 text-[#011628] font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                style={{ backgroundColor: "#ffffff", color: "#011628" }}
               >
                 SCORES 2.0 <ExternalLink className="w-3 h-3" />
               </a>
@@ -876,7 +879,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SMART ODR Dispute Resolution Portal"
-                className="bg-white/10 hover:bg-white/20 text-white font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 border border-white/20"
+                className="bg-white/10 hover:bg-white/20 text-white font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 border border-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 SMART ODR <ExternalLink className="w-3 h-3" />
               </a>

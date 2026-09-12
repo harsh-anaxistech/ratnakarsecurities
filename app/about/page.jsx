@@ -76,10 +76,10 @@ export default function AboutPage() {
       <section id="overview" className="py-12 bg-[#f7f9fc]">
         <Container>
           <div className="mb-10 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#c41f26]">
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#a7181e]">
               About Ratnakar Securities
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-950 mb-6">
               Building Trust, Creating Wealth
             </h2>
 
@@ -119,7 +119,7 @@ export default function AboutPage() {
         <Container>
           {/* Leadership Intro Text */}
           <div className="max-w-6xl mx-auto text-center mb-10 px-4">
-            <h2 className="text-4xl text-black mb-6">About Our Leadership</h2>
+            <h2 className="text-4xl text-slate-950 mb-6">About Our Leadership</h2>
             <div className="text-[#314158] text-[16px] leading-relaxed space-y-4">
               <p>
                 At Ratnakar Securities, our Key Managerial Personnel (KMP) and Board of Directors play a vital role in ensuring strong corporate governance, regulatory compliance, and strategic decision-making.
@@ -162,8 +162,8 @@ export default function AboutPage() {
 
                 {/* Text Content */}
                 <div className="p-8 w-full flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold text-black mb-1">{leader.name}</h3>
-                  <p className="text-[#c41f26] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
+                  <h3 className="text-2xl font-bold text-slate-950 mb-1">{leader.name}</h3>
+                  <p className="text-[#a7181e] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
                   <div className="text-[#314158] leading-relaxed text-[15px] italic">
                     <p>“{leader.desc}”</p>
                   </div>

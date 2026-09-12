@@ -70,9 +70,9 @@ export default function ProductSidebar({ currentSlug = "", showContactCard = fal
       {/* Quick Contact Box */}
       {showContactCard && (
         <div
-          className="rounded-2xl p-8 text-white relative overflow-hidden group shadow-lg bg-[#c41f26]"
+          className="rounded-2xl p-8 text-white relative overflow-hidden group shadow-lg bg-[#a7181e]"
           style={{
-            backgroundColor: "#c41f26",
+            backgroundColor: "#a7181e",
             backgroundImage: "linear-gradient(135deg, rgb(234, 40, 48), rgb(196, 31, 38))"
           }}
         >

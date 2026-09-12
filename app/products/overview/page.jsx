@@ -65,28 +65,31 @@ export default function OverviewPage() {
 
             {/* Top Title & Tagline */}
             <div className="mb-8 pb-6 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span 
+                className="inline-block px-3 py-1 font-bold text-xs tracking-widest rounded-full uppercase mb-4"
+                style={{ backgroundColor: "#fee2e2", color: "#7f1d1d" }}
+              >
                 {content.tagline}
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-black leading-tight">
+              <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-900 leading-tight" style={{ color: "#0f172a" }}>
                 {content.mainTitle}
               </h2>
             </div>
 
             {/* Niche Content */}
             <div className="max-w-none mb-12">
-              <p className="text-[16px] leading-relaxed mb-6 text-slate-800">
+              <p className="text-[16px] leading-relaxed mb-6 text-slate-700" style={{ color: "#334155" }}>
                 {content.description1}
               </p>
 
               {content.description2.map((line, i) => (
-                <p key={i} className="text-[16px] leading-relaxed mb-5 text-slate-800">
+                <p key={i} className="text-[16px] leading-relaxed mb-5 text-slate-700" style={{ color: "#334155" }}>
                   {line}
                 </p>
               ))}
 
               <div
-                className="mt-10 rounded-2xl p-8 border border-slate-200"
+                className="mt-10 rounded-2xl p-8 border border-slate-200 shadow-sm"
                 style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
               >
                 <h3
@@ -102,7 +105,7 @@ export default function OverviewPage() {
                         className="mt-1 p-1.5 rounded-full shrink-0"
                         style={{ backgroundColor: "#fee2e2", color: "#a7181e" }}
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#c41f26]" aria-hidden="true" />
+                        <CheckCircle2 className="w-4 h-4 text-[#a7181e]" aria-hidden="true" />
                       </div>
                       <span
                         className="text-[16px] font-medium leading-relaxed"
@@ -120,10 +123,11 @@ export default function OverviewPage() {
             <div className="pt-8 border-t border-black/5">
               <Link
                 href="/contact"
-                className="inline-flex bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="inline-flex text-white font-bold text-[16px] py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] focus-visible:ring-offset-2"
+                style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
               >
                 {content.buttonText}
-                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" />
+                <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" aria-hidden="true" />
               </Link>
             </div>
 

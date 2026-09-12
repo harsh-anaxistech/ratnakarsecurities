@@ -66,28 +66,31 @@ export default function ProductDetailsPage({ params }) {
 
             {/* Top Title & Tagline */}
             <div className="mb-10 pb-8 border-b border-black/5">
-              <span className="inline-block px-3 py-1 bg-[#c41f26]/10 text-[#7f1d1d] font-bold text-xs tracking-widest rounded-full uppercase mb-4">
+              <span 
+                className="inline-block px-3 py-1 font-bold text-xs tracking-widest rounded-full uppercase mb-4"
+                style={{ backgroundColor: "#fee2e2", color: "#7f1d1d" }}
+              >
                 {product.tagline}
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 leading-tight" style={{ color: "#0f172a" }}>
                 {product.mainTitle}
               </h2>
             </div>
 
             {/* Niche Content */}
-            <div className="prose prose-lg max-w-none text-slate-600 mb-12">
-              <p className="text-xl leading-relaxed mb-8 font-medium text-slate-700">
+            <div className="prose prose-lg max-w-none text-slate-700 mb-12">
+              <p className="text-xl leading-relaxed mb-8 font-medium text-slate-800" style={{ color: "#1e293b" }}>
                 {product.description1}
               </p>
 
               {product.description2.split('\n').map((line, i) => (
-                <p key={i} className="leading-relaxed mb-5">
+                <p key={i} className="leading-relaxed mb-5 text-slate-700" style={{ color: "#334155" }}>
                   {line}
                 </p>
               ))}
 
               <div
-                className="mt-12 rounded-2xl p-8 border border-slate-200"
+                className="mt-12 rounded-2xl p-8 border border-slate-200 shadow-sm"
                 style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
               >
                 <h3
@@ -103,7 +106,7 @@ export default function ProductDetailsPage({ params }) {
                         className="mt-1 p-1.5 rounded-full shrink-0"
                         style={{ backgroundColor: "#fee2e2", color: "#a7181e" }}
                       >
-                        <CheckCircle2 className="w-5 h-5 text-[#c41f26]" aria-hidden="true" />
+                        <CheckCircle2 className="w-5 h-5 text-[#a7181e]" aria-hidden="true" />
                       </div>
                       <span
                         className="font-medium leading-relaxed"
@@ -121,10 +124,11 @@ export default function ProductDetailsPage({ params }) {
             <div className="pt-8 border-t border-black/5">
               <Link
                 href="/contact"
-                className="inline-flex bg-[#c41f26] hover:bg-[#c41f26] text-white font-bold text-lg py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                className="inline-flex text-white font-bold text-lg py-4 px-8 rounded-xl shadow-lg transition-transform hover:-translate-y-1 items-center justify-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] focus-visible:ring-offset-2"
+                style={{ backgroundColor: "#a7181e", color: "#ffffff" }}
               >
                 {product.buttonText}
-                <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1.5 transition-transform" />
+                <ArrowRight className="w-6 h-6 transform group-hover:translate-x-1.5 transition-transform" aria-hidden="true" />
               </Link>
             </div>
 
