@@ -86,17 +86,29 @@ export default function ProductDetailsPage({ params }) {
                 </p>
               ))}
 
-              <div className="mt-12 bg-slate-50 rounded-2xl p-8 border border-black/5">
-                <h3 className="text-2xl font-bold text-slate-900 mb-6">
+              <div
+                className="mt-12 rounded-2xl p-8 border border-slate-200"
+                style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}
+              >
+                <h3
+                  className="text-2xl font-bold mb-6"
+                  style={{ color: "#0f172a" }}
+                >
                   {product.featuresTitle}
                 </h3>
                 <ul className="space-y-4">
                   {product.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-4">
-                      <div className="mt-1 bg-[#ea2830]/10 p-1.5 rounded-full text-[#ea2830] shrink-0">
-                        <CheckCircle2 className="w-5 h-5" />
+                      <div
+                        className="mt-1 p-1.5 rounded-full shrink-0"
+                        style={{ backgroundColor: "#fee2e2", color: "#a7181e" }}
+                      >
+                        <CheckCircle2 className="w-5 h-5 text-[#ea2830]" aria-hidden="true" />
                       </div>
-                      <span className="text-slate-700 font-medium leading-relaxed">
+                      <span
+                        className="font-medium leading-relaxed"
+                        style={{ color: "#0f172a" }}
+                      >
                         {feature}
                       </span>
                     </li>
