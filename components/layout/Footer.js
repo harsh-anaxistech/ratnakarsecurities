@@ -526,42 +526,46 @@ export default function Footer() {
           onClick={() => setIsScoresModalOpen(false)}
         >
           <div
-            className="relative w-full max-w-[620px] bg-white border border-gray-100 rounded-2xl shadow-2xl overflow-hidden text-left transition-all duration-300 transform scale-100"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="scores-modal-title"
+            className="relative w-full max-w-[620px] bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden text-left transition-all duration-300 transform scale-100"
+            style={{ backgroundColor: "#ffffff" }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
             <div
-              className="px-6 py-6 sm:px-8 sm:py-7 relative flex items-center justify-between bg-[#012e54]"
+              className="px-6 py-6 sm:px-8 sm:py-7 relative flex items-center justify-between bg-[#011628] border-b border-slate-700"
               style={{
-                backgroundColor: "#012e54",
-                backgroundImage:
-                  "radial-gradient(1400px 700px at 85% 20%, #1a6eb5 0%, #012e54 50%, #011628 100%)",
+                backgroundColor: "#011628",
+                color: "#ffffff"
               }}
             >
               <div>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide">
+                <h3 id="scores-modal-title" className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide" style={{ color: "#ffffff" }}>
                   Filing complaints on SCORES
                 </h3>
                 <p
-                  className="text-xs sm:text-sm font-semibold tracking-wider uppercase mt-1"
-                  style={{ color: "#00aeee" }}
+                  className="text-xs sm:text-sm font-bold tracking-wider uppercase mt-1 text-[#7dd3fc]"
+                  style={{ color: "#7dd3fc" }}
                 >
-                  Easy & quick
+                  Easy &amp; quick
                 </p>
               </div>
 
               {/* Close button */}
               <button
                 onClick={() => setIsScoresModalOpen(false)}
-                className="text-xs font-bold uppercase tracking-wider text-white/80 hover:text-white transition-colors flex items-center gap-1 cursor-pointer bg-white/10 hover:bg-white/20 p-2.5 rounded-full"
+                className="text-white hover:text-white transition-colors flex items-center justify-center cursor-pointer bg-white/10 hover:bg-white/20 p-2.5 rounded-full focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
+                style={{ color: "#ffffff" }}
                 aria-label="Close modal"
               >
-                <span className="text-[#00aeee] text-base font-black">✕</span>
+                <span className="text-white text-base font-black" aria-hidden="true" style={{ color: "#ffffff" }}>✕</span>
               </button>
             </div>
 
             {/* Body */}
-            <div className="p-6 sm:p-8 space-y-6 bg-white text-gray-800">
+            <div className="p-6 sm:p-8 space-y-6 bg-white text-slate-700" style={{ backgroundColor: "#ffffff", color: "#334155" }}>
               <ul className="space-y-6 text-sm sm:text-base">
                 {/* Item 1 */}
                 <li className="flex items-start gap-3.5">
@@ -575,14 +579,16 @@ export default function Footer() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5"
+                    className="w-5 h-5 text-[#881337] shrink-0 mt-0.5"
+                    style={{ color: "#881337" }}
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <path d="m9 12 2 2 4-4" />
                   </svg>
 
                   <div>
-                    <p className="font-medium text-gray-900">
+                    <p className="font-bold text-slate-900" style={{ color: "#0f172a" }}>
                       Register on SCORES portal
                     </p>
 
@@ -590,7 +596,8 @@ export default function Footer() {
                       href="https://scores.sebi.gov.in/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1a6eb5] underline hover:text-[#a7181e] transition-colors break-all font-medium"
+                      className="text-[#004f7a] underline hover:text-[#011628] transition-colors break-all font-bold"
+                      style={{ color: "#004f7a" }}
                     >
                       https://scores.sebi.gov.in/
                     </a>
@@ -610,13 +617,15 @@ export default function Footer() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5"
+                      className="w-5 h-5 text-[#881337] shrink-0 mt-0.5"
+                      style={{ color: "#881337" }}
+                      aria-hidden="true"
                     >
                       <circle cx="12" cy="12" r="10" />
                       <path d="m9 12 2 2 4-4" />
                     </svg>
 
-                    <span className="font-medium text-gray-900">
+                    <span className="font-bold text-slate-900" style={{ color: "#0f172a" }}>
                       Mandatory details for filing complaints on SCORES
                     </span>
                   </div>
@@ -626,7 +635,8 @@ export default function Footer() {
                       (item) => (
                         <span
                           key={item}
-                          className="bg-red-50 text-[#a7181e] border border-red-100 py-1 px-3 rounded-lg text-xs font-bold"
+                          className="bg-[#fff1f2] text-[#881337] border border-[#fecdd3] py-1 px-3 rounded-lg text-xs font-bold"
+                          style={{ backgroundColor: "#fff1f2", color: "#881337", borderColor: "#fecdd3" }}
                         >
                           {item}
                         </span>
@@ -648,16 +658,18 @@ export default function Footer() {
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="w-5 h-5 text-[#a7181e] shrink-0 mt-0.5"
+                      className="w-5 h-5 text-[#881337] shrink-0 mt-0.5"
+                      style={{ color: "#881337" }}
+                      aria-hidden="true"
                     >
                       <circle cx="12" cy="12" r="10" />
                       <path d="m9 12 2 2 4-4" />
                     </svg>
 
-                    <span className="font-medium text-gray-900">Benefits</span>
+                    <span className="font-bold text-slate-900" style={{ color: "#0f172a" }}>Benefits</span>
                   </div>
 
-                  <ul className="space-y-2 pl-8 text-sm text-gray-600">
+                  <ul className="space-y-2.5 pl-8 text-sm text-slate-700" style={{ color: "#334155" }}>
                     <li className="flex items-center gap-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -669,13 +681,15 @@ export default function Footer() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="w-4 h-4 text-[#1a6eb5] shrink-0"
+                        className="w-4 h-4 text-[#004f7a] shrink-0"
+                        style={{ color: "#004f7a" }}
+                        aria-hidden="true"
                       >
                         <circle cx="12" cy="12" r="10" />
                         <path d="m9 12 2 2 4-4" />
                       </svg>
 
-                      <span>Effective communication</span>
+                      <span style={{ color: "#334155" }}>Effective communication</span>
                     </li>
 
                     <li className="flex items-center gap-2">
@@ -689,13 +703,15 @@ export default function Footer() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="w-4 h-4 text-[#1a6eb5] shrink-0"
+                        className="w-4 h-4 text-[#004f7a] shrink-0"
+                        style={{ color: "#004f7a" }}
+                        aria-hidden="true"
                       >
                         <circle cx="12" cy="12" r="10" />
                         <path d="m9 12 2 2 4-4" />
                       </svg>
 
-                      <span>Transparency in grievance handling</span>
+                      <span style={{ color: "#334155" }}>Transparency in grievance handling</span>
                     </li>
 
                     <li className="flex items-center gap-2">
@@ -709,13 +725,15 @@ export default function Footer() {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        className="w-4 h-4 text-[#1a6eb5] shrink-0"
+                        className="w-4 h-4 text-[#004f7a] shrink-0"
+                        style={{ color: "#004f7a" }}
+                        aria-hidden="true"
                       >
                         <circle cx="12" cy="12" r="10" />
                         <path d="m9 12 2 2 4-4" />
                       </svg>
 
-                      <span>Speedy redressal of grievances</span>
+                      <span style={{ color: "#334155" }}>Speedy redressal of grievances</span>
                     </li>
                   </ul>
                 </li>

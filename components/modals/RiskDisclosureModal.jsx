@@ -165,8 +165,8 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
           {/* Main 4 Points Box */}
           <div className="bg-white border border-slate-200 rounded-xl divide-y divide-slate-100 shadow-xs overflow-hidden" style={{ backgroundColor: "#ffffff" }}>
             {/* Point 1: 9 out of 10 */}
-            <div className="p-2.5 sm:p-3 flex items-center gap-2.5 hover:bg-slate-50/50 transition-colors">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fee2e2] border border-[#fca5a5] flex items-center justify-center text-[#991b1b] shrink-0" style={{ backgroundColor: "#fee2e2" }}>
+            <div className="p-2.5 sm:p-3 flex items-center gap-2.5 hover:bg-slate-50 transition-colors" style={{ backgroundColor: "#ffffff" }}>
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fee2e2] border border-[#fecdd3] flex items-center justify-center text-[#881337] shrink-0" style={{ backgroundColor: "#fee2e2", color: "#881337" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -176,21 +176,22 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="w-4 h-4"
+                  aria-hidden="true"
                 >
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 0 1 0 7.75" />
                 </svg>
               </div>
-              <p className="text-slate-800 text-xs sm:text-[13px] leading-snug font-medium">
-                <span className="text-[#a7181e] font-black text-sm mr-1 inline-block select-none">»</span>
+              <p className="text-slate-900 text-xs sm:text-[13px] leading-snug font-medium" style={{ color: "#0f172a" }}>
+                <span className="text-[#881337] font-black text-sm mr-1 inline-block select-none" style={{ color: "#881337" }}>»</span>
                 9 out of 10 individual traders in equity Futures and Options Segment. Incurred net losses.
               </p>
             </div>
 
             {/* Point 2: Loss makers close to 50k */}
-            <div className="p-2.5 sm:p-3 flex items-center gap-2.5 hover:bg-slate-50/50 transition-colors">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fee2e2] border border-[#fca5a5] flex items-center justify-center text-[#991b1b] shrink-0" style={{ backgroundColor: "#fee2e2" }}>
+            <div className="p-2.5 sm:p-3 flex items-center gap-2.5 hover:bg-slate-50 transition-colors" style={{ backgroundColor: "#ffffff" }}>
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fee2e2] border border-[#fecdd3] flex items-center justify-center text-[#881337] shrink-0" style={{ backgroundColor: "#fee2e2", color: "#881337" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -200,20 +201,21 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="w-4 h-4"
+                  aria-hidden="true"
                 >
                   <polyline points="23 18 13.5 8.5 8.5 13.5 1 6" />
                   <polyline points="17 18 23 18 23 12" />
                 </svg>
               </div>
-              <p className="text-slate-800 text-xs sm:text-[13px] leading-snug font-medium">
-                <span className="text-[#a7181e] font-black text-sm mr-1 inline-block select-none">»</span>
+              <p className="text-slate-900 text-xs sm:text-[13px] leading-snug font-medium" style={{ color: "#0f172a" }}>
+                <span className="text-[#881337] font-black text-sm mr-1 inline-block select-none" style={{ color: "#881337" }}>»</span>
                 On an average, loss makers registered net trading loss close to ₹ 50,000.
               </p>
             </div>
 
             {/* Point 3: 28% net trading loss as transaction costs */}
-            <div className="p-2.5 sm:p-3 flex items-center gap-2.5 hover:bg-slate-50/50 transition-colors">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fee2e2] border border-[#fca5a5] flex items-center justify-center text-[#991b1b] shrink-0" style={{ backgroundColor: "#fee2e2" }}>
+            <div className="p-2.5 sm:p-3 flex items-center gap-2.5 hover:bg-slate-50 transition-colors" style={{ backgroundColor: "#ffffff" }}>
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fee2e2] border border-[#fecdd3] flex items-center justify-center text-[#881337] shrink-0" style={{ backgroundColor: "#fee2e2", color: "#881337" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -223,21 +225,22 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="w-4 h-4"
+                  aria-hidden="true"
                 >
                   <line x1="19" y1="5" x2="5" y2="19" />
                   <circle cx="6.5" cy="6.5" r="2.5" />
                   <circle cx="17.5" cy="17.5" r="2.5" />
                 </svg>
               </div>
-              <p className="text-slate-800 text-xs sm:text-[13px] leading-snug font-medium">
-                <span className="text-[#a7181e] font-black text-sm mr-1 inline-block select-none">»</span>
+              <p className="text-slate-900 text-xs sm:text-[13px] leading-snug font-medium" style={{ color: "#0f172a" }}>
+                <span className="text-[#881337] font-black text-sm mr-1 inline-block select-none" style={{ color: "#881337" }}>»</span>
                 Over and above the net trading losses incurred, loss makers expended an additional 28% of net trading losses as transaction costs.
               </p>
             </div>
 
             {/* Point 4: Profits 15% to 50% */}
-            <div className="p-2.5 sm:p-3 flex items-center gap-2.5 hover:bg-slate-50/50 transition-colors">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fee2e2] border border-[#fca5a5] flex items-center justify-center text-[#991b1b] shrink-0" style={{ backgroundColor: "#fee2e2" }}>
+            <div className="p-2.5 sm:p-3 flex items-center gap-2.5 hover:bg-slate-50 transition-colors" style={{ backgroundColor: "#ffffff" }}>
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#fee2e2] border border-[#fecdd3] flex items-center justify-center text-[#881337] shrink-0" style={{ backgroundColor: "#fee2e2", color: "#881337" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -247,13 +250,14 @@ export default function RiskDisclosureModal({ isOpen, onClose }) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="w-4 h-4"
+                  aria-hidden="true"
                 >
                   <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
                   <path d="M22 12A10 10 0 0 0 12 2v10z" />
                 </svg>
               </div>
-              <p className="text-slate-800 text-xs sm:text-[13px] leading-snug font-medium">
-                <span className="text-[#a7181e] font-black text-sm mr-1 inline-block select-none">»</span>
+              <p className="text-slate-900 text-xs sm:text-[13px] leading-snug font-medium" style={{ color: "#0f172a" }}>
+                <span className="text-[#881337] font-black text-sm mr-1 inline-block select-none" style={{ color: "#881337" }}>»</span>
                 Those making net trading profits, incurred between 15% to 50% of such profits as transaction cost.
               </p>
             </div>
