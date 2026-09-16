@@ -101,8 +101,8 @@ export default function KeyManagerialPersonnelPage() {
                   <div>
                     <h3 className="text-[16px] font-bold text-slate-900 leading-snug">{person.name}</h3>
                     <div className="flex items-center gap-1.5 mt-1">
-                      <Briefcase className="w-3.5 h-3.5 text-[#1a6eb5] shrink-0" />
-                      <p className="text-[12px] font-semibold uppercase tracking-wide text-[#1a6eb5]">
+                      <Briefcase className="w-3.5 h-3.5 text-[#004f7a] shrink-0" />
+                      <p className="text-[12px] font-semibold uppercase tracking-wide text-[#004f7a]">
                         {person.designation}
                       </p>
                     </div>
@@ -121,7 +121,7 @@ export default function KeyManagerialPersonnelPage() {
                     <div className="w-8 h-8 rounded-lg bg-[#1a6eb5]/10 flex items-center justify-center shrink-0">
                       <Phone className="w-3.5 h-3.5 text-[#1a6eb5]" />
                     </div>
-                    <span className="text-[14px] text-[#314158] group-hover:text-[#1a6eb5] transition-colors font-medium">
+                    <span className="text-[14px] text-[#314158] group-hover:text-[#004f7a] transition-colors font-medium">
                       {person.phone}
                     </span>
                   </a>
@@ -133,7 +133,7 @@ export default function KeyManagerialPersonnelPage() {
                     <div className="w-8 h-8 rounded-lg bg-[#1a6eb5]/10 flex items-center justify-center shrink-0">
                       <Mail className="w-3.5 h-3.5 text-[#1a6eb5]" />
                     </div>
-                    <span className="text-[14px] text-[#314158] group-hover:text-[#1a6eb5] transition-colors font-medium break-all">
+                    <span className="text-[14px] text-[#314158] group-hover:text-[#004f7a] transition-colors font-medium break-all">
                       {person.email}
                     </span>
                   </a>
@@ -152,7 +152,7 @@ export default function KeyManagerialPersonnelPage() {
             <span className="font-semibold text-slate-800">Note: </span>
             This disclosure is made in accordance with the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015.
             For investor grievances, please contact the appropriate personnel listed above or write to us at{" "}
-            <a href="mailto:info@ratnakarsecurities.com" className="text-[#1a6eb5] hover:underline font-medium">
+            <a href="mailto:info@ratnakarsecurities.com" className="text-[#004f7a] hover:underline font-medium">
               info@ratnakarsecurities.com
             </a>.
           </p>

@@ -460,7 +460,7 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       aria-label="Download Official DP Charter PDF"
                       className="inline-flex items-center gap-2 bg-[#011628] hover:bg-[#13304a] text-white text-sm font-bold px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-md transition duration-200"
                     >
-                      <Download className="w-4 h-4 text-[#004f7a]" /> Official DP PDF
+                      <Download className="w-4 h-4 text-[#7dd3fc]" /> Official DP PDF
                     </a>
                   )}
                 </div>

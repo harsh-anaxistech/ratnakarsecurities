@@ -123,8 +123,11 @@ export default function BoardOfDirectorsPage() {
                     </div>
                   ) : (
                     <div
-                      className="w-16 h-16 rounded-xl flex items-center justify-center text-white font-bold text-lg shrink-0"
-                      style={{ background: "linear-gradient(135deg, #a7181e, #a7181e)" }}
+                      className="w-16 h-16 rounded-xl flex items-center justify-center text-white font-bold text-lg shrink-0 bg-[#a7181e]"
+                      style={{
+                        backgroundColor: "#a7181e",
+                        backgroundImage: "linear-gradient(135deg, #a7181e, #8b1217)",
+                      }}
                     >
                       {member.initials}
                     </div>
@@ -163,14 +166,17 @@ export default function BoardOfDirectorsPage() {
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm shrink-0"
-                    style={{ background: "linear-gradient(135deg, #1a6eb5, #0e4a7a)" }}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm shrink-0 bg-[#0e4a7a]"
+                    style={{
+                      backgroundColor: "#0e4a7a",
+                      backgroundImage: "linear-gradient(135deg, #1a6eb5, #0e4a7a)",
+                    }}
                   >
                     {member.initials}
                   </div>
                   <div>
                     <h2 className="text-lg font-bold text-slate-900">{member.name}</h2>
-                    <p className="text-[#1a6eb5] font-semibold text-xs uppercase tracking-wider mt-1">
+                    <p className="text-[#004f7a] font-semibold text-xs uppercase tracking-wider mt-1">
                       {member.designation}
                     </p>
                   </div>

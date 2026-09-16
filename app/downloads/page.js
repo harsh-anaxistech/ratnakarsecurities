@@ -348,19 +348,22 @@ export default function DownloadsPage() {
                         rel="noopener noreferrer"
                         download
                         aria-label={`Download document: ${fileTitle}`}
-                        className="group p-6 border border-gray-200 rounded-2xl bg-white shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-[#EA2830]/10 hover:border-[#EA2830]/30 flex flex-col items-center text-center h-full focus:ring-2 focus:ring-red-600"
+                        className="group p-6 border border-slate-200 rounded-2xl bg-white shadow-sm cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-[#a7181e]/10 hover:border-[#a7181e]/30 flex flex-col items-center text-center h-full focus:ring-2 focus:ring-[#a7181e]"
                       >
-                        <div className="w-14 h-14 bg-[#EA2830] rounded-full flex items-center justify-center text-white mb-5 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
+                        <div className="w-14 h-14 bg-[#a7181e] rounded-full flex items-center justify-center text-white mb-5 shadow-sm transition-transform duration-300 group-hover:-translate-y-1">
                           <FileText size={24} aria-hidden="true" />
                         </div>
 
-                        <h3 className="text-[16px] font-sans font-medium text-gray-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#EA2830] transition-colors duration-300">
+                        <h3 className="text-[16px] font-sans font-medium text-slate-900 mb-6 line-clamp-3 leading-snug group-hover:text-[#a7181e] transition-colors duration-300">
                           {fileTitle}
                         </h3>
 
-                        <div className="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gray-50 text-gray-600 text-sm font-semibold group-hover:bg-[#EA2830] group-hover:text-white transition-colors duration-300">
-                          <DownloadIcon size={16} className="stroke-[2.5]" />
-                          <span>Download</span>
+                        <div 
+                          className="mt-auto w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-100 border border-slate-300 text-slate-900 text-sm font-bold group-hover:bg-[#a7181e] group-hover:border-[#a7181e] group-hover:text-white transition-all duration-300"
+                          style={{ backgroundColor: "#f1f5f9", color: "#0f172a" }}
+                        >
+                          <DownloadIcon size={16} className="stroke-[2.5] text-slate-900 group-hover:text-white" aria-hidden="true" />
+                          <span className="text-slate-900 group-hover:text-white font-bold">Download</span>
                         </div>
                       </a>
                     );
