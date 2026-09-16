@@ -542,9 +542,9 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <td className="px-4 py-3.5 text-center font-bold text-slate-700 border-r border-slate-100" style={{ color: "#334155" }}>{row.sn}</td>
                         <td className="px-5 py-3.5 font-bold text-slate-900 border-r border-slate-100" style={{ color: "#0f172a" }}>{row.source}</td>
                         <td className="px-4 py-3.5 text-center font-bold text-slate-700 border-r border-slate-100" style={{ color: "#334155" }}>{row.carried}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-[#004f7a] border-r border-slate-100" style={{ color: "#004f7a" }}>{row.received}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-[#14532d] border-r border-slate-100" style={{ color: "#14532d" }}>{row.resolved}</td>
-                        <td className="px-4 py-3.5 text-center font-bold text-[#854d0e] border-r border-slate-100" style={{ color: "#854d0e" }}>{row.pendingLt3}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-[#003d66] border-r border-slate-100" style={{ color: "#003d66" }}>{row.received}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-[#0f5132] border-r border-slate-100" style={{ color: "#0f5132" }}>{row.resolved}</td>
+                        <td className="px-4 py-3.5 text-center font-bold text-[#78350f] border-r border-slate-100" style={{ color: "#78350f" }}>{row.pendingLt3}</td>
                         <td className="px-4 py-3.5 text-center font-bold text-slate-700 border-r border-slate-100" style={{ color: "#334155" }}>{row.pendingGt3}</td>
                         <td className="px-4 py-3.5 text-center text-slate-700 font-semibold" style={{ color: "#334155" }}>{row.avgTime}</td>
                       </tr>
@@ -558,13 +558,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                       <td className="px-4 py-4 text-center font-black border-r border-slate-200" style={{ color: "#0f172a" }}>
                         {latestMonthRecord ? (latestMonthRecord.carried_forward ?? 0) : 0}
                       </td>
-                      <td className="px-4 py-4 text-center font-black text-[#004f7a] border-r border-slate-200" style={{ color: "#004f7a" }}>
+                      <td className="px-4 py-4 text-center font-black text-[#003d66] border-r border-slate-200" style={{ color: "#003d66" }}>
                         {latestMonthRecord ? (latestMonthRecord.received ?? 0) : 0}
                       </td>
-                      <td className="px-4 py-4 text-center font-black text-[#14532d] border-r border-slate-200" style={{ color: "#14532d" }}>
+                      <td className="px-4 py-4 text-center font-black text-[#0f5132] border-r border-slate-200" style={{ color: "#0f5132" }}>
                         {latestMonthRecord ? (latestMonthRecord.resolved ?? 0) : 0}
                       </td>
-                      <td className="px-4 py-4 text-center font-black text-[#854d0e] border-r border-slate-200" style={{ color: "#854d0e" }}>
+                      <td className="px-4 py-4 text-center font-black text-[#78350f] border-r border-slate-200" style={{ color: "#78350f" }}>
                         {latestMonthRecord ? (latestMonthRecord.pending ?? 0) : 0}
                       </td>
                       <td className="px-4 py-4 text-center font-black text-slate-700 border-r border-slate-200" style={{ color: "#334155" }}>0</td>
@@ -628,9 +628,9 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                             <td className="px-4 py-3.5 text-center font-bold text-slate-700 border-r border-slate-100" style={{ color: "#334155" }}>{idx + 1}</td>
                             <td className="px-5 py-3.5 font-bold text-slate-900 border-r border-slate-100" style={{ color: "#0f172a" }}>{monthName}</td>
                             <td className="px-4 py-3.5 text-center font-bold text-slate-700 border-r border-slate-100" style={{ color: "#334155" }}>{carried}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-[#004f7a] border-r border-slate-100" style={{ color: "#004f7a" }}>{received}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-[#14532d] border-r border-slate-100" style={{ color: "#14532d" }}>{resolved}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-[#854d0e] border-r border-slate-100" style={{ color: "#854d0e" }}>{pending}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#003d66] border-r border-slate-100" style={{ color: "#003d66" }}>{received}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#0f5132] border-r border-slate-100" style={{ color: "#0f5132" }}>{resolved}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#78350f] border-r border-slate-100" style={{ color: "#78350f" }}>{pending}</td>
                             <td className="px-4 py-3.5 text-center text-slate-700 font-semibold border-r border-slate-100" style={{ color: "#334155" }}>{avgTime !== "" ? avgTime : "-"}</td>
                             <td className="px-4 py-3.5 text-center">
                               {fileUrl ? (
@@ -672,13 +672,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <td className="px-4 py-4 text-center font-black border-r border-slate-200" style={{ color: "#0f172a" }}>
                           {data.monthlyGrandTotal?.carried_forward ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-[#004f7a] border-r border-slate-200" style={{ color: "#004f7a" }}>
+                        <td className="px-4 py-4 text-center font-black text-[#003d66] border-r border-slate-200" style={{ color: "#003d66" }}>
                           {data.monthlyGrandTotal?.received ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-[#14532d] border-r border-slate-200" style={{ color: "#14532d" }}>
+                        <td className="px-4 py-4 text-center font-black text-[#0f5132] border-r border-slate-200" style={{ color: "#0f5132" }}>
                           {data.monthlyGrandTotal?.resolved ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-[#854d0e] border-r border-slate-200" style={{ color: "#854d0e" }}>
+                        <td className="px-4 py-4 text-center font-black text-[#78350f] border-r border-slate-200" style={{ color: "#78350f" }}>
                           {data.monthlyGrandTotal?.pending ?? 0}
                         </td>
                         <td className="px-4 py-4 text-center text-slate-700 border-r border-slate-200" style={{ color: "#334155" }}>-</td>
@@ -730,9 +730,9 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                             <td className="px-4 py-3.5 text-center font-bold text-slate-700 border-r border-slate-100" style={{ color: "#334155" }}>{idx + 1}</td>
                             <td className="px-6 py-3.5 font-bold text-slate-900 border-r border-slate-100" style={{ color: "#0f172a" }}>{year}</td>
                             <td className="px-4 py-3.5 text-center font-bold text-slate-700 border-r border-slate-100" style={{ color: "#334155" }}>{carried}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-[#004f7a] border-r border-slate-100" style={{ color: "#004f7a" }}>{received}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-[#14532d] border-r border-slate-100" style={{ color: "#14532d" }}>{resolved}</td>
-                            <td className="px-4 py-3.5 text-center font-bold text-[#854d0e]" style={{ color: "#854d0e" }}>{pending}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#003d66] border-r border-slate-100" style={{ color: "#003d66" }}>{received}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#0f5132] border-r border-slate-100" style={{ color: "#0f5132" }}>{resolved}</td>
+                            <td className="px-4 py-3.5 text-center font-bold text-[#78350f]" style={{ color: "#78350f" }}>{pending}</td>
                           </tr>
                         );
                       })
@@ -757,13 +757,13 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
                         <td className="px-4 py-4 text-center font-black border-r border-slate-200" style={{ color: "#0f172a" }}>
                           {data.annualGrandTotal?.carried_forward ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-[#004f7a] border-r border-slate-200" style={{ color: "#004f7a" }}>
+                        <td className="px-4 py-4 text-center font-black text-[#003d66] border-r border-slate-200" style={{ color: "#003d66" }}>
                           {data.annualGrandTotal?.received ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-[#14532d] border-r border-slate-200" style={{ color: "#14532d" }}>
+                        <td className="px-4 py-4 text-center font-black text-[#0f5132] border-r border-slate-200" style={{ color: "#0f5132" }}>
                           {data.annualGrandTotal?.resolved ?? 0}
                         </td>
-                        <td className="px-4 py-4 text-center font-black text-[#854d0e]" style={{ color: "#854d0e" }}>
+                        <td className="px-4 py-4 text-center font-black text-[#78350f]" style={{ color: "#78350f" }}>
                           {data.annualGrandTotal?.pending ?? 0}
                         </td>
                       </tr>
