@@ -160,8 +160,8 @@ export default function DownloadsPage() {
         <Container>
           <div className="text-center">
             <div
-              className="text-[14px] font-black tracking-widest uppercase mb-3"
-              style={{ color: "rgb(234, 40, 48)" }}
+              className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#a7181e]"
+              style={{ color: "#a7181e" }}
             >
               Resources & Support
             </div>
@@ -181,7 +181,7 @@ export default function DownloadsPage() {
           <div className="flex gap-2 overflow-x-auto py-1 scrollbar-none">
             {loadingSections ? (
               <div className="flex items-center gap-4 py-4 text-sm text-slate-600 font-medium">
-                <Loader2 className="w-4 h-4 animate-spin text-red-600" />
+                <Loader2 className="w-4 h-4 animate-spin text-[#a7181e]" />
                 <span>Loading sections...</span>
               </div>
             ) : (
@@ -195,7 +195,7 @@ export default function DownloadsPage() {
                     key={secId}
                     onClick={() => setActiveSectionId(secId)}
                     className={`px-6 py-4 font-semibold text-base border-b-2 cursor-pointer transition-all duration-300 whitespace-nowrap rounded-t-lg ${isActive
-                      ? "border-red-600 text-red-600 bg-red-50/70 shadow-sm"
+                      ? "border-[#a7181e] text-[#a7181e] bg-red-50/70 shadow-sm font-bold"
                       : "border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50"
                       }`}
                   >
@@ -263,14 +263,14 @@ export default function DownloadsPage() {
                         <button
                           key={`desktop-${subId}`}
                           onClick={() => setActiveSubsectionId(subId)}
-                          className={`w-full flex items-center justify-between px-4 py-3.5 text-left text-[15px] transition-all duration-200 border-l-[3.5px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EA2830] focus-visible:ring-offset-1 ${isSubActive
-                            ? "bg-gradient-to-r from-red-50 to-white/40 border-[#EA2830] text-[#EA2830] font-bold rounded-r-xl rounded-l-[4px] shadow-[0_2px_10px_rgba(234,40,48,0.06)]"
+                          className={`w-full flex items-center justify-between px-4 py-3.5 text-left text-[15px] transition-all duration-200 border-l-[3.5px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] focus-visible:ring-offset-1 ${isSubActive
+                            ? "bg-gradient-to-r from-red-50 to-white/40 border-[#a7181e] text-[#a7181e] font-bold rounded-r-xl rounded-l-[4px] shadow-[0_2px_10px_rgba(167,24,30,0.06)]"
                             : "text-[#0f172a] border-transparent hover:bg-slate-50 rounded-xl font-bold"
                             }`}
                         >
                           <span>{subName}</span>
                           <ChevronRight
-                            className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? "text-[#EA2830] translate-x-1" : "text-slate-600"
+                            className={`h-[18px] w-[18px] transition-transform duration-200 ${isSubActive ? "text-[#a7181e] translate-x-1" : "text-slate-600"
                               }`}
                             aria-hidden="true"
                           />
@@ -294,9 +294,9 @@ export default function DownloadsPage() {
                         <button
                           key={`mobile-${subId}`}
                           onClick={() => setActiveSubsectionId(subId)}
-                          className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all border shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EA2830] ${isSubActive
-                            ? "bg-[#EA2830] text-white border-[#EA2830]"
-                            : "bg-white text-gray-700 border-gray-200 hover:border-[#EA2830]/50 hover:text-[#EA2830]"
+                          className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all border shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e] ${isSubActive
+                            ? "bg-[#a7181e] text-white border-[#a7181e]"
+                            : "bg-white text-gray-700 border-gray-200 hover:border-[#a7181e]/50 hover:text-[#a7181e]"
                             }`}
                         >
                           {subName}

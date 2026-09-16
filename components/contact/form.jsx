@@ -181,10 +181,11 @@ export default function ContactUsPage() {
 
         {/* Left Side: Contact Information */}
         <div
-          className="col-span-1 lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between"
+          className="col-span-1 lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between bg-[#012e54]"
           style={{
-            background: "linear-gradient(145deg, #012e54 0%, #011628 100%)",
-            color: "#fff",
+            backgroundColor: "#012e54",
+            backgroundImage: "linear-gradient(145deg, #012e54 0%, #011628 100%)",
+            color: "#ffffff",
           }}
         >
           <div>

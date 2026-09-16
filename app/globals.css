@@ -37,6 +37,127 @@
   --color-danger: #dc2626;
   --color-info: #006da0;
 
+  /* Tailwind v4 sRGB Color Mappings (Ensures standard rgb format in computed styles) */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+  --color-red-950: #450a0a;
+
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+  --color-blue-950: #172554;
+
+  --color-sky-50: #f0f9ff;
+  --color-sky-100: #e0f2fe;
+  --color-sky-200: #bae6fd;
+  --color-sky-300: #7dd3fc;
+  --color-sky-400: #38bdf8;
+  --color-sky-500: #0ea5e9;
+  --color-sky-600: #0284c7;
+  --color-sky-700: #0369a1;
+  --color-sky-800: #075985;
+  --color-sky-900: #0c4a6e;
+  --color-sky-950: #082f49;
+
+  --color-cyan-50: #ecfeff;
+  --color-cyan-100: #cffafe;
+  --color-cyan-200: #a5f3fc;
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+  --color-cyan-700: #0e7490;
+  --color-cyan-800: #155e75;
+  --color-cyan-900: #164e63;
+  --color-cyan-950: #083344;
+
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-emerald-900: #064e3b;
+  --color-emerald-950: #022c22;
+
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-amber-950: #451a03;
+
   --shadow-card: 4px 4px 12px 0 rgb(30 51 72 / 15%),
                  0 16px 48px 0 rgb(112 144 176 / 30%);                 
 }
@@ -390,23 +511,36 @@ footer[style*="#011628"] {
   color: #f1f5f9 !important;
 }
 
-footer.bg-\[\#011628\] a,
-footer[style*="#011628"] a,
-footer.bg-\[\#011628\] button:not(.bg-white *),
-footer.bg-\[\#011628\] li,
-footer.bg-\[\#011628\] p,
-footer.bg-\[\#011628\] span:not(.text-\[\#7dd3fc\]):not(.bg-white *) {
+footer.bg-\[\#011628\] a:not(.bg-slate-100 *):not(.bg-white *),
+footer[style*="#011628"] a:not(.bg-slate-100 *):not(.bg-white *),
+footer.bg-\[\#011628\] button:not(.bg-white *):not(.bg-slate-100 *),
+footer.bg-\[\#011628\] li:not(.bg-slate-100 *):not(.bg-white *),
+footer.bg-\[\#011628\] p:not(.bg-slate-100 *):not(.bg-white *),
+footer.bg-\[\#011628\] span:not(.text-\[\#7dd3fc\]):not(.bg-white *):not(.bg-slate-100 *) {
   color: #f1f5f9;
 }
 
-footer.bg-\[\#011628\] a:hover,
-footer.bg-\[\#011628\] a:focus,
-footer.bg-\[\#011628\] a:focus-visible,
-footer[style*="#011628"] a:hover,
-footer[style*="#011628"] a:focus,
-footer[style*="#011628"] a:focus-visible,
-footer.bg-\[\#011628\] button:hover,
-footer.bg-\[\#011628\] button:focus-visible {
+footer .bg-slate-100,
+footer .bg-slate-100 li,
+footer .bg-slate-100 a,
+footer .bg-slate-100 p,
+footer .bg-slate-100 span:not(.text-slate-600) {
+  color: #0f172a !important;
+}
+
+footer.bg-\[\#011628\] a:not(.bg-slate-100 *):hover,
+footer.bg-\[\#011628\] a:not(.bg-slate-100 *):focus,
+footer.bg-\[\#011628\] a:not(.bg-slate-100 *):focus-visible,
+footer[style*="#011628"] a:not(.bg-slate-100 *):hover,
+footer[style*="#011628"] a:not(.bg-slate-100 *):focus,
+footer[style*="#011628"] a:not(.bg-slate-100 *):focus-visible,
+footer.bg-\[\#011628\] button:not(.bg-slate-100 *):hover,
+footer.bg-\[\#011628\] button:not(.bg-slate-100 *):focus-visible {
   color: #ffffff !important;
+}
+
+footer .bg-slate-100 a:hover,
+footer .bg-slate-100 a:focus-visible {
+  color: #a7181e !important;
 }
 

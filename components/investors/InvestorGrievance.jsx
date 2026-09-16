@@ -294,8 +294,8 @@ export default function InvestorGrievance() {
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#006da0] px-3.5 py-1.5 rounded-full shadow-xs border border-[#bae6fd]">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#006da0]" /> NSDL & SEBI Redressal Framework
+              <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#7dd3fc] px-3.5 py-1.5 rounded-full shadow-xs border border-[#0284c7]">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#7dd3fc]" /> NSDL & SEBI Redressal Framework
               </span>
             </div>
           </div>
@@ -491,7 +491,7 @@ export default function InvestorGrievance() {
             {/* Guide Content: GRC */}
             {activeGuideTab === "grc" && (
               <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-8 space-y-6">
-                <div className="flex items-start gap-4 p-4 bg-[#1a6eb5]/5 rounded-2xl border border-[#1a6eb5]/15">
+                <div className="flex items-start gap-4 p-4 bg-[#f0f7ff] rounded-2xl border border-[#bae6fd]" style={{ backgroundColor: "#f0f7ff" }}>
                   <div className="w-10 h-10 rounded-xl bg-[#1a6eb5]/10 text-[#1a6eb5] flex items-center justify-center shrink-0">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
@@ -509,7 +509,7 @@ export default function InvestorGrievance() {
                   {GRC_STEPS.map((item) => (
                     <div
                       key={item.step}
-                      className="p-4 rounded-2xl border border-slate-100 bg-slate-50/60 hover:bg-white hover:border-[#1a6eb5]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
+                      className="p-4 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:border-[#1a6eb5]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
                     >
                       <span className="w-7 h-7 rounded-lg bg-[#1a6eb5] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs">
                         {item.step}
@@ -545,7 +545,7 @@ export default function InvestorGrievance() {
                   {ARBITRATION_STEPS.map((item) => (
                     <div
                       key={item.step}
-                      className="p-4 rounded-2xl border border-slate-200 bg-slate-50/60 hover:bg-white hover:border-[#a7181e]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
+                      className="p-4 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#a7181e]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
                     >
                       <span className="w-7 h-7 rounded-lg bg-[#a7181e] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs" style={{ backgroundColor: "#a7181e", color: "#ffffff" }}>
                         {item.step}
@@ -699,7 +699,7 @@ export default function InvestorGrievance() {
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedCategory === cat
-                    ? "bg-[#011628] text-[#006da0] shadow-xs"
+                    ? "bg-[#011628] text-[#7dd3fc] shadow-xs"
                     : "bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50 hover:text-slate-900"
                     }`}
                 >

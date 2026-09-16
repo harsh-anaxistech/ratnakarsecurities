@@ -302,8 +302,8 @@ export default function InvestorCharterDP({ defaultTab = "complaints" }) {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#004f7a] px-3.5 py-1.5 rounded-full shadow-xs border border-[#bae6fd]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#004f7a]" /> SEBI Regulatory Compliance
+            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#7dd3fc] px-3.5 py-1.5 rounded-full shadow-xs border border-[#0284c7]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#7dd3fc]" /> SEBI Regulatory Compliance
             </span>
           </div>
         </div>

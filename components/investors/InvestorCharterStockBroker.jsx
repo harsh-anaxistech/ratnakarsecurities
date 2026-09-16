@@ -116,8 +116,8 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#006da0] px-3.5 py-1.5 rounded-full shadow-xs border border-[#bae6fd]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#006da0]" /> SEBI Regulatory Compliance
+            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-bold bg-[#011628] text-[#7dd3fc] px-3.5 py-1.5 rounded-full shadow-xs border border-[#0284c7]">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#7dd3fc]" /> SEBI Regulatory Compliance
             </span>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function InvestorCharterStockBroker({ defaultTab = "complaints" }
             <div className="space-y-3 max-w-3xl">
               <div className="flex items-center gap-3">
                 <div className="p-3 bg-[#011628] text-white rounded-2xl shadow-md">
-                  <Building2 className="w-7 h-7 text-[#006da0]" />
+                  <Building2 className="w-7 h-7 text-[#7dd3fc]" />
                 </div>
                 <div>
                   <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#011628] tracking-tight">

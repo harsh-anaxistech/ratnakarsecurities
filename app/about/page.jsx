@@ -192,7 +192,10 @@ export default function AboutPage() {
           <div className="flex flex-col lg:flex-row gap-8 bg-white p-6 rounded-3xl shadow-xl border border-blue-50">
 
             {/* Left Image Box */}
-            <div className="flex-1 relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden flex flex-col justify-end text-white">
+            <div 
+              className="flex-1 relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden flex flex-col justify-end text-white bg-[#011628]"
+              style={{ backgroundColor: "#011628", color: "#ffffff" }}
+            >
               <Image
                 src="/images/about/22.jpg"
                 alt="Ratnakar Securities milestone journey – team and office environment"
@@ -215,11 +218,11 @@ export default function AboutPage() {
                   key={index}
                   onClick={() => setActive(index)}
                   className={`p-4 rounded-xl border-l-4 transition-all duration-300 cursor-pointer ${active === index
-                    ? "bg-blue-50 border-red-600 shadow-md"
+                    ? "bg-blue-50 border-[#a7181e] shadow-md"
                     : "bg-gray-100 border-gray-300 hover:bg-gray-200"
                     }`}
                 >
-                  <div className={`font-black text-lg ${active === index ? "text-red-600" : "text-gray-600"}`}>
+                  <div className={`font-black text-lg ${active === index ? "text-[#a7181e]" : "text-gray-600"}`}>
                     {item.year}
                   </div>
                   <div className="font-semibold text-gray-800 text-sm">{item.title}</div>
@@ -239,7 +242,7 @@ export default function AboutPage() {
               <p className="text-[#314158] leading-relaxed">
                 At Ratnakar Securities, we believe successful investing is built on knowledge, trust, and disciplined decision-making.
               </p>
-              <p className="font-semibold italic border-l-4 border-[#EA2830] pl-4">
+              <p className="font-semibold italic border-l-4 border-[#a7181e] pl-4">
                 "Together, we strive to build lasting relationships and create sustainable financial success."
               </p>
             </div>

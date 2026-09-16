@@ -35,8 +35,8 @@ export default function CalculatorSection() {
             <Link
               key={item.title}
               href={item.href}
-              style={{ backgroundColor: "#004f7a" }}
-              className="group w-full flex items-center gap-6 p-6 rounded-2xl bg-[#004f7a] bg-gradient-to-br from-[#006da0] to-[#004f7a] shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500"
+              style={{ backgroundColor: "#004f7a", color: "#ffffff" }}
+              className="group w-full flex items-center gap-6 p-6 rounded-2xl bg-[#004f7a] bg-gradient-to-br from-[#006da0] to-[#004f7a] text-white shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500"
             >
               {/* Icon Container - સ્ક્વેર લુક */}
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-white to-blue-50 border border-slate-100 shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-md">

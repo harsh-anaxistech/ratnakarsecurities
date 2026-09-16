@@ -181,9 +181,12 @@ export default function PartnerForm() {
           <div className="grid grid-cols-1 lg:grid-cols-12">
 
             {/* Left Column: Image Banner */}
-            <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-gradient-to-br from-[#011628] to-[#012e54] p-8 sm:p-12 flex flex-col justify-between text-white">
+            <div 
+              className="lg:col-span-5 relative min-h-[300px] lg:min-h-full bg-gradient-to-br from-[#011628] to-[#012e54] p-8 sm:p-12 flex flex-col justify-between text-white bg-[#011628]"
+              style={{ backgroundColor: "#011628", color: "#ffffff" }}
+            >
               <div>
-                <span className="text-secondary font-bold text-xs uppercase tracking-widest block mb-2">
+                <span className="text-[#7dd3fc] font-bold text-xs uppercase tracking-widest block mb-2">
                   Institutional Growth
                 </span>
                 <h2 className="text-3xl font-serif font-bold text-white mb-4">

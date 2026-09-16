@@ -1,0 +1,359 @@
+[
+  {
+    "route": "/",
+    "totalChecked": 335,
+    "issuesCount": 1,
+    "modernColorSpaceCount": 1,
+    "contrastFailures": [],
+    "sampleIssues": [
+      {
+        "tag": "A",
+        "text": "Explore Our Products",
+        "className": "flex items-center justify-center gap-2 bg-[#022340]/80 hover:bg-[#022340] text-white border border-white/40 text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white",
+        "fgRaw": "rgb(255, 255, 255)",
+        "fgHex": "#ffffff",
+        "bgHex": "#022544",
+        "contrast": 15.54773120727091,
+        "isModernColorSpace": true,
+        "isLargeText": false,
+        "minRequired": 4.5,
+        "passesAA": true,
+        "passesAAA": true
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "totalChecked": 239,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/accessibility-statement",
+    "totalChecked": 275,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/contact",
+    "totalChecked": 344,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/downloads",
+    "totalChecked": 251,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investor-charter-stock-broker",
+    "totalChecked": 323,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investor-grievance",
+    "totalChecked": 452,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors",
+    "totalChecked": 204,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/annual-return",
+    "totalChecked": 235,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/board-of-directors",
+    "totalChecked": 231,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/complaints-trends",
+    "totalChecked": 341,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/disclosure-of-contact-details-of-key-managerial-personnel",
+    "totalChecked": 241,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/disclosures-of-material-events-or-information",
+    "totalChecked": 244,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/financial-information-and-annual-report",
+    "totalChecked": 297,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/investor-grievance",
+    "totalChecked": 452,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/newspaper-publication",
+    "totalChecked": 221,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/policies",
+    "totalChecked": 237,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/shareholding-pattern",
+    "totalChecked": 227,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/investors/statutory-and-registration-certificate-documents",
+    "totalChecked": 223,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/nomination",
+    "totalChecked": 216,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/partner",
+    "totalChecked": 242,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/partner-with-us",
+    "totalChecked": 242,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/privacy-policy",
+    "totalChecked": 222,
+    "issuesCount": 1,
+    "modernColorSpaceCount": 1,
+    "contrastFailures": [],
+    "sampleIssues": [
+      {
+        "tag": "P",
+        "text": "Please note that this privacy policy does not crea",
+        "className": "text-[16px] text-[#314158] leading-relaxed font-semibold italic border-l-4 border-[#1a6eb5] pl-4 py-2 my-8 bg-[#1a6eb5]/5",
+        "fgRaw": "rgb(49, 65, 88)",
+        "fgHex": "#314158",
+        "bgHex": "#f3f8fb",
+        "contrast": 9.6817074656254,
+        "isModernColorSpace": true,
+        "isLargeText": false,
+        "minRequired": 4.5,
+        "passesAA": true,
+        "passesAAA": true
+      }
+    ]
+  },
+  {
+    "route": "/products",
+    "totalChecked": 246,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/equity",
+    "totalChecked": 299,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/derivatives",
+    "totalChecked": 268,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/mutual-funds",
+    "totalChecked": 307,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/bonds",
+    "totalChecked": 274,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/commodities",
+    "totalChecked": 305,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/hnis",
+    "totalChecked": 285,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/nris",
+    "totalChecked": 300,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/overview",
+    "totalChecked": 257,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/slbm",
+    "totalChecked": 300,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/products/wealth-management",
+    "totalChecked": 293,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/refund-and-cancellation",
+    "totalChecked": 219,
+    "issuesCount": 1,
+    "modernColorSpaceCount": 1,
+    "contrastFailures": [],
+    "sampleIssues": [
+      {
+        "tag": "P",
+        "text": "Note: The completion of the refund procedure is su",
+        "className": "text-[16px] text-[#314158] leading-relaxed font-semibold italic border-l-4 border-[#1a6eb5] pl-4 py-2 mt-8 bg-[#1a6eb5]/5",
+        "fgRaw": "rgb(49, 65, 88)",
+        "fgHex": "#314158",
+        "bgHex": "#f3f8fb",
+        "contrast": 9.6817074656254,
+        "isModernColorSpace": true,
+        "isLargeText": false,
+        "minRequired": 4.5,
+        "passesAA": true,
+        "passesAAA": true
+      }
+    ]
+  },
+  {
+    "route": "/research",
+    "totalChecked": 212,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/risk-calculator",
+    "totalChecked": 263,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/sip-calculator",
+    "totalChecked": 292,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  },
+  {
+    "route": "/sitemap",
+    "totalChecked": 335,
+    "issuesCount": 0,
+    "modernColorSpaceCount": 0,
+    "contrastFailures": [],
+    "sampleIssues": []
+  }
+]
