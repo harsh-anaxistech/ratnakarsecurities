@@ -131,11 +131,12 @@ export default function AccessibleCaptcha({
             onClick={playAudioCaptcha}
             aria-label={isSpeaking ? "Audio Captcha is playing" : "Listen to Audio CAPTCHA"}
             title="Listen to Audio CAPTCHA"
-            className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-200 shrink-0 focus:ring-2 focus:ring-primary ${
+            className={`w-12 h-12 rounded-xl flex items-center justify-center border transition-all duration-200 shrink-0 focus:ring-2 focus:ring-[#004f7a] ${
               isSpeaking
-                ? "bg-primary text-white border-primary animate-pulse"
+                ? "bg-[#004f7a] text-white border-[#004f7a] animate-pulse"
                 : "bg-slate-100 hover:bg-slate-200 border-[#767676] text-slate-700"
             }`}
+            style={isSpeaking ? { backgroundColor: "#004f7a", color: "#ffffff" } : { backgroundColor: "#f1f5f9", color: "#334155" }}
           >
             <Volume2 className="w-5 h-5" aria-hidden="true" />
           </button>
@@ -146,7 +147,8 @@ export default function AccessibleCaptcha({
             onClick={generateCode}
             aria-label="Generate new Captcha code"
             title="Refresh Captcha"
-            className="w-12 h-12 bg-slate-100 hover:bg-slate-200 border border-[#767676] text-slate-700 rounded-xl flex items-center justify-center transition-all duration-200 group shrink-0 focus:ring-2 focus:ring-[#004b87]"
+            className="w-12 h-12 bg-slate-100 hover:bg-slate-200 border border-[#767676] text-slate-700 rounded-xl flex items-center justify-center transition-all duration-200 group shrink-0 focus:ring-2 focus:ring-[#004f7a]"
+            style={{ backgroundColor: "#f1f5f9", color: "#334155" }}
           >
             <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-300" aria-hidden="true" />
           </button>

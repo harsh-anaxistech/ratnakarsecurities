@@ -238,12 +238,12 @@ export default function ResearchSectionClient({
 
             {/* ── SIDEBAR / TAB NAVIGATION ── */}
             <aside className="lg:col-span-1 space-y-4">
-              <h2 className="hidden lg:block text-xs font-bold uppercase tracking-wider text-muted-foreground px-3 mb-2">
+              <h2 className="hidden lg:block text-xs font-bold uppercase tracking-wider text-slate-700 px-3 mb-2" style={{ color: "#334155" }}>
                 Research Categories
               </h2>
 
               {/* Desktop Vertical Menu */}
-              <nav aria-label="Research Categories - Desktop" className="hidden lg:flex flex-col gap-2 bg-muted/40 p-2 rounded-lg border border-border">
+              <nav aria-label="Research Categories - Desktop" className="hidden lg:flex flex-col gap-2 bg-slate-50 p-2 rounded-lg border border-slate-200" style={{ backgroundColor: "#f8fafc" }}>
                 {sectionsList.map((sec) => {
                   const secCode = sec.section_name.toLowerCase();
                   const isActive = pathname.toLowerCase() === `/research/${secCode}`;
@@ -256,15 +256,16 @@ export default function ResearchSectionClient({
                         if (!isActive) setIsNavigating(true);
                       }}
                       className={cn(
-                        "flex items-center justify-between px-4 py-3 rounded-md text-base font-semibold transition-all duration-200 border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1",
+                        "flex items-center justify-between px-4 py-3 rounded-md text-base font-semibold transition-all duration-200 border-l-2 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#881337] focus-visible:ring-offset-1",
                         isActive
-                          ? "bg-primary/5 text-primary border-primary font-bold shadow-sm"
-                          : "text-foreground border-transparent hover:bg-muted hover:text-primary hover:border-primary/40"
+                          ? "bg-[#fff1f2] text-[#881337] border-[#881337] font-bold shadow-xs"
+                          : "text-slate-800 border-transparent hover:bg-slate-100 hover:text-[#881337] hover:border-[#881337]/40"
                       )}
+                      style={isActive ? { backgroundColor: "#fff1f2", color: "#881337", borderColor: "#881337" } : { color: "#1e293b" }}
                       aria-current={isActive ? "page" : undefined}
                     >
                       <span>{sec.section_name}</span>
-                      <ChevronRight size={16} className={cn("opacity-40 transition-transform", isActive && "translate-x-1 opacity-100")} />
+                      <ChevronRight size={16} className={cn("opacity-60 transition-transform", isActive && "translate-x-1 opacity-100 text-[#881337]")} />
                     </Link>
                   );
                 })}
@@ -284,11 +285,12 @@ export default function ResearchSectionClient({
                         if (!isActive) setIsNavigating(true);
                       }}
                       className={cn(
-                        "whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all border shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+                        "whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-bold transition-all border shadow-xs focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#881337]",
                         isActive
-                          ? "bg-primary text-white border-primary"
-                          : "bg-white text-gray-700 border-border hover:border-primary/50 hover:text-primary"
+                          ? "bg-[#881337] text-white border-[#881337]"
+                          : "bg-white text-slate-800 border-slate-200 hover:border-[#881337]/50 hover:text-[#881337]"
                       )}
+                      style={isActive ? { backgroundColor: "#881337", color: "#ffffff", borderColor: "#881337" } : { backgroundColor: "#ffffff", color: "#1e293b" }}
                       aria-current={isActive ? "page" : undefined}
                     >
                       {sec.section_name}
@@ -487,30 +489,30 @@ export default function ResearchSectionClient({
                 viewMode === "grid" ? <GridSkeleton /> : <TableSkeleton />
               ) : initialReports.length === 0 ? (
                 /* Original Empty State (Backend down / no files) */
-                <div className="flex flex-col items-center justify-center py-16 px-6 bg-white border border-border rounded-lg text-center shadow-sm max-w-xl mx-auto my-4 hover:shadow-md transition-shadow">
-                  <div className="text-slate-600 mb-4 bg-muted p-4 rounded-full" aria-hidden="true">
-                    <FileText className="h-12 w-12 text-muted-foreground/60" />
+                <div className="flex flex-col items-center justify-center py-16 px-6 bg-white border border-slate-200 rounded-lg text-center shadow-xs max-w-xl mx-auto my-4 hover:shadow-md transition-shadow" style={{ backgroundColor: "#ffffff" }}>
+                  <div className="text-slate-700 mb-4 bg-slate-100 p-4 rounded-full" aria-hidden="true" style={{ backgroundColor: "#f1f5f9" }}>
+                    <FileText className="h-12 w-12 text-slate-700" />
                   </div>
-                  <h3 className="text-xl font-extrabold text-light-blue mb-2">
+                  <h3 className="text-xl font-extrabold text-[#011628] mb-2" style={{ color: "#011628" }}>
                     {matchedSectionName} Research
                   </h3>
-                  <p className="text-sm font-semibold text-danger mb-4">
+                  <p className="text-sm font-bold text-[#881337] mb-4" style={{ color: "#881337" }}>
                     No Reports Found
                   </p>
-                  <p className="text-sm text-muted-foreground max-w-sm">
+                  <p className="text-sm text-slate-700 max-w-sm" style={{ color: "#334155" }}>
                     We could not find any research reports or documents uploaded for this section at the moment.
                   </p>
                 </div>
               ) : filteredReports.length === 0 ? (
                 /* Dynamic Search Empty State */
-                <div className="flex flex-col items-center justify-center py-16 px-6 bg-white border border-border rounded-lg text-center shadow-sm max-w-xl mx-auto my-4">
-                  <div className="text-slate-600 mb-4 bg-muted p-4 rounded-full" aria-hidden="true">
-                    <Search className="h-12 w-12 text-muted-foreground/60" />
+                <div className="flex flex-col items-center justify-center py-16 px-6 bg-white border border-slate-200 rounded-lg text-center shadow-xs max-w-xl mx-auto my-4" style={{ backgroundColor: "#ffffff" }}>
+                  <div className="text-slate-700 mb-4 bg-slate-100 p-4 rounded-full" aria-hidden="true" style={{ backgroundColor: "#f1f5f9" }}>
+                    <Search className="h-12 w-12 text-slate-700" />
                   </div>
-                  <h3 className="text-xl font-extrabold text-light-blue mb-2">
+                  <h3 className="text-xl font-extrabold text-[#011628] mb-2" style={{ color: "#011628" }}>
                     No matching reports
                   </h3>
-                  <p className="text-sm text-muted-foreground max-w-sm mb-4">
+                  <p className="text-sm text-slate-700 max-w-sm mb-4" style={{ color: "#334155" }}>
                     {"We couldn't find any documents matching your current filters or search term. Try adjusting your query or filters."}
                   </p>
                   <Button

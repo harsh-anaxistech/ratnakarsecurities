@@ -9,7 +9,7 @@ import HeroSection from "@/components/common/HeroSection";
 
 /**
  * About Us Page Component
- * 
+ *
  * Comprehensive company background, ethos, and leadership directory:
  * - Hash fragment deep linking (`#overview`, `#leadership`, `#journey`).
  * - Historical timeline milestone showcase (1994 incorporation to present day).
@@ -73,18 +73,18 @@ export default function AboutPage() {
       />
 
       {/* Overview Section */}
-      <section id="overview" className="py-12 bg-[#f7f9fc]">
+      <section id="overview" className="py-12 bg-[#f7f9fc]" style={{ backgroundColor: "#f7f9fc" }}>
         <Container>
           <div className="mb-10 text-center">
-            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#a7181e]">
+            <div className="text-[14px] font-black tracking-widest uppercase mb-3 text-[#881337]" style={{ color: "#881337" }}>
               About Ratnakar Securities
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-slate-950 mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif tracking-tight text-[#011628] mb-6" style={{ color: "#011628" }}>
               Building Trust, Creating Wealth
             </h2>
 
             {/* Short & Punchy Content */}
-            <div className="max-w-6xl mx-auto text-gray-700 space-y-6 text-[16px] leading-relaxed">
+            <div className="max-w-6xl mx-auto text-slate-700 space-y-6 text-[16px] leading-relaxed" style={{ color: "#334155" }}>
               <p>
                 Ratnakar Securities is a trusted leader in India’s financial landscape. Since 1994, we have empowered thousands of investors by combining deep market expertise with a commitment to integrity, transparency, and long-term value creation.
               </p>
@@ -94,7 +94,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Feature Grid remains the same */}
+          {/* Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Home, title: "Investment Gateway", desc: "Comprehensive solutions across equities, derivatives, and more." },
@@ -102,12 +102,12 @@ export default function AboutPage() {
               { icon: Laptop, title: "Seamless Trading", desc: "Trade effortlessly via web, mobile, or our support network." },
               { icon: BarChart3, title: "Pro Tracking", desc: "Optimize your portfolio with real-time analytics and alerts." }
             ].map((item, index) => (
-              <div key={index} className="group p-6 border border-gray-100 rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center text-red-600 mb-4 group-hover:bg-[#EA2830] group-hover:text-white transition-all duration-300">
-                  <item.icon size={24} />
+              <div key={index} className="group p-6 border border-slate-200 rounded-2xl bg-white shadow-xs hover:shadow-xl transition-all duration-300" style={{ backgroundColor: "#ffffff" }}>
+                <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-[#881337] mb-4 group-hover:bg-[#881337] group-hover:text-white transition-all duration-300" style={{ backgroundColor: "#fef2f2", color: "#881337" }}>
+                  <item.icon size={24} aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-[15px] text-gray-600 leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-2" style={{ color: "#0f172a" }}>{item.title}</h3>
+                <p className="text-[15px] text-slate-700 leading-relaxed" style={{ color: "#334155" }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -115,12 +115,12 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Section */}
-      <section id="leadership" className="py-12 bg-white">
+      <section id="leadership" className="py-12 bg-white" style={{ backgroundColor: "#ffffff" }}>
         <Container>
           {/* Leadership Intro Text */}
           <div className="max-w-6xl mx-auto text-center mb-10 px-4">
-            <h2 className="text-4xl text-slate-950 mb-6">About Our Leadership</h2>
-            <div className="text-[#314158] text-[16px] leading-relaxed space-y-4">
+            <h2 className="text-4xl text-[#011628] font-serif font-bold mb-6" style={{ color: "#011628" }}>About Our Leadership</h2>
+            <div className="text-slate-700 text-[16px] leading-relaxed space-y-4" style={{ color: "#334155" }}>
               <p>
                 At Ratnakar Securities, our Key Managerial Personnel (KMP) and Board of Directors play a vital role in ensuring strong corporate governance, regulatory compliance, and strategic decision-making.
               </p>
@@ -151,10 +151,11 @@ export default function AboutPage() {
             ].map((leader, index) => (
               <div
                 key={index}
-                className={`flex flex-col md:flex-row items-center bg-white border border-gray-100 p-4 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2
+                className={`flex flex-col md:flex-row items-center bg-white border border-slate-200 p-4 rounded-3xl shadow-xs hover:shadow-2xl transition-all duration-300 hover:-translate-y-2
             ${index === 2 ? 'lg:col-span-2 lg:max-w-2xl lg:mx-auto w-full' : ''}`}
+                style={{ backgroundColor: "#ffffff" }}
               >
-                {/* Image Box - Bottom 5px rounded added here */}
+                {/* Image Box */}
                 <div className="relative w-full md:w-[280px] h-[380px] shrink-0 overflow-hidden rounded-3xl rounded-tr-[80px] rounded-b-[5px] shadow-md transition-all duration-300">
                   <div className="absolute inset-0 bg-[#e0e8f9]"></div>
                   <Image src={leader.image} alt={leader.name} fill className="object-cover object-top" />
@@ -162,9 +163,9 @@ export default function AboutPage() {
 
                 {/* Text Content */}
                 <div className="p-8 w-full flex flex-col justify-center">
-                  <h3 className="text-2xl font-bold text-slate-950 mb-1">{leader.name}</h3>
-                  <p className="text-[#a7181e] font-semibold text-sm uppercase tracking-wider mb-4">{leader.role}</p>
-                  <div className="text-[#314158] leading-relaxed text-[15px] italic">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-1" style={{ color: "#0f172a" }}>{leader.name}</h3>
+                  <p className="text-[#881337] font-bold text-sm uppercase tracking-wider mb-4" style={{ color: "#881337" }}>{leader.role}</p>
+                  <div className="text-slate-700 leading-relaxed text-[15px] italic" style={{ color: "#334155" }}>
                     <p>“{leader.desc}”</p>
                   </div>
                 </div>
@@ -175,12 +176,12 @@ export default function AboutPage() {
       </section>
 
       {/* Milestones Section */}
-      <section id="journey" className="py-12 bg-[#f7f9fc]">
+      <section id="journey" className="py-12 bg-[#f7f9fc]" style={{ backgroundColor: "#f7f9fc" }}>
         <Container>
           {/* Centered Introduction Text */}
           <div className="max-w-5xl mx-auto text-center mb-10">
-            <h2 className="text-5xl  text-gray-900 mb-6">Our Journey</h2>
-            <p className="text-[#314158] text-[16px] leading-relaxed">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#011628] mb-6" style={{ color: "#011628" }}>Our Journey</h2>
+            <p className="text-slate-700 text-[16px] leading-relaxed" style={{ color: "#334155" }}>
               Ratnakar Securities has grown steadily through innovation, customer trust, and a commitment to excellence.
               Every milestone reflects our dedication to expanding financial opportunities, embracing new technologies,
               and adapting to the evolving needs of investors. Our journey is built on a foundation of trust,
@@ -189,10 +190,10 @@ export default function AboutPage() {
           </div>
 
           {/* Milestone Interactive Grid */}
-          <div className="flex flex-col lg:flex-row gap-8 bg-white p-6 rounded-3xl shadow-xl border border-blue-50">
+          <div className="flex flex-col lg:flex-row gap-8 bg-white p-6 rounded-3xl shadow-xl border border-slate-200" style={{ backgroundColor: "#ffffff" }}>
 
             {/* Left Image Box */}
-            <div 
+            <div
               className="flex-1 relative h-[350px] md:h-[450px] rounded-3xl overflow-hidden flex flex-col justify-end text-white bg-[#011628]"
               style={{ backgroundColor: "#011628", color: "#ffffff" }}
             >
@@ -205,28 +206,40 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               <div className="relative z-10 p-8">
-                <h3 className="text-6xl font-black mb-2">{milestones[active].year}</h3>
-                <h4 className="text-2xl font-bold mb-4">{milestones[active].title}</h4>
-                <p className="text-white/90 text-lg">{milestones[active].desc}</p>
+                <h3 className="text-6xl font-black mb-2 text-white" style={{ color: "#ffffff" }}>{milestones[active].year}</h3>
+                <h4 className="text-2xl font-bold mb-4 text-white" style={{ color: "#ffffff" }}>{milestones[active].title}</h4>
+                <p className="text-white text-lg font-medium" style={{ color: "#ffffff" }}>{milestones[active].desc}</p>
               </div>
             </div>
 
             {/* Right Tab List */}
-            <div className="w-full lg:w-1/3 flex flex-col gap-3">
+            <div className="w-full lg:w-1/3 flex flex-col gap-3" role="tablist" aria-label="Company Milestones">
               {milestones.map((item, index) => (
-                <div
+                <button
                   key={index}
+                  type="button"
+                  role="tab"
+                  aria-selected={active === index}
                   onClick={() => setActive(index)}
-                  className={`p-4 rounded-xl border-l-4 transition-all duration-300 cursor-pointer ${active === index
-                    ? "bg-blue-50 border-[#a7181e] shadow-md"
-                    : "bg-gray-100 border-gray-300 hover:bg-gray-200"
+                  className={`p-4 rounded-xl border-l-4 transition-all duration-300 cursor-pointer text-left w-full focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#881337] ${active === index
+                    ? "bg-[#fff1f2] border-[#881337] shadow-sm"
+                    : "bg-slate-100 border-slate-300 hover:bg-slate-200"
                     }`}
+                  style={active === index
+                    ? { backgroundColor: "#fff1f2", borderColor: "#881337", color: "#881337" }
+                    : { backgroundColor: "#f1f5f9", borderColor: "#cbd5e1", color: "#334155" }
+                  }
                 >
-                  <div className={`font-black text-lg ${active === index ? "text-[#a7181e]" : "text-gray-600"}`}>
+                  <div
+                    className="font-black text-lg"
+                    style={active === index ? { color: "#881337" } : { color: "#334155" }}
+                  >
                     {item.year}
                   </div>
-                  <div className="font-semibold text-gray-800 text-sm">{item.title}</div>
-                </div>
+                  <div className="font-bold text-slate-900 text-sm" style={{ color: "#0f172a" }}>
+                    {item.title}
+                  </div>
+                </button>
               ))}
             </div>
           </div>
@@ -234,17 +247,20 @@ export default function AboutPage() {
       </section>
 
       {/* Promise Section */}
-      <section id="promise" className="py-12">
+      <section id="promise" className="py-12 bg-white" style={{ backgroundColor: "#ffffff" }}>
         <Container>
-          <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="bg-white rounded-3xl p-6 md:p-8 shadow-xs border border-slate-200 grid lg:grid-cols-2 gap-12 items-center" style={{ backgroundColor: "#ffffff" }}>
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold">Our Promise</h2>
-              <p className="text-[#314158] leading-relaxed">
+              <h2 className="text-3xl font-serif font-bold text-[#011628]" style={{ color: "#011628" }}>Our Promise</h2>
+              <p className="text-slate-700 leading-relaxed" style={{ color: "#334155" }}>
                 At Ratnakar Securities, we believe successful investing is built on knowledge, trust, and disciplined decision-making.
               </p>
-              <p className="font-semibold italic border-l-4 border-[#a7181e] pl-4">
-                "Together, we strive to build lasting relationships and create sustainable financial success."
-              </p>
+              <div
+                className="font-semibold italic border-l-4 border-[#881337] pl-4 py-2 bg-[#fff1f2] rounded-r-xl"
+                style={{ borderLeftColor: "#881337", backgroundColor: "#fff1f2", color: "#0f172a" }}
+              >
+                &ldquo;Together, we strive to build lasting relationships and create sustainable financial success.&rdquo;
+              </div>
             </div>
             <div className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-md">
               <Image src="/images/about/digital-partnership-trust-concept_1048363-21037.avif" alt="Illustration of digital partnership and trust representing Ratnakar Securities' commitment to clients" fill className="object-cover" />

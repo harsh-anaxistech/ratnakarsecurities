@@ -20,7 +20,7 @@ export default function ContactDetailsSections() {
           <h2 className="text-3xl md:text-4xl font-serif text-center text-[#011628]" style={{ color: "#011628" }}>
             Escalation Matrix
           </h2>
-          <div tabIndex="0" role="region" aria-label="Escalation Matrix Table" className="overflow-x-auto border border-slate-200 rounded-sm bg-white focus:ring-2 focus:ring-[#005a9c]" style={{ backgroundColor: "#ffffff" }}>
+          <div tabIndex="0" role="region" aria-label="Escalation Matrix Table" className="overflow-x-auto border border-slate-200 rounded-sm bg-white focus:ring-2 focus:ring-[#004f7a]" style={{ backgroundColor: "#ffffff" }}>
             <table className="w-full min-w-[800px] border-collapse text-left text-sm">
               <caption className="sr-only">Internal and regulatory customer grievance escalation hierarchy</caption>
               <thead>
@@ -56,7 +56,8 @@ export default function ContactDetailsSections() {
                   <td className="p-4 border-r border-slate-200">
                     <a
                       href="mailto:helpdesk@ratnakarsecurities.com"
-                      className="text-[#005a9c] hover:underline font-semibold"
+                      className="text-[#004f7a] hover:underline font-bold"
+                      style={{ color: "#004f7a" }}
                     >
                       helpdesk@ratnakarsecurities.com
                     </a>
@@ -85,7 +86,8 @@ export default function ContactDetailsSections() {
                   <td className="p-4 border-r border-slate-200">
                     <a
                       href="mailto:jagdish@ratnakarsecurities.com"
-                      className="text-[#005a9c] hover:underline font-semibold"
+                      className="text-[#004f7a] hover:underline font-bold"
+                      style={{ color: "#004f7a" }}
                     >
                       jagdish@ratnakarsecurities.com
                     </a>
@@ -112,13 +114,15 @@ export default function ContactDetailsSections() {
                   <td className="p-4 border-r border-slate-200 leading-relaxed">
                     <a
                       href="mailto:kushal@ratnakarsecurities.com"
-                      className="text-[#005a9c] hover:underline font-semibold block"
+                      className="text-[#004f7a] hover:underline font-bold block"
+                      style={{ color: "#004f7a" }}
                     >
                       kushal@ratnakarsecurities.com
                     </a>
                     <a
                       href="mailto:compliance@ratnakarsecurities.com"
-                      className="text-[#005a9c] hover:underline font-semibold block"
+                      className="text-[#004f7a] hover:underline font-bold block"
+                      style={{ color: "#004f7a" }}
                     >
                       compliance@ratnakarsecurities.com
                     </a>
@@ -143,7 +147,8 @@ export default function ContactDetailsSections() {
                   <td className="p-4 border-r border-slate-200">
                     <a
                       href="mailto:ajay@ratnakarsecurities.com"
-                      className="text-[#005a9c] hover:underline font-semibold"
+                      className="text-[#004f7a] hover:underline font-bold"
+                      style={{ color: "#004f7a" }}
                     >
                       ajay@ratnakarsecurities.com
                     </a>
@@ -164,7 +169,8 @@ export default function ContactDetailsSections() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SEBI SCORES 2.0 Portal (opens in new tab)"
-                className="text-[#005a9c] hover:underline font-semibold"
+                className="text-[#004f7a] hover:underline font-bold"
+                style={{ color: "#004f7a" }}
               >
                 https://scores.sebi.gov.in/
               </a>{" "}
@@ -214,7 +220,7 @@ export default function ContactDetailsSections() {
           <h2 className="text-3xl md:text-4xl font-serif text-center text-[#011628]" style={{ color: "#011628" }}>
             Basic Details
           </h2>
-          <div tabIndex="0" role="region" aria-label="Basic Details Table" className="overflow-x-auto border border-slate-200 rounded-sm bg-white focus:ring-2 focus:ring-[#005a9c]" style={{ backgroundColor: "#ffffff" }}>
+          <div tabIndex="0" role="region" aria-label="Basic Details Table" className="overflow-x-auto border border-slate-200 rounded-sm bg-white focus:ring-2 focus:ring-[#004f7a]" style={{ backgroundColor: "#ffffff" }}>
             <table className="w-full min-w-[800px] border-collapse text-left text-sm">
               <caption className="sr-only">Stock broker and depository participant statutory registration details</caption>
               <thead>
@@ -251,7 +257,8 @@ export default function ContactDetailsSections() {
                   <td className="p-4">
                     <a
                       href="mailto:helpdesk@ratnakarsecurities.com"
-                      className="text-[#005a9c] hover:underline font-semibold"
+                      className="text-[#004f7a] hover:underline font-bold"
+                      style={{ color: "#004f7a" }}
                     >
                       helpdesk@ratnakarsecurities.com
                     </a>
@@ -267,7 +274,7 @@ export default function ContactDetailsSections() {
           <h2 className="text-3xl md:text-4xl font-serif text-center text-[#011628]" style={{ color: "#011628" }}>
             Key Managerial Personnel
           </h2>
-          <div tabIndex="0" role="region" aria-label="Key Managerial Personnel Table" className="overflow-x-auto border border-slate-200 rounded-sm bg-white focus:ring-2 focus:ring-[#005a9c]" style={{ backgroundColor: "#ffffff" }}>
+          <div tabIndex="0" role="region" aria-label="Key Managerial Personnel Table" className="overflow-x-auto border border-slate-200 rounded-sm bg-white focus:ring-2 focus:ring-[#004f7a]" style={{ backgroundColor: "#ffffff" }}>
             <table className="w-full min-w-[800px] border-collapse text-left text-sm">
               <caption className="sr-only">List of Key Managerial Personnel, Directors, and Compliance Officers</caption>
               <thead>
@@ -328,7 +335,8 @@ export default function ContactDetailsSections() {
                     <td className="p-4">
                       <a
                         href={`mailto:${row.email}`}
-                        className="text-[#005a9c] hover:underline font-semibold"
+                        className="text-[#004f7a] hover:underline font-bold"
+                        style={{ color: "#004f7a" }}
                       >
                         {row.email}
                       </a>
