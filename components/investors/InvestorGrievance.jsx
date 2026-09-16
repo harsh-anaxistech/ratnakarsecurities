@@ -355,22 +355,24 @@ export default function InvestorGrievance() {
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between bg-slate-50 border border-slate-200/60 rounded-lg p-2 text-xs">
-                    <span className="font-mono text-slate-700 font-semibold truncate">relations@nsdl.com</span>
+                  <div className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg p-2 text-xs" style={{ backgroundColor: "#f8fafc" }}>
+                    <span className="font-mono text-slate-800 font-bold truncate" style={{ color: "#1e293b" }}>relations@nsdl.com</span>
                     <button
                       onClick={() => copyToClipboard("relations@nsdl.com")}
-                      className="text-slate-600 hover:text-[#1a6eb5] p-1 cursor-pointer"
-                      title="Copy email"
+                      className="text-slate-700 hover:text-[#1a6eb5] p-1 cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1a6eb5] rounded"
+                      title="Copy email address"
+                      aria-label="Copy relations@nsdl.com email address"
                     >
-                      {copiedEmail === "relations@nsdl.com" ? <Check className="w-3.5 h-3.5 text-emerald-700" /> : <Copy className="w-3.5 h-3.5" />}
+                      {copiedEmail === "relations@nsdl.com" ? <Check className="w-3.5 h-3.5 text-emerald-700" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5" aria-hidden="true" />}
                     </button>
                   </div>
                   <a
                     href="mailto:relations@nsdl.com"
-                    className="inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-lg transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-bold rounded-lg transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#006da0]"
+                    style={{ backgroundColor: "#f1f5f9", color: "#0f172a" }}
                   >
                     <span>Send Email</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
+                    <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
                   </a>
                 </div>
               </div>
@@ -429,24 +431,24 @@ export default function InvestorGrievance() {
           </div>
 
           {/* Section 2: Grievance Redressal Portal Overview */}
-          <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-8 sm:p-10 relative overflow-hidden">
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-8 sm:p-10 relative overflow-hidden" style={{ backgroundColor: "#ffffff" }}>
             <div className="absolute top-0 left-0 w-2 h-full bg-[#1a6eb5]" />
             <div className="max-w-4xl space-y-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a6eb5]/10 text-[#1a6eb5] rounded-full text-xs font-bold">
-                <AlertCircle className="w-3.5 h-3.5" /> Simplified Complaint Handling
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#1a6eb5]/10 text-[#1a6eb5] rounded-full text-xs font-bold" style={{ backgroundColor: "#f0f7ff", color: "#1a6eb5" }}>
+                <AlertCircle className="w-3.5 h-3.5" aria-hidden="true" /> Simplified Complaint Handling
               </div>
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628] leading-tight">
                 Grievance Redressal Portal: Simplified Complaint Handling
               </h2>
-              <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed">
+              <p className="text-[15px] sm:text-[16px] text-slate-700 leading-relaxed" style={{ color: "#334155" }}>
                 A one-stop platform for investors to seek redressal of their queries and grievances. The queries or grievances can be filed under appropriate categories. Once the query/grievance is submitted by an investor, a unique ticket number is generated. Investors can track the status of their query/grievance at any time with the help of this ticket number. Investors sitting at home or office can lodge queries/grievances effortlessly through mobile or laptop.
               </p>
-              <div className="p-5 bg-slate-50 border border-slate-100 rounded-2xl space-y-2">
-                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                  <UserCheck className="w-4 h-4 text-[#1a6eb5]" />
+              <div className="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-2" style={{ backgroundColor: "#f8fafc" }}>
+                <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2" style={{ color: "#0f172a" }}>
+                  <UserCheck className="w-4 h-4 text-[#1a6eb5]" aria-hidden="true" />
                   Investor Support: Online Grievance Submission And Tracking
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed" style={{ color: "#334155" }}>
                   The grievance redressal portal eliminates the need for writing physical letters or repetitive emails. Instead, investors can conveniently lodge queries, complaints, and requests directly through NSDL’s website using their secure login credentials while maintaining a complete, transparent audit trail.
                 </p>
               </div>
@@ -460,27 +462,35 @@ export default function InvestorGrievance() {
                 <h2 className="text-2xl font-serif font-bold text-[#011628]">
                   Escalation Mechanisms & Step-by-Step Procedures
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1">
+                <p className="text-xs sm:text-sm text-slate-700 mt-1" style={{ color: "#334155" }}>
                   Procedures for resolving escalated disputes through the Depository Grievance Redressal Committee or Arbitration.
                 </p>
               </div>
 
               {/* Tab Selector */}
-              <div className="flex items-center p-1 bg-slate-200/70 rounded-xl shrink-0">
+              <div className="flex items-center p-1 bg-slate-200/70 rounded-xl shrink-0" role="tablist" aria-label="Escalation Procedures">
                 <button
+                  role="tab"
+                  id="tab-grc"
+                  aria-selected={activeGuideTab === "grc"}
+                  aria-controls="panel-grc"
                   onClick={() => setActiveGuideTab("grc")}
-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer ${activeGuideTab === "grc"
+                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1a6eb5] ${activeGuideTab === "grc"
                     ? "bg-white text-[#011628] shadow-sm"
-                    : "text-slate-600 hover:text-slate-900"
+                    : "text-slate-700 hover:text-slate-900"
                     }`}
                 >
                   1. Depository GRC Process
                 </button>
                 <button
+                  role="tab"
+                  id="tab-arbitration"
+                  aria-selected={activeGuideTab === "arbitration"}
+                  aria-controls="panel-arbitration"
                   onClick={() => setActiveGuideTab("arbitration")}
-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer ${activeGuideTab === "arbitration"
+                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#a7181e] ${activeGuideTab === "arbitration"
                     ? "bg-white text-[#011628] shadow-sm"
-                    : "text-slate-600 hover:text-slate-900"
+                    : "text-slate-700 hover:text-slate-900"
                     }`}
                 >
                   2. Arbitration Proceedings
@@ -490,16 +500,16 @@ export default function InvestorGrievance() {
 
             {/* Guide Content: GRC */}
             {activeGuideTab === "grc" && (
-              <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-8 space-y-6">
+              <div id="panel-grc" role="tabpanel" aria-labelledby="tab-grc" className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6" style={{ backgroundColor: "#ffffff" }}>
                 <div className="flex items-start gap-4 p-4 bg-[#f0f7ff] rounded-2xl border border-[#bae6fd]" style={{ backgroundColor: "#f0f7ff" }}>
                   <div className="w-10 h-10 rounded-xl bg-[#1a6eb5]/10 text-[#1a6eb5] flex items-center justify-center shrink-0">
-                    <ShieldCheck className="w-5 h-5" />
+                    <ShieldCheck className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-sm sm:text-base">
                       Investor Grievance Redressal Committee (GRC) of Depository
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed" style={{ color: "#334155" }}>
                       If you receive no amicable resolution within the prescribed timeline, you have the option to escalate your grievance to NSDL’s Grievance Redressal Committee (GRC). Upon receipt of the reference, the GRC endeavors to resolve the dispute by hearing both parties and evaluating relevant documentation.
                     </p>
                   </div>
@@ -509,14 +519,15 @@ export default function InvestorGrievance() {
                   {GRC_STEPS.map((item) => (
                     <div
                       key={item.step}
-                      className="p-4 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:border-[#1a6eb5]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
+                      className="p-4 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#1a6eb5]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
+                      style={{ backgroundColor: "#f8fafc" }}
                     >
-                      <span className="w-7 h-7 rounded-lg bg-[#1a6eb5] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs">
+                      <span className="w-7 h-7 rounded-lg bg-[#1a6eb5] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs" style={{ backgroundColor: "#1a6eb5", color: "#ffffff" }}>
                         {item.step}
                       </span>
                       <div className="space-y-1">
-                        <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
-                        <p className="text-xs text-slate-600 leading-relaxed">{item.description}</p>
+                        <h4 className="text-sm font-bold text-slate-900" style={{ color: "#0f172a" }}>{item.title}</h4>
+                        <p className="text-xs text-slate-700 leading-relaxed" style={{ color: "#334155" }}>{item.description}</p>
                       </div>
                     </div>
                   ))}
@@ -526,16 +537,16 @@ export default function InvestorGrievance() {
 
             {/* Guide Content: Arbitration */}
             {activeGuideTab === "arbitration" && (
-              <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-8 space-y-6" style={{ backgroundColor: "#ffffff" }}>
+              <div id="panel-arbitration" role="tabpanel" aria-labelledby="tab-arbitration" className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6" style={{ backgroundColor: "#ffffff" }}>
                 <div className="flex items-start gap-4 p-4 bg-[#fff5f5] rounded-2xl border border-[#fecaca]" style={{ backgroundColor: "#fff5f5" }}>
                   <div className="w-10 h-10 rounded-xl bg-[#fee2e2] text-[#991b1b] flex items-center justify-center shrink-0" style={{ backgroundColor: "#fee2e2" }}>
-                    <Scale className="w-5 h-5" />
+                    <Scale className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-sm sm:text-base">
                       Statutory Arbitration Proceedings
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-700 mt-1 leading-relaxed" style={{ color: "#334155" }}>
                       If an investor is not satisfied with the GRC decision, they can opt for Arbitration proceedings under the Depository Byelaws & Business Rules. The arbitration reference is concluded by issuing an arbitral award within <strong className="text-[#a7181e]">4 months</strong> from appointing the arbitrator(s).
                     </p>
                   </div>
@@ -546,13 +557,14 @@ export default function InvestorGrievance() {
                     <div
                       key={item.step}
                       className="p-4 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#a7181e]/30 hover:shadow-sm transition-all flex items-start gap-3.5"
+                      style={{ backgroundColor: "#f8fafc" }}
                     >
                       <span className="w-7 h-7 rounded-lg bg-[#a7181e] text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 shadow-xs" style={{ backgroundColor: "#a7181e", color: "#ffffff" }}>
                         {item.step}
                       </span>
                       <div className="space-y-1">
-                        <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
-                        <p className="text-xs text-slate-700 leading-relaxed">{item.description}</p>
+                        <h4 className="text-sm font-bold text-slate-900" style={{ color: "#0f172a" }}>{item.title}</h4>
+                        <p className="text-xs text-slate-700 leading-relaxed" style={{ color: "#334155" }}>{item.description}</p>
                       </div>
                     </div>
                   ))}
@@ -570,18 +582,18 @@ export default function InvestorGrievance() {
               <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#011628]">
                 Contact Persons for Grievance Redressal
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mt-2">
+              <p className="text-sm sm:text-base text-slate-700 max-w-2xl mx-auto mt-2" style={{ color: "#334155" }}>
                 Designated regulatory officers and grievance resolution cell details.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* NSDL Contact Card */}
-              <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-8 relative overflow-hidden">
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 relative overflow-hidden" style={{ backgroundColor: "#ffffff" }}>
                 <div className="absolute top-0 left-0 w-2 h-full bg-[#1a6eb5]" />
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#1a6eb5]/10 text-[#1a6eb5] flex items-center justify-center shrink-0">
-                    <Building2 className="w-5 h-5" />
+                    <Building2 className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-lg">NSDL Investor Relationship Cell</h3>
@@ -589,30 +601,30 @@ export default function InvestorGrievance() {
                   </div>
                 </div>
 
-                <div className="space-y-4 text-sm text-slate-600 font-medium">
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-100">
-                    <p className="text-xs text-slate-600 font-bold uppercase tracking-wider">Designated Officer</p>
-                    <p className="font-bold text-slate-900 text-[15px] mt-0.5">Ms. Khilona Behera</p>
-                    <p className="text-xs text-slate-600 font-semibold">Deputy Vice President</p>
+                <div className="space-y-4 text-sm text-slate-700 font-medium" style={{ color: "#334155" }}>
+                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-200" style={{ backgroundColor: "#f8fafc" }}>
+                    <p className="text-xs text-slate-700 font-bold uppercase tracking-wider" style={{ color: "#334155" }}>Designated Officer</p>
+                    <p className="font-bold text-slate-900 text-[15px] mt-0.5" style={{ color: "#0f172a" }}>Ms. Khilona Behera</p>
+                    <p className="text-xs text-slate-700 font-semibold" style={{ color: "#334155" }}>Deputy Vice President</p>
                   </div>
 
                   <div className="space-y-2 text-xs sm:text-sm">
                     <p className="leading-relaxed">
-                      <strong className="text-slate-800">Address: </strong>
+                      <strong className="text-slate-900">Address: </strong>
                       301, 3rd Floor, Naman Chamber, Plot C-32, G-Block, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra - 400 051.
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
                       <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-[#1a6eb5] shrink-0" />
-                        <span><strong>Board:</strong> (022) 2499 4200</span>
+                        <Phone className="w-3.5 h-3.5 text-[#1a6eb5] shrink-0" aria-hidden="true" />
+                        <span><strong className="text-slate-900">Board:</strong> (022) 2499 4200</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-[#1a6eb5] shrink-0" />
-                        <span><strong>Helpline:</strong> 022-48867000</span>
+                        <Phone className="w-3.5 h-3.5 text-[#1a6eb5] shrink-0" aria-hidden="true" />
+                        <span><strong className="text-slate-900">Helpline:</strong> 022-48867000</span>
                       </div>
                       <div className="flex items-center gap-2 sm:col-span-2">
-                        <Mail className="w-3.5 h-3.5 text-[#1a6eb5] shrink-0" />
-                        <span><strong>Email:</strong> <a href="mailto:relations@nsdl.com" className="text-[#1a6eb5] hover:underline">relations@nsdl.com</a></span>
+                        <Mail className="w-3.5 h-3.5 text-[#1a6eb5] shrink-0" aria-hidden="true" />
+                        <span><strong className="text-slate-900">Email:</strong> <a href="mailto:relations@nsdl.com" className="text-[#006da0] font-semibold hover:underline">relations@nsdl.com</a></span>
                       </div>
                     </div>
                   </div>
@@ -620,11 +632,11 @@ export default function InvestorGrievance() {
               </div>
 
               {/* Ratnakar Securities DP & Broker Contact Card */}
-              <div className="bg-white rounded-3xl border border-black/5 shadow-sm p-6 sm:p-8 relative overflow-hidden" style={{ backgroundColor: "#ffffff" }}>
+              <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 relative overflow-hidden" style={{ backgroundColor: "#ffffff" }}>
                 <div className="absolute top-0 left-0 w-2 h-full bg-[#a7181e]" />
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-xl bg-[#fee2e2] text-[#991b1b] flex items-center justify-center shrink-0" style={{ backgroundColor: "#fee2e2" }}>
-                    <Building2 className="w-5 h-5" />
+                    <Building2 className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 text-lg">Ratnakar Securities Limited</h3>
@@ -632,11 +644,11 @@ export default function InvestorGrievance() {
                   </div>
                 </div>
 
-                <div className="space-y-4 text-sm text-slate-700 font-medium">
-                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                    <p className="text-xs text-slate-700 font-bold uppercase tracking-wider">Investor Grievance Officer</p>
-                    <p className="font-bold text-slate-900 text-[15px] mt-0.5">Kushal Shah</p>
-                    <p className="text-xs text-slate-700 font-medium">Compliance Officer</p>
+                <div className="space-y-4 text-sm text-slate-700 font-medium" style={{ color: "#334155" }}>
+                  <div className="p-3 bg-slate-50 rounded-xl border border-slate-200" style={{ backgroundColor: "#f8fafc" }}>
+                    <p className="text-xs text-slate-700 font-bold uppercase tracking-wider" style={{ color: "#334155" }}>Investor Grievance Officer</p>
+                    <p className="font-bold text-slate-900 text-[15px] mt-0.5" style={{ color: "#0f172a" }}>Kushal Shah</p>
+                    <p className="text-xs text-slate-700 font-medium" style={{ color: "#334155" }}>Compliance Officer</p>
                   </div>
 
                   <div className="space-y-2 text-xs sm:text-sm">
@@ -646,11 +658,11 @@ export default function InvestorGrievance() {
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
                       <div className="flex items-center gap-2">
-                        <Phone className="w-3.5 h-3.5 text-[#a7181e] shrink-0" />
+                        <Phone className="w-3.5 h-3.5 text-[#a7181e] shrink-0" aria-hidden="true" />
                         <span><strong className="text-slate-900">Phone:</strong> 079 4900 5200</span>
                       </div>
                       <div className="flex items-center gap-2 sm:col-span-2">
-                        <Mail className="w-3.5 h-3.5 text-[#a7181e] shrink-0" />
+                        <Mail className="w-3.5 h-3.5 text-[#a7181e] shrink-0" aria-hidden="true" />
                         <span><strong className="text-slate-900">Grievance ID:</strong> <a href="mailto:investorgrievance@ratnakarsecurities.com" className="text-[#a7181e] font-semibold hover:underline break-all">investorgrievance@ratnakarsecurities.com</a></span>
                       </div>
                     </div>
@@ -670,7 +682,7 @@ export default function InvestorGrievance() {
                 <h2 className="text-2xl font-serif font-bold text-[#011628]">
                   Disclosures of Complaints, Arbitration & Penal Actions
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-700 mt-1">
+                <p className="text-xs sm:text-sm text-slate-700 mt-1" style={{ color: "#334155" }}>
                   Download official regulatory statements, periodic reports, and statutory inspection disclosures.
                 </p>
               </div>
@@ -687,21 +699,24 @@ export default function InvestorGrievance() {
                   placeholder="Search disclosures..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#1a6eb5] transition-colors shadow-2xs font-medium text-slate-900 placeholder:text-slate-600"
+                  className="w-full pl-10 pr-4 py-2 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm focus:outline-hidden focus:border-[#1a6eb5] focus:ring-2 focus:ring-[#1a6eb5]/20 transition-colors font-medium text-slate-900 placeholder:text-slate-600"
+                  style={{ backgroundColor: "#ffffff", color: "#0f172a" }}
                 />
               </div>
             </div>
 
             {/* Filter Category Chips */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter disclosures by category">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${selectedCategory === cat
+                  aria-pressed={selectedCategory === cat}
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#011628] ${selectedCategory === cat
                     ? "bg-[#011628] text-[#7dd3fc] shadow-xs"
-                    : "bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50 hover:text-slate-900"
+                    : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:text-slate-900"
                     }`}
+                  style={selectedCategory === cat ? { backgroundColor: "#011628", color: "#7dd3fc" } : { backgroundColor: "#ffffff", color: "#334155" }}
                 >
                   {cat}
                 </button>
@@ -709,11 +724,12 @@ export default function InvestorGrievance() {
             </div>
 
             {/* Reports List / Table */}
-            <div className="bg-white rounded-3xl border border-black/5 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden" style={{ backgroundColor: "#ffffff" }}>
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[700px] text-left text-sm border-collapse">
+                  <caption className="sr-only">Regulatory disclosures and periodic investor grievance reports</caption>
                   <thead>
-                    <tr className="bg-[#011628] text-white font-bold text-xs uppercase tracking-wider">
+                    <tr className="bg-[#011628] text-white font-bold text-xs uppercase tracking-wider" style={{ backgroundColor: "#011628", color: "#ffffff" }}>
                       <th scope="col" className="p-4 w-12 text-center border-r border-slate-700/30">#</th>
                       <th scope="col" className="p-4 border-r border-slate-700/30">Report / Disclosure Title</th>
                       <th scope="col" className="p-4 w-44 border-r border-slate-700/30">Category</th>
@@ -721,22 +737,25 @@ export default function InvestorGrievance() {
                       <th scope="col" className="p-4 w-32 text-center">Action</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-100 text-slate-700 font-medium text-xs sm:text-sm">
+                  <tbody className="divide-y divide-slate-100 text-slate-800 font-medium text-xs sm:text-sm" style={{ backgroundColor: "#ffffff" }}>
                     {filteredReports.length > 0 ? (
                       filteredReports.map((report, idx) => (
                         <tr key={report.id} className="hover:bg-slate-50/80 transition-colors">
-                          <td className="p-4 text-center border-r border-slate-100 font-bold text-slate-600">
+                          <td className="p-4 text-center border-r border-slate-100 font-bold text-slate-700" style={{ color: "#334155" }}>
                             {idx + 1}
                           </td>
                           <td className="p-4 border-r border-slate-100">
-                            <div className="font-bold text-slate-900 leading-snug">{report.title}</div>
+                            <div className="font-bold text-slate-900 leading-snug" style={{ color: "#0f172a" }}>{report.title}</div>
                           </td>
                           <td className="p-4 border-r border-slate-100">
-                            <span className="inline-block px-2.5 py-1 bg-slate-100 text-slate-700 rounded-lg text-[11px] font-bold">
+                            <span
+                              className="inline-block px-2.5 py-1 bg-slate-100 text-slate-800 rounded-lg text-[11px] font-bold border border-slate-200"
+                              style={{ backgroundColor: "#f1f5f9", color: "#1e293b" }}
+                            >
                               {report.category}
                             </span>
                           </td>
-                          <td className="p-4 border-r border-slate-100 text-slate-600 font-semibold whitespace-nowrap">
+                          <td className="p-4 border-r border-slate-100 text-slate-700 font-semibold whitespace-nowrap" style={{ color: "#334155" }}>
                             {report.updatedDate}
                           </td>
                           <td className="p-4 text-center">
@@ -744,9 +763,11 @@ export default function InvestorGrievance() {
                               href={report.fileUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1a6eb5] hover:bg-[#011628] text-white font-bold text-xs rounded-lg transition-colors shadow-2xs"
+                              aria-label={`Download ${report.title} (${report.fileType}) (opens in new tab)`}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#1a6eb5] hover:bg-[#011628] text-white font-bold text-xs rounded-lg transition-colors shadow-2xs focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1a6eb5]"
+                              style={{ backgroundColor: "#1a6eb5", color: "#ffffff" }}
                             >
-                              <Download className="w-3.5 h-3.5" />
+                              <Download className="w-3.5 h-3.5" aria-hidden="true" />
                               <span>Download</span>
                             </a>
                           </td>
@@ -754,7 +775,7 @@ export default function InvestorGrievance() {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={5} className="p-8 text-center text-slate-600 font-medium">
+                        <td colSpan={5} className="p-8 text-center text-slate-700 font-medium" style={{ color: "#334155" }}>
                           No reports match your current search criteria.
                         </td>
                       </tr>
@@ -782,17 +803,19 @@ export default function InvestorGrievance() {
                 href="https://nsdl.com/investor-services-email-and-income-updation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-[#006da0]/40 transition-all flex flex-col justify-between group"
+                aria-label="Email and Income Updation on NSDL (opens in new tab)"
+                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-[#006da0]/40 transition-all flex flex-col justify-between group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#006da0]"
+                style={{ backgroundColor: "#ffffff" }}
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#006da0] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Mail className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#006da0] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: "#f0f9ff" }}>
+                    <Mail className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#006da0] transition-colors flex items-center justify-between">
                     <span>Email & Income Updation</span>
                     <ExternalLink className="w-3.5 h-3.5 text-slate-600 group-hover:text-[#006da0]" aria-hidden="true" />
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-700 leading-relaxed" style={{ color: "#334155" }}>
                     Update your registered email address and annual income criteria seamlessly.
                   </p>
                 </div>
@@ -803,17 +826,19 @@ export default function InvestorGrievance() {
                 href="https://nsdl.com/investor-services-nominee-updation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-[#1a6eb5]/40 transition-all flex flex-col justify-between group"
+                aria-label="Nominee Updation on NSDL (opens in new tab)"
+                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-[#1a6eb5]/40 transition-all flex flex-col justify-between group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#1a6eb5]"
+                style={{ backgroundColor: "#ffffff" }}
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1a6eb5] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <UserCheck className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#1a6eb5] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: "#f0f7ff" }}>
+                    <UserCheck className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#1a6eb5] transition-colors flex items-center justify-between">
                     <span>Nominee Updation</span>
                     <ExternalLink className="w-3.5 h-3.5 text-slate-600 group-hover:text-[#1a6eb5]" aria-hidden="true" />
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-700 leading-relaxed" style={{ color: "#334155" }}>
                     Add or modify nominee details in your demat account for security.
                   </p>
                 </div>
@@ -824,18 +849,19 @@ export default function InvestorGrievance() {
                 href="https://nsdl.com/investor-services-Speede-mobile-app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-[#a7181e]/40 transition-all flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#a7181e]"
+                aria-label="NSDL Speed-e Mobile App (opens in new tab)"
+                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-[#a7181e]/40 transition-all flex flex-col justify-between group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#a7181e]"
                 style={{ backgroundColor: "#ffffff" }}
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-red-50 text-[#a7181e] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: "#fef2f2" }}>
-                    <Smartphone className="w-5 h-5" />
+                    <Smartphone className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#a7181e] transition-colors flex items-center justify-between">
                     <span>NSDL Speed-e Mobile App</span>
                     <ExternalLink className="w-3.5 h-3.5 text-slate-700 group-hover:text-[#a7181e]" aria-hidden="true" />
                   </h3>
-                  <p className="text-xs text-slate-700 leading-relaxed">
+                  <p className="text-xs text-slate-700 leading-relaxed" style={{ color: "#334155" }}>
                     Execute and monitor demat transfer instructions securely from your phone.
                   </p>
                 </div>
@@ -846,47 +872,50 @@ export default function InvestorGrievance() {
                 href="https://nsdl.com/investor-services-sms-alert"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-[#004f7a]/40 transition-all flex flex-col justify-between group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#004f7a]"
+                aria-label="Investor Charter (Stock Broker) details (opens in new tab)"
+                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-[#004f7a]/40 transition-all flex flex-col justify-between group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#004f7a]"
                 style={{ backgroundColor: "#ffffff" }}
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-sky-50 text-[#004f7a] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: "#f0f9ff" }}>
-                    <FileText className="w-5 h-5" />
+                    <FileText className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-[#004f7a] transition-colors flex items-center justify-between">
                     <span>Investor Charter (Stock Broker)</span>
-                    <ChevronRight className="w-4 h-4 text-slate-700 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-4 h-4 text-slate-700 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
                   </h3>
-                  <p className="text-xs text-slate-700 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-700 leading-relaxed mb-4" style={{ color: "#334155" }}>
                     Rights, responsibilities, and dispute resolution mechanism for trading activities.
                   </p>
                 </div>
                 <div className="text-[11px] font-bold text-[#004f7a] flex items-center gap-1">
                   <span>View Details</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </div>
               </a>
 
               {/* Link 3: Escalation Matrix */}
               <a
                 href="/escalation-matrix"
-                className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm hover:shadow-md hover:border-amber-200 transition-all flex flex-col justify-between group"
+                aria-label="View Internal Escalation Matrix details"
+                className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-amber-200 transition-all flex flex-col justify-between group focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amber-600"
+                style={{ backgroundColor: "#ffffff" }}
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <HelpCircle className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ backgroundColor: "#fffbeb" }}>
+                    <HelpCircle className="w-5 h-5" aria-hidden="true" />
                   </div>
-                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-700 transition-colors flex items-center justify-between">
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 group-hover:text-amber-800 transition-colors flex items-center justify-between">
                     <span>Internal Escalation Matrix</span>
-                    <ChevronRight className="w-4 h-4 text-slate-600 group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-4 h-4 text-slate-700 group-hover:translate-x-0.5 transition-transform" aria-hidden="true" />
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-700 leading-relaxed mb-4" style={{ color: "#334155" }}>
                     Contact points for customer care, head of DP/broking, and compliance officer.
                   </p>
                 </div>
-                <div className="text-[11px] font-bold text-amber-700 flex items-center gap-1">
+                <div className="text-[11px] font-bold text-amber-800 flex items-center gap-1">
                   <span>View Details</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </div>
               </a>
             </div>

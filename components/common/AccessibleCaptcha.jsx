@@ -107,16 +107,21 @@ export default function AccessibleCaptcha({
         <div className="flex items-center gap-2 self-end sm:self-auto sm:mt-5">
           {/* Visual Captcha Canvas / Box */}
           <div
-            className="w-36 h-12 bg-slate-100 border-2 border-[#595959] rounded-xl flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-black text-xl text-slate-800 relative overflow-hidden bg-[repeating-linear-gradient(45deg,#f8fafc,#f8fafc_6px,#e2e8f0_6px,#e2e8f0_12px)]"
-            aria-label={`Visual Captcha: ${mounted ? captchaCode : "Loading"}`}
+            className="w-36 h-12 border-2 border-slate-400 rounded-xl flex items-center justify-center select-none shadow-inner tracking-[0.3em] font-mono font-black text-xl relative overflow-hidden"
+            style={{ backgroundColor: "#f1f5f9" }}
+            aria-label={`Security Captcha Code: ${mounted ? captchaCode : "Loading"}`}
             role="img"
           >
-            <span className="relative z-10 select-none italic transform -skew-x-6 text-[#012e54]">
+            <span
+              className="relative z-10 select-none italic transform -skew-x-6 text-[#012e54] font-black"
+              style={{ color: "#012e54" }}
+              aria-hidden="true"
+            >
               {mounted ? captchaCode : "------"}
             </span>
-            <div className="absolute inset-0 opacity-20 flex flex-col justify-around pointer-events-none" aria-hidden="true">
-              <div className="w-full h-[2px] bg-slate-900 -rotate-3"></div>
-              <div className="w-full h-[2px] bg-slate-900 rotate-3"></div>
+            <div className="absolute inset-0 opacity-15 flex flex-col justify-around pointer-events-none" aria-hidden="true">
+              <div className="w-full h-[2px] bg-[#011628] -rotate-3"></div>
+              <div className="w-full h-[2px] bg-[#011628] rotate-3"></div>
             </div>
           </div>
 
