@@ -505,15 +505,15 @@ export default function Footer() {
               ].map((item, index, arr) => (
                 <li key={item.label} className="flex items-center">
                   {item.isLink ? (
-                    <Link href={item.href} style={{ color: "#0f172a" }} className="text-slate-900 hover:text-[#014d73] transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
+                    <Link href={item.href} className="text-slate-900 hover:text-[#014d73] transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
                   ) : (
-                    <a href={item.href} target={item.target} rel="noopener noreferrer" style={{ color: "#0f172a" }} className="text-slate-900 hover:text-[#014d73] transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
+                    <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-slate-900 hover:text-[#014d73] transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
                   )}
                   {index < arr.length - 1 && <span className="text-slate-600 select-none mx-0.5" aria-hidden="true" style={{ color: "#475569" }}>|</span>}
                 </li>
               ))}
 
-              <li className="text-slate-900 px-2 py-0.5 rounded text-xs list-none" style={{ color: "#0f172a" }}>Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#0f172a" }} className="font-bold underline italic text-slate-900 hover:text-[#014d73] transition-colors">Anaxistech</a></li>
+              <li className="text-slate-900 px-2 py-0.5 rounded text-xs list-none" style={{ color: "#0f172a" }}>Developed by <a href="https://anaxistech.com/" target="_blank" rel="noopener noreferrer" className="font-bold underline italic text-slate-900 hover:text-[#014d73] transition-colors">Anaxistech</a></li>
             </ul>
           </nav>
         </div>

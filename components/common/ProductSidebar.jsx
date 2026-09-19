@@ -21,7 +21,7 @@ export default function ProductSidebar({ currentSlug = "", showContactCard = fal
     <aside className="w-full lg:w-[30%] space-y-8" aria-label="Investment Options Sidebar">
       {/* Services List Box */}
       <div
-        className="rounded-2xl shadow-lg p-6 sticky top-[100px] bg-[#1e4b75]"
+        className="rounded-2xl shadow-lg p-6 bg-[#1e4b75]"
         style={{
           backgroundColor: "#1e4b75",
           backgroundImage: "linear-gradient(180deg, #2a689b 0%, #1e4b75 100%)",

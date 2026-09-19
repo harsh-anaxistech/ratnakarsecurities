@@ -524,23 +524,30 @@ footer .bg-slate-100,
 footer .bg-slate-100 li,
 footer .bg-slate-100 a,
 footer .bg-slate-100 p,
-footer .bg-slate-100 span:not(.text-slate-600) {
+footer .bg-slate-100 span:not(.text-slate-600),
+footer .bg-white,
+footer .bg-white li,
+footer .bg-white a,
+footer .bg-white p,
+footer .bg-white span:not(.text-slate-600) {
   color: #0f172a !important;
 }
 
-footer.bg-\[\#011628\] a:not(.bg-slate-100 *):hover,
-footer.bg-\[\#011628\] a:not(.bg-slate-100 *):focus,
-footer.bg-\[\#011628\] a:not(.bg-slate-100 *):focus-visible,
-footer[style*="#011628"] a:not(.bg-slate-100 *):hover,
-footer[style*="#011628"] a:not(.bg-slate-100 *):focus,
-footer[style*="#011628"] a:not(.bg-slate-100 *):focus-visible,
-footer.bg-\[\#011628\] button:not(.bg-slate-100 *):hover,
-footer.bg-\[\#011628\] button:not(.bg-slate-100 *):focus-visible {
+footer.bg-\[\#011628\] a:not(.bg-slate-100 *):not(.bg-white *):hover,
+footer.bg-\[\#011628\] a:not(.bg-slate-100 *):not(.bg-white *):focus,
+footer.bg-\[\#011628\] a:not(.bg-slate-100 *):not(.bg-white *):focus-visible,
+footer[style*="#011628"] a:not(.bg-slate-100 *):not(.bg-white *):hover,
+footer[style*="#011628"] a:not(.bg-slate-100 *):not(.bg-white *):focus,
+footer[style*="#011628"] a:not(.bg-slate-100 *):not(.bg-white *):focus-visible,
+footer.bg-\[\#011628\] button:not(.bg-slate-100 *):not(.bg-white *):hover,
+footer.bg-\[\#011628\] button:not(.bg-slate-100 *):not(.bg-white *):focus-visible {
   color: #ffffff !important;
 }
 
 footer .bg-slate-100 a:hover,
-footer .bg-slate-100 a:focus-visible {
-  color: #a7181e !important;
+footer .bg-slate-100 a:focus-visible,
+footer .bg-white a:hover,
+footer .bg-white a:focus-visible {
+  color: #014d73 !important;
 }
 
