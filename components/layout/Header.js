@@ -245,13 +245,41 @@ export default function Header() {
     if (item.columns) return item.columns.flat();
     return [];
   };
-  const router = useRouter();
+  const navRef = useRef(null);
+  const loginRef = useRef(null);
 
-  const handleTopNav = (e, href) => {
-    if (!href || href === "#") return;
-    if (!e.ctrlKey && !e.metaKey) {
-      e.preventDefault();
-      router.push(href);
+  // Close active dropdown or login menu when tapping/clicking outside
+  useEffect(() => {
+    const handlePointerDownOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setActiveDropdown(null);
+      }
+      if (loginRef.current && !loginRef.current.contains(e.target)) {
+        setDesktopLoginOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", handlePointerDownOutside);
+    return () => document.removeEventListener("pointerdown", handlePointerDownOutside);
+  }, []);
+
+  const handleDropdownItemClick = () => {
+    // Delay closing dropdown slightly so iPadOS WebKit/Safari dispatches the navigation event
+    setTimeout(() => {
+      setActiveDropdown(null);
+    }, 100);
+  };
+
+  const handleLoginItemClick = (e, link) => {
+    if (link.isButton) {
+      setBackofficeModalOpen(true);
+      setDesktopLoginOpen(false);
+    } else if (link.isModal) {
+      setChooseAppModalOpen(true);
+      setDesktopLoginOpen(false);
+    } else {
+      setTimeout(() => {
+        setDesktopLoginOpen(false);
+      }, 100);
     }
   };
 
@@ -375,29 +403,37 @@ export default function Header() {
               {/* Top Quick Actions */}
               <div className="flex items-center gap-3">
                 {[
-                  { Icon: Smartphone, title: "Mobile App", href: "#" },
+                  { Icon: Smartphone, title: "Mobile App", href: "#", isModal: true },
                   { Icon: Download, title: "Downloads Center", href: "/downloads" },
                   { Icon: HelpCircle, title: "Customer Help", href: "/contact" },
                   { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
-                ].map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.href}
-                    onClick={(e) => {
-                      if (item.title === "Mobile App") {
-                        e.preventDefault();
-                        setFloatingMobileModalOpen(true);
-                      } else {
-                        handleTopNav(e, item.href);
-                      }
-                    }}
-                    className="flex items-center justify-center h-8 w-8 my-1 rounded-full bg-white/10 border border-white/20 text-white hover:bg-primary hover:border-primary hover:scale-110 transition-all duration-300 min-w-[32px] min-h-[32px] focus:ring-2 focus:ring-white"
-                    title={item.title}
-                    aria-label={item.title}
-                  >
-                    <item.Icon className="h-4 w-4" aria-hidden="true" />
-                  </a>
-                ))}
+                ].map((item, index) => {
+                  if (item.isModal) {
+                    return (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => setFloatingMobileModalOpen(true)}
+                        className="flex items-center justify-center h-8 w-8 my-1 rounded-full bg-white/10 border border-white/20 text-white hover:bg-primary hover:border-primary hover:scale-110 transition-all duration-300 min-w-[32px] min-h-[32px] focus:ring-2 focus:ring-white cursor-pointer"
+                        title={item.title}
+                        aria-label={item.title}
+                      >
+                        <item.Icon className="h-4 w-4" aria-hidden="true" />
+                      </button>
+                    );
+                  }
+                  return (
+                    <Link
+                      key={index}
+                      href={item.href}
+                      className="flex items-center justify-center h-8 w-8 my-1 rounded-full bg-white/10 border border-white/20 text-white hover:bg-primary hover:border-primary hover:scale-110 transition-all duration-300 min-w-[32px] min-h-[32px] focus:ring-2 focus:ring-white"
+                      title={item.title}
+                      aria-label={item.title}
+                    >
+                      <item.Icon className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -426,7 +462,7 @@ export default function Header() {
               </Link>
 
               {/* Desktop Nav with Full Keyboard Traversal (WCAG 2.1.1 & GIGW 5.2.21) */}
-              <nav className="hidden lg:flex h-full items-center" aria-label="Main Navigation">
+              <nav ref={navRef} className="hidden lg:flex h-full items-center" aria-label="Main Navigation">
                 {navLinks.map((item, navIndex) => {
                   const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
                   const isMenuOpen = activeDropdown === item.label;
@@ -439,11 +475,6 @@ export default function Header() {
                       className="relative h-full flex items-center"
                       onMouseEnter={() => handleMouseEnterNav(item.label)}
                       onMouseLeave={handleMouseLeaveNav}
-                      onBlur={(e) => {
-                        if (!e.currentTarget.contains(e.relatedTarget)) {
-                          setActiveDropdown((cur) => (cur === item.label ? null : cur));
-                        }
-                      }}
                     >
                       {hasSubmenu(item) ? (
                         <button
@@ -463,7 +494,7 @@ export default function Header() {
                             }
                           }}
                           className={cn(
-                            "flex h-full items-center gap-1.5 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-slate-50",
+                            "flex h-full items-center gap-1.5 px-2.5 xl:px-4 text-[14px] xl:text-[16px] 2xl:text-[17px] font-bold transition-colors border-b-2 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:bg-slate-50 cursor-pointer",
                             isActive || isMenuOpen
                               ? "text-[#a7181e] border-[#a7181e]"
                               : "text-gray-700 border-transparent hover:text-[#a7181e] hover:border-[#a7181e]"
@@ -523,7 +554,7 @@ export default function Header() {
                                 <DropdownLink
                                   key={link.label}
                                   link={link}
-                                  onClick={() => setActiveDropdown(null)}
+                                  onClick={handleDropdownItemClick}
                                   className="block rounded-lg px-4 py-3 hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                                 >
                                   {link.label}
@@ -550,7 +581,7 @@ export default function Header() {
                               <DropdownLink
                                 key={link.label}
                                 link={link}
-                                onClick={() => setActiveDropdown(null)}
+                                onClick={handleDropdownItemClick}
                                 className="block rounded-lg px-4 py-3 hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                               >
                                 {link.label}
@@ -572,7 +603,7 @@ export default function Header() {
                   onClick={() => setSearchModalOpen(true)}
                   aria-label="Search site (Press Ctrl+K)"
                   title="Search site (Ctrl+K)"
-                  className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:text-primary hover:bg-slate-100 border border-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="flex items-center justify-center w-10 h-10 rounded-lg text-slate-600 hover:text-primary hover:bg-slate-100 border border-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
                 >
                   <Search className="w-4 h-4" aria-hidden="true" />
                 </button>
@@ -599,14 +630,10 @@ export default function Header() {
 
                 {/* Login dropdown with full keyboard access */}
                 <div
+                  ref={loginRef}
                   className="relative"
                   onMouseEnter={() => setDesktopLoginOpen(true)}
                   onMouseLeave={() => setDesktopLoginOpen(false)}
-                  onBlur={(e) => {
-                    if (!e.currentTarget.contains(e.relatedTarget)) {
-                      setDesktopLoginOpen(false);
-                    }
-                  }}
                 >
                   <Button
                     id="desktop-login-button"
@@ -633,7 +660,7 @@ export default function Header() {
                     aria-controls="desktop-login-menu"
                     aria-label="Client & Backoffice Login Menu"
                     style={{ backgroundColor: "#a7181e" }}
-                    className="bg-[#a7181e] bg-gradient-to-br from-[#a7181e] to-[#881014] hover:bg-[#881014] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm"
+                    className="bg-[#a7181e] bg-gradient-to-br from-[#a7181e] to-[#881014] hover:bg-[#881014] text-white text-xs xl:text-sm font-bold rounded-lg px-3 xl:px-4 py-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary shadow-sm cursor-pointer"
                   >
                     LOGIN <ChevronDown className={cn("h-3.5 w-3.5 ml-1 transition-transform duration-200 inline", desktopLoginOpen && "rotate-180")} aria-hidden="true" />
                   </Button>
@@ -647,31 +674,13 @@ export default function Header() {
                     )}
                   >
                     {LOGIN_LINKS.map((link) => {
-                      if (link.isButton) {
+                      if (link.isButton || link.isModal) {
                         return (
                           <button
                             key={link.label}
                             type="button"
-                            onClick={() => {
-                              setBackofficeModalOpen(true);
-                              setDesktopLoginOpen(false);
-                            }}
-                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
-                          >
-                            {link.label}
-                          </button>
-                        );
-                      }
-                      if (link.isModal) {
-                        return (
-                          <button
-                            key={link.label}
-                            type="button"
-                            onClick={() => {
-                              setChooseAppModalOpen(true);
-                              setDesktopLoginOpen(false);
-                            }}
-                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
+                            onClick={(e) => handleLoginItemClick(e, link)}
+                            className="w-full text-left block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150 cursor-pointer"
                           >
                             {link.label}
                           </button>
@@ -684,6 +693,7 @@ export default function Header() {
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
+                            onClick={(e) => handleLoginItemClick(e, link)}
                             className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                           >
                             {link.label}
@@ -694,6 +704,7 @@ export default function Header() {
                         <Link
                           key={link.href}
                           href={link.href}
+                          onClick={(e) => handleLoginItemClick(e, link)}
                           className="block rounded-lg px-4 py-3 text-sm font-medium text-foreground hover:bg-slate-50 focus:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors duration-150"
                         >
                           {link.label}
@@ -711,7 +722,7 @@ export default function Header() {
                   type="button"
                   onClick={() => setSearchModalOpen(true)}
                   aria-label="Search site"
-                  className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors shadow-sm"
+                  className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors shadow-sm cursor-pointer"
                 >
                   <Search className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -722,7 +733,7 @@ export default function Header() {
                     onClick={() => setMobileQuickLinksOpen((p) => !p)}
                     aria-label="Quick links menu"
                     aria-expanded={mobileQuickLinksOpen}
-                    className="w-9 h-9 flex items-center justify-center rounded-full bg-[#011628] text-white hover:bg-[#a7181e] transition-colors shadow-sm"
+                    className="w-9 h-9 flex items-center justify-center rounded-full bg-[#011628] text-white hover:bg-[#a7181e] transition-colors shadow-sm cursor-pointer"
                   >
                     <Smartphone className="h-4 w-4" aria-hidden="true" />
                   </button>
@@ -730,30 +741,41 @@ export default function Header() {
                   {mobileQuickLinksOpen && (
                     <div className="absolute right-0 top-full mt-2 z-50 flex items-center gap-2 p-2 bg-[#011628] border border-white/20 rounded-full shadow-2xl animate-in fade-in zoom-in duration-200">
                       {[
-                        { Icon: Smartphone, title: "Mobile App", href: "#" },
+                        { Icon: Smartphone, title: "Mobile App", href: "#", isModal: true },
                         { Icon: Download, title: "Downloads Center", href: "/downloads" },
                         { Icon: HelpCircle, title: "Customer Help", href: "/contact" },
                         { Icon: Handshake, title: "Partner With Us", href: "/partner-with-us" },
-                      ].map((item, index) => (
-                        <a
-                          key={index}
-                          href={item.href}
-                          onClick={(e) => {
-                            setMobileQuickLinksOpen(false);
-                            if (item.title === "Mobile App") {
-                              e.preventDefault();
-                              setFloatingMobileModalOpen(true);
-                            } else {
-                              handleTopNav(e, item.href);
-                            }
-                          }}
-                          className="flex items-center justify-center h-8 w-8 rounded-full bg-white/10 border border-white/20 text-white hover:bg-[#a7181e] hover:border-[#a7181e] transition-all duration-300"
-                          title={item.title}
-                          aria-label={item.title}
-                        >
-                          <item.Icon className="h-4 w-4" aria-hidden="true" />
-                        </a>
-                      ))}
+                      ].map((item, index) => {
+                        if (item.isModal) {
+                          return (
+                            <button
+                              key={index}
+                              type="button"
+                              onClick={() => {
+                                setMobileQuickLinksOpen(false);
+                                setFloatingMobileModalOpen(true);
+                              }}
+                              className="flex items-center justify-center h-8 w-8 rounded-full bg-white/10 border border-white/20 text-white hover:bg-[#a7181e] hover:border-[#a7181e] transition-all duration-300 cursor-pointer"
+                              title={item.title}
+                              aria-label={item.title}
+                            >
+                              <item.Icon className="h-4 w-4" aria-hidden="true" />
+                            </button>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={index}
+                            href={item.href}
+                            onClick={() => setMobileQuickLinksOpen(false)}
+                            className="flex items-center justify-center h-8 w-8 rounded-full bg-white/10 border border-white/20 text-white hover:bg-[#a7181e] hover:border-[#a7181e] transition-all duration-300"
+                            title={item.title}
+                            aria-label={item.title}
+                          >
+                            <item.Icon className="h-4 w-4" aria-hidden="true" />
+                          </Link>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

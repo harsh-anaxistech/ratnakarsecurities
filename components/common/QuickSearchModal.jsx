@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Search, X, ArrowRight, FileText, Briefcase, BarChart3, Calculator, HelpCircle, Shield } from "lucide-react";
 
 const SEARCH_ITEMS = [
@@ -165,15 +166,13 @@ export default function QuickSearchModal({ isOpen, onClose }) {
               const isSelected = idx === selectedIndex;
               const Icon = item.icon;
               return (
-                <div
+                <Link
                   key={item.href + item.title}
+                  href={item.href}
                   role="option"
                   aria-selected={isSelected}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  onClick={() => {
-                    router.push(item.href);
-                    onClose();
-                  }}
+                  onClick={onClose}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-colors ${
                     isSelected ? "bg-[#012e54] text-white" : "hover:bg-slate-50 text-slate-800"
                   }`}
@@ -203,7 +202,7 @@ export default function QuickSearchModal({ isOpen, onClose }) {
                     className={`w-4 h-4 ${isSelected ? "text-cyan-300 translate-x-1" : "text-slate-700"} transition-transform`}
                     aria-hidden="true"
                   />
-                </div>
+                </Link>
               );
             })
           )}
