@@ -25,37 +25,6 @@ export default function HeroBanner() {
       className="relative overflow-hidden w-full min-h-[550px] lg:min-h-[660px] flex items-center pt-8 sm:pt-12 lg:py-0 bg-[#012e54]"
       aria-label="Maximize Your Wealth Hero Section"
     >
-      {/* ── CUSTOM FLOATING ANIMATIONS STYLE ── */}
-      <style dangerouslySetInnerHTML={{
-        __html: `
-        @keyframes gentleDrift1 {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          50% { transform: translateY(-6px) translateX(2px); }
-        }
-        @keyframes gentleDrift2 {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          50% { transform: translateY(5px) translateX(-3px); }
-        }
-        @keyframes gentleDrift3 {
-          0%, 100% { transform: translateY(0px) translateX(0px); }
-          50% { transform: translateY(-4px) translateX(-3px); }
-        }
-        .float-anim-1 { animation: gentleDrift1 5s ease-in-out infinite; }
-        .float-anim-2 { animation: gentleDrift2 6s ease-in-out infinite; }
-        .float-anim-3 { animation: gentleDrift3 5.5s ease-in-out infinite; }
-
-        @media (prefers-reduced-motion: reduce) {
-          .float-anim-1, .float-anim-2, .float-anim-3 {
-            animation: none !important;
-          }
-        }
-        html.pause-animations .float-anim-1,
-        html.pause-animations .float-anim-2,
-        html.pause-animations .float-anim-3 {
-          animation-play-state: paused !important;
-        }
-      `}} />
-
       {/* ── BACKGROUND AMBIENT GLOW ── */}
       <div className="absolute top-1/2 -translate-y-1/2 right-[10%] w-[500px] h-[500px] bg-[#f0f7ff] rounded-full blur-[140px] animate-pulse duration-[8000ms] pointer-events-none z-0 hidden lg:block" aria-hidden="true" />
 

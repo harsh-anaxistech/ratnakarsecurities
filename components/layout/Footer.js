@@ -314,7 +314,6 @@ export default function Footer() {
               className="relative h-[150px] sm:h-[160px] overflow-hidden group focus-within:ring-1 focus-within:ring-cyan-300 rounded-lg"
               onMouseEnter={() => setIsNoticePaused(true)}
               onMouseLeave={() => setIsNoticePaused(false)}
-              aria-labelledby="footer-attention-investors-heading"
             >
               {/* Gradient masks for smooth top & bottom edge fade matching footer background */}
               <div

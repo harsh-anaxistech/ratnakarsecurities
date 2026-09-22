@@ -44,7 +44,7 @@ const FALLBACK_TESTIMONIALS = [
 function StarRating({ count }) {
   const validCount = Number(count) || 5;
   return (
-    <div className="flex gap-1" aria-label={`Rating: ${validCount} out of 5 stars`}>
+    <div role="img" className="flex gap-1" aria-label={`Rating: ${validCount} out of 5 stars`}>
       {Array.from({ length: validCount }).map((_, i) => (
         <Star key={i} className="w-3.5 h-3.5 fill-amber-500 text-amber-600" aria-hidden="true" />
       ))}
@@ -270,12 +270,12 @@ export default function Testimonials() {
         </div>
 
         {/* Mobile Navigation Dots */}
-        <div className="flex justify-center gap-2 mt-8 md:hidden relative z-10" role="tablist" aria-label="Testimonial slides">
+        <div className="flex justify-center gap-2 mt-8 md:hidden relative z-10" role="group" aria-label="Testimonial slide navigation">
           {testimonials.map((_, idx) => (
             <button
               key={idx}
-              role="tab"
-              aria-selected={activeIndex === idx}
+              type="button"
+              aria-current={activeIndex === idx ? "true" : undefined}
               onClick={() => setActiveIndex(idx)}
               className={`h-2.5 rounded-full transition-all duration-300 min-h-[24px] min-w-[24px] flex items-center justify-center`}
               aria-label={`Go to testimonial slide ${idx + 1}`}

@@ -541,7 +541,6 @@ export default function Header() {
                       {item.columns && (
                         <div
                           id={menuId}
-                          aria-label={`${item.label} Submenu`}
                           onKeyDown={(e) => handleMenuKeyDown(e, btnId)}
                           className={cn(
                             "absolute left-0 top-full mt-0 z-50 w-[950px] gap-6 bg-white shadow-2xl border border-border rounded-b-xl p-6 transition-all duration-200 ease-out",
@@ -569,7 +568,6 @@ export default function Header() {
                       {item.dropdown && (
                         <div
                           id={menuId}
-                          aria-label={`${item.label} Submenu`}
                           onKeyDown={(e) => handleMenuKeyDown(e, btnId)}
                           className={cn(
                             "absolute left-0 top-full mt-0 z-50 w-96 bg-white shadow-2xl border border-border rounded-b-xl p-3 transition-all duration-200 ease-out",
@@ -666,7 +664,6 @@ export default function Header() {
                   </Button>
                   <div
                     id="desktop-login-menu"
-                    aria-label="Login Options"
                     onKeyDown={(e) => handleMenuKeyDown(e, "desktop-login-button")}
                     className={cn(
                       "absolute right-0 top-full mt-1 z-50 w-72 bg-white shadow-xl border border-border rounded-xl py-2 transition-all duration-200 ease-out",

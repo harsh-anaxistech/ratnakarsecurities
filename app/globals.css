@@ -551,3 +551,33 @@ footer .bg-white a:focus-visible {
   color: #014d73 !important;
 }
 
+/* =====================================================
+   Floating Animations (HeroBanner)
+   ===================================================== */
+@keyframes gentleDrift1 {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-6px) translateX(2px); }
+}
+@keyframes gentleDrift2 {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(5px) translateX(-3px); }
+}
+@keyframes gentleDrift3 {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-4px) translateX(-3px); }
+}
+.float-anim-1 { animation: gentleDrift1 5s ease-in-out infinite; }
+.float-anim-2 { animation: gentleDrift2 6s ease-in-out infinite; }
+.float-anim-3 { animation: gentleDrift3 5.5s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .float-anim-1, .float-anim-2, .float-anim-3 {
+    animation: none !important;
+  }
+}
+html.pause-animations .float-anim-1,
+html.pause-animations .float-anim-2,
+html.pause-animations .float-anim-3 {
+  animation-play-state: paused !important;
+}
+
