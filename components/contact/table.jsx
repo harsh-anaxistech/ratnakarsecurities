@@ -56,7 +56,7 @@ export default function ContactDetailsSections() {
                   <td className="p-4 border-r border-slate-200">
                     <a
                       href="mailto:helpdesk@ratnakarsecurities.com"
-                      className="text-[#004f7a] hover:underline font-bold"
+                      className="text-[#004f7a] underline hover:text-[#011628] font-bold"
                       style={{ color: "#004f7a" }}
                     >
                       helpdesk@ratnakarsecurities.com
@@ -86,7 +86,7 @@ export default function ContactDetailsSections() {
                   <td className="p-4 border-r border-slate-200">
                     <a
                       href="mailto:jagdish@ratnakarsecurities.com"
-                      className="text-[#004f7a] hover:underline font-bold"
+                      className="text-[#004f7a] underline hover:text-[#011628] font-bold"
                       style={{ color: "#004f7a" }}
                     >
                       jagdish@ratnakarsecurities.com
@@ -114,14 +114,14 @@ export default function ContactDetailsSections() {
                   <td className="p-4 border-r border-slate-200 leading-relaxed">
                     <a
                       href="mailto:kushal@ratnakarsecurities.com"
-                      className="text-[#004f7a] hover:underline font-bold block"
+                      className="text-[#004f7a] underline hover:text-[#011628] font-bold block"
                       style={{ color: "#004f7a" }}
                     >
                       kushal@ratnakarsecurities.com
                     </a>
                     <a
                       href="mailto:compliance@ratnakarsecurities.com"
-                      className="text-[#004f7a] hover:underline font-bold block"
+                      className="text-[#004f7a] underline hover:text-[#011628] font-bold block"
                       style={{ color: "#004f7a" }}
                     >
                       compliance@ratnakarsecurities.com
@@ -147,7 +147,7 @@ export default function ContactDetailsSections() {
                   <td className="p-4 border-r border-slate-200">
                     <a
                       href="mailto:ajay@ratnakarsecurities.com"
-                      className="text-[#004f7a] hover:underline font-bold"
+                      className="text-[#004f7a] underline hover:text-[#011628] font-bold"
                       style={{ color: "#004f7a" }}
                     >
                       ajay@ratnakarsecurities.com
@@ -169,7 +169,7 @@ export default function ContactDetailsSections() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="SEBI SCORES 2.0 Portal (opens in new tab)"
-                className="text-[#004f7a] hover:underline font-bold"
+                className="text-[#004f7a] underline hover:text-[#011628] font-bold"
                 style={{ color: "#004f7a" }}
               >
                 https://scores.sebi.gov.in/
@@ -257,7 +257,7 @@ export default function ContactDetailsSections() {
                   <td className="p-4">
                     <a
                       href="mailto:helpdesk@ratnakarsecurities.com"
-                      className="text-[#004f7a] hover:underline font-bold"
+                      className="text-[#004f7a] underline hover:text-[#011628] font-bold"
                       style={{ color: "#004f7a" }}
                     >
                       helpdesk@ratnakarsecurities.com
@@ -335,7 +335,7 @@ export default function ContactDetailsSections() {
                     <td className="p-4">
                       <a
                         href={`mailto:${row.email}`}
-                        className="text-[#004f7a] hover:underline font-bold"
+                        className="text-[#004f7a] underline hover:text-[#011628] font-bold"
                         style={{ color: "#004f7a" }}
                       >
                         {row.email}
@@ -368,7 +368,7 @@ export default function ContactDetailsSections() {
               <p className="text-white" style={{ color: "#ffffff" }}>Club House Road, Chennai-600002.</p>
               <a
                 href="tel:044-40020731"
-                className="text-[#7dd3fc] hover:text-white hover:underline pt-1 block font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
+                className="text-[#7dd3fc] hover:text-white underline pt-1 block font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
                 style={{ color: "#7dd3fc" }}
                 aria-label="Call Cameo Corporate Services at 044-40020731"
               >
@@ -377,7 +377,7 @@ export default function ContactDetailsSections() {
               <p>
                 <a
                   href="mailto:rta@cameoindia.com"
-                  className="text-[#7dd3fc] hover:text-white hover:underline font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
+                  className="text-[#7dd3fc] hover:text-white underline font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
                   style={{ color: "#7dd3fc" }}
                   aria-label="Email Cameo Corporate Services at rta@cameoindia.com"
                 >
@@ -410,7 +410,7 @@ export default function ContactDetailsSections() {
               <p className="text-white" style={{ color: "#ffffff" }}>Ellisbridge, Ahmedabad - 380006</p>
               <a
                 href="tel:07949005200"
-                className="text-[#7dd3fc] hover:text-white hover:underline pt-1 block font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
+                className="text-[#7dd3fc] hover:text-white underline pt-1 block font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
                 style={{ color: "#7dd3fc" }}
                 aria-label="Call Aditya Pancholi at 079 49005200"
               >
@@ -419,7 +419,7 @@ export default function ContactDetailsSections() {
               <p>
                 <a
                   href="mailto:cs@ratnakarsecurities.com"
-                  className="text-[#7dd3fc] hover:text-white hover:underline font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
+                  className="text-[#7dd3fc] hover:text-white underline font-bold transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#7dd3fc]"
                   style={{ color: "#7dd3fc" }}
                   aria-label="Email Aditya Pancholi at cs@ratnakarsecurities.com"
                 >

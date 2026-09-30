@@ -106,7 +106,7 @@ function DropdownLink({ link, children, className, onClick, ...props }) {
     <div className="flex items-start gap-3">
       {iconSvg && <span className="flex h-8 w-8 shrink-0 items-center justify-center text-secondary mt-0.5" aria-hidden="true">{iconSvg}</span>}
       <div className="flex flex-col">
-        <span className="text-sm font-semibold text-slate-800">{children}</span>
+        <span className="text-sm font-semibold text-slate-800 underline">{children}</span>
         {link.description && <span className="text-xs text-slate-600 mt-0.5">{link.description}</span>}
       </div>
     </div>

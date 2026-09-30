@@ -206,7 +206,7 @@ export default function ContactUsPage() {
                 </span>
                 <div>
                   <h3 className="text-xs font-bold text-white/90 uppercase tracking-wider">Phone Support</h3>
-                  <a href="tel:+917949007900" className="text-white hover:text-cyan-300 font-bold text-base transition-colors underline-offset-4 hover:underline">
+                  <a href="tel:+917949007900" className="underline underline-offset-4 text-white hover:text-[#7dd3fc] font-bold text-base transition-colors inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
                     +91 (079) 4900 7900
                   </a>
                 </div>
@@ -218,7 +218,7 @@ export default function ContactUsPage() {
                 </span>
                 <div>
                   <h3 className="text-xs font-bold text-white/90 uppercase tracking-wider">Email Us</h3>
-                  <a href="mailto:info@ratnakarsecurities.com" className="text-white hover:text-cyan-300 font-bold text-base transition-colors break-all underline-offset-4 hover:underline">
+                  <a href="mailto:info@ratnakarsecurities.com" className="underline underline-offset-4 text-white hover:text-[#7dd3fc] font-bold text-base transition-colors break-all inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 rounded">
                     info@ratnakarsecurities.com
                   </a>
                 </div>

@@ -171,14 +171,14 @@ export default function Footer() {
                           href={l.href}
                           target={l.target}
                           rel="noopener noreferrer"
-                          className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white transition-colors inline-block"
+                          className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white underline transition-colors inline-block"
                         >
                           {l.label}
                         </a>
                       ) : (
                         <Link
                           href={l.href}
-                          className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white transition-colors inline-block"
+                          className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white underline transition-colors inline-block"
                         >
                           {l.label}
                         </Link>
@@ -203,7 +203,7 @@ export default function Footer() {
                     <li key={l.label}>
                       <Link
                         href={l.href}
-                        className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white transition-colors inline-block"
+                        className="text-[14px] sm:text-[16px] text-[#f1f5f9] hover:text-white underline transition-colors inline-block"
                       >
                         {l.label}
                       </Link>
@@ -233,7 +233,7 @@ export default function Footer() {
               <ul className="flex flex-wrap items-center gap-x-3 sm:gap-x-4 gap-y-2 text-[14px] sm:text-[16px] list-none p-0 m-0 text-[#f1f5f9]">
                 {FOOTER_LINKS["Useful Links"].map((l, index) => (
                   <li key={l.label} className="flex items-center gap-3 sm:gap-4">
-                    <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
+                    <a href={l.href} target={l.target} rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white underline transition-colors">
                       {l.label}
                     </a>
                     {index < FOOTER_LINKS["Useful Links"].length - 1 && <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>}
@@ -247,25 +247,25 @@ export default function Footer() {
           <nav aria-label="Important Regulatory Portals">
             <ul className="text-[14px] sm:text-[16px] leading-relaxed flex flex-wrap items-center gap-x-3 gap-y-1 list-none p-0 m-0 text-[#f1f5f9]">
               <li className="flex items-center gap-3">
-                <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
+                <a href="https://investorhelpline.nseindia.com/ClientCollateral/welcomeCLUser" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white underline transition-colors">
                   Segregation Monitoring Collateral
                 </a>
                 <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li className="flex items-center gap-3">
-                <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
+                <a href="https://www.evoting.nsdl.com/" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white underline transition-colors">
                   NSDL e Voting
                 </a>
                 <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li className="flex items-center gap-3">
-                <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
+                <a href="https://eservices.nsdl.com/" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white underline transition-colors">
                   NSDL IDEAS Services
                 </a>
                 <span className="text-[#7dd3fc] select-none" aria-hidden="true">|</span>
               </li>
               <li>
-                <a href="https://api.ratnakarsecurities.com/uploads/Annexure-I_Advisory-for-KYC-updation-1.pdf" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white transition-colors">
+                <a href="https://api.ratnakarsecurities.com/uploads/Annexure-I_Advisory-for-KYC-updation-1.pdf" target="_blank" rel="noopener noreferrer" className="text-[#f1f5f9] hover:text-white underline transition-colors">
                   Advisory for KYC Updation
                 </a>
               </li>
@@ -384,14 +384,14 @@ export default function Footer() {
                             e.preventDefault();
                             setIsRiskDisclosureModalOpen(true);
                           }}
-                          className="text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
+                          className="text-[#f1f5f9] hover:text-white underline transition-colors cursor-pointer"
                         >
                           {item.label}
                         </a>
                       ) : isInternal ? (
                         <Link
                           href={item.href}
-                          className="text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
+                          className="text-[#f1f5f9] hover:text-white underline transition-colors cursor-pointer"
                         >
                           {item.label}
                         </Link>
@@ -400,7 +400,7 @@ export default function Footer() {
                           href={item.href}
                           target={item.target}
                           rel={item.target ? "noopener noreferrer" : undefined}
-                          className="text-[#f1f5f9] hover:text-white transition-colors cursor-pointer"
+                          className="text-[#f1f5f9] hover:text-white underline transition-colors cursor-pointer"
                         >
                           {item.label}
                         </a>
@@ -504,9 +504,9 @@ export default function Footer() {
               ].map((item, index, arr) => (
                 <li key={item.label} className="flex items-center">
                   {item.isLink ? (
-                    <Link href={item.href} className="text-slate-900 hover:text-[#014d73] transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
+                    <Link href={item.href} className="text-slate-900 hover:text-[#014d73] underline transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</Link>
                   ) : (
-                    <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-slate-900 hover:text-[#014d73] transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
+                    <a href={item.href} target={item.target} rel="noopener noreferrer" className="text-slate-900 hover:text-[#014d73] underline transition-colors font-semibold px-1.5 sm:px-2 py-1.5 inline-block">{item.label}</a>
                   )}
                   {index < arr.length - 1 && <span className="text-slate-600 select-none mx-0.5" aria-hidden="true" style={{ color: "#475569" }}>|</span>}
                 </li>
