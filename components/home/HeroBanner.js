@@ -60,7 +60,7 @@ export default function HeroBanner() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Invest Now - Open a Demat and Trading Account with Ratnakar"
-                className="flex items-center justify-center gap-2.5 bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
+                className="flex items-center justify-center gap-2.5 bg-[#004f7a] bg-gradient-to-br from-[#005a9c] to-[#00385c] hover:bg-[#00385c] text-white border-2 border-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#011628] focus:ring-white"
               >
                 <span>Invest Now</span>
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -69,29 +69,29 @@ export default function HeroBanner() {
               <Link
                 href="/products"
                 aria-label="Explore Our Products - View Equity, Mutual Funds, and Bonds"
-                className="flex items-center justify-center gap-2 bg-[#022340]/80 hover:bg-[#022340] text-white border border-white/40 text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:ring-2 focus:ring-white"
+                className="flex items-center justify-center gap-2 bg-[#022340] hover:bg-[#033660] text-white border-2 border-white text-xs sm:text-sm font-bold py-3 px-5 sm:py-3.5 sm:px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 sm:w-auto text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#011628] focus:ring-white"
               >
                 <span>Explore Our Products</span>
               </Link>
             </div>
             {/* 🏛️ MARKET & REGULATORY ENTITIES CONTENT */}
             <div className="pt-4 sm:pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-x-4 gap-y-2 text-white text-[12px] sm:text-sm font-bold tracking-widest uppercase">
-              <a href="https://www.nseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">NSE</a>
+              <a href="https://www.nseindia.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-white/70 hover:decoration-cyan-300 hover:text-cyan-300 transition-colors duration-200">NSE</a>
               <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://www.bseindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">BSE</a>
+              <a href="https://www.bseindia.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-white/70 hover:decoration-cyan-300 hover:text-cyan-300 transition-colors duration-200">BSE</a>
               <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://www.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">SEBI</a>
+              <a href="https://www.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-white/70 hover:decoration-cyan-300 hover:text-cyan-300 transition-colors duration-200">SEBI</a>
               <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://nsdl.co.in" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">NSDL</a>
+              <a href="https://nsdl.co.in" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-white/70 hover:decoration-cyan-300 hover:text-cyan-300 transition-colors duration-200">NSDL</a>
               <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://www.mcxindia.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">MCX</a>
+              <a href="https://www.mcxindia.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-white/70 hover:decoration-cyan-300 hover:text-cyan-300 transition-colors duration-200">MCX</a>
               <span className="w-1 h-3 bg-cyan-300/60 inline-block rounded-full select-none" aria-hidden="true" />
 
-              <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors duration-200">SCORES</a>
+              <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-white/70 hover:decoration-cyan-300 hover:text-cyan-300 transition-colors duration-200">SCORES</a>
             </div>
           </div>
 
