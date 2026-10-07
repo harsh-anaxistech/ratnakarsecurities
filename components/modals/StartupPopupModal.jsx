@@ -231,17 +231,19 @@ function PopupCard({
  *   - Reverts back to a single centered popup.
  */
 export default function StartupPopupModal() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMainOpen, setIsMainOpen] = useState(false);
+  const [isSebiOpen, setIsSebiOpen] = useState(false);
   const [popupData, setPopupData] = useState(null);
-  const [isSebiActive, setIsSebiActive] = useState(false);
   const modalRef = useRef(null);
+
+  const isOpen = isMainOpen || isSebiOpen;
+  const isDualMode = isMainOpen && isSebiOpen;
 
   useEffect(() => {
     let isMounted = true;
 
     // Check if SEBI campaign is within active date window (<= 31 Oct 2026)
     const activeSebi = Date.now() <= SEBI_CAMPAIGN_EXPIRY_TIMESTAMP;
-    setIsSebiActive(activeSebi);
 
     async function loadPopup() {
       if (typeof window !== "undefined" && sessionStorage.getItem("welcomePopupSeen")) {
@@ -254,19 +256,22 @@ export default function StartupPopupModal() {
 
         if (res && res.success && res.data && res.data.isShowPopup) {
           setPopupData(res.data);
-          setIsOpen(true);
+          setIsMainOpen(true);
+          if (activeSebi) setIsSebiOpen(true);
           sessionStorage.setItem("welcomePopupSeen", "true");
         } else if (!res || !res.data) {
           // If backend popup service is not configured/offline, show default popup
           setPopupData({ isShowPopup: true });
-          setIsOpen(true);
+          setIsMainOpen(true);
+          if (activeSebi) setIsSebiOpen(true);
           sessionStorage.setItem("welcomePopupSeen", "true");
         }
       } catch (err) {
         console.warn("Popup fetch error:", err);
         if (isMounted) {
           setPopupData({ isShowPopup: true });
-          setIsOpen(true);
+          setIsMainOpen(true);
+          if (activeSebi) setIsSebiOpen(true);
           sessionStorage.setItem("welcomePopupSeen", "true");
         }
       }
@@ -279,14 +284,23 @@ export default function StartupPopupModal() {
     };
   }, []);
 
-  const handleClose = () => {
-    setIsOpen(false);
+  const handleCloseMain = () => {
+    setIsMainOpen(false);
+  };
+
+  const handleCloseSebi = () => {
+    setIsSebiOpen(false);
+  };
+
+  const handleCloseAll = () => {
+    setIsMainOpen(false);
+    setIsSebiOpen(false);
   };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
-        handleClose();
+        handleCloseAll();
       }
     };
     if (isOpen) {
@@ -378,37 +392,45 @@ export default function StartupPopupModal() {
   return (
     <div
       className="fixed inset-0 z-[1000] flex items-center justify-center p-3 sm:p-4 md:p-6 bg-slate-950/70 backdrop-blur-sm animate-fade-in overflow-y-auto"
-      onClick={handleClose}
-      onKeyDown={(e) => e.key === "Escape" && handleClose()}
+      onClick={handleCloseAll}
+      onKeyDown={(e) => e.key === "Escape" && handleCloseAll()}
     >
       <div
         ref={modalRef}
         role="dialog"
         aria-modal="true"
-        aria-labelledby={isSebiActive ? undefined : "startup-modal-title"}
-        aria-label={isSebiActive ? "Important Announcements and Investor Advisories" : undefined}
+        aria-labelledby={
+          isDualMode
+            ? undefined
+            : isMainOpen
+            ? "startup-modal-title"
+            : "sebi-modal-title"
+        }
+        aria-label={isDualMode ? "Important Announcements and Investor Advisories" : undefined}
         className={
-          isSebiActive
+          isDualMode
             ? "relative w-full max-w-4xl my-auto py-2 flex flex-col md:flex-row items-center md:items-stretch justify-center gap-4 sm:gap-6"
-            : "relative w-[92vw] max-w-[420px] max-h-[90vh] my-auto flex flex-col"
+            : "relative w-[92vw] max-w-[420px] max-h-[90vh] my-auto flex flex-col items-center justify-center"
         }
         onClick={(e) => e.stopPropagation()}
       >
         {/* Left Card: Welcome to Ratnakar Securities */}
-        <PopupCard
-          title={displayTitle}
-          description={displayDesc}
-          points={displayPoints}
-          links={displayLinks}
-          imageSrc={encodeURI("/images/about/Stock trading on sleek iPhones.png")}
-          imageAlt="Stock trading on sleek iPhones"
-          onClose={handleClose}
-          titleId="startup-modal-title"
-          isSebi={false}
-        />
+        {isMainOpen && (
+          <PopupCard
+            title={displayTitle}
+            description={displayDesc}
+            points={displayPoints}
+            links={displayLinks}
+            imageSrc={encodeURI("/images/about/Stock trading on sleek iPhones.png")}
+            imageAlt="Stock trading on sleek iPhones"
+            onClose={handleCloseMain}
+            titleId="startup-modal-title"
+            isSebi={false}
+          />
+        )}
 
         {/* Right Card: SEBI presents Samajh Se Investing Simple (Rendered up to 31st October 2026) */}
-        {isSebiActive && (
+        {isSebiOpen && (
           <PopupCard
             title={sebiTitle}
             description={sebiDesc}
@@ -416,7 +438,7 @@ export default function StartupPopupModal() {
             links={sebiLinks}
             imageSrc={encodeURI("/images/about/Stock trading on sleek iPhones.png")}
             imageAlt="SEBI Investor Awareness"
-            onClose={handleClose}
+            onClose={handleCloseSebi}
             titleId="sebi-modal-title"
             isSebi={true}
           />
