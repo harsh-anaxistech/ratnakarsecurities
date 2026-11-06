@@ -8,6 +8,7 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 import SkipLink from "@/components/common/SkipLink";
 import FloatingMobileTrading from "@/components/FloatingMobileTrading";
 import StartupPopupModal from "@/components/modals/StartupPopupModal";
+import RegulatoryComplianceModal from "@/components/modals/RegulatoryComplianceModal";
 
 const inter = Poppins({
   subsets: ["latin"],
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
         <ScrollToTop />
         <FloatingMobileTrading />
         <StartupPopupModal />
+        <RegulatoryComplianceModal />
       </body>
     </html>
   );
